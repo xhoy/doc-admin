@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.1.1.1 2005-07-20 13:53:44 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.2 2005-07-25 14:41:36 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
@@ -39,7 +39,7 @@ dieser Link in der Navigationsleiste überhaupt sichtbar ist,
 müssen Sie als OTRS-Administrator am System angemeldet sein bzw.
 über Administrationsrechte im System verfügen, bei
 gewöhnlichen Agenten wird dieser Link nicht aufgeführt. Nach einer
-Standardinstallation können Sie sich mit dem Benutzernamen 
+Standardinstallation können Sie sich mit dem Benutzernamen
 "root@localhost" und dem Kennwort "root" als OTRS-Admin am System anmelden.
 </para>
 
@@ -62,7 +62,7 @@ todo: Screenshot vom Admin-Bereich einbauen.
 
 <para>
 Nachdem Sie sich als OTRS-Administrator angemeldet und den
-Administrationsbereich geladen haben, wird eine Tabelle präsentiert, 
+Administrationsbereich geladen haben, wird eine Tabelle präsentiert,
 die die verschiedenen Punkte zur Systemkonfiguration nach Bereichen
 gegliedert auflistet. Auf diese Bereiche wird in den folgenden Abschnitten
 näher eingegangen.
@@ -88,7 +88,7 @@ Herr oder Frau), der Vor- und Nachname, das Kennwort
 und die Emailadresse angegeben werden. Weiterhin kann die
 Oberflächensprache, das Anzeigeschema der Oberfläche, die Art der
 Queue-Ansicht (Einfach oder Standard), die Aktualisierungszeit für
-die Oberfläche, die Anzahl angezeigter Tickets, der Folge-Bildschirm 
+die Oberfläche, die Anzahl angezeigter Tickets, der Folge-Bildschirm
 nach dem Anlegen eines neuen Tickets und das Standardwörterbuch
 für die Rechtschreibprüfung  eingestellt werden.
 Zusätzlich kann festgelegt werden, bei welchen Ereignissen der Agent eine
@@ -101,16 +101,16 @@ Mit Hilfe des Schalters "Hinzufügen" kann ein neuer Agent angelegt
 werden, nachdem im Formular alle nötigen Einträge vorgenommen
 wurden. Über die Listbox auf der linken Seite des Bildschirms
 ist es möglich einen der bereits im System angelegten User
-ausszuwählen,  um mit Hilfe des "Ändern"-Schalters die 
+ausszuwählen,  um mit Hilfe des "Ändern"-Schalters die
 Einstellungen des entsprechenden Benutzers zu bearbeiten.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, 
+Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
 können einmal im System angelegte Benutzer nicht entfernt werden. Um einen
 Benutzer-Account zu deaktivieren, setzen Sie in den Einstellungen den
-entsprechenden Benutzer mit Hilfe der Listbox für "Gütig" auf 
+entsprechenden Benutzer mit Hilfe der Listbox für "Gütig" auf
 "ungütig" bzw. "ungültig-temporär".
 </para>
 </note>
@@ -167,7 +167,7 @@ verfügbar.
     <thead>
       <row>
         <entry>
-         Gruppe 
+         Gruppe
         </entry>
         <entry>
           Beschreibung
@@ -204,7 +204,7 @@ verfügbar.
           Benutzer in dieser Gruppe dürfen lesend (ro) oder schreibend
           (rw) auf das Statistikmodul von OTRS zugreifen, d.h. sie
           können Statistiken einsehen oder auch erstellen. Nach einer
-          Installation befindet sich lediglich "root@localhost" in dieser 
+          Installation befindet sich lediglich "root@localhost" in dieser
           Gruppe.
         </entry>
       </row>
@@ -229,7 +229,7 @@ verfügbar.
 <para>
 Um einen Benutzer einer Gruppe zuzuweisen bzw. die Gruppenmitgliedschaft
 eines Benutzers zu ändern, kann der Link "Benutzer &lt;-&gt;
-Gruppen" im Administrationsbereich genutzt werden. 
+Gruppen" im Administrationsbereich genutzt werden.
 </para>
 
 <para>
@@ -271,7 +271,7 @@ folgenden Rechte vorhanden.
           ro
         </entry>
         <entry>
-          Nur Lesezugriff auf die Tickets bzw. Beiträge dieser Gruppe 
+          Nur Lesezugriff auf die Tickets bzw. Beiträge dieser Gruppe
           bzw. der Gruppe zugewiesenen Queues oder Bereiche.
         </entry>
       </row>
@@ -280,7 +280,7 @@ folgenden Rechte vorhanden.
           Verschieben in (move into)
         </entry>
         <entry>
-          Recht zum verschieben von Tickets oder Beiträgen innerhalb 
+          Recht zum verschieben von Tickets oder Beiträgen innerhalb
           der Queues bzw. Bereiche dieser Gruppe.
         </entry>
       </row>
@@ -373,8 +373,8 @@ Mit Hilfe des Formulars an der rechten Bildschirmseite kann ein neuer
 Kunden-Account erstellt werden. Alle Eingabefelder, die mit einem Stern (*)
 markiert sind, müssen ausgefüllt werden. Neben den üblichen
 Daten wie Vor- und Nachname, Mailadresse, den Einstellungen für die
-Oberfläche, usw. muss ein Benutzername und ein Kennwort angegeben 
-werden, wodurch die Anmeldung am System ermöglicht wird. Desweiteren 
+Oberfläche, usw. muss ein Benutzername und ein Kennwort angegeben
+werden, wodurch die Anmeldung am System ermöglicht wird. Desweiteren
 ist eine Angabe für "Kunden#" erforderlich, die eine eindeutige
 Kennung darstellt, über die das System den Kunden ansprechen kann bzw.
 identifiziert. Für "Kunden#" kann also z.B. eine Kundennummer oder
@@ -412,16 +412,16 @@ möchten.
 <para>
 Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
 kann ein einmal im System angelegter Kunde nicht entfernt werden. Um
-einen Kunden-Account trotzdem zu deaktivieren, setzen Sie in den 
-Einstellungen des entsprechenden Kunden-accounts in der Listbox 
-für "Gütig" den Wert entweder auf "ungütig" bzw. 
+einen Kunden-Account trotzdem zu deaktivieren, setzen Sie in den
+Einstellungen des entsprechenden Kunden-accounts in der Listbox
+für "Gütig" den Wert entweder auf "ungütig" bzw.
 "ungültig-temporär".
 </para>
 </note>
 
 <para>
 Damit nicht nur der OTRS-Administrator die Daten für Kunden-Accounts
-bearbeiten kann, haben auch die normalen Mitarbeiter Zugriff auf das 
+bearbeiten kann, haben auch die normalen Mitarbeiter Zugriff auf das
 Interface für die Kundendaten. Über den Link "Kunde" innerhalb
 der Navigationsleiste können die Agents diesen Teil der
 OTRS-Oberfläche  erreichen.
@@ -474,23 +474,23 @@ todo: Screenshot von Queue-Verwaltung einfügen.
 Über das Formular auf der rechten Bildschirmseite kann eine neue Queue
 angelegt werden. Zusätzlich zum Namen der neuen Queue kann angegeben
 werden, für welche Benutzergruppe die Queue bereit gestellt werden
-und ob die neue Queue eine Unter-Queue (sub ueue) von einer bereitsin 
-Ihrem system vorhandenen Queue sein soll. 
+und ob die neue Queue eine Unter-Queue (sub ueue) von einer bereitsin
+Ihrem system vorhandenen Queue sein soll.
 </para>
 
 <para>
-Wurde ein Ticket von einem Agenten gesperrt, so können Sie mit Hilfe 
+Wurde ein Ticket von einem Agenten gesperrt, so können Sie mit Hilfe
 des Freigabezeit-Intervalls festlegen, wann ein Ticket wieder automatisch
-vom System freigegeben werden soll. So können auch die anderen 
+vom System freigegeben werden soll. So können auch die anderen
 Mitarbeiter wieder auf dieses Ticket zugreifen und es bearbeiten. Diese
-Einstellung ist z.B. dann sinnvoll, wenn ein Agent für eine 
+Einstellung ist z.B. dann sinnvoll, wenn ein Agent für eine
 längere Zeit nicht im Ticket-System arbeitet und Tickets aus diesem
 Grund nicht unbearbeitet bleiben sollen.
 </para>
 
 <para>
-Geben Sie für Eskalationszeit einen Wert an, so blockieren Tickets, 
-die älter als die angegebene Zeit sind, die Bearbeitung neuerer 
+Geben Sie für Eskalationszeit einen Wert an, so blockieren Tickets,
+die älter als die angegebene Zeit sind, die Bearbeitung neuerer
 Tickets. Diese Einstellung stellt also sicher, dass ältere Tickets ab
 einem bestimmten Alter bevorzugt bearbeitet werden müssen, neuere
 Tickets werden dann nicht mehr in der Queue angezeigt.
@@ -500,8 +500,8 @@ Tickets werden dann nicht mehr in der Queue angezeigt.
 Weiterhin können Sie festlegen, dass bei einem Follow-UP auf ein Ticket
 wieder der Mitarbeiter Eigentümer dieses Tickets wird, der zuletzt als
 Eigentümer im System für dieses Ticket vermerkt war. Dies stellt
-sicher, dass die Nachfrage eines Kundens zuerst bei dem selben 
-Mitarbeiter landet, der sich zuletzt um dieses Ticket gekümmert 
+sicher, dass die Nachfrage eines Kundens zuerst bei dem selben
+Mitarbeiter landet, der sich zuletzt um dieses Ticket gekümmert
 hat.
 </para>
 
@@ -509,7 +509,7 @@ hat.
 Der Parameter für die Systemadresse legt fest, mit welcher
 Absenderadresse Mails aus dieser Queue versendet werden sollen. Mit Hilfe
 der Parameter für Anrede und Signatur kann eingestellt werden, welche
-Vorgaben hier standardmäßig bei Antworten auf Tickets in 
+Vorgaben hier standardmäßig bei Antworten auf Tickets in
 dieser Queue genutzt werden soll. In den Abschnitten
 
 <link linkend="adminarea-emailaddresses">
@@ -536,7 +536,7 @@ schließlich festlegen, bei welchen Ereignisen ein Kunde über die
 Änderungen bei einem Ticket in dieser Queue informiert werden soll. Es
 können Benachrichtigungen an den Kunden verschickt werden, wenn ein
 Ticket dieses Kundens von dieser Queue in eine andere Queue verschoben
-wird, wenn sich der Status des Tickets ändert und wenn der Besitzer 
+wird, wenn sich der Status des Tickets ändert und wenn der Besitzer
 für das Ticket des Kundens wechselt.
 </para>
 
@@ -551,8 +551,8 @@ Einstellungen der entsprechenden Queue laden.
 <para>
 Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
 kann eine einmal im System angelegte Queue nicht entfernt werden. Um
-eine Queue trotzdem zu deaktivieren, setzen Sie in den Einstellungen 
-der entsprechenden Queue in der Listbox für "Gütig" den Wert 
+eine Queue trotzdem zu deaktivieren, setzen Sie in den Einstellungen
+der entsprechenden Queue in der Listbox für "Gütig" den Wert
 entweder auf "ungütig" bzw. "ungültig-temporär".
 </para>
 </note>
@@ -580,13 +580,13 @@ beschrieben.
 
 <para>
 Um das Antworten auf Tickets zu beschleunigen und das Aussehen
-beantworteter Tickets zu vereinheitlichen, können in OTRS 
+beantworteter Tickets zu vereinheitlichen, können in OTRS
 Antwortvorlagen erstellt werden. Jede Antwortvorlage kann einer oder
 mehreren Queues bzw. Unter-Queues zugeordnet werden, es können mehrere
-Antwortvorlagen für jede Queue definiert werden. In der Queue-Ansicht 
-bzw. in "Meine Queues" erscheinen die verschiedenen Antwortvorlagen als 
+Antwortvorlagen für jede Queue definiert werden. In der Queue-Ansicht
+bzw. in "Meine Queues" erscheinen die verschiedenen Antwortvorlagen als
 Links unter jedem angezeigten Ticket, eine Antwort auf ein Ticket mit einer
-bestimmten Vorlage kann somit schnell durchgeführt werden. 
+bestimmten Vorlage kann somit schnell durchgeführt werden.
 </para>
 
 <para>
@@ -604,7 +604,7 @@ todo: Screenshot von Antwort im Adminarea einbauen.
 An der rechten Bildschirmseite kann für eine neue Antwortvorlage deren
 Name und der Text angegeben werden, der in der Vorlage verwendet
 werden soll. Weiterhin können Sie über die Listbox für
-"Gültig" die Antwortvorlage vorrübergehend systemweit aktivieren 
+"Gültig" die Antwortvorlage vorrübergehend systemweit aktivieren
 oder deaktivieren.
 </para>
 
@@ -641,14 +641,14 @@ Beziehungen auswählen.
 Wenn Sie zum Beantworten eines Tickets, z.B. in der Queue-Ansicht, auf den
 Link für eine Antwortvorlage klicken, können Sie feststellen,
 dass nicht nur der Text der Antwortvorlage sondern auch eine Anrede, der
-zitierte Ticketinhalt und eine Signatur geladen werden. Antwortvorlagen 
+zitierte Ticketinhalt und eine Signatur geladen werden. Antwortvorlagen
 setzen sich also aus verschiedenen Textbausteinen zusammen. Dies sind die
 Anrede und Signatur der Queue, in der sich das zu beantwortende Ticket
 befindet, der Text des Tickets auf das geantwortet werden soll und ggf. der
 Text der Antwortvorlage selbst, der wie gerade geschrieben festgelegt
-werden kann. Diese Elemente sind standardmäßig so angeordnet, 
+werden kann. Diese Elemente sind standardmäßig so angeordnet,
 dass beim Antworten zuerst die Anrede, danach der zitierte Text des zu
-beantwortenden Tickets, anschließend ggf. der Text der Antwortvorlage 
+beantwortenden Tickets, anschließend ggf. der Text der Antwortvorlage
 und zum Schluss die Signatur ausgegeben wird. In den folgenden Abschnitten
 wird beschrieben, wie Sie Anreden und Signaturen erstellen und einer Queue
 zuweisen können.
@@ -676,7 +676,7 @@ todo: Screenshot von Anreden einbauen.
 
 <para>
 Nach einer Standardinstallation von OTRS sind bereits zwei Anreden im
-System gespeichert, "system standard salutation (de/buiss)" und 
+System gespeichert, "system standard salutation (de/buiss)" und
 "system standard salutation (en)". Über die Listbox an der linken
 Seite des Bildschirms, können Sie eine Anrede zum Bearbeiten
 auswählen. Durch einen Klick auf den "Ändern"-Button laden Sie
@@ -688,11 +688,11 @@ angegeben werden, der für die Anrede benutzt werden soll.
 </para>
 
 <para>
-Damit auch dynamische Inhalte in eine Anrede eingebaut werden 
+Damit auch dynamische Inhalte in eine Anrede eingebaut werden
 können, also Inhalte, die sich bei jeder Anrede ändern, können
 verschiedene Variablen in den Anredentext eingebaut werden. Der in der
 Variable gespeicherte Text wird beim Antworten automatisch in den Text
-eingefügt. Ein variabler Textteil könnte z.b. der Name oder 
+eingefügt. Ein variabler Textteil könnte z.b. der Name oder
 die Mailadresse der Person sein, auf deren Ticket sie antworten.
 </para>
 
@@ -727,7 +727,7 @@ entweder auf "ungütig" bzw. "ungültig-temporär".
 
 <para>
 Ein weiterer Textbaustein für eine Antwortvorlage, ist die Signatur.
-Signaturen können einer Queue zugeordnet werden, wie im Abschnitt zu 
+Signaturen können einer Queue zugeordnet werden, wie im Abschnitt zu
 den
 
 <link linkend="adminarea-queue">
@@ -735,8 +735,8 @@ Queues
 </link>
 
 beschrieben, nur so werden Sie bei Antworten für Tickets aus dieser
-Queue verwendet. Über den Link "Signaturen" innerhalb des 
-Admin-Bereiches, können Sie die verschiedenen Signaturen Ihres 
+Queue verwendet. Über den Link "Signaturen" innerhalb des
+Admin-Bereiches, können Sie die verschiedenen Signaturen Ihres
 Systems verwalten.
 </para>
 
@@ -746,21 +746,21 @@ todo: Screenshot von Signaturen einbauen.
 
 <para>
 Nach einer Standardinstallation von OTRS sind bereits zwei Signaturen im
-System gespeichert, "system standard signature (de/buiss)" und 
+System gespeichert, "system standard signature (de/buiss)" und
 "system standard signature (en)". Über die Listbox an der linken
 Seite des Bildschirms, können Sie eine Signatur zum Bearbeiten
 auswählen. Durch einen Klick auf den "Ändern"-Button laden Sie
 die Einstellungen der ausgewählten Signatur. Über das Formular am
-rechten Bildschirmrand können neue Signaturen angelegt werden. Es ist 
+rechten Bildschirmrand können neue Signaturen angelegt werden. Es ist
 zu erkennen, dass jeder Signatur ein Name zugewiesen werden muss und ein
-Kommentar hinzugefügt werden kann. Weiterhin kann natürlich der 
+Kommentar hinzugefügt werden kann. Weiterhin kann natürlich der
 Text angegeben werden, der innerhalb der Signatur benutzt werden soll.
 </para>
 
 <para>
 Auch in Signaturen können dynamische Inhalte eingebaut werden.
-Dies geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener 
-Variablen, die in den Text der Signatur integriert werden. Der in der 
+Dies geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener
+Variablen, die in den Text der Signatur integriert werden. Der in der
 Variable gespeicherte Text wird beim Antworten automatisch in den Text
 eingefügt. Ein variabler Textteil könnte z.b. der Name des
 Mitarbeiters sein, der das Ticket beantwortet hat.
@@ -769,10 +769,10 @@ Mitarbeiters sein, der das Ticket beantwortet hat.
 <para>
 Im unteren Teil der Bildschirmmaske zum Ändern oder Anlegen einer
 Signatur finden Sie die verschiedenen Variablen, die Sie für die
-dynamische Aufbereitung eines Signaturentextes verwenden können. 
-Variablen zeichnen sich dadurch aus, dass sie von spitzen Klammern 
-(&lt;&gt;) eingeschlossen sind. Zwischen den spitzen Klammern steht der 
-Name der Variable, der sich oft auf den in der Variable gespeicherten 
+dynamische Aufbereitung eines Signaturentextes verwenden können.
+Variablen zeichnen sich dadurch aus, dass sie von spitzen Klammern
+(&lt;&gt;) eingeschlossen sind. Zwischen den spitzen Klammern steht der
+Name der Variable, der sich oft auf den in der Variable gespeicherten
 Inhalt bezieht. Bauen Sie z.B. in Ihrem Anredentext die Variable
 &lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
 Nachnamen des Agents ersetzt, der das Ticket beantwortet. Sehen Sie
@@ -819,19 +819,20 @@ todo: Abschnitt über Auto-antworten und anlagen schreiben.
 Um aus OTRS heraus Emails verschicken zu können, benötigen Sie
 mindestens eine gültige Mailadresse. Da in vielen Fällen eine
 Mailadresse nicht ausreicht, ist OTRS auch in der Lage, mit mehreren
-Mailadressen zu arbeiten. So können Sie z.B. für jede Queue eine
-eigene Mailadresse einrichten oder eine Adresse für mehrere Queues, 
-eine weitere Adresse hingegen nur für eine bestimmte Queue festlegen. 
-Beim
+Mailadressen zu arbeiten. Für jede Queue kann mindestens eine Mailadresse
+festgelegt werden, es ist aber auch möglich eine Adresse mehreren Queues
+zuzuordnen. D.h., dass von außen eine Queue über mehrere Mailadresse
+ereicht werden kann, für das Versenden von Nachrichten aus einer Queue muss
+jedoch eine Adresse festgelegt werden. Beim
 
 <link linkend="adminarea-queue">
 Anlegen oder Bearbeiten einer Queue
 </link>
 
 stellen Sie ein, welche im System gespeicherte Mailadresse für die
-entsprechende Queue verwendet werden soll. Die Verwaltung der Mailadressen 
-des Systems erreichen Sie, indem sie im Admin-Bereich dem Link 
-"Email Adressen" folgen.
+ausgehenden Nachrichten der entsprechende Queue benutzt werden soll.
+Die Verwaltung der Mailadressen des Systems erreichen Sie, indem sie im
+Admin-Bereich dem Link "Email Adressen" folgen.
 </para>
 
 <para>
@@ -842,19 +843,11 @@ todo: Screenshot zur Email Adressen Verwaltung einbauen.
 Im rechten Bereich der Bildschirmmaske haben sie die Möglichkeit, neue
 Mailadressen anzulegen. Sie müssen die Adresse und einen Realnamen
 angeben. Weiterhin können Sie über dieses Formular auch direkt
-auswählen, für welche Queue oder Unter-Queue die neue Mailadresse
-verwendet werden soll.
+auswählen, mit welcher Queue oder Unter-Queue die neue Mailadresse
+verknüpft werden soll. Diese Verknüpfung ist wichtig, da so eingehende
+Mails anhand der Adresse im To: Feld der entsprechenden Queue zugewiesen
+werden können.
 </para>
-
-<note>
-<para>
-Es genügt nicht beim Anlegen der Mailadresse festzulegen, für
-welche Queue die neue Adresse verwendet werden soll. Um die Adresse auch
-wirklich für die entsprechende Queue zu aktivieren, müssen Sie
-expliziet über die Queue-Verwaltung innerhalb des Admin-Bereiches die
-neue Adresse für die Queue einstellen.
-</para>
-</note>
 
 <para>
 Im linken Bereich der Email-Adressen-Verwaltung können Sie über
@@ -867,10 +860,10 @@ ausgewählten mailadressen laden Sie, indem sie auf den
 <note>
 <para>
 Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Mailadresse nicht entfernt werden. 
+kann eine einmal im System angelegte Mailadresse nicht entfernt werden.
 Um eine Mailadresse trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Mailadresse in der Listbox für 
-"Gütig" den Wert entweder auf "ungütig" oder 
+Einstellungen der entsprechenden Mailadresse in der Listbox für
+"Gütig" den Wert entweder auf "ungütig" oder
 "ungültig-temporär".
 </para>
 </note>
@@ -917,13 +910,13 @@ Todo: Abschnitt zum Anlegen und Ändern von Status.
 <title>Die Admin GUI (sysconfig)</title>
 
 <para>
-Todo: Kurze Beschreibung der Admin GUI, Verweis auf ausführliches 
+Todo: Kurze Beschreibung der Admin GUI, Verweis auf ausführliches
 Kapitel im Abschnitt zur Konfiguration.
 </para>
 
 </sect1>
 
-<sect1 id="adminarea-postmaster.pop3-account">
+<sect1 id="adminarea-postmasterpop3-account">
 <title>Einrichten von POP3-Konten</title>
 
 <para>
@@ -948,15 +941,54 @@ Mails abgerufen werden sollen.
 </para>
 
 <para>
-todo: Genaueres zu "vertraut" bei POP3-Accounts schreiben.
+Wählen Sie für "Vertraut" den wert "Ja" aus, werden die sog.
+X-OTRS-Header-Einträge ausgewertet und angewendet, falls derartige
+Headereinträge in einer abgerufenen Nachricht vorhanden sind. Da mit Hilfe
+der X-OTRS-Header einige Dinge am System beinflusst werden können, sollten
+Sie "Vertraut" nur auf "Ja" setzen, wenn Sie genau wissen, von welchem
+Absendern die abgerufenen Nachrichten stammen. X-OTRS-Header werden vom
+
+<link linkend="adminarea-postmasterfilter">
+Modul für die Nachrichtenfilterung
+</link>
+
+in OTRS benutzt, die X-OTRS-Header werden
+
+<link linkend="table-of-x-otrs-headers">
+hier
+</link>
+
+näher beschrieben. Es spielt keine Rolle, welcher Wert für "Vertraut"
+ausgewählt wurde, eventuell eingerichtete Filterregeln für eingehende Mails
+werden trotzdem abgearbeitet.
 </para>
 
 <para>
 Weiterhin können Sie die Verteilung der abgerufenen Mails durch die
-Angabe steuern, ob die neuen nachrichten nach dem To-Feld oder nach der
-Queue im System einsortiert werden sollen. Zusätzlich ist es
-möglich eine Queue anzugeben, in der die abgerufenen Mails gespeichert
-werden sollen. Um ein POP3-Konto vorrübergehend systemweit zu
+Angabe steuern, ob die neuen Nachrichten nach dem To-Feld oder nach der
+Queue im System einsortiert werden sollen. Wählen Sie "Verteilung nach
+ausgewählter Queue" aus, landen die abgerufenen Mails auf jeden Fall in der
+Queue, die zusätzlich in der dafür vorgesehenen Listbox angegeben werden
+kann. Dabei spielt es keine Rolle, an welche Adresse die Mail geschickt
+wurde. Wählen Sie "Verteilung nach To: Feld" aus, wird überprüft, welcher
+Queue die Adresse zugeordnet ist, an die die abgerufene Mail gesendet
+wurde. Die Zuordnung einer Mailadresse zu einer Queue, kann über die
+
+<link linkend="adminarea-emailaddresses">
+Mailadressen Verwaltung
+</link>
+
+innerhalb des Admin-Bereiches vorgenommen werden. Existiert eine Zuordnung
+der Adresse im To: Feld zu einer Queue innerhalb des Systems wird die
+abgerufene Nachricht in die entsprechende Queue einsortiert. Kann keine
+Zuordnung gefunden werden, landet das Ticket in der Standard-Queue des
+Systems (Raw), die mit Hilfe des Konfigurationsparameters
+
+<link linkend="Ticket:Core::PostMaster:PostmasterDefaultQueue">
+PostmasterDefaultQueue
+</link>
+
+eingestellt werden kann. Um ein POP3-Konto vorrübergehend systemweit zu
 deaktivieren, setzen Sie in der Listbox für Gütig den Wert
 entweder auf "ungültig" oder "ungültig-temporär".
 </para>
@@ -971,13 +1003,13 @@ lösen Sie die Aktion entweder über den "Ändern"- oder den
 
 <para>
 Die Daten zu allen POP3-Konten werden in der Datenbank von OTRS
-gespeichert. Das Skript <filename>PostMasterPOP3.pl</filename>, welches sich 
-im Verzeichnis <filename>bin</filename> innerhalb des 
-OTRS-Homeverzeichnisses befindet, fragt die Einstellungen aus der 
+gespeichert. Das Skript <filename>PostMasterPOP3.pl</filename>, welches sich
+im Verzeichnis <filename>bin</filename> innerhalb des
+OTRS-Homeverzeichnisses befindet, fragt die Einstellungen aus der
 OTRS-Datenbank ab und holt die Mails von den einzelnen POP3-Konten.
 <filename>PostMasterPOP3.pl</filename> wird mit Hilfe
-von <application>cron</application> bzw. unter Windows von 
-<application>CRONW</application> regelmäszlig;ig ausgeführt.
+von <application>cron</application> bzw. unter Windows von
+<application>CRONW</application> regelmäßig ausgeführt.
 </para>
 
 </sect1>
@@ -986,7 +1018,253 @@ von <application>cron</application> bzw. unter Windows von
 <title>Einrichten von Filterregeln</title>
 
 <para>
-Todo Einrichten von Filterregeln beschreiben.
+Damit Sie automatisch Mails vorsortieren können bzw. ungewünschte Mails gar
+nicht in die Queues des Ticket-Systems gelangen, können Filterregeln für
+eingehende Nachrichten festgelegt werden. Dabei spielt es keine Rolle, ob die
+Mails über POP3-Konten oder mit Hilfe des
+<filename>PostMaster.pl</filename> Skriptes ins System gelangen. Der Link
+"PostMaster Filter" innerhalb des Admin-Bereiches von OTRS ruft die
+Verwaltung für die Filterregeln auf.
+</para>
+
+<para>
+Todo: Screenshot von PostMaster Filter einbauen.
+</para>
+
+<para>
+Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt
+werden müssen, damit die Filterregel greift, und aus einer oder mehreren
+Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt wurden.
+Sie können für die Kopfzeilen und dem Body einer Nachricht Filterregeln
+festlegen, also z.B. nach bestimmten Headern suchen oder nach Zeichenketten
+bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen für eine
+Filterregel werden über sog. X-OTRS-Header gesteuert, die in die Mail
+eingefügt werden. Das Ticket-System wertet die X-OTRS-Header aus und nimmt
+die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z.B. die
+Priorität einer Nachricht geändert werden, die Mail in eine bestimmte
+Queue einsortiert oder die Mail komplett verworfen werden, usw. Die
+folgende Tabelle listet die verschiedenen X-OTRS-Header, deren zulässige
+Werte und die Bedeutung der einzelnen Header auf.
+</para>
+
+<table id="table-of-x-otrs-headers">
+<title>Funktion der verschiedenen X-OTRS-Header</title>
+  <tgroup cols="1">
+    <thead>
+      <row>
+        <entry>
+          Name
+        </entry>
+        <entry>
+          Mögliche Werte
+        </entry>
+        <entry>
+          Beschreibung
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>
+          X-OTRS-Priority:
+        </entry>
+        <entry>
+          1 very low, 2 low, 3 normal, 4 high, 5 very high
+        </entry>
+        <entry>
+          Legt die Priorität eines Tickets fest.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Queue:
+        </entry>
+        <entry>
+          Name einer Queue des Systems.
+        </entry>
+        <entry>
+          Legt die Queue fest, in die das Ticket einsortiert werden soll.
+          Wird mit dem X-OTRS-Queue-Header eine Queue voreingestellt, so
+          hat diese Einstellung Vorrang vor allen anderen Filterregeln, die
+          sich auf Queues beziehen.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Ignore:
+        </entry>
+        <entry>
+          Yes
+        </entry>
+        <entry>
+          Wir dieser Header gesetzt, wird die Mail komplett ignoriert und
+          gelangt somit nie als Ticket in das System.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-State:
+        </entry>
+        <entry>
+          new, open, closed successful, closed unsuccessful, ...
+        </entry>
+        <entry>
+          Setzt den nächsten Status eines Tickets.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-CustomerUser:
+        </entry>
+        <entry>
+          CustomerUser
+        </entry>
+        <entry>
+          Legt den Kunden-Benutzer fest, dem das Ticket zugeordnet werden
+          soll.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-CustomerNo:
+        </entry>
+        <entry>
+          CustomerNo
+        </entry>
+        <entry>
+          Legt die Kunden-ID fest, die dem Ticket zugeordnet werden soll.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-ArticleKey(1|2|3):
+        </entry>
+        <entry>
+          Zusätzlicher Iinfo-Key für das Ticket.
+        </entry>
+        <entry>
+          Speichert einen zusätzlichen Info-Key für die eingehende
+          Nachricht.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-ArticleValue(1|2|3):
+        </entry>
+        <entry>
+          Zusätzlicher Info-Value.
+        </entry>
+        <entry>
+          Speichert einen zusätzlichen Info-Value für die eingehenden
+          Nachricht.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-SenderType:
+        </entry>
+        <entry>
+          agent, system, customer
+        </entry>
+        <entry>
+          Legt die Art des Ticket-Absenders fest.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-ArticleType:
+        </entry>
+        <entry>
+          email-external, email-internal, email-notification-ext,
+          email-notification-int, phone, fax, sms, webrequest,
+          note-internal, note-external, note-report
+        </entry>
+        <entry>
+          Legt den Typ des Artikles für das eingehende Ticket fest.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-TicketKey(1|2|...|8):
+        </entry>
+        <entry>
+          Zusätzlicher Info-Key
+        </entry>
+        <entry>
+          Speichert einen zusätzlichen Info-Key für das eingehende Ticket.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-TicketValue(1|2|...|8):
+        </entry>
+        <entry>
+          Zusätzlicher Info-Value
+        </entry>
+        <entry>
+          Speichert einen zusätzlichen Info-Value für das eingehende Ticket.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Loop:
+        </entry>
+        <entry>
+          True
+        </entry>
+        <entry>
+          Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort
+          an den Absender des neuen Tickets geschickt, z.B. um Mailschleifen
+          zu vermeiden.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+<para>
+Über das Formular auf der rechten Seite der Verwaltung für die
+Filterregeln können neue Filterregeln hinzugefügt werden. Sie müssen für
+jede Regel einen Namen vergeben. Darunter legen Sie in der Sektion für
+"Treffer" die verschiedenen Kriterien fest, nach denen gefiltert werden
+soll. Wählen Sie aus den Listboxen für "Header 1", "Header 2" usw. aus, an
+welcher Stelle in der eingehenden Nachricht Sie suchen möchten und tragen
+Sie rechts neben dem entsprechenden Header den Wert ein, nach dem gesucht
+werden soll. In der
+der Sektion "Setzen" legen Sie die Aktionen fest, die ausgeführt werden
+sollen, wenn die Filterkriterien zutreffen. Hier können Sie für "Header1",
+"Header 2" usw. den entsprechenden X-OTRS-Header auswählen und rechts
+daneben den entsprechenden Wert eintragen.
+</para>
+
+<example id="sort-mails-into-junk">
+<title>Aussortierung von Spammails in eine bestimmte Queue</title>
+
+<para>
+Eine nützliche Filterregel könnte sein, alle Mails, die von spamassassin
+als Spam markiert wurden, automatisch in die Queue "Junk" einsortieren zu
+lassen. Spamassassin fügt bei alle überprüften Mails die Kopfzeile
+"X-Spam-Flag" hinzu. Wird die Mail als Spam markiert, wird dieser Header
+auf "Yes" gesetzt. Das Filterkriterium lautet also "X-Spam-Flag: Yes". Um nun
+eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als
+Name für die Filterregel z.B. "spam-mails" ein und wählen in der Sektion
+"Treffer" für "Header 1" den Header "X-Spam-Flag:" aus der Listbox aus.
+Rechts daneben fügen Sie als Wert "Yes" hinzu. Das Filterkriterium wurde
+somit festgelegt. Um nun die Einsortierung der von spamassassin als Spam
+klassifizierten Mails  in die Queue "Junk" zu erzwingen, wählen Sie in
+der Sektion "Setzen" für "Header 1" den Eintrag "X-OTRS-Queue:" aus und
+tragen als Wert rechts daneben "Junk" ein. Abschließend wird mit Hilfe des
+"Hinzufügen"-Buttons die neue Regel gespeichert und aktiviert, beim nächsten
+Abruf der POP3-Konten bzw. für die nächsten an das System gesendete
+nachricht wird die Filterregel abgearbeitet.
+</para>
+</example>
+
+<para>
+Um eine Filterregel zu ändern oder zu löschen, wählen Sie aus der Listbox
+im linken Bereich der Verwaltung für die Filterregeln die entsprechende
+Regel aus der Listbox aus und klicken auf den "Ändern"- bzw.
+"Löschen"-Schalter.
 </para>
 
 </sect1>
@@ -1004,7 +1282,7 @@ Todo: Beschreibung des GenericAgents.
 <title>Administratoren Email</title>
 
 <para>
-Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder 
+Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder
 Benutzergruppen zu versenden, folgen Sie im Admin-Bereich dem
 Link "Admin Notification".
 </para>
@@ -1028,7 +1306,34 @@ die Mitteilung an die ausgewählten Benutzer und / oder Gruppen ab.
 <title>Sitzungsverwaltung</title>
 
 <para>
-Todo: Alles rund um die Sitzungsverwaltung in OTRS..
+Um eine Übersicht über die gerade im System angemeldeten Benutzer und deren
+Sitzungseigenschaften zu erhalten, folgen Sie dem Link "Sitzungsverwaltung"
+im Admin-Bereich von OTRS.
+</para>
+
+<para>
+Todo: Screenshot zur Sitzungsverwaltung einbauen.
+</para>
+
+<para>
+Innerhalb der Sitzungsverwaltung werden allgemeine Informationen
+zu allen Sitzungen im System ausgegeben, also z.B. wie viele Sitzungen
+gerade insgesamt aktiv sind oder, wie viele Agenten- und Kunden-Sitzungen
+laufen, usw. Es besteht die Möglichkeit mit Hilfe des "Alle Sitzungen
+löschen"-Schalters die Sitzungen aller angemeldeten Benutzer zu beenden.
+</para>
+
+<para>
+Weiterhin können detaillierte Informationen für jede einzelne Sitzung
+abgerufen werden. Neben der jeweilgen Sitzungs-Kennung wird angezeigt,
+welcher Schalter in der Navigationsleiste zuletzt vom Benutzer gedrückt
+wurde, welcher Bildschrim zuletzt angesehen wurde, wie die
+System-Kennung, das Login, die Mailadresse,  und
+der persönliche Name des Users lautet, welche Gruppenrechte der Benutzer
+hat, zu welchem Zeitpunkt die Sitzung begonnen wurde, usw. Somit ist ein
+genauer Überblick über die letzten Aktivitäten des Benutzers innerhalb des
+Systems erkennbar. Über den "Sitzung löschen"-Schalter kann jede Sitzung
+einzeln beendet und der Benutzer vom System abgemeldet werden.
 </para>
 
 </sect1>
@@ -1037,7 +1342,38 @@ Todo: Alles rund um die Sitzungsverwaltung in OTRS..
 <title>System Log</title>
 
 <para>
-Todo: Alles rund ums System Log.
+Der Link "System Log" innerhalb des Admin-Bereiches ermöglicht es, die
+letzten Logeinträge des Ticket-Systems über die Weboberfläche einzusehen.
+</para>
+
+<para>
+Todo: Screenshot zu System Log einbauen.
+</para>
+
+<para>
+Im unteren Bereich des bildschirms werden in einer Tabelle die letzten
+Logeinträge des Systems aufgelistet. Es wird die Zeit, die Priorität, die
+Systemkomponente und die eigentliche Meldung für jeden Eintrag angezeigt.
+</para>
+
+<note>
+<para>
+Die System Logs können nur auf Unix- oder Linux-Systemen über das
+Web-Interface eingesehen werden, unter Windows-Betriebssystemen steht diese
+Funktion nicht zur Verfügung.
+</para>
+</note>
+
+<para>
+Die Anzahl der im Web-Interface angezeigten Logeinträge kann über den
+Konfigurationsparameter für die
+
+<link linkend="Framework:Core::Log:LogSystemCacheSize">
+Größe des Systemlog-Caches
+</link>
+
+beeinflusst werden. Stellen Sie die Cache-Größe auf einen Wert ein, der für
+Ihr System vernünftig erscheint.
 </para>
 
 </sect1>
@@ -1046,17 +1382,90 @@ Todo: Alles rund ums System Log.
 <title>SQL Abfragen mit Hilfe der Selectbox</title>
 
 <para>
-Todo: Alles rund um die Selectbox.
+Über den Link "Select Box" innerhalb des Admin-Bereiches von OTRS
+kann eine Bildschirmmaske aufgerufen werden, über die Sie mit Hilfe von
+SQL-Statements den Inhalt von Tabellen ius der OTRS-Datenbank abrufen
+können. Es sind nur SELECT-Abfragen möglich, d.h. die Tabellen können auf
+diesem Weg nicht verändert werden.
+</para>
+
+<para>
+Todo: Screenshot zu Select Box einbauen.
+</para>
+
+<para>
+Im Eingabefeld "SQL können Sie das SQL-Statement erweitern bzw. verändern,
+welches Sie anwenden möchten. Um die Ausgabe einzuschränken und die
+auszugebende Datenmenge aus System-Performance-Gründen zu begrenzen, kann
+aus der Listbox für "Limit" die Anzahl der Zeilen eingestellt werden, die
+angezeigt werden sollen. Mit Hilfe des "Start"-Schalters schicken Sie das
+SQL-Staement ab, das Ergebnis der Anfrage wird im unteren Bereich der
+Bildschirmmaske angezeigt.
 </para>
 
 </sect1>
 
 <sect1 id="adminarea-package-manager">
-<title>Paketverwaltung</title>
+<title>Paket Verwaltung</title>
 
 <para>
-Todo: Alles rund um den Package Manager.
+Seit Version 2.0 besteht OTRS aus einem zentralen Framework und mehreren
+Zusatzpaketen, um die das System wahlweise erweitert werden kann. An
+zusätzlichen Paketen stehen z.B. ein web-basierter Filemanager, ein
+Web-Mailer, ein Content-Manager oder ein Tool zur Überwachung von
+verschiedenen Betriebssystemparametern zur Verfügung. Um die Installation
+der verschiedenen Komponenten zu erleichtern, können diese mit Hilfe des
+Paket Managers bequem über das Web-Interface von OTRS installiert oder
+entfernt werden. Die Paket Verwaltung erreichen sie über den Link
+"Paket Verwaltung" innerhalb des Admin-Bereiches von OTRS.
+</para>
+
+<para>
+Todo: Screenshot zur Paket Verwaltung einfügen.
+</para>
+
+<para>
+Die Pakete, die über die Paket Verwaltung hinzugefügt oder entfernt werden
+können, müssen im sog. opm-Format vorliegen, andere Formate werden nicht
+unterstützt. Es können mehrere Installations-Quellen angegeben werden, über
+die die opm-Pakete installiert werden können. Steht Ihnen ein Paket lokal
+zur Verfügung und kann darauf über das Filesystem der Maschine zugegriffen
+werden, auf der OTRS installiert ist, können Sie im Eingabefeld für "Paket"
+die genaue Lokation zu diesem Paket angeben, also den absoluten Pfad
+gefolgt vom Dateinamen des opm-Pakets. Mit Hilfe des Schalters
+"Installieren" unterhalb des Eingabefeldes, wird das Paket in die
+vorhandene OTRS-Installation integriert. D.h., es werden die benötigten
+Dateien kopiert, Icons und Ausgabevorlagen installiert und ggf. die Datenbank
+angepasst. Ist dieser Vorgang beendet, kann das neu installierte Modul
+genutzt werden.
+</para>
+
+<para>
+Um immer Zugriff auf die aktuellen Versionen der zusätzlichen Module zu
+haben, empfielt es sich, die Pakete über ein Online-Repository
+einzuspielen. Die neuste Modulliste des Online-Repositorys erhalten Sie,
+indem Sie aus der Listbox für "Quelle" den Server auswählen, von dem die
+Daten des Repositorys heruntergeladen werden sollen. Verwenden Sie den
+"Aktualisieren"-Schalter, um die Daten auf den neusten Stand zu bringen.
+Nach kurzer Zeit werden auf der rechten Seite im Abschnitt für das Online
+Repository die Module aufgelistet, die online für eine Installation zur
+Verfügung stehen. In der rechten Spalte dieser Tabelle können Sie den
+"Installieren"-Schalter verwenden, um das entsprechende Modul in Ihr System
+zu integrieren. Hängt das Modul von der Installation anderer Module ab, erhalten
+Sie einen entsprechenden Hinweis. War die Installation eines Moduls
+erfolgreich, wird das Modul in den Abschnitt für das lokale Repository
+übertragen und dort aufgeführt. Das lokale Repository listet also alle
+Module auf, die sie zusätzlich über die Paket Verwaltung Ihrer
+Installation hinzugefügt haben.
+</para>
+
+<para>
+Benötigen Sie einmal ein bestimmtes Modul nicht mehr und wollen es
+entfernen, so ist dies über den "deinstallieren"-Schalter rechts vom
+entsprechenden Modul innerhalb des lokalen Repositorys möglich. Auch bei
+diesem Vorgang werden eventuelle Abhängigkeiten beachtet.
 </para>
 
 </sect1>
+
 </chapter>
