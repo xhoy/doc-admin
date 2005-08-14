@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.2 2005-08-14 14:01:27 martin Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.3 2005-08-14 14:35:00 martin Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
@@ -183,11 +183,11 @@ Bei wirklich großen Installationen (über 1000 neue Tickets am Tag, über 40 Agent
 </sect2>
 
 <sect2 id="performance-tuning-webserver-gzip">
-<title>mod_gzip</title>
+<title>mod_gzip/mod_deflate</title>
 <para>
 Falls Ihre Bandbreite ein wenig schmal sein sollte, benutzen Sie mod_gzip für Apache1
 (<ulink url="http://www.schroepl.net/projekte/mod_gzip/">http://www.schroepl.net/projekte/mod_gzip/</ulink>) bzw. mod_deflate für Apache2 (default Modul in Apache2).
-Eine HTML-Seite von 45k wird mod_gzip auf etwa 7k zusammendrücken - nett.
+Eine HTML-Seite von 45k wird mod_gzip/mod_deflate auf etwa 7k zusammendrücken - nett.
 </para>
 </sect2>
 
