@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: backup-and-restore.xml,v 1.2 2005-08-24 22:41:17 martin Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.3 2005-08-24 22:53:49 martin Exp $ -->
 
 <chapter id="backup-and-restore">
 <title>Datensicherung</title>
@@ -26,7 +26,7 @@ Um Backups zu vereinfachen wird ein "scripts/backup.pl" mitgeliefert welches die
 
 <para>
 <programlisting>
-shell&lt; scripts/backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullbackup]
+shell&gt; scripts/backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullbackup]
 </programlisting>
 </para>
 
@@ -45,7 +45,7 @@ Um Backups zu vereinfachen einspielen zu können wird ein "scripts/restore.pl" mi
 
 <para>
 <programlisting>
-shell&lt; scripts/restore.pl -b /data_backup/&gt;TIME&gt;/ -d /opt/otrs/
+shell&gt; scripts/restore.pl -b /data_backup/&lt;TIME&gt;/ -d /opt/otrs/
 </programlisting>
 </para>
 
