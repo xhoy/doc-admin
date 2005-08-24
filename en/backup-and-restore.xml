@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: backup-and-restore.xml,v 1.1 2005-08-24 22:41:17 martin Exp $ -->
+
+<chapter id="backup-and-restore">
+<title>Backup and Restore</title>
+
+<abstract>
+<para>
+This chapter descripes what data need to be backup and restored.
+</para>
+</abstract>
+
+<sect1 id="backup">
+<title>Backup</title>
+
+<para>
+For backups two components are required. The application (e. g. /opt/otrs/) and the database.
+</para>
+
+<para>
+For backups use the "scripts/backup.pl" which is easy to use. It supports MySQL and PostgreSQL.
+</para>
+
+<para>
+<programlisting>
+shell&lt; scripts/backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullbackup]
+</programlisting>
+</para>
+
+</sect1>
+
+<sect1 id="restore">
+<title>Restore</title>
+
+<para>
+To restore a backup, you need to restore the application (e. g. /opt/otrs/) and the datababe.
+</para>
+
+<para>
+Use "scripts/restore.pl" to restore a backup.
+</para>
+
+<para>
+<programlisting>
+shell&lt; scripts/restore.pl -b /data_backup/&gt;TIME&gt;/ -d /opt/otrs/
+</programlisting>
+</para>
+
+</sect1>
+
+</chapter>
+

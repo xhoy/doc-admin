@@ -1,40 +1,55 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: backup-and-restore.xml,v 1.1.1.1 2005-07-20 13:53:44 cs Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.2 2005-08-24 22:41:17 martin Exp $ -->
 
 <chapter id="backup-and-restore">
 <title>Datensicherung</title>
 
 <abstract>
 <para>
-In diesem Kapitel wird erklärt, wie alle relevanten Daten, der
+In diesem Kapitel wird beschrieben, wie alle relevanten Daten, der
 OTRS-Installation gesichert und wieder hergestellt werden können.
 </para>
 </abstract>
 
 <sect1 id="backup">
-<title>Sichern des Systems</title>
+<title>Backup</title>
 
 <para>
-Todo: Beschreibung, wie Datenbank, Skripte und files und 
-Konfigurationsdateien
-gesichert werden können.
+Für ein Backup gibt es zwei Komponenten zu sichern. Einmal die Applikation (z. B. /opt/otrs/) und die Datenbank.
+</para>
+
+<para>
+Um Backups zu vereinfachen wird ein "scripts/backup.pl" mitgeliefert welches die benötigten Komponenten sichert.
+</para>
+
+<para>
+<programlisting>
+shell&lt; scripts/backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullbackup]
+</programlisting>
 </para>
 
 </sect1>
 
 <sect1 id="restore">
-<title>Zurückspielen gesicherter Daten</title>
+<title>Restore</title>
 
 <para>
-Todo: Beschreibung, wie Datenbank, Skripte und files und 
-Konfigurationsdateien
-zurück gespielt werden können.
+Um ein Backup wieder einzuspielen, müssen die Applikation (z. B. nach /opt/otrs/) und die Datenbank wieder hergestellt werden.
+</para>
+
+<para>
+Um Backups zu vereinfachen einspielen zu können wird ein "scripts/restore.pl" mitgeliefert welches die benötigten Komponenten wiederhergestellt. Es unterstützt MySQL und PostgreSQL.
+</para>
+
+<para>
+<programlisting>
+shell&lt; scripts/restore.pl -b /data_backup/&gt;TIME&gt;/ -d /opt/otrs/
+</programlisting>
 </para>
 
 </sect1>
-
 
 </chapter>
 
