@@ -1,120 +1,110 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: tts.xml,v 1.1.1.1 2005-07-20 13:53:43 cs Exp $ -->
+<!-- $Id: tts.xml,v 1.2 2005-08-31 13:35:57 cs Exp $ -->
 
 <chapter id="tts">
-<title>Grundlagen</title>
+<title>Allgemeines zu Trouble Ticket Systemen</title>
 
 <abstract>
 <para>
-In diesem Abschnitt soll kurz die grundlegende Idee, die hinter 
-Trouble Tickets im Allgemeinen und Trouble Ticket Systemen im speziellen steht, 
-erläutert werden. An einem kleinen Beispiel wird gezeigt, 
-wofür Trouble Ticket Systeme in der Praxis verwendet werden 
+In diesem Abschnitt soll kurz die grundlegende Idee, die hinter
+Trouble Tickets im Allgemeinen und Trouble Ticket Systemen im speziellen steht,
+erläutert werden. An einem kleinen Beispiel wird gezeigt,
+wofür Trouble Ticket Systeme in der Praxis verwendet werden
 können und wo die Vorteile dieser Systeme liegen.
-</para>
-
-<para>
-Weiterhin werden die Systemanforderungen und Features von OTRS (Open
-Ticket Request System) näher beschrieben und
-erläutert, wie Kontakt zur OTRS-Community aufgenommen werden kann bzw.
-wie kommerzieller Support für OTRS erhältlich ist.
 </para>
 </abstract>
 
-<sect1 id="tts-basics">
-<title>Allgemeines zu Trouble Ticket Systemen</title>
-
-<sect2 id="basic-tts-example">
+<sect1 id="basic-tts-example">
 <title>Was ist ein Trouble Ticket System, wann wird es benötigt?</title>
 
 <para>
-Das folgende Beispiel soll verdeutlichen, was ein Trouble Ticket System 
+Das folgende Beispiel soll verdeutlichen, was ein Trouble Ticket System
 ist und wie damit in der Praxis Zeit und Geld eingespart werden kann.
 </para>
 
 <para>
-Nehmen wir an, dass Max Mustermann Fabrikant ist und Videorekorder 
-produziert. Da die Programmierung der Videorecorder sehr 
-unübersichtlich und kompliziert ist, wenden sich die Kunden von 
-Herrn Mustermann gerne und häufig mit Supportanfragen per Mail an 
-ihn. An manchen Tagen kann Herr Mustermann der Mailflut kaum Herr 
-werden und so kommt es, dass seine Kunden sich einige Zeit gedulden 
-müssen, bis die Antwort mit der rettenden Lösung bei ihnen 
-eintrifft. Manchen Kunden dauert dies jedoch zu lange, eine weitere 
-Email mit dem gleichen Inhalt wird an Herrn Mustermann geschickt. Die 
-Emails mit den Supportanfragen werden alle in eine INBOX 
-weitergeleitet, wie sie von fast allen Emailprogrammen 	
+Nehmen wir an, dass Max Mustermann Fabrikant ist und Videorekorder
+produziert. Da die Programmierung der Videorecorder sehr
+unübersichtlich und kompliziert ist, wenden sich die Kunden von
+Herrn Mustermann gerne und häufig mit Supportanfragen per Mail an
+ihn. An manchen Tagen kann Herr Mustermann der Mailflut kaum Herr
+werden und so kommt es, dass seine Kunden sich einige Zeit gedulden
+müssen, bis die Antwort mit der rettenden Lösung bei ihnen
+eintrifft. Manchen Kunden dauert dies jedoch zu lange, eine weitere
+Email mit dem gleichen Inhalt wird an Herrn Mustermann geschickt. Die
+Emails mit den Supportanfragen werden alle in eine INBOX
+weitergeleitet, wie sie von fast allen Emailprogrammen
 verwendet wird.
 </para>
 
 <para>
-An manchen Tagen ist die Anfragewelle besonders groß und Herr 
-Mustermann sieht sich außerstande, alle Mails noch in einem 
-vertretbaren Zeitrahmen zu beantworten. Aus diesem Grund kommandiert er 
-seine Entwickler Meier und Schulze zur Bearbeitung der Supportanfragen 
-ab. Da von allen das gleiche System 
-benutzt wird, greifen alle auf die gleiche INBOX und daher auch auf die 
-gleichen Mails zu. Meier und Schulze haben jedoch keine Ahnung, dass 
-manch ein Kunde in seiner Not gleich zwei Emails verfasst und an Herrn 
-Mustermann geschickt hat. So kommt es vor, dass Meier die erste Mail 
-mit einem anderen Ratschlag beantwortet als Schulze der sich im selben 
-Moment der zweiten Nachricht des gleichen Kunden annimmt. Das Ergebnis 
-ist, dass der Kunde unterschiedliche Antworten bekommt. Darüber 
-hinaus hat Herr Mustermann keinen Einblick darüber, welcher 
-Mitarbeiterr wann was welchem Kunden gesagt hat, welche Probleme 
-besonders häufig auftreten und wie groß sein gesamter 
+An manchen Tagen ist die Anfragewelle besonders groß und Herr
+Mustermann sieht sich außerstande, alle Mails noch in einem
+vertretbaren Zeitrahmen zu beantworten. Aus diesem Grund kommandiert er
+seine Entwickler Meier und Schulze zur Bearbeitung der Supportanfragen
+ab. Da von allen das gleiche System
+benutzt wird, greifen alle auf die gleiche INBOX und daher auch auf die
+gleichen Mails zu. Meier und Schulze haben jedoch keine Ahnung, dass
+manch ein Kunde in seiner Not gleich zwei Emails verfasst und an Herrn
+Mustermann geschickt hat. So kommt es vor, dass Meier die erste Mail
+mit einem anderen Ratschlag beantwortet als Schulze der sich im selben
+Moment der zweiten Nachricht des gleichen Kunden annimmt. Das Ergebnis
+ist, dass der Kunde unterschiedliche Antworten bekommt. Darüber
+hinaus hat Herr Mustermann keinen Einblick darüber, welcher
+Mitarbeiterr wann was welchem Kunden gesagt hat, welche Probleme
+besonders häufig auftreten und wie groß sein gesamter
 Aufwand für den Kundensupport ist.
 </para>
 
 <para>
-Von einem Kollegen erfährt Herr Mustermann schließlich, dass 
-es Trouble Ticket Systeme gibt, die genau die Probleme lösen, die 
-Herr Mustermann mit dem Support für seine Kunden hat. Herr Mustermann 
-entschließt sich für das offene 
-Trouble Ticket Request System OTRS und installiert dieses System auf 
+Von einem Kollegen erfährt Herr Mustermann schließlich, dass
+es Trouble Ticket Systeme gibt, die genau die Probleme lösen, die
+Herr Mustermann mit dem Support für seine Kunden hat. Herr Mustermann
+entschließt sich für das offene
+Trouble Ticket Request System OTRS und installiert dieses System auf
 einem Rechner, der über einen Webserver sowohl für seine Mitarbeiter als
-auch über das Internet erreichbar ist. Von nun an werden die Hilferufe der 
-Kunden nicht mehr länger an seine private INBOX, sondern direkt an 
-den Mail-Account für OTRS weitergeleitet. OTRS hat eine 
-Schnittstelle zur INBOX für die Supportanfragen, so dass alle 
-ankommenden Emails automatisch ins Trouble Ticket System eingespeist 
-werden. Unabhängig ob Herr Mustermann nun gerade anwesend ist oder 
-nicht, generiert OTRS eine automatische Antwort und teilt dem Kunden 
-mit, dass seine Email angekommen ist und so schnell wie möglich 
-bearbeitet wird. Dabei wird eine eindeutige Trouble Ticket Nummer 
-vergeben. Der Kunde ist glücklich, dass sein Flehen schnell 
-erhört wurde und wartet gespannt auf eine Antwort. Sowohl Herr 
-Mustermann als auch die Entwickler Meier und Schulze können nun 
-über einen beliebigen Internetbrowser und die Weboberfläche 
-von OTRS auf die Supportanfragen zugreifen und diese einzeln 
+auch über das Internet erreichbar ist. Von nun an werden die Hilferufe der
+Kunden nicht mehr länger an seine private INBOX, sondern direkt an
+den Mail-Account für OTRS weitergeleitet. OTRS hat eine
+Schnittstelle zur INBOX für die Supportanfragen, so dass alle
+ankommenden Emails automatisch ins Trouble Ticket System eingespeist
+werden. Unabhängig ob Herr Mustermann nun gerade anwesend ist oder
+nicht, generiert OTRS eine automatische Antwort und teilt dem Kunden
+mit, dass seine Email angekommen ist und so schnell wie möglich
+bearbeitet wird. Dabei wird eine eindeutige Trouble Ticket Nummer
+vergeben. Der Kunde ist glücklich, dass sein Flehen schnell
+erhört wurde und wartet gespannt auf eine Antwort. Sowohl Herr
+Mustermann als auch die Entwickler Meier und Schulze können nun
+über einen beliebigen Internetbrowser und die Weboberfläche
+von OTRS auf die Supportanfragen zugreifen und diese einzeln
 beantworten.
 </para>
 
 <para>
-Stellen wir uns vor, dass Herr Schmidt eine Anfrage ans System gestellt 
-hat und Herr Meier diese kurz und knapp beantwortet. Herrn Schmidt 
-reicht diese Antwort jedoch nicht aus und so antwortet er auf die 
-Lösungsmail am folgenden Tag. Herr Meier ist jedoch gerade mit 
-anderen Dingen beschäftigt, so dass sich Herr Mustermann der Sache 
-annimmt. Über die History Funktion von OTRS kann er jetzt auf alle 
-vergangenen Emails von Herrn Schmidt und Herrn Meier zugreifen, deren 
-Inhalt abfragen und eine ausführlichere Antwort versenden. Herr 
-Schmidt erhält nun die Lösung für sein 
-Problem, weiß aber nicht, dass diese von unterschiedlichen 
-Personen stammt. 
+Stellen wir uns vor, dass Herr Schmidt eine Anfrage ans System gestellt
+hat und Herr Meier diese kurz und knapp beantwortet. Herrn Schmidt
+reicht diese Antwort jedoch nicht aus und so antwortet er auf die
+Lösungsmail am folgenden Tag. Herr Meier ist jedoch gerade mit
+anderen Dingen beschäftigt, so dass sich Herr Mustermann der Sache
+annimmt. Über die History Funktion von OTRS kann er jetzt auf alle
+vergangenen Emails von Herrn Schmidt und Herrn Meier zugreifen, deren
+Inhalt abfragen und eine ausführlichere Antwort versenden. Herr
+Schmidt erhält nun die Lösung für sein
+Problem, weiß aber nicht, dass diese von unterschiedlichen
+Personen stammt.
 </para>
 
 <para>
-Natürlich ist dies nur ein sehr kleiner Einblick in die 
+Natürlich ist dies nur ein sehr kleiner Einblick in die
 Funktionalitäten von Trouble Ticket Systemen. Da Herr Mustermann eine
 kleine Firma führt, erhält er vielleicht nur wenige Emails mit
-Supportanfragen pro Tag, die er vielleicht noch ganz überschaulich 
+Supportanfragen pro Tag, die er vielleicht noch ganz überschaulich
 mit seiner normalen Mailsoftware handhaben kann und somit kein
 Trouble Ticket System braucht. Wenn aber der neue DVD-Rekorder in die Regale
-kommt, werden es vielleicht schon 500 oder in ein paar Jahren schon 10.000 
-Nachrichten pro Tag sein. Spätestens dann rechnet sich der Einsatz von 
+kommt, werden es vielleicht schon 500 oder in ein paar Jahren schon 10.000
+Nachrichten pro Tag sein. Spätestens dann rechnet sich der Einsatz von
 Trouble Ticket Systemen wie OTRS.
 </para>
 
@@ -124,722 +114,55 @@ Umgebungen große Vorteile bringen, in denen viele Anfragen per mail
 oder Telefon anfallen und wo die Anfragen von verschiedenen Mitarbeitern
 bearbeitet werden. Trouble Ticket Systeme helfen dabei, Supportaufgaben zu
 strukturieren und zu beschleunigen, ebenfals können Arbeitsabläufe
-abgebildet werden. Durch Systeme wie OTRS lässt sich Arbeitszeit einsparen 
-bzw. effektiver nutzen und die Kommunikation zwischen Kunden und 
+abgebildet werden. Durch Systeme wie OTRS lässt sich Arbeitszeit einsparen
+bzw. effektiver nutzen und die Kommunikation zwischen Kunden und
 Mitarbeitern wird transparenter. Ssowohl das Unternehmen als auch die Kunden
 provitieren also vom Einsatz eines Trouble Ticket Systems.
 </para>
+</sect1>
 
-</sect2>
-
-<sect2 id="what-is-att">
+<sect1 id="what-is-att">
 <title>Was ist ein Trouble Ticket?</title>
 
 <para>
-Ein Trouble Ticket lässt sich im Wesentlichen mit einem 
-Krankenblatt eines Krankenhauspatienten vergleichen. Bei der erstmaligen 
-Einlieferung in das Krankenhaus wird das Krankenblatt im Zuge der 
-Anamnese neu angelegt. Jeder Arzt trägt nun seine Diagnose, sowie 
-die verordnete Therapie und Medikation ein und dokumentiert deren 
-Erfolg. Das Krankenblatt gibt nun einen schnellen Überblick, 
-gewährleistet eine schnelle Einarbeitung und verhindert eine 
-Mehrfachdosierung von Medikamenten. Ist die Krankheit besiegt und der 
+Ein Trouble Ticket lässt sich im Wesentlichen mit einem
+Krankenblatt eines Krankenhauspatienten vergleichen. Bei der erstmaligen
+Einlieferung in das Krankenhaus wird das Krankenblatt im Zuge der
+Anamnese neu angelegt. Jeder Arzt trägt nun seine Diagnose, sowie
+die verordnete Therapie und Medikation ein und dokumentiert deren
+Erfolg. Das Krankenblatt gibt nun einen schnellen Überblick,
+gewährleistet eine schnelle Einarbeitung und verhindert eine
+Mehrfachdosierung von Medikamenten. Ist die Krankheit besiegt und der
 Patient entlassen, wird das Krankenblatt archiviert.
 </para>
 
 <para>
-Im OTRS werden Trouble Tickets, also die Krankenblätter aus dem 
-obigen Beispiel, als normale Emails behandelt und gespeichert. Schickt 
-z.B. ein Kunde eine Anfrage an das Trouble Ticket System, wird das 
-Krankenblatt eingerichtet, ein neues Ticket wird geöffnet. Die 
-Antwort eines Mitarbeiters auf die Anfrage kann als Eintrag eines 
-Arztes gesehen werden, eine erneute Antwort bzw. 
-Anfrage des Kundens auf das selbe Ticket als Veränderung oder 
-Erweiterung des Krankheitsbildes. Ein Ticket gilt als 
-erledigt bzw. geschlossen, wenn eine Antwort auf die Anfrage an den 
-Kunden zurückgesendet wurde oder das Ticket über das System als 
-geschlossen markiert wird. Antwortet ein Kunde auf ein bereits 
-geschlossenes Ticket, so wird es erneut geöffnet und die neuen 
-Informationen ergänzt. Um die Konsistenz der Daten sicherzustellen, 
-werden alle Tickets mit all ihren spezifischen Informationen archiviert 
-und verbleiben im System. Durch die Speicherung der Tickets als ganz 
-normale Emails ist es möglich, dass diese auch 
-Email-Anhänge enthalten können. Zusätzlich zu den normalen 
-Informationen einer Email lassen sich beliebige Notizen zu jedem 
-Ticket hinzufügen. Die Tickets selbst werden auf der Festplatte 
-bzw. in einer Datenbank archiviert, ebenso zusätzliche 
-Meta-Informationen des Tickets, wie Notizen, an der Beantwortung des 
-Tickets beteiligte Mitarbeiter, Zeit und Datum der Bearbeitung, 
-Bearbeitungsdauer, usw. Eine Sortierung oder eine Suche über den 
-Datenbestand wird mit Hilfe aller vorhandenen Informationen zu den 
+Im OTRS werden Trouble Tickets, also die Krankenblätter aus dem
+obigen Beispiel, als normale Emails behandelt und gespeichert. Schickt
+z.B. ein Kunde eine Anfrage an das Trouble Ticket System, wird das
+Krankenblatt eingerichtet, ein neues Ticket wird geöffnet. Die
+Antwort eines Mitarbeiters auf die Anfrage kann als Eintrag eines
+Arztes gesehen werden, eine erneute Antwort bzw.
+Anfrage des Kundens auf das selbe Ticket als Veränderung oder
+Erweiterung des Krankheitsbildes. Ein Ticket gilt als
+erledigt bzw. geschlossen, wenn eine Antwort auf die Anfrage an den
+Kunden zurückgesendet wurde oder das Ticket über das System als
+geschlossen markiert wird. Antwortet ein Kunde auf ein bereits
+geschlossenes Ticket, so wird es erneut geöffnet und die neuen
+Informationen ergänzt. Um die Konsistenz der Daten sicherzustellen,
+werden alle Tickets mit all ihren spezifischen Informationen archiviert
+und verbleiben im System. Durch die Speicherung der Tickets als ganz
+normale Emails ist es möglich, dass diese auch
+Email-Anhänge enthalten können. Zusätzlich zu den normalen
+Informationen einer Email lassen sich beliebige Notizen zu jedem
+Ticket hinzufügen. Die Tickets selbst werden auf der Festplatte
+bzw. in einer Datenbank archiviert, ebenso zusätzliche
+Meta-Informationen des Tickets, wie Notizen, an der Beantwortung des
+Tickets beteiligte Mitarbeiter, Zeit und Datum der Bearbeitung,
+Bearbeitungsdauer, usw. Eine Sortierung oder eine Suche über den
+Datenbestand wird mit Hilfe aller vorhandenen Informationen zu den
 Tickets realisiert.
 </para>
-
-</sect2>
-
-</sect1>    
-
-<sect1 id="otrs-basics">
-<title>OTRS - Open Ticket Request System</title>
-
-<para>
-Das Open Ticket Request System (OTRS) ist eine Webapplikation, welche 
-mit jedem HTML kompatiblen Browser benutzt werden kann. OTRS 
-verzichtet bewußt auf aktive Webkomponenten wie z.B. Javaskript, 
-JavaApplets und Flash. Dadurch wird es möglich, das System nicht nur
-über einem PC, sondern auch von Mobiltelefonen und anderen Handcomputern,
-welche HTML unterstützen, benutzbar. Als Client kann jedes
-Betriebssystem eingesetzt werden.
-</para>
-
-<para>
-OTRS ist in mehrere Komponenten aufgeteilt. Als Basis wird ein
-Framework benötigt, der alle grundlegenden funktionen des
-Systems und das Trouble Ticket System enthält. An zusätzlichen
-Komponenten können ein Webmailer, ein Dateimanager, ein
-Contentmanager, ein Kalender und ein Modul zur Ausgabe verschiedener
-Systemstatus bquem über die Weboberfläche nachinstalliert werden.
-</para>
-
-<sect2 id="software-requirements">
-<title>Hard- und Softwareanforderungen</title>
-
-<para>
-OTRS kann unter vielen Betriebssystemen installiert werden. Neben Linux und
-den verschiedenen Unix-Derivaten (z.B. OpenBSD oder FreeBSD), läuft 
-OTRS auch unter allen Windows-Versionen. Hardwaremäßig empfiehlt
-es sich mindestens eine 2 GHz Pentium IV oder vergleichbare CPu, 
-512 MB RAM und eine 20 GB Festplatte zu verwenden.
-</para>
-
-<para>
-Für den Betrieb von OTRS werden einige externe Software-Komponenten 
-benötigt. Ein Web- sowie ein Datenbankserver und eine 
-funktionierende perl-Installation mit einigen Zusatzmodulen sind die 
-Grundvorraussetzung für ein funktionierendes System. Der Webserver 
-und <application>perl</application> müssen auf der gleichen 
-Maschine installiert sein, auf der später auch die Skripte von 
-OTRS ausgeführt werden sollen. Das Datenbank-Backend kann auf der
-lokalen oder auf einer entfernten Maschine installiert werden.
-</para>
-
-<para>
-Für den Webserver wird empfohlen, auf <application>apache 
-1.3.x</application> oder <application>apache 2.x</application> 
-zurück zu greifen. Vor allem durch die Erweiterung der 
-apache-Konfiguration um das mod-perl-Modul, kann die Geschwindigkeit 
-von OTRS enorm gesteigert werden. Prinzipiell sollte aber jeder Webserver, 
-der die Ausführung von perl-Skripten unterstützt, für den 
-Betrieb von OTRS geeignet sein.
-</para>
-
-<para>
-Als Datenbank-Backend eignen sich besonders <application>MySQL</application> 
-ab Version 3.1.x oder <application>PostgreSQL</application>.
-Grundsätzlich sollten jedoch alle Datenbankserver zusammen mit OTRS 
-verwendet werden können, die SQL als Datenbanksprache 
-unterstützen. Ein Vorteil der Benutzung von 
-<application>MySQL</application> ist, dass OTRS über einen 
-Webinstaller die Datenbank und Tabellen automatisch anlegen kann.
-</para>
-
-<para>
-Für <application>perl</application> gilt mindestens die Version 5.8 zu
-verwenden. Es werden einige Zusatzmodule benötigt, die Sie entweder 
-direkt über die Shell von <application>perl</application> und
-CPAN oder mit Hilfe des Paketmanagers (<application>yast</application>, 
-<application>apt-get</application>) Ihres Betriebssystems einspielen 
-müssen. 
-</para>
-
-<para>
-Im Abschnitt für die 
-<link linkend="installation-of-needed-perl-modules">
-manuelle Installation der für OTRS benötigten perl-Module
-</link>
-wird beschrieben, wie Sie perl-Module manuell einspielen können. 
-</para>
-
-<para>
-Wenn Sie ein bereits vorgefertigtes OTRS-Paket für ihr Betriebssystem 
-für die Installation verwenden (rpm, Windows-Installer), sollten 
-die benötigten perl-MOdule automatisch mit installiert werden.
-</para>
-
-</sect2>
-
-<sect2 id="features-of-otrs">
-<title>Die Features von OTRS im Überblick</title>
-
-<para>
-OTRS bietet viele verschiedene Features. Die folgende Aufzählung 
-gibt einen Überblick über die wichtigsten Eigenschaften und 
-Fähigkeiten des zentralen OTRS-Frameworks. 
-</para>
-
-<itemizedlist>
-  <title>Die Features von OTRS</title>
-  <listitem>
-    <para>
-    Webinterface:
-    </para>
-    <itemizedlist>
-      <listitem>
-        <para>
-        Leichte und intuitive Bedienung über einen HTML-Browser.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Auf aktive Inhalte wie Flash oder Java-Applets wird in der
-        Weboberfläche bewusst verzichtet. Das System kann somit
-        mit nahezu allen Browsern benutzt werden, auch von Mobiltelefonen
-        oder Handcomputern aus.
-        </para>
-      </listitem>
-      <listitem>
-        <para>  
-        Eine Weboberfläche zur Administration des Systems ist vorhanden.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Ein Webinterface für die Mitarbeiter (Agenten) zur Bearbeitung 
-        von Kundenanfragen ist verfügbar.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Eine Weboberfläche für Kunden über die Nachrichten an 
-        zuständige Agenten geschickt werden können und der Status
-        eigener Tickets abgerufen werden kann ist vorhanden.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung für verschiedene Oberflächen-Layouts
-        (themes).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung von vielen Sprachen.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Eigene Anpassungen der Ausgabe-Vorlagen sind möglich (dtl).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Mehrfach-Anhänge sind über die Weboberfläche 
-        möglich.
-        </para>
-      </listitem>
-    </itemizedlist>
-  </listitem>
-  <listitem>
-    <para>
-    Email-Schnittstelle:
-    </para>
-    <itemizedlist>
-      <listitem>
-        <para>
-        Unterstützung für Email-Anhänge (MIME support).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Automatische Umwandlung von HTML- in reine Text-Nachrichten 
-        (höhere Sicherheit vor schädlichen Inhalten und 
-        schneller durchsuchbar).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Filterung von Emails über eigene X-Header-Einträge 
-        oder Mailadressen, z.b. für die Aussortierung von Spam.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        PGP-Support, Erstellung und Import eigener Zertifikate, 
-        verschlüsselter und signierter Mails, Anzeige von 
-        verschlüsselten und signierten Nachrichten.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung für die Verschlüsselung und Anzeige 
-        von SMIME-Nachrichten.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Automatisierte Antworten (auto responder) für die 
-        Benachrichtigung von Kunden, abhängig von der Queue 
-        konfigurierbar.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Email-Benachrichtigungen für Agenten über neue 
-        Tickets, Followups oder freigegebene Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Followups an Hand von Reference- oder In-Reply-To-Headern.
-        </para>
-      </listitem>
-    </itemizedlist>
-  </listitem>
-  <listitem>
-    <para>
-    Tickets:
-    </para>
-    <itemizedlist>
-      <listitem>
-        <para>
-        Erweiterte Queue-Ansicht, Übersicht über alle Anfragen 
-        innerhalb einer Queue.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Sperren von Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Erstellung eigener Antwortvorlagen.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Erstellung eigene Autoresponder, abhängig von der Queue.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Ticket-Historie, Übersicht über die komplette 
-        Entwicklung eines Tickets, Änderungen der Ticketstatus, 
-        Übersicht über die verschidenen Aktionen für ein 
-        Ticket, usw.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Druckansicht für Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Hinzufügen eigener (interner) Notizen zu einem Ticket 
-        (eigener Text und Dateieanhänge).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Möglichkeit zum Zoomen von Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Deffinition von ACL's (access control lists) für Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Tickets können an andere Email-Adressen weiter- oder 
-        umgeleitet werden (forwarding, bouncing).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Verschieben von Tickets zwischen verschiedenen Queues.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Festlegen der Priorität für Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Erfassung der Bearbeitungsdauer für Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Anstehende Aufgaben für ein Ticket festlegen (pending 
-        features).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Massenoperationen auf Tickets sind möglich (bulk features).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Automatische und zeitgesteuerte Aktionen können mit 
-        Hilfe eines sog. Generic-Agenten auf Tickets ausgeführt 
-        werden.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Volltextsuche über den gesammten Ticketbestand.
-        </para>
-      </listitem>
-    </itemizedlist>
-  </listitem>
-  <listitem>
-    <para>
-    System:
-    </para>
-    <itemizedlist>
-      <listitem>
-	    <para>
-	    OTRS läft unter vielen Betriebssystemen (Linux, Solaris, AIX, 
-	    FreeBSD, OpenBSD, Mac OS 10.x, Microsoft Windows).
-	    </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung von ASP (activ service providing).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Verlinkung von Objekten wie z.B. Tickets, FAQ-Einträgen, 
-        o.ä. innerhalb des Systems.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Einbindung externer Datenquellen für die Kundendaten, z.B. 
-        über AD, eDirectory oder OpenLDAP).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Festlegen einer eigenen Kennzeichnung für Tickets, z.B. 
-        Cal#, Ticket#, Request#, o.ä.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Festlegen einer eigenen Nummerierung für Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung verschiedener Datenbanktypen für die 
-        zentrale Datenbank von OTRS (MySQL, PostgreSQL, SAPDB, Oracle, 
-        usw.).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Framework für die Erstellung von Statistiken.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        utf-8 Unterstützung für Front- und Back-End.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Die Authentifizierung für Agenten oder Kunden kann 
-        unabhängig voneinander über eine Datenbank, LDAP, 
-        HTTPAuth oder Radius realisiert werden.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung von Benutzeraccounts, Benutzergruppen und 
-        Rollen.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung verschiedener Zugriffsrechte, z.B. auf 
-        Queues oder Systembereiche.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Die Erstellung von Standardantworten ist möglich.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unter-Queues werden unterstützt.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Anreden und Signaturen können abhängig von der Queue 
-        definiert werden.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Email-Benachrichtigungen für Administratoren.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Bekanntgabe von Informationen zu Updates über die 
-        Weboberfläche oder via Email.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Festlegen von Ablauffristen für problematische Tickets.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Unterstützung für verschiedene Zeitzonen.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Einfache Einbindung eigener Addons und Modulen mit Hilfe 
-        der OTRS API.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-        Einfache Erstellung eigener Frontends, z.B. X11, Console, usw.
-        </para>
-      </listitem>
-    </itemizedlist>
-  </listitem>
-</itemizedlist>
-
-</sect2>
-
-<sect2 id="community">
-<title>Community</title>
-
-<para>
-Um OTRS hat sich in den letzten Jahren eine große Community 
-gebildet. Über Mailinglisten tauschen sich Anwender und Entwickler 
-zu den verschiedensten Themen rund um das Trouble Ticket System aus. Es 
-werden Fragen rund um die Installation, Konfiguration, Benutzung, 
-Lokalisation und Entwicklung behandelt. Die Community ist über die 
-Homepage
-
-<ulink url="http://www.otrs.org">
-<citetitle>http://www.otrs.org</citetitle>
-</ulink>
-
-zu erreichen.
-</para>
-
-<para>
-Die folgende Tabelle gibt einen Überblick darüber, welche 
-Mailinglisten es der Zeit für OTRS gibt und wie diese zuerreichen 
-sind:
-</para>
-
-<table id="table-of-mailinglists">
-<title>Mailinglisten zu OTRS</title>
-  <tgroup cols="1">
-    <thead>
-      <row>
-        <entry>
-          Name
-        </entry>
-        <entry>
-          Beschreibung
-        </entry>
-        <entry>
-          Homepage
-        </entry>
-      </row>
-    </thead>
-    <tbody>
-      <row>
-        <entry>
-          announce
-        </entry>
-        <entry>
-          Ankündigungen zu OTRS
-        </entry>
-        <entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/announce">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/announce</citetitle>
-          </ulink>
-        </entry>
-      </row>
-      <row>
-        <entry>
-          cvs-log
-        </entry>
-	<entry>
-	  Benachrichtigungen über geänderte Dateien im Quellcode 
-	  von OTRS
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/cvs-log">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/cvs-log</citetitle>
-	  </ulink>	  
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  dev
-	</entry>
-	<entry>
-	  Mailingliste für die Entwickler von OTRS
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/dev">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/dev</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  doc-de
-	</entry>
-	<entry>
-	  Deutsche OTRS Dokumentation
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/doc-de">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/doc-de</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  i18n
-	</entry>
-	<entry>
-	  Mailingliste zur Internationalisierung von OTRS
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/i18n">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/i18n</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  k4o
-	</entry>
-	<entry>
-	  Knoppix für OTRS
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/k4o">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/k4o</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  k4o-de
-	</entry>
-	<entry>
-	  Deutsche Mailingliste für Knoppix für OTRS
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/k4o-de">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/k4o-de</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  otrs
-	</entry>
-	<entry>
-	  Benutzer-Fragen und -Diskussionen rund um OTRS (englischsprachig)
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/otrs">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/otrs</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-      <row>
-	<entry>
-	  otrs-de
-	</entry>
-	<entry>
-	  Benutzer-Fragen und -Diskussionen rund um OTRS (deutschsprachig)
-	</entry>
-	<entry>
-          <ulink url="http://lists.otrs.org/cgi-bin/listinfo/otrs-de">
-          <citetitle>http://lists.otrs.org/cgi-bin/listinfo/otrs-de</citetitle>
-	  </ulink>
-	</entry>
-      </row>
-    </tbody>
-  </tgroup>
-</table>
-
-</sect2>
-
-<sect2 id="commercial-support-for-otrs">
-<title>Kommerzieller Support</title>
-
-<para>
-Neben der Unterstützung aus der Open Source Community auf
-
-<ulink url="http://www.otrs.org">
-<citetitle>http://www.otrs.org</citetitle>
-</ulink>
-
-ist auch kommerzieller Support rund um OTRS verfügbar. Unter
-
-<ulink url="http://www.otrs.de">
-<citetitle>http://www.otrs.de</citetitle>
-</ulink>
-
-sind die Seiten der OTRS GmBH zu finden, die den kommerziellen Teil des 
-OTRS.org-Projektes darstellen.
-</para>
-
-<para>
-Das Angebot der OTRS GmbH umfasst Support, Consulting und fertige 
-Installations CDs für OTRS und richtet sich an den Mittelstand, 
-Behörden, Institutionen und große Konzerne. Von der 
-professionellen Beratung zum Einsatz des Trouble Ticket Systems bis hin 
-zur kompletten Installation und Wartung 
-mit 24-Stunden Rückrufservice, sind verschiedene 
-Supportpakete erhältlich. Fertige High-Performance- und
-High-Availabilty-Systeme, aber auch die Anfertigung 
-von Spezialanpassungen runden das Angebot der OTRS GmbH ab.
-</para>
-
-<para>
-Detailliertere Informationen zu den verschiednenen Angeboten der OTRS 
-GmbH sind unter
-
-<ulink url="http://www.otrs.de">
-<citetitle>http://www.otrs.de</citetitle>
-</ulink>
-
-zu finden oder können über die Mailadresse
-
-<ulink url="mailto:sales@otrs.de">
-<citetitle>sales@otrs.de</citetitle>
-</ulink>
-
-erfragt werden.
-</para>
-</sect2>
-
 </sect1>
 
 </chapter>
