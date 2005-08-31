@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+    "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: otrs.xml,v 1.1 2005-08-31 13:33:03 cs Exp $ -->
+
+<chapter id="otrs">
+<title>OTRS - Open Ticket Request System</title>
+
+<abstract>
+<para>
+In diesem Abschnitt werden die Features des Open Ticket Request Systems
+(OTRS) vorgestellt. Desweiteren wird näher auf die Systemanforderungen von
+OTRS eingegangen und erläutert, wie Kontakt zur OTRS-Community aufgenommen
+werden kann bzw. wie kommerzieller Support erhältlich ist.
+</para>
+</abstract>
+
+<sect1 id="otrs-basics">
+<title>Allgemeines zu OTRS</title>
+
+<para>
+Das Open Ticket Request System (OTRS) ist eine Webapplikation, welche
+mit jedem HTML kompatiblen Browser benutzt werden kann. OTRS
+verzichtet bewußt auf aktive Webkomponenten wie z.B. Javaskript,
+JavaApplets und Flash. Dadurch wird es möglich, das System nicht nur
+über einem PC, sondern auch von Mobiltelefonen und anderen Handcomputern,
+welche HTML unterstützen, zu benutzen. Als Client kann jedes
+Betriebssystem eingesetzt werden.
+</para>
+
+<para>
+OTRS ist in mehrere Komponenten aufgeteilt. Als Basis wird ein
+Framework benötigt, der alle grundlegenden funktionen des
+Systems und das Trouble Ticket System enthält. An zusätzlichen
+Komponenten können ein Webmailer, ein Dateimanager, ein
+Contentmanager, ein Kalender und ein Modul zur Ausgabe verschiedener
+Systemstatus bequem über die Weboberfläche nachinstalliert werden.
+</para>
+</sect1>
+
+<sect1 id="software-requirements">
+<title>Hard- und Softwareanforderungen</title>
+
+<para>
+OTRS kann unter vielen Betriebssystemen installiert werden. Neben Linux und
+den verschiedenen Unix-Derivaten (z.B. OpenBSD oder FreeBSD), läuft
+OTRS auch unter allen Windows-Versionen. Hardwaremäßig empfiehlt
+es sich mindestens eine 2 GHz Pentium IV oder vergleichbare CPu,
+512 MB RAM und eine 20 GB Festplatte zu verwenden.
+</para>
+
+<para>
+Für den Betrieb von OTRS werden einige externe Software-Komponenten
+benötigt. Ein Web- sowie ein Datenbankserver und eine
+funktionierende perl-Installation mit einigen Zusatzmodulen sind die
+Grundvorraussetzung für ein funktionierendes System. Der Webserver
+und <application>perl</application> müssen auf der gleichen
+Maschine installiert sein, auf der später auch OTRS ausgeführt werden soll.
+Das Datenbank-Backend kann auf der lokalen oder auf einer entfernten Maschine
+installiert werden.
+</para>
+
+<para>
+Für den Webserver wird empfohlen, auf <application>apache
+1.3.x</application> oder <application>apache 2.x</application>
+zurück zu greifen. Vor allem durch die Erweiterung der
+apache-Konfiguration um das mod-perl-Modul, kann die Geschwindigkeit
+von OTRS enorm gesteigert werden. Prinzipiell sollte aber jeder Webserver,
+der die Ausführung von perl-Skripten unterstützt, für den
+Betrieb von OTRS geeignet sein.
+</para>
+
+<para>
+Als Datenbank-Backend eignen sich besonders <application>MySQL</application>
+ab Version 3.1.x oder <application>PostgreSQL</application>.
+Grundsätzlich sollten jedoch alle Datenbankserver zusammen mit OTRS
+verwendet werden können, die SQL als Datenbanksprache
+unterstützen. Ein Vorteil der Benutzung von
+<application>MySQL</application> ist, dass OTRS über einen
+Webinstaller die Datenbank und Tabellen automatisch anlegen kann.
+</para>
+
+<para>
+Für <application>perl</application> gilt mindestens die Version 5.8 zu
+verwenden. Es werden einige Zusatzmodule benötigt, die Sie entweder
+direkt über die Shell von <application>perl</application> und
+CPAN oder mit Hilfe des Paketmanagers (<application>yast</application>,
+<application>apt-get</application>) Ihres Betriebssystems einspielen
+müssen.
+</para>
+
+<para>
+Im Abschnitt für die
+<link linkend="installation-of-needed-perl-modules">
+manuelle Installation der für OTRS benötigten perl-Module
+</link>
+wird beschrieben, wie Sie perl-Module manuell einspielen können.
+</para>
+
+<para>
+Wenn Sie ein bereits vorgefertigtes OTRS-Paket für ihr Betriebssystem
+für die Installation verwenden (rpm, Windows-Installer), sollten
+die benötigten perl-MOdule automatisch mit installiert werden.
+</para>
+</sect1>
+
+<sect1 id="features-of-otrs">
+<title>Die Features von OTRS im Überblick</title>
+
+<para>
+OTRS bietet viele verschiedene Features. Die folgende Aufzählung
+gibt einen Überblick über die wichtigsten Eigenschaften und
+Fähigkeiten des zentralen OTRS-Frameworks.
+</para>
+
+<itemizedlist>
+  <title>Die Features von OTRS</title>
+  <listitem>
+    <para>
+    Webinterface:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+        Leichte und intuitive Bedienung über einen HTML-Browser.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Auf aktive Inhalte wie Flash oder Java-Applets wird in der
+        Weboberfläche bewusst verzichtet. Das System kann somit
+        mit nahezu allen Browsern benutzt werden, auch von Mobiltelefonen
+        oder Handcomputern aus.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Eine Weboberfläche zur Administration des Systems ist vorhanden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Ein Webinterface für die Mitarbeiter (Agenten) zur Bearbeitung
+        von Kundenanfragen ist verfügbar.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Eine Weboberfläche für Kunden über die Nachrichten an
+        zuständige Agenten geschickt werden können und der Status
+        eigener Tickets abgerufen werden kann ist vorhanden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung für verschiedene Oberflächen-Layouts
+        (themes).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung von vielen Sprachen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Eigene Anpassungen der Ausgabe-Vorlagen sind möglich (dtl).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Mehrfach-Anhänge sind über die Weboberfläche
+        möglich.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+  <listitem>
+    <para>
+    Email-Schnittstelle:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+        Unterstützung für Email-Anhänge (MIME support).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Automatische Umwandlung von HTML- in reine Text-Nachrichten
+        (höhere Sicherheit vor schädlichen Inhalten und
+        schneller durchsuchbar).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Filterung von Emails über eigene X-Header-Einträge
+        oder Mailadressen, z.b. für die Aussortierung von Spam.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        PGP-Support, Erstellung und Import eigener Zertifikate,
+        verschlüsselter und signierter Mails, Anzeige von
+        verschlüsselten und signierten Nachrichten.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung für die Verschlüsselung und Anzeige
+        von SMIME-Nachrichten.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Automatisierte Antworten (auto responder) für die
+        Benachrichtigung von Kunden, abhängig von der Queue
+        konfigurierbar.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Email-Benachrichtigungen für Agenten über neue
+        Tickets, Followups oder freigegebene Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Followups an Hand von Reference- oder In-Reply-To-Headern.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+  <listitem>
+    <para>
+    Tickets:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+        Erweiterte Queue-Ansicht, Übersicht über alle Anfragen
+        innerhalb einer Queue.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Sperren von Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Erstellung eigener Antwortvorlagen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Erstellung eigene Autoresponder, abhängig von der Queue.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Ticket-Historie, Übersicht über die komplette
+        Entwicklung eines Tickets, Änderungen der Ticketstatus,
+        Übersicht über die verschidenen Aktionen für ein
+        Ticket, usw.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Druckansicht für Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Hinzufügen eigener (interner) Notizen zu einem Ticket
+        (eigener Text und Dateieanhänge).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Möglichkeit zum Zoomen von Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Deffinition von ACL's (access control lists) für Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Tickets können an andere Email-Adressen weiter- oder
+        umgeleitet werden (forwarding, bouncing).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Verschieben von Tickets zwischen verschiedenen Queues.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Festlegen der Priorität für Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Erfassung der Bearbeitungsdauer für Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Anstehende Aufgaben für ein Ticket festlegen (pending
+        features).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Massenoperationen auf Tickets sind möglich (bulk features).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Automatische und zeitgesteuerte Aktionen können mit
+        Hilfe eines sog. Generic-Agenten auf Tickets ausgeführt
+        werden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Volltextsuche über den gesammten Ticketbestand.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+  <listitem>
+    <para>
+    System:
+    </para>
+    <itemizedlist>
+      <listitem>
+	    <para>
+	    OTRS läft unter vielen Betriebssystemen (Linux, Solaris, AIX,
+	    FreeBSD, OpenBSD, Mac OS 10.x, Microsoft Windows).
+	    </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung von ASP (activ service providing).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Verlinkung von Objekten wie z.B. Tickets, FAQ-Einträgen,
+        o.ä. innerhalb des Systems.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Einbindung externer Datenquellen für die Kundendaten, z.B.
+        über AD, eDirectory oder OpenLDAP).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Festlegen einer eigenen Kennzeichnung für Tickets, z.B.
+        Cal#, Ticket#, Request#, o.ä.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Festlegen einer eigenen Nummerierung für Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung verschiedener Datenbanktypen für die
+        zentrale Datenbank von OTRS (MySQL, PostgreSQL, SAPDB, Oracle,
+        usw.).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Framework für die Erstellung von Statistiken.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        utf-8 Unterstützung für Front- und Back-End.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Die Authentifizierung für Agenten oder Kunden kann
+        unabhängig voneinander über eine Datenbank, LDAP,
+        HTTPAuth oder Radius realisiert werden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung von Benutzeraccounts, Benutzergruppen und
+        Rollen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung verschiedener Zugriffsrechte, z.B. auf
+        Queues oder Systembereiche.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Die Erstellung von Standardantworten ist möglich.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unter-Queues werden unterstützt.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Anreden und Signaturen können abhängig von der Queue
+        definiert werden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Email-Benachrichtigungen für Administratoren.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Bekanntgabe von Informationen zu Updates über die
+        Weboberfläche oder via Email.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Festlegen von Ablauffristen für problematische Tickets.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Unterstützung für verschiedene Zeitzonen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Einfache Einbindung eigener Addons und Modulen mit Hilfe
+        der OTRS API.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Einfache Erstellung eigener Frontends, z.B. X11, Console, usw.
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="community">
+<title>Community</title>
+
+<para>
+Um OTRS hat sich in den letzten Jahren eine große Community
+gebildet. Über Mailinglisten tauschen sich Anwender und Entwickler
+zu den verschiedensten Themen rund um das Trouble Ticket System aus. Es
+werden Fragen rund um die Installation, Konfiguration, Benutzung,
+Lokalisation und Entwicklung behandelt. Die Community ist über die
+Homepage
+
+<ulink url="http://www.otrs.org">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+zu erreichen.
+</para>
+</sect1>
+
+<sect1 id="commercial-support-for-otrs">
+<title>Kommerzieller Support für OTRS</title>
+
+<para>
+Neben der Unterstützung aus der Open Source Community auf
+
+<ulink url="http://www.otrs.org">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+ist auch kommerzieller Support rund um OTRS verfügbar. Unter
+
+<ulink url="http://www.otrs.de">
+<citetitle>http://www.otrs.de</citetitle>
+</ulink>
+
+sind die Seiten der OTRS GmBH zu finden, die den kommerziellen Teil des
+OTRS.org-Projektes darstellen.
+</para>
+
+<para>
+Das Angebot der OTRS GmbH umfasst Support, Consulting und fertige
+Installations CDs für OTRS und richtet sich an den Mittelstand,
+Behörden, Institutionen und große Konzerne. Von der
+professionellen Beratung zum Einsatz des Trouble Ticket Systems bis hin
+zur kompletten Installation und Wartung
+mit 24-Stunden Rückrufservice, sind verschiedene
+Supportpakete erhältlich. Fertige High-Performance- und
+High-Availabilty-Systeme, aber auch die Anfertigung
+von Spezialanpassungen runden das Angebot der OTRS GmbH ab.
+</para>
+
+<para>
+Detailliertere Informationen zu den verschiedenen Angeboten der OTRS
+GmbH sind unter
+
+<ulink url="http://www.otrs.de">
+<citetitle>http://www.otrs.de</citetitle>
+</ulink>
+
+zu finden oder können über die Mailadresse
+
+<ulink url="mailto:sales@otrs.de">
+<citetitle>sales@otrs.de</citetitle>
+</ulink>
+
+erfragt werden.
+</para>
+</sect1>
+
+</chapter>
