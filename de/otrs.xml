@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.1 2005-08-31 13:33:03 cs Exp $ -->
+<!-- $Id: otrs.xml,v 1.2 2005-09-01 09:47:40 cs Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -16,7 +16,7 @@ werden kann bzw. wie kommerzieller Support erhältlich ist.
 </abstract>
 
 <sect1 id="otrs-basics">
-<title>Allgemeines zu OTRS</title>
+<title>Allgemeines</title>
 
 <para>
 Das Open Ticket Request System (OTRS) ist eine Webapplikation, welche
@@ -38,74 +38,8 @@ Systemstatus bequem über die Weboberfläche nachinstalliert werden.
 </para>
 </sect1>
 
-<sect1 id="software-requirements">
-<title>Hard- und Softwareanforderungen</title>
-
-<para>
-OTRS kann unter vielen Betriebssystemen installiert werden. Neben Linux und
-den verschiedenen Unix-Derivaten (z.B. OpenBSD oder FreeBSD), läuft
-OTRS auch unter allen Windows-Versionen. Hardwaremäßig empfiehlt
-es sich mindestens eine 2 GHz Pentium IV oder vergleichbare CPu,
-512 MB RAM und eine 20 GB Festplatte zu verwenden.
-</para>
-
-<para>
-Für den Betrieb von OTRS werden einige externe Software-Komponenten
-benötigt. Ein Web- sowie ein Datenbankserver und eine
-funktionierende perl-Installation mit einigen Zusatzmodulen sind die
-Grundvorraussetzung für ein funktionierendes System. Der Webserver
-und <application>perl</application> müssen auf der gleichen
-Maschine installiert sein, auf der später auch OTRS ausgeführt werden soll.
-Das Datenbank-Backend kann auf der lokalen oder auf einer entfernten Maschine
-installiert werden.
-</para>
-
-<para>
-Für den Webserver wird empfohlen, auf <application>apache
-1.3.x</application> oder <application>apache 2.x</application>
-zurück zu greifen. Vor allem durch die Erweiterung der
-apache-Konfiguration um das mod-perl-Modul, kann die Geschwindigkeit
-von OTRS enorm gesteigert werden. Prinzipiell sollte aber jeder Webserver,
-der die Ausführung von perl-Skripten unterstützt, für den
-Betrieb von OTRS geeignet sein.
-</para>
-
-<para>
-Als Datenbank-Backend eignen sich besonders <application>MySQL</application>
-ab Version 3.1.x oder <application>PostgreSQL</application>.
-Grundsätzlich sollten jedoch alle Datenbankserver zusammen mit OTRS
-verwendet werden können, die SQL als Datenbanksprache
-unterstützen. Ein Vorteil der Benutzung von
-<application>MySQL</application> ist, dass OTRS über einen
-Webinstaller die Datenbank und Tabellen automatisch anlegen kann.
-</para>
-
-<para>
-Für <application>perl</application> gilt mindestens die Version 5.8 zu
-verwenden. Es werden einige Zusatzmodule benötigt, die Sie entweder
-direkt über die Shell von <application>perl</application> und
-CPAN oder mit Hilfe des Paketmanagers (<application>yast</application>,
-<application>apt-get</application>) Ihres Betriebssystems einspielen
-müssen.
-</para>
-
-<para>
-Im Abschnitt für die
-<link linkend="installation-of-needed-perl-modules">
-manuelle Installation der für OTRS benötigten perl-Module
-</link>
-wird beschrieben, wie Sie perl-Module manuell einspielen können.
-</para>
-
-<para>
-Wenn Sie ein bereits vorgefertigtes OTRS-Paket für ihr Betriebssystem
-für die Installation verwenden (rpm, Windows-Installer), sollten
-die benötigten perl-MOdule automatisch mit installiert werden.
-</para>
-</sect1>
-
 <sect1 id="features-of-otrs">
-<title>Die Features von OTRS im Überblick</title>
+<title>Features</title>
 
 <para>
 OTRS bietet viele verschiedene Features. Die folgende Aufzählung
@@ -458,6 +392,72 @@ Fähigkeiten des zentralen OTRS-Frameworks.
     </itemizedlist>
   </listitem>
 </itemizedlist>
+</sect1>
+
+<sect1 id="software-requirements">
+<title>Hard- und Softwareanforderungen</title>
+
+<para>
+OTRS kann unter vielen Betriebssystemen installiert werden. Neben Linux und
+den verschiedenen Unix-Derivaten (z.B. OpenBSD oder FreeBSD), läuft
+OTRS auch unter allen Windows-Versionen. Hardwaremäßig empfiehlt
+es sich mindestens eine 2 GHz Pentium IV oder vergleichbare CPu,
+512 MB RAM und eine 20 GB Festplatte zu verwenden.
+</para>
+
+<para>
+Für den Betrieb von OTRS werden einige externe Software-Komponenten
+benötigt. Ein Web- sowie ein Datenbankserver und eine
+funktionierende perl-Installation mit einigen Zusatzmodulen sind die
+Grundvorraussetzung für ein funktionierendes System. Der Webserver
+und <application>perl</application> müssen auf der gleichen
+Maschine installiert sein, auf der später auch OTRS ausgeführt werden soll.
+Das Datenbank-Backend kann auf der lokalen oder auf einer entfernten Maschine
+installiert werden.
+</para>
+
+<para>
+Für den Webserver wird empfohlen, auf <application>apache
+1.3.x</application> oder <application>apache 2.x</application>
+zurück zu greifen. Vor allem durch die Erweiterung der
+apache-Konfiguration um das mod-perl-Modul, kann die Geschwindigkeit
+von OTRS enorm gesteigert werden. Prinzipiell sollte aber jeder Webserver,
+der die Ausführung von perl-Skripten unterstützt, für den
+Betrieb von OTRS geeignet sein.
+</para>
+
+<para>
+Als Datenbank-Backend eignen sich besonders <application>MySQL</application>
+ab Version 3.1.x oder <application>PostgreSQL</application>.
+Grundsätzlich sollten jedoch alle Datenbankserver zusammen mit OTRS
+verwendet werden können, die SQL als Datenbanksprache
+unterstützen. Ein Vorteil der Benutzung von
+<application>MySQL</application> ist, dass OTRS über einen
+Webinstaller die Datenbank und Tabellen automatisch anlegen kann.
+</para>
+
+<para>
+Für <application>perl</application> gilt mindestens die Version 5.8 zu
+verwenden. Es werden einige Zusatzmodule benötigt, die Sie entweder
+direkt über die Shell von <application>perl</application> und
+CPAN oder mit Hilfe des Paketmanagers (<application>yast</application>,
+<application>apt-get</application>) Ihres Betriebssystems einspielen
+müssen.
+</para>
+
+<para>
+Im Abschnitt für die
+<link linkend="installation-of-needed-perl-modules">
+manuelle Installation der für OTRS benötigten perl-Module
+</link>
+wird beschrieben, wie Sie perl-Module manuell einspielen können.
+</para>
+
+<para>
+Wenn Sie ein bereits vorgefertigtes OTRS-Paket für ihr Betriebssystem
+für die Installation verwenden (rpm, Windows-Installer), sollten
+die benötigten perl-MOdule automatisch mit installiert werden.
+</para>
 </sect1>
 
 <sect1 id="community">
