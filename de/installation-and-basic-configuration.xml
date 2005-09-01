@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation des OTRS Framework</title>
@@ -327,7 +327,7 @@ Setting up otrs (1.3.2p01-5) ...
 Adding system user `otrs'...
 Adding new user `otrs' (105) with group `www-data'.
 Not creating home directory.
-SetPermissions.sh &lt;$Revision: 1.2 $&gt; - set OTRS file permissions
+SetPermissions.sh &lt;$Revision: 1.3 $&gt; - set OTRS file permissions
 Copyright (c) 2001-2003 Martin Edenhofer &lt;martin@otrs.org&gt;
 Setting file permissions...
 chown -R 0:0 /usr/share/otrs
@@ -521,7 +521,7 @@ durchführen.
 </important>
 
 <para>
-todo: Installation usw. noch genauer beschreiben
+Todo: Installation usw. noch genauer beschreiben
 </para>
 
 </sect2>
@@ -973,12 +973,7 @@ linux:/etc/apache2/conf.d#
 <para>
 Das war bereits die grundlegende Konfiguration des Webservers für
 OTRS. Im nächsten Schritt kann die Datenbank eingerichtet werden.
-
-todo: Wenn Sie OTRS zusammen mit mod_perl einsetzen möchten,
-lesen Sie bitte im Abschnitt OTRS mit mod_perl.
-
 </para>
-
 </sect2>
 
 <sect2 id="database-configuration">
@@ -1385,7 +1380,7 @@ also die Installation wie folgt vor.
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.2 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.3 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1408,7 +1403,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1418,7 +1413,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1428,7 +1423,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1441,7 +1436,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1451,7 +1446,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1461,7 +1456,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1472,7 +1467,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1482,7 +1477,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1492,7 +1487,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1502,7 +1497,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.2 2005-08-14 14:04:29 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.3 2005-09-01 12:15:03 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
