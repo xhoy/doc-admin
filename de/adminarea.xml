@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.6 2005-09-01 12:15:03 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.7 2005-09-05 12:22:13 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
@@ -41,9 +41,11 @@ standardmäßig vergebenes Kennwort handelt, das allgemein bekannt ist.
 </warning>
 
 <para>
-Todo: Screenshot vom Admin-Bereich einbauen, Name: adminarea
+<screenshot>
+<screeninfo>Der Administrationsbereich von OTRS</screeninfo>
+<graphic srccredit="Adminarea - screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic>
+</screenshot>
 </para>
-
 </sect1>
 
 <sect1 id="adminarea-user-groups-and-roles">
@@ -60,7 +62,10 @@ festlegen, z.B. die Oberflächensprache oder das Anzeigeschema.
 </para>
 
 <para>
-Todo: Screenshot von Benutzerverwaltung einfügen, name: adminarea-users
+<screenshot>
+<screeninfo>Benutzerverwaltung in OTRS</screeninfo>
+<graphic srccredit="Adminarea user management - screenshot" scale="40" fileref="screenshots/admin-users.png"></graphic>
+</screenshot>
 </para>
 
 <note>
@@ -92,7 +97,10 @@ die Gruppenverwaltung von OTRS.
 </para>
 
 <para>
-Todo: Screenshot zur Gruppenverwaltung einbauen, Name: adminarea-groups
+<screenshot>
+<screeninfo>Gruppenverwaltung in OTRS</screeninfo>
+<graphic srccredit="Adminarea group management - screenshot" scale="40" fileref="screenshots/admin-groups.png"></graphic>
+</screenshot>
 </para>
 
 <note>
@@ -183,9 +191,11 @@ Gruppen" im Administrationsbereich genutzt werden.
 </para>
 
 <para>
-Todo: Screenshot von "Benutzer &lt;-&gt; Gruppen" einbauen, Name: adminarea-users-and-groups
+<screenshot>
+<screeninfo>Zuweisung von Benutzer und Gruppen</screeninfo>
+<graphic srccredit="Adminarea groups and users - screenshot" scale="40" fileref="screenshots/admin-users-and-groups.png"></graphic>
+</screenshot>
 </para>
-
 <para>
 Im unterem Bereich des Bildschirms wird eine Übersicht angezeigt, die
 alle Benutzer und gruppen auflistet. Indem Sie auf einem Benutzernamen
@@ -317,7 +327,10 @@ Benutzers mit einer Rolle.
 </para>
 
 <para>
-Todo: Screenshot zu Rollen einbauen, name: adminarea-roles
+<screenshot>
+<screeninfo>Rollenverwaltung in OTRS</screeninfo>
+<graphic srccredit="Adminarea roles - screenshot" scale="40" fileref="screenshots/admin-roles.png"></graphic>
+</screenshot>
 </para>
 
 <note>
@@ -331,8 +344,18 @@ entsprechende Rolle mit Hilfe der Listbox für "Gültig" auf
 </note>
 
 <para>
-Todo: Screenshot von Rollen &lt;-&gt; Benutzer und Rollen &lt;-&gt; Gruppeni, Name adminarea-roles-users-and-groups
-einbauen.
+<screenshot>
+<screeninfo>Zuweisung von Benutzern zu Rollen</screeninfo>
+<graphic srccredit="Adminarea roles users - screenshot" scale="40"
+fileref="screenshots/admin-roles-users.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Zuweisung von Gruppen zu Rollen</screeninfo>
+<graphic srccredit="Adminarea roles groups - screenshot" scale="40" fileref="screenshots/admin-roles-groups.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -364,7 +387,11 @@ wird ein Kunden-Account vom System für die Historie von Tickets benötigt.
 </para>
 
 <para>
-Todo: Screenshot von "Kunden Benutzer" einbauen, Name: adminarea-customer
+<screenshot>
+<screeninfo>Kundenverwaltung in OTRS</screeninfo>
+<graphic srccredit="Adminarea customer - screenshot" scale="40"
+fileref="screenshots/admin-customer.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -447,7 +474,10 @@ automatisch zugeordnet werden soll.
 </para>
 
 <para>
-Todo: Screenshot zu Kunden Benutzer &lt;-&gt; Gruppen einbauen, name: adminarea-customer-groups
+<screenshot>
+<screeninfo>Verwaltung von Kundengruppen</screeninfo>
+<graphic srccredit=">Adminarea customer groups - screenshot" scale="40" fileref="screenshots/admin-customer-groups.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -482,7 +512,10 @@ genutzt werden.
 </para>
 
 <para>
-Todo: Screenshot von Queue-Verwaltung einfügen, Name: adminarea-queue
+<screenshot>
+<screeninfo>Verwaltung der Queues in OTRS</screeninfo>
+<graphic srccredit="Adminarea queue - screenshot" scale="40" fileref="screenshots/admin-queue.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -591,11 +624,17 @@ diese bearbeitet werden.
 </para>
 
 <para>
-Todo: Screenshot von Antwort im Adminarea einbauen, Name: adminarea-respons
+<screenshot>
+<screeninfo>Antwortvorlagen</screeninfo>
+<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/admin-response.png"></graphic>
+</screenshot>
 </para>
 
 <para>
-Todo: Screenshot von Antworten &lt;-&gt; Queues einfügen, Name: adminarea-respons-queue
+<screenshot>
+<screeninfo>Zuweisung einer Antwortvorlage zu einer Queue</screeninfo>
+<graphic srccredit="Adminarea response queue - screenshot" scale="40" fileref="screenshots/admin-response-queue.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -639,7 +678,10 @@ können Sie die verschiedenen Anreden Ihres Systems verwalten.
 </para>
 
 <para>
-Todo: Screenshot von Anreden einbauen, Name: adminarea-salutation.
+<screenshot>
+<screeninfo>Verwaltung von Anreden</screeninfo>
+<graphic srccredit="Adminarea salutation - screenshot" scale="40" fileref="screenshots/admin-salutation.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -702,7 +744,11 @@ Systems verwalten.
 </para>
 
 <para>
-Todo: Screenshot von Signaturen einbauen, Name: adminarea-signature.
+<screenshot>
+<screeninfo>Verwaltung von Signaturen</screeninfo>
+<graphic srccredit="Adminarea signatures - screenshot" scale="40"
+fileref="screenshots/admin-signatures.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -756,7 +802,10 @@ Antworten-Bildschirm für Tickets leicht  deaktiviert werden.
 </para>
 
 <para>
-Todo: Screenshot für "Anlagen" einfügen, Name: adminarea-attachment.
+<screenshot>
+<screeninfo>Verwaltung von Anlagen für Antwortvorlagen</screeninfo>
+<graphic srccredit="Adminarea attachment - screenshot" scale="40" fileref="screenshots/admin-attachment.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -769,7 +818,10 @@ werden.
 </para>
 
 <para>
-Todo: Screenshot für "Anlagen &lt;-&gt; Antworten einfügen, Name: adminarea-attachments-respons.
+<screenshot>
+<screeninfo>Zuweisung einer Anlage zu einer Antwortvorlage</screeninfo>
+<graphic srccredit="Adminarea attachment response - screenshot" scale="40" fileref="screenshots/admin-attachment-response.png"></graphic>
+</screenshot>
 </para>
 
 <note>
@@ -803,7 +855,11 @@ Standardinstallation sind folgende Ereignistypen vorhanden.
 </para>
 
 <para>
-Todo: Screenshot für Auto Antworten einbauen, Name: adminarea-auto-respons
+<screenshot>
+<screeninfo>Verwaltung von automatischen Antworten</screeninfo>
+<graphic srccredit="Adminarea auto response - screenshot" scale="40"
+fileref="screenshots/admin-autoresponse.png"></graphic>
+</screenshot>
 </para>
 
 <table id="table-of-autoanswer-types">
@@ -891,7 +947,10 @@ Einstellungen der entsprechenden Auto-Antwort in der Listbox für
 </note>
 
 <para>
-Todo: Screenshot für "Auto Antworten &lt;-&gt; Queues" einfügen, name: adminarea-auto-respons-queue.
+<screenshot>
+<screeninfo>Zuweisung einer automatischen Antwort zu einer Queue</screeninfo>
+<graphic srccredit="Adminarea auto response queue - screenshot" scale="40" fileref="screenshots/admin-autoresponse-queue.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -928,7 +987,10 @@ Admin-Bereich dem Link "Email Adressen" folgen.
 </para>
 
 <para>
-Todo: Screenshot zur Email Adressen Verwaltung einbauen, Name: adminarea-email
+<screenshot>
+<screeninfo>Verwaltung von Mailadressen</screeninfo>
+<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -967,7 +1029,10 @@ System per Mail benachrichtigt werden wollen.
 </para>
 
 <para>
-Todo: Screenshot zu "Benachrichtigungen" einbauen, Name: adminarea-notification
+<screenshot>
+<screeninfo>Verwaltung von Benachrichtigungen</screeninfo>
+<graphic srccredit="Adminarea notifications - screenshot" scale="40" fileref="screenshots/admin-notification.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1013,7 +1078,10 @@ des Systems aktiviert und konfiguriert werden
 </para>
 
 <para>
-Todo: Screenshot zu SMIME einfügen, Name: adminarea-smime
+<screenshot>
+<screeninfo>Verwaltung von SMIME-Zertifikaten</screeninfo>
+<graphic srccredit="Adminarea smime - screenshot" scale="40" fileref="screenshots/admin-smime.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1047,7 +1115,10 @@ des Systems aktiviert und konfiguriert werden
 </para>
 
 <para>
-Todo: Screenshot für PGP einfügen, Name: adminarea-pgp
+<screenshot>
+<screeninfo>Verwaltung von PGP-Schlüsseln</screeninfo>
+<graphic srccredit="Adminarea pgp -  screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1068,7 +1139,10 @@ möchten, bearbbeiten.
 </para>
 
 <para>
-Todo: Screenshot zu Status einbauen, name: adminarea-status.
+<screenshot>
+<screeninfo>Verwaltung der Status</screeninfo>
+<graphic srccredit="Adminarea states - screenshot" scale="40" fileref="screenshots/admin-status.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1093,7 +1167,10 @@ Administrations-Frontend.
 </para>
 
 <para>
-Todo: Screenshot zu sysconfig einbauen, Name adminarea-sysconfig
+<screenshot>
+<screeninfo>Das grafische Konfigurations-Frontend von OTRS</screeninfo>
+<graphic srccredit="Adminarea sysconfig - screenshot" scale="40" fileref="screenshots/admin-sysconfig.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1136,7 +1213,10 @@ soll.
 </para>
 
 <para>
-Todo: Screenshot zu PostMaster POP3 Account einbauen, name: adminarea-postmasterpop3.
+<screenshot>
+<screeninfo>Verwaltung von POP3 Konten</screeninfo>
+<graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1219,7 +1299,10 @@ Verwaltung für die Filterregeln auf.
 </para>
 
 <para>
-Todo: Screenshot von PostMaster Filter einbauen, Name: adminarea-postmasterfilter.
+<screenshot>
+<screeninfo>Verwaltung von Filterregeln für eingehende Emails</screeninfo>
+<graphic srccredit="Adminarea postmasterfilter - screenshot" scale="40" fileref="screenshots/admin-postmasterfilter.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1463,7 +1546,10 @@ eskalierte Tickets versenden.
 </para>
 
 <para>
-Todo: Screenshot für neue Jobs in GenericAgent einbauen, Name: adminarea-gericagent-new.
+<screenshot>
+<screeninfo>Jobliste des GenericAgents</screeninfo>
+<graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/admin-genericagent-new.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1475,7 +1561,10 @@ auf "Hinzufügen".
 </para>
 
 <para>
-Todo: Screenshot mit GenericAgent-Bildschirm einbauen, Name: adminarea-genericagent.
+<screenshot>
+<screeninfo>Anlegen eines Jobs für den GenericAgent</screeninfo>
+<graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/admin-genericagent.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1506,7 +1595,10 @@ Link "Admin Notification".
 </para>
 
 <para>
-Todo: Screenshot zu Admin-Notification einbauen, Name: adminarea-adminemail.
+<screenshot>
+<screeninfo>Administratoren Email an Benutzer oder Gruppen</screeninfo>
+<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1528,7 +1620,10 @@ Sitzungseigenschaften zu erhalten, folgen Sie dem Link
 </para>
 
 <para>
-Todo: Screenshot zur Sitzungsverwaltung einbauen, Name: adminarea-sessionmanagement.
+<screenshot>
+<screeninfo>Sitzungsverwaltung</screeninfo>
+<graphic srccredit="Adminarea sessionmanagement - screenshot" scale="40" fileref="screenshots/admin-sessionmanagement.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1552,7 +1647,10 @@ letzten Logeinträge des Ticket-Systems über die Weboberfläche einzusehen.
 </para>
 
 <para>
-Todo: Screenshot zu System Log einbauen, Name: adminarea-syslog.
+<screenshot>
+<screeninfo>Systemlog</screeninfo>
+<graphic srccredit="Adminarea syslog - screenshot" scale="40" fileref="screenshots/admin-syslog.png"></graphic>
+</screenshot>
 </para>
 
 <para>
@@ -1592,7 +1690,10 @@ Tabellen können auf diesem Weg nicht verändert werden.
 </para>
 
 <para>
-Todo: Screenshot zu Select Box einbauen, name: adminarea-selectbox.
+<screenshot>
+<screeninfo>SQL-Abfragen über die Weboberfläche</screeninfo>
+<graphic srccredit="Adminarea selectbox - screenshot" scale="40" fileref="screenshots/admin-selectbox.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
@@ -1613,7 +1714,10 @@ entfernt werden. Die Paket Verwaltung erreichen sie über den Link
 </para>
 
 <para>
-Todo: Screenshot zur Paket Verwaltung einfügen, Name: adminarea-packagemanager.
+<screenshot>
+<screeninfo>Paketmanager</screeninfo>
+<graphic srccredit="Adminarea packagemanager - sreenshot" scale="40" fileref="screenshots/admin-packagemanager.png"></graphic>
+</screenshot>
 </para>
 
 <para>
