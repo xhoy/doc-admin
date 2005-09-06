@@ -1,14 +1,16 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: applications.xml,v 1.1 2005-08-25 11:13:49 martin Exp $ -->
+<!-- $Id: applications.xml,v 1.2 2005-09-06 10:58:57 cs Exp $ -->
 
 <chapter id="application">
 <title>Zusätzliche Applikationen</title>
 
 <abstract>
 <para>
-Ab OTRS 2.0 gibt es die Möglichkeit zusätzlich zum Framework weitere Applikationen von einem Online-Verzeichnis über das Admin-Interface (Paket Manager) zu installieren.
+Ab OTRS 2.0 gibt es die Möglichkeit zusätzlich zum Framework weitere
+Applikationen aus einem Online-Verzeichnis über das Admin-Interface
+(Paket Manager) zu installieren.
 </para>
 </abstract>
 
@@ -17,6 +19,14 @@ Ab OTRS 2.0 gibt es die Möglichkeit zusätzlich zum Framework weitere Applikation
 
 <para>
 Dies ist ein Kalender in dem man Termine Benutzerabhängig eintragen kann.
+Es werden private und öffentliche Termine unterstützt.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Kalender</screeninfo>
+<graphic srccredit="Calendar - screenshot" scale="40" fileref="screenshots/calendar.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
@@ -25,25 +35,44 @@ Dies ist ein Kalender in dem man Termine Benutzerabhängig eintragen kann.
 <title>ContentManager</title>
 
 <para>
-Dies ist ein Kontentmanager um Webseiten verwalten zu können.
+Mit dem Contentmanager können Webseiten online über die Web-Oberfläche
+erstellt und verwaltet werden.
 </para>
 
 </sect1>
 
 <sect1 id="application-filemanager">
-<title>FileManager</title>
+<title>Dateimanager</title>
 
 <para>
-Dies ist ein Dateimanager um auf ein Dateisystem-Verzeichnis auf dem Rechner über Web zugreifen zu können.
+Mit dem Dateimanager kann auf ein Verzeichnis des Rechners, auf dem OTRS
+installiert ist, über die Web-Oberfläche zugegriffen und Dateien
+hochgeladen, gelöscht und angesehen werden.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Dateimanager</screeninfo>
+<graphic srccredit="Filemanager - screenshot" scale="40" fileref="screenshots/filemanager.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
 
 <sect1 id="application-webmail">
-<title>WebMail</title>
+<title>Webmailer</title>
 
 <para>
-Dies ist ein Web-Mail-Programm um über IMAP Emails abrufen und schreiben zu können.
+Das Web-Mail-Programm ermöglicht das Abrufen von Mails über einen
+IMAP-Server, das Verfassen von neuen Nachrichten bzw. die Beantwortung von
+vorhandenen Emails ist über die Web-Oberfläche möglich.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Webmailer</screeninfo>
+<graphic srccredit="Webmail - screenshot" scale="40" fileref="screenshots/webmail.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
@@ -52,16 +81,28 @@ Dies ist ein Web-Mail-Programm um über IMAP Emails abrufen und schreiben zu könn
 <title>FAQ</title>
 
 <para>
-Dies ist derzeit noch keine eigene Applikation und noch im Framework enthalten.
+Das FAQ-System ist derzeit noch keine eigene Applikation und noch im Framework
+enthalten. Es können FAQ-Artikel angelegt und bearbeitet werden. Um die
+Übersichtlichkeit und Strukturierung zu erhöhen, ist die Einteilung der
+FAq-Beiträge in Kategorieren und Sprachen möglich.
 </para>
 
 </sect1>
 
-<sect1 id="application-systemstats">
+<sect1 id="application-systemstatus">
 <title>SystemStatus</title>
 
 <para>
-Dies ist eine System-Status-Übersicht für den Administrator und im Admin-Interface zu finden.
+Dies ist eine System-Status-Übersicht für den OTRS-Administrator, die im
+Admin-Interface von OTRS zu finden ist. Es können eigene Befehle integriert
+werden, deren Ausgabe über die Web-Oberfläche dargestellt werden.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Systemstatus</screeninfo>
+<graphic srccredit="Systemstatus - screenshot" scale="40" fileref="screenshots/systemstatus.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
