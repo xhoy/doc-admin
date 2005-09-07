@@ -1,14 +1,18 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: applications.xml,v 1.1 2005-08-25 11:13:49 martin Exp $ -->
+<!-- $Id: applications.xml,v 1.2 2005-09-07 13:58:11 cs Exp $ -->
 
 <chapter id="application">
-<title>Additional Applikationen</title>
+<title>Additional applications</title>
 
 <abstract>
 <para>
-Beginning from OTRS 2.0 you have the possibility to install additional applications from an online repository via the admin-interface (Package Manager).
+Since OTRS 2.0 it is possible to install additional applications that can
+be used with the central framework. The installation can be done with the
+package manager via the adminarea. The package manager downloads the
+applications from a online repository and takes care of package
+dependencies.
 </para>
 </abstract>
 
@@ -16,34 +20,62 @@ Beginning from OTRS 2.0 you have the possibility to install additional applicati
 <title>Calendar</title>
 
 <para>
-It's a Calendar to manage user based events.
+With the webbased calendar you can edit and view userbased appointments that
+can be private or public.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Calendar</screeninfo>
+<graphic srccredit="Calendar - screenshot" scale="40" fileref="screenshots/calendar.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
 
 <sect1 id="application-contentmanager">
-<title>ContentManager</title>
+<title>Content manager</title>
 
 <para>
-It's a content manager to manage web sites.
+The content manager lets you edit and administrate your web projects
+online and via your web browser..
 </para>
 
 </sect1>
 
 <sect1 id="application-filemanager">
-<title>FileManager</title>
+<title>File manager</title>
 
 <para>
-It's a file manager to manage files in a local directory on the server.
+The file manager makes it possible to access the content of a directory that
+is located in the file system of the machine where OTRS is installed. You
+can use your web browser to upload, download, delete and view files, browse
+and create subdirectories, e.g.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>File manager</screeninfo>
+<graphic srccredit="Filemanager - screenshot" scale="40" fileref="screenshots/filemanager.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
 
 <sect1 id="application-webmail">
-<title>WebMail</title>
+<title>Web mailer</title>
 
 <para>
-It's a web mail program to read and send emails via IMAP.
+With the webmailer you can access your mailbox via an IMAP server. It is
+possible to compose new messages, answer and forward your mails, e.g., simply
+with your web browser.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Web mailer</screeninfo>
+<graphic srccredit="Webmail - screenshot" scale="40" fileref="screenshots/webmail.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
@@ -52,16 +84,28 @@ It's a web mail program to read and send emails via IMAP.
 <title>FAQ</title>
 
 <para>
-It's a faq/knowlage base which is currently included in the framework.
+The FAQ system is no seperate application at present and still integrated in
+the central OTRS framework. It supports editing and viewing FAQ
+articles. To improve browsing of the different articles, they can be
+structured in cathegories and sorted by language.
 </para>
 
 </sect1>
 
-<sect1 id="application-systemstats">
-<title>SystemStatus</title>
+<sect1 id="application-systemstatus">
+<title>System status</title>
 
 <para>
-It's a system status overview module for the admin and is visable in the admin interface.
+With the system status application the OTRS admin can get an overview on
+different system tasks. The out put of this module is reachable through the
+adminarea of OTRS.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>System status</screeninfo>
+<graphic srccredit="Systemstatus - screenshot" scale="40" fileref="screenshots/systemstatus.png"></graphic>
+</screenshot>
 </para>
 
 </sect1>
