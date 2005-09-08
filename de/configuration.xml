@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: configuration.xml,v 1.7 2005-09-05 10:36:30 cs Exp $ -->
+<!-- $Id: configuration.xml,v 1.8 2005-09-08 13:53:53 cs Exp $ -->
 
 <chapter id="configuration">
 <title>Konfiguration des Systems</title>
@@ -41,7 +41,7 @@ Kompatibilitätsgründen zu älteren OTRS-Versionen noch die Einstellungen in
 den .pm-Dateien benötigt werden. Die .xml-Dateien werden von der
 grafischen Administrationsoberfläche ausgewertet, die seit OTRS 2.0 verfügbar
 ist und die es Ihnen ermöglicht das System nahezu vollständig über die
-WEB-Oberfläche zu konfigurieren. In zukünftigen Versionen von OTRS wird auf
+Web-Oberfläche zu konfigurieren. In zukünftigen Versionen von OTRS wird auf
 die .pm-Dateien vollständig verzichtet und alle Einstellungen aus
 <filename>Kernel/Config/Defaults.pm</filename> werden nur noch in
 <filename>Kernel/Config/Files/Framework.xml</filename> zu finden sein bzw. alle
@@ -69,7 +69,7 @@ Ihre eigenen Einstellungen geladen werden.
 
 <sect1 id="sysconfig">
 <title>Konfiguration des Systems mit Hilfe des grafischen
-KOnfigurations-Frontends</title>
+Konfigurations-Frontends</title>
 
 <para>
 Seit OTRS 2.0 können nahezu alle Konfigurationsparameter des Frameworks
@@ -87,19 +87,19 @@ Konfigurations-Frontend zu laden.
 </para>
 
 <para>
-Da OTRS mittler Weile über mehr als 600 verschiedene
+Da OTRS mittlerweile über mehr als 600 verschiedene
 Konfigurationsparameter verfügt, bietet das Konfigurations-Frontend mehrere
 Möglichkeiten zur schnellen Auffindung der gewünschten Einstellung. Zum
 einen kann über alle Konfigurationsparameter hinweg nach einem bestimmten
-Stichwort gesucht werden. Bei der Suche werden neben den Namen des
-Konfigurationsparameter auch die Beschreibungen ausgewertet, eine
-Einstellung kan also auch gefunden werden, wenn ihr Name nicht bekannt ist.
+Stichwort gesucht werden. Bei der Suche werden neben dem Namen des
+Konfigurationsparameters auch die Beschreibungen ausgewertet, eine
+Einstellung kann also auch gefunden werden, wenn ihr Name nicht bekannt ist.
 </para>
 
 <para>
 Weiterhin wurden die verschiedenen Konfigurationsparameter in Haupt- und
 Untergruppen unterteilt. Die Hauptgruppe stellt die Applikation dar, für
-die der Konfigurationsparameter zuständig ist, also z.B. "Framework" für den
+die der Konfigurationsparameter zuständig ist, also z.B. "Framework" für das
 OTRS-Framework oder "Ticket" für das Ticketsystem. Die Untergruppen einer
 Hauptgruppe können eingesehen werden, indem die Gruppe bzw. Applikation
 aus der dazu vorgesehenen Listbox ausgewählt und der "Zeigen"-Knopf
@@ -108,7 +108,7 @@ gedrückt wird.
 
 <para>
 Für jeden einzelnen Konfigurationsparameter kann über eine Checkbox
-festgelegt werden, ob er vom system beachtet werden soll oder nicht. Wird
+festgelegt werden, ob er vom System beachtet werden soll oder nicht. Wird
 eine Einstellung verändert, kann die Änderung mit Hilfe des
 "Aktualisieren"-Buttons übernommen werden. Eine Einstellung kann mit Hilfe
 des "Rücksetzen"-Schalters auf ihren Default-Wert zurückgesetzt werden.

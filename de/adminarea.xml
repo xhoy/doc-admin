@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.7 2005-09-05 12:22:13 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.8 2005-09-08 13:53:41 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
@@ -82,7 +82,7 @@ entsprechenden Benutzer mit Hilfe der Listbox für "Gültig" auf
 Nachdem Sie einen neuen Benutzer angelegt haben, muss dieser einer Gruppe
 bzw. einer Rolle zugewießen werden. Sie werden nach dem Anlegen
 eines neuen Benutzers automatisch auf die Bildschirmmaske für die
-Zuweißung eines Benutzers in Gruppen weitergeleitet.
+Zuweisung eines Benutzers in Gruppen weitergeleitet.
 </para>
 
 </sect2>
@@ -197,8 +197,8 @@ Gruppen" im Administrationsbereich genutzt werden.
 </screenshot>
 </para>
 <para>
-Im unterem Bereich des Bildschirms wird eine Übersicht angezeigt, die
-alle Benutzer und gruppen auflistet. Indem Sie auf einem Benutzernamen
+Im unteren Bereich des Bildschirms wird eine Übersicht angezeigt, die
+alle Benutzer und Gruppen auflistet. Indem Sie auf einen Benutzernamen
 klicken, bekommen Sie dessen Gruppenzugehörigkeiten angezeigt und
 können diese ändern. Bei der Auswahl einer Gruppe werden alle
 Benutzer aufgelistet, die sich in dieser Gruppe befinden.
@@ -240,7 +240,7 @@ folgenden Rechte vorhanden.
           Verschieben in (move into)
         </entry>
         <entry>
-          Recht zum verschieben von Tickets oder Beiträgen innerhalb
+          Recht zum Verschieben von Tickets oder Beiträgen innerhalb
           der Queues bzw. Bereiche dieser Gruppe.
         </entry>
       </row>
@@ -249,7 +249,7 @@ folgenden Rechte vorhanden.
           Erstellen (create)
         </entry>
         <entry>
-          Recht zum Erstellen von Tickets oder Beiträgen in den Queues
+          Recht zum Erstellen von Tickets oder Beiträgen in den Queues,
           bzw. Bereichen dieser Gruppe.
         </entry>
       </row>
@@ -258,7 +258,7 @@ folgenden Rechte vorhanden.
           Besitzer (owner)
         </entry>
         <entry>
-          Recht zum Ändern des Eigentümers von Tickets bzw.
+          Recht zum Ändern des Eigentümers von Tickets, bzw.
           Beiträgen in den der Gruppe zugewiesenen Queues bzw. Bereiche.
         </entry>
       </row>
@@ -267,7 +267,7 @@ folgenden Rechte vorhanden.
           Priorität (priority)
         </entry>
         <entry>
-          Recht zum Ändern der Priorität von Tickets bzw.
+          Recht zum Ändern der Priorität von Tickets, bzw.
           Beiträgen in den der Gruppe zugewiesenen Queues bzw. Bereiche.
         </entry>
       </row>
@@ -277,7 +277,7 @@ folgenden Rechte vorhanden.
         </entry>
         <entry>
           Voller Lese- und Schreibzugriff auf alle Inhalte der dieser
-          Gruppe zugewiesenen Queues bzw. Bereiche.
+          Gruppe zugewiesenen Queues, bzw. Bereiche.
         </entry>
       </row>
     </tbody>
@@ -293,7 +293,7 @@ folgenden Rechte vorhanden.
 <para>
 Rollen sind ein sehr nützliches und mächtiges Feature in OTRS, um schnell
 und einfach die Vergabe von Zugriffsrechten für viele Benutzer vorzunehmen.
-Vor alem bei großen und komplexen Installationen mitt
+Vor alem bei großen und komplexen Installationen mit
 vielen Benutzern, Gruppen und Queues, zahlt sich dieses Feature schnell
 aus und erspart dem OTRS-Administrator viel Zeit und Arbeit.
 </para>
@@ -381,7 +381,7 @@ OTRS unterstützt, wie bereits erwähnt, verschiedene Arten von Benutzern.
 Über den Link "Kunden Benutzer", den Sie im Admin-Bereich von OTRS
 finden, können Sie die Benutzerdaten der im System angelegten Kunden
 verwalten. Ein Kunde kann sich mit Hilfe seines Accounts in das vom
-Ticket-System bereit gestellte Webinterface für Kunden einlogen, um dort
+Ticket-System bereitgestellte Webinterface für Kunden einlogen, um dort
 die eigenen Tickets einzusehen, neue Tickets zu verfassen, usw. Weiterhin
 wird ein Kunden-Account vom System für die Historie von Tickets benötigt.
 </para>
@@ -483,7 +483,7 @@ automatisch zugeordnet werden soll.
 <para>
 Über den Link "Kunden Benutzer &lt;-&gt; Gruppen" können Sie nun die
 Zuordnung der Kundenbenutzer in die gewünschten Gruppen vornehmen.
-Jenachdem, welche Queues zu welchen Gruppen gehören, werden später im
+Je nachdem, welche Queues zu welchen Gruppen gehören, werden später im
 Webinterface für Kunden auch nur die entsprechenden Queues zur Verfügung
 gestellt.
 </para>
@@ -521,9 +521,9 @@ genutzt werden.
 <para>
 Über das Formular auf der rechten Bildschirmseite kann eine neue Queue
 angelegt werden. Zusätzlich zum Namen der neuen Queue kann angegeben
-werden, für welche Benutzergruppe die Queue bereit gestellt werden
-und ob die neue Queue eine Unter-Queue (sub ueue) von einer bereitsin
-Ihrem system vorhandenen Queue sein soll.
+werden, für welche Benutzergruppe die Queue bereitgestellt werden
+und ob die neue Queue eine Unter-Queue (sub queue) von einer bereits in
+Ihrem System vorhandenen Queue sein soll.
 </para>
 
 <para>
@@ -542,7 +542,7 @@ Tickets werden dann nicht mehr in der Queue angezeigt.
 </para>
 
 <para>
-Weiterhin können Sie festlegen, dass bei einem Follow-UP auf ein Ticket
+Weiterhin können Sie festlegen, dass bei einem Follow-Up auf ein Ticket
 wieder der Mitarbeiter Eigentümer dieses Tickets wird, der zuletzt als
 Eigentümer im System für dieses Ticket vermerkt war. Dies stellt
 sicher, dass die Nachfrage eines Kunden zuerst bei demselben
@@ -577,7 +577,7 @@ erfahren Sie mehr über die Einrichtung dieser Parameter.
 
 <para>
 Mit Hilfe der verschiedenen Kundeninfo-Parameter können Sie
-schließlich festlegen, bei welchen Ereignisen ein Kunde über die
+schließlich festlegen, bei welchen Ereignissen ein Kunde über die
 Änderungen bei einem Ticket in dieser Queue informiert werden soll.
 </para>
 
@@ -638,7 +638,7 @@ diese bearbeitet werden.
 </para>
 
 <para>
-Um eine Antwortvorlagen einer oder mehreren Queues zuzuweisen, aktivieren
+Um eine Antwortvorlage einer oder mehreren Queues zuzuweisen, aktivieren
 Sie im Admin-Bereich den Link "Antworten &lt;-&gt; Queues". Es wird eine
 Tabelle geladen, die die Queues und die einzelnen Antwortvorlagen und deren
 Beziehung zueinander (1:n oder n:1) anzeigt. Hier können Sie nun die
@@ -654,10 +654,10 @@ zitierte Ticketinhalt und eine Signatur geladen werden. Antwortvorlagen
 setzen sich also aus verschiedenen Textbausteinen zusammen. Dies sind die
 Anrede und Signatur der Queue, in der sich das zu beantwortende Ticket
 befindet, der Text des Tickets auf das geantwortet werden soll und ggf. der
-Text der Antwortvorlage selbst, der wie gerade geschrieben festgelegt
+Text der Antwortvorlage selbst, der wie gerade beschrieben, festgelegt
 werden kann. Diese Elemente sind standardmäßig so angeordnet,
 dass beim Antworten zuerst die Anrede, danach der zitierte Text des zu
-beantwortenden Tickets, anschließend ggf. der Text der Antwortvorlage
+beantwortende Ticket, anschließend ggf. der Text der Antwortvorlage
 und zum Schluss die Signatur ausgegeben wird.
 </para>
 
@@ -665,7 +665,7 @@ und zum Schluss die Signatur ausgegeben wird.
 <title>Anreden</title>
 
 <para>
-Ein Textbaustein für eine Antwortvorlage, ist die Anrede. Anreden
+Ein Textbaustein für eine Antwortvorlage ist die Anrede. Anreden
 können einer Queue zugeordnet werden, wie im Abschnitt zu den
 
 <link linkend="adminarea-queue">
@@ -709,7 +709,7 @@ Variable, der sich oft auf den in der Variable gespeicherten Inhalt
 bezieht. Bauen Sie z.B. in Ihrem Anredentext die Variable
 &lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
 Nachnamen der Person ersetzt, deren Ticket Sie beantworten. Sehen Sie
-sich auch die schon bereits im system gespeicherten Anreden an, dann wird
+sich auch die schon bereits im System gespeicherten Anreden an, dann wird
 die Verwendung der verschiedenen Variablen klarer.
 </para>
 
@@ -775,7 +775,7 @@ Name der Variable, der sich oft auf den in der Variable gespeicherten
 Inhalt bezieht. Bauen Sie z.B. in Ihrem Anredentext die OTRS-Variable
 &lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
 Nachnamen des Agents ersetzt, der das Ticket beantwortet hat. Sehen Sie
-sich auch die schon bereits im system gespeicherten Anreden an, dann wird
+sich auch die schon bereits im System gespeicherten Anreden an, dann wird
 die Verwendung der verschiedenen Variablen klarer.
 </para>
 
@@ -797,8 +797,8 @@ entweder auf "ungültig" oder auf "ungültig-temporär".
 <para>
 Ein weitere optionaler Teil einer Antwortvorlage kann eine Anlage sein.
 Diese wird bei der Benutzung einer Antwortvorlage als Anhang an das zu
-beantwortende Ticket mit angehängt, kann aber über eine Checkbox im
-Antworten-Bildschirm für Tickets leicht  deaktiviert werden.
+beantwortende Ticket angehängt, kann aber über eine Checkbox im
+Antworten-Bildschirm für Tickets leicht deaktiviert werden.
 </para>
 
 <para>
@@ -810,7 +810,7 @@ Antworten-Bildschirm für Tickets leicht  deaktiviert werden.
 
 <para>
 Über den "Anlagen"-Link im Admin-Bereich können Sie neue Anlagen in das
-System integrieren. Nachdem eine Anlage im system gespeichert wurde, kann
+System integrieren. Nachdem eine Anlage im System gespeichert wurde, kann
 sie noch einer oder mehreren Antwortvorlagen zugeordnet werden. Die
 Zuordnung der Anlagen zu den einzelnen Antwortvorlagen kann über
 den Link "Anlagen &lt;-&gt; Antworten" im Admin-Bereich von OTRS erreicht
@@ -926,7 +926,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
 </table>
 
 <para>
-Für die Betreffzeile und dem Text von automatischen Antworten kann genauso
+Für die Betreffzeile und den Text von automatischen Antworten kann genauso
 wie bei Signaturen oder Anreden, der Inhalt mit Hilfe von OTRS-Variablen
 dynamisch erzeugt werden. So werden über die Variable
 &lt;OTRS_CUSTOMER_EMAIL[5]&gt; die ersten 5 Zeilen der an das System
@@ -954,7 +954,7 @@ Einstellungen der entsprechenden Auto-Antwort in der Listbox für
 </para>
 
 <para>
-Um eine automatische Antwort einer oder mehreren queues zuzuweisen, folgen
+Um eine automatische Antwort einer oder mehreren Queues zuzuweisen, folgen
 Sie im Admin-Bereich den Link "Auto Antworten &lt;-&gt; Queues". Dort sind
 für jede Queue die verschiedenen Ereignistypen aufgelistet und es kann eine
 Zuordnung einer Auto-Antwort vom gleichen Ereignistyp durchgeführt bzw.
@@ -1049,7 +1049,7 @@ Agenten bestimmt ist.
 <para>
 Auch innerhalb der Benachrichtigungen können die Textinhalte mit Hilfe der
 OTRS-Variablen dynamisch aufbereitet werden. Innerhalb der Anmerkungen im
-unterem Bereich der Bildschirmmaske zur Benachrichtigungen-Verwaltung
+unteren Bereich der Bildschirmmaske zur Benachrichtigungen-Verwaltung
 werden die verschiedenen zur Verfügung stehenden Variablen und deren
 Verwendung aufgelistet und näher erklärt.
 </para>
@@ -1087,7 +1087,7 @@ des Systems aktiviert und konfiguriert werden
 <para>
 Über den "SMIME"-Link im Admin-Bereich von OTRS erreichen Sie die
 Verwaltung der SMIME-Zertifikate. Es können Zertifikate und private
-Fingerprints hinzugefügt unt entfernt werden und eine Suche in den
+Fingerprints hinzugefügt und entfernt werden und eine Suche in den
 Zertifikaten ist möglich.
 </para>
 
@@ -1124,7 +1124,7 @@ des Systems aktiviert und konfiguriert werden
 <para>
 Über den "PGP"-Link im Admin-Bereich von OTRS erreichen Sie die
 Verwaltung des Schlüsselrings Ihres Systems. Es können Schlüssel und
-Signaturen  hinzugefügt unt entfernt werden und eine Suche innerhalb des
+Signaturen  hinzugefügt und entfernt werden und eine Suche innerhalb des
 Schlüsselrings ist möglich.
 </para>
 
@@ -1140,18 +1140,18 @@ möchten, bearbbeiten.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Status</screeninfo>
+<screeninfo>Verwaltung der Stati</screeninfo>
 <graphic srccredit="Adminarea states - screenshot" scale="40" fileref="screenshots/admin-status.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Nach einer Standardinstallation sind die Status "closed successful",
+Nach einer Standardinstallation sind die Stati "closed successful",
 "closed unsuccessful", "merged", "new", "open", "pending auto close+",
 "pending auto close-" "pending reminder" und "removed" vorhanden. Jeder
-Status ist einen Status-Typ zugeordnet, der auch beim Anlegen eines neuen
+Status ist einem Status-Typ zugeordnet, der auch beim Anlegen eines neuen
 Status vergeben werden muss. Es gibt standardmäßig die Status-Typen
-"geschlossen", "merged", "neu", "offen", "pending auto", "waren zur
+"geschlossen", "merged", "neu", "offen", "pending auto", "warten zur
 Erinnerung" und "entfernt".
 </para>
 </sect1>
@@ -1161,7 +1161,7 @@ Erinnerung" und "entfernt".
 
 <para>
 Seit OTRS 2.0 kann das System nahezu vollständig über das Webinterface
-konfiguriert werden und manuelle anpassungen der Konfigurationsdateien
+konfiguriert werden und manuelle Anpassungen der Konfigurationsdateien
 gehören der Vergangenheit an. MÖglich wird dies durch das grafische
 Administrations-Frontend.
 </para>
@@ -1221,7 +1221,7 @@ soll.
 
 <para>
 Beim Anlegen eines neuen POP3-Accounts, muss der POP3-Server, ein Login und
-ein Kennwort angegeben werden. Wählen Sie für "Vertraut" den wert "Ja"
+ein Kennwort angegeben werden. Wählen Sie für "Vertraut" den Wert "Ja"
 aus, dann werden die sog. X-OTRS-Header-Einträge ausgewertet und
 angewendet, falls derartige Headereinträge in einer abgerufenen Nachricht
 vorhanden sind. Da mit Hilfe der X-OTRS-Header einige Dinge am System
@@ -1309,7 +1309,7 @@ Verwaltung für die Filterregeln auf.
 Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt
 werden müssen, damit die Filterregel greift, und aus einer oder mehreren
 Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt wurden.
-Sie können für die Kopfzeilen und dem Body einer Nachricht Filterregeln
+Sie können für die Kopfzeilen und den Body einer Nachricht Filterregeln
 festlegen, also z.B. nach bestimmten Headern suchen oder nach Zeichenketten
 bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen für eine
 Filterregel werden über sog. X-OTRS-Header gesteuert, die in die Mail
@@ -1371,7 +1371,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           Yes
         </entry>
         <entry>
-          Wir dieser Header gesetzt, wird die Mail komplett ignoriert und
+          Wird dieser Header gesetzt, wird die Mail komplett ignoriert und
           gelangt somit nie als Ticket in das System.
         </entry>
       </row>
@@ -1414,7 +1414,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-ArticleKey(1|2|3):
         </entry>
         <entry>
-          Zusätzlicher Iinfo-Key für das Ticket.
+          Zusätzlicher Info-Key für das Ticket.
         </entry>
         <entry>
           Speichert einen zusätzlichen Info-Key für die eingehende
@@ -1429,7 +1429,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           Zusätzlicher Info-Value.
         </entry>
         <entry>
-          Speichert einen zusätzlichen Info-Value für die eingehenden
+          Speichert einen zusätzlichen Info-Value für die eingehende
           Nachricht.
         </entry>
       </row>
@@ -1516,7 +1516,7 @@ auswählen und rechts daneben den entsprechenden Wert eintragen.
 <para>
 Eine nützliche Filterregel könnte sein, alle Mails, die von spamassassin
 als Spam markiert wurden, automatisch in die Queue "Junk" einsortieren zu
-lassen. Spamassassin fügt bei alle überprüften Mails die Kopfzeile
+lassen. Spamassassin fügt bei allen überprüften Mails die Kopfzeile
 "X-Spam-Flag" hinzu. Wird die Mail als Spam markiert, wird dieser Header
 auf "Yes" gesetzt. Das Filterkriterium lautet also "X-Spam-Flag: Yes". Um nun
 eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als
@@ -1529,7 +1529,7 @@ der Sektion "Setzen" für "Header 1" den Eintrag "X-OTRS-Queue:" aus und
 tragen als Wert rechts daneben "Junk" ein. Abschließend wird mit Hilfe des
 "Hinzufügen"-Buttons die neue Regel gespeichert und aktiviert, beim nächsten
 Abruf der POP3-Konten bzw. für die nächste an das System gesendete
-nachricht wird die Filterregel abgearbeitet.
+Nachricht wird die Filterregel abgearbeitet.
 </para>
 </example>
 
@@ -1739,10 +1739,10 @@ genutzt werden.
 <para>
 Um immer Zugriff auf die aktuellen Versionen der zusätzlichen Module zu
 haben, empfielt es sich, die Pakete über ein Online-Repository
-einzuspielen. Die neuste Modulliste des Online-Repositorys erhalten Sie,
+einzuspielen. Die neueste Modulliste des Online-Repositorys erhalten Sie,
 indem Sie aus der Listbox für "Quelle" den Server auswählen, von dem die
 Daten des Repositorys heruntergeladen werden sollen. Verwenden Sie den
-"Aktualisieren"-Schalter, um die Daten auf den neusten Stand zu bringen.
+"Aktualisieren"-Schalter, um die Daten auf den neuesten Stand zu bringen.
 Nach kurzer Zeit werden auf der rechten Seite im Abschnitt für das Online
 Repository die Module aufgelistet, die online für eine Installation zur
 Verfügung stehen. In der rechten Spalte dieser Tabelle können Sie den

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation des OTRS Framework</title>
@@ -26,7 +26,7 @@ in den OTRS-Konfigurationsdateien, sind in diesem Kapitel zu finden.
 </para>
 
 <para>
-Am Ende dieses Abschnitts sollte ein laufähiges OTRS auf Ihrem
+Am Ende dieses Abschnitts sollte ein lauffähiges OTRS auf Ihrem
 Betriebssystem installiert sein, an dessen Weboberfläche Sie sich
 bereits als OTRS-Administrator anmelden können.
 </para>
@@ -82,7 +82,7 @@ beachtet und auflösen kann.
 </para>
 
 <para>
-Sollten Sie den Weg über die Kommandozeilen mit
+Sollten Sie den Weg über die Kommandozeile mit
 <command>rpm</command> bevorzugen, so müssen Sie die
 perl-Module manuell vor Beginn der Installation von
 OTRS installieren. Angenommen Sie haben die Datei
@@ -264,14 +264,14 @@ linux:~ #
 <para>
 Die Installation von OTRS ist beendet, Sie sollten das System nun
 verwenden können. Um sich in die Weboberfläche des
-Trouble Ticket Systems einlogen zu können, geben sie die Adresse
+Trouble Ticket Systems einloggen zu können, geben sie die Adresse
 
 <ulink url="http://localhost/otrs/index.pl">
 <citetitle>http://localhost/otrs/index.pl</citetitle>
 </ulink>
 
 in Ihrem Browser ein. Melden sie sich als OTRS-Administrator an und
-konfigurieren Sie das System weiter Ihren Wünschen entsprechend.
+konfigurieren Sie das System Ihren Wünschen entsprechend.
 Als Benutzername verwenden Sie root@localhost, das Passwort lautet
 root.
 </para>
@@ -299,7 +299,7 @@ Installieren Sie OTRS mittels <application>apt-get</application>
 benötigt, die nicht standardmäßig in einer typischen
 debian-Installation enthalten sind. Lassen Sie
 <application>apt-get</application> diese Abhängigkeiten selbst
-auflösen und alle weiteren Pakete automatisch mit installieren.
+auflösen und alle weiteren Pakete automatisch installieren.
 Bringen Sie weiterhin vor der Installation Ihre Paketlisten durch ein
 <command>apt-get update</command> auf den aktuellsten Stand, so
 erhalten Sie immer die neusten Versionen der installierbaren Pakete.
@@ -327,7 +327,7 @@ Setting up otrs (1.3.2p01-5) ...
 Adding system user `otrs'...
 Adding new user `otrs' (105) with group `www-data'.
 Not creating home directory.
-SetPermissions.sh &lt;$Revision: 1.4 $&gt; - set OTRS file permissions
+SetPermissions.sh &lt;$Revision: 1.5 $&gt; - set OTRS file permissions
 Copyright (c) 2001-2003 Martin Edenhofer &lt;martin@otrs.org&gt;
 Setting file permissions...
 chown -R 0:0 /usr/share/otrs
@@ -457,7 +457,7 @@ standardmäßig gesetzte Passwort!
 </para>
 
 <para>
-Die Installation von OTRS ist beendet, Sie sollten das System nun
+Die Installation von OTRS ist beendet. Sie sollten das System nun
 verwenden können. Auch die cron-Jobs, die für den Betrieb von OTRS
 benötigt werden, wurden bei der Installation des .deb-Pakets mit
 eingerichtet. Um sich in die Weboberfläche des
@@ -586,7 +586,7 @@ linux:/opt/otrs/Kernel/Config#
 </para>
 
 <para>
-Zum Abschllß der Vorbereitungen werden noch die richtigen
+Zum Abschluss der Vorbereitungen werden noch die richtigen
 Zugriffsrechte für die Dateien des Ticket Systems gesetzt. Dazu kann
 das Skript <command>SetPermissions.sh</command> verwendet werden, das sich
 im Verzeichnis <filename>bin</filename> innerhalb des Homeverzeichnisses des
@@ -755,7 +755,7 @@ benötigt.
           Net::POP3
         </entry>
         <entry>
-          Modul mit Funktionen für den Zugriff auf einem
+          Modul mit Funktionen für den Zugriff auf einen
           POP3-Server.
         </entry>
       </row>
@@ -802,7 +802,7 @@ benötigt.
         </entry>
         <entry>
           Text- und Grafikwerkzeuge für die Benutzung zusammen mit der
-          GD Grafics Library. Diese Komponenten werden nur benötigt,
+          GD Graphics Library. Diese Komponenten werden nur benötigt,
           wenn das Statistikmodul von OTRS verwendet werden soll.
         </entry>
       </row>
@@ -1094,11 +1094,11 @@ Tabellen innerhalb der OTRS Datenbank erzeugen.
 <para>
 Einfügen der vom System benötigten Daten: Damit OTRS richtig
 funktioniert, müssen einige Daten in verschiedene Tabellen geschrieben
-werden (z.B. die verschiedenen Ticketstatus, Ticket- und
+werden (z.B. die verschiedenen Ticketstati, Ticket- und
 Benachrichtigungstypen, etc.). Verwenden Sie entweder die Datei
 <filename>initial_insert.sql</filename> oder
 <filename>initial_insert.sapdb.sql</filename> zum Einspielen der Daten,
-jenachdem welche Datenbank verwendet wird.
+je nachdem welche Datenbank verwendet wird.
 </para>
 </listitem>
 <listitem>
@@ -1116,9 +1116,9 @@ werden (z.B. <filename>otrs-schema-oracle.post.sql</filename>,
 
 <para>
 Nachdem Sie die Datenbank angelegt haben, sollten Sie die Zugriffsrechte
-dafür setzen und z.B. sicher stellen, dass nur ein bestimmter
+dafür setzen und z.B. sicherstellen, dass nur ein bestimmter
 Benutzer ohne Datenbank-Administrationsrechte Zugriff auf die OTRS
-Datenbank hat. Jenachdem, welche Datenbank Sie einsetzen, unterscheiden
+Datenbank hat. Je nachdem, welche Datenbank Sie einsetzen, unterscheiden
 sich hier die Vorgehensweisen, es sollte jedoch möglich sein dies mit
 Hilfe Ihres Datenbankinterfaces bzw. Ihrer Datenbankoberfläche zu
 erledigen.
@@ -1166,8 +1166,8 @@ eingerichtet werden.
 
 <para>
 Damit OTRS voll funktioniert, werden einige cron-Jobs benötigt. Die
-cron-Jobs sollten mit den selben Benutzerrechten ausgeführ werden,
-die auch für die restlichen OTRS-Skripte vergeben wurden, d.h., die
+cron-Jobs sollten mit denselben Benutzerrechten ausgeführt werden,
+die auch für die restlichen OTRS-Skripte vergeben wurden, d.h. die
 cronJobs sollten in die crontab des OTRS-Benutzers eingetragen werden. Alle
 Skripte für die verschiedenen cron-Jobs befinden sich im Verzeichnis
 <filename>var/cron</filename> innerhalb des Homeverzeichnisses des
@@ -1310,7 +1310,7 @@ OTRS-Benutzers installiert werden sollten.
           session
         </entry>
         <entry>
-          Über dieses Skript werden alte und nicht mehr gütige
+          Über dieses Skript werden alte und nicht mehr gültige
           Session-IDs entfernt.
         </entry>
       </row>
@@ -1333,7 +1333,7 @@ Für die Einrichtung aller cron-Jobs kann das Skript
 <filename>Cron.sh</filename> verwendet werden, das sich im Verzeichnis
 <filename>bin</filename> innerhalb des Homeverzeichnisses des
 OTRS-Benutzers befindet. Dem Cron.sh Skript muss beim Aufruf ein
-Parameter mit übergeben werden. Dieser Parameter legt fest, ob die
+Parameter übergeben werden. Dieser Parameter legt fest, ob die
 cron-Jobs installiert, deinstalliert oder neu gestartet werden. Es sind
 folgende Parameter zulässig.
 </para>
@@ -1369,7 +1369,7 @@ also die Installation wie folgt vor.
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.4 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.5 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1392,7 +1392,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1402,7 +1402,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1412,7 +1412,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1425,7 +1425,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1435,7 +1435,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1445,7 +1445,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1456,7 +1456,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1466,7 +1466,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1476,7 +1476,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1486,7 +1486,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.4 2005-09-05 12:26:51 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.5 2005-09-08 13:54:13 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
@@ -1498,7 +1498,7 @@ linux:/opt/otrs/bin#
 
 <para>
 Die Installation von OTRS ist abgeschlossen, Sie können das System nun
-über dessen Weboberfläche wweiter an Ihre Bedürfnisse
+über dessen Weboberfläche weiter an Ihre Bedürfnisse
 anpassen und benutzen.
 </para>
 

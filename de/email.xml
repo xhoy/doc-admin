@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.2 2005-09-05 10:30:28 cs Exp $ -->
+<!-- $Id: email.xml,v 1.3 2005-09-08 13:53:56 cs Exp $ -->
 
 <chapter id="email">
 <title>Email versenden/empfangen</title>
@@ -39,7 +39,7 @@
 <para>OTRS ist in der Lage, Emails via SMTP (
 <ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol / RFC 821</ulink>) zu versenden. Hauptsächlich auf Nicht-Unix-Plattformen (z.B. Win32) benutzt.</para>
 
-<para>Es gibt die Konfiguration über das Admin-Interface-SysConfig (Framework::Core::Sendmail) oder in "Kernel/Config.pm" vorgenommen werden:</para>
+<para>Die Konfiguration kann über das Admin-Interface-SysConfig (Framework::Core::Sendmail) oder in "Kernel/Config.pm" vorgenommen werden:</para>
 
 <para>
 <programlisting>
