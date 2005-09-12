@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.1 2005-08-25 11:28:32 martin Exp $ -->
+<!-- $Id: email.xml,v 1.2 2005-09-12 09:12:51 cs Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -13,7 +13,7 @@
 <title>Via Sendmail (default)</title>
 
 <para>
-OTRS is able to send out emails via Sendmail (e. g.
+OTRS can send out emails via Sendmail (e. g.
  <ulink url="http://www.sendmail.org/">Sendmail</ulink>,
  <ulink url="http://www.postfix.org/">Postfix</ulink>,
  <ulink url="http://www.qmail.org">Qmail</ulink> or
@@ -22,7 +22,9 @@ The default configuration to use Sendmail should work out of the box.
 </para>
 
 <para>
-It's possible to configure over the Admin-Interface-SysConfig (Framework::Core::Sendmail) or via Kernel/Config.pm:
+You can configure the sendmail settings via the graphical configuration
+frontend (Framework::Core::Sendmail) or via
+<filename>Kernel/Config.pm</filename>:
 </para>
 
 <para>
@@ -40,14 +42,16 @@ It's possible to configure over the Admin-Interface-SysConfig (Framework::Core::
 <sect2 id="email-sending-smtp">
 <title>Via SMTP relay/smarthost</title>
 
-
 <para>
-OTRS is able to send out emails via SMTP (
-<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol / RFC 821</ulink>). Mostly used on non unix platforms (e. g. win32).
+OTRS can send out emails via SMTP (
+<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol / RFC 821</ulink>).
+This settings will mostly be needed on non unix platforms (e. g. win32).
 </para>
 
 <para>
-It's possible to configure over the Admin-Interface-SysConfig (Framework::Core::Sendmail) or via Kernel/Config.pm:
+The sendmail settings for a smarthost can be configured either via the
+graphical administration frontend (Framework::Core::Sendmail) or via
+<filename>Kernel/Config.pm</filename>:
 </para>
 
 <para>
@@ -67,55 +71,81 @@ It's possible to configure over the Admin-Interface-SysConfig (Framework::Core::
 <title>Receiving emails</title>
 
 <sect2 id="email-receiving-pop3">
-
 <title>Via POP3 accounts - the easy way (PostMasterPOP3.pl)</title>
+
 <para>
 OTRS is able to receive emails from POP3 accounts.
 </para>
+
 <para>
 Configure your POP3 accounts via the admin interface (POP3 Account).
-<screenshot>
-<screeninfo>add email address</screeninfo>
-<graphic srccredit="add POP3 account - screenshot" scale="40" fileref="screenshots/admin-add-pop3-account.png"></graphic>
-</screenshot>
-Execute bin/PostMasterPOP3.pl and all emails will be fetched to your OTRS system.
 </para>
+
 <para>
-There is also an example cronjob (var/cron/postmaster_pop3.dist) which execute
-your bin/PostMasterPOP3.pl every 10 minutes (see also chapter cronjobs).
+<screenshot>
+<screeninfo>Configure your POP3 accounts</screeninfo>
+<graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Execute the command <filename>bin/PostMasterPOP3.pl</filename> and all
+emails will be fetched into your OTRS system.
+</para>
+
+<para>
+There is also an example cronjob (var/cron/postmaster_pop3.dist) that
+executes your <filename>bin/PostMasterPOP3.pl</filename> every 10 minutes.
+</para>
+
+<para>
+Todo: Insert reference to chapter about cronjobs
 </para>
 
 </sect2>
 
-
 <sect2 id="email-receiving-cmd">
-
-
 <title>Via command line program and e. g. procmail (PostMaster.pl)</title>
+
 <para>
-OTRS is able to receive emails via a command line programm (bin/PostMaster.pl).
+If POP3 can't be used to get the emails into OTRS, the commandline
+programm <filename>bin/PostMaster.pl</filename> might be a solution.
+<filename>bin/PostMaster.pl</filename> takes the mails via STDIN and pipes
+them directly into OTRS. That means emails will be shown in your OTRS system
+if the MDA (mail delivery agent, e. g. procmail) executes
+<filename>bin/PostMaster.pl</filename>
 </para>
+
 <para>
-That means emails will be shown in your OTRS system if the MDA (mail delivery agent,
-e. g. procmail) pipes the emails into bin/PostMaster.pl.
+To test <filename>bin/PostMaster.pl</filename> without MDA on the command
+line execute the following command:
 </para>
+
 <para>
-To test the bin/PostMaster.pl on your command line (without MDA) use:
-<programlisting>
-shell:~ # cat /opt/otrs/doc/test-email-1.box | /opt/otrs/bin/PostMaster.pl
-shell:~ #
-</programlisting>
+<screen>
+linux:/opt/otrs# cd bin
+linux:/opt/otrs/bin# cat ../doc/test-email-1.box | ./PostMaster.pl
+linux:/opt/otrs/bin#
+</screen>
+</para>
+
+<para>
 If the email is shown in the QueueView then your setup works fine.
 </para>
+
 <para>
 Procmail is a very common e-mail filter in the Linux enviroment. It will be
- probably installed on your system. If not have a look at the
+installed on most systems. If not, have a look at the
 <ulink url="http://www.procmail.org/"><citetitle>procmail homepage</citetitle></ulink>.
 </para>
 
 <para>
-To configure procmail for that (requires a procmail configured MTA (e. g. sendmail,
- postfix, exim or qmail)) use the ~otrs/.procmailrc and modify/add the following.
+To configure procmail for OTRS (requires a procmail configured MTA (e. g.
+sendmail,  postfix, exim or qmail)) use the
+<filename>~otrs/.procmailrc</filename> and modify/add the following.
+</para>
+
+<para>
 <programlisting>
 SYS_HOME=$HOME
 PATH=/bin:/usr/bin:/usr/local/bin
@@ -125,65 +155,94 @@ PATH=/bin:/usr/bin:/usr/local/bin
 :0 :
 | $SYS_HOME/bin/PostMaster.pl
 </programlisting>
-All emails sent to the local otrs user will be piped into bin/PostMaster.pl and then shown in your QueueView.
 </para>
 
-<sect3>
+<para>
+All emails sent to the local otrs user will be piped into
+<filename>bin/PostMaster.pl</filename> and then shown in your QueueView.
+</para>
+</sect2>
+
+<sect2 id="email-receiving-fetchmail">
 <title>Fetching emails via POP3 or IMAP and fetchmail for PostMaster.pl</title>
-<para>
-In order to get e-mails from your mail server via a POP3 or IMAP mailbox to the
-<emphasis role='bold'>OTRS machine/local otrs account and to procmail</emphasis>
-use <ulink url="http://www.tuxedo.org/~esr/fetchmail/">fetchmail</ulink>.
-Note: A working SMTP configuration on the OTRS machine is a condition.
-</para>
 
 <para>
-<example>
+In order to get e-mails from your mail server via a POP3 or IMAP mailbox to
+the OTRS machine/local otrs account and to procmail use
+<ulink url="http://www.tuxedo.org/~esr/fetchmail/">fetchmail</ulink>.
+</para>
+
+<note>
+<para>
+A working SMTP configuration on the OTRS machine is required.
+</para>
+</note>
+
+<example id='fetchmailrc'>
 <title>.fetchmailrc</title>
+
+<para>
 <programlisting>
 #poll (mailserver) protocol POP3 user (user) password (password) is (localuser)
 poll mail.example.com protocol POP3 user joe password mama is otrs
 </programlisting>
-</example>
 </para>
+
+</example>
+
 <para>
 Don't forget to set the .fetchmailrc to 710 ("chmod 710 .fetchmailrc")!
 </para>
 
 <para>
-So if "fetchmail -a" is executed (maybe via cron), all e-mails will be forwarded
-to the local otrs account.
+With the <filename>.fetchmailrc</filename> from the example above, all e-mails
+will be forwarded to the local otrs account, if the command
+<command>fetchmail -a</command> is executed. Setup a cronjob with this
+command, if you want to fetch the mails regularyly.
 </para>
-
-</sect3>
 </sect2>
 
 <sect2 id="email-receiving-filter">
 <title>Filtering/dispatching by OTRS/PostMaster modules (for more complex dispatching)</title>
 
 <para>
-If you use the bin/PostMaster.pl or bin/PostMasterPOP3.pl method, the you can modify X-OTRS header with the PostMaster filter modules.
+If you use the bin/PostMaster.pl or bin/PostMasterPOP3.pl method, you can
+insert or modify X-OTRS header entries with the PostMaster filter modules.
 </para>
 
 <para>
-For example you can set the priority or the queue of an ticket with the PostMaster filter modules.
+Todo: Insert reference to table with x-otrs header
 </para>
 
 <para>
-There are some default filter modules:
+For example you can set the priority or the queue of a ticket with the
+PostMaster filter modules and the X-OTRS headers.
 </para>
 
 <para>
-Note: The job name (e. g. $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) needs to be unique!
+There exist some default filter modules:
 </para>
+
+<note>
+<para>
+The job name (e. g.
+$Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) needs to be unique!
+</para>
+</note>
 
 <para>
 Kernel::System::PostMaster::Filter::Match is a default module to
-match on some email header (e. g. From, To, Subject, ...) and then
-to set new email header (e. g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam).
-<screen>
-Kernel/Config.pm
-[...]
+match on some email header (e. g. From, To, Subject, ...). It can set
+new email headers (e. g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam) if a
+filter rule matches. The following example jobs can be inserted in
+<filename>Kernel/Config.pm</filename>
+</para>
+
+<example id='filter-module-match-example'>
+<title>Example jobs for the filter module Kernel::System::PostMaster::Filter::Match</title>
+
+<para>
+<programlisting>
     # Job Name: 1-Match
     # (block/ignore all spam email with From: noreply@)
     $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'1-Match'} = {
@@ -208,17 +267,24 @@ Kernel/Config.pm
             'X-OTRS-Queue' =&gt; 'Order',
         },
     };
-[...]
-</screen>
+</programlisting>
 </para>
+
+</example>
 
 <para>
 Kernel::System::PostMaster::Filter::CMD is a default module to
-pipe the email into an external cmd and it the result on STDOUT is true,
-then set new email header (e. g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam).
-<screen>
-Kernel/Config.pm
-[...]
+pipe the email into an external command. The output is given to STDOUT and
+if the result is true, then set new email header (e. g. X-OTRS-Ignore: yes
+or X-OTRS-Queue: spam). The following example can be used in
+<filename>Kernel/Config.pm</filename>
+</para>
+
+<example id='filter-module-cmd-example'>
+<title>Example job for the filter module Kernel::System::PostMaster::Filter::CMD</title>
+
+<para>
+<programlisting>
     # Job Name: 5-SpamAssassin
     # (SpamAssassin example setup, ignore spam emails)
     $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'5-SpamAssassin'} = {
@@ -228,16 +294,13 @@ Kernel/Config.pm
             'X-OTRS-Ignore' =&gt; 'yes',
         },
     };
-[...]
-</screen>
+</programlisting>
 </para>
 
-<para>
-Of cource, it's also possible to develop own PostMaster filter modules.
-</para>
+</example>
 
 <para>
-There is also a list of all usable X-OTRS header in doc/X-OTRS-Headers.txt.
+Ofcourse it's also possible to develop own PostMaster filter modules.
 </para>
 
 </sect2>
