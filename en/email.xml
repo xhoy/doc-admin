@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.2 2005-09-12 09:12:51 cs Exp $ -->
+<!-- $Id: email.xml,v 1.3 2005-09-12 12:18:19 cs Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -142,7 +142,8 @@ installed on most systems. If not, have a look at the
 <para>
 To configure procmail for OTRS (requires a procmail configured MTA (e. g.
 sendmail,  postfix, exim or qmail)) use the
-<filename>~otrs/.procmailrc</filename> and modify/add the following.
+<filename>~otrs/.procmailrc.dist</filename> file and copy it to
+<filename>.procmailrc</filename>. Add the following:
 </para>
 
 <para>
@@ -178,6 +179,12 @@ A working SMTP configuration on the OTRS machine is required.
 </para>
 </note>
 
+<para>
+You can use the <filename>.fetchmailrc.dist</filename> in the home
+directory of OTRS and copy it to <filename>.fetchmailrc</filename>.
+Modfiy/change it for your needs.
+</para>
+
 <example id='fetchmailrc'>
 <title>.fetchmailrc</title>
 
@@ -203,20 +210,22 @@ command, if you want to fetch the mails regularyly.
 </sect2>
 
 <sect2 id="email-receiving-filter">
-<title>Filtering/dispatching by OTRS/PostMaster modules (for more complex dispatching)</title>
+<title>Filtering/dispatching by OTRS/PostMaster modules (for more complex
+dispatching)</title>
 
 <para>
 If you use the bin/PostMaster.pl or bin/PostMasterPOP3.pl method, you can
 insert or modify X-OTRS header entries with the PostMaster filter modules.
-</para>
+With the X-OTRS headers the ticket system can execute some actions on
+incomming mails, sort them into a specific queue, change the priority oder
+change the customer ID for example. More information about the X-OTRS
+headers are available in the chapter about
 
-<para>
-Todo: Insert reference to table with x-otrs header
-</para>
+<link linkend=adminarea-postmasterpop3-account">
+adding POP3 accounts
+</link>
 
-<para>
-For example you can set the priority or the queue of a ticket with the
-PostMaster filter modules and the X-OTRS headers.
+in the admin area of OTRS.
 </para>
 
 <para>
