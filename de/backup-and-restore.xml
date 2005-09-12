@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: backup-and-restore.xml,v 1.4 2005-09-08 13:53:47 cs Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.5 2005-09-12 12:54:37 cs Exp $ -->
 
 <chapter id="backup-and-restore">
 <title>Datensicherung</title>
@@ -17,17 +17,53 @@ OTRS-Installation gesichert und wieder hergestellt werden können.
 <title>Backup</title>
 
 <para>
-Für ein Backup gibt es zwei Komponenten zu sichern. Einmal die Applikation (z.B. /opt/otrs/) und die Datenbank.
+Bei einem Backup gibt es zwei Arten von Daten zu sichern, die Applikation
+(z.B. /opt/otrs/) und die Datenbank.
 </para>
 
 <para>
-Um Backups zu vereinfachen wird ein "scripts/backup.pl" mitgeliefert welches die benötigten Komponenten sichert.
+Um Backups zu vereinfachen wird ein "scripts/backup.pl" mitgeliefert welches
+alle benötigten Komponenten sichert.
 </para>
 
 <para>
-<programlisting>
-shell&gt; scripts/backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullbackup]
-</programlisting>
+<screen>
+linux:/opt/otrs# cd scripts/
+linux:/opt/otrs/scripts# ./backup.pl --help
+backup.pl &lt;Revision 1.1&gt; - backup script
+Copyright (c) 2001-2005 Martin Edenhofer &lt;martin@otrs.org&gt;
+usage: backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullbackup]
+linux:/opt/otrs/scripts#
+</screen>
+</para>
+
+<para>
+Ein Backup kann also z.B. mit folgendem Befehl erstellt werden:
+</para>
+
+<para>
+<screen>
+linux:/opt/otrs/scripts# ./backup.pl -d /backup/
+Backup /backup//2005-09-12_14-28/Config.tar.gz ... done
+Backup /backup//2005-09-12_14-28/Application.tar.gz ... done
+Dump MySQL rdbms ... done
+Compress SQL-file... done
+linux:/opt/otrs/scripts#
+</screen>
+</para>
+
+<para>
+Alle Daten wurden in das Verzeichnis
+<filename>/backup/2005-09-12_14-28/</filename> gesichert und dort, getrennt
+nach Art der Daten, in einzelne .tar.gz-Dateien gespeichert.
+</para>
+
+<para>
+<screen>
+linux:/opt/otrs/scripts# ls /backup/2005-09-12_14-28/
+Application.tar.gz  Config.tar.gz  DatabaseBackup.sql.gz
+linux:/opt/otrs/scripts#
+</screen>
 </para>
 
 </sect1>
@@ -36,17 +72,43 @@ shell&gt; scripts/backup.pl -d /data_backup/ [-c bzip2|gzip] [-r 30] [-t nofullb
 <title>Restore</title>
 
 <para>
-Um ein Backup wieder einzuspielen, müssen die Applikation (z.B. nach /opt/otrs/) und die Datenbank wieder hergestellt werden.
+Um ein Backup wieder einzuspielen, müssen die Applikation (z.B. nach
+<filename>/opt/otrs/</filename>) und die Datenbank wieder hergestellt werden.
 </para>
 
 <para>
-Um Backups einspielen zu können wird ein "scripts/restore.pl" mitgeliefert welches die benötigten Komponenten wiederhergestellt. Es unterstützt MySQL und PostgreSQL.
+Um Backups einspielen zu können wird ein "scripts/restore.pl" mitgeliefert,
+das die benötigten Komponenten wieder zurück sichert. Es unterstützt
+MySQL und PostgreSQL.
 </para>
 
 <para>
-<programlisting>
-shell&gt; scripts/restore.pl -b /data_backup/&lt;TIME&gt;/ -d /opt/otrs/
-</programlisting>
+<screen>
+linux:/opt/otrs/scripts# ./restore.pl --help
+restore.pl &lt;Revision 1.1&gt; - restore script
+Copyright (c) 2001-2005 Martin Edenhofer &lt;martin@otrs.org&gt;
+usage: restore.pl -b /data_backup/&lt;TIME&gt;/ -d /opt/otrs/
+linux:/opt/otrs/scripts#
+</screen>
+</para>
+
+<para>
+Daten, die im Verzeichnis <filename>/backup/2005-09-12_14-28/</filename>
+gesichert wurden, können bei einer OTRS-Installation in
+<filename>/opt/otrs</filename> folgendermaßen zurück gesichert werden.
+</para>
+
+<para>
+<screen>
+linux:/opt/otrs/scripts# ./restore.pl -b /backup/2005-09-12_14-28 -d /opt/otrs/
+Restore /backup/2005-09-12_14-28//Config.tar.gz ...
+Restore /backup/2005-09-12_14-28//Application.tar.gz ...
+create MySQL
+decompresses SQL-file ...
+cat SQL-file into MySQL database
+compress SQL-file...
+linux:/opt/otrs/scripts#
+</screen>
 </para>
 
 </sect1>
