@@ -1,0 +1,559 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+  <!-- $Id: external-backends.xml,v 1.1 2005-09-16 13:29:43 cs Exp $ -->
+
+<chapter id="external-backends">
+<title>Using external backends</title>
+
+<sect1 id='customer-data'>
+<title>Customer data</title>
+
+<para>
+OTRS can handle different customer data, e.g. login, mail address, phone
+number. This information can be displayed, edited and used  via the agent
+interface. Also the customer need these data to authenticate to the ticket
+system.
+</para>
+
+<para>
+The customer data which will be displayed or used in the system is freely
+configurable, but OTRS needs at least three informations about a customer
+to work propperly, the login for the customer, the mail address of the
+customer and the customer ID.
+</para>
+
+<para>
+If you want to display the customer data (e.g. company, name, email) in the
+agent interface use the following config parameters and insert them in
+<filename>Kernel/Config.pm</filename>
+</para>
+
+<para>
+<programlisting>
+    # Ticket::Frontend::CustomerInfo*
+    # (show customer user info on Compose (Phone and Email), Zoom and
+    # Queue view)
+    $Self->{'Ticket::Frontend::CustomerInfoCompose'} = 1;
+    $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;
+    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;
+</programlisting>
+</para>
+</sect1>
+
+<sect1 id="customer-user-backend">
+<title>Customer user backend</title>
+
+<para>
+OTRS can use two types of customer user backends, DB and LDAP. If you
+already have a database or directory with customer data (e.g. SAP) it is
+ofcourse possible to write a new backend.
+</para>
+
+<note>
+<para>
+It is also possible to configure more than one customer data backend for
+OTRS. Just add another config option like "CustomerUser" with a number
+between 1 and 10, e.g. "CustomerUser1".
+</para>
+</note>
+
+<sect2 id='customer-backend-db'>
+<title>Database (Default)</title>
+
+<para>
+This is an example for a database customer user backend.
+</para>
+
+<para>
+<programlisting>
+    # CustomerUser
+    # (customer user database backend and settings)
+    $Self->{CustomerUser} = {
+        Name => 'Datenbank Quelle',
+        Module => 'Kernel::System::CustomerUser::DB',
+        Params => {
+            # if you want to use an external database, add the
+            # required settings
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+        },
+        # customer uniq id
+        CustomerKey = 'login',
+        # customer #
+        CustomerID = 'customer_id',
+        CustomerValid = 'valid_id',
+        CustomerUserListFields => ['first_name', 'last_name', 'email'],
+        CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
+        CustomerUserSearchPrefix => '',
+        CustomerUserSearchSuffix => '*',
+        CustomerUserSearchListLimit => 250,
+        CustomerUserPostMasterSearchFields => ['email'],
+        CustomerUserNameFields => ['salutation','first_name','last_name'],
+        CustomerUserEmailUniqCheck => 1,
+#        # show now own tickets in customer panel, CompanyTickets
+#        CustomerUserExcludePrimaryCustomerID => 0,
+#        # generate auto logins
+#        AutoLoginCreation => 0,
+#        AutoLoginCreationPrefix => 'auto',
+#        # admin can change customer preferences
+#        AdminSetPreferences => 1,
+#        # just a read only source
+#        ReadOnly => 1,
+        Map => [
+            # note: Login, Email and CustomerID needed!
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserSalutation', 'Salutation', 'salutation',  1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
+            [ 'UserPassword',   'Password',   'pw',          0, 1, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'email',       0, 1, 'var', '', 0 ],
+#            [ 'UserEmail',      'Email', 'email',           1, 1,
+#            'var','$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
+            [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
+#            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+            [ 'UserComment',     'Comment',   'comments',    1, 0, 'var', '', 0 ],
+            [ 'ValidID',         'Valid',     'valid_id',    0, 1, 'int', '', 0 ],
+        ],
+        # default selections
+        Selections => {
+            UserSalutation => {
+                'Mr.' => 'Mr.',
+                'Mrs.' => 'Mrs.',
+            },
+        },
+    };
+</programlisting>
+</para>
+
+<para>
+If you want to change your customer data just add another column in your
+database table or change an existing column:
+</para>
+
+<para>
+<programlisting>
+ALTER TABLE customer_user ADD phone VARCHAR (250);
+</programlisting>
+</para>
+
+<para>
+After the change in the database table you have to adjust the MAP array:
+</para>
+
+<para>
+<programlisting>
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
+</programlisting>
+</para>
+
+<para>
+Ofcourse all customer data can be edited or changed via the agent
+interface.
+</para>
+
+<sect3 id='multi-customer-ids-db'>
+<title>Customer with multible IDs</title>
+
+<para>
+A customer user can also have more than one customer ID. that might be
+usefull, if a customer needs to access tickets from another customer user,
+e.g. all employees of a company want to see the tickets from their
+colleagues.
+</para>
+
+<para>
+Just add another column for the additional ID in your database table like
+CustomerID1, CustomerID2, CustomerID3", e.g.:
+</para>
+
+<para>
+<programlisting>
+ALTER TABLE customer_user ADD customer_ids VARCHAR (250);
+</programlisting>
+</para>
+
+<para>
+After the change in the database table you have to adjust the MAP array and
+add the new column:
+</para>
+
+<para>
+<programlisting>
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+</programlisting>
+</para>
+
+<para>
+Ofcourse the multible customer IDs can be handled through the webinterface
+of OTRS.
+</para>
+</sect3>
+
+</sect2>
+
+<sect2 id='customer-backend-ldap'>
+<title>LDAP</title>
+
+<para>
+If you already have a LDAP directory with customer data you can use it with
+OTRS ofcourse.
+</para>
+
+<para>
+This example shows how to define a LDAP customer user backend in your
+<filename>Kernel/Config.pm</filename> file.
+</para>
+
+<para>
+<programlisting>
+    # CustomerUser
+    # (customer user ldap backend and settings)
+    $Self->{CustomerUser} = {
+        Name => 'LDAP Datenquelle',
+        Module => 'Kernel::System::CustomerUser::LDAP',
+        Params => {
+            # ldap host
+            Host => 'bay.csuhayward.edu',
+            # ldap base dn
+            BaseDN => 'ou=seas,o=csuh',
+            # search scope (one|sub)
+            SSCOPE => 'sub',
+#            # The following is valid but would only be necessary if the
+#            # anonymous user does NOT have permission to read from the LDAP tree
+            UserDN => '',
+            UserPw => '',
+            # in case you want to add always one filter to each ldap query, use
+            # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+            AlwaysFilter => '',
+            # if your frontend is e. g. iso-8859-1 and the charset of your
+            # ldap server is utf-8, use this options (if not, ignore it)
+#            SourceCharset => 'utf-8',
+#            DestCharset => 'iso-8859-1',
+            # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+            Params => {
+                port => 389,
+                timeout => 120,
+                async => 0,
+                version => 3,
+            },
+        },
+        # customer uniq id
+        CustomerKey => 'uid',
+        # customer #
+        CustomerID => 'mail',
+        CustomerUserListFields => ['cn', 'mail'],
+        CustomerUserSearchFields => ['uid', 'cn', 'mail'],
+        CustomerUserSearchPrefix => '',
+        CustomerUserSearchSuffix => '*',
+        CustomerUserSearchListLimit => 250,
+        CustomerUserPostMasterSearchFields => ['mail'],
+        CustomerUserNameFields => ['givenname', 'sn'],
+        # show now own tickets in customer panel, CompanyTickets
+        CustomerUserExcludePrimaryCustomerID => 0,
+        # add a ldap filter for valid users (expert setting)
+#       CustomerUserValidFilter => '(!(description=gesperrt))',
+        # admin can't change customer preferences
+        AdminSetPreferences => 0,
+        Map => [
+            # note: Login, Email and CustomerID needed!
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserSalutation', 'Title',      'title',           1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'sn',              1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'uid',             1, 1, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'mail',            1, 1, 'var', '', 0 ],
+            [ 'UserCustomerID', 'CustomerID', 'mail',            0, 1, 'var', '', 0 ],
+#            [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+            [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+            [ 'UserAddress',    'Address',    'postaladdress',   1, 0, 'var', '', 0 ],
+            [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],
+        ],
+    };
+</programlisting></para>
+
+<para>
+If you want to adjust your customer data just add the new values to the MAP
+array or remove not needed entries.
+</para>
+
+<programlisting>
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+</programlisting>
+
+<sect3 id='multi-customer-ids-ldap'>
+<title>Customer with multible IDs</title>
+
+<para>
+A customer user can also have more than one customer ID. that might be
+usefull, if a customer needs to access tickets from another customer user,
+e.g. all employees of a company want to see the tickets from their
+colleagues.
+</para>
+
+<para>
+Just add another column for the additional ID in your LDAP directory
+like CustomerID1, CustomerID2, CustomerID3", e.g. After this changes you
+have to add the new entry to the MAP array:
+</para>
+
+<programlisting>
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+</programlisting>
+
+<para>
+Ofcourse the multible customer IDs have to be edited by the LDAP admin,
+OTRS can only read these data and not write to the LDAP tree.
+</para>
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="customer-auth-backend">
+<title>Customer authentification backend</title>
+
+<sect2 id='customer-auth-backend-db'>
+<title>Database (Default)</title>
+
+<para>
+The default authentification backend for customer users is the OTRS
+database which can be used through the agent and customer interface. It is
+possible to create and change the user data via the web interface of OTRS.
+</para>
+
+<programlisting>
+    # This is the auth. module againt the otrs db
+        $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';
+</programlisting>
+</sect2>
+
+<sect2 id='customer-auth-backend-ldap'>
+<title>LDAP</title>
+
+<para>
+If you have a LDAP directory with customer data you can use the LDAP
+backend to authenticate the customer users to the ticket system. OTRS has
+only read access to the LDAP tree, that means that no customer user data can
+be added or changed via the agent or customer interface of the ticket
+system.
+</para>
+
+<programlisting>
+    # This is an example configuration for an LDAP auth. backend.
+    # (take care that Net::LDAP is installed!)
+    $Self->{'AuthModule'} = 'Kernel::System::Auth::LDAP';
+    $Self->{'AuthModule::LDAP::Host'} = 'ldap.example.com';
+    $Self->{'AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';
+    $Self->{'AuthModule::LDAP::UID'} = 'uid';
+
+    # Check if the user is allowed to auth in a posixGroup
+    # (e. g. user needs to be in a group xyz to use otrs)
+#    $Self->{'AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';
+#    $Self->{'AuthModule::LDAP::AccessAttr'} = 'memberUid';
+    # for ldap posixGroups objectclass (just uid)
+    $Self->{'AuthModule::LDAP::UserAttr'} = 'UID';
+    # for non ldap posixGroups objectclass (with full user dn)
+#    $Self->{'AuthModule::LDAP::UserAttr'} = 'DN';
+
+    # The following is valid but would only be necessary if the
+    # anonymous user do NOT have permission to read from the LDAP tree
+    $Self->{'AuthModule::LDAP::SearchUserDN'} = '';
+    $Self->{'AuthModule::LDAP::SearchUserPw'} = '';
+
+    # in case you want to add always one filter to each ldap query, use
+    # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+#    $Self->{'AuthModule::LDAP::AlwaysFilter'} = '';
+
+    # in case you want to add a suffix to each login name, then
+    # you can use this option. e. g. user just want to use user but
+    # in your ldap directory exists user@domain.
+#    $Self->{'AuthModule::LDAP::UserSuffix'} = '@domain.com';
+
+    # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+#    $Self->{'AuthModule::LDAP::Params'} = {
+#        port => 389,
+#        timeout => 120,
+#        async => 0,
+#        version => 3,
+#    };
+</programlisting>
+</sect2>
+
+<sect2 id='customer-auth-backend-httpbasic'>
+<title>HTTPBasicAuth</title>
+
+<para>
+If you want to implement a "single sign on" system for your customer users
+use http basic authentication for all of your systems and activate also
+this backend for OTRS (no login is for  OTRS needed).
+</para>
+
+<programlisting>
+    # This is an example configuration for an apache ($ENV{REMOTE_USER})
+    # auth. backend. Use it if you want to have a singe login through
+    # apache http-basic-auth
+    $Self->{'AuthModule'} = 'Kernel::System::Auth::HTTPBasicAuth';
+
+    # Note:
+    #
+    # If you use this module, you should use as fallback the following
+    # config settings if user isn't login through apache ($ENV{REMOTE_USER})
+#   $Self->{LoginURL} ='http://host.example.com/not-authorised-for-otrs.html';
+#   $Self->{LogoutURL} ='http://host.example.com/thanks-for-using-otrs.html';
+</programlisting>
+</sect2>
+
+<sect2 id='customer-auth-backend-radius'>
+<title>Radius</title>
+
+<para>
+The following settings can be used to authenticate against a radius server:
+</para>
+
+<programlisting>
+    # This is a example configuration to auth. against a radius server
+    $Self->{'AuthModule'} = 'Kernel::System::Auth::Radius';
+    $Self->{'AuthModule::Radius::Host'} = 'radiushost';
+    $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
+</programlisting>
+</sect2>
+
+</sect1>
+
+<sect1 id="customer-self-registration">
+<title>Customize the customer self registration</title>
+
+<para>
+It is possible to customiz the customer self registration for new customer
+users via customer.pl. You can add more optional or necesary fields, e.g.
+address, city, phone number.
+</para>
+
+<para>
+In the following example a new necesary field for the phone number is added.
+</para>
+
+<sect2 id='customer-self-registration-dtl'>
+<title>Customize the web interface</title>
+
+<para>
+Because the new necesary field for the phone number is displayed in the web
+interface, the dtl file for the webinterface must be changed. Edit the file
+<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename>
+and add the new input field for the phone number in line 128.
+</para>
+
+<programlisting>
+    &lt;tr&gt;
+      &lt;td&gt;$Text{"Phonenumber"}: &lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="Phone" value="$QData{"UserPhone"}" size="20" maxlength="50"&gt;&lt;/td>
+    &lt;/tr&gt;
+</programlisting>
+</sect2>
+
+<sect2 id="customer-self-registration-mapping">
+<title>Customer mapping</title>
+
+<para>
+Also a new entry for the phone number has to be added to the customer mapping.
+Copy "CustomerUser" from <filename>Kernel/Config/Defaults.pm</filename>
+into the <filename>Kernel/Config.pm</filename> file and add the phone field
+to the MAP array.
+</para>
+
+<programlisting>
+    # CustomerUser
+    # (customer user database backend and settings)
+    $Self->{CustomerUser} = {
+        Name => 'Database Backend',
+        Module => 'Kernel::System::CustomerUser::DB',
+        Params => {
+            # if you want to use an external database, add the
+            # required settings
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+        },
+        # customer uniq id
+        CustomerKey => 'login',
+        # customer #
+        CustomerID => 'customer_id',
+        CustomerValid => 'valid_id',
+        CustomerUserListFields => ['first_name', 'last_name', 'email'],
+#        CustomerUserListFields => ['login', 'first_name', 'last_name', 'customer_id', 'email'],
+        CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
+        CustomerUserSearchPrefix => '',
+        CustomerUserSearchSuffix => '*',
+        CustomerUserSearchListLimit => 250,
+        CustomerUserPostMasterSearchFields => ['email'],
+        CustomerUserNameFields => ['salutation', 'first_name', 'last_name'],
+        CustomerUserEmailUniqCheck => 1,
+#        # show now own tickets in customer panel, CompanyTickets
+#        CustomerUserExcludePrimaryCustomerID => 0,
+#        # generate auto logins
+#        AutoLoginCreation => 0,
+#        AutoLoginCreationPrefix => 'auto',
+#        # admin can change customer preferences
+#        AdminSetPreferences => 1,
+#        # just a read only source
+#        ReadOnly => 1,
+        Map => [
+            # note: Login, Email and CustomerID needed!
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserSalutation', 'Salutation', 'salutation',  1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
+            [ 'UserPassword',   'Password',   'pw',          0, 1, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'email',       0, 1, 'var', '', 0 ],
+#            [ 'UserEmail',      'Email', 'email',           1, 1, 'var','$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
+            [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
+#            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+            [ 'UserComment',     'Comment',   'comments',    1, 0, 'var', '', 0 ],
+            [ 'UserPhone',       'Phone',     'phone',       1, 0, 'var', '', 0 ],
+            [ 'ValidID',         'Valid',     'valid_id',    0, 1, 'int', '', 0 ],
+        ],
+        # default selections
+        Selections => {
+            UserSalutation => {
+                'Mr.' => 'Mr.',
+                'Mrs.' => 'Mrs.',
+            },
+        },
+    };
+</programlisting>
+</sect2>
+
+<sect2 id="customer-self-registration-customer-table">
+<title>Altering the customer table</title>
+
+<para>
+Also a new column has to be added to the "customer_user" table in the database.
+</para>
+
+<programlisting>
+ALTER TABLE customer_user ADD phone VARCHAR (200);
+</programlisting>
+
+<para>
+Now all adjustments are made and the new phone number field can be used.
+Restart your web server if you use mod_perl and open the customer
+interface (customer.pl) to check if the new settings are working propperly.
+</para>
+</sect2>
+
+</sect1>
+
+</chapter>
