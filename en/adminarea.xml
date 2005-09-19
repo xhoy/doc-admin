@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.1 2005-09-19 17:43:09 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.2 2005-09-19 18:30:42 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -621,140 +621,109 @@ Because the content of a salutation can be created dynamicaly, for example
 for things that change for every ticket (e.g. the name or mail address of
 the sender), it is possible to use variables in salutations. The text which
 is saved in the variables will be placed in the response text if you reply
-a ticket.
+to a ticket.
 </para>
 
 <para>
 The different variables you can use in responses are listed in the lower
-part of the salutation screen.
-
-Bauen Sie z.B. in Ihrem Anredentext die Variable
-&lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
-Nachnamen der Person ersetzt, deren Ticket Sie beantworten. Sehen Sie
-sich auch die schon bereits im System gespeicherten Anreden an, dann wird
-die Verwendung der verschiedenen Variablen klarer.
+part of the salutation screen. If you use for example the variable
+&lt;OTRS_LAST_NAME&gt; the lastname of the sender of the ticket will be
+included in your reply.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Anrede nicht entfernt werden. Um
-eine Anrede trotzdem zu deaktivieren, setzen Sie in den Einstellungen
-der entsprechenden Anrede in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" bzw. "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete a
+salutation. To deactivate a salutation set it to
+"invalid" or "invalid-temporarily".
 </para>
-</note>
 
 </sect2>
 
 <sect2 id="adminarea-signatures">
-<title>Signaturen</title>
+<title>Signatures</title>
 
 <para>
-Ein weiterer Textbaustein für eine Antwortvorlage, ist die Signatur.
-Signaturen können einer Queue zugeordnet werden, wie im Abschnitt zu
-den
+Another text module for a response is the signature. Signatures can be
+linked to a queue as described in the section about the
 
 <link linkend="adminarea-queue">
-Queues
+queues
 </link>
 
-beschrieben, nur so werden Sie bei Antworten für Tickets aus dieser
-Queue verwendet. Über den Link "Signaturen" innerhalb des
-Admin-Bereiches, können Sie die verschiedenen Signaturen Ihres
-Systems verwalten.
+. Only if a signature is linked to a queue it will be included into the
+response text. Through "Signatures" link you can manage the signatures in
+your system.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Signaturen</screeninfo>
-<graphic srccredit="Adminarea signatures - screenshot" scale="40"
-fileref="screenshots/admin-signatures.png"></graphic>
+<screeninfo>Management of signatures</screeninfo>
+<graphic srccredit="Adminarea signatures - screenshot" scale="40" fileref="screenshots/admin-signatures.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Nach einer Standardinstallation von OTRS sind bereits zwei Signaturen im
-System gespeichert, "system standard signature (de/buiss)" und
+After a default installation of OTRS there are already two signatures
+stored in your system, "system standard signature (de/buiss)" and
 "system standard signature (en)".
 </para>
 
 <para>
-Auch in Signaturen können dynamische Inhalte eingebaut werden.
-Dies geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener
-OTRS-Variablen, die in den Text der Signatur integriert werden können.
-Ein variabler Textteil könnte z.b. der Name des
-Mitarbeiters sein, der das Ticket beantwortet hat.
-</para>
-
-<para>
-Im unteren Teil der Bildschirmmaske zum Ändern oder Anlegen einer
-Signatur finden Sie die verschiedenen OTRS-Variablen, die Sie für die
-dynamische Aufbereitung eines Signaturentextes verwenden können.
-OTRS-Variablen zeichnen sich dadurch aus, dass sie von spitzen Klammern
-(&lt;&gt;) eingeschlossen sind. Zwischen den spitzen Klammern steht der
-Name der Variable, der sich oft auf den in der Variable gespeicherten
-Inhalt bezieht. Bauen Sie z.B. in Ihrem Anredentext die OTRS-Variable
-&lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
-Nachnamen des Agents ersetzt, der das Ticket beantwortet hat. Sehen Sie
-sich auch die schon bereits im System gespeicherten Anreden an, dann wird
-die Verwendung der verschiedenen Variablen klarer.
+Like salutations signatures also can contain dynamical content (e.g. the first and
+last name of the agent who answers the ticket), also variables replace
+the content of the signature text for every ticket. See the lower part of
+the signatures screen for the variables which can be used. If you include
+the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the last
+name of the agent who answers the ticket will be included in the signature
+text.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Signatur nicht entfernt werden. Um
-eine Signatur trotzdem zu deaktivieren, setzen Sie in den Einstellungen
-der entsprechenden Signatur in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" oder auf "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete a
+signature. To deactivate a signature set it to
+"invalid" or "invalid-temporarily".
 </para>
-</note>
 
 </sect2>
 
 <sect2 id="adminarea-attachments">
-<title>Anlagen</title>
+<title>Attachments</title>
 
 <para>
-Ein weitere optionaler Teil einer Antwortvorlage kann eine Anlage sein.
-Diese wird bei der Benutzung einer Antwortvorlage als Anhang an das zu
-beantwortende Ticket angehängt, kann aber über eine Checkbox im
-Antworten-Bildschirm für Tickets leicht deaktiviert werden.
+Another optional part of a response can be one ore more attachments. The
+attachment will be send if the response is used, but with checkboxes it is
+possible to deactivate the attachment in the answer screen for tickets.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Anlagen für Antwortvorlagen</screeninfo>
+<screeninfo>Managing attachments for responses</screeninfo>
 <graphic srccredit="Adminarea attachment - screenshot" scale="40" fileref="screenshots/admin-attachment.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Über den "Anlagen"-Link im Admin-Bereich können Sie neue Anlagen in das
-System integrieren. Nachdem eine Anlage im System gespeichert wurde, kann
-sie noch einer oder mehreren Antwortvorlagen zugeordnet werden. Die
-Zuordnung der Anlagen zu den einzelnen Antwortvorlagen kann über
-den Link "Anlagen &lt;-&gt; Antworten" im Admin-Bereich von OTRS erreicht
-werden.
+Through the "Attachment" link it is possible to load the attachments into
+the database of the system. If an attachment is stored it can be linked to
+one or more responses, just follow the "Attachment &lt;-&gt; Responses"
+link.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung einer Anlage zu einer Antwortvorlage</screeninfo>
+<screeninfo>Linking attachments to responses</screeninfo>
 <graphic srccredit="Adminarea attachment response - screenshot" scale="40" fileref="screenshots/admin-attachment-response.png"></graphic>
 </screenshot>
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System gespeicherte Anlage nicht mehr entfernt werden.
-Um eine Anlage trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Anlager in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" oder "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete a
+attachment. To deactivate a attachment set it to
+"invalid" or "invalid-temporarily".
 </para>
-</note>
 
 </sect2>
 
