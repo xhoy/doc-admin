@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.2 2005-09-19 18:30:42 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.3 2005-09-20 11:58:44 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -637,6 +637,7 @@ To keep the consistency of the data for OTRS it is not possible to delete a
 salutation. To deactivate a salutation set it to
 "invalid" or "invalid-temporarily".
 </para>
+</note>
 
 </sect2>
 
@@ -685,6 +686,7 @@ To keep the consistency of the data for OTRS it is not possible to delete a
 signature. To deactivate a signature set it to
 "invalid" or "invalid-temporarily".
 </para>
+</note>
 
 </sect2>
 
@@ -724,37 +726,34 @@ To keep the consistency of the data for OTRS it is not possible to delete a
 attachment. To deactivate a attachment set it to
 "invalid" or "invalid-temporarily".
 </para>
+</note>
 
 </sect2>
 
 </sect1>
 
 <sect1 id="adminarea-auto-responses">
-<title>Automatische Antworten</title>
+<title>Auto answers</title>
 
 <para>
-OTRS bietet die Möglichkeit, automatische Antworten an Kundenbenutzer zu
-verschicken. Automatische Antworten sind an bestimmte Ereignisse im System
-gebunden, z.B. an das Anlegen eines neuen Tickets in einer Queue, wenn ein
-Followup eines Tickets stattfindet, wenn ein Ticket geschlossen oder
-vom System zurückgewiesen wird. Über den Link "Auto Antworten" innerhalb
-des Admin-Bereiches erreichen Sie die Verwaltung der automatischen
-Antworten. Im Formular zum Ändern oder Anlegen einer automatischen
-Antwort stellen Sie über die Listbox für "Typ" das Ereignis ein, das
-mit der automatischen Antwort verknüpft werden soll. Nach einer
-Standardinstallation sind folgende Ereignistypen vorhanden.
+OTRS can send auto answers to customer users. Auto answers are send if
+special events happen, e.g. if a new ticket is created in a queue, if a
+followup for a ticke is receifed, if a ticket is closed or rejected by the
+system. Through the link "Auto answers" the auto answers of the system can
+be managed. If you create a auto answer you can select the event that
+should trigger the auto answer. The following system events are available
+after a default installation.
 </para>
 
 <para>
 <screenshot>
 <screeninfo>Verwaltung von automatischen Antworten</screeninfo>
-<graphic srccredit="Adminarea auto response - screenshot" scale="40"
-fileref="screenshots/admin-autoresponse.png"></graphic>
+<graphic srccredit="Adminarea auto response - screenshot" scale="40" fileref="screenshots/admin-autoresponse.png"></graphic>
 </screenshot>
 </para>
 
 <table id="table-of-autoanswer-types">
-<title>Ereignistypen für automatische Antworten</title>
+<title>Events for auto answers</title>
   <tgroup cols="1">
     <thead>
       <row>
@@ -762,7 +761,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           Name
         </entry>
         <entry>
-          Beschreibung
+          Description
         </entry>
       </row>
     </thead>
@@ -772,8 +771,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto reply
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein neues Ticket in
-          einer Queue angelegt wird.
+          This event is triggered if a new ticket in a queue is created.
         </entry>
       </row>
       <row>
@@ -781,9 +779,9 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto reply/new ticket
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein bereits geschlossenes Ticket,
-          z.B. durch die Antwort eines Kunden, mit einer neuen
-          Ticketnummer erneut geöffnet wird.
+          This event is triggered if a already closed ticket with a new
+          ticketnumber is reopened, e.g. if a customer replyes to such
+          a ticket.
         </entry>
       </row>
       <row>
@@ -791,8 +789,8 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto follow up
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Follow up für ein bereits
-          vorhandenes Ticket eintrifft.
+          This event is triggered if a followup for a ticket is received by
+          the system.
         </entry>
       </row>
       <row>
@@ -800,8 +798,8 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto reject
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Ticket vom System
-          zurückgewiesen wird.
+          This event is triggered if the system rejects a ticket
+          automaticly.
         </entry>
       </row>
       <row>
@@ -809,7 +807,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto remove
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Ticket entfernt wird.
+          This event is triggered if a ticket is removed by the system.
         </entry>
       </row>
     </tbody>
@@ -817,39 +815,33 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
 </table>
 
 <para>
-Für die Betreffzeile und den Text von automatischen Antworten kann genauso
-wie bei Signaturen oder Anreden, der Inhalt mit Hilfe von OTRS-Variablen
-dynamisch erzeugt werden. So werden über die Variable
-&lt;OTRS_CUSTOMER_EMAIL[5]&gt; die ersten 5 Zeilen der an das System
-gesendeten Email in die automatische Antwort eingefügt, oder durch
-&lt;OTRS_CUSTOMER_FROM&gt; die From-Zeile. Die Anmerkungen im unterem
-Bereich der Bildschirmmaske zur Verwaltung der automatischen Antworten
-listen alle OTRS-Variablen auf, die verwendet werden können.
+The subjectline and the text of auto answers can also be dynamicly generated
+by variables, like for signatures or salutations. If you insert the
+variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; for example into the body of the
+autoanswer, the first 5 lines of the customer mailtext is inserted into the
+auto answer. See the lower part of the auto answer screen for more details
+about the variables that can be used.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Auto-Antwort nicht entfernt werden.
-Um eine Auto-Antwort trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Auto-Antwort in der Listbox für
-"Gültig" den Wert entweder auf "ungültig" oder "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete a
+auto answer. To deactivate a auto answer set it to
+"invalid" or "invalid-temporarily".
 </para>
 </note>
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung einer automatischen Antwort zu einer Queue</screeninfo>
+<screeninfo>Adding an auto answer to a queue</screeninfo>
 <graphic srccredit="Adminarea auto response queue - screenshot" scale="40" fileref="screenshots/admin-autoresponse-queue.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Um eine automatische Antwort einer oder mehreren Queues zuzuweisen, folgen
-Sie im Admin-Bereich den Link "Auto Antworten &lt;-&gt; Queues". Dort sind
-für jede Queue die verschiedenen Ereignistypen aufgelistet und es kann eine
-Zuordnung einer Auto-Antwort vom gleichen Ereignistyp durchgeführt bzw.
-entfernt werden.
+To add an auto answer to a queue follow the "Auto Answer &lt;-&gt; Queues"
+link in the admin area. All system events are listed for every queue and a
+auto answer with the same event can be selected or removed via a listbox.
 </para>
 
 </sect1>
