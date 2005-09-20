@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.4 2005-09-19 17:39:57 cs Exp $ -->
+<!-- $Id: email.xml,v 1.5 2005-09-20 18:42:46 cs Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -89,19 +89,70 @@ Configure your POP3 accounts via the admin interface (POP3 Account).
 </para>
 
 <para>
-Execute the command <filename>bin/PostMasterPOP3.pl</filename> and all
-emails will be fetched into your OTRS system.
+If a new POP3 account is created a POP3 server, a username and password
+must be specifyed. If you select "Yes" for "Trusted", the X-OTRS headers
+are evaluated and executed if such headers are in the incoming message.
+Because the X-OTRS header can execute some actions in the ticket system you
+should "Trusted" only set to "Yes" for such senders that are known very
+well. X-OTRS-Header are used by the
+
+<link linkend="adminarea-postmasterfilter">
+filter module
+</link>
+
+in OTRS. The X-OTRS headers are explained
+
+<link linkend="table-of-x-otrs-headers">
+in this table
+</link>
+
+
+more detailed. If you have created filter rules they are executed and used
+even if "Trusted" is set to "Yes".
 </para>
 
 <para>
-There is also an example cronjob (var/cron/postmaster_pop3.dist) that
-executes your <filename>bin/PostMasterPOP3.pl</filename> every 10 minutes.
+Also the distribution of incoming messages can be controled if they shall
+be sorted by queue or by the content of the To: field. If "Dispatching by
+selected queue" is selected for "Dispatching" all incomming messages will
+be sorted into the queue that can be specified also. The address, where the
+mail was sent to, doesn't matter. If "Dispatching by email To: field" was
+selected for "Dispatching", the system checks if a queue is linked with the
+address in the To: field of the incoming mail. A address can be linked in
+the
+
+<link linkend="adminarea-emailaddresses">
+mailaddress management
+</link>
+
+section of the admin area. Is the address in the To field linked with a
+queue, the new message will be sorted into the linked queue. Can no link
+between the address in the To: field and queue be found, the message is
+sorted into the "Raw" queue in the system, which is the
+
+<link linkend="Ticket:Core::PostMaster:PostmasterDefaultQueue">
+PostmasterDefaultQueue
+</link>
+
+after a default installation.
 </para>
 
 <para>
-Todo: Insert reference to chapter about cronjobs
-</para>
+All data for the POP3 accounts are saved in the database of OTRS. The
+<filename>PostMasterPOP3.pl</filename>, script which is located in the
+<filename>bin</filename> directory of your OTRS installation, uses the
+settings in the database and fetches the mails. You can execute
+<filename>./bin/PostMasterPOP3.pl</filename> manualy to check if all your
+POP3 settings are working propperly. If you want to fetch your mails
+automaticly every ten minutes, you can use a
 
+<link linkend="cronjobs">
+cron job
+</link>
+
+and the example entries that are available in the file
+<filename>var/cron/postmaster_pop3.dist</filename>.
+</para>
 </sect2>
 
 <sect2 id="email-receiving-cmd">
