@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.1 2005-08-14 14:48:12 martin Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.2 2005-10-06 14:15:11 cs Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -152,8 +152,12 @@ mysql$ optimize table article;
 PostgreSQL is best tuned by modifying the postgresql.conf file in your
 PostgreSQL data directory. For advice on how to do this, see these
 articles:
-<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html</ulink>
-<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html</ulink>
+<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html">
+<citetitle>http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html</citetitle>
+</ulink>
+<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html">
+<citetitle>http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html</citetitle>
+</ulink>
 If performance is still not satisfactory, we suggest that you join the
 PostgreSQL Performance mailing list and ask questions there. The folks on
 the PostgreSQL list are very friendly and can probably help <ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
@@ -167,7 +171,9 @@ the PostgreSQL list are very friendly and can probably help <ulink url="http://w
 <title>Webserver</title>
 <para>
 Of course you should use mod_perl 2.0 (
-<ulink url="http://perl.apache.org/">http://perl.apache.org/</ulink>).
+<ulink url="http://perl.apache.org/">
+<citetitle>http://perl.apache.org/</citetitle>
+</ulink>).
 It's much faster (~ * 100) than pure cgi. But needs more RAM. So your
 httpd with mod_perl will be about 16 MB (~10MB shared).
 </para>
@@ -204,7 +210,9 @@ CMD - bin/opm.pl.
 <para>
 If you have a really large installation (over 1000 new tickets a day and over 40
 Agents) it is a good idea to read "Choosing the Right Strategy"
-(<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">http://perl.apache.org/docs/1.0/guide/strategy.html</ulink>).
+(<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">
+<citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle>
+</ulink>).
 </para>
 </sect2>
 
@@ -212,7 +220,9 @@ Agents) it is a good idea to read "Choosing the Right Strategy"
 <title>mod_gzip/mod_deflate</title>
 <para>
 Anyway, if your bandwidth is a little bit small use mod_gzip for Apache1
-(<ulink url="http://www.schroepl.net/projekte/mod_gzip/">http://www.schroepl.net/projekte/mod_gzip/</ulink>) or mod_deflate for Apache2 (default module in Apache2).
+(<ulink url="http://www.schroepl.net/projekte/mod_gzip/">
+<citetitle>http://www.schroepl.net/projekte/mod_gzip/</citetitle>
+</ulink>) or mod_deflate for Apache2 (default module in Apache2).
 If you have a html page with 45k, mod_gzip/mod_deflate compresses it. The page will be
 about 7k. That's really nice.
 </para>
@@ -222,7 +232,9 @@ about 7k. That's really nice.
 <title>mod_dosevasive</title>
 <para>
 If you want to block http DoS (Denail of Service) attacks, use mod_dosevasive.
-(<ulink url="http://www.nuclearelephant.com/projects/dosevasive/">http://www.nuclearelephant.com/projects/dosevasive/</ulink>).
+(<ulink url="http://www.nuclearelephant.com/projects/dosevasive/">
+<citetitle>http://www.nuclearelephant.com/projects/dosevasive/</citetitle>
+</ulink>).
 </para>
 </sect2>
 

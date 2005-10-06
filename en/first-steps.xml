@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: first-steps.xml,v 1.3 2005-09-21 09:26:39 cs Exp $ -->
+<!-- $Id: first-steps.xml,v 1.4 2005-10-06 14:15:11 cs Exp $ -->
 
 <chapter id="first-steps-in-otrs">
 <title>First steps in OTRS</title>
 
 <abstract>
 <para>
-This chapter wants to give a quick overview about how OTRS is working and how
+This chapter 's goal is to give a quick overview about how OTRS is working and how
 the web interface is structured. The differences between agents, customers
-and administrators are explained and the first login as OTRS admin will be
-accomplished to take a closer look ontot he user preferences which are
+and administrators are explained , and the first login as OTRS admin will be
+accomplished to take a closer look at the user preferences which are
 available for every account.
 </para>
 </abstract>
@@ -28,7 +28,7 @@ customer data, e.g.
 
 <para>
 <screenshot>
-<screeninfo>index.pl - Login Bildschirm für Agenten</screeninfo>
+<screeninfo>index.pl - Agent login screen</screeninfo>
 <graphic srccredit="index.pl - screenshot" scale="40" fileref="screenshots/login.png"></graphic>
 </screenshot>
 </para>
@@ -62,7 +62,7 @@ and edit tickets, change the account settings, e.g.
 
 <para>
 <screenshot>
-<screeninfo>customer.pl - Login Bildschirm für Kunden</screeninfo>
+<screeninfo>customer.pl - Customer login screen</screeninfo>
 <graphic srccredit="customer.pl - screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic>
 </screenshot>
 </para>
@@ -89,14 +89,14 @@ with a web browser.
 
 <para>
 In addition to the web interfaces for agents and customers OTRS has a
-public web interface. It proviedes public access to the FAQ system, and
-lets visitors search through the FAQ entries without any authorisation.
+public web interface. It provides public access to the FAQ system, and
+lets visitors search through the FAQ entries without any authorization.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>public.pl - Öffentliche Weboberfläche</screeninfo>
-<graphic srccredit="index.pl - screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic>
+<screeninfo>public.pl - Public web interface</screeninfo>
+<graphic srccredit="public.pl - screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic>
 </screenshot>
 </para>
 
@@ -127,7 +127,7 @@ Like described in the section on
 the agent web interface
 </link>
 
-the login screen for agents and the OTRS administrator can reached through
+the login screen for agents and the OTRS administrator can be reached through
 the address
 
 <ulink url="http://www.example.com/otrs/index.pl">
@@ -139,21 +139,21 @@ the address
 
 <para>
 <screenshot>
-<screeninfo>index.pl - Login screen für OTRS-Administrator</screeninfo>
+<screeninfo>index.pl - Login screen for the OTRS administrator</screeninfo>
 <graphic srccredit="index.pl - screenshot" scale="40" fileref="screenshots/login.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-The screen lets you enter a username and a password. Because no users are
+The screen lets you enter a user name and a password. Because no users are
 created after a fresh installation of the system, you have to login as OTRS
-administrator first. To login as OTRS admin use root@localhost for username
-and root for password.
+administrator first. To login as OTRS admin use "root@localhost" for user name
+and "root" for password.
 </para>
 
 <warning>
 <para>
-This account data are a default on every new installed OTRS system. For
+This account data are default on every new installed OTRS system. For
 that reason you should change the password for the OTRS administrator as
 fast as possible! This can be done via the
 
@@ -166,16 +166,16 @@ for the OTRS administrator account.
 </warning>
 
 <para>
-If you don't want to login as OTRS administrator just enter the username and
-password for your normal agent account. With the listbox below the imput
-fields for the username and password you can select the language that you
+If you don't want to login as OTRS administrator just enter the user name and
+password for your normal agent account. With the list box below the input
+fields for the user name and password you can select the language that you
 want to use in the web interface.
 </para>
 
 <para>
-If you once have forgotten your password, you can get a new password by the
+If you have forgotten your password, you can get a new password through the
 system. Just enter the mail address that is registered for you OTRS account
-into the imput field at the lower part of the login screen and submit the
+into the input field at the lower part of the login screen and submit the
 input.
 </para>
 </sect1>
@@ -184,16 +184,16 @@ input.
 <title>An overview to the web interface</title>
 
 <para>
-After you have successfuly loged in the system the web interface is loaded.
+After you have successfully logged into the system the web interface is loaded.
 Per default you are in the QueueView after the login.
-standardmäßig in der sog. Queue-Ansicht. The QueueView provides you a quick
-overview about tickets in the different queues, notifyes about new
+The QueueView provides you a quick
+overview about tickets in the different queues, notifies about new
 messages, tells you how many locked tickets you have, e.g.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Bildschirm nach erster erfolgreicher Anmeldung</screeninfo>
+<screeninfo>Screen after first successfull login</screeninfo>
 <graphic srccredit="First screen - screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic>
 </screenshot>
 </para>
@@ -206,11 +206,11 @@ site a link is displayed that can be used to reload the page.
 </para>
 
 <para>
-The white bar below is the navbar. It shows buttons that enables you to
+The white bar below is the navigation bar. It shows buttons that enables you to
 navigate to different areas or modules of the system and lets you execute
 some global actions. The navbar is divided into three parts. In the left
-area the logut button, the button to activate the QueueView, a button to
-load the customer backend and a button to load the full-text search are
+area the logout button, the button to activate the QueueView, a button to
+load the customer back-end and a button to load the full-text search are
 displayed. The "Phone-Ticket" button and "Email-Ticket" button lets you
 create a new phone or email ticket. The stats button is leading  to a screen
 where some system stats can be generated. With the preference button you
@@ -222,7 +222,7 @@ move more than one ticket.
 <para>
 The middle part of the navbar shows the buttons for the navigation to the
 other modules of the system. After a standard installation you only see the
-"Admin" button, if you are loged in as OTRS administrator. If some addional
+"Admin" button, if you are logged in as OTRS administrator. If some additional
 application are installed, e.g. the file manager or the web mailer, buttons
 to reach this applications are also displayed.
 </para>
@@ -234,7 +234,7 @@ you have locked and if new messages for you have been arrived.
 
 <para>
 The grey bar below the navbar shows different system messages. If you are
-loged in as OTRS administrator you get a message, that you shoud not work
+logged in as OTRS administrator you get a message, that you should not work
 as administrator. If the calendar module is installed, the next events are
 displayed in this section.
 </para>
@@ -242,7 +242,7 @@ displayed in this section.
 <para>
 The black bar below shows the queue, which is currently selected or tells
 you, that "My Queues" is selected. "My Queues" are the queues, that you
-want to observate mor attentive. You can select the queues for "My Queues"
+want to observe more attentive. You can select the queues for "My Queues"
 in your
 
 <link linkend="user-preferences">
@@ -262,8 +262,8 @@ Queues" is empty.
 
 <para>
 <screenshot>
-<screeninfo>Inhalt der raw-Queue nach der ersten Anmeldung</screeninfo>
-<graphic srccredit="Raw queue - screenshot" scale="40" fileref="screenshots/raw-queue.png"></graphic>
+<screeninfo>Content of the "raw" queue after first sucessfull login</screeninfo>
+<graphic srccredit="raw queue - screenshot" scale="40" fileref="screenshots/raw-queue.png"></graphic>
 </screenshot>
 </para>
 
@@ -283,12 +283,12 @@ Below the interface is divided into two parts. On the left site a preview
 of the ticket is displayed in white color. The sender of the ticket, the
 recipient address, the subject and the first lines are shown. On the right
 site some additional information for the ticket are displayed in grey color,
-e.g. the priority and the status. Some buttons allow to answer the tickt,
+e.g. the priority and the status. Some buttons allow to answer the ticket,
 make a telephone note or move the ticket into another queue.
 </para>
 
 <para>
-On the botom of the screen the site footer is displayed in black color. It
+On the bottom of the screen the site footer is displayed in black color. It
 also contains some buttons to activate the QueueView, jump to the beginning
 of the screen, e.g.
 </para>
@@ -298,14 +298,14 @@ of the screen, e.g.
 <title>What is a queue?</title>
 
 <para>
-Because queues are very important in OTRS, this section tryes to explain
+Because queues are very important in OTRS, this section tries to explain
 more detailed the meaning of queues.
 </para>
 
 <para>
-On common mail systems all messages are saved into an inbox file. A inbox
+On common mail systems all messages are saved into an inbox file. An inbox
 is a big file where the messages are arranged on to another. New messages
-are appended at the end of the inbox file. The mail programm, which is used
+are appended at the end of the inbox file. The mail program, which is used
 to read and write mails, reads the inbox file and presents the content to
 the user.
 </para>
@@ -316,12 +316,12 @@ more features. It also can store many messages, but the mails are saved in
 another way. You don't need to know any detail of queues if you only want
 to use OTRS, the only important thing to know is in which queue a ticket is
 stored. The users of OTRS, better called agents, can open and edit tickets
-in a queue and ofcourse they can move tickets from one queue to another.
+in a queue and of course they can move tickets from one queue to another.
 But why should they move tickets?
 </para>
 
 <para>
-To explain it more practikal, remember Max's company describe in the
+To explain it more practically, remember Max's company describe in the
 section about a
 
 <link linkend="basic-tts-example">
@@ -332,7 +332,7 @@ example of a ticket system
 agents are using the system to manage the support requests for the video
 recorders. One queue that contains all request is enough for this
 situation. But some times later Max also sales a DVD recorder. Now the
-customer not only have questions about the vidio recorder but also for the
+customer not only have questions about the video recorder but also for the
 new product. More and more emails get into the one queue of Max's OTRS and
 its hard to keep the overview. Some day Max decides to optimize the
 structure of his support system and adds two new queues, so now three
@@ -348,22 +348,22 @@ tickets in all queues. Because OTRS supports access management for users,
 groups and roles, it is easy to setup queues that only are accessible for
 some specific accounts. Max could also use another way to get his requests
 into the different queues, with filter rules or if tow different mail
-adresses are used Sandra only has to dispatch emails into the two other
-queues, that can't be dispatched automaticly.
+addresses are used Sandra only has to dispatch emails into the two other
+queues, that can't be dispatched automatically.
 </para>
 
 <para>
-Sorting your incomming messages into different queues helps you to keep the
-support system structured and tidy. Because your agents are aranged into
+Sorting your incoming messages into different queues helps you to keep the
+support system structured and tidy. Because your agents are arranged into
 different groups with different access rights onto queues, the system can
-be optimized even more. Queues can be used to define workflow processes or
+be optimized even more. Queues can be used to define work flow processes or
 they create the structure of a company. Max could implement for example
 another queue called "sales". this queue could contain the sub queues
 "requests", "offers", "orders", "billing", e.g. Such a queue structure
 could help Max to optimize his order transactions. The better a system is
 structured, the less time is needed for the different tasks. That results
 in less working time that is needed for the different tasks and that saves
-mony. Queues can help to optimize the processes in your company.
+money. Queues can help to optimize the processes in your company.
 </para>
 </sect1>
 
@@ -371,39 +371,39 @@ mony. Queues can help to optimize the processes in your company.
 <title>User preferences</title>
 
 <para>
-Many settings of a user account in OTRS can be configured for the own needs
+Many settings of a user account in OTRS can be configured to their own needs
 via the user preferences. Customers, agents and the OTRS administrator have
-the possibilty to adjust the own account preferences. The preferences page
+the possibility to adjust their own account preferences. The preferences page
 can be reached via the "Preferences" link in the customer or agent
 interface.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Persönliche Account-Einstellungen für Kunden</screeninfo>
-<graphic srccredit="index.pl - screenshot" scale="40" fileref="screenshots/customer-preferences.png"></graphic>
+<screeninfo>Account preferences screen for customers</screeninfo>
+<graphic srccredit="customer.pl - screenshot" scale="40" fileref="screenshots/customer-preferences.png"></graphic>
 </screenshot>
 </para>
 
 <para>
 A customer can select the web interface language, the maximal count of shown
-tickets and the refreshing periode for the interface. Also it is possible
+tickets and the refresh period for the interface. Also it is possible
 to set a new password and activate/deactivate the display of closed tickets.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Persönliche Account-Einstellungen für Agenten</screeninfo>
+<screeninfo>Account preference screen for agents</screeninfo>
 <graphic srccredit="index.pl - screenshot" scale="40" fileref="screenshots/agent-preferences.png"></graphic>
 </screenshot>
 </para>
 
 <para>
 An agent can adjust the interface language, the theme, the default
-dictionary and the view for the queues. Also the refreshing periode for the
+dictionary and the view for the queues. Also the refresh period for the
 interface, the maximal count of shown tickets per page and the screen that
 should be displayed after a new ticket is created can be set. It is
-possible to change the password and select the events when the systems
+possible to change the password and select the events when the system
 shall send a notification to the email address, that is registered for your
 account.
 </para>
