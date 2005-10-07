@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: time.xml,v 1.1 2005-10-07 23:57:34 cs Exp $ -->
+
+<chapter id="time">
+<title>Zeitabhängige Funktionen in OTRS</title>
+
+<sect1 id="time-settings">
+<title>Relevante Zeiten für das System festlegen</title>
+
+<para>
+In OTRS werden einige Aktionen abhängig von der aktuellen Systemzeit
+ausgelöst. Von den Zeiteinstellungen betroffen sind die Berechnung der
+Eskalationszeit und die eigentliche Eskalation von Tickets. Weiterhin hängt
+die Zusendung von Benachrichtigungen für eskalierte Tickets bzw. für
+Erinnerungs-Tickets, die den Erinnerungszeitpunkt erreicht haben, ab.
+Ebenfalls wird das Alter und die Freigabe eines Tickets durch diese
+Einstellungen beinflusst.
+</para>
+
+<para>
+Mit Hilfe der Parameter
+
+<link linkend="Framework:Core::Time:TimeWorkingHours">
+TimeWorkingHours
+</link>,
+
+<link linkend="Framework:Core::Time:TimeVacationDays">
+TimeVacationDays
+</link>
+
+und
+
+<link linkend="Framework:Core::Time:TimeVacationDaysOneTime">
+TimeVacationDaysOneTime
+</link>
+
+können die für das System relevanten Zeiten entweder über das
+
+<link linkend="sysconfig">
+grafische Konfigurations Frond-end
+</link>
+
+oder direkt über die Datei <filename>Kernel/Config.pm</filename>
+eingestellt werden.
+</para>
+
+<sect2 id="TimeWorkingHours">
+<title>TimeWorkingHours</title>
+
+<para>
+Die Stunden, in denen Ihre Agenten aktiv am system arbeiten, können
+folgendermaßen in der Datei <filename>Kernel/Config.pm</filename>
+festgelegt werden:
+</para>
+
+<para>
+<programlisting>
+    $Self->{'TimeWorkingHours'} = {
+        Mon => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Tue => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Wed => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Thu => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Fri => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Sat => [  ],
+        Sun => [  ],
+    };
+</programlisting>
+</para>
+
+<para>
+Nur während dieser Stunden können Tickets eskalieren, Benachrichtigungen zu
+Erinnerungs-Tickets versendet oder Tickets automatisch freigegeben werden.
+Weiterhin werden auch nur diese Stunden in die Berechnung der
+Eskalationszeit und des Ticket-Alters mit einbezogen.
+</para>
+</sect2>
+
+<sect2 id="TimeVacationDays">
+<title>TimeVacationDays</title>
+
+<para>
+Feiertage können dem System folgendermaßen in der Datei
+<filename>Kernel/Config.pm</filename> bekannt gemacht werden:
+</para>
+
+<para>
+<programlisting>
+    $Self->{'TimeVacationDays'} = {
+        1 => {
+            1 => 'New Year\'s Eve!',
+        },
+        5 => {
+            1 => '1 St. May',
+        },
+        12 => {
+            24 => 'Christmas',
+            25 => 'First Christmas Day',
+            26 => 'Second Christmas Day',
+            31 => 'Silvester',
+        },
+    };
+</programlisting>
+</para>
+
+<para>
+Während der hier festgelegten Tage werden keine zeitabhängigen
+Aktionen oder Berechnungen auf Tickets im system ausgeführt.
+</para>
+</sect2>
+
+<sect2 id="TimeVacationDaysOneTime">
+<title>TimeVacationDaysOneTime</title>
+
+<para>
+Freie oder Feiertage, für die sich jährlich das Datum ändert, können
+folgendermaßen in der Datei <filename>Kernel/Config.pm</filename> angegeben
+werden:
+</para>
+
+<para>
+<programlisting>
+    $Self->{'TimeVacationDaysOneTime'} = {
+        2005 => {
+            9 => {
+                3 => 'German Unification Day'
+            },
+            12 => {
+                27 => 'Anual closing',
+                28 => 'Anual closing',
+                29 => 'Anual closing',
+                30 => 'Anual closing',
+            },
+        },
+        2006 => {
+            6 => {
+                12 => 'Anual works outing',
+            },
+        },
+    };
+</programlisting>
+</para>
+
+<para>
+Während der hier festgelegten Tage werden keine zeitabhängigen
+Aktionen oder Berechnungen auf Tickets im system ausgeführt.
+</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="unlock-tickets">
+<title>Automatische Freigabe von Tickets</title>
+
+<para>
+Gesperrte Tickets können automatisch vom System freigegeben werden. Diese
+Funktion kann z.B. dann nützlich sein, wenn sich ein Agent im Urlaub
+befindet und noch Tickets gesperrt hat, die bearbeitet werden sollen /
+müssen.
+</para>
+
+<para>
+Die Zeit, nach der gesperrte Tickets automatisch freigegeben werden, kann
+in den
+
+<link linkend="adminarea-queue">
+Einstellungen jeder Queue
+</link>
+
+festgelegt werden. Mit Hilfe des Moduls
+<filename>bin/UnlockTickets.pl</filename>, das als cron-Job regelmäßig
+ausgeführt werden sollte, wird die automatische Freigabe von Tickets
+umgesetzt. Tickets werdennur während der in
+
+<link linkend="TimeWorkingHours">
+TimeWorkingHours
+</link>
+
+festgelegten Stunden automatisch freigegeben.
+</para>
+</sect1>
+
+<sect1 id="escalate-tickets">
+<title>Eskalation von Tickets</title>
+
+<para>
+OTRS bietet die Möglichkeit der Eskalation von Tickets. Nachdem ein Ticket
+eskaliert ist, wird die Anzeige aller anderen Tickets in derselben Queue
+so lange blockiert, bis das eskalierte Ticket gesperrt wird. Durch die
+Ticket-Eskalation kann also gewährleistet werden, dass Tickets die ein
+bestimmtes Alter überschreiten, auf jeden Fall beachtet werden müssen.
+</para>
+
+<para>
+Die Eskalationszeit kann in den
+
+<link linkend="adminarea-queue">
+Einstellungen jeder Queue
+</link>
+
+festgelegt werden. Mit Hilfe des
+
+<link linkend="adminarea-genericagent">
+GenericAgents
+</link>
+
+werden Benachrichtigungen über eskalierte Tickets an die Agenten versendet,
+die die Queue mit dem eskalierten Tickets in "Meine Queues" aufgenommen
+haben und für die in den
+
+<link linkend="user-preferences">
+Benutzereinstellungen
+</link>
+
+die Benachrichtigung über eskalierte Tickets aktiviert ist.
+</para>
+
+<para>
+In der Datei <filename>Kernel/Config/GenericAgent.pm</filename> ist bereits
+ein Job eingetragen, über den der GenericAgent, regelmäßig durch einen
+cron-Job ausgeführt, Benachrichtigungen über eskalierte Tickets an die
+Agenten verschickt. Öffnen Sie diese Datei und entfernen Sie die
+Kommentarzeichen vor den entsprechenden Zeilen:
+</para>
+
+<para>
+<programlisting>
+%Jobs = (
+   # --
+   # [name of job] -> send escalation notifications
+   # --
+   'send escalation notifications' => {
+       Escalation => 1,
+       # new ticket properties
+       New => {
+           Module => 'Kernel::System::GenericAgent::NotifyAgentGroupOfCustomQueue',
+       },
+   },
+   # insert your jobs (see Kernel/Config/GenericAgent.pm.examples)
+);
+</programlisting>
+</para>
+
+<para>
+Wird ein neues Ticket in einer Queue gespeichert für die eine
+Eskalationszeit festgelegt wurde, wird zunächst der positive Wert für
+die eingestellte Eskalationszeit angezeigt. Die Anzeige bleibt auf den für die
+Queue eingestellten Wert stehen, wenn das System sich nicht in den in
+TimeWorkingHours festgelegten Stunden befindet oder wenn aktuell ein in
+TimeVacationDays bzw. TimeVacationDaysOneTime definierter Tag ist,
+außerhalb der für das System relevanten Zeiten findet keine Berechnung der
+Eskalationszeit statt.
+</para>
+
+<para>
+Befindet sich das System in einem für die Berechnung relevanten
+Zeitfenster, wird die Eskalationszeit heruntergezählt. Wird der Wert 0
+erreicht, eskaliert das Ticket. Im weiteren Verlauf wird der Wert negativ,
+das Ticket hat die Eskalationszeit überschritten. Bei der nächsten Ausführung
+des GenericAgent-Jobs für das Versenden der Eskalationsbenachrichtigungen
+an die Agenten, werden die entsprechenden Mails verschickt, das eskalierte
+Ticket blockiert die Anzeige der anderen Tickets in der Queue. Auch wenn das
+eskalierte Ticket gesperrt und bearbeitet wird, wird der angezeigte Wert für die
+Eskalationszeit immer kleiner, der eigentliche Eskalationszeitpunkt rückt
+immer weiter in die Vergangenheit. An diesem Verhalten ändert sich nichts,
+so lange das Ticket sich in einem offenen Status befindet (open, new, pending,
+usw.). Erst wenn das Ticket geschlossen wird, also sich der Status von offen
+auf geschlossen ändert (closed), wird auch die Eskalationszeit zurück gesetzt.
+Wird dasselbe Ticket z.B. durch ein Follow-up wieder in einen offenen Status
+gebracht, beginnt das Herunterzählen der Eskalationszeit erneut beim für
+die Queue eingestellten positiven Wert.
+</para>
+
+<para>
+Ein Ticket kann also nur eskalieren, wenn es nicht gesperrt ist und wenn es
+sich in einem offenen Status befindet. Ist es gesperrt und noch nicht
+geschlossen, wird die Eskalationszeit immer weiter herunter gezählt, das
+Ticket eskaliert beim Wert 0. Wird das Ticket geschlossen und z.B. durch
+ein Follow-up erneut durch das System geöffnet, beginnt der
+Eskalationsprozess erneut.
+</para>
+
+</sect1>
+
+</chapter>
