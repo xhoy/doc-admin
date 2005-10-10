@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.1 2005-10-07 23:57:34 cs Exp $ -->
+<!-- $Id: time.xml,v 1.2 2005-10-10 13:22:43 cs Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -179,6 +179,32 @@ TimeWorkingHours
 
 festgelegten Stunden automatisch freigegeben.
 </para>
+</sect1>
+
+<sect1 id="pending-tickets">
+<title>Erinnerungs Tickets</title>
+
+<para>
+Mit OTRS ist es möglich Erinnerungs Tickets zu erstellen. Es kann ein
+Zeitpunkt festgelegt werden, zu dem das System eine Nachricht verschickt,
+in der es an ein vorher gesperrtes Ticket erinnert. Diese Funktion ist z.B.
+dann nützlich, wenn man daran erinnert werden will einen Kunden zu
+kontaktieren, dieser Kunde aber für die nächsten 2 Wochen im Urlaub ist.
+</para>
+
+<para>
+Benachrichtigungen für Erinnerungs Tickets werden legidlich während der
+Stunden versendet, die in
+
+<link linkend="TimeWorkingHours">
+TimeWorkingHours
+</link>
+
+festgelegt wurden. Das Modul <filename>bin/PendingJobs.pl</filename>,
+welches regelmäßig mit Hilfe eines cron-Jobs ausgeführt werden sollte, löst
+den Versand der Benachrichtigungen aus.
+</para>
+
 </sect1>
 
 <sect1 id="escalate-tickets">
