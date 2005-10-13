@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: configuration.xml,v 1.8 2005-09-08 13:53:53 cs Exp $ -->
+<!-- $Id: configuration.xml,v 1.9 2005-10-13 09:33:02 cs Exp $ -->
 
 <chapter id="configuration">
 <title>Konfiguration des Systems</title>
@@ -23,9 +23,9 @@ Parameter Ihren Wünschen entsprechend an.
 
 <para>
 Die Datei <filename>Kernel/Config/Defaults.pm</filename> enthält die
-Konfigurationsparameter für den OTRS-Framework. In Ihr finden Sie
+Konfigurationsparameter für den OTRS-Framework. In ihr finden Sie
 grundlegende Einstellungen wie die Mailkonfiguration, die Datenbankanbindung,
-Standardsprache, o.ä. In der Datei
+Standardsprache o.ä. In der Datei
 <filename>Kernel/Config/Files/Ticket.pm</filename> sind alle
 Konfigurationsparameter für das Ticketsystem aufgeführt.
 </para>
@@ -40,7 +40,7 @@ eine .pm- und eine .xml-Datei für jedes Modul vorhanden, da aus
 Kompatibilitätsgründen zu älteren OTRS-Versionen noch die Einstellungen in
 den .pm-Dateien benötigt werden. Die .xml-Dateien werden von der
 grafischen Administrationsoberfläche ausgewertet, die seit OTRS 2.0 verfügbar
-ist und die es Ihnen ermöglicht das System nahezu vollständig über die
+ist und die es Ihnen ermöglicht, das System nahezu vollständig über die
 Web-Oberfläche zu konfigurieren. In zukünftigen Versionen von OTRS wird auf
 die .pm-Dateien vollständig verzichtet und alle Einstellungen aus
 <filename>Kernel/Config/Defaults.pm</filename> werden nur noch in
@@ -48,7 +48,7 @@ die .pm-Dateien vollständig verzichtet und alle Einstellungen aus
 Einstellungen für das Ticketsystem befinden sich dann nur noch in der Datei
 <filename>Kernel/Config/Files/Ticket.xml</filename>. Die
 Konfigurationsparameter werden also in zukünftigen Versionen komplett in
-das xml-format übertragen.
+das xml-Format übertragen.
 </para>
 
 <para>
@@ -58,7 +58,7 @@ ausgelesen und die Einstellungen des Frameworks und der evtl. zusätzlich
 installierten Applikationen geladen. Anschließend werden die Einstellungen
 in den Dateien <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> und
 <filename>Kernel/Config/Files/ZZZAuto.pm</filename> ausgewertet. Beide
-Dateien werden vom grafischen Konfigurationsfrontend angelegt und sollten
+Dateien werden vom grafischen Konfigurations-Frontend angelegt und sollten
 auf keinem Fall manuell geändert werden. Zuletzt wird die Datei
 <filename>Kernel/Config.pm</filename> mit den von Ihnen individuell
 angepassten Konfigurationsparametern ausgewertet, so dass auf jeden Fall
@@ -89,8 +89,8 @@ Konfigurations-Frontend zu laden.
 <para>
 Da OTRS mittlerweile über mehr als 600 verschiedene
 Konfigurationsparameter verfügt, bietet das Konfigurations-Frontend mehrere
-Möglichkeiten zur schnellen Auffindung der gewünschten Einstellung. Zum
-einen kann über alle Konfigurationsparameter hinweg nach einem bestimmten
+Möglichkeiten zur schnellen Auffindung der gewünschten Einstellung. Es
+kann über alle Konfigurationsparameter hinweg nach einem bestimmten
 Stichwort gesucht werden. Bei der Suche werden neben dem Namen des
 Konfigurationsparameters auch die Beschreibungen ausgewertet, eine
 Einstellung kann also auch gefunden werden, wenn ihr Name nicht bekannt ist.
@@ -117,7 +117,7 @@ des "Rücksetzen"-Schalters auf ihren Default-Wert zurückgesetzt werden.
 <para>
 Für die Sicherung aller von Ihnen vorgenommenen Änderungen, kann eine
 .pm-Datei heruntergeladen werden, die alle vom Standard abweichenden
-Konfigurationsparameter Ihres Systems enthält. Dieselbe Datei können Sie
+Konfigurationsparameter Ihres Systems enthält. Die selbe Datei können Sie
 ebenfalls über die Konfigurationsoberfläche eines frisch installierten
 Systems zurück spielen und so alle Einstellungen wieder herstellen.
 </para>
