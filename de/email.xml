@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.5 2005-09-20 17:09:27 cs Exp $ -->
+<!-- $Id: email.xml,v 1.6 2005-10-13 08:56:20 cs Exp $ -->
 
 <chapter id="email">
-<title>Email versenden/empfangen</title>
+<title>Emails versenden/empfangen</title>
 
 <sect1 id="email-sending">
 <title>Emails versenden</title>
@@ -19,8 +19,8 @@ OTRS ist in der Lage, Emails via Sendmail (z.B.
 <ulink url="http://www.qmail.org">Qmail</ulink> or
 <ulink url="http://www.exim.org">Exim</ulink>)
 zu versenden. Die Standard-Konfiguration sollte gleich ohne
-Probleme funktionieren, es wird das sendmail-Binary Ihres Betriebssystems
-verwendet.
+Probleme funktionieren,  verwendet wird das sendmail-Binary Ihres
+Betriebssystems.
 </para>
 
 <para>
@@ -53,8 +53,8 @@ erweitert:
 <para>
 Wenn kein sendmail-Binary zur Verfügung steht, kann OTRS Emails via SMTP
 versenden (<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail
-Transfer Protocol / RFC 821</ulink>). Hauptsächlich auf
-Nicht-Unix-Plattformen (z.B. Win32) kann diese Möglichkeit genutzt werden.
+Transfer Protocol / RFC 821</ulink>). Diese Möglichkeit kann hauptsächlich auf
+Nicht-Unix-Plattformen (z.B. Win32) genutzt werden.
 </para>
 
 <para>
@@ -110,12 +110,12 @@ PostMaster POP3 Account
 </para>
 
 <para>
-Beim Anlegen eines neuen POP3-Accounts, muss der POP3-Server, ein Login und
+Beim Anlegen eines neuen POP3-Accounts muss der POP3-Server, ein Login und
 ein Kennwort angegeben werden. Wählen Sie für "Vertraut" den Wert "Ja"
 aus, dann werden die sog. X-OTRS-Header-Einträge ausgewertet und
-angewendet, falls derartige Headereinträge in einer abgerufenen Nachricht
+angewendet, sofern derartige Header-Einträge in einer abgerufenen Nachricht
 vorhanden sind. Da mit Hilfe der X-OTRS-Header einige Dinge am System
-beinflusst werden können, sollten Sie "Vertraut" nur auf "Ja" setzen, wenn
+beeinflusst werden können, sollten Sie "Vertraut" nur auf "Ja" setzen, wenn
 Sie genau wissen, von welchen Absendern die abgerufenen Nachrichten stammen.
 X-OTRS-Header werden vom
 
@@ -140,17 +140,17 @@ Angabe steuern, ob die neuen Nachrichten nach dem To-Feld oder nach der
 Queue im System einsortiert werden sollen. Wählen Sie "Verteilung nach
 ausgewählter Queue" aus, landen die abgerufenen Mails auf jeden Fall in der
 Queue, die zusätzlich in der dafür vorgesehenen Listbox angegeben werden
-kann. Dabei spielt es keine Rolle, an welche Adresse die Mail geschickt
+kann. Dabei spielt keine Rolle, an welche Adresse die Mail geschickt
 wurde. Wählen Sie "Verteilung nach To: Feld" aus, wird überprüft, welcher
 Queue die Adresse zugeordnet ist, an die die abgerufene Mail gesendet
-wurde. Die Zuordnung einer Mailadresse zu einer Queue, kann über die
+wurde. Die Zuordnung einer Mailadresse zu einer Queue kann über die
 
 <link linkend="adminarea-emailaddresses">
 Mailadressen Verwaltung
 </link>
 
 vorgenommen werden. Existiert eine Zuordnung
-der Adresse im To: Feld zu einer Queue innerhalb des Systems wird die
+der Adresse im To: Feld zu einer Queue innerhalb des Systems, wird die
 abgerufene Nachricht in die entsprechende Queue einsortiert. Kann keine
 Zuordnung gefunden werden, landet das Ticket in der Standard-Queue des
 Systems (Raw), die mit Hilfe des Konfigurationsparameters
@@ -171,8 +171,8 @@ Mails von den einzelnen POP3-Konten.
 <filename>PostMasterPOP3.pl</filename> wird mit Hilfe
 von <application>cron</application> bzw. unter Windows von
 <application>CRONW</application> regelmäßig ausgeführt.
-Einen Beispiel-Cronjob finden Si in der Datei
-<filename>var/cron/postmaster_pop3.dist</filename>, dieser führt
+Einen Beispiel-Cronjob finden Sie in der Datei
+<filename>var/cron/postmaster_pop3.dist</filename>. Dieser führt
 <command>bin/PostMasterPOP3.pl</command> alle 10 Minuten aus. Das Kapitel
 
 <link linkend="cronjobs">
@@ -208,16 +208,20 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-Wird die Email in der Queue-Ansicht angezeigt, dann sind Ihre Einstellungen
+Wird die Email in der Queue-Ansicht angezeigt, sind Ihre Einstellungen
 in Ordnung.
 </para>
 
 <para>
-Procmail ist ein sehr bekannter Email-Filter in der Linux-Umgebung, der
-höchst wahrscheinlich auf Ihrem System installiert sein wird. Falls nicht,
+Procmail ist in der Linux-Umgebung ein sehr bekannter Email-Filter, der
+höchstwahrscheinlich auf Ihrem System installiert sein wird. Falls nicht,
  erhalten Sie auf der
-<ulink url="http://www.procmail.org/"><citetitle>procmail
-Homepage</citetitle></ulink> weitere Informationen.
+
+<ulink url="http://www.procmail.org/">
+<citetitle>procmail Homepage</citetitle>
+</ulink>
+
+weitere Informationen.
 </para>
 
 <para>
@@ -225,7 +229,7 @@ Um procmail einzurichten (benötigt einen für procmail konfigurierten MDA
 (z.B. sendmail, postfix, exim oder qmail)), kann die Datei
 <filename>.procmailrc.dist</filename> aus dem OTRS-Homeverzeichnis
 verwendet werden. Kopieren Sie <filename>.procmailrc.dist</filename> nach
-<filename>.procmailrc</filename> und nehmen Sie folgende nehmen Sie
+<filename>.procmailrc</filename> und nehmen Sie
 folgende Änderungen vor:
 </para>
 
@@ -242,7 +246,7 @@ PATH=/bin:/usr/bin:/usr/local/bin
 </para>
 
 <para>
-Alle an den lokalen OTRS Benutzer gesendeten Emails werden an
+Alle an den lokalen OTRS-Benutzer gesendeten Emails werden an
 <filename>bin/PostMaster.pl</filename> weitergeleitet und dadurch im Ticket
 System gespeichert.
 </para>
@@ -254,25 +258,27 @@ System gespeichert.
 <para>
 Um Emails von Ihrem Mailserver via POP3 oder IMAP für den
  OTRS-Rechner/lokalen OTRS-Benutzer und procmail abzuholen, benutzen Sie
-<ulink url="http://www.tuxedo.org/~esr/fetchmail/">fetchmail</ulink>.
+
+<ulink url="http://www.tuxedo.org/~esr/fetchmail/">
+fetchmail</ulink>.
 </para>
 
 <note>
 <para>
-Voraussetzung ist eine funktionierende SMTP-Konfiguration auf  dem
+Voraussetzung ist eine funktionierende SMTP-Konfiguration auf dem
 OTRS-Rechner.
 </para>
 </note>
 
 <para>
 Eine Beispielkonfiguration finden Sie in der Datei
-<filename>.fetchmailrc.dist</filename> im Home-Verzeichnis von OTRS.
+<filename>.fetchmailrc.dist</filename> im Homeverzeichnis von OTRS.
 Kopieren Sie diese Datei nach <filename>.fetchmailrc</filename> und
-erweitern Sie das File um die Daten Ihrer POP3/IMAP Accounts.
+erweitern Sie die Datei um die Daten Ihrer POP3/IMAP Accounts.
 </para>
 
 <example id='fetchmailrc'>
-<title>.fetchmailrc</title>
+<title>Beispiel .fetchmailrc</title>
 
 <para>
 <programlisting>
@@ -293,23 +299,23 @@ Wird das Kommando <command>"fetchmail -a</command> ausgeführt
 (ggf. via cron), werden alle Emails auf das lokale OTRS-Konto
 weitergeleitet und mit Hilfe von procmail an
 <filename>bin/PostMasterPOP3.pl</filename> übergeben.
-<filename>bin/PostMasterPOP3.pl</filename> sorge wiederum dafür, dass die
+<filename>bin/PostMasterPOP3.pl</filename> sorgt wiederum dafür, dass die
 neuen Mails in das Ticket System gelangen.
 </para>
 </sect2>
 
 <sect2 id="email-receiving-filter">
-<title>Filterung/Verteilung über PostMaster Module (für komplexere
+<title>Filterung/Verteilung über PostMaster-Module (für komplexere
 Verteilungsszenarien)</title>
 
 <para>
 Falls die <filename>bin/PostMaster.pl</filename> oder
 <filename>bin/PostMasterPOP3.pl</filename> Methoden verwendet werden, können
-X-OTRS-Header mit Hilfe der PostMaster-Filtermodulen in die eingehenden
+X-OTRS-Header mit Hilfe der PostMaster-Filtermodule in die eingehenden
 Mails eingefügt bzw. bereits vorhandene X-OTRS-Header verändert werden. Mit
 Hilfe von X-OTRS-Headern kann das Ticket System bestimmte Aktionen für
 Mails ausführen, z.B. diese in eine bestimmte Queue einsortieren, sie einem
-bestimmten Kunden zuordnen, die Priorität ändern, usw. Eine nähere
+bestimmten Kunden zuordnen, die Priorität ändern usw. Eine nähere
 Beschreibung der X-OTRS-Header finden Sie im Kapitel zum
 
 <link linkend="adminarea-postmasterpop3-account">
@@ -339,7 +345,7 @@ X-OTRS-Queue:  spam).
 </para>
 
 <example id='filter-module-match-example'>
-<title>Beispiel Jobs für das Filtermodul Kernel::System::PostMaster::Filter::Match</title>
+<title>Beispiel-Jobs für das Filtermodul Kernel::System::PostMaster::Filter::Match</title>
 
 <para>
 <programlisting>
@@ -373,13 +379,13 @@ X-OTRS-Queue:  spam).
 
 <para>
 Kernel::System::PostMaster::Filter::CMD ist ein Standard-Modul, um
-die Emails an ein externes Kommando zu leiten und falls das Ergebnis aus
+die Emails an ein externes Kommando zu leiten und, falls das Ergebnis aus
 STDOUT true ist, den neuen Email-Header zu setzen (z.B. X-OTRS-Ignore: yes
 oder X-OTRS-Queue: spam).
 </para>
 
 <example id='filter-module-cmd-example'>
-<title>Beispiel Job für das Filtermodul Kernel::System::PostMaster::Filter::CMD</title>
+<title>Beispiel-Job für das Filtermodul Kernel::System::PostMaster::Filter::CMD</title>
 
 <para>
 <programlisting>
