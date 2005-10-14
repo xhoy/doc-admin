@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: first-steps.xml,v 1.7 2005-10-08 00:00:58 cs Exp $ -->
+<!-- $Id: first-steps.xml,v 1.8 2005-10-14 13:11:05 cs Exp $ -->
 
 <chapter id="first-steps-in-otrs">
 <title>Die ersten Schritte in OTRS</title>
@@ -9,7 +9,7 @@
 <abstract>
 <para>
 Dieser Abschnitt soll einen ersten Überblick über die
-Funktionsweise von OTRS und dem Aufbau der Weboberfläche des
+Funktionsweise von OTRS und den Aufbau der Weboberfläche des
 Systems geben. Es werden die Unterschiede zwischen Mitarbeitern
 (Agents), Kunden (Customer) und Administratoren erklärt.
 Anschließend wird die erste Anmeldung als OTRS-Administrator
@@ -26,7 +26,7 @@ werden kann.
 Die Mitarbeiter bearbeiten über die Weboberfläche des Systems
 die Anfragen der Kunden, erstellen neue Tickets für andere Mitarbeiter
 oder Kunden, legen Tickets über Telefongespräche mit Kunden an,
-schreiben FAQ-Einträge, bearbeiten Kundendaten, usw.
+schreiben FAQ-Einträge, bearbeiten Kundendaten usw.
 </para>
 
 <para>
@@ -37,13 +37,13 @@ schreiben FAQ-Einträge, bearbeiten Kundendaten, usw.
 </para>
 
 <para>
-Angenommen Ihr Host mit der OTRS-Installation ist über die Domain
+Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain
 
 <ulink url="http://www.example.com/">
 <citetitle>http://www.example.com</citetitle>
 </ulink>
 
-erreichbar, so kann der Loginbildschirm für die Mitarbeiter und somit
+erreichbar, so kann der Login-Bildschirm für die Mitarbeiter und somit
 auch für den OTRS-Administrator über die URL
 
 <ulink url="http://www.example.com/otrs/index.pl">
@@ -60,7 +60,7 @@ aufgerufen werden.
 <para>
 Kunden können über das speziell für sie vorhandene Webinterface von OTRS
 einen eigenen Kundenaccount anlegen, die eigenen Tickets einsehen, Tickets
-erstellen und bearbeiten, die Accounteinstellungen anpassen, usw.
+erstellen und bearbeiten, die Account-Einstellungen anpassen usw.
 </para>
 
 <para>
@@ -71,15 +71,13 @@ erstellen und bearbeiten, die Accounteinstellungen anpassen, usw.
 </para>
 
 <para>
-Angenommen Ihr
-Host mit der OTRS-Installation ist über die Domain
+Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain
 
 <ulink url="http://www.example.com/">
 <citetitle>http://www.example.com</citetitle>
 </ulink>
 
-zu erreichen, so kann der Loginbildschirm für die Kunden über die
-URL
+zu erreichen, so kann der Login-Bildschirm für die Kunden über die URL
 
 <ulink url="http://www.example.com/otrs/customer.pl">
 <citetitle>http://www.example.com/otrs/customer.pl</citetitle>
@@ -107,7 +105,7 @@ zugänglich ist.
 </para>
 
 <para>
-Das öffentliche Webinterface ist über die URL
+Das öffentliche Web-Interface ist über die URL
 
 <ulink url="http://www.example.com/otrs/faq.pl">
 <citetitle>http://www.example.com/otrs/faq.pl</citetitle>
@@ -161,7 +159,7 @@ Kennwort "root".
 Diese Zugangsdaten werden bei jeder OTRS-Installation
 standardmäßig vergeben. Da das Kennwort für den
 OTRS-Administrator somit öffentlich bekannt ist, sollten Sie es
-schnellst möglich ändern! Sie können dies nach der Anmeldung
+schnellstmöglich ändern! Sie können dies nach der Anmeldung
 als OTRS-Administrator über die
 
 <link linkend="user-preferences">
@@ -186,7 +184,7 @@ Falls Sie einmal ihr Kennwort vergessen haben sollten, können Sie sich
 automatisch vom System ein neues Kennwort an die Mailadresse schicken
 lassen, die für Ihren OTRS-Account im System hinterlegt ist. Geben Sie
 dazu im unteren Bereich des Login-Bildschirms den Benutzernamen Ihres
-OTRS-Accounts an und schicken Sie die Eingabe über den dafür
+Accounts an und schicken Sie die Eingabe über den dafür
 vorgesehenen Schalter ab. Kurze Zeit später sollte sich in Ihrem
 Postfach eine Mail vom OTRS-System befinden, die das neu vergebene Kennwort
 enthält.
@@ -201,8 +199,8 @@ Nachdem Sie sich erfolgreich am System angemeldet haben, wird die
 Oberfläche von OTRS geladen. Sie befinden sich nach einer Anmeldung
 standardmäßig in der sog. Queue-Ansicht. Die Queue-Ansicht
 vermittelt einen schnellen Überblick über die Tickets in den
-verschiedenen Queues, Sie werden auf neue Nachrichten hingewiesen, die
-Anzahl ihrer gesperrten Tickets wird angezeigt, usw.
+verschiedenen Queues. Sie werden auf neue Nachrichten hingewiesen, die
+Anzahl ihrer gesperrten Tickets wird angezeigt usw.
 </para>
 
 <para>
@@ -218,7 +216,7 @@ Um die Übersichtlichkeit zu erhöhen, wurde die Oberfläche
 von OTRS in verschiedene Bereiche aufgeteilt. Innerhalb des schwarzen
 Balkens am oberen Fensterrand werden allgemeine Informationen wie die
 aktuelle Uhrzeit, das Datum, Ihr Name und Ihre in den
-Accounteinstellungen hinterlegte Mailadresse angezeigt. Weiterhin finden
+Account-Einstellungen hinterlegte Mailadresse angezeigt. Weiterhin finden
 Sie auf der linken Seite des Balkens einen Link über den die
 Oberfläche neu geladen werden kann.
 </para>
@@ -229,15 +227,15 @@ verschiedene Schaltflächen dargestellt, über die die Navigation im
 System oder die Aktivierung bestimmter Aktionen möglich ist. Der Balken
 unterteilt sich in drei Abschnitte. Der linke Bereich enthält
 Schaltflächen zur Abmeldung vom System, zur Aktivierung der Queue-Ansicht,
-einen Schalter um auf das Kunden-Backend zuzugreifen oder einen Schalter zum
+einen Schalter, um auf das Kunden-Backend zuzugreifen oder einen Schalter zum
 Laden der Maske für die Volltextsuche über die im System
 gespeicherten Tickets. Über die Schalter "Phone-Ticket" und
 "Email-Ticket" kann ein neues Telefon- oder Email-Ticket angelegt werden. Mit
 Hilfe des Schalters "Statistik" wird der Bildschirm zur Ausgabe verschiedener
 Systemstatistiken geladen, über "Einstellungen" gelangen Sie in den
 Bereich zur Anpassung Ihrer eigenen Account-Einstellungen. "Bulk-Action"
-läd den Bildschirm für die Ausführung verschiedener Aktionen
-auf markierte Tickets, hiermit können z.B. mehrere Tickets auf einmal
+lädt den Bildschirm für die Ausführung verschiedener Aktionen
+auf markierte Tickets. Hiermit können z.B. mehrere Tickets auf einmal
 geschlossen oder verschoben werden.
 </para>
 
@@ -261,7 +259,7 @@ Im hellgrauen Balken unterhalb der Navigationsleiste werden verschiedene
 Systemmeldungen angezeigt. Wenn Sie als Administrator angemeldet sind,
 werden Sie z.B. darauf aufmerksam gemacht, dass normale Arbeiten nicht als
 Administrator durchgeführt werden sollten. Wurde das Kalender-Modul
-installiert, werden innerhalb dieses Balkens z.b. die nächsten Termine
+installiert, werden innerhalb dieses Balkens z.B. die nächsten Termine
 angezeigt.
 </para>
 
@@ -276,7 +274,7 @@ können in Ihren
 Benutzereinstellungen
 </link>
 
-die Queues selektieren, die Sie in "Meine Queues" aufnehmen möchten.
+die Queues auswählen, die Sie in "Meine Queues" aufnehmen möchten.
 </para>
 
 <para>
@@ -291,22 +289,22 @@ der Queue "Raw" sich jedoch ein noch nicht gesperrtes Ticket befindet.
 
 <para>
 <screenshot>
-<screeninfo>Inhalt der raw-Queue nach der ersten Anmeldung</screeninfo>
+<screeninfo>Inhalt der Raw-Queue nach der ersten Anmeldung</screeninfo>
 <graphic srccredit="Raw queue - screenshot" scale="40" fileref="screenshots/raw-queue.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Wenn Sie nun die Queue "Raw" auswählen wird die Oberfläche neu
+Wenn Sie nun die Queue "Raw" auswählen, wird die Oberfläche neu
 aufgebaut und der Inhalt dieser Queue angezeigt. Im unteren Bereich des
 Bildschirms erscheinen nun noch die zusätzlichen Informationen für
 das Ticket, welches sich in der Queue "Raw" befindet. In einem schwarzen
-Balken ist die ID, also die eindeutige Kennung, und das Alter des Tickets
+Balken ist die ID, also die eindeutige Ticket-Kennung, und das Alter des Tickets
 zu erkennen. Auf der linken Seite dieses Balkens sehen Sie die Checkbox, mit
 der das Ticket für die Bulk-Action markiert werden kann. In der
 nächsten Zeile, die grau dargestellt wird, sind die Eigenschaften bzw.
 die Aktionen aufgeführt, die auf das Ticket angewendet werden
-können ("Sperren", "Inhalt", "Historie", usw.). In der gleichen Zeile
+können ("Sperren", "Inhalt", "History" usw.). In der gleichen Zeile
 ist rechts eingerückt das Erstellungsdatum und die Erstellungszeit des
 Tickets zu erkennen.
 </para>
@@ -317,7 +315,7 @@ Auf der linken Seite wird in weißer Farbe eine Vorschau des
 Ticketinhaltes angezeigt. Es ist zu erkennen, wer das Ticket gesendet hat, an
 welche Adresse es geschickt wurde, wie der Betreff lautet und was die ersten
 Zeilen beinhalten. Rechts daneben werden in grauer Farbe weitere
-Informationen wie die Priorität oder der aktuelle Satus des Tickets
+Informationen wie die Priorität oder der aktuelle Status des Tickets
 angezeigt. Weiterhin kann eingesehen werden, ob das Ticket bereits einem
 Kunden zugeordnet wurde. Über verschiedene Schaltflächen
 können Sie auf das Ticket antworten, eine Anrufnotiz erstellen oder
@@ -325,9 +323,9 @@ das Ticket in eine neue Queue verschieben.
 </para>
 
 <para>
-Am unterem Ende des Bildschirms erscheint innerhalb eines schwarzen
+Am unteren Ende des Bildschirms erscheint innerhalb eines schwarzen
 Balkens der Seitenfooter. Dieser beinhaltet ebenfalls einige Schalter zum
-aktivieren der Queue-Ansicht oder für die Erstellung eines
+Aktivieren der Queue-Ansicht oder für die Erstellung eines
 Telefontickets.
 </para>
 </sect1>
@@ -345,8 +343,7 @@ Begriff Queue verbirgt.
 <para>
 Normalerweise werden Emails in einer INBOX gespeichert und verwaltet. Eine
 INBOX ist eine große Datei, in der alle Emails aneinandergereiht
-werden.
-Neue Emails werden einfach an das Ende der INBOX angehängt. Das
+werden. Neue Emails werden einfach an das Ende der INBOX angehängt. Das
 Email-Programm, welches Sie zum Lesen und Bearbeiten Ihrer Nachrichten
 benutzen,  liest die INBOX-Datei aus, strukturiert den Inhalt dieser Datei
 neu (wenn z.B. eine Email mitten aus der INBOX-Datei gelöscht
@@ -354,17 +351,17 @@ wird) und bereitet den Inhalt für Sie als Nutzer auf.
 </para>
 
 <para>
-Eine Queue in OTRS ist ein Mechanismus mit dessen Hilfe viele
+Eine Queue in OTRS ist ein Mechanismus, mit dessen Hilfe viele
 Tickets gespeichert und verwaltet werden können, also auch eine Art
 INBOX. Als Anwender ist es völlig unwichtig zu wissen, wo oder
-wie das Ticket gesichert ist. Wichtig ist nur zu wissen, welcher Queue
+wie das Ticket gesichert ist. Wichtig ist nur, zu wissen, welcher Queue
 das Ticket zugeordnet wurde. Anwender, also die sog. Agents (z.B. die
 Mitarbeiter ihrer Supportabteilung), können nun Tickets zwischen
 den Queues verschieben! Warum aber sollten sie das tun?
 </para>
 
 <para>
-Gehen wir zur praktischeren Erklärung noch mal von Max Mustermann's
+Gehen wir zur praktischeren Erklärung noch mal von Max Mustermanns
 Unternehmen aus dem Abschnitt
 
 <link linkend="basic-tts-example">
@@ -372,25 +369,25 @@ ein Beispiel für ein Trouble Ticket System
 </link>
 
 aus. Max Mustermann hat nach seinem anfänglichen Support-Chaos OTRS
-installiert und er und seine Mitarbeiter nutzen das System zur
+installiert, und er und seine Mitarbeiter nutzen das System zur
 Bearbeitung der Anfragen für die Videorekorder. Eine Queue, in die
 alle Anfragen einsortiert werden, reicht in dieser Situation aus. Nach
 einiger Zeit bringt Max Mustermann einen DVD-Player auf den Markt, der von
 den Kunden gut angenommen wird. Doch auch zu diesem Gerät laufen
 immer mehr Anfragen in das Ticket System und die Verwaltung der Emails
 mit einer Queue wird immer unübersichtlicher. Deshalb entschließt
-sich Max Mustermann nach einiger Zeit, sein Support System weiter zu
+sich Max Mustermann nach einiger Zeit, sein Supportsystem weiter zu
 optimieren. Er richtet zwei neue Queues ein, so dass er nun
 insgesamt drei Queues in OTRS definiert hat. Die erste und schon
-länger vorhandene Queue wird zur Eingangsqueue in die erst mal
+länger vorhandene Queue wird zur Eingangsqueue, in die erst mal
 alle Mails wandern, umfunktioniert. Daneben gibt es jetzt noch die neuen
 Queues "Videorekorder" und "DVD-Player". Herr Mustermann beauftragt
 Frau Müller als sog. Dispatcherin tätig zu werden und mehrmals
 am Tag die Mails in der Eingangsqueue zu sichten und sie, je nach
-Inhalt, der Queue "videorecorder" oder der Queue "DVD-Player"
+Inhalt, der Queue "Videorecorder" oder der Queue "DVD-Player"
 zuzuordnen. Herr Meier bearbeitet ab jetzt nur noch die Anfragen in der
 Videorekorder-Queue, Herr Schulze geht nur noch auf die Anfragen
-innerhalb der DVD-Player-Queue ein, beide haben auf die jeweils anderen
+innerhalb der DVD-Player-Queue ein. Beide haben auf die jeweils anderen
 zwei Queues keinen Zugriff. Herr Mustermann kümmert sich weiter wie
 gewohnt um alle Arten von Anfragen und darf auf alle drei Queues
 zugreifen, die Möglichkeiten der Vergabe von Zugriffsrechten
@@ -408,9 +405,9 @@ Struktur Ihres Unternehmens abbilden bzw. einzelne
 Geschäftsvorgänge abgrenzen. So könnte Max Mustermann
 neben seinem Support-Queues für die verschiedenen Geräte für
 Bestellungen eine Queue mit dem Namen "Sales" anlegen und als Unter-Queues
-"Anfragen", "Angebote", "Bestellungen", usw. definieren, um den
-Bestellvorgang zu optimieren. Je besser und strukturierter ein Support
-System organisiert ist, desto weniger Zeit und letztlich auch finanzielle
+"Anfragen", "Angebote", "Bestellungen" usw. definieren, um den
+Bestellvorgang zu optimieren. Je besser und strukturierter ein Support-
+system organisiert ist, desto weniger Zeit und letztlich auch finanzielle
 Mittel müssen dafür aufgebracht werden. Queues und Unter-Queues
 helfen bei der Strukturierung bzw. bei der Abbildung von Abläufen.
 </para>
@@ -422,10 +419,10 @@ helfen bei der Strukturierung bzw. bei der Abbildung von Abläufen.
 <para>
 Die Einstellungen eines Accounts lassen sich mit Hilfe der
 Benutzereinstellungen den eigenen Wünschen entsprechend anpassen. Dabei
-spielt es keine Rolle, ob man als Mitarbeiter, Kunde oder Administrator
+spielt keine Rolle, ob man als Mitarbeiter, Kunde oder Administrator
 am System angemeldet ist. Die Benutzereinstellungen sind über den
 Link "Einstellungen" sowohl innerhalb des Interfaces für Mitarbeiter
-bzw. Administratoren als auch der Oberfläche für die
+bzw. Administratoren als auch der Oberfläche für
 Kunden erreichbar.
 </para>
 
