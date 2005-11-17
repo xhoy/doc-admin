@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.5 2005-09-21 09:25:52 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.6 2005-11-17 17:19:25 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -1112,7 +1112,7 @@ of OTRS.
 
 <para>
 <screenshot>
-<screeninfo>Maniging filter rules for incomming messages</screeninfo>
+<screeninfo>Managing filter rules for incomming messages</screeninfo>
 <graphic srccredit="Adminarea postmasterfilter - screenshot" scale="40" fileref="screenshots/admin-postmasterfilter.png"></graphic>
 </screenshot>
 </para>
@@ -1307,47 +1307,39 @@ A name must bespecifyed for every filter rule. In the section for "Match"
 the filter criteria can be specifyed. Chose via the listboxes for
 "Header 1", "Header 2" and so on the parts of the messages, where you would
 like to search and specify via the imput files on the right sites the
-values.
-
-welcher Stelle in der eingehenden Nachricht Sie suchen möchten und tragen
-Sie rechts neben dem entsprechenden Header den Wert ein, nach dem gesucht
-werden soll. In der Sektion "Setzen" legen Sie die Aktionen fest,
-die ausgeführt werden sollen, wenn die Filterkriterien zutreffen. Hier
-können Sie für "Header1", "Header 2" usw. den entsprechenden X-OTRS-Header
-auswählen und rechts daneben den entsprechenden Wert eintragen.
+values. In the section for "Set" you can chose the actions that are
+triggered, if the filter rules match. You can select for "Header 1",
+"Header 2" and so on the X-OTRS-Header and set the values.
 </para>
 
 <example id="sort-mails-into-junk">
-<title>Aussortierung von Spammails in eine bestimmte Queue</title>
+<title>Sort spam mails into a specific queue</title>
 
 <para>
-Eine nützliche Filterregel könnte sein, alle Mails, die von spamassassin
-als Spam markiert wurden, automatisch in die Queue "Junk" einsortieren zu
-lassen. Spamassassin fügt bei allen überprüften Mails die Kopfzeile
-"X-Spam-Flag" hinzu. Wird die Mail als Spam markiert, wird dieser Header
-auf "Yes" gesetzt. Das Filterkriterium lautet also "X-Spam-Flag: Yes". Um nun
-eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als
-Name für die Filterregel z.B. "spam-mails" ein und wählen in der Sektion
-"Treffer" für "Header 1" den Header "X-Spam-Flag:" aus der Listbox aus.
-Rechts daneben fügen Sie als Wert "Yes" hinzu. Das Filterkriterium wurde
-somit festgelegt. Um nun die Einsortierung der von spamassassin als Spam
-klassifizierten Mails  in die Queue "Junk" zu erzwingen, wählen Sie in
-der Sektion "Setzen" für "Header 1" den Eintrag "X-OTRS-Queue:" aus und
-tragen als Wert rechts daneben "Junk" ein. Abschließend wird mit Hilfe des
-"Hinzufügen"-Buttons die neue Regel gespeichert und aktiviert, beim nächsten
-Abruf der POP3-Konten bzw. für die nächste an das System gesendete
-Nachricht wird die Filterregel abgearbeitet.
+A nice and usefull filter rule could be to let OTRS sort mails marked for
+spam with Spamassassin into the "Junk" queue automaticly.
+Spamassassin adds for every checked mail the "X-Spam-Flag" header.
+Is the mail marked as spam, the Header is set to "Yes". So the filter criteria
+is "X-Spam-Flag: Yes". To create a filter roule with this criteria you can
+insert the name for example "spam-mails". Also chose in the section for
+"Match" for "Header 1" from the listbox "X-Spam-Flag:". Insert "Yes" as
+value for this header. Now the filter criteria is specified. To make sure,
+that all spam mails get sorted into the "Junk" queue chose in the section for
+"Set" for "Header 1" the "X-OTRS-Queue:" entry. Specify "Junk" as value for
+this header. Finaly add the new filter roule to activate it for the next
+new messages in the system.
 </para>
 </example>
 
 <para>
-Es gibt weitere Module, die zum
+There are aditional modules, that can be used to
 
 <link linkend="email-receiving-filter">
-Filtern eingehender Emails
+filter incoming messages
 </link>
 
-genutzt werden und bei komplexeren Installationen nützlich sein können.
+more specificaly. This modules might be usefull on bigger and mor complex
+systems.
 </para>
 
 </sect1>
