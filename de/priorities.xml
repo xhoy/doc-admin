@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: priorities.xml,v 1.1 2006-01-16 17:41:20 cs Exp $ -->
+
+<chapter id="priorities">
+<title>Anpassen der Ticket Prioritäten</title>
+
+<para>
+Wenn Sie die Ticket-Priorität anpassen / ändern möchten, arbeiten Sie
+bitte die nächsten Schritte ab. Derzeit gibt es hierzu leider keine Maske
+im Web-Interface.
+</para>
+
+<para>
+<itemizedlist mark='opencircle'>
+    <listitem>
+    <para>
+    Verbinden Sie sich mit Hilfe eines MySQL-Clients mit Ihrem MySQL-Server
+    und wählen Sie die OTRS-Datenbank aus:
+    </para>
+
+    <para>
+    <screen>
+    linux:~# mysql -p
+    Enter password:
+    Welcome to the MySQL monitor.  Commands end with ; or \g.
+    Your MySQL connection id is 10 to server version: 5.0.18-Debian_4-log
+
+    Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+    mysql&gt; USE otrs;
+    Reading table information for completion of table and column names
+    You can turn off this feature to get a quicker startup with -A
+
+    Database changed
+    mysql&gt;
+    </screen>
+    </para>
+    </listitem>
+    <listitem>
+    <para>
+    So erhalten Sie die aktuellen Prioritäten:
+    </para>
+
+    <para>
+    <screen>
+    mysql&gt; SELECT id,name FROM ticket_priority;
+    +----+-------------+
+    | id | name        |
+    +----+-------------+
+    |  1 | 1 very low  |
+    |  2 | 2 low       |
+    |  3 | 3 normal    |
+    |  4 | 4 high      |
+    |  5 | 5 very high |
+    +----+-------------+
+    5 rows in set (0.00 sec)
+
+    mysql&gt;
+    </screen>
+    </para>
+
+    <para>
+    <important>
+    <para>
+    Das Attribut "id" bestimmt die Reihenfolge der Prioritäten. => 1
+    entspricht dem Minimum und 5 (oder höher) repräsentiert das Maximum.
+    Die Nummer im Namen der Priorität wird für die Umsetzung der korrekten
+    Reihenfolge innerhalb der Prioritäten verwendet.
+    </para>
+    </important>
+    </para>
+    </listitem>
+    <listitem>
+    <para>
+    Anpassen/Ändern der Prioritäten via SQL. Z.B.:
+    </para>
+
+    <para>
+    <screen>
+    mysql&gt; UPDATE ticket_priority SET name = '3 default' WHERE id = 3;
+    Query OK, 1 row affected (0.01 sec)
+    Rows matched: 1  Changed: 1  Warnings: 0
+
+    mysql&gt;
+    </screen>
+    </para>
+
+    <para>
+    Wenn Sie diesen SQL-Befehl ausführen, wird die Priorität "3 normal" in
+    Zukunft "3 default" lauten.
+    </para>
+    </listitem>
+    <listitem>
+    <para>
+    Beachten Sie bitte, dass Sie die Änderungen bezüglich der Priorität auch
+    in der Konfigurationsdatei (Kernel/Config.pm) oder über das grafische
+    Konfigurations-Frond-End nachpflegen müssen.
+    </para>
+
+    <para>
+    <programlisting>
+        [...]
+        # PostmasterDefaultPriority
+        # (The default priority of new tickets.) [default: '3 normal']
+        $Self->{PostmasterDefaultPriority} = '3 default';
+        [...]
+        # Ticket::Frontend::EmailPriority
+        # default priority for email tickets [default: 3 normal]
+        $Self->{'Ticket::Frontend::EmailPriority'} = '3 default';
+        [...]
+        # default phone priority [default: 3 normal]
+        $Self->{'Ticket::Frontend::PhonePriority'} = '3 default';
+        [...]
+        # CustomerDefaultPriority
+        # (default priority of new customer tickets)
+        $Self->{CustomerDefaultPriority} = '3 default';
+        [...]
+    </programlisting>
+    </para>
+    </listitem>
+</itemizedlist>
+</para>
+
+<para>
+Wenn Sie eine neue Priorität hinzufügen möchten, passen Sie die
+ticket_priority-Tabelle in der OTRS Datenbank entsprechend an. Achten Sie
+darauf, dass Sie die ID und die Nummer im Namen der Priorität entsprechend
+der Dringlichkeit vergeben.
+</para>
+
+</chapter>
