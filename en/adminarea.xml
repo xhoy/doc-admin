@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.7 2005-12-07 15:54:13 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.8 2006-01-26 11:34:15 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -374,7 +374,7 @@ specify a account name and a password for the new user to enable that this
 user can log in the system. Also you have to specifiy a customer ID
 ("Customer#"). This ID needs the system to identify the user and the
 tickets of this user. Ffor example the mail address of the user can be
-specifyed for Customer#, because a mail address is explicit.
+specified for Customer#, because a mail address is explicit.
 </para>
 
 <note>
@@ -853,10 +853,10 @@ auto answer with the same event can be selected or removed via a listbox.
 To enable OTRS to send emails you need at least a valid email address used
 by the system. Because many setups need more than one mail addresses OTRS is
 able to work with many mail addresses at the same time. At least one mail
-address can be specifyed for a queue, but it is also possible to specify
+address can be specified for a queue, but it is also possible to specify
 the same address for more than one queue. That means that more than one
 address can be used to send mails from outsite to a queue, but one address
-has to be specifyed for the outgoing mails of a queue. The address, that
+has to be specified for the outgoing mails of a queue. The address, that
 shall be used for outgoing messages of a queue, can be set if the queue is
 created. Follow the "Email Addresses" link to manage all mal addresses of
 the system.
@@ -1018,7 +1018,7 @@ After a default setup the states "closed successful",
 "closed unsuccessful", "merged", "new", "open", "pending auto close+",
 "pending auto close-" "pending reminder" and "removed" are already
 installed in the system. Every state is linked to a state type that needs
-to be specifyed if a new state is created. Per default the state types
+to be specified if a new state is created. Per default the state types
 "closed", "merged", "new", "open", "pending auto", "pendig reminder" and
 "removed".
 </para>
@@ -1303,8 +1303,8 @@ headers and their meaning.
 </table>
 
 <para>
-A name must bespecifyed for every filter rule. In the section for "Match"
-the filter criteria can be specifyed. Chose via the listboxes for
+A name must be specified for every filter rule. In the section for "Match"
+the filter criteria can be specified. Chose via the listboxes for
 "Header 1", "Header 2" and so on the parts of the messages, where you would
 like to search and specify via the imput files on the right sites the
 values. In the section for "Set" you can chose the actions that are
@@ -1364,7 +1364,7 @@ close or move tickets, send notifications aboout escalated tickets, e.g.
 To create a new job for the GenericAgent the link "GenericAgent" in the
 admin area of OTRS can be used. A table with the already created jobs is
 displayed where jobs can be executed manualy or be removed. To create a new
-job a name must be specifyed and the "Add" button must be pressed.
+job a name must be specified and the "Add" button must be pressed.
 </para>
 
 <para>
@@ -1376,8 +1376,8 @@ job a name must be specifyed and the "Add" button must be pressed.
 
 <para>
 Via the screen for the creation of a new job for the GenericAgent the times
-can be specifyed when the job shall be executed. Also different criteria
-can be specifyed to select the tickets that shall be affected by the job.
+can be specified when the job shall be executed. Also different criteria
+can be specified to select the tickets that shall be affected by the job.
 Also it is possible to set the new properties of the tickets which are
 affected by the new job.
 </para>
@@ -1409,7 +1409,7 @@ can be selected that should be notifyed by the admin.
 
 <para>
 The sender, the subject and the message text of the notification can be
-specifyed via the admin notification screen. Also the users and groups who
+specified via the admin notification screen. Also the users and groups who
 should receive the message can be selected from the table.
 </para>
 
@@ -1468,7 +1468,7 @@ unix systems.
 </note>
 
 <para>
-The count of the shown log entries can be specifyed via the
+The count of the shown log entries can be specified via the
 
 <link linkend="Framework:Core::Log:LogSystemCacheSize">
 LogSystemCacheSize
