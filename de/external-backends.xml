@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.6 2006-01-09 21:39:58 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.7 2006-02-07 15:23:16 cs Exp $ -->
 
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
@@ -12,15 +12,15 @@
 <para>
 OTRS ist in der Lage, mit verschiedenen Kundendaten (insbesondere
 Login, Email, Telefon) umzugehen. Diese Informationen können im
-Agenten-Interface angezeigt werden und können für das Kunden-Interface
-benutzt werden. Weiterhin werden die Daten für die Authentifizierung der
-Kunden benötigt.
+Agenten-Interface angezeigt und für das Kunden-Interface verwendet
+werden. Weiterhin werden die Daten für die Authentifizierung der
+Kunden am System benötigt.
 </para>
 
 <para>
-Die benutzten/angezeigten Kundendaten sind frei konfigurierbar, aber es
-gibt drei benötigte Optionen, BenutzerLogin, BenutzerEmail und
-BenutzerKundenID.
+Die benutzten/angezeigten Kundendaten sind frei konfigurierbar, es
+gibt jedoch drei benötigte Optionen, damit OTRS ordnungsgemäß funktioniert:
+BenutzerLogin, BenutzerEmail und BenutzerKundenID.
 </para>
 
 <para>
@@ -54,8 +54,9 @@ möglich, dafür ein eigenes Backend zu schreiben.
 <note>
 <para>
 Es is auch möglich mehr als einen Kunden-Daten Topf zu definieren.
-Einfach eine weitere Konfig Option wie "CustomerUser" mit einer Nummer
-zwischen 1 und 10 hinzufügen, z.B. "CustomerUser1".
+Dazu erweitern Sie die Konfiguration Einfach um eine weitere Konfig Option
+"CustomerUser" mit einer Nummer zwischen 1 und 10, z.B. "CustomerUser1",
+"CustomerUser2", usw.
 </para>
 </note>
 
@@ -63,7 +64,8 @@ zwischen 1 und 10 hinzufügen, z.B. "CustomerUser1".
 <title>Datenbank (Standard)</title>
 
 <para>
-Dies ist ein Beispiel für ein Datenbank-Backend.
+Dies ist ein Beispiel für ein Backend, welches die Kundendaten in der
+normalen OTRS Datenbank verwaltet.
 </para>
 
 <para>
@@ -132,69 +134,142 @@ Dies ist ein Beispiel für ein Datenbank-Backend.
 </para>
 
 <para>
-Falls Sie Ihre Kundendaten anpassen möchten, ändern Sie die
-Tabellenspalten oder fügen Sie weitere hinzu:
+Falls Sie die Kundendaten anpassen möchten, ändern Sie in der Datenbank die
+Tabellenspalten oder fügen Sie weitere hinzu (im folgenden Beispiel wird
+ein Feld für die Telefonnummer hinzugefügt)
 </para>
 
 <para>
-<programlisting>
-ALTER TABLE customer_user ADD phone VARCHAR (250);
-</programlisting>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 116 to server version: 5.0.18-Debian_7-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; ALTER TABLE customer_user ADD phone VARCHAR (250);
+Query OK, 1 rows affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
 </para>
 
 <para>
-Danach fügen Sie Ihre eigenen Spalten dem MAP Array hinzu:
+Danach fügen Sie Ihre eigenen Spalten dem MAP Array in
+der Datei <filename>Kernel/Config.pm</filename> hinzu:
 </para>
 
 <para>
 <programlisting>
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [...]
             [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
 </programlisting>
 </para>
 
 <para>
 Natürlich können Sie all diese Kundeninformationen dann auch
-über das Admin-Interface pflegen.
+über das Admin-Interface bzw. die Kundenverwaltung pflegen.
 </para>
 
 <sect3 id='multi-customer-ids-db'>
-<title>Kunden mit multiblen IDs</title>
+<title>Kunden mit multiblen IDs (Firmen Tickets)</title>
 
 <para>
-Es ist auch möglich mehr als nur einer Kunden-Nummer einen
-Kunden zuzuweisen. Dies kann z.B. dann nützlich sein, wenn ein Kunde auf
-Tickets anderer Kunden zugreifen muss, z.B. die Mitarbeiter einer Firma
-sollen auf die Tickets aller Mitarbeiter Zugriff haben.
+Es ist möglich, einem Kunden mehr als nur eine Kunden-Nummer zuzuweisen.
+Dies kann z.B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
+Kunden zugreifen muss, z.B. der Abteilungsleiter auf die Tickets der
+Mitarbeiter seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer
+Kunden, verwendet man in OTRS das sog. Firmen Ticket Feature. Im
+Kunden-Interface können diese Tickets über den "Firmen Ticket" Link
+eingesehen werden.
 </para>
 
 <para>
-Einfach eine Tabellenspalte hinzufügen in der die Kunden-Nummern
-eingetragen werden (wie "CustomerID1, CustomerID2, CustomerID3"):
+Um Firmen Tickets zu verwenden, muss die customer_user Tabelle in der OTRS
+Datenbank um eine Spalte erweitert werden, in die später die Kunden-Nummern
+eingetragen werden, auf die ein Kunde zusätzlich zu den eigenen Tickets
+Zugriff haben soll:
 </para>
 
 <para>
-<programlisting>
-ALTER TABLE customer_user ADD customer_ids VARCHAR (250);
-</programlisting>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 124 to server version: 5.0.18-Debian_7-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; ALTER TABLE customer_user ADD customer_ids VARCHAR (250);
+Query OK, 1 rows affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
 </para>
 
 <para>
-Nun einen weiteren Eintrag im CustomerUser MAP Aarray In der
-Datei <filename>Kernel/Config.pm</filename> hinzufügen:
+Danach fügen Sie die neue Spalte dem MAP Array in
+der Datei <filename>Kernel/Config.pm</filename> hinzu:
 </para>
 
 <para>
 <programlisting>
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [...]
             [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
 </para>
 
 <para>
-Natürlich können Sie all die Multi-Kunden-Nummern dann auch
-über das Admin-Interface pflegen.
+Die Spalte für die Multi-Kunden-Nummern kann ab nun über das
+Admin-Interface bzw. über die Kundenverwaltung gepflegt werden.
 </para>
+
+<para>
+Um nun den Zugriff für einen Kunden auf die Tickets anderer Kunden zu
+ermöglichen, tragen Sie in die neue Spalte die IDs der Kunden ein, auf
+deren Tickets der Zugriff ermöglicht werden soll. Die einzelnen IDs trennen
+Sie durch ein Semikolon.
+</para>
+
+<example id='company-tickets'>
+<title>Firmen Tickets</title>
+
+<para>
+Angenommen es sind die Kunden A, B und C im System angelegt. A soll mit
+Hilfe von Firmen Tickets über das Kunden-Interface Zugriff auf die Tickets
+von B und C haben, B und C sollen jedoch jeweils nur ihre eigenen Tickets
+einsehen und bearbeiten können.
+</para>
+
+<para>
+Um dieses Setup zu realisieren, ändern Sie wie oben beschrieben die
+customer_user Tabelle in der OTRS Datenbank und das Mapping in
+<filename>Kernel/Config.pm</filename>. Anschließend laden Sie über die
+Kundenverwaltung die Einstellungen des Kunden A und tragen bei
+"Kundennummern" die Werte "B;C;" ein.
+</para>
+
+</example>
+
 </sect3>
 
 </sect2>
