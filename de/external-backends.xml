@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.7 2006-02-07 15:23:16 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.8 2006-02-07 15:44:51 cs Exp $ -->
 
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
@@ -63,9 +63,12 @@ Dazu erweitern Sie die Konfiguration Einfach um eine weitere Konfig Option
 <sect2 id='customer-backend-db'>
 <title>Datenbank (Standard)</title>
 
+<example>
+<title>Konfigurationsbeispiel für ein DB-Kunden-Back-end</title>
+
 <para>
-Dies ist ein Beispiel für ein Backend, welches die Kundendaten in der
-normalen OTRS Datenbank verwaltet.
+Dies ist ein Beispiel für die Konfiguration eines Back-ends, welches die
+Kundendaten in der normalen OTRS Datenbank verwaltet.
 </para>
 
 <para>
@@ -132,6 +135,8 @@ normalen OTRS Datenbank verwaltet.
     };
 </programlisting>
 </para>
+
+</example>
 
 <para>
 Falls Sie die Kundendaten anpassen möchten, ändern Sie in der Datenbank die
@@ -282,8 +287,12 @@ Falls Sie ein existierendes LDAP-Verzeichnis mit Ihren Kunden-Benutzern
 haben, können Sie dieses auch mit OTRS nutzen.
 </para>
 
+<example id='ldap-customer-backend'>
+<title>Konfigurationsbeispiel für ein LDAP-Kunden-Back-end</title>
+
 <para>
-Dies ist ein Beispiel für ein LDAP-Backend.
+Dies ist ein Beispiel für ein Kunden-Back-end, welches seine Daten aus
+einem LDAP-Tree bezieht.
 </para>
 
 <para>
@@ -351,20 +360,28 @@ Dies ist ein Beispiel für ein LDAP-Backend.
             [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],
         ],
     };
-</programlisting></para>
-
-<para>
-Falls Sie Ihre Kundendaten anpassen möchten, fügen Sie Ihre neuen
-Punkte dem MAP Array hinzu (oder entfernen Sie nicht benötigte Punkte):
+</programlisting>
 </para>
 
+</example>
+
+<para>
+Falls Sie in Ihrem LDAP-Verzeichnis weitere Informationen zu Ihren Kunden
+gespeichert haben und mit OTRS darauf zugreifen möchten, erweitern Sie das
+MAP Array in <filename>Kernel/Config.pm</filename> bzw. entfernen nicht
+gewünschte Einträge:
+</para>
+
+<para>
 <programlisting>
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [...]
             [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
 </programlisting>
+</para>
 
 <sect3 id='multi-customer-ids-ldap'>
-<title>Kunden mit multiblen IDs</title>
+<title>Kunden mit multiblen IDs (Firmen Tickets)</title>
 
 <para>
 Es ist auch möglich mehr als nur einer Kunden-Nummer einen
@@ -380,11 +397,12 @@ Anschließend einen weiteren Eintrag in der CustomerUser MAP Aarray In
 <filename>Kernel/Config.pm</filename> hinzufügen:
 </para>
 
+<para>
 <programlisting>
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
             [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
-
+</para>
 <para>
 Natürlich müssen die Multi-Kunden-Nummern vom LDAP Admin gepflegt werden
 und können von OTRS aus nicht verwaltet werden.
@@ -407,10 +425,12 @@ Ihren Kunden-Benutzern, die über das Admin-Interface oder Kunden-Interface
 angelegt werden.
 </para>
 
+<para>
 <programlisting>
     # This is the auth. module againt the otrs db
         $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';
 </programlisting>
+</para>
 </sect2>
 
 <sect2 id='customer-auth-backend-ldap'>
@@ -425,6 +445,7 @@ dass Sie keine Kunden über das Admin- oder Kunden-Interface anlegen oder
 ändern können.
 </para>
 
+<para>
 <programlisting>
     # This is an example configuration for an LDAP auth. backend.
     # (take care that Net::LDAP is installed!)
@@ -464,6 +485,7 @@ dass Sie keine Kunden über das Admin- oder Kunden-Interface anlegen oder
 #        version => 3,
 #    };
 </programlisting>
+</para>
 </sect2>
 
 <sect2 id='customer-auth-backend-httpbasic'>
@@ -476,6 +498,7 @@ Systeme) und aktivieren Sie das HTTPBasicAuth Modul (kein OTRS-Login
 benötigt!).
 </para>
 
+<para>
 <programlisting>
     # This is an example configuration for an apache ($ENV{REMOTE_USER})
     # auth. backend. Use it if you want to have a singe login through
@@ -489,6 +512,7 @@ benötigt!).
 #   $Self->{LoginURL} ='http://host.example.com/not-authorised-for-otrs.html';
 #   $Self->{LogoutURL} ='http://host.example.com/thanks-for-using-otrs.html';
 </programlisting>
+</para>
 </sect2>
 
 <sect2 id='customer-auth-backend-radius'>
@@ -499,12 +523,14 @@ Mit den folgenden Einstellungen kann die Authentifizierung gegen einen
 Radius-Server realisiert werden:
 </para>
 
+<para>
 <programlisting>
     # This is a example configuration to auth. against a radius server
     $Self->{'AuthModule'} = 'Kernel::System::Auth::Radius';
     $Self->{'AuthModule::Radius::Host'} = 'radiushost';
     $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
 </programlisting>
+</para>
 </sect2>
 
 </sect1>
@@ -535,12 +561,14 @@ Eingabefeld für die Telefonnummer einbauen, also wird folgende Änderung
 nötig:
 </para>
 
+<para>
 <programlisting>
     &lt;tr&gt;
       &lt;td&gt;$Text{"Phonenumber"}: &lt;/td&gt;
       &lt;td&gt;&lt;input type="text" name="Phone" value="$QData{"UserPhone"}" size="20" maxlength="50"&gt;&lt;/td>
     &lt;/tr&gt;
 </programlisting>
+</para>
 </sect2>
 
 <sect2 id="customer-self-registration-mapping">
@@ -554,6 +582,7 @@ Datei <filename>Kernel/Config.pm</filename> hinzu und ergänzen Sie das
 Phone-Feld. Danach sollte es ungefähr so aussehen:
 </para>
 
+<para>
 <programlisting>
     # CustomerUser
     # (customer user database backend and settings)
@@ -617,6 +646,7 @@ Phone-Feld. Danach sollte es ungefähr so aussehen:
         },
     };
 </programlisting>
+</para>
 </sect2>
 
 <sect2 id="customer-self-registration-customer-table">
@@ -627,9 +657,11 @@ Ausserdem müssen wir eine neue Spalte zur "customer_user" Tabelle in der
 Datenbank hinzufügen:
 </para>
 
+<para>
 <programlisting>
 ALTER TABLE customer_user ADD phone VARCHAR (200);
 </programlisting>
+</para>
 
 <para>
 Die Anpassungen sind beendet. Starten Sie Ihren Webserver neu (falls
