@@ -3,7 +3,7 @@
 # scripts/auto_build.sh - Build tar.(gz|bz2) archive of the files from the admin manual
 # Copyright (C) 2001-2006 Martin Edenhofer <martin+code@otrs.org>
 # --
-# $Id: auto_build.sh,v 1.1 2006-02-13 12:16:03 cs Exp $
+# $Id: auto_build.sh,v 1.2 2006-02-15 11:05:44 cs Exp $
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -62,7 +62,13 @@ function usage
     exit 1
 }
 
-if ! test $PATH_TO_CVS_SRC || ! test $VERSION || ! test $RELEASE; then
+if ! test $PATH_TO_CVS_SRC || ! test $VERSION || ! test $RELEASE ; then
+    usage
+fi
+
+if ! test -d $PATH_TO_CVS_SRC ; then
+    echo "Error: Can't find path to cvs source directory"
+    echo ""
     usage
 fi
 
