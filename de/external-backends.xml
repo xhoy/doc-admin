@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.8 2006-02-07 15:44:51 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.9 2006-02-15 12:55:11 cs Exp $ -->
 
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
@@ -19,8 +19,17 @@ Kunden am System benötigt.
 
 <para>
 Die benutzten/angezeigten Kundendaten sind frei konfigurierbar, es
-gibt jedoch drei benötigte Optionen, damit OTRS ordnungsgemäß funktioniert:
-BenutzerLogin, BenutzerEmail und BenutzerKundenID.
+gibt jedoch drei benötigte Optionen die unbedingt vorhanden sein müssen,
+damit OTRS ordnungsgemäß funktioniert:
+</para>
+
+<para>
+<itemizedlist>
+
+<listitem>BenutzerLogin</listitem>
+<listitem>BenutzerEmail</listitem>
+<listitem>BenutzerKundenID</listitem>
+</itemizedlist>
 </para>
 
 <para>
@@ -51,20 +60,11 @@ bereits ein Kunden-Verzeichnis (z.B. SAP, ...) haben, ist es natürlich
 möglich, dafür ein eigenes Backend zu schreiben.
 </para>
 
-<note>
-<para>
-Es is auch möglich mehr als einen Kunden-Daten Topf zu definieren.
-Dazu erweitern Sie die Konfiguration Einfach um eine weitere Konfig Option
-"CustomerUser" mit einer Nummer zwischen 1 und 10, z.B. "CustomerUser1",
-"CustomerUser2", usw.
-</para>
-</note>
-
 <sect2 id='customer-backend-db'>
 <title>Datenbank (Standard)</title>
 
-<example>
-<title>Konfigurationsbeispiel für ein DB-Kunden-Back-end</title>
+<example id='db-customer-backend'>
+<title>Konfiguration eines DB-Kunden-Back-ends</title>
 
 <para>
 Dies ist ein Beispiel für die Konfiguration eines Back-ends, welches die
@@ -255,8 +255,8 @@ deren Tickets der Zugriff ermöglicht werden soll. Die einzelnen IDs trennen
 Sie durch ein Semikolon.
 </para>
 
-<example id='company-tickets'>
-<title>Firmen Tickets</title>
+<example id='company-tickets-db'>
+<title>Firmen Tickets mit einem DB Back-end</title>
 
 <para>
 Angenommen es sind die Kunden A, B und C im System angelegt. A soll mit
@@ -288,7 +288,7 @@ haben, können Sie dieses auch mit OTRS nutzen.
 </para>
 
 <example id='ldap-customer-backend'>
-<title>Konfigurationsbeispiel für ein LDAP-Kunden-Back-end</title>
+<title>Konfiguration eines LDAP-Kunden-Back-ends</title>
 
 <para>
 Dies ist ein Beispiel für ein Kunden-Back-end, welches seine Daten aus
@@ -384,30 +384,223 @@ gewünschte Einträge:
 <title>Kunden mit multiblen IDs (Firmen Tickets)</title>
 
 <para>
-Es ist auch möglich mehr als nur einer Kunden-Nummer einen
-Kunden zuzuweisen. Dies kann z.B. dann nützlich sein, wenn ein Kunde auf
-Tickets anderer Kunden zugreifen muss, z.B. die Mitarbeiter einer Firma
-sollen auf die Tickets aller Mitarbeiter Zugriff haben.
+Es ist möglich, einem Kunden mehr als nur eine Kunden-Nummer zuzuweisen.
+Dies kann z.B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
+Kunden zugreifen muss, z.B. der Abteilungsleiter auf die Tickets der
+Mitarbeiter seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer
+Kunden, verwendet man in OTRS das sog. Firmen Ticket Feature. Im
+Kunden-Interface können diese Tickets über den "Firmen Ticket" Link
+eingesehen werden.
 </para>
 
 <para>
-Einfach im LDAP ein Feld hinzufügen in der die Kunden-Nummern
-eingetragen werden (wie "CustomerID1, CustomerID2, CustomerID3").
-Anschließend einen weiteren Eintrag in der CustomerUser MAP Aarray In
-<filename>Kernel/Config.pm</filename> hinzufügen:
+Um Firmen Tickets zu verwenden, muss das LDAP-Verzeichnis um ein Feld
+erweitert werden, in das die Kunden-Nummern eingetragen werden können, auf
+die später ein Kunde zusätzlich zu den eigenen Tickets Zugriff haben soll,
+z.B. um das Feld CustomerIDs.
+</para>
+
+<para>
+Danach fügen Sie die neue Spalte dem MAP Array in
+der Datei <filename>Kernel/Config.pm</filename> hinzu:
 </para>
 
 <para>
 <programlisting>
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+            [...]
+            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
 </para>
+
 <para>
-Natürlich müssen die Multi-Kunden-Nummern vom LDAP Admin gepflegt werden
-und können von OTRS aus nicht verwaltet werden.
+Das Feld für die Multi-Kunden-Nummern muss direkt im LDAP-Verzeichnis gepflegt
+und kann von OTRS aus nicht direkt verwaltet werden.
 </para>
+
+<para>
+Um nun den Zugriff für einen Kunden auf die Tickets anderer Kunden zu
+ermöglichen, tragen Sie innerhalb des LDAP-Verzeichnisses in das neue Feld
+die IDs der Kunden ein, auf deren Tickets der Zugriff ermöglicht werden soll.
+Die einzelnen IDs trennen Sie durch ein Semikolon.
+</para>
+
+<example id='company-tickets-ldap'>
+<title>Firmen Tickets mit einem LDAP Back-end</title>
+
+<para>
+Angenommen es sind die Kunden A, B und C im System angelegt. A soll mit
+Hilfe von Firmen Tickets über das Kunden-Interface Zugriff auf die Tickets
+von B und C haben, B und C sollen jedoch jeweils nur ihre eigenen Tickets
+einsehen und bearbeiten können.
+</para>
+
+<para>
+Um dieses Setup zu realisieren, ändern Sie wie oben beschrieben das
+LDAP-Verzeichnis und das Mapping in <filename>Kernel/Config.pm</filename>.
+Anschließend tragen Sie im LDAP-Verzeichnis innerhalb der Einstellungen für
+den Kunden A für CustomerIDs die Werte "B;C;" ein.
+</para>
+
+</example>
+
 </sect3>
+</sect2>
+
+<sect2 id='multible-customer-backends'>
+<title>Verwenden mehrerer Kunden Back-ends</title>
+
+<para>
+Soll mehr als nur ein Back-end mit verschiedenen Kundendaten verwendet werden
+(z.B. gleichzeitig DB und LDAP), so ist dies ebenfalls mit OTRS möglich.
+In einem solchen Fall muss der CustomerUser Parameter für jedes Back-end um
+eine Nummer erweitert werden, z.B. "CustomerUser1", "CustomerUser2", usw.
+</para>
+
+<example id='multible-customer-backend-example'>
+<title>Gleichzeitige Einbindung mehrerer verschiedener Kunden Back-ends</title>
+
+<para>
+In der folgenden KOnfiguration verwendet OTRS gleichzeitig ein DB und ein
+LDAP Kunden Back-end.
+</para>
+
+<para>
+<programlisting>
+    # 1. Customer user backend: DB
+    # (customer user database backend and settings)
+    $Self->{CustomerUser1} = {
+        Name => 'Datenbank Quelle',
+        Module => 'Kernel::System::CustomerUser::DB',
+        Params => {
+            # if you want to use an external database, add the
+            # required settings
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+        },
+        # customer uniq id
+        CustomerKey = 'login',
+        # customer #
+        CustomerID = 'customer_id',
+        CustomerValid = 'valid_id',
+        CustomerUserListFields => ['first_name', 'last_name', 'email'],
+        CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
+        CustomerUserSearchPrefix => '',
+        CustomerUserSearchSuffix => '*',
+        CustomerUserSearchListLimit => 250,
+        CustomerUserPostMasterSearchFields => ['email'],
+        CustomerUserNameFields => ['salutation','first_name','last_name'],
+        CustomerUserEmailUniqCheck => 1,
+#        # show now own tickets in customer panel, CompanyTickets
+#        CustomerUserExcludePrimaryCustomerID => 0,
+#        # generate auto logins
+#        AutoLoginCreation => 0,
+#        AutoLoginCreationPrefix => 'auto',
+#        # admin can change customer preferences
+#        AdminSetPreferences => 1,
+#        # just a read only source
+#        ReadOnly => 1,
+        Map => [
+            # note: Login, Email and CustomerID needed!
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserSalutation', 'Salutation', 'salutation',  1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
+            [ 'UserPassword',   'Password',   'pw',          0, 1, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'email',       0, 1, 'var', '', 0 ],
+#            [ 'UserEmail',      'Email', 'email',           1, 1,
+#            'var','$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
+            [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
+#            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+            [ 'UserComment',     'Comment',   'comments',    1, 0, 'var', '', 0 ],
+            [ 'ValidID',         'Valid',     'valid_id',    0, 1, 'int', '', 0 ],
+        ],
+        # default selections
+        Selections => {
+            UserSalutation => {
+                'Mr.' => 'Mr.',
+                'Mrs.' => 'Mrs.',
+            },
+        },
+    };
+
+    # 2. Customer user backend: LDAP
+    # (customer user ldap backend and settings)
+    $Self->{CustomerUser2} = {
+        Name => 'LDAP Datenquelle',
+        Module => 'Kernel::System::CustomerUser::LDAP',
+        Params => {
+            # ldap host
+            Host => 'bay.csuhayward.edu',
+            # ldap base dn
+            BaseDN => 'ou=seas,o=csuh',
+            # search scope (one|sub)
+            SSCOPE => 'sub',
+#            # The following is valid but would only be necessary if the
+#            # anonymous user does NOT have permission to read from the LDAP tree
+            UserDN => '',
+            UserPw => '',
+            # in case you want to add always one filter to each ldap query, use
+            # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+            AlwaysFilter => '',
+            # if your frontend is e. g. iso-8859-1 and the charset of your
+            # ldap server is utf-8, use this options (if not, ignore it)
+#            SourceCharset => 'utf-8',
+#            DestCharset => 'iso-8859-1',
+            # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+            Params => {
+                port => 389,
+                timeout => 120,
+                async => 0,
+                version => 3,
+            },
+        },
+        # customer uniq id
+        CustomerKey => 'uid',
+        # customer #
+        CustomerID => 'mail',
+        CustomerUserListFields => ['cn', 'mail'],
+        CustomerUserSearchFields => ['uid', 'cn', 'mail'],
+        CustomerUserSearchPrefix => '',
+        CustomerUserSearchSuffix => '*',
+        CustomerUserSearchListLimit => 250,
+        CustomerUserPostMasterSearchFields => ['mail'],
+        CustomerUserNameFields => ['givenname', 'sn'],
+        # show now own tickets in customer panel, CompanyTickets
+        CustomerUserExcludePrimaryCustomerID => 0,
+        # add a ldap filter for valid users (expert setting)
+#       CustomerUserValidFilter => '(!(description=gesperrt))',
+        # admin can't change customer preferences
+        AdminSetPreferences => 0,
+        Map => [
+            # note: Login, Email and CustomerID needed!
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            [ 'UserSalutation', 'Title',      'title',           1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'sn',              1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'uid',             1, 1, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'mail',            1, 1, 'var', '', 0 ],
+            [ 'UserCustomerID', 'CustomerID', 'mail',            0, 1, 'var', '', 0 ],
+#            [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+            [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+            [ 'UserAddress',    'Address',    'postaladdress',   1, 0, 'var', '', 0 ],
+            [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],
+        ],
+    };
+</programlisting>
+</para>
+
+</example>
+
+<para>
+Es können bis zu 10 Kunden Back-ends gleichzeitig eingebunden werden. Über
+die Kundenverwaltung in OTRS ist der Zugriff auf die verschiedenen
+Back-ends möglich.
+</para>
 
 </sect2>
 
