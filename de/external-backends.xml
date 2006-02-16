@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.9 2006-02-15 12:55:11 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.10 2006-02-16 14:18:37 cs Exp $ -->
 
 <chapter id="external-backends">
-<title>Einbinden externer Backends</title>
+<title>Einbinden externer Back-ends</title>
 
 <sect1 id='customer-data'>
-<title>Kundenbenutzer-Daten</title>
+<title>Kundenbenutzerdaten</title>
 
 <para>
 OTRS ist in der Lage, mit verschiedenen Kundendaten (insbesondere
@@ -26,9 +26,9 @@ damit OTRS ordnungsgemäß funktioniert:
 <para>
 <itemizedlist>
 
-<listitem>BenutzerLogin</listitem>
-<listitem>BenutzerEmail</listitem>
-<listitem>BenutzerKundenID</listitem>
+<listitem>Benutzer-Login</listitem>
+<listitem>Benutzer-Email</listitem>
+<listitem>Benutzer-Kunden-ID</listitem>
 </itemizedlist>
 </para>
 
@@ -52,19 +52,19 @@ Konfigurations-Optionen und fügen Sie diese in die Datei
 </sect1>
 
 <sect1 id="customer-user-backend">
-<title>Kundenbenutzer-Backend</title>
+<title>Kundenbenutzer Back-end</title>
 
 <para>
-Es existieren zwei Kundenbenutzer-Backends, DB und LDAP. Falls Sie
-bereits ein Kunden-Verzeichnis (z.B. SAP, ...) haben, ist es natürlich
-möglich, dafür ein eigenes Backend zu schreiben.
+Es existieren zwei Kundenbenutzer Back-ends, DB und LDAP. Falls Sie
+bereits ein Kundenverzeichnis (z.B. SAP, ...) haben, ist es natürlich
+möglich, dafür ein eigenes Back-end zu schreiben.
 </para>
 
 <sect2 id='customer-backend-db'>
 <title>Datenbank (Standard)</title>
 
 <example id='db-customer-backend'>
-<title>Konfiguration eines DB-Kunden-Back-ends</title>
+<title>Konfiguration eines DB Kunden Back-ends</title>
 
 <para>
 Dies ist ein Beispiel für die Konfiguration eines Back-ends, welches die
@@ -190,7 +190,7 @@ Natürlich können Sie all diese Kundeninformationen dann auch
 <title>Kunden mit multiblen IDs (Firmen Tickets)</title>
 
 <para>
-Es ist möglich, einem Kunden mehr als nur eine Kunden-Nummer zuzuweisen.
+Es ist möglich, einem Kunden mehr als nur eine Kundennummer zuzuweisen.
 Dies kann z.B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
 Kunden zugreifen muss, z.B. der Abteilungsleiter auf die Tickets der
 Mitarbeiter seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer
@@ -201,7 +201,7 @@ eingesehen werden.
 
 <para>
 Um Firmen Tickets zu verwenden, muss die customer_user Tabelle in der OTRS
-Datenbank um eine Spalte erweitert werden, in die später die Kunden-Nummern
+Datenbank um eine Spalte erweitert werden, in die später die Kundennummern
 eingetragen werden, auf die ein Kunde zusätzlich zu den eigenen Tickets
 Zugriff haben soll:
 </para>
@@ -244,7 +244,7 @@ der Datei <filename>Kernel/Config.pm</filename> hinzu:
 </para>
 
 <para>
-Die Spalte für die Multi-Kunden-Nummern kann ab nun über das
+Die Spalte für die Multi-Kundennummern kann ab nun über das
 Admin-Interface bzw. über die Kundenverwaltung gepflegt werden.
 </para>
 
@@ -283,16 +283,16 @@ Kundenverwaltung die Einstellungen des Kunden A und tragen bei
 <title>LDAP</title>
 
 <para>
-Falls Sie ein existierendes LDAP-Verzeichnis mit Ihren Kunden-Benutzern
+Falls Sie ein existierendes LDAP Verzeichnis mit Ihren Kundenbenutzern
 haben, können Sie dieses auch mit OTRS nutzen.
 </para>
 
 <example id='ldap-customer-backend'>
-<title>Konfiguration eines LDAP-Kunden-Back-ends</title>
+<title>Konfiguration eines LDAP Kunden Back-ends</title>
 
 <para>
-Dies ist ein Beispiel für ein Kunden-Back-end, welches seine Daten aus
-einem LDAP-Tree bezieht.
+Dies ist ein Beispiel für ein Kunden Back-end, welches seine Daten aus
+einem LDAP Verzeichnis bezieht.
 </para>
 
 <para>
@@ -366,7 +366,7 @@ einem LDAP-Tree bezieht.
 </example>
 
 <para>
-Falls Sie in Ihrem LDAP-Verzeichnis weitere Informationen zu Ihren Kunden
+Falls Sie in Ihrem LDAP Verzeichnis weitere Informationen zu Ihren Kunden
 gespeichert haben und mit OTRS darauf zugreifen möchten, erweitern Sie das
 MAP Array in <filename>Kernel/Config.pm</filename> bzw. entfernen nicht
 gewünschte Einträge:
@@ -384,7 +384,7 @@ gewünschte Einträge:
 <title>Kunden mit multiblen IDs (Firmen Tickets)</title>
 
 <para>
-Es ist möglich, einem Kunden mehr als nur eine Kunden-Nummer zuzuweisen.
+Es ist möglich, einem Kunden mehr als nur eine Kundennummer zuzuweisen.
 Dies kann z.B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
 Kunden zugreifen muss, z.B. der Abteilungsleiter auf die Tickets der
 Mitarbeiter seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer
@@ -394,8 +394,8 @@ eingesehen werden.
 </para>
 
 <para>
-Um Firmen Tickets zu verwenden, muss das LDAP-Verzeichnis um ein Feld
-erweitert werden, in das die Kunden-Nummern eingetragen werden können, auf
+Um Firmen Tickets zu verwenden, muss das LDAP Verzeichnis um ein Feld
+erweitert werden, in das die Kundennummern eingetragen werden können, auf
 die später ein Kunde zusätzlich zu den eigenen Tickets Zugriff haben soll,
 z.B. um das Feld CustomerIDs.
 </para>
@@ -414,13 +414,13 @@ der Datei <filename>Kernel/Config.pm</filename> hinzu:
 </para>
 
 <para>
-Das Feld für die Multi-Kunden-Nummern muss direkt im LDAP-Verzeichnis gepflegt
+Das Feld für die Multi-Kundennummern muss direkt im LDAP Verzeichnis gepflegt
 und kann von OTRS aus nicht direkt verwaltet werden.
 </para>
 
 <para>
 Um nun den Zugriff für einen Kunden auf die Tickets anderer Kunden zu
-ermöglichen, tragen Sie innerhalb des LDAP-Verzeichnisses in das neue Feld
+ermöglichen, tragen Sie innerhalb des LDAP Verzeichnisses in das neue Feld
 die IDs der Kunden ein, auf deren Tickets der Zugriff ermöglicht werden soll.
 Die einzelnen IDs trennen Sie durch ein Semikolon.
 </para>
@@ -437,8 +437,8 @@ einsehen und bearbeiten können.
 
 <para>
 Um dieses Setup zu realisieren, ändern Sie wie oben beschrieben das
-LDAP-Verzeichnis und das Mapping in <filename>Kernel/Config.pm</filename>.
-Anschließend tragen Sie im LDAP-Verzeichnis innerhalb der Einstellungen für
+LDAP Verzeichnis und das Mapping in <filename>Kernel/Config.pm</filename>.
+Anschließend tragen Sie im LDAP Verzeichnis innerhalb der Einstellungen für
 den Kunden A für CustomerIDs die Werte "B;C;" ein.
 </para>
 
@@ -606,37 +606,71 @@ Back-ends möglich.
 
 </sect1>
 
-<sect1 id="customer-auth-backend">
-<title>Kunden-Authentifizierungs-Backend</title>
+<sect1 id="auth-backends">
+<title>Back-ends für die Authentifizierung von Agenten und Kunden</title>
 
-<sect2 id='customer-auth-backend-db'>
+<para>
+OTRS bietet die Möglichkeit Agenten und Kunden über verschiedene Back-ends
+zu authentifizieren. Die verschiedenen Konfigurationsmöglichkeiten werden
+in den folgenden Abschnitten näher beschrieben.
+</para>
+
+<sect2 id='agent-auth-backends'>
+<title>Authentifizierungs Back-ends für Agenten</title>
+
+<sect3 id='agent-auth-backend-db'>
 <title>Datenbank (Standard)</title>
 
 <para>
-Das Standard-Kunden-Authentifizierungs-Backend ist die OTRS-Datenbank mit
-Ihren Kunden-Benutzern, die über das Admin-Interface oder Kunden-Interface
-angelegt werden.
+Das Back-end für die Authentifizierung von Agenten, welches OTRS
+standardmäßig verwendet, ist die OTRS-Datenbank. Die Agenten können
+innerhalb des
+
+<link linkend="adminarea">
+Admin-Bereiches
+</link>
+
+in der
+
+<link linkend="adminarea-user">
+Benutzerverwaltung
+</link>
+
+angelegt und bearbeitet werden.
 </para>
+
+<example id='configuration-agent-auth-backend-db'>
+<title>Agentenauthentifizierung gegen ein DB Back-end</title>
 
 <para>
 <programlisting>
-    # This is the auth. module againt the otrs db
-        $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';
+    $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';
 </programlisting>
 </para>
-</sect2>
 
-<sect2 id='customer-auth-backend-ldap'>
+</example>
+
+</sect3>
+
+<sect3 id='agent-auth-backend-ldap'>
 <title>LDAP</title>
 
 <para>
-Falls ein LDAP-Verzeichnis mit Ihren Kunden-Benutzern verfügbar
-ist, können Sie das Kunden-LDAP-Authentifizierungs-Backend benutzen.
-Dieses Modul ist nur lesend (d.h. es kann nicht in Ihr LDAP-Verzeichnis
-schreiben (dies sollte nur dem Verzeichnis-Manager möglich sein), so
-dass Sie keine Kunden über das Admin- oder Kunden-Interface anlegen oder
-ändern können.
+Falls ein LDAP Verzeichnis mit Ihren Agenten-Benutzerdaten verfügbar
+ist, können Sie das LDAP Modul für die Authentifizierung Ihrer Agenten
+nutzen. Dieses Modul greift nur lesend auf die Daten im LDAP Verzeichnis
+zu, d.h. die Daten können nicht mit OTRS bearbeitet
+werden, es können also keine Agenten mit Hilfe der
+
+<link linkend='adminarea-user'>
+Benutzerverwaltung
+</link>
+
+von OTRS angelegt oder bearbeitet werden.
 </para>
+
+<example id='configuration-agent-auth-backend-ldap'>
+<title>Agentenauthentifizierung gegen ein LDAP Back-end</title>
 
 <para>
 <programlisting>
@@ -649,10 +683,10 @@ dass Sie keine Kunden über das Admin- oder Kunden-Interface anlegen oder
 
     # Check if the user is allowed to auth in a posixGroup
     # (e. g. user needs to be in a group xyz to use otrs)
-#    $Self->{'AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';
- #   $Self->{'AuthModule::LDAP::AccessAttr'} = 'memberUid';
+    $Self->{'AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';
+    $Self->{'AuthModule::LDAP::AccessAttr'} = 'memberUid';
     # for ldap posixGroups objectclass (just uid)
-    $Self->{'AuthModule::LDAP::UserAttr'} = 'UID';
+#    $Self->{'AuthModule::LDAP::UserAttr'} = 'UID';
     # for non ldap posixGroups objectclass (with full user dn)
 #    $Self->{'AuthModule::LDAP::UserAttr'} = 'DN';
 
@@ -663,7 +697,7 @@ dass Sie keine Kunden über das Admin- oder Kunden-Interface anlegen oder
 
     # in case you want to add always one filter to each ldap query, use
     # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
-#    $Self->{'AuthModule::LDAP::AlwaysFilter'} = '';
+    $Self->{'AuthModule::LDAP::AlwaysFilter'} = '';
 
     # in case you want to add a suffix to each login name, then
     # you can use this option. e. g. user just want to use user but
@@ -671,25 +705,70 @@ dass Sie keine Kunden über das Admin- oder Kunden-Interface anlegen oder
 #    $Self->{'AuthModule::LDAP::UserSuffix'} = '@domain.com';
 
     # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
-#    $Self->{'AuthModule::LDAP::Params'} = {
-#        port => 389,
-#        timeout => 120,
-#        async => 0,
-#        version => 3,
-#    };
+    $Self->{'AuthModule::LDAP::Params'} = {
+        port => 389,
+        timeout => 120,
+        async => 0,
+        version => 3,
+    };
 </programlisting>
 </para>
-</sect2>
 
-<sect2 id='customer-auth-backend-httpbasic'>
-<title>HTTPBasicAuth</title>
+</example>
 
 <para>
-Falls Sie eine "single sign on"-Lösung für Ihre Kunden
-implementieren möchten, benutzen Sie http basic authentication (für alle Ihre
-Systeme) und aktivieren Sie das HTTPBasicAuth Modul (kein OTRS-Login
-benötigt!).
+Mit den folgenden Konfigurationsparametern können die Benutzerdaten der
+Agenten aus dem LDAP in die lokale OTRS Datenbank synchronisiert werden.
+Dies reduziert die Zugriffe auf ihr LDAP Verzeichnis, entlastet den
+Server mit den LDAP Daten und beschleunigt die Anmeldung an OTRS. Die
+Synchronisierung der Daten findet bei der ersten Anmeldung des Agenten
+statt, trotz der synchronisierten Daten bleibt ihr LDAP Verzeichnis die
+letzte Instanz bei der Anmeldung. D.h. wird ein User im LDAP Verzeichnis
+gelöscht oder deaktiviert, klappt die Anmeldung an OTRS nicht. Ebenfalls
+müssen die Daten für einen Agenten weiterhin direkt im LDAP Verzeichnis
+gepflegt werden.
 </para>
+
+<para>
+<programlisting>
+    # UserSyncLDAPMap
+    # (map if agent should create/synced from LDAP to DB after login)
+    $Self->{UserSyncLDAPMap} = {
+        # DB -> LDAP
+        Firstname => 'givenName',
+        Lastname => 'sn',
+        Email => 'mail',
+    };
+
+    # UserSyncLDAPGroups
+    # (If "LDAP" was selected for AuthModule, you can specify
+    # initial user groups for first login.)
+    $Self->{UserSyncLDAPGroups} = [
+        'users',
+    ];
+
+    # UserTable
+    $Self->{DatabaseUserTable} = 'system_user';
+    $Self->{DatabaseUserTableUserID} = 'id';
+    $Self->{DatabaseUserTableUserPW} = 'pw';
+    $Self->{DatabaseUserTableUser} = 'login';
+</programlisting>
+</para>
+
+</sect3>
+
+<sect3 id='agent-auth-backend-httpbasic'>
+<title>HTTPBasicAuth für Agenten</title>
+
+<para>
+Falls Sie eine "single sign on"-Lösung für Ihre Agenten implementieren
+möchten, benutzen Sie http basic authentication (für alle Ihre
+Systeme) und aktivieren Sie das HTTPBasicAuth Modul (kein OTRS-Login
+mehr für Kunden benötigt!).
+</para>
+
+<example id='configuration-agent-auth-backend-htbasic'>
+<title>Agentenauthentifizierung über HTTPBasic</title>
 
 <para>
 <programlisting>
@@ -700,30 +779,194 @@ benötigt!).
 
     # Note:
     #
-    # If you use this module, you should use as fallback the following
-    # config settings if user isn't login through apache ($ENV{REMOTE_USER})
-#   $Self->{LoginURL} ='http://host.example.com/not-authorised-for-otrs.html';
-#   $Self->{LogoutURL} ='http://host.example.com/thanks-for-using-otrs.html';
+    # If you use this module, you should use as fallback
+    # the following config settings if user isn't login through
+    # apache ($ENV{REMOTE_USER})
+    $Self->{LoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';
+    $Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
 </programlisting>
 </para>
-</sect2>
 
-<sect2 id='customer-auth-backend-radius'>
+</example>
+
+</sect3>
+
+<sect3 id='agent-auth-backend-radius'>
 <title>Radius</title>
 
 <para>
-Mit den folgenden Einstellungen kann die Authentifizierung gegen einen
-Radius-Server realisiert werden:
+Mit den folgenden Einstellungen kann die Authentifizierung von Agenten gegen
+einen Radius-Server realisiert werden.
 </para>
+
+<example id='configuration-agent-auth-backend-radius'>
+<title>Agentenauthentifizierung gegen ein Radius Back-end</title>
 
 <para>
 <programlisting>
-    # This is a example configuration to auth. against a radius server
+    # This is example configuration to auth. agents against a radius server
     $Self->{'AuthModule'} = 'Kernel::System::Auth::Radius';
     $Self->{'AuthModule::Radius::Host'} = 'radiushost';
     $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
 </programlisting>
 </para>
+
+</example>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="customer-auth-backends">
+<title>Authentifizierungs Back-ends für Kunden</title>
+
+<sect3 id='customer-auth-backend-db'>
+<title>Datenbank (Standard)</title>
+
+<para>
+Das Back-end für die Authentifizierung von Kunden, welches OTRS standardmäßig
+verwendet, ist die OTRS-Datenbank. Die Kundendaten können über das Interface
+zur Verwaltung von Kunden angelegt und bearbeitet werden.
+</para>
+
+<example id='configuration-customer-auth-backend-db'>
+<title>Kundenauthentifizierung gegen ein DB Back-end</title>
+
+<para>
+<programlisting>
+    # This is the auth. module againt the otrs db
+    $Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::DB';
+    $Self->{'Customer::AuthModule::DB::Table'} = 'customer_user';
+    $Self->{'Customer::AuthModule::DB::CustomerKey'} = 'login';
+    $Self->{'Customer::AuthModule::DB::CustomerPassword'} = 'pw';
+#    $Self->{'Customer::AuthModule::DB::DSN'} = "DBI:mysql:database=customerdb;host=customerdbhost";
+#    $Self->{'Customer::AuthModule::DB::User'} = "some_user";
+#    $Self->{'Customer::AuthModule::DB::Password'} = "some_password";
+</programlisting>
+</para>
+
+</example>
+
+</sect3>
+
+<sect3 id='customer-auth-backend-ldap'>
+<title>LDAP</title>
+
+<para>
+Falls ein LDAP Verzeichnis mit Ihren Kundenbenutzern verfügbar
+ist, können Sie das LDAP Modul für die Authentifizierung Ihrer Kunden
+nutzen. Dieses Modul greift nur lesend auf die Daten im LDAP Verzeichnis
+zu, d.h. die Daten können nicht mit OTRS bearbeitet
+werden, es können also keine Kunden mit Hilfe der Kundenverwaltung von OTRS
+angelegt oder bearbeitet werden.
+</para>
+
+<example id='configuration-customer-auth-backend-ldap'>
+<title>Kundenauthentifizierung gegen ein LDAP Back-end</title>
+
+<para>
+<programlisting>
+    # This is an example configuration for an LDAP auth. backend.
+    # (take care that Net::LDAP is installed!)
+     $Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::LDAP';
+     $Self->{'Customer::AuthModule::LDAP::Host'} = 'ldap.example.com';
+     $Self->{'Customer::AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';
+     $Self->{'Customer::AuthModule::LDAP::UID'} = 'uid';
+
+    # Check if the user is allowed to auth in a posixGroup
+    # (e. g. user needs to be in a group xyz to use otrs)
+    $Self->{'Customer::AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';
+    $Self->{'Customer::AuthModule::LDAP::AccessAttr'} = 'memberUid';
+    # for ldap posixGroups objectclass (just uid)
+    $Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'UID';
+    # for non ldap posixGroups objectclass (full user dn)
+#    $Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'DN';
+
+    # The following is valid but would only be necessary if the
+    # anonymous user do NOT have permission to read from the LDAP tree
+    $Self->{'Customer::AuthModule::LDAP::SearchUserDN'} = '';
+    $Self->{'Customer::AuthModule::LDAP::SearchUserPw'} = '';
+
+    # in case you want to add always one filter to each ldap query, use
+    # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+    $Self->{'Customer::AuthModule::LDAP::AlwaysFilter'} = '';
+
+    # in case you want to add a suffix to each customer login name, then
+    # you can use this option. e. g. user just want to use user but
+    # in your ldap directory exists user@domain.
+#    $Self->{'Customer::AuthModule::LDAP::UserSuffix'} = '@domain.com';
+
+    # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+    $Self->{'Customer::AuthModule::LDAP::Params'} = {
+        port => 389,
+        timeout => 120,
+        async => 0,
+        version => 3,
+    };
+</programlisting>
+</para>
+
+</example>
+
+</sect3>
+
+<sect3 id='customer-auth-backend-httpbasic'>
+<title>HTTPBasicAuth für Kunden</title>
+
+<para>
+Falls Sie eine "single sign on"-Lösung für Ihre Kunden
+implementieren möchten, benutzen Sie HTTPBasic Authentication (für alle Ihre
+Systeme) und aktivieren Sie das HTTPBasicAuth Modul (kein OTRS-Login
+mehr benötigt!).
+</para>
+
+<example id='configuration-customer-auth-backend-htbasic'>
+<title>Kundenauthentifizierung über HTTPBasic</title>
+
+<para>
+<programlisting>
+    # This is an example configuration for an apache ($ENV{REMOTE_USER})
+    # auth. backend. Use it if you want to have a singe login through
+    # apache http-basic-auth
+    $Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::HTTPBasicAuth';
+
+    # Note:
+    # If you use this module, you should use the following
+    # config settings as fallback, if user isn't login through
+    # apache ($ENV{REMOTE_USER})
+    $Self->{CustomerPanelLoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';
+    $Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
+</programlisting>
+</para>
+
+</example>
+
+</sect3>
+
+<sect3 id='customer-auth-backend-radius'>
+<title>Radius</title>
+
+<para>
+Mit den folgenden Einstellungen kann die Authentifizierung von Kunden gegen
+einen Radius-Server realisiert werden.
+</para>
+
+<example id='configuration-customer-auth-backend-radius'>
+<title>Kundenauthentifizierung gegen ein Radius Back-end</title>
+
+<para>
+<programlisting>
+    # This is a example configuration to auth. customer against a radius server
+    $Self->{'Customer::AuthModule'} = 'Kernel::System::Auth::Radius';
+    $Self->{'Customer::AuthModule::Radius::Host'} = 'radiushost';
+    $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
+</programlisting>
+</para>
+
+</example>
+
+</sect3>
+
 </sect2>
 
 </sect1>
@@ -738,8 +981,8 @@ benötigte Felder (z.B. Adresse, Ort, Telefonnummer) hinzufügen.
 </para>
 
 <para>
-In unserem Beispiel wollen wir ein benötigtes Feld für die Telefonnummer
-hinzufügen.
+In folgenden Beispiel wird ein benötigtes Feld für die Telefonnummer
+hinzugefügt.
 </para>
 
 <sect2 id='customer-self-registration-dtl'>
@@ -749,17 +992,17 @@ hinzufügen.
 Damit im Webinterface das zusätzliche Feld für die Telefonnummer
 angezeigt wird, muss die zuständige dtl-Datei angepasst werden. Editieren Sie
 <filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename>
-und fügen Sie in Zeile 128 das gewünschte Feld hinzu. Wir möchten ein
-Eingabefeld für die Telefonnummer einbauen, also wird folgende Änderung
-nötig:
+und fügen Sie in Zeile 128 das gewünschte Feld hinzu.
 </para>
 
 <para>
 <programlisting>
+    [...]
     &lt;tr&gt;
       &lt;td&gt;$Text{"Phonenumber"}: &lt;/td&gt;
       &lt;td&gt;&lt;input type="text" name="Phone" value="$QData{"UserPhone"}" size="20" maxlength="50"&gt;&lt;/td>
     &lt;/tr&gt;
+    [...]
 </programlisting>
 </para>
 </sect2>
@@ -768,11 +1011,11 @@ nötig:
 <title>Kunden-Mapping</title>
 
 <para>
-Zusätzlich müssen Sie einen "Phone"-Eintrag zu Ihrem
-Kunden-Mapping hinzufügen. Fügen Sie "CustomerUser"
-Kunden-Mapping) aus <filename>Kernel/Config/Defaults.pm</filename> zu Ihrer
-Datei <filename>Kernel/Config.pm</filename> hinzu und ergänzen Sie das
-Phone-Feld. Danach sollte es ungefähr so aussehen:
+Zusätzlich muss das Kunden-Mapping um den Eintrag für die Telefonnummer
+erweitert werden. Dazu werden zuerst die Einstellungen für  "CustomerUser"
+aus der Datei <filename>Kernel/Config/Defaults.pm</filename> in die Datei
+<filename>Kernel/Config.pm</filename> übertragen. Anschließend wird das
+Kunden-Mapping umdas Phone-Feld erweitert.
 </para>
 
 <para>
@@ -846,20 +1089,40 @@ Phone-Feld. Danach sollte es ungefähr so aussehen:
 <title>Anpassen der Kunden-Tabelle</title>
 
 <para>
-Ausserdem müssen wir eine neue Spalte zur "customer_user" Tabelle in der
-Datenbank hinzufügen:
+Abschließend muss eine neue Spalte zur "customer_user" Tabelle in der OTRS
+Datenbank hinzugefügt werden, in der die Telefonnummer gespeichert werden
+kann.
 </para>
 
 <para>
-<programlisting>
-ALTER TABLE customer_user ADD phone VARCHAR (200);
-</programlisting>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6 to server version: 5.0.18-Debian_7-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; ALTER TABLE customer_user ADD phone VARCHAR (200);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
 </para>
 
 <para>
-Die Anpassungen sind beendet. Starten Sie Ihren Webserver neu (falls
-Sie mod_perl benutzen) und rufen Sie über einen Browser Ihre "customer.pl"
-auf, um die neuen Einstellungen zu testen.
+Alle benötigten Anpassungen sind durchgeführt und das Feld für die
+Telefonnummer sollte nun im Kunden-Interface (customer.pl) angezeigt und
+verwendet werden können. Wird mod_perl eingesetzt, muss der Webserver neu
+gestartet werden um die Änderungen zu übernehmen.
 </para>
 </sect2>
 
