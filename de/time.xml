@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.4 2006-02-17 14:08:34 cs Exp $ -->
+<!-- $Id: time.xml,v 1.5 2006-02-17 14:49:35 cs Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -191,6 +191,19 @@ TimeVacationDaysOneTime
 
 festgelegten Tagen, werden keine Tickets automatisch freigegeben.
 </para>
+
+<para>
+Benachrichtigungen über automatisch freigegebene Tickets werden an die
+Agenten versendet, die die Queue mit dem automatisch freigegebenen Ticket in
+"Meine Queues" aufgenommen haben und bei denen in den
+
+<link linkend="user-preferences">
+Benutzereinstellungen
+</link>
+
+die Benachrichtigung für vom System freigegebene Tickets aktiviert ist.
+</para>
+
 </sect1>
 
 <sect1 id="pending-tickets">
