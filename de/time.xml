@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.6 2006-02-17 15:00:31 cs Exp $ -->
+<!-- $Id: time.xml,v 1.7 2006-02-22 12:11:44 cs Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -55,6 +55,9 @@ folgendermaßen in der Datei <filename>Kernel/Config.pm</filename>
 festgelegt werden:
 </para>
 
+<example id='specifying-workinghours'>
+<title>Festlegen der für das System relevanten Arbeitsstunden</title>
+
 <para>
 <programlisting>
     $Self->{'TimeWorkingHours'} = {
@@ -69,6 +72,8 @@ festgelegt werden:
 </programlisting>
 </para>
 
+</example>
+
 <para>
 Nur während dieser Stunden können Tickets eskalieren, Benachrichtigungen zu
 Erinnerungs-Tickets versendet oder Tickets automatisch freigegeben werden.
@@ -81,9 +86,12 @@ Eskalationszeit und des Ticket-Alters mit einbezogen.
 <title>TimeVacationDays</title>
 
 <para>
-Feiertage können dem System folgendermaßen in der Datei
-<filename>Kernel/Config.pm</filename> bekannt gemacht werden:
+Feiertage deren Datum jedes Jahr gleich ist, können dem System folgendermaßen
+in der Datei <filename>Kernel/Config.pm</filename> bekannt gemacht werden:
 </para>
+
+<example id='specifying-vacation-days'>
+<title>Festlegen von regelmäßig wiederkehrenden Feiertagen</title>
 
 <para>
 <programlisting>
@@ -104,6 +112,8 @@ Feiertage können dem System folgendermaßen in der Datei
 </programlisting>
 </para>
 
+</example>
+
 <para>
 Während der hier festgelegten Tage werden keine zeitabhängigen
 Aktionen oder Berechnungen auf Tickets im system ausgeführt.
@@ -118,6 +128,9 @@ Freie oder Feiertage, für die sich jährlich das Datum ändert, können
 folgendermaßen in der Datei <filename>Kernel/Config.pm</filename> angegeben
 werden:
 </para>
+
+<example id='specifying-sometime-vacation-days'>
+<title>Festlegen von unregelmäßig wiederkehrenden Feiertagen</title>
 
 <para>
 <programlisting>
@@ -141,6 +154,8 @@ werden:
     };
 </programlisting>
 </para>
+
+</example>
 
 <para>
 Während der hier festgelegten Tage werden keine zeitabhängigen

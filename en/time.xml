@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.1 2006-02-22 11:39:25 cs Exp $ -->
+<!-- $Id: time.xml,v 1.2 2006-02-22 12:09:35 cs Exp $ -->
 
 <chapter id="time">
 <title>Time related functions in OTRS</title>
@@ -54,6 +54,9 @@ Setup the relevant working hours for your system in
 
 </para>
 
+<example id='specifying-workinghours'>
+<title>Specifying the relevant working hours for the system</title>
+
 <para>
 <programlisting>
     $Self->{'TimeWorkingHours'} = {
@@ -68,6 +71,8 @@ Setup the relevant working hours for your system in
 </programlisting>
 </para>
 
+</example>
+
 <para>
 Only during the specified working hours tickets can escalate, notifications
 for escalated and pending tickets will be send and tickets will be unlocked
@@ -80,9 +85,12 @@ the escalation time and the age of a ticket.
 <title>TimeVacationDays</title>
 
 <para>
-General holidays can be specified for the system in the
-<filename>Kernel/Config.pm</filename> file the following way:
+General holidays with the same date every year can be specified for the
+system in the <filename>Kernel/Config.pm</filename> file the following way:
 </para>
+
+<example id='specifying-vacation-days'>
+<title>Specifying regular holidays in the system</title>
 
 <para>
 <programlisting>
@@ -103,6 +111,8 @@ General holidays can be specified for the system in the
 </programlisting>
 </para>
 
+</example>
+
 <para>
 During this days no time related calculations or actions are done by the
 system.
@@ -116,6 +126,9 @@ system.
 Free days or holidays that variate for every year can be specified in
 the <filename>Kernel/Config.pm</filename> file the following way.
 </para>
+
+<example id='specifying-sometime-vacation-days'>
+<title>Specifying iregular holidays in the system</title>
 
 <para>
 <programlisting>
@@ -136,6 +149,8 @@ the <filename>Kernel/Config.pm</filename> file the following way.
     };
 </programlisting>
 </para>
+
+</example>
 
 <para>
 During this days no time related calculations or actions are done by the
