@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.2 2006-02-22 12:09:35 cs Exp $ -->
+<!-- $Id: time.xml,v 1.3 2006-02-22 14:34:01 cs Exp $ -->
 
 <chapter id="time">
 <title>Time related functions in OTRS</title>
@@ -15,8 +15,8 @@ The escalation of tickets and the calculation of the escalation time for
 tickets depend on a proper setup of the relevant times
 for the ticket system. Also sending out the notifications for escalated
 tickets and for tickets that have reached the pending time is triggered in
-dependency to the time settings. The age of a ticket and the automatical
-unlock mechanism are influenced by a proper time setup too.
+dependency to the time settings. The automatical unlock mechanism is
+influenced by a proper time setup too.
 </para>
 
 <para>
@@ -77,7 +77,7 @@ Setup the relevant working hours for your system in
 Only during the specified working hours tickets can escalate, notifications
 for escalated and pending tickets will be send and tickets will be unlocked
 automaticly. Furthermorde only these hours influence the calculation of
-the escalation time and the age of a ticket.
+the escalation time and the point of time for automatical unlock.
 </para>
 </sect2>
 
