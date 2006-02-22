@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: time.xml,v 1.1 2006-02-22 11:39:25 cs Exp $ -->
+
+<chapter id="time">
+<title>Time related functions in OTRS</title>
+
+<sect1 id="time-settings">
+<title>Specifying the relevant times for OTRS</title>
+
+<para>
+Some actions in OTRS are initiated in dependency to the actual system time.
+The escalation of tickets and the calculation of the escalation time for
+tickets depend on a proper setup of the relevant times
+for the ticket system. Also sending out the notifications for escalated
+tickets and for tickets that have reached the pending time is triggered in
+dependency to the time settings. The age of a ticket and the automatical
+unlock mechanism are influenced by a proper time setup too.
+</para>
+
+<para>
+With the configuration parameters
+
+<link linkend="Framework:Core::Time:TimeWorkingHours">
+TimeWorkingHours
+</link>,
+
+<link linkend="Framework:Core::Time:TimeVacationDays">
+TimeVacationDays
+</link>
+
+and
+
+<link linkend="Framework:Core::Time:TimeVacationDaysOneTime">
+TimeVacationDaysOneTime
+</link>
+
+the relevant time settings for the system can be specified either via the
+
+<link linkend="sysconfig">
+SysConfig interface
+</link>
+
+or directly in the <filename>Kernel/Config.pm</filename> file.
+</para>
+
+<sect2 id="TimeWorkingHours">
+<title>TimeWorkingHours</title>
+
+<para>
+Setup the relevant working hours for your system in
+<filename>Kernel/Config.pm</filename> file the following way:
+
+</para>
+
+<para>
+<programlisting>
+    $Self->{'TimeWorkingHours'} = {
+        Mon => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Tue => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Wed => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Thu => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Fri => [ 8,9,10,11,12,13,14,15,16,17,18,19,20 ],
+        Sat => [  ],
+        Sun => [  ],
+    };
+</programlisting>
+</para>
+
+<para>
+Only during the specified working hours tickets can escalate, notifications
+for escalated and pending tickets will be send and tickets will be unlocked
+automaticly. Furthermorde only these hours influence the calculation of
+the escalation time and the age of a ticket.
+</para>
+</sect2>
+
+<sect2 id="TimeVacationDays">
+<title>TimeVacationDays</title>
+
+<para>
+General holidays can be specified for the system in the
+<filename>Kernel/Config.pm</filename> file the following way:
+</para>
+
+<para>
+<programlisting>
+    $Self->{'TimeVacationDays'} = {
+        1 => {
+            1 => 'New Year\'s Eve!',
+        },
+        5 => {
+            1 => '1 St. May',
+        },
+        12 => {
+            24 => 'Christmas',
+            25 => 'First Christmas Day',
+            26 => 'Second Christmas Day',
+            31 => 'Silvester',
+        },
+    };
+</programlisting>
+</para>
+
+<para>
+During this days no time related calculations or actions are done by the
+system.
+</para>
+</sect2>
+
+<sect2 id="TimeVacationDaysOneTime">
+<title>TimeVacationDaysOneTime</title>
+
+<para>
+Free days or holidays that variate for every year can be specified in
+the <filename>Kernel/Config.pm</filename> file the following way.
+</para>
+
+<para>
+<programlisting>
+    $Self->{'TimeVacationDaysOneTime'} = {
+        2005 => {
+            12 => {
+                27 => 'Anual closing',
+                28 => 'Anual closing',
+                29 => 'Anual closing',
+                30 => 'Anual closing',
+            },
+        },
+        2006 => {
+            6 => {
+                12 => 'Anual works outing',
+            },
+        },
+    };
+</programlisting>
+</para>
+
+<para>
+During this days no time related calculations or actions are done by the
+system.
+</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="unlock-tickets">
+<title>Automated unlocking of tickets</title>
+
+<para>
+Locked tickets can be unlocked automaticly by the system. This feature might
+be usefull if an agent has locked tickets that need to be processed, but the
+agent can't work on this tickets because she is on holiday for example. The
+automated unlock feature unlocks tickets after a given time to ensure that
+no locked tickets will be forgotten and other agents can process this
+tickets.
+</para>
+
+<para>
+The unlock time for tickets can be specified in the
+
+<link linkend="adminarea-queue">
+settings
+</link>
+
+for every queue. The module <filename>bin/UnlockTickets.pl</filename>,
+which should be execued via a cron job periodicaly, realizes the
+automated unlock of tickets. Tickets only are unlocked dduring the
+hours set by the
+
+<link linkend="TimeWorkingHours">
+TimeWorkingHours
+</link>
+
+configuration parameter. During days specified in
+
+<link linkend='TimeVacationDays'>
+TimeVacationDays
+</link>
+
+and
+
+<link linkend='TimeVacationDaysOneTime'>
+TimeVacationDaysOneTime
+</link>
+
+no tickets are unlocked automaticly.
+</para>
+
+<para>
+Notifications on unlocked tickets are send out to those agents only, that
+have the queue with the unlocked tickets set in "My queues" and that have
+activatet the notification on unlocked tickets in their personal
+
+<link linkend="user-preferences">
+preferences
+</link>
+.
+</para>
+
+</sect1>
+
+<sect1 id="pending-tickets">
+<title>Pending tickets</title>
+
+<para>
+With OTRS you can create pending tickets. The system can send out a
+notification at a given point of time and remind an agent on a locked
+ticket. This feature might be usefull to get reminded contacting a customer
+somewhen in the future, because the customer is not reachable at the moment for
+example.
+</para>
+
+<para>
+Reminders on pending tickets are only send out during hours specified
+with the
+
+<link linkend="TimeWorkingHours">
+TimeWorkingHours
+</link>
+
+configuration parameter. The <filename>bin/PendingJobs.pl</filename> module,
+which should be executed via a cron job periodicaly, driggers the delivery
+of the pending reminders.
+</para>
+
+</sect1>
+
+<sect1 id="escalate-tickets">
+<title>Ticket escalation</title>
+
+<para>
+With OTRS it is possible to let ticket escalate. If a ticket is
+escalated, no other tickets are displaied for the queue where the escalated
+ticket is stored or in QueueView, the escalated ticket has to be locked
+first. So the escalation of tickets can ensure that tickets must be
+considered after they have reached a given age.
+</para>
+
+<para>
+The age after a ticket escalates can be specified in the
+
+<link linkend="adminarea-queue">
+settings
+</link>
+
+for every queue. With a job for the
+
+<link linkend="adminarea-genericagent">
+GenericAgent
+</link>
+
+notifications on escalated tickets can be delivered to agents, that have
+the queue with the escalated ticket in "My queues" enabled and that have
+activated notifications on escalated tickets in their personal
+
+<link linkend="user-preferences">
+preferences
+</link>
+.
+</para>
+
+<example id='genericagent-job-for-escalated-tickets'>
+<title>GenericAgent job to send notification on escalated tickets</title>
+
+<para>
+The file <filename>Kernel/Config/GenericAgent.pm</filename> already
+contains a example job for notification delivery to agents on escalated
+tickets. The jobs in this file are processed by the GenericAgent, which is
+executed periodicaly by a cron job. Just open the file and remove the
+comments ("#"") for the following lines:
+</para>
+
+<para>
+<programlisting>
+%Jobs = (
+   # --
+   # [name of job] -> send escalation notifications
+   # --
+   'send escalation notifications' => {
+       Escalation => 1,
+       # new ticket properties
+       New => {
+           Module => 'Kernel::System::GenericAgent::NotifyAgentGroupOfCustomQueue',
+       },
+   },
+   # insert your jobs (see Kernel/Config/GenericAgent.pm.examples)
+);
+</programlisting>
+</para>
+
+</example>
+
+<para>
+If a new ticket is stored in a queue that has set a value for escalation
+time, the positive value for the set escalation time is shown first. The
+displayed value for the escalation time does not change, if the system is
+not in the hours specified for TimeWorkingHours or if currently is a day
+specified in TimeVacationDays or TimeVacationDaysOneTime.
+</para>
+
+<para>
+If the system is in a time window which is relevant for the calculation for
+time specific events, the escalation time is counted down. If the value 0
+is reached the ticket escalates. Further on the value for the escalation
+time gets negative, the ticket has exceeded the point of time for the
+escalation. During the next run of the GenericAgent the job for the
+notification about escalated tickets is executed and the messages will be
+send out to the agents. The escalated ticket blocks the view of all other
+tickets in the queue and must be processed. Even if the escalated ticket is
+locked and processed the displayied value for the escalation time stays in
+the negative range. This behaviour does not change as long as the ticket
+is in an open state (open, new, pending, e.g.). The value for the escalation
+time only gets reset if the state changes to closed. If the same ticket is
+reopened for example by a follow-up, the count down for the escalation
+time starts again with the positive value set for the queue where the
+ticket is stored.
+</para>
+
+<para>
+So a ticket only can escalate, if it is not locked and if it is in an open
+state. If the ticket is locked and not yet closed, the escalation time is
+counted down and the ticket escalates if the time value is zero. If the
+state was changed to closed and if the ticket is reopened by a follow-up
+request, the escalation process described before starts again.
+</para>
+
+</sect1>
+
+</chapter>
