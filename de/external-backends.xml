@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.10 2006-02-16 14:18:37 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.11 2006-02-28 05:52:34 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Einbinden externer Back-ends</title>
@@ -24,12 +24,7 @@ damit OTRS ordnungsgemäß funktioniert:
 </para>
 
 <para>
-<itemizedlist>
-
-<listitem>Benutzer-Login</listitem>
-<listitem>Benutzer-Email</listitem>
-<listitem>Benutzer-Kunden-ID</listitem>
-</itemizedlist>
+Benutzer-Login, Benutzer-Email und Benutzer-Kunden-ID
 </para>
 
 <para>
@@ -175,9 +170,9 @@ der Datei <filename>Kernel/Config.pm</filename> hinzu:
 
 <para>
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [...]
-            [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
 </programlisting>
 </para>
 
@@ -237,9 +232,9 @@ der Datei <filename>Kernel/Config.pm</filename> hinzu:
 
 <para>
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [...]
-            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
 </para>
 
@@ -374,9 +369,9 @@ gewünschte Einträge:
 
 <para>
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [...]
-            [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
 </programlisting>
 </para>
 
