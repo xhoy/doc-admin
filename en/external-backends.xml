@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.3 2005-12-07 15:56:43 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.4 2006-02-28 05:52:55 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -147,13 +147,13 @@ After the change in the database table you have to adjust the MAP array:
 
 <para>
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
 </programlisting>
 </para>
 
 <para>
-Ofcourse all customer data can be edited or changed via the agent
+Of course all customer data can be edited or changed via the agent
 interface.
 </para>
 
@@ -185,8 +185,8 @@ add the new column:
 
 <para>
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
 </para>
 
@@ -305,12 +305,12 @@ have to add the new entry to the MAP array:
 </para>
 
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
 
 <para>
-Ofcourse the multible customer IDs have to be edited by the LDAP admin,
+Of course the multible customer IDs have to be edited by the LDAP admin,
 OTRS can only read these data and not write to the LDAP tree.
 </para>
 </sect3>
