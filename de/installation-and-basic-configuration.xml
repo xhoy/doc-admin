@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation des OTRS Framework</title>
@@ -327,7 +327,7 @@ Setting up otrs (1.3.2p01-5) ...
 Adding system user `otrs'...
 Adding new user `otrs' (105) with group `www-data'.
 Not creating home directory.
-SetPermissions.sh &lt;$Revision: 1.9 $&gt; - set OTRS file permissions
+SetPermissions.sh &lt;$Revision: 1.10 $&gt; - set OTRS file permissions
 Copyright (c) 2001-2003 Martin Edenhofer &lt;martin@otrs.org&gt;
 Setting file permissions...
 chown -R 0:0 /usr/share/otrs
@@ -547,7 +547,7 @@ die entsprechenden .tar.gz- oder .tar.bz2-Dateien im Downloadbereich auf
 </para>
 
 <para>
-Entpacken Sie das Archiv mit Hilfe von <command>tar</command> z.B. in das
+Entpacken Sie das Archiv mit Hilfe von <command>tar</command> z. B. in das
 Verzeichnis <filename>/opt</filename>:
 </para>
 
@@ -692,7 +692,7 @@ benötigt.
         </entry>
         <entry>
           Dieses Modul enthält Berechnungsgrundlagen zum
-          gregorianischen Kalender und wird in OTRS z.B. für die
+          gregorianischen Kalender und wird in OTRS z. B. für die
           zeitspezifischen Berechnungen auf Tickets benötigt.
         </entry>
       </row>
@@ -778,7 +778,7 @@ benötigt.
         <entry>
           Modul zur Verarbeitung von Anfragen an ein LDAP-Directory. Dieses
           Modul wird nur benötigt, wenn OTRS mit einem LDAP-Directory
-          betrieben werden soll, z.B. fuer die Abfrage von Kundendaten.
+          betrieben werden soll, z. B. fuer die Abfrage von Kundendaten.
         </entry>
       </row>
       <row>
@@ -794,7 +794,7 @@ benötigt.
           Authen::SASL
         </entry>
         <entry>
-          SASL Authentication Framework, wird z.B. für die Anmeldung
+          SASL Authentication Framework, wird z. B. für die Anmeldung
           an Mailservern benötigt.
         </entry>
       </row>
@@ -1110,7 +1110,7 @@ an, die später von OTRS verwendet werden soll.
 <listitem>
 <para>
 Erstellen der Tabellen: Mit Hilfe der otrs-schema.Datenbanktyp.sql-Dateien
-(z.B. <filename>otrs-schema.oracle.sql</filename>,
+(z. B. <filename>otrs-schema.oracle.sql</filename>,
 <filename>otrs-schema.postgresql.sql</filename>, usw.) können Sie die
 Tabellen innerhalb der OTRS Datenbank erzeugen.
 </para>
@@ -1119,7 +1119,7 @@ Tabellen innerhalb der OTRS Datenbank erzeugen.
 <para>
 Einfügen der vom System benötigten Daten: Damit OTRS richtig
 funktioniert, müssen einige Daten in verschiedene Tabellen geschrieben
-werden (z.B. die verschiedenen Ticketstati, Ticket- und
+werden (z. B. die verschiedenen Ticketstatus, Ticket- und
 Benachrichtigungstypen, etc.). Verwenden Sie entweder die Datei
 <filename>initial_insert.sql</filename> oder
 <filename>initial_insert.sapdb.sql</filename> zum Einspielen der Daten,
@@ -1132,7 +1132,7 @@ Erzeugen von "foreign keys" auf andere Tabellen: Abschließend
 müssen noch die "foreign keys" erstellt werden, über die die
 verschiedenen Tabellen in der OTRS Datenbank voneinander abhängen.
 Dies kann mit Hilfe der otrs-schema-post.Datenbanktyp.sql-Dateien erreicht
-werden (z.B. <filename>otrs-schema-oracle.post.sql</filename>,
+werden (z. B. <filename>otrs-schema-oracle.post.sql</filename>,
 <filename>otrs-schema-post.postgresql.sql</filename>, usw.).
 </para>
 </listitem>
@@ -1141,7 +1141,7 @@ werden (z.B. <filename>otrs-schema-oracle.post.sql</filename>,
 
 <para>
 Nachdem Sie die Datenbank angelegt haben, sollten Sie die Zugriffsrechte
-dafür setzen und z.B. sicherstellen, dass nur ein bestimmter
+dafür setzen und z. B. sicherstellen, dass nur ein bestimmter
 Benutzer ohne Datenbank-Administrationsrechte Zugriff auf die OTRS
 Datenbank hat. Je nachdem, welche Datenbank Sie einsetzen, unterscheiden
 sich hier die Vorgehensweisen, es sollte jedoch möglich sein dies mit
@@ -1383,7 +1383,7 @@ folgende Parameter zulässig.
 
 <para>
 Da die cron-Jobs für den OTRS-Benutzer angelegt werden sollen,
-muss das Skript von diesem Benutzer ausgeführt werden. Sind Sie z.B.
+muss das Skript von diesem Benutzer ausgeführt werden. Sind Sie z. B.
 als Benutzer root am System angemeldet, können Sie mit Hilfe des
 Kommandos <command>su otrs</command> zum OTRS-Benutzer wechseln. Nehmen Sie
 also die Installation wie folgt vor.
@@ -1394,7 +1394,7 @@ also die Installation wie folgt vor.
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.9 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.10 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1417,7 +1417,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1427,7 +1427,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1437,7 +1437,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1450,7 +1450,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1460,7 +1460,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1470,7 +1470,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1481,7 +1481,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1491,7 +1491,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1501,7 +1501,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1511,7 +1511,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.9 2006-03-02 10:46:26 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.10 2006-03-27 10:43:00 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
@@ -1522,9 +1522,19 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-Die Installation von OTRS ist abgeschlossen, Sie können das System nun
-über dessen Weboberfläche weiter an Ihre Bedürfnisse
-anpassen und benutzen.
+<warning>
+Bitte beachten Sie, dass durch die Verwendung von
+<filename>Cron.sh</filename> evtl. andere Cron-Jobs des OTRS-Benutzers
+überschrieben bzw. gelöscht werden. Um weitere, nicht von OTRS benötigte
+Cron-Jobs für den OTRS-Benutzer zu installieren, erweitern Sie bitte
+<filename>Cron.sh</filename> dementsprechent.
+</warning>
+</para>
+
+<para>
+Nach der Einrichtung der Cron-Jobs ist die Installation von OTRS
+abgeschlossen, Sie können das System nun über dessen Weboberfläche weiter
+an Ihre Bedürfnisse anpassen und benutzen.
 </para>
 
 </sect2>
