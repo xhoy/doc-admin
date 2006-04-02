@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.14 2006-02-06 17:30:46 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.15 2006-04-02 23:48:03 martin Exp $ -->
 
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
@@ -58,7 +58,7 @@ standardmäßig vergebenes Kennwort handelt, das allgemein bekannt ist.
 Über den Link "Benutzer" gelangen Sie in die Benutzerverwaltung von
 OTRS. Hier können Sie Benutzer anlegen, bearbeiten und deaktivieren.
 Weiterhin lassen sich einige grundlegende Einstellungen für den Benutzer
-festlegen, z.B. die Oberflächensprache oder das Anzeigeschema.
+festlegen, z. B. die Oberflächensprache oder das Anzeigeschema.
 </para>
 
 <para>
@@ -415,7 +415,7 @@ Oberfläche, usw. muss ein Benutzername und ein Kennwort angegeben
 werden, wodurch die Anmeldung am System ermöglicht wird. Desweiteren
 ist eine Angabe für "Kunden#" erforderlich, die eine eindeutige
 Kennung darstellt, über die das System den Kunden ansprechen kann bzw.
-identifiziert. Für "Kunden#" kann also z.B. eine Kundennummer oder
+identifiziert. Für "Kunden#" kann also z. B. eine Kundennummer oder
 auch die Mailadresse des Kunden eingetragen werden.
 </para>
 
@@ -437,7 +437,7 @@ für "Gültig" den Wert entweder auf "ungültig" bzw.
 
 <para>
 Genau wie Agenten, können in OTRS auch Kundenbenutzer verschiedenen Gruppen
-zugewiesen werden. Dieses Feature kann z.B. dann interessant sein, wenn Sie
+zugewiesen werden. Dieses Feature kann z. B. dann interessant sein, wenn Sie
 mehrere Kundenbenutzer einer Firma anlegen möchten, die alle über das
 Kundeninterface nur Tickets in eine oder mehrere bestimmte Queues senden
 sollen. Legen Sie hierzu zuerst über die
@@ -507,7 +507,7 @@ Queues
 Ihres Systems verwalten. Nach einer Standard-Installation sind bereits die
 Queues "Junk", "Misc", "Postmaster" und "Raw" im System angelegt. "Raw"
 ist die Default-Queue, in ihr landen alle neuen Tickets, so lange kein
-Filter definiert wurde. "Junk" kann z.B. zum Aussortieren von Spam-Mails
+Filter definiert wurde. "Junk" kann z. B. zum Aussortieren von Spam-Mails
 genutzt werden.
 </para>
 
@@ -594,7 +594,7 @@ entweder auf "ungültig" bzw. "ungültig-temporär".
 <para>
 Alle gerade beschriebenen Konfigurationsmöglichkeiten für Queues,
 gelten auch für Unter-Queues. Somit lassen sich mit Hilfe der
-Queues in OTRS z.B. die einzelnen Abteilungen Ihres Betriebes oder die
+Queues in OTRS z. B. die einzelnen Abteilungen Ihres Betriebes oder die
 verschiedenen Phasen eines Geschäftsvorgangs (Anfrage, Angebot,
 Bestellung, usw.) abbilden. Dies sollten Sie sich bei der Strukturierung
 Ihres OTRS zu Nutze machen.
@@ -647,7 +647,7 @@ bearbeiten.
 </para>
 
 <para>
-Wenn Sie zum Beantworten eines Tickets, z.B. in der Queue-Ansicht, auf den
+Wenn Sie zum Beantworten eines Tickets, z. B. in der Queue-Ansicht, auf den
 Link für eine Antwortvorlage klicken, können Sie feststellen,
 dass nicht nur der Text der Antwortvorlage sondern auch eine Anrede, der
 zitierte Ticketinhalt und eine Signatur geladen werden. Antwortvorlagen
@@ -706,7 +706,7 @@ dynamische Aufbereitung eines Anredentextes verwenden können. OTRS-Variablen
 zeichnen sich dadurch aus, dass sie von spitzen Klammern (&lt;&gt;)
 eingeschlossen sind. Zwischen den spitzen Klammern steht der Name der
 Variable, der sich oft auf den in der Variable gespeicherten Inhalt
-bezieht. Bauen Sie z.B. in Ihrem Anredentext die Variable
+bezieht. Bauen Sie z. B. in Ihrem Anredentext die Variable
 &lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
 Nachnamen der Person ersetzt, deren Ticket Sie beantworten. Sehen Sie
 sich auch die schon bereits im System gespeicherten Anreden an, dann wird
@@ -772,7 +772,7 @@ dynamische Aufbereitung eines Signaturentextes verwenden können.
 OTRS-Variablen zeichnen sich dadurch aus, dass sie von spitzen Klammern
 (&lt;&gt;) eingeschlossen sind. Zwischen den spitzen Klammern steht der
 Name der Variable, der sich oft auf den in der Variable gespeicherten
-Inhalt bezieht. Bauen Sie z.B. in Ihrem Anredentext die OTRS-Variable
+Inhalt bezieht. Bauen Sie z. B. in Ihrem Anredentext die OTRS-Variable
 &lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
 Nachnamen des Agents ersetzt, der das Ticket beantwortet hat. Sehen Sie
 sich auch die schon bereits im System gespeicherten Anreden an, dann wird
@@ -844,7 +844,7 @@ entweder auf "ungültig" oder "ungültig-temporär".
 <para>
 OTRS bietet die Möglichkeit, automatische Antworten an Kundenbenutzer zu
 verschicken. Automatische Antworten sind an bestimmte Ereignisse im System
-gebunden, z.B. an das Anlegen eines neuen Tickets in einer Queue, wenn ein
+gebunden, z. B. an das Anlegen eines neuen Tickets in einer Queue, wenn ein
 Followup eines Tickets stattfindet, wenn ein Ticket geschlossen oder
 vom System zurückgewiesen wird. Über den Link "Auto Antworten" innerhalb
 des Admin-Bereiches erreichen Sie die Verwaltung der automatischen
@@ -864,7 +864,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
 
 <table id="table-of-autoanswer-types">
 <title>Ereignistypen für automatische Antworten</title>
-  <tgroup cols="1">
+  <tgroup cols="2">
     <thead>
       <row>
         <entry>
@@ -891,7 +891,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
         </entry>
         <entry>
           Dieses Ereignis tritt ein, wenn ein bereits geschlossenes Ticket,
-          z.B. durch die Antwort eines Kunden, mit einer neuen
+          z. B. durch die Antwort eines Kunden, mit einer neuen
           Ticketnummer erneut geöffnet wird.
         </entry>
       </row>
@@ -1068,7 +1068,7 @@ systemweit genutzt werden kann, muss das Feature mit Hilfe einiger
 Konfigurationsparameter
 </link>
 
-z.B. über die
+z. B. über die
 
 <link linkend="adminarea-sysconfig">
 grafische Administrationsoberfläche
@@ -1105,7 +1105,7 @@ werden kann, muss das Feature mit Hilfe einiger
 Konfigurationsparameter
 </link>
 
-z.B. über die
+z. B. über die
 
 <link linkend="adminarea-sysconfig">
 grafische Administrationsoberfläche
@@ -1262,11 +1262,11 @@ Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt
 werden müssen, damit die Filterregel greift, und aus einer oder mehreren
 Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt wurden.
 Sie können für die Kopfzeilen und den Body einer Nachricht Filterregeln
-festlegen, also z.B. nach bestimmten Headern suchen oder nach Zeichenketten
+festlegen, also z. B. nach bestimmten Headern suchen oder nach Zeichenketten
 bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen für eine
 Filterregel werden über sog. X-OTRS-Header gesteuert, die in die Mail
 eingefügt werden. Das Ticket-System wertet die X-OTRS-Header aus und nimmt
-die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z.B. die
+die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z. B. die
 Priorität einer Nachricht geändert werden, die Mail in eine bestimmte
 Queue einsortiert oder die Mail komplett verworfen werden, usw. Die
 folgende Tabelle listet die verschiedenen X-OTRS-Header, deren zulässige
@@ -1438,7 +1438,7 @@ Werte und die Bedeutung der einzelnen Header auf.
         </entry>
         <entry>
           Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort
-          an den Absender des neuen Tickets geschickt, z.B. um Mailschleifen
+          an den Absender des neuen Tickets geschickt, z. B. um Mailschleifen
           zu vermeiden.
         </entry>
       </row>
@@ -1470,7 +1470,7 @@ lassen. Spamassassin fügt bei allen überprüften Mails die Kopfzeile
 "X-Spam-Flag" hinzu. Wird die Mail als Spam markiert, wird dieser Header
 auf "Yes" gesetzt. Das Filterkriterium lautet also "X-Spam-Flag: Yes". Um nun
 eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als
-Name für die Filterregel z.B. "spam-mails" ein und wählen in der Sektion
+Name für die Filterregel z. B. "spam-mails" ein und wählen in der Sektion
 "Treffer" für "Header 1" den Header "X-Spam-Flag:" aus der Listbox aus.
 Rechts daneben fügen Sie als Wert "Yes" hinzu. Das Filterkriterium wurde
 somit festgelegt. Um nun die Einsortierung der von spamassassin als Spam
@@ -1500,7 +1500,7 @@ genutzt werden und bei komplexeren Installationen nützlich sein können.
 
 <para>
 Der GenericAgent ist ein Tool zum automatischen Ausführen von Aufgaben, die
-normalerweise ein richtiger Agent manuell durchführen müsste. Er kann z.B.
+normalerweise ein richtiger Agent manuell durchführen müsste. Er kann z. B.
 bestimmte Tickets in einer Queue schließen oder Benachrichtigungen für
 eskalierte Tickets versenden.
 </para>
@@ -1588,7 +1588,7 @@ Sitzungseigenschaften zu erhalten, folgen Sie dem Link
 
 <para>
 Innerhalb der Sitzungsverwaltung werden allgemeine Informationen
-zu allen Sitzungen im System ausgegeben, also z.B. wie viele Sitzungen
+zu allen Sitzungen im System ausgegeben, also z. B. wie viele Sitzungen
 gerade insgesamt aktiv sind oder wie viele Agenten- und Kunden-Sitzungen
 laufen, usw. Es besteht die Möglichkeit mit Hilfe des "Alle Sitzungen
 löschen"-Schalters die Sitzungen aller angemeldeten Benutzer zu
@@ -1664,7 +1664,7 @@ Tabellen können auf diesem Weg nicht verändert werden.
 <para>
 Seit Version 2.0 besteht OTRS aus einem zentralen Framework und mehreren
 Zusatzpaketen, um die das System wahlweise erweitert werden kann. An
-zusätzlichen Paketen stehen z.B. ein web-basierter Filemanager, ein
+zusätzlichen Paketen stehen z. B. ein web-basierter Filemanager, ein
 Web-Mailer, ein Content-Manager oder ein Tool zur Überwachung von
 verschiedenen Betriebssystemparametern zur Verfügung. Um die Installation
 der verschiedenen Komponenten zu erleichtern, können diese mit Hilfe des
