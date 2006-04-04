@@ -3,7 +3,7 @@
 # scripts/auto_build.sh - Build tar.(gz|bz2) archive of the files from the admin manual
 # Copyright (C) 2001-2006 Martin Edenhofer <martin+code@otrs.org>
 # --
-# $Id: auto_build.sh,v 1.2 2006-02-15 11:05:44 cs Exp $
+# $Id: auto_build.sh,v 1.3 2006-04-04 11:05:19 cs Exp $
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -45,19 +45,19 @@ function usage
     echo ""
     echo "  Build archives with all files:"
     echo ""
-    echo "    auto_build.sh /home/ernie/src/CallISDN 1.0.2 01"
+    echo "    auto_build.sh /home/ernie/src/doc-admin 1.0.2 01"
     echo ""
     echo "  Build archives that contain files for all languages and no pictures:"
     echo ""
-    echo "    auto_build.sh /home/ernie/src/CallISDN 1.0.2 01 -p"
+    echo "    auto_build.sh /home/ernie/src/doc-admin 1.0.2 01 -p"
     echo ""
     echo "  Build archives for English files only with all pictures:"
     echo ""
-    echo "    auto_build.sh /home/ernie/src/CallISDN 1.0.2 01 en"
+    echo "    auto_build.sh /home/ernie/src/doc-admin 1.0.2 01 en"
     echo ""
     echo "  Build archives for German files only without pictures:"
     echo ""
-    echo "    auto_build.sh /home/ernie/src/CallISDN 1.0.2 01 de -p"
+    echo "    auto_build.sh /home/ernie/src/doc-admin 1.0.2 01 de -p"
     echo ""
     exit 1
 }
