@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.7 2006-01-09 21:39:58 cs Exp $ -->
+<!-- $Id: email.xml,v 1.8 2006-04-07 09:55:32 ho Exp $ -->
 
 <chapter id="email">
 <title>Emails versenden/empfangen</title>
@@ -13,10 +13,10 @@
 <title>Via Sendmail (Standard)</title>
 
 <para>
-OTRS ist in der Lage, Emails via Sendmail (z.B.
+OTRS ist in der Lage, Emails via Sendmail (z. B.
 <ulink url="http://www.sendmail.org/">Sendmail</ulink>,
 <ulink url="http://www.postfix.org/">Postfix</ulink>,
-<ulink url="http://www.qmail.org">Qmail</ulink> or
+<ulink url="http://www.qmail.org">Qmail</ulink> oder
 <ulink url="http://www.exim.org">Exim</ulink>)
 zu versenden. Die Standard-Konfiguration sollte gleich ohne
 Probleme funktionieren,  verwendet wird das sendmail-Binary Ihres
@@ -54,7 +54,7 @@ erweitert:
 Wenn kein sendmail-Binary zur Verfügung steht, kann OTRS Emails via SMTP
 versenden (<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail
 Transfer Protocol / RFC 821</ulink>). Diese Möglichkeit kann hauptsächlich auf
-Nicht-Unix-Plattformen (z.B. Win32) genutzt werden.
+Nicht-Unix-Plattformen (z. B. Win32) genutzt werden.
 </para>
 
 <para>
@@ -185,12 +185,12 @@ beschreibt das Zusammenspiel zwischen OTRS und cron ausführlicher.
 </sect2>
 
 <sect2 id="email-receiving-cmd">
-<title>Via Kommandozeilen-Programm und z.B. procmail (PostMaster.pl)</title>
+<title>Via Kommandozeilen-Programm und z. B. procmail (PostMaster.pl)</title>
 
 <para>
 OTRS ist in der Lage, Emails über ein Kommandozeilen-Programm
 (<filename>bin/PostMaster.pl</filename>) zu empfangen. Das bedeutet, dass
-Emails im OTRS angezeigt werden, wenn der MDA (mail delivery agent, z.B.
+Emails im OTRS angezeigt werden, wenn der MDA (mail delivery agent, z. B.
 procmail) die Emails an <filename>bin/PostMaster.pl</filename>" weiterleitet.
 </para>
 
@@ -226,7 +226,7 @@ weitere Informationen.
 
 <para>
 Um procmail einzurichten (benötigt einen für procmail konfigurierten MDA
-(z.B. sendmail, postfix, exim oder qmail)), kann die Datei
+(z. B. sendmail, postfix, exim oder qmail)), kann die Datei
 <filename>.procmailrc.dist</filename> aus dem OTRS-Homeverzeichnis
 verwendet werden. Kopieren Sie <filename>.procmailrc.dist</filename> nach
 <filename>.procmailrc</filename> und nehmen Sie
@@ -314,7 +314,7 @@ Falls die <filename>bin/PostMaster.pl</filename> oder
 X-OTRS-Header mit Hilfe der PostMaster-Filtermodule in die eingehenden
 Mails eingefügt bzw. bereits vorhandene X-OTRS-Header verändert werden. Mit
 Hilfe von X-OTRS-Headern kann das Ticket System bestimmte Aktionen für
-Mails ausführen, z.B. diese in eine bestimmte Queue einsortieren, sie einem
+Mails ausführen, z. B. diese in eine bestimmte Queue einsortieren, sie einem
 bestimmten Kunden zuordnen, die Priorität ändern usw. Eine nähere
 Beschreibung der X-OTRS-Header finden Sie im Kapitel zum
 
@@ -331,7 +331,7 @@ Es gibt verschiedene Standard-Filtermodule.
 
 <note>
 <para>
-Der Jobname (z.B.
+Der Jobname (z. B.
 $Self-&gt;{"PostMaster::PreFilterModule"}-&gt;{"Jobname"}) muss eindeutig
 sein.
 </para>
@@ -339,8 +339,8 @@ sein.
 
 <para>
 Kernel::System::PostMaster::Filter::Match ist ein Standard-Modul, um
- einige Email-Header (z.B. From, To, Subject) zu prüfen und dann den
-neuen Email-Header zu setzen (z.B. X-OTRS-Ignore: yes oder
+ einige Email-Header (z. B. From, To, Subject) zu prüfen und dann den
+neuen Email-Header zu setzen (z. B. X-OTRS-Ignore: yes oder
 X-OTRS-Queue:  spam).
 </para>
 
@@ -380,7 +380,7 @@ X-OTRS-Queue:  spam).
 <para>
 Kernel::System::PostMaster::Filter::CMD ist ein Standard-Modul, um
 die Emails an ein externes Kommando zu leiten und, falls das Ergebnis aus
-STDOUT true ist, den neuen Email-Header zu setzen (z.B. X-OTRS-Ignore: yes
+STDOUT true ist, den neuen Email-Header zu setzen (z. B. X-OTRS-Ignore: yes
 oder X-OTRS-Queue: spam).
 </para>
 
