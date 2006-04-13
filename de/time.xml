@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.8 2006-02-22 14:31:59 cs Exp $ -->
+<!-- $Id: time.xml,v 1.9 2006-04-13 10:06:25 ho Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -170,7 +170,7 @@ Aktionen oder Berechnungen auf Tickets im system ausgeführt.
 
 <para>
 Gesperrte Tickets können automatisch vom System freigegeben werden. Diese
-Funktion kann z.B. dann nützlich sein, wenn sich ein Agent im Urlaub
+Funktion kann z. B. dann nützlich sein, wenn sich ein Agent im Urlaub
 befindet und noch Tickets gesperrt hat, die bearbeitet werden sollen /
 müssen.
 </para>
@@ -227,7 +227,7 @@ die Benachrichtigung für vom System freigegebene Tickets aktiviert ist.
 <para>
 Mit OTRS ist es möglich Erinnerungs Tickets zu erstellen. Es kann ein
 Zeitpunkt festgelegt werden, zu dem das System eine Nachricht verschickt,
-in der es an ein vorher gesperrtes Ticket erinnert. Diese Funktion ist z.B.
+in der es an ein vorher gesperrtes Ticket erinnert. Diese Funktion ist z. B.
 dann nützlich, wenn man daran erinnert werden will einen Kunden zu
 kontaktieren, dieser Kunde aber für die nächsten 2 Wochen im Urlaub ist.
 </para>
@@ -253,7 +253,7 @@ den Versand der Benachrichtigungen aus.
 <para>
 OTRS bietet die Möglichkeit der Eskalation von Tickets. Nachdem ein Ticket
 eskaliert ist, wird die Anzeige aller anderen Tickets in derselben Queue
-oder in der Queue-Ansischt so lange blockiert, bis das eskalierte Ticket
+oder in der Queue-Ansicht so lange blockiert, bis das eskalierte Ticket
 gesperrt wird. Durch die Ticket-Eskalation kann also gewährleistet werden,
 dass Tickets die ein bestimmtes Alter überschreiten, auf jeden Fall beachtet
 werden müssen.
@@ -339,7 +339,7 @@ immer weiter in die Vergangenheit. An diesem Verhalten ändert sich nichts,
 so lange das Ticket sich in einem offenen Status befindet (open, new, pending,
 usw.). Erst wenn das Ticket geschlossen wird, also sich der Status von offen
 auf geschlossen ändert (closed), wird auch die Eskalationszeit zurück gesetzt.
-Wird dasselbe Ticket z.B. durch ein Follow-up wieder in einen offenen Status
+Wird dasselbe Ticket z. B. durch ein Follow-up wieder in einen offenen Status
 gebracht, beginnt das Herunterzählen der Eskalationszeit erneut beim für
 die Queue eingestellten positiven Wert.
 </para>
@@ -348,7 +348,7 @@ die Queue eingestellten positiven Wert.
 Ein Ticket kann also nur eskalieren, wenn es nicht gesperrt ist und wenn es
 sich in einem offenen Status befindet. Ist es gesperrt und noch nicht
 geschlossen, wird die Eskalationszeit immer weiter herunter gezählt, das
-Ticket eskaliert beim Wert 0. Wird das Ticket geschlossen und z.B. durch
+Ticket eskaliert beim Wert 0. Wird das Ticket geschlossen und z. B. durch
 ein Follow-up erneut durch das System geöffnet, beginnt der
 Eskalationsprozess erneut.
 </para>
