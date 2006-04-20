@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.3 2005-12-07 15:55:01 cs Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.4 2006-04-20 16:06:20 cs Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -17,7 +17,7 @@ memory use and more.
 <sect1 id="performance-tuning-otrs">
 <title>OTRS</title>
 <para>
-There are several options to improve the performance via OTRS.
+There are several options to improve the performance of OTRS.
 </para>
 
 <sect2 id="performance-tuning-otrs-index">
@@ -41,14 +41,14 @@ Kernel/Config.pm
 <para>
 Kernel::System::Ticket::IndexAccelerator::RuntimeDB (default), generate
 each queue view on the fly from the ticket table. You will not have performance
-trouble until having about 60.000 tickets (till 6.000 open tickets) in your system.
+trouble until you have about 60,000 tickets (with 6,000 open tickets) in your system.
 </para>
 </listitem>
 
 <listitem>
 <para>
 Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful module, it
-should be used above 80.000 tickets (more than 6.000 open tickets) - use an extra ticket_index table,
+should be used when you have above 80,000 tickets (more than 6,000 open tickets) - use an extra ticket_index table,
 works like a view. Use bin/RebuildTicketIndex.pl for an initial index build.
 </para>
 </listitem>
@@ -78,15 +78,15 @@ Kernel/Config.pm
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageDB (default), store attachments and co
-in the database. Note: Don't use it for larger setups.
+Kernel::System::Ticket::ArticleStorageDB (default), store attachments etc.
+in the database. Note: Don't use it for larger set ups.
 </para>
 <para>
 Pro: If your webserver user isn't the otrs user, use this module to avoid
 file permission problems.
 </para>
 <para>
-Contra: It's not really nice to store attachments in your database. Take care
+Contra: It's not really advisable to store attachments in your database. Take care
 that your database is able to store large objects. E.g. MySQL (config)
 "set-variable = max_allowed_packet=8M" to store 8 MB objects (default is 2M).
 </para>
@@ -94,8 +94,8 @@ that your database is able to store large objects. E.g. MySQL (config)
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageFS, store attachments and co in local
-file system. Note: Use it for larger setups.
+Kernel::System::Ticket::ArticleStorageFS, store attachments etc. in the local
+file system. Note: Use it for larger set ups.
 </para>
 <para>
 Pro: Faster!
@@ -110,7 +110,7 @@ Contra: Your webserver user should be the otrs user (file system permissions!).
 </para>
 
 <para>
-Note: If you use OTRS 1.2 or higher, the you can switch from one to the other
+Note: If you use OTRS 1.2 or higher, you can switch from one to the other
 backend on the fly.
 </para>
 
@@ -129,7 +129,7 @@ documentation for your database or ask your database admin.
 <sect2 id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-If you use MySQL table type MyISAM (which is default) and have deleted a
+If you use MySQL table type MyISAM (which is the default) and have deleted a
 large part of a table or if you have made many changes to a table with
 variable-length rows (tables that have VARCHAR, BLOB or TEXT columns)
 you need to defragment the datafile (tables) with the "optimize" command.
@@ -160,7 +160,8 @@ articles:
 </ulink>
 If performance is still not satisfactory, we suggest that you join the
 PostgreSQL Performance mailing list and ask questions there. The folks on
-the PostgreSQL list are very friendly and can probably help <ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
+the PostgreSQL list are very friendly and can probably help
+<ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
 </para>
 </sect2>
 
@@ -181,8 +182,8 @@ httpd with mod_perl will be about 16 MB (~10MB shared).
 <sect2 id="performance-tuning-webserver-db">
 <title>Preestablish datababase connections</title>
 <para>
-You can have the datababase connections being established on process startup (httpd).
-This saves also time (see README.webserver).
+You can have the datababase connections pe-established on process startup (httpd).
+This saves time (see README.webserver).
 </para>
 </sect2>
 
@@ -197,10 +198,10 @@ modules on your mod_perl webserver to be faster and smaller (see README.webserve
 <title>Reload perl modules when updated on disk</title>
 <para>
 Per default Apache::Reload (mod_perl 2.0) is used
-in scripts/apache2-httpd.include.conf. Disable it and you will get 8 % more
+in scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
 speed. But remember to restart the webserver if you change the Kernel/Config.pm
 or any other modules!
-Important, now you cant use the OTRS-Paket-Manager via web interface, you need to use
+Important; now you can't use the OTRS-Packet-Manager via web interface, you need to use
 CMD - bin/opm.pl.
 </para>
 </sect2>
@@ -208,7 +209,7 @@ CMD - bin/opm.pl.
 <sect2 id="performance-tuning-webserver-strategy">
 <title>Choosing the Right Strategy</title>
 <para>
-If you have a really large installation (over 1000 new tickets a day and over 40
+If you have a really large installation (over 1,000 new tickets a day and over 40
 Agents) it is a good idea to read "Choosing the Right Strategy"
 (<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">
 <citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle>
@@ -219,19 +220,19 @@ Agents) it is a good idea to read "Choosing the Right Strategy"
 <sect2 id="performance-tuning-webserver-gzip">
 <title>mod_gzip/mod_deflate</title>
 <para>
-Anyway, if your bandwidth is a little bit small use mod_gzip for Apache1
+If your bandwidth is a little bit small, use mod_gzip for Apache1
 (<ulink url="http://www.schroepl.net/projekte/mod_gzip/">
 <citetitle>http://www.schroepl.net/projekte/mod_gzip/</citetitle>
 </ulink>) or mod_deflate for Apache2 (default module in Apache2).
-If you have a html page with 45k, mod_gzip/mod_deflate compresses it. The page will be
-about 7k. That's really nice.
+If you have an html page with 45k, mod_gzip/mod_deflate compresses it. The page will be
+about 7k.
 </para>
 </sect2>
 
 <sect2 id="performance-tuning-webserver-dos">
 <title>mod_dosevasive</title>
 <para>
-If you want to block http DoS (Denail of Service) attacks, use mod_dosevasive.
+If you want to block http DoS (Denial of Service) attacks, use mod_dosevasive.
 (<ulink url="http://www.nuclearelephant.com/projects/dosevasive/">
 <citetitle>http://www.nuclearelephant.com/projects/dosevasive/</citetitle>
 </ulink>).

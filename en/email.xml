@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.8 2006-01-26 11:34:15 cs Exp $ -->
+<!-- $Id: email.xml,v 1.9 2006-04-20 16:02:31 cs Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -13,7 +13,7 @@
 <title>Via Sendmail (default)</title>
 
 <para>
-OTRS can send out emails via Sendmail (e. g.
+OTRS can send out emails via Sendmail (e.g.
  <ulink url="http://www.sendmail.org/">Sendmail</ulink>,
  <ulink url="http://www.postfix.org/">Postfix</ulink>,
  <ulink url="http://www.qmail.org">Qmail</ulink> or
@@ -43,9 +43,9 @@ frontend (Framework::Core::Sendmail) or via
 <title>Via SMTP relay/smarthost</title>
 
 <para>
-OTRS can send out emails via SMTP (
+OTRS can send emails via SMTP (
 <ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol / RFC 821</ulink>).
-This settings will mostly be needed on non unix platforms (e. g. win32).
+This settings will be needed generally on non-unix platforms (e.g. win32).
 </para>
 
 <para>
@@ -89,12 +89,11 @@ Configure your POP3 accounts via the admin interface (POP3 Account).
 </para>
 
 <para>
-If a new POP3 account is created a POP3 server, a username and password
+If a new POP3 account is created then its POP3 server, username and password
 must be specified. If you select "Yes" for "Trusted", the X-OTRS headers
 are evaluated and executed if such headers are in the incoming message.
 Because the X-OTRS header can execute some actions in the ticket system you
-should "Trusted" only set to "Yes" for such senders that are known very
-well. X-OTRS-Header are used by the
+should only set "Trusted" to "Yes" for known senders. X-OTRS-Headers are used by the
 
 <link linkend="adminarea-postmasterfilter">
 filter module
@@ -107,16 +106,16 @@ in this table
 </link>
 
 
-more detailed. If you have created filter rules they are executed and used
+in more detailed. If you have created filter rules they are executed and used
 even if "Trusted" is set to "Yes".
 </para>
 
 <para>
-Also the distribution of incoming messages can be controled if they shall
+The distribution of incoming messages can be controled if they need to
 be sorted by queue or by the content of the To: field. If "Dispatching by
-selected queue" is selected for "Dispatching" all incomming messages will
-be sorted into the queue that can be specified also. The address, where the
-mail was sent to, doesn't matter. If "Dispatching by email To: field" was
+selected queue" is selected for "Dispatching", all incomming messages will
+be sorted into the specified queue. The address where the
+mail was sent to doesn't matter. If "Dispatching by email To: field" was
 selected for "Dispatching", the system checks if a queue is linked with the
 address in the To: field of the incoming mail. A address can be linked in
 the
@@ -125,9 +124,9 @@ the
 mailaddress management
 </link>
 
-section of the admin area. Is the address in the To field linked with a
-queue, the new message will be sorted into the linked queue. Can no link
-between the address in the To: field and queue be found, the message is
+section of the admin area. If the address in the To field is linked with a
+queue, the new message will be sorted into the linked queue. If no link is found
+between the address in the To: field and queue then the message is
 sorted into the "Raw" queue in the system, which is the
 
 <link linkend="Ticket:Core::PostMaster:PostmasterDefaultQueue">
@@ -138,13 +137,13 @@ after a default installation.
 </para>
 
 <para>
-All data for the POP3 accounts are saved in the database of OTRS. The
-<filename>PostMasterPOP3.pl</filename>, script which is located in the
+All data for the POP3 accounts are saved in the OTRS database. The
+<filename>PostMasterPOP3.pl</filename> script, which is located in the
 <filename>bin</filename> directory of your OTRS installation, uses the
-settings in the database and fetches the mails. You can execute
-<filename>./bin/PostMasterPOP3.pl</filename> manualy to check if all your
-POP3 settings are working properly. If you want to fetch your mails
-automaticly every ten minutes, you can use a
+settings in the database and fetches the mail. You can execute
+<filename>./bin/PostMasterPOP3.pl</filename> manually to check if all your
+POP3 settings are working properly. If you want to fetch your mail
+automatically every ten minutes, you can use a
 
 <link linkend="cronjobs">
 cron job
@@ -156,20 +155,19 @@ and the example entries that are available in the file
 </sect2>
 
 <sect2 id="email-receiving-cmd">
-<title>Via command line program and e. g. procmail (PostMaster.pl)</title>
+<title>Via command line program and e.g. procmail (PostMaster.pl)</title>
 
 <para>
-If POP3 can't be used to get the emails into OTRS, the commandline
+If POP3 can't be used to get the email into OTRS, the command line
 programm <filename>bin/PostMaster.pl</filename> might be a solution.
-<filename>bin/PostMaster.pl</filename> takes the mails via STDIN and pipes
-them directly into OTRS. That means emails will be shown in your OTRS system
-if the MDA (mail delivery agent, e. g. procmail) executes
+<filename>bin/PostMaster.pl</filename> takes the mail via STDIN and pipes
+them directly into OTRS. That means email will be shown in your OTRS system
+if the MDA (mail delivery agent, e.g. procmail) executes
 <filename>bin/PostMaster.pl</filename>
 </para>
 
 <para>
-To test <filename>bin/PostMaster.pl</filename> without MDA on the command
-line execute the following command:
+To test <filename>bin/PostMaster.pl</filename> without MDA execute the following command:
 </para>
 
 <para>
@@ -181,7 +179,7 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-If the email is shown in the QueueView then your setup works fine.
+If the email is shown in the QueueView then your setup is working.
 </para>
 
 <para>
@@ -191,7 +189,7 @@ installed on most systems. If not, have a look at the
 </para>
 
 <para>
-To configure procmail for OTRS (requires a procmail configured MTA (e. g.
+To configure procmail for OTRS (requires a procmail configured MTA (e.g.
 sendmail,  postfix, exim or qmail)) use the
 <filename>~otrs/.procmailrc.dist</filename> file and copy it to
 <filename>.procmailrc</filename>. Add the following:
@@ -210,7 +208,7 @@ PATH=/bin:/usr/bin:/usr/local/bin
 </para>
 
 <para>
-All emails sent to the local otrs user will be piped into
+All email sent to the local OTRS user will be piped into
 <filename>bin/PostMaster.pl</filename> and then shown in your QueueView.
 </para>
 </sect2>
@@ -219,8 +217,8 @@ All emails sent to the local otrs user will be piped into
 <title>Fetching emails via POP3 or IMAP and fetchmail for PostMaster.pl</title>
 
 <para>
-In order to get e-mails from your mail server via a POP3 or IMAP mailbox to
-the OTRS machine/local otrs account and to procmail use
+In order to get email from your mail server via a POP3 or IMAP mailbox to
+the OTRS machine/local OTRS account and to procmail use
 <ulink url="http://www.tuxedo.org/~esr/fetchmail/">fetchmail</ulink>.
 </para>
 
@@ -253,10 +251,10 @@ Don't forget to set the .fetchmailrc to 710 ("chmod 710 .fetchmailrc")!
 </para>
 
 <para>
-With the <filename>.fetchmailrc</filename> from the example above, all e-mails
-will be forwarded to the local otrs account, if the command
-<command>fetchmail -a</command> is executed. Setup a cronjob with this
-command, if you want to fetch the mails regularyly.
+With the <filename>.fetchmailrc</filename> from the example above, all email
+will be forwarded to the local OTRS account, if the command
+<command>fetchmail -a</command> is executed. Set up a cronjob with this
+command if you want to fetch the mails regularly.
 </para>
 </sect2>
 
@@ -280,20 +278,20 @@ in the admin area of OTRS.
 </para>
 
 <para>
-There exist some default filter modules:
+There are some default filter modules:
 </para>
 
 <note>
 <para>
-The job name (e. g.
+The job name (e.g.
 $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) needs to be unique!
 </para>
 </note>
 
 <para>
 Kernel::System::PostMaster::Filter::Match is a default module to
-match on some email header (e. g. From, To, Subject, ...). It can set
-new email headers (e. g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam) if a
+match on some email header (e.g. From, To, Subject, ...). It can set
+new email headers (e.g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam) if a
 filter rule matches. The following example jobs can be inserted in
 <filename>Kernel/Config.pm</filename>
 </para>
@@ -335,7 +333,7 @@ filter rule matches. The following example jobs can be inserted in
 <para>
 Kernel::System::PostMaster::Filter::CMD is a default module to
 pipe the email into an external command. The output is given to STDOUT and
-if the result is true, then set new email header (e. g. X-OTRS-Ignore: yes
+if the result is true, then set new email header (e.g. X-OTRS-Ignore: yes
 or X-OTRS-Queue: spam). The following example can be used in
 <filename>Kernel/Config.pm</filename>
 </para>
@@ -360,7 +358,7 @@ or X-OTRS-Queue: spam). The following example can be used in
 </example>
 
 <para>
-Ofcourse it's also possible to develop own PostMaster filter modules.
+Of course it's also possible to develop your own PostMaster filter modules.
 </para>
 
 </sect2>
