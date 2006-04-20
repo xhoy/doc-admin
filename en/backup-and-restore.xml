@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: backup-and-restore.xml,v 1.4 2005-12-07 15:57:43 cs Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.5 2006-04-20 15:16:49 cs Exp $ -->
 
 <chapter id="backup-and-restore">
 <title>Backing up the system</title>
 
 <abstract>
 <para>
-This chapter descripes the backup and restore of the data, that are
-relevant for OTRS.
+This chapter descripes the backup and restore of the OTRS data.
 </para>
 </abstract>
 
@@ -17,12 +16,12 @@ relevant for OTRS.
 <title>Backup</title>
 
 <para>
-There are two types of data to backup, the application (e.g. the files in
+There are two types of data to backup; the application (e.g. the files in
 <filename>/opt/otrs</filename> and the data stored in the database.
 </para>
 
 <para>
-To simplify backups the script <filename>scripts/backup.pl</filename> is
+To simplify backups, the script <filename>scripts/backup.pl</filename> is
 included in every OTRS installation. It is able to backup all important
 data.
 </para>
@@ -54,9 +53,9 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-All data were stored into the directory
-<filename>/backup/2005-09-12_14-28/</filename>. Every type of data was
-saved into a extra .tar.gz file.
+All data was stored in the directory
+<filename>/backup/2005-09-12_14-28/</filename>. additionally the  data was
+saved into a .tar.gz file.
 </para>
 
 <para>
@@ -73,15 +72,14 @@ linux:/opt/otrs/scripts#
 <title>Restore</title>
 
 <para>
-To restore a backup the saved data for the application hast to be written
+To restore a backup, the saved data for the application has to be written
 back into the installation directory, e.g. <filename>/opt/otrs</filename>.
 Also the database has to be restored.
 </para>
 
 <para>
-A script <filename>scripts/restore.pl</filename> is shipped with every
-OTRS installation, to simplify the restore process. It supports MySQL and
-PostgreSQL.
+A script <filename>scripts/restore.pl</filename> to simplify the restore process is shipped with every
+OTRS installation. It supports MySQL and PostgreSQL.
 </para>
 
 <para>
