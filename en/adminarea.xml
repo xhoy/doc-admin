@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.10 2006-04-03 00:57:15 martin Exp $ -->
+<!-- $Id: adminarea.xml,v 1.11 2006-04-29 22:12:12 ck Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -73,7 +73,7 @@ user. To deactivate a user account set it to
 
 <para>
 After a new user has benn created the user must be added to one or more
-groups or roles. You will be redirected automaticly to the screen for the
+groups or roles. You will be redirected automatically to the screen for the
 grup and user management when a new accounted has been created.
 </para>
 
@@ -428,7 +428,7 @@ CustomerGroupAlwaysGroups
 </link>
 
 you can specify the groups for a new added customer user, the new account
-will be added to this group automaticly.
+will be added to this group automatically.
 </para>
 
 <para>
@@ -478,7 +478,7 @@ want the new queue to be a sub queue of another already existing queue.
 
 <para>
 If a ticket was locked by an agent, you can specify a time interval when
-the ticket is unlocked automaticly by the system.
+the ticket is unlocked automatically by the system.
 </para>
 
 <para>
@@ -490,7 +490,7 @@ new tickets don't apear in the QueueView if a ticket is escalated.
 
 <para>
 Also you can specify that the old owner of a processed ticket is
-automaticly the owner again, if a followup of the old ticket is send to
+automatically the owner again, if a followup of the old ticket is send to
 the ticket system. This feature makes sure that a folowup for a ticket is
 first shown to the origianl owner of the ticket who already knows the facts
 of this ticket.
@@ -799,7 +799,7 @@ after a default installation.
         </entry>
         <entry>
           This event is triggered if the system rejects a ticket
-          automaticly.
+          automatically.
         </entry>
       </row>
       <row>
@@ -1102,17 +1102,17 @@ for more details.
 <title>Filtering incoming messages</title>
 
 <para>
-Because incoming messages can be sorted automaticly into queues or spam
+Because incoming messages can be sorted automatically into queues or spam
 mails can be moved into a specific queue, OTRS has the possibility to
-filter incomming messages. It does not matter, if PostMasterPOP3.pl or
-PostMaster.pl is used to bring the messages into the ticket system. Filter
+filter incoming messages. It does not matter, if PostMasterPOP3.pl or
+PostMaster.pl is used to get messages into the ticket system. Filter
 rules can be created through the link "PostMaster Filter" in the admin area
 of OTRS.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Managing filter rules for incomming messages</screeninfo>
+<screeninfo>Managing filter rules for incoming messages</screeninfo>
 <graphic srccredit="Adminarea postmasterfilter - screenshot" scale="40" fileref="screenshots/admin-postmasterfilter.png"></graphic>
 </screenshot>
 </para>
@@ -1120,13 +1120,13 @@ of OTRS.
 <para>
 A filter rule consists of one or more filter criterias that must match if
 the filter rule shall be executed and of one or more actions that are
-executed, after the filter criterias matched. You can define filter
+executed, if the filter criterias match. You can define filter
 criterias for the headers or the body of an email, e.g. search for specific
-headers entries or strings in the body, even regular expressions are
+header entries or strings in the body, even regular expressions are
 allowed. All actions for a filter rule are triggered by X-OTRS headers,
-which are inserted, if the filter criterias matched. The ticket system
+which are inserted if the filter criterias match. The ticket system
 evaluates the inserted X-OTRS headers and executes the specific actions.
-X-OTRS headers can be used to sort a incoming message into a specific
+X-OTRS headers can be used to sort an incoming message into a specific
 queue, change the priority of the message or ignore the message and deliver
 it not to the system. The following table lists the different X-OTRS
 headers and their meaning.
@@ -1226,7 +1226,7 @@ headers and their meaning.
           Additional info key for the article.
         </entry>
         <entry>
-          Saves a additional info key for this article.
+          Saves an additional info key for this article.
         </entry>
       </row>
       <row>
@@ -1237,7 +1237,7 @@ headers and their meaning.
           Additional info value for the article.
         </entry>
         <entry>
-          Saves a additional info value for the article.
+          Saves an additional info value for the article.
         </entry>
       </row>
       <row>
@@ -1261,7 +1261,7 @@ headers and their meaning.
           note-internal, note-external, note-report
         </entry>
         <entry>
-          Sets the article type for the incomming ticket.
+          Sets the article type for the incoming ticket.
         </entry>
       </row>
       <row>
@@ -1272,7 +1272,7 @@ headers and their meaning.
           Additional info key for the ticket.
         </entry>
         <entry>
-          Saves a additional info key for the ticket.
+          Saves an additional info key for the ticket.
         </entry>
       </row>
       <row>
@@ -1283,7 +1283,7 @@ headers and their meaning.
           Additional info value for the ticket.
         </entry>
         <entry>
-          Saves a additional info value for the ticket.
+          Saves an additional info value for the ticket.
         </entry>
       </row>
       <row>
@@ -1295,7 +1295,7 @@ headers and their meaning.
         </entry>
         <entry>
           If this X-OTRS header is set no auto answer is delivered to the
-          sender of the message (mail oop protection).
+          sender of the message (mail loop protection).
         </entry>
       </row>
     </tbody>
@@ -1304,10 +1304,10 @@ headers and their meaning.
 
 <para>
 A name must be specified for every filter rule. In the section for "Match"
-the filter criteria can be specified. Chose via the listboxes for
-"Header 1", "Header 2" and so on the parts of the messages, where you would
-like to search and specify via the imput files on the right sites the
-values. In the section for "Set" you can chose the actions that are
+the filter criteria can be specified. Choose via the listboxes for
+"Header 1", "Header 2" and so on the parts of the messages where you would
+like to search and specify via the input files on the right sides the
+values. In the section for "Set" you can choose the actions that are
 triggered, if the filter rules match. You can select for "Header 1",
 "Header 2" and so on the X-OTRS-Header and set the values.
 </para>
@@ -1317,16 +1317,16 @@ triggered, if the filter rules match. You can select for "Header 1",
 
 <para>
 A nice and usefull filter rule could be to let OTRS sort mails marked for
-spam with Spamassassin into the "Junk" queue automaticly.
+spam with Spamassassin into the "Junk" queue automatically.
 Spamassassin adds for every checked mail the "X-Spam-Flag" header.
 Is the mail marked as spam, the Header is set to "Yes". So the filter criteria
-is "X-Spam-Flag: Yes". To create a filter roule with this criteria you can
-insert the name for example "spam-mails". Also chose in the section for
+is "X-Spam-Flag: Yes". To create a filter rule with this criteria you can
+insert the name for example "spam-mails". Also choose in the section for
 "Match" for "Header 1" from the listbox "X-Spam-Flag:". Insert "Yes" as
 value for this header. Now the filter criteria is specified. To make sure,
-that all spam mails get sorted into the "Junk" queue chose in the section for
+that all spam mails get sorted into the "Junk" queue choose in the section for
 "Set" for "Header 1" the "X-OTRS-Queue:" entry. Specify "Junk" as value for
-this header. Finaly add the new filter roule to activate it for the next
+this header. Finally add the new filter rule to activate it for the next
 new messages in the system.
 </para>
 </example>
@@ -1338,7 +1338,7 @@ There are aditional modules, that can be used to
 filter incoming messages
 </link>
 
-more specificaly. This modules might be usefull on bigger and mor complex
+more specificaly. This modules might be usefull on bigger and more complex
 systems.
 </para>
 
@@ -1348,7 +1348,7 @@ systems.
 <title>Executing automated jobs with the  GenericAgent</title>
 
 <para>
-The GenericAgent is a tool to execute tasks automaticly that must be done
+The GenericAgent is a tool to execute tasks automatically that must be done
 by a human person, a real agent,normaly. The GenericAgent for example can
 close or move tickets, send notifications aboout escalated tickets, e.g.
 </para>
@@ -1384,8 +1384,8 @@ affected by the new job.
 
 <para>
 If the creation of the job is finished all tickets are listed, that are
-affected by the job. This list of tickets lets you controll if the job
-works right, no changes are made to this tickets yet. The job will be
+affected by the job. This list of tickets let you control if the job
+works right, no changes are made to these tickets yet. The job will be
 really activated if it is saved into the job list.
 </para>
 
@@ -1397,7 +1397,7 @@ really activated if it is saved into the job list.
 <para>
 The OTRS administrator can send a message to specific users or user groups.
 The "Admin Notification" link opens the screen where the users and groups
-can be selected that should be notifyed by the admin.
+can be selected that should be notified by the admin.
 </para>
 
 <para>
@@ -1434,7 +1434,7 @@ properties the "Session Management" link in the admin area can be used.
 Some general information about all active sessions are displayed, e.g. how
 many users currently are loged in, how many agent and customer users are
 using the system, e.g. With the "kill all sessions" button all users
-sessionscan be deactivated. Also detailed information for every session are
+sessions can be deactivated. Also detailed information for every session are
 available and every session can be removed separately.
 </para>
 
@@ -1519,15 +1519,15 @@ area of OTRS opens this module.
 <para>
 The package manager can only handle opm packages, other formats (rpm, deb,
 e.g.) are not supported. It is possible to define several installation
-sources. Is a opm file stored on your local hard disk you can install the
+sources. Is an opm file stored on your local hard disk you can install the
 package by specifying this file in the input field for "Package" via the
 absolute path and the file name. The "Install" button installs this package
-in your system and adds all necesary files, changes the database, e.g.
+in your system and adds all necessary files, changes the database, e.g.
 </para>
 
 <para>
 If always the most actual package should be used the packages can be
-installed via a online repository too. The newest list of all applications
+installed via a online repository too. The latest list of all applications
 in the online repository can be downloaded if a server is selected via the
 "Source" listbox and the "Update" button is pressed. After a while on the
 right site of the screen all available application ar listed in the table
@@ -1540,8 +1540,8 @@ repository.
 </para>
 
 <para>
-If you need to remove a application you can use the "Uninstall" button in
-the local repository for the specific application. Dependences to other
+If you need to remove an application you can use the "Uninstall" button in
+the local repository for the specific application. Dependencies to other
 applications are also watched during deinstallation.
 </para>
 
