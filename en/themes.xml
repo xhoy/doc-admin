@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: themes.xml,v 1.1 2006-06-21 19:52:12 cs Exp $ -->
+
+<chapter id="themes">
+<title>Creating own themes</title>
+
+<para>
+You can create your own themes for OTRS to use the layout you like in the
+web frontend. To create own themes the output template have to be
+customized to your needs.
+</para>
+
+<para>
+More information about the syntax and structure of output templates can
+be found in the Developer Manual on
+
+<ulink url="http://doc.otrs.org">
+<citetitle>http://doc.otrs.org</citetitle>
+</ulink>
+, especialy in the chapter about
+
+<ulink url="http://doc.otrs.org/developer/2.0/en/html/c494.html">
+<citetitle>templates</citetitle>
+</ulink>
+.
+</para>
+
+<para>
+To create a new theme called "Company" perform the following steps:
+</para>
+
+<para>
+<orderedlist numeration="arabic">
+    <listitem>
+    <para>
+    Copy the directory
+    <filename>Kernel/Output/HTML/Standard</filename> to
+    <filename>Kernel/Output/HTML/Company</filename>.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Customize the files in the directory
+    <filename>Kernel/Output/HTML/Company</filename> Ihren Wünschen
+    to your needs and change them to your prefered layout.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    To activate the new theme for OTRS the database has to be changed
+    manualy and the new theme has to be added to the theme table in the
+    OTRS database. Use the following commands with MySQL:
+    </para>
+
+    <para>
+    <screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 26 to server version: 5.0.22-Debian_2-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; INSERT INTO theme
+    -&gt;     (theme, valid_id, create_time, create_by, change_time, change_by)
+    -&gt;     VALUES
+    -&gt;     ('Company', 1, current_timestamp, 1, current_timestamp, 1);
+mysql&gt;
+    </screen>
+    </para>
+</listitem>
+</orderedlist>
+</para>
+
+<para>
+Now the new theme should be useable in OTRS. It should be possible to
+select it via your
+
+<link linkend="user-preferences">
+personal preferences
+</link>
+
+page.
+</para>
+
+</chapter>
+
