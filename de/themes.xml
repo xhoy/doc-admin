@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: themes.xml,v 1.1 2006-06-21 19:23:48 cs Exp $ -->
+
+<chapter id="themes">
+<title>Erstellung eigener Themes</title>
+
+<para>
+Für OTRS können verschiedene Themes angelegt werden, also verschiedene
+Layouts zur Gestaltung der Web-Oberfläche. Dazu müssen Sie die vorhandenen
+Templates ändern und Ihren Wünschen entsprechend anpassen.
+</para>
+
+<para>
+Mehr Informationen über die Syntax und den Aufbau von Templates finden Sie
+im Entwickler-Handbuch auf
+
+<ulink url="http://doc.otrs.org">
+<citetitle>http://doc.otrs.org</citetitle>
+</ulink>
+
+innerhalb des Kapitels zu den
+
+<ulink url="http://doc.otrs.org/developer/2.0/en/html/c494.html">
+<citetitle>Templates</citetitle>
+</ulink>
+
+.
+</para>
+
+<para>
+Um ein neues Theme namens "Company" anzulegen, gehen sie bitte nach
+folgendem Schema vor:
+</para>
+
+<para>
+<orderedlist numeration="arabic">
+    <listitem>
+    <para>
+    Kopieren Sie das Verzeichnis
+    <filename>Kernel/Output/HTML/Standard</filename> nach
+    <filename>Kernel/Output/HTML/Company</filename>.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Passen Sie die Dateien im Verzeichnis
+    <filename>Kernel/Output/HTML/Company</filename> Ihren Wünschen
+    entsprechend an.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Um das neue Theme OTRS bekannt zu machen, müssen Sie die Datenbank
+    händisch ändern. Gehen Sie hier zu mit MySQL folgendermaßen vor:
+    </para>
+
+    <para>
+    <screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 26 to server version: 5.0.22-Debian_2-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; INSERT INTO theme
+    -&gt;     (theme, valid_id, create_time, create_by, change_time, change_by)
+    -&gt;     VALUES
+    -&gt;     ('Company', 1, current_timestamp, 1, current_timestamp, 1);
+mysql&gt;
+    </screen>
+    </para>
+</listitem>
+</orderedlist>
+</para>
+
+<para>
+Ab nun sollten sie das neue Theme nutzen und über Ihre
+
+<link linkend="user-preferences">
+persönlichen Einstellungen
+</link>
+
+aktivieren können.
+</para>
+
+</chapter>
+
