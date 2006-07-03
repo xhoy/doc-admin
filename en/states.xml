@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: states.xml,v 1.1 2006-07-03 12:25:23 cs Exp $ -->
+
+<chapter id="status">
+<title>Modifying ticket states and ticket state types</title>
+
+<para>
+It is possible to change the predefined states and state types for tickets
+in OTRS. Also new states or state types can be added and used with the
+ticket system. Two options are important for a state, the name (state-name)
+and the type of the state (state-type).
+</para>
+
+<para>
+<itemizedlist>
+<listitem>
+    <para>
+    The default states of OTRS are 'closed successful', 'closed
+    unsuccessful', 'merged', 'new', 'open', 'pending auto close+',
+    'pending auto close-', 'pending reminder' and 'removed'.             |
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Every state must have a name (status-name) and a status type
+    (status-type) has to be linked to this state. The name of a state is free
+    selectable and can be specified via the admin area of OTRS in the
+    section for states. The state types can not be changed via the web
+    interface, the database has to be modified if new types are needed or
+    if the name of types have to be changed.
+    </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>
+In the section for states in the admin area of OTRS the name of allready
+existing states can be changed or new states can be added. If the state
+"new" has been changed via the web interface, this change also has to be
+configured via the config file <filename>Kernel/Config.pm</filename> or via
+the SysConfig interface. The following settings have to be modified to
+ensure that OTRS works with the changed state for "new":
+</para>
+
+<para>
+<programlisting>
+    [...]
+    # PostmasterDefaultState
+    # (The default state of new tickets.) [default: new]
+    $Self-&gt;{PostmasterDefaultState} = 'new';
+
+    # CustomerDefaultState
+    # (default state of new customer tickets)
+    $Self-&gt;{CustomerDefaultState} = 'new';
+    [...]
+</programlisting>
+</para>
+
+<para>
+If the state "open" has been changed, the configuration of OTRS also has to
+be modified to ensure that OTRS uses the new settings:
+</para>
+
+<para>
+<programlisting>
+    [...]
+    # default phone new state
+    $Self-&gt;{'Ticket::Frontend::PhoneNextState'} = 'open';
+
+    # PostmasterFollowUpState
+    # (The state if a ticket got a follow up.) [default: open]
+    $Self-&gt;{PostmasterFollowUpState} = 'open';
+    [...]
+</programlisting>
+</para>
+
+<para>
+If a new state type should be added the ticket_state_type table in the OTRS
+database needs to be modified with a database client program.
+</para>
+
+<para>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 23 to server version: 5.0.16-Debian_1-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; insert into ticket_state_type (name,comments) values ('own','Own
+state type');
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
+</para>
+
+<para>
+Now it is possible to use the new state type "own" via the web interface
+in the section for states in the admin area. After a state has been linked
+with this new state type also the configuration of OTRS has to be changed
+to ensure that the new state is used. Just modify your configuration files
+or use the SysConfig interface to change the following settings:
+</para>
+
+<para>
+<programlisting>
+    [...]
+    # Ticket::DefaultNextMoveStateType
+    # default move next state
+    $Self-&gt;{'Ticket::DefaultNextMoveStateType'} = ['open', 'closed'];
+
+    # next possible states after phone
+    $Self-&gt;{'Ticket::PhoneDefaultNextStateType'} = ['open', 'pending auto', 'pending reminder', 'closed'];
+
+    # default next state
+    $Self-&gt;{'Ticket::Frontend::PhoneNextState'} = 'closed successful';
+
+    # default next state [default: open]
+    $Self-&gt;{'Ticket::Frontend::PhoneNewNextState'} = 'open';
+
+    # next possible states after email
+    $Self-&gt;{'Ticket::EmailDefaultNextStateType'} = ['own-state', 'open', 'pending auto', 'pending reminder', 'closed'];
+
+    # default next state
+    $Self-&gt;{'Ticket::Frontend::EmailNewNextState'} = 'open';
+
+    # (default note next state)
+    $Self-&gt;{'Ticket::DefaultNextNoteStateType'} = ['new', 'open', 'closed'];
+
+    # Ticket::DefaultNextOwnerStateType
+    # (default note next state)
+   $Self-&gt;{'Ticket::DefaultNextOwnerStateType'} = ['open', 'closed'];
+
+    # default compose next state
+    $Self-&gt;{'Ticket::DefaultNextComposeType'} = 'open';
+
+    # next possible states for compose message
+    $Self-&gt;{'Ticket::DefaultNextComposeStateType'} = ['open', 'closed', 'pending auto', 'pending reminder'];
+
+    # default bounce next state
+    $Self-&gt;{'Ticket::Frontend::BounceState'} = 'closed successful';
+
+    # next possible states for bounce message
+    $Self-&gt;{'Ticket::DefaultNextBounceStateType'} = ['open', 'closed'];
+
+    # next possible states for forward message
+    $Self-&gt;{'Ticket::DefaultNextForwardStateType'} = ['open', 'closed'];
+
+    # Ticket::ViewableStateType
+    # (see http://yourhost/otrs/index.pl?Action=AdminState -&gt; StateType)
+    $Self-&gt;{'Ticket::ViewableStateType'} = ['new', 'open', 'pending reminder', 'pending auto'];
+
+    # Ticket::UnlockStateType
+    # (Tickets which can be unlocked by bin/UnlockTickets.pl
+    # (see http://yourhost/otrs/index.pl?Action=AdminState -&gt; StateType)
+    $Self-&gt;{'Ticket::UnlockStateType'} = ['open', 'new'];
+    [...]
+</programlisting>
+</para>
+
+<para>
+Just add your new state to the config settings where the new state should
+be used.
+</para>
+</chapter>
