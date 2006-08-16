@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pgp.xml,v 1.2 2006-07-26 11:35:38 cs Exp $ -->
+<!-- $Id: pgp.xml,v 1.3 2006-08-16 14:31:28 cs Exp $ -->
 
 <chapter id='configure-pgp'>
 <title>PGP</title>
@@ -10,8 +10,8 @@
 In OTRS können ausgehende Emails mit Hilfe von PGP signiert oder
 verschlüsselt werden. Ebenfalls ist es möglich verschlüsselte Nachrichten zu
 entschlüsseln. Die Ver- und Entschlüsselung mit PGP wird mit Hilfe des
-GPL-Werkzeugs GnuPG vorgenommen. Zur Einrichtung sind die
-folgenden Schritte notwendig:
+GPL-Werkzeugs <application>GnuPG</application>  vorgenommen. Zur Einrichtung
+sind die folgenden Schritte notwendig:
 </para>
 
 <para>
@@ -36,89 +36,89 @@ folgenden Schritte notwendig:
 
     <para>
     <screen>
-    linux:~# su otrs
-    linux:/root$ cd
-    linux:~$ pwd
-    /opt/otrs
-    linux:~$ gpg --gen-key
-    gpg (GnuPG) 1.4.2; Copyright (C) 2005 Free Software Foundation, Inc.
-    This program comes with ABSOLUTELY NO WARRANTY.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions. See the file COPYING for details.
+linux:~# su otrs
+linux:/root$ cd
+linux:~$ pwd
+/opt/otrs
+linux:~$ gpg --gen-key
+gpg (GnuPG) 1.4.2; Copyright (C) 2005 Free Software Foundation, Inc.
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions. See the file COPYING for details.
 
-    gpg: directory `/opt/otrs/.gnupg' created
-    gpg: new configuration file `/opt/otrs/.gnupg/gpg.conf' created
-    gpg: WARNING: options in `/opt/otrs/.gnupg/gpg.conf' are not yet active during t
-    his run
-    gpg: keyring `/opt/otrs/.gnupg/secring.gpg' created
-    gpg: keyring `/opt/otrs/.gnupg/pubring.gpg' created
-    Please select what kind of key you want:
-       (1) DSA and Elgamal (default)
-       (2) DSA (sign only)
-       (5) RSA (sign only)
-    Your selection? 1
-    DSA keypair will have 1024 bits.
-    ELG-E keys may be between 1024 and 4096 bits long.
-    What keysize do you want? (2048)
-    Requested keysize is 2048 bits
-    Please specify how long the key should be valid.
-         0 = key does not expire
-      &lt;n&gt;  = key expires in n days
-      &lt;n&gt;w = key expires in n weeks
-      &lt;n&gt;m = key expires in n months
-      &lt;n&gt;y = key expires in n years
-    Key is valid for? (0)
-    Key does not expire at all
-    Is this correct? (y/N) y
+gpg: directory `/opt/otrs/.gnupg' created
+gpg: new configuration file `/opt/otrs/.gnupg/gpg.conf' created
+gpg: WARNING: options in `/opt/otrs/.gnupg/gpg.conf' are not yet active during t
+his run
+gpg: keyring `/opt/otrs/.gnupg/secring.gpg' created
+gpg: keyring `/opt/otrs/.gnupg/pubring.gpg' created
+Please select what kind of key you want:
+   (1) DSA and Elgamal (default)
+   (2) DSA (sign only)
+   (5) RSA (sign only)
+Your selection? 1
+DSA keypair will have 1024 bits.
+ELG-E keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048)
+Requested keysize is 2048 bits
+Please specify how long the key should be valid.
+     0 = key does not expire
+  &lt;n&gt;  = key expires in n days
+  &lt;n&gt;w = key expires in n weeks
+  &lt;n&gt;m = key expires in n months
+  &lt;n&gt;y = key expires in n years
+Key is valid for? (0)
+Key does not expire at all
+Is this correct? (y/N) y
 
-    You need a user ID to identify your key; the software constructs the user ID
-    from the Real Name, Comment and Email Address in this form:
-        "Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;"
+You need a user ID to identify your key; the software constructs the user ID
+from the Real Name, Comment and Email Address in this form:
+    "Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;"
 
-    Real name: Ticket System
-    Email address: support@example.com
-    Comment: Private PGP Key for the ticket system with address support@example.com
-    You selected this USER-ID:
-    "Ticket System (Private PGP Key for the ticket system with address support@examp
-    le.com) &lt;support@example.com&gt;"
+Real name: Ticket System
+Email address: support@example.com
+Comment: Private PGP Key for the ticket system with address support@example.com
+You selected this USER-ID:
+"Ticket System (Private PGP Key for the ticket system with address support@examp
+le.com) &lt;support@example.com&gt;"
 
-    Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
-    You need a Passphrase to protect your secret key.
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+You need a Passphrase to protect your secret key.
 
-    Passphrase: secret
-    Repeat passphrase: secret
+Passphrase: secret
+Repeat passphrase: secret
 
-    We need to generate a lot of random bytes. It is a good idea to perform
-    some other action (type on the keyboard, move the mouse, utilize the
-    disks) during the prime generation; this gives the random number
-    generator a better chance to gain enough entropy.
-    ++++++++++.+++++++++++++++++++++++++....+++++.+++++...+++++++++++++++++++++++++.
-    +++++++++++++++++++++++++.+++++.+++++.+++++++++++++++++++++++++&gt;++++++++++&gt;+++++
-    .......&gt;+++++&lt;+++++................................+++++
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+++++++++++.+++++++++++++++++++++++++....+++++.+++++...+++++++++++++++++++++++++.
++++++++++++++++++++++++++.+++++.+++++.+++++++++++++++++++++++++&gt;++++++++++&gt;+++++
+.......&gt;+++++&lt;+++++................................+++++
 
-    Not enough random bytes available.  Please do some other work to give
-    the OS a chance to collect more entropy! (Need 280 more bytes)
+Not enough random bytes available.  Please do some other work to give
+the OS a chance to collect more entropy! (Need 280 more bytes)
 
-    ++++++++++.+++++..++++++++++..+++++....++++++++++++++++++++.+++++++++++++++.++++
-    ++++++++++++++++++++++++++.++++++++++.+++++++++++++++.++++++++++.+++++++++++++++
-    ..+++++&gt;.+++++....&gt;+++++........................................................
-    ...........................................................&gt;+++++&lt;+++++.........
-    .............+++++^^^
-    gpg: /opt/otrs/.gnupg/trustdb.gpg: trustdb created
-    gpg: key 7245A970 marked as ultimately trusted
-    public and secret key created and signed.
+++++++++++.+++++..++++++++++..+++++....++++++++++++++++++++.+++++++++++++++.++++
+++++++++++++++++++++++++++.++++++++++.+++++++++++++++.++++++++++.+++++++++++++++
+..+++++&gt;.+++++....&gt;+++++........................................................
+...........................................................&gt;+++++&lt;+++++.........
+.............+++++^^^
+gpg: /opt/otrs/.gnupg/trustdb.gpg: trustdb created
+gpg: key 7245A970 marked as ultimately trusted
+public and secret key created and signed.
 
-    gpg: checking the trustdb
-    gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
-    gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
-    pub   1024D/7245A970 2006-02-03
-          Key fingerprint = 2ED5 BC36 D2B6 B055 7EE1  5833 1D7B F967 7245 A970
-     uid                  Ticket System (Private pgp key for ticket system with addre
-    ss support@example.com) &lt;support@example.com&gt;
-    sub   2048g/52B97069 2006-02-03
+gpg: checking the trustdb
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+pub   1024D/7245A970 2006-02-03
+      Key fingerprint = 2ED5 BC36 D2B6 B055 7EE1  5833 1D7B F967 7245 A970
+uid                  Ticket System (Private pgp key for ticket system with addre
+ss support@example.com) &lt;support@example.com&gt;
+sub   2048g/52B97069 2006-02-03
 
-    linux:~$
-    </screen>
+linux:~$
+</screen>
     </para>
 
     <para>
@@ -139,15 +139,31 @@ folgenden Schritte notwendig:
     </para>
 
     <para>
-    In der nun angezeigten Maske sollte zum einen PGP aktiviert werden
-    (die erste Option). Danach sollte überprüft werden, ob der
-    voreingestellte Pfad zum Programm gpg der tatsächlichen
-    Installation entspricht.
+    In der nun angezeigten Maske sollte zum einen
+
+    <link linkend="Framework:Crypt::PGP:PGP">"
+    PGP aktiviert
+    </link>
+
+    werden (die erste Option). Danach sollte überprüft werden, ob der
+    voreingestellte
+
+    <link linkend="Framework:Crypt::PGP:PGP::Bin">
+    Pfad zum Programm gpg
+    </link>
+
+    der tatsächlichen Installation entspricht.
     </para>
 
     <para>
-    Die nächste Einstellung (PGP::Options) muss ggf. modifiziert
-    werden. Es handelt sich um die Parameter, mit denen OTRS das
+    Die nächste Einstellung (
+
+    <link linkend="Framework:Crypt::PGP:PGP::Options">
+    PGP::Options
+    </link>
+
+    ) muss ggf. modifiziert werden.
+    Es handelt sich um die Parameter, mit denen OTRS das
     Programm gpg aufruft. Hier ist insbesondere die Option für die
     Lage des GnuPG-Konfigurationsverzeichnisses des OTRS-Benutzers
     otrs wichtig. Im Beispiel ist dies: /opt/otrs/.gnupg). Dieses
@@ -155,14 +171,18 @@ folgenden Schritte notwendig:
     </para>
 
     <para>
-    über die letzte Option können die Schlüssel-Werte-Paare für die
-    ID(s) und Passphrase(n) der eigenen PGP-Schlüssel dem Ticket System
-    bekannt gemacht werden. Noch einmal genauer: da andere
-    Kommunikationspartner an das Ticket-System (oder besser: an den
-    Mail-Eingang des Systems Emails mit dessen öffentlichen Schlüssel
-    verschlüsselt schicken, kann OTRSmit dem/n in dieser Option
-    angegebenen privaten Schlüssel(n) solchermaßen verschlüsselte Mails
-    entschlüsseln.
+    über die letzte Option können die
+
+    <link linkend="Framework:Crypt::PGP:PGP::Key::Password">
+    Schlüssel-Werte-Paare für die ID(s) und Passphrase(n)
+    </link>
+
+    der eigenen PGP-Schlüssel dem Ticket System bekannt gemacht werden.
+    Noch einmal genauer: da andere Kommunikationspartner an das
+    Ticket-System (oder besser: an den Mail-Eingang des Systems Emails mit
+    dessen öffentlichen Schlüssel verschlüsselt schicken, kann OTRSmit
+    dem/n in dieser Option angegebenen privaten Schlüssel(n) solchermaßen
+    verschlüsselte Mails entschlüsseln.
     </para>
 
     <para>
@@ -174,19 +194,19 @@ folgenden Schritte notwendig:
 
     <para>
     <screen>
-    linux:~# su otrs
-    linux:/root$ cd
-    linux:~$ pwd
-    /opt/otrs
-    linux:~$ gpg --list-keys
-    /opt/otrs/.gnupg/pubring.gpg
-    ----------------------------
-    pub   1024D/7245A970 2006-02-03
-    uid                  Ticket System (Private pgp key for ticket system with
-    address support@example.com) &lt;support@example.com&gt;
-    sub   2048g/52B97069 2006-02-03
+linux:~# su otrs
+linux:/root$ cd
+linux:~$ pwd
+/opt/otrs
+linux:~$ gpg --list-keys
+/opt/otrs/.gnupg/pubring.gpg
+----------------------------
+pub   1024D/7245A970 2006-02-03
+uid                  Ticket System (Private pgp key for ticket system with
+address support@example.com) &lt;support@example.com&gt;
+sub   2048g/52B97069 2006-02-03
 
-    linux:~$
+linux:~$
     </screen>
     </para>
 
@@ -213,20 +233,29 @@ folgenden Schritte notwendig:
     </para>
 
     <para>
-    Zum einem können über das Interface zur Verwaltung der Kunden die
-    öffentlichen PGP-Schlüssel beim anlegen/bearbeiten des jeweiligen
+    Zum einem können über das
+
+    <link linkend="adminarea-customeruser">
+    Modul zur Verwaltung der Kunden
+    </link>
+
+    die öffentlichen PGP-Schlüssel beim anlegen/bearbeiten des jeweiligen
     Kunden im System hinterlegt werden.
     </para>
 
     <para>
-    Die zweite Möglichkeit bietet das System in den PGP-Einstellungen, die
-    über den Admin-Bereich innerhalb von "PGP" aufgerufen werden können.
-    In dieser Konfigurationsmaske ist im rechten Teil eine Liste der
-    bereits dem System zur Verfügung stehenden öffentlichen Schlüssel zu
-    sehen. Im Regelfall sollte nach der obigen Einrichtung hier schon der
-    öffentliche Schlüssel des Ticket-Systems selbst zu sehen sein.
-    Im linken Teil besteht neben der Suche die Möglichkeit, neue
-    Schlüssel als Schlüsseldatei ins System zu laden.
+    Die zweite Möglichkeit bietet das System in den
+
+    <link linkend="adminarea-pgp">
+    PGP-Einstellungen
+    </link>
+
+    innerhalb des Admin-Bereiches. In dieser Konfigurationsmaske ist im
+    rechten Teil eine Liste der bereits dem System zur Verfügung stehenden
+    öffentlichen Schlüssel zu sehen. Im Regelfall sollte nach der obigen
+    Einrichtung hier schon der öffentliche Schlüssel des Ticket-Systems
+    selbst zu sehen sein. Im linken Teil besteht neben der Suche die
+    Möglichkeit, neue Schlüssel als Schlüsseldatei ins System zu laden.
     Nach dem Laden eines neuen Schlüssels wird dieser in der Liste auf
     der rechten Seite angezeigt, und gleichzeitig erhält man oberhalb
     der Maske eine Statusmeldung, die über das Laden des Schlüssels
