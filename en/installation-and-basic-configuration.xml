@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation of the OTRS framework</title>
@@ -270,195 +270,16 @@ also a default password!
 <title>Installing OTRS on a Debian system</title>
 
 <para>
-This section Describes the installation of OTRS on Debian 3.1 (Sarge).
-</para>
+Torsten Werner, the maintainer of the Debian OTRS package, kindly provided an
+excelent documentation on the installation of OTRS on Debian systems. The
+docu can be found on
 
-<para>
-Install OTRS with <application>apt-get</application> via the command line.
-OTRS needs some other packages to be installed, for example a database
-server, a web server or some perl modules. Let
-<application>apt-get</application> take care of these dependences. Execute
-the following command to install OTRS:
-</para>
-
-<para>
-<screen>
-linux:~# apt-get install otrs
-Reading Package Lists... Done
-Building Dependency Tree... Done
-Suggested packages:
-  otrs-doc
-The following NEW packages will be installed:
-  otrs
-0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
-Need to get 947kB of archives.
-After unpacking 6132kB of additional disk space will be used.
-Get:1 ftp://ftp.uni-erlangen.de sarge/main otrs 1.3.2p01-5 [947kB]
-Fetched 947kB in 10s (93.7kB/s)
-Selecting previously deselected package otrs.
-(Reading database ... 73351 files and directories currently installed.)
-Unpacking otrs (from .../otrs_1.3.2p01-5_all.deb) ...
-Setting up otrs (1.3.2p01-5) ...
-Adding system user `otrs'...
-Adding new user `otrs' (105) with group `www-data'.
-Not creating home directory.
-SetPermissions.sh &lt;$Revision: 1.8 $&gt; - set OTRS file permissions
-Copyright (c) 2001-2003 Martin Edenhofer &lt;martin@otrs.org&gt;
-Setting file permissions...
-chown -R 0:0 /usr/share/otrs
-chown otrs:www-data /usr/share/otrs
-chown -R otrs:www-data /usr/share/otrs/var/
-chown -R www-data:www-data /usr/share/otrs/var/sessions/
-touch &amp;&amp; chown otrs:www-data
-/usr/share/otrs/var/log/TicketCounter.log
-chmod -R 755 /usr/share/otrs/bin/
-(chown &amp;&amp; chmod 700) otrs:0
-/usr/share/otrs/bin/DeleteSessionIDs.pl
-(chown &amp;&amp; chmod 700) otrs:0 /usr/share/otrs/bin/UnlockTickets.pl
-(chown &amp;&amp; chmod 700) otrs:0 /usr/share/otrs/bin/otrs.getConfig
-
-linux:~#
-</screen>
-</para>
-
-<para>
-After the installation of the OTRS package you need to configure the
-webserver for the trouble ticket system (on debian systems this is not done
-automaticly).
-</para>
-
-<important>
-<para>
-The following description is based on the fact, that you use the web server
-<application>apache</application> 2.x. If you are using
-<application>apache</application> 1.3.x you have to do the same things. The
-configuration files of <application>apache</application> 1.3.x are
-located at <filename>/etc/apache</filename>.
-</para>
-</important>
-
-<para>
-Create the file <filename>otrs.conf</filename> and insert the following
-lines. Save the file into the directory
-<filename>/etc/apache2/conf.d</filename>.
-</para>
-
-<para>
-<programlisting id="basic-apache-config-under-debian">
-#
-# Basic apache configuration file for OTRS
-#
-# agent, admin and customer frontend
-#
-ScriptAlias /otrs/ "/usr/share/otrs/bin/cgi-bin/"
-Alias /otrs-web/ "/usr/share/otrs/var/httpd/htdocs/"
-#
-&lt;Directory "/usr/share/otrs/bin/cgi-bin/"&gt;
-    AllowOverride None
-    Options +ExecCGI -Includes
-    Order allow,deny
-    Allow from all
-&lt;/Directory&gt;
-&lt;Directory "/usr/share/otrs/var/httpd/htdocs/"&gt;
-    AllowOverride None
-    Order allow,deny
-    Allow from all
-&lt;/Directory&gt;
-</programlisting>
-</para>
-
-<para>
-Restart your webserver to use the new config settings.
-</para>
-
-<para>
-<screen>
-linux:~# /etc/init.d/apache2 restart
-Forcing reload of web server: Apache2.
-linux:~#
-</screen>
-</para>
-
-<para>
-In the next step you have to setup the OTRS database. If you use
-<application>MySQL</application> for the database backend, you can use the web
-installer of OTRS to setup the database. Use the following address to
-access the web installer start file.
-</para>
-
-<para>
-<ulink url="http://localhost/otrs/installer.pl">
-<citetitle>http://localhost/otrs/installer.pl</citetitle>
-</ulink>
-</para>
-
-<para>
-The web installer starts. Please follow the steps and setup the system.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>installer.pl screen - Licence (1/4)</screeninfo>
-<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-<screenshot>
-<screeninfo>installer.pl screen - Create database (2/4)</screeninfo>
-<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer1.png"></graphic>
-</screenshot>
-</para>
-
-<warning>
-<para>
-It is never a good idea to use default passwords. Please change the default
-password for the OTRS database!
-</para>
-</warning>
-
-<para>
-<screenshot>
-<screeninfo>installer.pl screen - Create Database (2/4)</screeninfo>
-<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer2.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-<screenshot>
-<screeninfo>installer.pl screen - System Settings (3/4)</screeninfo>
-<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer3.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-<screenshot>
-<screeninfo>installer.pl screen - Finished (4/4)</screeninfo>
-<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer4.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Now the installation of OTRS is finished. You should be able to use the web
-interface of OTRS. The cron jobs, which are needed for OTRS, are
-automaticallyi
-installed and configured. Log in as OTRS admin and configure the system for
-your needs. Go to the address
-
-<ulink url="http://localhost/otrs/index.pl">
-<citetitle>http://localhost/otrs/index.pl</citetitle>
+<ulink url="http://www.writely.com/View.aspx?docid=drm3kmx_0cbr3x9">
+http://www.writely.com/View.aspx?docid=drm3kmx_0cbr3x9
 </ulink>
 
-with a web browser and use "root@localhost" as username and "root" as password
-to access the web interface of the ticket system.
+.
 </para>
-
-<warning>
-<para>
-Please change this password as soon as possible too! It is also a default
-password!
-</para>
-</warning>
 
 </sect2>
 
@@ -1305,7 +1126,7 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.8 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.9 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1327,7 +1148,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1337,7 +1158,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1347,7 +1168,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1360,7 +1181,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1370,7 +1191,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1380,7 +1201,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1391,7 +1212,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1401,7 +1222,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1411,7 +1232,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1421,7 +1242,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.8 2006-05-15 10:05:08 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.9 2006-08-21 13:34:29 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
