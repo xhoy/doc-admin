@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE glossary PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: glossary.xml,v 1.1 2006-09-01 09:55:54 cs Exp $ -->
+<!-- $Id: glossary.xml,v 1.2 2006-09-01 14:48:13 cs Exp $ -->
 
 <glossary>
 <title>Glossar</title>
@@ -162,7 +162,7 @@ Innerhalb dieses Glossars werden OTRS-spezifische Begriffe kurz erklärt.
 <para>
 Die folgenden Elemente sind zentrale Bestandteile der Agenten-Oberfläche von
 OTRS und können von nahezu jeder Stelle aus erreicht werden bzw. werden
-fast immer im oberen Bereich angezeigt.
+für jedes Ticket angeboten.
 </para>
 
 <glossentry id="gloss-mailbox">
@@ -247,6 +247,87 @@ fast immer im oberen Bereich angezeigt.
     </glossdef>
 </glossentry>
 
+<glossentry id="gloss-lock">
+    <glossterm>Ticket Sperren / Ticket Lock</glossterm>
+        <glossdef>
+        <para>
+        Sperren eines Tickets. Durch das Sperren / Locken eines Tickets
+        wird ein Agent zum Eigentümer des Tickets, der Agent ist für das
+        Ticket zuständig.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-unlock">
+    <glossterm>Ticket Freigeben / Ticket Unlock</glossterm>
+        <glossdef>
+        <para>
+        Freigabe eines Tickets. Nach der Freigabe ist das Ticket wieder
+        allen Agenten zugänglich und wird z. B. wieder in der Queue-Ansicht
+        aufgelistet.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-zoom">
+    <glossterm>Ticket Inhalt / Ticket Zoom</glossterm>
+        <glossdef>
+        <para>
+        Eine detaillierte Ansicht aller Artikel und alle möglichen
+        Aktionen (Link, Merge, Schließen, usw.) und Eigenschaften (Queue,
+        Status) eines Tickets. Weiterhin werden im Ticket Zoom auch
+        die Kundeninformationen in ausführlicher Form angezeigt.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-history">
+    <glossterm>Ticket Historie / Ticket History</glossterm>
+        <glossdef>
+        <para>
+        Ein detaillierter überblick über jede Aktion (z. B. verschieben,
+        sperren, usw.) eines Tickets. Die verschiedenen Aktionen werden in
+        zeitlicher Reihenfolge aufgelistet.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-priority">
+    <glossterm>Ticket Priorität / Ticket Priority</glossterm>
+        <glossdef>
+        <para>
+        Festlegen der Priorität eines Tickets. Standardmäßig gibt es die
+        Prioritäten "1 sehr niedrig", "2 niedrig", "3 normal", "4 hoch" und
+        "5 sehr hoch". Die Prioritäten können angepasst / geändert werden,
+        es ist möglich neue Prioritäten hinzuzufügen / zu entfernen.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-note">
+    <glossterm>Ticket Notiz / Ticket Note</glossterm>
+        <glossdef>
+        <para>
+        Hinzufügen einer Notiz an das Ticket. Die Notiz wird als
+        zusätzlicher Artikel gespeichert, es gibt interne (nur für Agenten
+        zugängliche), externe (auch für den Kunden einsehbar) und Report
+        Notizen.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-close">
+    <glossterm>Ticket Schließen / Ticket Close</glossterm>
+    <glossdef>
+        <para>
+        Schließen eines Tickets nach abgeschlossener Bearbeitung. Nachdem
+        ein Ticket geschlossen wurde, wird es nicht mehr in der
+        persönlichen Mailbox eines Kunden aufgelistet, da keine Bearbeitung
+        mehr nötig ist.
+        </para>
+    </glossdef>
+</glossentry>
+
 <glossentry id="gloss-responsibletickets">
     <glossterm>Verantwortlicher (2)</glossterm>
         <glossdef>
@@ -278,7 +359,14 @@ fast immer im oberen Bereich angezeigt.
 </glossdiv>
 
 <glossdiv>
-<title>Ticket</title>
+<title>Ticketeigenschaften</title>
+
+<para>
+Die folgenden Eigenschaften kann ein Ticket haben, jenachdem ob ein
+bestimmtes Feature im System aktiviert wurde oder nicht. Alle Eigenschaften
+werden entweder in der Queue-Ansicht, in der Mailbox oder im
+Ticket-Zoom angezeigt.
+</para>
 
 <glossentry id="gloss-ticketnumber">
     <glossterm>Ticketnummer</glossterm>
@@ -290,6 +378,37 @@ fast immer im oberen Bereich angezeigt.
     </glossdef>
 </glossentry>
 
+<glossentry id="gloss-ticketage">
+    <glossterm>Alter</glossterm>
+        <glossdef>
+        <para>
+        Das Alter eines Tickets im System. Das Alter eines tickets wird
+        unabhängig vom Status erhöht, d.h. auch geschlossene Tickets werden
+        älter.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-eskalation-in">
+    <glossterm>"Eskalation in:"</glossterm>
+        <glossdef>
+        <para>
+        Die verbleibende Zeit bis zur Ticket-Eskalation.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-queue">
+    <glossterm>Queue</glossterm>
+        <glossdef>
+        <para>
+        Die queue in der das Ticket momentan gespeichert ist.
+        </para>
+    </glossdef>
+</glossentry>
+
 </glossdiv>
+
+
 
 </glossary>
