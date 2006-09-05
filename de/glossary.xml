@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE glossary PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: glossary.xml,v 1.2 2006-09-01 14:48:13 cs Exp $ -->
+<!-- $Id: glossary.xml,v 1.3 2006-09-05 11:50:24 cs Exp $ -->
 
 <glossary>
 <title>Glossar</title>
@@ -286,8 +286,8 @@ für jedes Ticket angeboten.
         <glossdef>
         <para>
         Ein detaillierter überblick über jede Aktion (z. B. verschieben,
-        sperren, usw.) eines Tickets. Die verschiedenen Aktionen werden in
-        zeitlicher Reihenfolge aufgelistet.
+        sperren, usw.) eines Tickets. Die verschiedenen Aktionen werden
+        geordnet in zeitlicher Reihenfolge aufgelistet.
         </para>
     </glossdef>
 </glossentry>
@@ -389,6 +389,48 @@ Ticket-Zoom angezeigt.
     </glossdef>
 </glossentry>
 
+<glossentry id="gloss-ticketcreated">
+    <glossterm>Erstellt</glossterm>
+        <glossdef>
+        <para>
+        Der Zeitpunkt zu dem das Ticket im System erstellt wurde.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketstate">
+    <glossterm>Status</glossterm>
+        <glossdef>
+        <para>
+        Der Status des Tickets. Nach einer Standardinstallation sind die
+        Status "closed successful", "closed unsuccessful", "merged", "new",
+        "open", "pending auto close+", "pending auto close-" "pending
+        reminder" und "removed" verfügbar. Es ist möglich neue Status
+        hinzuzufügen bzw. vorhandene Status und Statustypen anzupassen.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketpriority">
+    <glossterm>Priorität</glossterm>
+        <glossdef>
+        <para>
+        Die momentane Priorität des Tickets.
+        </para>
+
+        <glossseealso otherterm="gloss-priority">Ticket Priorität / Ticket Priority</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketqueue">
+    <glossterm>Queue</glossterm>
+        <glossdef>
+        <para>
+        Die Queue in der das Ticket momentan gespeichert ist.
+        </para>
+    </glossdef>
+</glossentry>
+
 <glossentry id="gloss-eskalation-in">
     <glossterm>"Eskalation in:"</glossterm>
         <glossdef>
@@ -398,17 +440,77 @@ Ticket-Zoom angezeigt.
     </glossdef>
 </glossentry>
 
-<glossentry id="gloss-queue">
-    <glossterm>Queue</glossterm>
+<glossentry id="gloss-ticketlocked">
+    <glossterm>Sperre</glossterm>
         <glossdef>
         <para>
-        Die queue in der das Ticket momentan gespeichert ist.
+        Information darüber, ob ein Ticket momentan gesperrt oder noch frei
+        ist.
+        </para>
+
+        <glossseealso otherterm="gloss-lock">Ticket Sperren / Ticket Lock</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketcustomerid">
+    <glossterm>Kunden#</glossterm>
+        <glossdef>
+        <para>
+        Die ID des Kunden, der das Ticket an das System geschickt hat. Ist
+        der Kunde noch nicht im System angelegt, wird keine Kunden# angezeigt.
+        </para>
+
+        <glossseealso otherterm="gloss-customer">Kunde</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketaccountedtime">
+    <glossterm>Zugewiesene Zeit</glossterm>
+        <glossdef>
+        <para>
+        Die Summe aller Zeiteinheiten, die für die bisherige Bearbeitung des
+        Tickets angefallen sind.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketescalationin">
+    <glossterm>Eskalation in</glossterm>
+        <glossdef>
+        <para>
+        Die verbleibende Zeit bis zur Eskalation des Tickets. Ist keine
+        Eskalationszeit für die Queue in der sich das Ticket befindet
+        definiert, bleibt die Anzeige leer.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketowner">
+    <glossterm>Besitzer</glossterm>
+    <glossdef>
+    <para>
+    Der aktuelle Besitzr des Tickets. Ist das Ticket gesperrt, wird der
+    Benutzername des Agenten angezeigt,  welcher das Ticket gelocked hat.
+    Ist das Ticket noch nicht gesperrt, wird der Benutzername des
+    OTRS-Administrators aufgeführt.
+    </para>
+
+        <glossseealso otherterm="gloss-admin">Administrator</glossseealso>
+        <glossseealso otherterm="gloss-lock">Ticket Sperren / Ticket Lock</glossseealso>
+        <glossseealso otherterm="gloss-unlock">Ticket Freigeben / Ticket Unlock</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketlinked">
+    <glossterm>Verknüpft (Normal, Eltern, Kinder</glossterm>
+        <glossdef>
+        <para>
+        Zeigt die Tickets an, mit denen das aktuelle Ticket auf welche Art
+        verknüpft ist.
         </para>
     </glossdef>
 </glossentry>
 
 </glossdiv>
-
-
 
 </glossary>
