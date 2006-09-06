@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.7 2006-07-04 10:26:43 cs Exp $ -->
+<!-- $Id: otrs.xml,v 1.8 2006-09-06 16:13:28 cs Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -93,7 +93,7 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       </listitem>
       <listitem>
         <para>
-        Unterstützung von vielen Sprachen.
+        Unterstützung vieler Sprachen.
         </para>
       </listitem>
       <listitem>
@@ -160,7 +160,9 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       </listitem>
       <listitem>
         <para>
-        Follow-ups an Hand von Reference- oder In-Reply-To-Headern.
+        Follow-Ups an Hand von Reference- oder In-Reply-To-Headern,
+        automatisierte Zuordnung von Follow-Ups über den Ticket-Bezeichner
+        im Betreff, Mailbody oder in Text-Anhängen.
         </para>
       </listitem>
     </itemizedlist>
@@ -183,6 +185,18 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       </listitem>
       <listitem>
         <para>
+        Überwachen der Aktivitäten rund um ein Ticket mit Hilfe des
+        TicketWatcher-Features.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        Festlegen eines Ticket-Verantwortlichen mit Hilfe des
+        TicketResponsible-Features.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
         Erstellung eigener Antwortvorlagen.
         </para>
       </listitem>
@@ -201,7 +215,7 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       </listitem>
       <listitem>
         <para>
-        Druckansicht für Tickets.
+        Druckansicht für Tickets, Export als PDF möglich.
         </para>
       </listitem>
       <listitem>
@@ -261,7 +275,8 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       </listitem>
       <listitem>
         <para>
-        Volltextsuche über den gesamten Ticketbestand.
+        Volltextsuche über den gesamten Ticketbestand und Export der
+        Suchergebnisse als PDF.
         </para>
       </listitem>
     </itemizedlist>
@@ -309,12 +324,14 @@ Fähigkeiten des zentralen OTRS-Frameworks.
         <para>
         Unterstützung verschiedener Datenbanktypen für die
         zentrale Datenbank von OTRS (MySQL, PostgreSQL, SAPDB, Oracle
-        usw.).
+        MSSQL, usw.).
         </para>
       </listitem>
       <listitem>
         <para>
-        Framework für die Erstellung von Statistiken.
+        Framework für die Erstellung von Statistiken über die Web-Oberfläche,
+        Export und Import von Reports und Statistikmodulen, Export von
+        Statistiken als PDF ist möglich.
         </para>
       </listitem>
       <listitem>
@@ -375,7 +392,7 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       </listitem>
       <listitem>
         <para>
-        Unterstützung für verschiedene Zeitzonen.
+        Benutzerabhängige Unterstützung für verschiedene Zeitzonen.
         </para>
       </listitem>
       <listitem>
@@ -392,6 +409,69 @@ Fähigkeiten des zentralen OTRS-Frameworks.
     </itemizedlist>
   </listitem>
 </itemizedlist>
+
+<sect2 id="new-features-of-2.1">
+<title>Neue Features von OTRS 2.1</title>
+
+<itemizedlist>
+<title>Die neuen Kern-Features von OTRS 2.1 im Überblick</title>
+
+<listitem>
+    <para>
+    Statistik-Framework: Integration eines komplett überarbeiteten
+    Statistik-Frameworks der es erlaubt, nahezu jede Art von Report über die
+    Weboberfläche zu erstellen. Die Erstellung und Ansicht von Statistiken
+    kann pro Benutzer, Gruppe und / oder Rolle freigeschaltet werden. Der
+    Ex- und Import von bereits vorhandenen oder neuen Statistiken ist
+    möglich, Statistikmodule aus früheren OTRS-Versionen können weiter
+    verwendet werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PDF-Generator: Die Druck-Ansicht von Tickets, Statistiken und
+    Suchergebnisse können nun als PDF-Datei exportiert werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Unterstützung von MSSQL: Eine Schnittstelle zu Microsofts SQL-Server
+    wurde integriert, so dass nun die komplette OTRS Datenbank auch auf
+    MSSQL-basierten Systemen installiert und benutzt werden kann.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    FAQ-Modul: Das FAQ-Modul von OTRS wurde komplett neu implementiert
+    und aus dem zentralen OTRS-Framework herausgenommen, so dass eine
+    Installation als seperates Modul möglich ist. Das neue FAQ-Modul bietet
+    erweiterte Such- und Navigationsfunktionen, eine verbesserte
+    Administration und eine Möglichkeit zur Bewertung von einzelnen FAQ-Einträgen.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Unterstützung hirarchischer Team-Strukturen: Mit hilfe der neu
+    eingeführten Überwachungs- und Verantwortlichkeitsfunktionen für
+    Tickets, wird die strukturierte Bearbeitung von Tickets in Teams
+    vereinfacht. Das Verantwortlichkeits-Feature ermöglicht es einem Agenten
+    den Ticket-Besitz abzugeben, jedoch trotzdem noch alle Schreibrechte am
+    Ticket zu behalten. Das Überwachungs-Features ermöglicht die Vrfolgung der
+    Aktivitäten für ein Ticket, ohne selbst Eigentümer des Tickets zu sein.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Optimierte Erkennung von Follow-Ups: Neben der Auswertung der
+    Ticketnummer im Betreff einer Nachricht kann OTRS 2.1 nun auch nach
+    Ticket-Bezeichnern im Body einer Mail und innerhalb von Textanhängen
+    suchen und so ggfs. ein Follow-Up automatisiert zuordnen.
+    </para>
+</listitem>
+</itemizedlist>
+
+</sect2>
+
 </sect1>
 
 <sect1 id="software-requirements">
