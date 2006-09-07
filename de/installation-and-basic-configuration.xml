@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation des OTRS Framework</title>
@@ -636,6 +636,15 @@ benötigt.
           greift auf diese Mechanissmen zurück.
         </entry>
       </row>
+      <row>
+        <entry>
+          PDF::API2, Compress::Zlib
+        </entry>
+        <entry>
+          Diese Module werden für die Generierung der PDF-Ausgaben von
+          Statistiken, Suchergebnissen oder Druckansicht eines Tickets benötigt.
+        </entry>
+      </row>
     </tbody>
   </tgroup>
 </table>
@@ -667,11 +676,14 @@ Homeverzeichnisses des OTRS Benutzers.
 <screen>
 linux:~# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# ./otrs.checkModules
+
                   CGI ... ok
           Date::Pcalc ... ok
+         Date::Format ... ok
                   DBI ... ok
            DBD::mysql ... ok
           Digest::MD5 ... ok
+     Crypt::PasswdMD5 ... ok
        LWP::UserAgent ... ok
            IO::Scalar ... ok
              IO::Wrap ... ok
@@ -689,6 +701,8 @@ linux:/opt/otrs/bin# ./otrs.checkModules
      GD::Graph::lines ... ok
       GD::Text::Align ... ok
           XML::Parser ... ok
+            PDF::API2 ... not installed! (for PDF output - not required)
+       Compress::Zlib ... ok
 linux:/opt/otrs/bin#
 </screen>
 </para>
@@ -1211,7 +1225,7 @@ Cron-Jobs für den OTRS-Benutzer zu installieren, erweitern Sie bitte
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.14 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1234,7 +1248,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1244,7 +1258,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1254,7 +1268,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1267,7 +1281,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1277,7 +1291,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1287,7 +1301,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1298,7 +1312,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1308,7 +1322,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1318,7 +1332,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1328,7 +1342,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.14 2006-08-21 13:08:14 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.15 2006-09-07 12:29:21 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
