@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.5 2006-03-27 18:50:32 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.6 2006-09-20 09:26:27 ho Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -98,10 +98,10 @@ uses customer data stored in the OTRS database.
             Table => 'customer_user',
         },
         # customer uniq id
-        CustomerKey = 'login',
+	CustomerKey => 'login',
         # customer #
-        CustomerID = 'customer_id',
-        CustomerValid = 'valid_id',
+	CustomerID => 'customer_id',
+	CustomerValid => 'valid_id',
         CustomerUserListFields => ['first_name', 'last_name', 'email'],
         CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
         CustomerUserSearchPrefix => '',
