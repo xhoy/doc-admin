@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.11 2006-02-28 05:52:34 martin Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.12 2006-09-20 09:36:21 ho Exp $ -->
 
 <chapter id="external-backends">
 <title>Einbinden externer Back-ends</title>
@@ -28,7 +28,7 @@ Benutzer-Login, Benutzer-Email und Benutzer-Kunden-ID
 </para>
 
 <para>
-Wenn Sie die Kundendaten (z.B. Firma, Name, eMail, ...) in Ihrem
+Wenn Sie die Kundendaten (z. B. Firma, Name, eMail, ...) in Ihrem
 Agenten-Interface anzeigen möchten, benutzen Sie die folgenden
 Konfigurations-Optionen und fügen Sie diese in die Datei
 <filename>Kernel/Config.pm</filename> ein.
@@ -51,7 +51,7 @@ Konfigurations-Optionen und fügen Sie diese in die Datei
 
 <para>
 Es existieren zwei Kundenbenutzer Back-ends, DB und LDAP. Falls Sie
-bereits ein Kundenverzeichnis (z.B. SAP, ...) haben, ist es natürlich
+bereits ein Kundenverzeichnis (z. B. SAP, ...) haben, ist es natürlich
 möglich, dafür ein eigenes Back-end zu schreiben.
 </para>
 
@@ -83,10 +83,10 @@ Kundendaten in der normalen OTRS Datenbank verwaltet.
             Table => 'customer_user',
         },
         # customer uniq id
-        CustomerKey = 'login',
+	CustomerKey => 'login',
         # customer #
-        CustomerID = 'customer_id',
-        CustomerValid = 'valid_id',
+	CustomerID => 'customer_id',
+	CustomerValid => 'valid_id',
         CustomerUserListFields => ['first_name', 'last_name', 'email'],
         CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
         CustomerUserSearchPrefix => '',
@@ -186,8 +186,8 @@ Natürlich können Sie all diese Kundeninformationen dann auch
 
 <para>
 Es ist möglich, einem Kunden mehr als nur eine Kundennummer zuzuweisen.
-Dies kann z.B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
-Kunden zugreifen muss, z.B. der Abteilungsleiter auf die Tickets der
+Dies kann z. B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
+Kunden zugreifen muss, z. B. der Abteilungsleiter auf die Tickets der
 Mitarbeiter seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer
 Kunden, verwendet man in OTRS das sog. Firmen Ticket Feature. Im
 Kunden-Interface können diese Tickets über den "Firmen Ticket" Link
@@ -380,8 +380,8 @@ gewünschte Einträge:
 
 <para>
 Es ist möglich, einem Kunden mehr als nur eine Kundennummer zuzuweisen.
-Dies kann z.B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
-Kunden zugreifen muss, z.B. der Abteilungsleiter auf die Tickets der
+Dies kann z. B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer
+Kunden zugreifen muss, z. B. der Abteilungsleiter auf die Tickets der
 Mitarbeiter seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer
 Kunden, verwendet man in OTRS das sog. Firmen Ticket Feature. Im
 Kunden-Interface können diese Tickets über den "Firmen Ticket" Link
@@ -392,7 +392,7 @@ eingesehen werden.
 Um Firmen Tickets zu verwenden, muss das LDAP Verzeichnis um ein Feld
 erweitert werden, in das die Kundennummern eingetragen werden können, auf
 die später ein Kunde zusätzlich zu den eigenen Tickets Zugriff haben soll,
-z.B. um das Feld CustomerIDs.
+z. B. um das Feld CustomerIDs.
 </para>
 
 <para>
@@ -447,9 +447,9 @@ den Kunden A für CustomerIDs die Werte "B;C;" ein.
 
 <para>
 Soll mehr als nur ein Back-end mit verschiedenen Kundendaten verwendet werden
-(z.B. gleichzeitig DB und LDAP), so ist dies ebenfalls mit OTRS möglich.
+(z. B. gleichzeitig DB und LDAP), so ist dies ebenfalls mit OTRS möglich.
 In einem solchen Fall muss der CustomerUser Parameter für jedes Back-end um
-eine Nummer erweitert werden, z.B. "CustomerUser1", "CustomerUser2", usw.
+eine Nummer erweitert werden, z. B. "CustomerUser1", "CustomerUser2", usw.
 </para>
 
 <example id='multible-customer-backend-example'>
@@ -972,7 +972,7 @@ einen Radius-Server realisiert werden.
 <para>
 Es ist möglich, die Kunden-Selbstanmeldung für neue Kunden über
 "customer.pl" anzupassen. Somit können Sie mehr optionale oder
-benötigte Felder (z.B. Adresse, Ort, Telefonnummer) hinzufügen.
+benötigte Felder (z. B. Adresse, Ort, Telefonnummer) hinzufügen.
 </para>
 
 <para>
