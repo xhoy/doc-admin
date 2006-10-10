@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: monitoring-tickets.xml,v 1.1 2006-10-10 16:04:43 cs Exp $ -->
+
+<chapter id="monitoring-tickets">
+<title>Das TicketResponsible- und TicketWatcher-Feature</title>
+
+<para>
+Seit OTRS 2.1 ist es möglich, neben einem Ticket-Besitzer auch eine
+verantwortliche Person für ein Ticket zu definieren. Weiterhin können die
+Aktivitäten rund um ein Ticket beobachtet werden. Diese beiden
+Funktionalitäten werden durch das TicketResponsible- und das
+TicketWatcher-Feature realisiert und erleichtern die Aufgabenverteilung und
+das Arbeiten innerhalb hirarchischer Teamstrukturen.
+</para>
+
+<sect1 id="ticket-responsible">
+<title>Ticket-Verantwortlicher</title>
+
+<para>
+Das Ticket-Verantwortlichkeits-Feature ermöglicht die volle Bearbeitung
+eines Tickets durch einen Agenten, welcher das Ticket nicht besitzt. In der
+Praxis könnte also z. B. ein Agent, der ein Ticket gesperrt hat, die
+Verantwortlichkeit für das Ticket an einen zweiten Agenten übertragen, der
+nicht Besitzer des Tickets ist, z. B. damit der zweite Agent eine Anfrage
+eines Kunden beantworten kann. Nachdem die Anfrage beantwortet wurde, kann
+der erste Agent die Verantwortlichkeit für das Ticket den zweiten Agent
+wieder entziehen.
+</para>
+
+<para>
+Mit Hilfe des Konfigurations Parameters
+
+<link linkend="Ticket:Core::Ticket:Ticket::Responsible">
+Ticket::Responsible
+</link>
+
+kann das Ticket-Verantwortlichkeits-Feature aktiviert werden.
+</para>
+
+<para>
+TODO: ticket-zoom-responsible.pmg: Screenshot von TicketZoom mit Schalter
+      für Verantwortlicher einfügen
+</para>
+
+<para>
+Ein Verantwortlicher für ein Ticket kann festgelegt werden, indem der
+Inhalt des Tickets aufgerufen und im Menü für die verschiedenen Aktionen für
+das Ticket der "Verantwortlicher"-Schalter
+betätigt wird.
+</para>
+
+<para>
+TODO: ticket-responsible.pmg: TicketResponsible-Bildschirm einfügen
+</para>
+
+<para>
+Über die Ticket-Verantwortlicher-Maske kann dem neuen verantwortlichen Agenten
+ebenfalls eine Nachricht übermittelt werden.
+</para>
+
+<para>
+TODO: responsible-tickets.pmg: Screenshot von Notification über "Watched
+      Tickets" einfügen
+</para>
+
+<para>
+Die Liste aller Tickets für die ein Agent verantwortlich ist wird über die
+
+<link linkend="gloss-responsibletickets">
+"Verantwortlicher"-Benachrichtigung
+</link>
+
+erreicht. Diese wird im oberen Bereich der OTRS-Oberfläche eingeblendet,
+sobald das Ticket-Verantwortlichkeits-Feature aktiviert ist.
+</para>
+
+</sect1>
+
+<sect1 id="ticket-watcher">
+<title>Beobachtung von Tickets</title>
+
+<para>
+Sollen innerhalb des Ticket-Systems lediglich bestimmte Tickets z. B. von
+einem Abteilungsleiter beobachtet und nicht selbst bearbeitet werden, so
+kann dies seit OTRS 2.1 mit Hilfe des TicketWatcher-Features realisiert
+werden.
+</para>
+
+<para>
+Das TicketWatcher-Feature kann mit Hilfe des Konfigurations-Parameters
+
+<link linkend="Ticket:Core::TicketWatcher:Ticket::Watcher">
+Ticket::Watcher
+</link>
+
+aktiviert werden. Weiterhin können über
+
+<link linkend="Ticket:Core::TicketWatcher:Ticket::WatcherGroup">
+Ticket::WatcherGroup
+</link>
+
+eine oder mehrere Benutzergruppen festgelegt werden, die die ERlaubnis
+haben sollen Tickets zu beobachten.
+</para>
+
+<para>
+TODO: ticket-subscribe.pmg: Screenshots von Ticket-Zoom mit subscribe
+      einfügen
+</para>
+
+<para>
+Um ein Ticket zu beobachten, muss der Inhalt des Tickets aufgerufen und im
+Menü für die verschiedenen Aktionen für das Ticket der "Subscribe"-Schalter
+betätigt werden.
+</para>
+
+<para>
+TODO: ticket-unsubscribe.pmg: Screenshot von TicketZoom mit
+      unsubscribe-Schalter einfügen
+</para>
+
+<para>
+Die Beobachtung eines Tickets
+wird aufgehoben, indem in der Inhaltsanzeige eines Tickets im Menü für die
+möglichen Aktionen der "Unsubscribe"-Schalter gedrückt wird.
+</para>
+
+<para>
+TODO: watched-tickets.pmg: Screenshot von Notification über "Watched
+      Tickets" einfügen
+</para>
+
+<para>
+Die Liste aller zur Beobachtung ausgewählten Tickets wird über die
+
+<link linkend="gloss-watchedtickets">
+"Watched Tickets"-Benachrichtigung
+</link>
+
+erreicht. Diese wird im oberen Bereich der OTRS-Oberfläche eingeblendet,
+sobald das TicketWatcher-Feature aktiviert ist.
+</para>
+
+</sect1>
+
+</chapter>
+
