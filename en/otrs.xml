@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.8 2006-07-04 10:27:49 cs Exp $ -->
+<!-- $Id: otrs.xml,v 1.9 2006-10-16 19:30:37 cs Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -373,6 +373,92 @@ included in the central framework.
     </itemizedlist>
   </listitem>
 </itemizedlist>
+
+<sect2 id="new-features-of-2.1">
+<title>New features of OTRS 2.1</title>
+
+<itemizedlist>
+<title>New features of OTRS 2.1</title>
+
+<listitem>
+    <para>
+    Stable Support of MicrosoftRSQL Server: The first time OTRS offers an
+    interface to MS SQL Server platforms. Thatþs why OTRS supports all
+    popular operating systems like Linux, Windows, UNIX, Mac OS X etc. as
+    well as all major Databases like MS SQL, MySQL, PostgreSQL, MaxDB/SAP,
+    Oracle and DB2.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Multi-Calender Function: This Feature simplifies working in distributed
+    surroundings. National teams are supported by permitting different local
+    working schedules and public holiday regulations. International
+    organiszations are additionally supported by a time-zone feature.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    New Statistics-Framework: Gain access and define your Reports- and
+    Statistics in a more flexible way than ever. A powerful and easy to use
+    Wizard will guide you through the process. Once defined OTRS may deliver
+    periodicaly needed Reports automatically to a predefined Mailing List.
+    Export- and Importfunctions allow to transfer Statistics between
+    different OTRS Installations. So you can define and test your Statistics
+    before loading them up to your productive System.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Optimized Synchronization of authorizations from LDAP-Directory Services:
+    That simplifies the connection of all known LDAP-Directory Services like
+    Microsoft Active Directory, OpenLDAP, Novell eDirectory, Oracle Internet
+    Directory, etc. A usefull Feature which saves time and effort of
+    maintaining authorizations in the local Database of OTRS.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PDF-Generator: OTRS now supports the Output of Reports and Statistics
+    as well as the results of a ticket search and ticket zoom in the
+    PDF-Format.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    New implemented Knowledge Database / FAQ-Module: OTRS makes allowance
+    for the need of an efficient Knowledge Management within daily Service
+    Request handling. Fundamental in this context is a quick access towards
+    existing problem-solving Know-How and standardized answers. Advantages:
+    optimized search-functions, more
+    effective administration of FAQ-Articles, faster Navigation and
+    opportunities to rate an existing FAQ-Article.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Tracking of Sub-orders and Support of hierarchical Team-Structures:
+    New Features like the Ticket Supervisor and the Ticket Watchers
+    support working within hierarchical Teams and enable you to define and
+    depute Work packages temporarily to another Service Agent. While the
+    Ticket Supervisor enables authorized Team members to depute a Ticket to
+    another Service Agent without loosing the right to edit this ticket the
+    Ticket Watcher allows you to track a ticket passive on the basis of an
+    individual watchlist.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Optimized Follow-Up-Detection: In addition to the subject heading, OTRS
+    also checks for referable ticket numbers inside the Email-body and further
+    attachments. This new feature aims to automatically assign an incoming
+    Service Request to an existing Incident much faster than before.
+    </para>
+</listitem>
+</itemizedlist>
+
+</sect2>
+
 </sect1>
 
 <sect1 id="software-requirements">
