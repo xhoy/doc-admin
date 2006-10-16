@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: pdf-output.xml,v 1.1 2006-10-16 18:51:20 cs Exp $ -->
+
+<chapter id="pdf-output">
+<title>Einrichtung der PDF-Ausgabe</title>
+
+<para>
+Seit OTRS 2.1 ist es möglich, PDF-Dateien für die Ausgabe von Suchergebnissen,
+Statistiken und vom Ticketverlauf (Ticket-Inhalt -> Drucken) generieren zu
+lassen. Prinzipiell werden alle Ausgaben, bei denen die Möglichkeit des
+Druckens besteht, also dieses Ausgabeformat als Option verfügbar ist, als PDF
+ausgegeben.
+</para>
+
+<para>
+Das Feature wird über dem Konfigurationsparameter
+
+<link linkend="Framework:Core::PDF:PDF">
+PDF
+</link>
+
+eingeschaltet, standardmäßig ist es aktiviert. Weiterhin kann mit
+
+<link linkend="Framework:Core::PDF:PDF::LogoFile">
+PDF::LogoFile
+</link>
+
+ein Pfad zu einer Grafik-Datei angegeben werden, die als Logo in jede
+generierte PDF-Datei eingebunden werden soll. Mit
+
+<link linkend="Framework:Core::PDF:PDF::PageSize">
+PDF::PageSize
+</link>
+
+lässt sich die Standard-Seitengröße der PDF-Datei einstellen. Schließlich
+kann mit
+
+<link linkend="Framework:Core::PDF:PDF::MaxPages">
+PDF::MaxPages
+</link>
+
+die maximale Anzahl an Seiten festgelegt werden, die eine PDF-Datei höchstens
+beinhalten soll.
+</para>
+
+<para>
+Für die Generieerung von PDF-Dateien müssen die CPAN-Module PDF::API2 und
+Compress::Zlib installiert werden. Bei vielen Distributionen sind diese als
+Paket verfügbar und können bequem über den jeweiligen Paketmanager
+installiert werden, falls dies jedoch nicht möglich ist muss der direkte Weg
+über CPAN gewählt werden. Das Kapitel
+
+<link linkend="installation-of-needed-perl-modules">
+"Installation der für OTRS benötigten perl-Module
+</link>
+
+beschreibt wie die Installation der Perl-Module durchzuführen ist.
+</para>
+
+</chapter>
