@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.8 2006-04-07 09:55:32 ho Exp $ -->
+<!-- $Id: email.xml,v 1.9 2006-10-18 13:10:30 cs Exp $ -->
 
 <chapter id="email">
-<title>Emails versenden/empfangen</title>
+<title>E-Mails versenden/empfangen</title>
 
 <sect1 id="email-sending">
-<title>Emails versenden</title>
+<title>E-Mails versenden</title>
 
 <sect2 id="email-sending-sendmail">
 <title>Via Sendmail (Standard)</title>
 
 <para>
-OTRS ist in der Lage, Emails via Sendmail (z. B.
+OTRS ist in der Lage, E-Mails via Sendmail (z. B.
 <ulink url="http://www.sendmail.org/">Sendmail</ulink>,
 <ulink url="http://www.postfix.org/">Postfix</ulink>,
 <ulink url="http://www.qmail.org">Qmail</ulink> oder
@@ -51,7 +51,7 @@ erweitert:
 <title>Via SMTP relay/smarthost</title>
 
 <para>
-Wenn kein sendmail-Binary zur Verfügung steht, kann OTRS Emails via SMTP
+Wenn kein sendmail-Binary zur Verfügung steht, kann OTRS E-Mails via SMTP
 versenden (<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail
 Transfer Protocol / RFC 821</ulink>). Diese Möglichkeit kann hauptsächlich auf
 Nicht-Unix-Plattformen (z. B. Win32) genutzt werden.
@@ -84,13 +84,13 @@ erweitert:
 </sect1>
 
 <sect1 id="email-receiving">
-<title>Emails empfangen</title>
+<title>E-Mails empfangen</title>
 
 <sect2 id="email-receiving-pop3">
 <title>Via POP3-Konten - der einfache Weg (PostMasterPOP3.pl)</title>
 
 <para>
-OTRS ist in der Lage, Emails von POP3-Konten zu empfangen.
+OTRS ist in der Lage, E-Mails von POP3-Konten zu empfangen.
 </para>
 
 <para>
@@ -188,10 +188,10 @@ beschreibt das Zusammenspiel zwischen OTRS und cron ausführlicher.
 <title>Via Kommandozeilen-Programm und z. B. procmail (PostMaster.pl)</title>
 
 <para>
-OTRS ist in der Lage, Emails über ein Kommandozeilen-Programm
+OTRS ist in der Lage, E-Mails über ein Kommandozeilen-Programm
 (<filename>bin/PostMaster.pl</filename>) zu empfangen. Das bedeutet, dass
-Emails im OTRS angezeigt werden, wenn der MDA (mail delivery agent, z. B.
-procmail) die Emails an <filename>bin/PostMaster.pl</filename>" weiterleitet.
+E-Mails im OTRS angezeigt werden, wenn der MDA (mail delivery agent, z. B.
+procmail) die E-Mails an <filename>bin/PostMaster.pl</filename>" weiterleitet.
 </para>
 
 <para>
@@ -208,12 +208,12 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-Wird die Email in der Queue-Ansicht angezeigt, sind Ihre Einstellungen
+Wird die E-Mail in der Queue-Ansicht angezeigt, sind Ihre Einstellungen
 in Ordnung.
 </para>
 
 <para>
-Procmail ist in der Linux-Umgebung ein sehr bekannter Email-Filter, der
+Procmail ist in der Linux-Umgebung ein sehr bekannter E-Mail-Filter, der
 höchstwahrscheinlich auf Ihrem System installiert sein wird. Falls nicht,
  erhalten Sie auf der
 
@@ -246,17 +246,17 @@ PATH=/bin:/usr/bin:/usr/local/bin
 </para>
 
 <para>
-Alle an den lokalen OTRS-Benutzer gesendeten Emails werden an
+Alle an den lokalen OTRS-Benutzer gesendeten E-Mails werden an
 <filename>bin/PostMaster.pl</filename> weitergeleitet und dadurch im Ticket
 System gespeichert.
 </para>
 </sect2>
 
 <sect2 id="email-receiving-fetchmail">
-<title>Emails via POP3 oder IMAP und fetchmail für PostMaster.pl empfangen</title>
+<title>E-Mails via POP3 oder IMAP und fetchmail für PostMaster.pl empfangen</title>
 
 <para>
-Um Emails von Ihrem Mailserver via POP3 oder IMAP für den
+Um E-Mails von Ihrem Mailserver via POP3 oder IMAP für den
  OTRS-Rechner/lokalen OTRS-Benutzer und procmail abzuholen, benutzen Sie
 
 <ulink url="http://www.tuxedo.org/~esr/fetchmail/">
@@ -296,7 +296,7 @@ Vergessen Sie nicht, die Zugriffsrechte von
 
 <para>
 Wird das Kommando <command>"fetchmail -a</command> ausgeführt
-(ggf. via cron), werden alle Emails auf das lokale OTRS-Konto
+(ggf. via cron), werden alle E-Mails auf das lokale OTRS-Konto
 weitergeleitet und mit Hilfe von procmail an
 <filename>bin/PostMasterPOP3.pl</filename> übergeben.
 <filename>bin/PostMasterPOP3.pl</filename> sorgt wiederum dafür, dass die
@@ -339,8 +339,8 @@ sein.
 
 <para>
 Kernel::System::PostMaster::Filter::Match ist ein Standard-Modul, um
- einige Email-Header (z. B. From, To, Subject) zu prüfen und dann den
-neuen Email-Header zu setzen (z. B. X-OTRS-Ignore: yes oder
+ einige E-Mail-Header (z. B. From, To, Subject) zu prüfen und dann den
+neuen E-Mail-Header zu setzen (z. B. X-OTRS-Ignore: yes oder
 X-OTRS-Queue:  spam).
 </para>
 
@@ -379,8 +379,8 @@ X-OTRS-Queue:  spam).
 
 <para>
 Kernel::System::PostMaster::Filter::CMD ist ein Standard-Modul, um
-die Emails an ein externes Kommando zu leiten und, falls das Ergebnis aus
-STDOUT true ist, den neuen Email-Header zu setzen (z. B. X-OTRS-Ignore: yes
+die E-Mails an ein externes Kommando zu leiten und, falls das Ergebnis aus
+STDOUT true ist, den neuen E-Mail-Header zu setzen (z. B. X-OTRS-Ignore: yes
 oder X-OTRS-Queue: spam).
 </para>
 

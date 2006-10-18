@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.16 2006-04-07 09:57:36 ho Exp $ -->
+<!-- $Id: adminarea.xml,v 1.17 2006-10-18 13:07:15 cs Exp $ -->
 
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
@@ -558,7 +558,7 @@ Vorgaben hier standardmäßig bei Antworten auf Tickets in
 dieser Queue genutzt werden. In den Abschnitten
 
 <link linkend="adminarea-emailaddresses">
-Emailadressen
+E-Mailadressen
 </link>
 
 
@@ -930,7 +930,7 @@ Für die Betreffzeile und den Text von automatischen Antworten kann genauso
 wie bei Signaturen oder Anreden, der Inhalt mit Hilfe von OTRS-Variablen
 dynamisch erzeugt werden. So werden über die Variable
 &lt;OTRS_CUSTOMER_EMAIL[5]&gt; die ersten 5 Zeilen der an das System
-gesendeten Email in die automatische Antwort eingefügt, oder durch
+gesendeten E-Mail in die automatische Antwort eingefügt, oder durch
 &lt;OTRS_CUSTOMER_FROM&gt; die From-Zeile. Die Anmerkungen im unterem
 Bereich der Bildschirmmaske zur Verwaltung der automatischen Antworten
 listen alle OTRS-Variablen auf, die verwendet werden können.
@@ -964,10 +964,10 @@ entfernt werden.
 </sect1>
 
 <sect1 id="adminarea-emailaddresses">
-<title>Emailadressen</title>
+<title>E-Mailadressen</title>
 
 <para>
-Um aus OTRS heraus Emails verschicken zu können, benötigen Sie
+Um aus OTRS heraus E-Mails verschicken zu können, benötigen Sie
 mindestens eine gültige Mailadresse. Da in vielen Fällen eine
 Mailadresse nicht ausreicht, ist OTRS auch in der Lage, mit mehreren
 Mailadressen zu arbeiten. Für jede Queue kann mindestens eine Mailadresse
@@ -983,7 +983,7 @@ Anlegen oder Bearbeiten einer Queue
 stellen Sie ein, welche im System gespeicherte Mailadresse für die
 ausgehenden Nachrichten der entsprechenden Queue benutzt werden soll.
 Die Verwaltung der Mailadressen des Systems erreichen Sie, indem sie im
-Admin-Bereich dem Link "Email Adressen" folgen.
+Admin-Bereich dem Link "E-Mail Adressen" folgen.
 </para>
 
 <para>
@@ -994,7 +994,7 @@ Admin-Bereich dem Link "Email Adressen" folgen.
 </para>
 
 <para>
-Im Formular zur Verwaltung der Emailadressen können Sie u.a. direkt
+Im Formular zur Verwaltung der E-Mailadressen können Sie u.a. direkt
 auswählen, mit welcher Queue oder Unter-Queue die neue Mailadresse
 verknüpft werden soll. Diese Verknüpfung ist wichtig, da so eingehende
 Mails anhand der Adresse im To: Feld der entsprechenden Queue zugewiesen
@@ -1252,7 +1252,7 @@ Verwaltung für die Filterregeln auf.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Filterregeln für eingehende Emails</screeninfo>
+<screeninfo>Verwaltung von Filterregeln für eingehende E-Mails</screeninfo>
 <graphic srccredit="Adminarea postmasterfilter - screenshot" scale="40" fileref="screenshots/admin-postmasterfilter.png"></graphic>
 </screenshot>
 </para>
@@ -1487,7 +1487,7 @@ Nachricht wird die Filterregel abgearbeitet.
 Es gibt weitere Module, die zum
 
 <link linkend="email-receiving-filter">
-Filtern eingehender Emails
+Filtern eingehender E-Mails
 </link>
 
 genutzt werden und bei komplexeren Installationen nützlich sein können.
@@ -1546,7 +1546,7 @@ Job aktiviert.
 </sect1>
 
 <sect1 id="adminarea-adminemail">
-<title>Administratoren Email</title>
+<title>Administratoren E-Mail</title>
 
 <para>
 Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder
@@ -1556,7 +1556,7 @@ Link "Admin Notification".
 
 <para>
 <screenshot>
-<screeninfo>Administratoren Email an Benutzer oder Gruppen</screeninfo>
+<screeninfo>Administratoren E-Mail an Benutzer oder Gruppen</screeninfo>
 <graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
 </screenshot>
 </para>
