@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.12 2007-02-20 13:27:40 cs Exp $ -->
+<!-- $Id: time.xml,v 1.13 2007-02-20 16:28:25 sr Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -228,7 +228,7 @@ In der nachfolgenden Tabelle werden die Unlockzyklen der bisherigen OTRS Version
 <thead>
 <row>
 <entry>
-<para>?Freigabe? (unlocked) Eigenschaften</para>
+<para>¿Freigabe¿(unlocked) Eigenschaften</para>
 </entry>
 <entry>
 <para>1.2.x</para>
@@ -243,7 +243,7 @@ In der nachfolgenden Tabelle werden die Unlockzyklen der bisherigen OTRS Version
 <para>2.1.1-2.1.6</para>
 </entry>
 <entry>
-<para>2.1.6 ? 2.1.x</para>
+<para>2.1.6-2.1.x</para>
 </entry>
 <entry>
 <para>2.2.x</para>
@@ -252,7 +252,7 @@ In der nachfolgenden Tabelle werden die Unlockzyklen der bisherigen OTRS Version
 </thead><tbody>
 <row>
 <entry>
-<para>Ein Ticket wird ?freigegeben? (unlocked) wenn</para>
+<para>Ein Ticket wird "freigegeben" (unlocked) wenn</para>
 <para/>
 <para>a) für die Queue, in der sich das Ticket befindet, eine Unlockzeit gesetzt ist.</para>
 <para/>
@@ -260,50 +260,7 @@ In der nachfolgenden Tabelle werden die Unlockzyklen der bisherigen OTRS Version
 <para/>
 <para>c) das Ticket von einem Agenten gesperrt ist .</para>
 <para/>
-<para>d) sich das Ticket in einem ?offen? Status befindet. Wenn ein ?pending? Status gesetzt ist, wird die Unlockzeit ausgesetzt.</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-</row>
-<row>
-<entry>
-<para>Der Unlockzeit wird zurück gesetzt wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext".</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para/>
-</entry>
-<entry>
-<para/>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-<entry>
-<para>x</para>
-</entry>
-</row>
-<row>
-<entry>
-<para>Der Unlockzeit wird zurück gesetzt wenn ein Ticket durch einen Agenten gesperrt wird. In diesem Moment läuft die in den Queue-Settings definierte Zeit, solange sich das Ticket in einem offen Status befindet. Wechselt das Ticket in einen Pending-Status, wird die Unlock-Time angehalten. </para>
+<para>d) sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Unlockzeit ausgesetzt.</para>
 </entry>
 <entry>
 <para>x</para>
@@ -326,7 +283,7 @@ In der nachfolgenden Tabelle werden die Unlockzyklen der bisherigen OTRS Version
 </row>
 <row>
 <entry>
-<para>Der Unlockzeit wird zurück gesetzt wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext". </para>
+<para>Die Unlockzeit wird zurück gesetzt wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext".</para>
 </entry>
 <entry>
 <para>x</para>
@@ -349,7 +306,53 @@ In der nachfolgenden Tabelle werden die Unlockzyklen der bisherigen OTRS Version
 </row>
 <row>
 <entry>
-<para>Der Unlockzeit wird zurück gesetzt wenn ein Kunde ein Follow-Up auf ein Ticket sendet und der letzte Artikel von einem Agenten stammt. </para>
+<para>Die Unlockzeit wird zurück gesetzt wenn ein Ticket durch einen Agenten gesperrt wird. In diesem Moment läuft die in den Queue-Settings definierte Zeit, solange sich das Ticket in einem offen Status befindet. Wechselt das Ticket in einen Pending-Status, wird die Unlock-Time angehalten. </para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+</row>
+<row>
+<entry>
+<para>Die Unlockzeit wird zurück gesetzt wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext". </para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para/>
+</entry>
+<entry>
+<para/>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+<entry>
+<para>x</para>
+</entry>
+</row>
+<row>
+<entry>
+<para>Die Unlockzeit wird zurück gesetzt wenn ein Kunde ein Follow-Up auf ein Ticket sendet und der letzte Artikel von einem Agenten stammt. </para>
 </entry>
 <entry>
 <para>x</para>
@@ -503,14 +506,15 @@ Tickets können nur eskalieren, wenn folgende Eigenschaften erfüllt sind:
 
 <itemizedlist>
 <listitem>
-    <para>
-    Das Ticket befindet sich im Status-Typ "offen" (dazu zählen "neu", "offen", "warten zur Erinnerung", ...).
-    </para>
+<para>
+Das Ticket befindet sich im Status-Typ "offen" (dazu zählen "neu", "offen", "warten zur Erinnerung", ...).
+</para>
 </listitem>
+
 <listitem>
-    <para>
-    Das Ticket ist nicht von einem Agenten gesperrt ("frei").
-    </para>
+<para>
+Das Ticket ist nicht von einem Agenten gesperrt ("frei").
+</para>
 </listitem>
 </itemizedlist>
 
@@ -548,9 +552,9 @@ In der nachfolgenden Tabelle werden die Eskalationszyklen der bisherigen OTRS Ve
 <para/>
 <para>a) Wenn die in den Queue Einstellungen hinterlegte Eskalationszeit abgelaufen ist.</para>
 <para/>
-<para>b) Wenn das Ticket nicht von einem Agenten gesperrt ist .</para>
+<para>b) Wenn das Ticket nicht von einem Agenten gesperrt ist.</para>
 <para/>
-<para>c) Wenn sich das Ticket in einem ?offen? Status befindet. Wenn ein ?pending? Status gesetzt ist, wird die Eskalationszeit ausgesetzt.</para>
+<para>c) Wenn sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Eskalationszeit ausgesetzt.</para>
 </entry>
 <entry>
 <para>x</para>
@@ -590,7 +594,7 @@ In der nachfolgenden Tabelle werden die Eskalationszyklen der bisherigen OTRS Ve
 </row>
 <row>
 <entry>
-<para>Die Eskalationszeit (Startpunkt) wird zurückgesetzt wenn ein Agent einen externen Artikel (z. B. Email an Kunden oder Telefon-Notiz) am anlegt.</para>
+<para>Die Eskalationszeit (Startpunkt) wird zurückgesetzt wenn ein Agent einen externen Artikel (z. B. Email an Kunden oder Telefon-Notiz) anlegt.</para>
 </entry>
 <entry>
 <para>x</para>
