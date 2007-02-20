@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.11 2007-02-20 11:08:21 sr Exp $ -->
+<!-- $Id: time.xml,v 1.12 2007-02-20 13:27:40 cs Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -501,15 +501,18 @@ die Queue eingestellten positiven Wert.
 Tickets können nur eskalieren, wenn folgende Eigenschaften erfüllt sind:
 </para>
 
+<itemizedlist>
 <listitem>
-<para>
-Das Ticket befindet sich im Status-Typ "offen" (dazu zählen "neu", "offen", "warten zur Erinnerung", ...).
-</para>
-
-<para>
-Das Ticket ist nicht von einem Agenten gesperrt ("frei").
-</para>
+    <para>
+    Das Ticket befindet sich im Status-Typ "offen" (dazu zählen "neu", "offen", "warten zur Erinnerung", ...).
+    </para>
 </listitem>
+<listitem>
+    <para>
+    Das Ticket ist nicht von einem Agenten gesperrt ("frei").
+    </para>
+</listitem>
+</itemizedlist>
 
 <para>
 In der nachfolgenden Tabelle werden die Eskalationszyklen der bisherigen OTRS Versionen verglichen.
