@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.16 2007-02-21 12:07:04 sr Exp $ -->
+<!-- $Id: time.xml,v 1.17 2007-02-21 12:50:57 sr Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -223,156 +223,159 @@ die Benachrichtigung für vom System freigegebene Tickets aktiviert ist.
 In der nachfolgenden Tabelle werden die Unlock-Zyklen der bisherigen OTRS Versionen verglichen.
 </para>
 
-<informaltable frame="all">
+<table id="table-of-unlock-mechanismen">
+<title>Freigabe" (unlocked) Eigenschaften</title>
+<tgroup cols="7">
 <thead>
 <row>
 <entry>
-<para>"Freigabe" (unlocked) Eigenschaften</para>
+"Freigabe" (unlocked) Eigenschaften
 </entry>
 <entry>
-<para>1.2.x</para>
+1.2.x
 </entry>
 <entry>
-<para>1.3.x</para>
+1.3.x
 </entry>
 <entry>
-<para>2.0.x</para>
+2.0.x
 </entry>
 <entry>
-<para>2.1.1</para>
-<para>-</para>
-<para>2.1.6</para>
+2.1.1 - 2.1.6
 </entry>
 <entry>
-<para>2.1.6 - 2.1.x</para>
+2.1.6 - 2.1.x
 </entry>
 <entry>
-<para>2.2.x</para>
+2.2.x
 </entry>
 </row>
-</thead><tbody>
+</thead>
+<tbody>
 <row>
 <entry>
-<para>Ein Ticket wird "freigegeben" (unlocked) wenn...</para>
+Ein Ticket wird "freigegeben" (unlocked) wenn...
 <para/>
-<para>a) für die Queue, in der sich das Ticket befindet, eine Unlockzeit gesetzt ist.</para>
-<para>b) die in den Queue Einstellungen hinterlegte Unlockzeit abgelaufen ist.</para>
-<para>c) das Ticket von einem Agenten gesperrt ist.</para>
-<para>d) sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Unlockzeit ausgesetzt.</para>
+a) für die Queue, in der sich das Ticket befindet, eine Unlockzeit gesetzt ist.
+b) die in den Queue Einstellungen hinterlegte Unlockzeit abgelaufen ist.
+c) das Ticket von einem Agenten gesperrt ist.
+d) sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Unlockzeit ausgesetzt.
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 </row>
 <row>
 <entry>
-<para>Die Unlockzeit wird zurück gesetzt, wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", oder "note-ext".</para>
+Die Unlockzeit wird zurück gesetzt, wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", oder "note-ext".
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 </row>
 <row>
 <entry>
-<para>Die Unlockzeit wird zurück gesetzt, wenn ein Ticket durch einen Agenten gesperrt wird. In diesem Moment läuft die in den Queue-Settings definierte Zeit, solange sich das Ticket in einem offen Status befindet. Wechselt das Ticket in einen Pending-Status, wird die Unlock-Time angehalten. </para>
+Die Unlockzeit wird zurück gesetzt, wenn ein Ticket durch einen Agenten gesperrt wird. In diesem Moment läuft die in den Queue-Settings definierte Zeit, solange sich das Ticket in einem offen Status befindet. Wechselt das Ticket in einen Pending-Status, wird die Unlock-Time angehalten.
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 </row>
 <row>
 <entry>
-<para>Die Unlockzeit wird zurück gesetzt, wenn ein Agent einen extenen Artikel am Ticket erstellt. </para>
-<para>Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext". </para>
+Die Unlockzeit wird zurück gesetzt, wenn ein Agent einen extenen Artikel am Ticket erstellt.
+Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext".
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 </row>
 <row>
 <entry>
-<para>Die Unlockzeit wird zurück gesetzt, wenn ein Kunde ein "Follow-Up" auf ein Ticket sendet und der letzte Artikel von einem Agenten stammt. </para>
+Die Unlockzeit wird zurück gesetzt, wenn ein Kunde ein "Follow-Up" auf ein Ticket sendet und der letzte Artikel von einem Agenten stammt.
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
-</row></tbody>
-</informaltable>
+</row>
+</tbody>
+</tgroup>
+</table>
 
 </sect1>
 
@@ -521,95 +524,99 @@ Das Ticket ist nicht von einem Agenten gesperrt ("frei").
 In der nachfolgenden Tabelle werden die Eskalationszyklen der bisherigen OTRS Versionen verglichen.
 </para>
 
-<informaltable frame="all">
+<table id="table-of-escalation-mechanismen">
+<title>Eskalations-Eigenschaften</title>
+<tgroup cols="6">
 <thead>
 <row>
 <entry>
-<para>Eskalations-Eigenschaften</para>
+Eskalations-Eigenschaften
 </entry>
 <entry>
-<para>1.2.x</para>
+1.2.x
 </entry>
 <entry>
-<para>1.3.x</para>
+1.3.x
 </entry>
 <entry>
-<para>2.0.x</para>
+2.0.x
 </entry>
 <entry>
-<para>2.1.x</para>
+2.1.x
 </entry>
 <entry>
-<para>2.2.x</para>
+2.2.x
 </entry>
 </row>
 </thead><tbody>
 <row>
 <entry>
-<para>Ein Ticket eskaliert...</para>
+Ein Ticket eskaliert...
 <para/>
-<para>a) wenn für die Queue, in der sich das Ticket befindet, eine Eskalationszeit gesetzt ist.</para>
-<para>b) Wenn die in den Queue Einstellungen hinterlegte Eskalationszeit abgelaufen ist.</para>
-<para>c) Wenn das Ticket nicht von einem Agenten gesperrt ist.</para>
-<para>d) Wenn sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Eskalationszeit ausgesetzt.</para>
+a) wenn für die Queue, in der sich das Ticket befindet, eine Eskalationszeit gesetzt ist.
+b) Wenn die in den Queue Einstellungen hinterlegte Eskalationszeit abgelaufen ist.
+c) Wenn das Ticket nicht von einem Agenten gesperrt ist.
+d) Wenn sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Eskalationszeit ausgesetzt.
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 </row>
 <row>
 <entry>
-<para>Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Kunde einen Artikel am Ticket erstellt (z. B. durch Email-FollowUp). Das Ticket muss dabei nicht wiedereröffnet werden. Ist bereits der letzte Artikel von einem Kunden, wird die Eskalationszeit (Startpunkt) nicht zurück gesetzt, da sich hier die Eskalation verzögern würde.</para>
+Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Kunde einen Artikel am Ticket erstellt (z. B. durch Email-FollowUp). Das Ticket muss dabei nicht wiedereröffnet werden. Ist bereits der letzte Artikel von einem Kunden, wird die Eskalationszeit (Startpunkt) nicht zurück gesetzt, da sich hier die Eskalation verzögern würde.
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 </row>
 <row>
 <entry>
-<para>Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Agent einen externen Artikel (z. B. eine Email an einen Kunden oder eine Telefon-Notiz) anlegt.</para>
+Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Agent einen externen Artikel (z. B. eine Email an einen Kunden oder eine Telefon-Notiz) anlegt.
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>-</para>
+-
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
 <entry>
-<para>x</para>
+x
 </entry>
-</row></tbody>
-</informaltable>
+</row>
+</tbody>
+</tgroup>
+</table>
 
 </sect1>
 
