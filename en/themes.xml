@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: themes.xml,v 1.2 2006-08-31 13:28:39 cs Exp $ -->
+<!-- $Id: themes.xml,v 1.3 2007-03-02 12:01:46 cs Exp $ -->
 
 <chapter id="themes">
 <title>Creating own themes</title>
@@ -35,9 +35,11 @@ To create a new theme called "Company" perform the following steps:
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    Copy the directory
-    <filename>Kernel/Output/HTML/Standard</filename> to
-    <filename>Kernel/Output/HTML/Company</filename>.
+    Create a directory called
+    <filename>Kernel/Output/HTML/Company</filename>
+    and copy all files, that you like to change, from
+    <filename>Kernel/Output/HTML/Standard</filename>
+    into the new folder.
     </para>
 </listitem>
 <listitem>
@@ -99,4 +101,3 @@ above.
 </warning>
 
 </chapter>
-
