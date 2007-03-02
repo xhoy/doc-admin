@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: themes.xml,v 1.2 2006-08-31 13:32:36 cs Exp $ -->
+<!-- $Id: themes.xml,v 1.3 2007-03-02 12:00:02 cs Exp $ -->
 
 <chapter id="themes">
 <title>Erstellung eigener Themes</title>
@@ -38,9 +38,11 @@ folgendem Schema vor:
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    Kopieren Sie das Verzeichnis
-    <filename>Kernel/Output/HTML/Standard</filename> nach
-    <filename>Kernel/Output/HTML/Company</filename>.
+    Erstellen Sie das Verzeichnis
+    <filename>Kernel/Output/HTML/Company</filename>
+    und kopieren Sie die Dateien, die Sie für das Company-Theme anpassen möchten, aus
+    <filename>Kernel/Output/HTML/Standard</filename>
+    in das neu erstellte Directory.
     </para>
 </listitem>
 <listitem>
@@ -101,4 +103,3 @@ zu erstellen, das bei einem Update nicht überschrieben wird.
 </warning>
 
 </chapter>
-
