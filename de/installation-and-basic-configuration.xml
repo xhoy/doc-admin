@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation des OTRS Framework</title>
@@ -901,12 +901,16 @@ OTRS Benutzers.
 <screen>
 linux:~# cd /opt/otrs/scripts/database/
 linux:/opt/otrs/scripts/database# ls
-initial_insert.sapdb.sql    otrs-schema-post.maxdb.sql
-initial_insert.sql          otrs-schema-post.mysql.sql
-otrs-schema.maxdb.sql       otrs-schema-post.oracle.sql
-otrs-schema.mysql.sql       otrs-schema-post.postgresql.sql
-otrs-schema.oracle.sql      otrs-schema.xml
-otrs-schema.postgresql.sql
+otrs-initial_insert.db2.sql         otrs-schema.mysql.sql
+otrs-initial_insert.maxdb.sql       otrs-schema.oracle.sql
+otrs-initial_insert.mssql.sql       otrs-schema-post.db2.sql
+otrs-initial_insert.mysql.sql       otrs-schema.postgresql.sql
+otrs-initial_insert.oracle.sql      otrs-schema-post.maxdb.sql
+otrs-initial_insert.postgresql.sql  otrs-schema-post.mssql.sql
+otrs-initial_insert.xml             otrs-schema-post.mysql.sql
+otrs-schema.db2.sql                 otrs-schema-post.oracle.sql
+otrs-schema.maxdb.sql               otrs-schema-post.postgresql.sql
+otrs-schema.mssql.sql               otrs-schema.xml
 linux:/opt/otrs/scripts/database#
 </screen>
 </para>
@@ -942,9 +946,13 @@ Einfügen der vom System benötigten Daten: Damit OTRS richtig
 funktioniert, müssen einige Daten in verschiedene Tabellen geschrieben
 werden (z. B. die verschiedenen Ticketstatus, Ticket- und
 Benachrichtigungstypen, etc.). Verwenden Sie entweder die Datei
-<filename>initial_insert.sql</filename> oder
-<filename>initial_insert.sapdb.sql</filename> zum Einspielen der Daten,
-je nachdem welche Datenbank verwendet wird.
+<filename>otrs-initial_insert.mysql.sql</filename>,
+<filename>otrs-initial_insert.db2.sql</filename>,
+<filename>otrs-initial_insert.oracle.sql</filename>,
+<filename>otrs-initial_insert.maxdb.sql</filename>,
+<filename>otrs-initial_insert.postgresql.sql</filename> oder
+<filename>otrs-initial_insert.mssql.sql </filename>
+zum Einspielen der Daten, je nachdem welche Datenbank verwendet wird.
 </para>
 </listitem>
 <listitem>
@@ -1225,7 +1233,7 @@ Cron-Jobs für den OTRS-Benutzer zu installieren, erweitern Sie bitte
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.17 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.18 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1248,7 +1256,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1258,7 +1266,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1268,7 +1276,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1281,7 +1289,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1291,7 +1299,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1301,7 +1309,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1312,7 +1320,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1322,7 +1330,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1332,7 +1340,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1342,7 +1350,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.17 2006-10-18 13:02:43 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
