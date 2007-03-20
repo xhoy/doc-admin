@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.13 2006-11-06 07:45:54 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.14 2007-03-20 14:59:22 martin Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -1132,6 +1132,10 @@ it not to the system. The following table lists the different X-OTRS
 headers and their meaning.
 </para>
 
+<para>
+Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
+</para>
+
 <table id="table-of-x-otrs-headers">
 <title>Function of the different X-OTRS-headers</title>
   <tgroup cols="3">
@@ -1175,6 +1179,17 @@ headers and their meaning.
       </row>
       <row>
         <entry>
+          X-OTRS-Lock:
+        </entry>
+        <entry>
+            lock, unlock
+        </entry>
+        <entry>
+          Sets the lock state of a ticket.
+        </entry>
+      </row>
+      <row>
+        <entry>
           X-OTRS-Ignore:
         </entry>
         <entry>
@@ -1194,6 +1209,50 @@ headers and their meaning.
         </entry>
         <entry>
           Sets the next state of the ticket.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-State-PendingTime:
+        </entry>
+        <entry>
+         e. g. 2007-03-20 00:00:00
+        </entry>
+        <entry>
+          Sets the pending time of a ticket (you also should sent a pending state via X-OTRS-State).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Type:
+        </entry>
+        <entry>
+         default (depends on your setup)
+        </entry>
+        <entry>
+          Sets the type of a ticket (if Ticket::Type support is active).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Service:
+        </entry>
+        <entry>
+         (depends on your setup)
+        </entry>
+        <entry>
+          Sets the service of a ticket (if Ticket::Service support is active).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-SLA:
+        </entry>
+        <entry>
+         (depends on your setup)
+        </entry>
+        <entry>
+          Sets the SLA of a ticket (if Ticket::Service support is active).
         </entry>
       </row>
       <row>
