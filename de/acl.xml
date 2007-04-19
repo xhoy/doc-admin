@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: acl.xml,v 1.1 2007-04-19 13:03:22 cs Exp $ -->
+
+<chapter id="acl">
+<title>Access Control Lists (ACL's)</title>
+
+<para>
+Seit OTRS 2.0 können Access Control Lists (ACL's) verwendet werden, um den
+Zugriff auf Tickets, Module, Queues, usw. zu steuern bzw. um in bestimmten
+Situationen Aktionen auf Tickets (schließen, verschieben, usw.) zu
+beeinflussen. ACL's können als Ergänzung zum bestehenden Berechtigungssystem
+der
+
+<link linkend="adminarea-roles">
+Rollen
+</link>
+
+und
+
+<link linkend="adminarea-groups">
+Gruppen
+</link>
+
+verwendet werden, mit ACL's lassen sich , basierend auf Ticket-Attributen,
+rudimentäre Workflows innerhalb des Systems abbilden.
+</para>
+
+<para>
+ACL's können noch nicht über das
+
+<link linkend="adminarea-sysconfig">
+SysConfig-Interface
+</link>
+
+erstellt werden, sie müssen direkt in die Datei
+<filename>Kernel/Config.pm</filename> eingetragen werden. Im folgenden
+einige Beispiele:
+</para>
+
+<para>
+<example id='acl-move'>
+<title>ACL, die das Verschieben von Tickets in eine Queue nur bei einer
+Ticket-Priorität von 5 erlaubt</title>
+
+<programlisting>
+    # ticket acl
+    $Self-&gt;{TicketAcl}-&gt;{'ACL-Name-2'} = {
+        # match properties
+        Properties =&gt; {
+            # current ticket match properties
+            Ticket =&gt; {
+                Queue =&gt; ['Raw'],
+                Priority =&gt; ['5 very high'],
+            }
+        },
+        # return possible options (white list)
+        Possible =&gt; {
+            # possible ticket options (white list)
+            Ticket =&gt; {
+                Queue =&gt; ['Alert'],
+            },
+        },
+    };
+</programlisting>
+</example>
+</para>
+
+<para>
+<example id="acl-close">
+<title>ACL, die das Schließen von
+Tickets in der raw Queue verbietet und den Schließen-Schalter ausblendet</title>
+
+<programlisting>
+    $Self-&gt;{TicketAcl}-&gt;{'ACL-Name-1'} = {
+        # match properties
+        Properties =&gt; {
+            # current ticket match properties
+            Ticket =&gt; {
+                Queue =&gt; ['Raw'],
+            }
+        },
+        # return possible options (white list)
+        Possible =&gt; {
+            # possible ticket options (white list)
+            Ticket =&gt; {
+                State =&gt; ['new', 'open', 'pending reminder'],
+            },
+            # possible action options
+            Action =&gt; {
+                AgentTicketLock =&gt; 1,
+                AgentTicketZoom =&gt; 1,
+                AgentTicketClose =&gt; 0,
+                AgentTicketPending =&gt; 1,
+                AgentTicketNote =&gt; 1,
+                AgentTicketHistory =&gt; 1,
+                AgentTicketPriority =&gt; 1,
+                AgentTicketFreeText =&gt; 1,
+                AgentTicketHistory =&gt; 1,
+                AgentTicketCompose =&gt; 1,
+                AgentTicketBounce =&gt; 1,
+                AgentTicketTicketPrint =&gt; 1,
+                AgentTicketForward =&gt; 1,
+                AgentTicketTicketLink =&gt; 1,
+                AgentTicketPrint =&gt; 1,
+                AgentTicketPhone =&gt; 1,
+                AgentTicketCustomer =&gt; 1,
+                AgentTicketOwner =&gt; 1,
+            },
+        },
+    };
+</programlisting>
+</example>
+</para>
+
+<para>
+<example id="acl-state">
+<title>ACL, die den Status für alle Agenten entfernt und Ihn nur noch für
+eine Gruppe zur Verfügung stellt</title>
+
+<programlisting>
+    $Self-&gt;{TicketAcl}-&gt;{'ACL-Name-5'} = {
+        # match properties
+        Properties =&gt; {
+            # current ticket match properties (match always)
+        },
+        # return possible options
+        PossibleNot =&gt; {
+            # possible ticket options
+            Ticket =&gt; {
+                State =&gt; ['closed successful'],
+            },
+        },
+    };
+</programlisting>
+</example>
+</para>
+
+<para>
+Im folgenden eine Liste aller Parameter, die für ACLs verwendet werden können:
+</para>
+
+<para>
+<programlisting>
+    # ticket acl
+    $Self-&gt;{TicketAcl}-&gt;{'ACL-Name-Test'} = {
+        # match properties
+        Properties =&gt; {
+            # current action match properties
+            Frontend =&gt; {
+                Action =&gt; ['AgentTicketPhone', 'AgentTicketEmail'],
+            },
+            # current user match properties
+            User =&gt; {
+                Group_rw =&gt; [
+                    'hotline',
+                ],
+            },
+            # current user match properties
+            Ticket =&gt; {
+                Queue =&gt; ['Raw'],
+                State =&gt; ['new', 'open'],
+                Priority =&gt; ['some priority'],
+                Lock =&gt; ['lock'],
+                CustomerID =&gt; ['some id'],
+                CustomerUserID =&gt; ['some id'],
+                TicketFreeKey1 =&gt; ['some key'],
+                TicketFreeKey2 =&gt; ['some key'],
+                # ...
+                TicketFreeKey8 =&gt; ['some key'],
+                TicketFreeText1 =&gt; ['some value'],
+                TicketFreeText2 =&gt; ['some value'],
+                # ...
+                TicketFreeText8 =&gt; ['some value'],
+            }
+        },
+        # return possible options (white list)
+        Possible =&gt; {
+            # possible ticket options (white list)
+            Ticket =&gt; {
+                Queue =&gt; ['Hotline', 'Koordination'],
+                State =&gt; => ['some state'],
+                Priority =&gt; ['5 very high'],
+                TicketFreeKey1 =&gt; ['some key'],
+                TicketFreeKey2 =&gt; ['some key'],
+                # ...
+                TicketFreeKey8 =&gt; ['some key'],
+                TicketFreeText1 =&gt; ['some value'],
+                TicketFreeText2 =&gt; ['some value'],
+                # ...
+                TicketFreeText8 =&gt; ['some value'],
+            },
+            # possible action options (white list)
+            Action =&gt; {
+                AgentTicketLock =&gt; 1,
+                AgentTicketZoom =&gt; 1,
+                AgentTicketClose =&gt; 1,
+                AgentTicketPending =&gt; 0,
+                AgentTicketNote =&gt; 1,
+                AgentTicketHistory =&gt; 0,
+                AgentTicketPriority =&gt; 1,
+                AgentTicketFreeText =&gt; 0,
+                AgentTicketHistory =&gt; 1,
+                AgentTicketCompose =&gt; 1,
+                AgentTicketBounce =&gt; 1,
+                AgentTicketTicketPrint =&gt; 0,
+                AgentTicketForward =&gt; 1,
+                AgentTicketTicketLink =&gt; 1,
+                AgentTicketPrint =&gt; 1,
+                AgentTicketPhone =&gt; 1,
+                AgentTicketCustomer =&gt; 1,
+                AgentTicketOwner =&gt; 0,
+            },
+        },
+        # remove options (black list)
+        PossibleNot =&gt; {
+            # possible ticket options (black list)
+            Ticket =&gt; {
+                Queue =&gt; ['Hotline', 'Koordination'],
+                State =&gt; ['closed', 'removed'],
+            },
+        },
+    };
+</programlisting>
+</para>
+
+</chapter>
