@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.1 2007-05-04 10:46:18 cs Exp $ -->
+<!-- $Id: stats.xml,v 1.2 2007-05-04 11:12:10 cs Exp $ -->
 
 <chapter id='statistic-module'>
 <title>Statistikmodul</title>
@@ -78,8 +78,8 @@ schnell und unproblematisch die Auswertung der Aktivitäten auf ihrem
 System.
 </para>
 
-<sect2 id='stats-usage'>
-<title>Bedienung des Moduls durch den Agent}</title>
+<sect1 id='stats-usage'>
+<title>Bedienung des Moduls durch den Agent</title>
 
 <para>
 Wurde das Statistik-Modul erfolgreich durch den OTRS-Admin
@@ -139,7 +139,7 @@ für das Statistikmodul in der Navigationsleiste angezeigt.
 </itemizedlist>
 </para>
 
-<sect3 id='stats-overview'>
+<sect2 id='stats-overview'>
 <title>Übersicht</title>
 
 <para>
@@ -230,9 +230,9 @@ folgt. Anschließend gelangt man in die Oberfläche "Ansehen".
 Wird das Statistik-Modul initial verwendet, werden sofort einige
 Musterstatistiken importiert.
 </para>
-</sect3>
+</sect2>
 
-<sect3 id='stats-viewing-generating'>
+<sect2 id='stats-viewing-generating'>
 <title>Ansehen und Generieren von Statistiken</title>
 
 <para>
@@ -644,9 +644,9 @@ Drücken des "Start"-Button wieder die Ansichtseite gezeigt und
 im Notificationbereich darauf hingewiesen, welche Eingaben falsch
 waren.
 </para>
-</sect3>
+</sect2>
 
-<sect3 id='stats-modify-new'>
+<sect2 id='stats-modify-new'>
 <title>Bearbeiten - Neu</title>
 
 <para>
@@ -827,7 +827,7 @@ nächsten Eingabeoberfläche.
         <itemizedlist>
         <listitem>
             <para>
-            "CSV} -&gt; Statistik im csv-Format
+            "CSV" -&gt; Statistik im csv-Format
             </para>
         </listitem>
         <listitem>
@@ -896,7 +896,7 @@ nächsten Eingabeoberfläche.
         </listitem>
         <listitem>
             <para>
-            diese Auswahl ist nur sinnvoll, wenn unter dem Punkt \data{Format}
+            diese Auswahl ist nur sinnvoll, wenn unter dem Punkt "Format"
             ein grafisches Ausgabeformat ausgewählt wurde.
             </para>
         </listitem>
@@ -1073,6 +1073,8 @@ nächsten Eingabeoberfläche.
 
     <para>
     <example id='stats-value-series-1'>
+    <title>Festlegen einer Wertereihe bei einem Element</title>
+
     <para>
     Element Queue:
     </para>
@@ -1107,6 +1109,7 @@ nächsten Eingabeoberfläche.
 
     <para>
     <example id='stats-value-series-2'>
+    <title>Festlegen einer Wertereihe bei zwei Elementen</title>
     <para>
     Element 1 Queue und Element 2 Status:
     </para>
@@ -1197,9 +1200,9 @@ nächsten Eingabeoberfläche.
 </orderedlist>
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-import'>
+<sect2 id='stats-import'>
 <title>Importieren</title>
 
 <para>
@@ -1224,11 +1227,11 @@ Anschließend gelangt man automatisch in die Ansehenoberfläche der
 importierten Statistik.
 </para>
 
-</sect3>
-
 </sect2>
 
-<sect2 id='stats-managing-the-module'>
+</sect1>
+
+<sect1 id='stats-managing-the-module'>
 <title>Verwaltung des Statistik-Moduls durch den OTRS-Administrator</title>
 
 <para>
@@ -1236,7 +1239,7 @@ In diesem Abschnitt werden die Aufgaben und Möglichkeiten des
 OTRS-Administrators in Bezug auf das Statistikmodul angesprochen.
 </para>
 
-<sect3 id='stats-permissions'>
+<sect2 id='stats-permissions'>
 <title>Rechte, Gruppen und Queues</title>
 
 <para>
@@ -1277,9 +1280,9 @@ ergänzt werden, bleibt dem OTRS-Administrator und dessen Anforderungen
 überlassen.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-sysconfig'>
+<sect2 id='stats-sysconfig'>
 <title>SysConfig</title>
 
 <para>
@@ -1312,11 +1315,11 @@ die Anordnung und Registrierung der Module und Icons innerhalb des
 Statistik-Moduls selbst.
 </para>
 
-</sect3>
-
 </sect2>
 
-<sect2 id='stats-managing-the-stats-module-by-the-sysadmin'>
+</sect1>
+
+<sect1 id='stats-managing-the-stats-module-by-the-sysadmin'>
 <title>Verwaltung des Statistik-Moduls durch den System-Administrator</title>
 
 <para>
@@ -1326,14 +1329,14 @@ Stelle sollen nur einige Hintergrundinformationen für den System-
 Administrator gegeben werden.
 </para>
 
-<para>
 <note>
+<para>
 Pfadangaben beziehen sich auf Unterverzeichnisse des
 OTRS-Homeverzeichnisses (meist <filename>/opt/otrs</filename>.
-</note>
 </para>
+</note>
 
-<sect3 id='stats-db-table'>
+<sect2 id='stats-db-table'>
 <title>Datenbanktabelle</title>
 
 <para>
@@ -1343,9 +1346,9 @@ Datenbanktabelle "xml\_storage" gespeichert werden.
 Diese Tabelle wird auch von anderen Modulen benutzt, deren Inhalte im
 XML-Format dargestellt werden.
 </para>
-</sect3>
+</sect2>
 
-<sect3 id='stats-filelist'>
+<sect2 id='stats-filelist'>
 <title>Auflistung aller Dateien</title>
 
 <para>
@@ -1397,7 +1400,7 @@ notwendigundwerden.
 </listitem>
 <listitem>
 <para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsEditRestrictions.dtl}</filename>
+<filename>Kernel/Output/HTML/Standard/AgentStatsEditRestrictions.dtl</filename>
 </para>
 </listitem>
 <listitem>
@@ -1459,9 +1462,9 @@ notwendigundwerden.
 </itemizedlist>
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-caching'>
+<sect2 id='stats-caching'>
 <title>Caching</title>
 
 <para>
@@ -1485,9 +1488,9 @@ beanspruchen kann.
 </para>
 
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-mkstats'>
+<sect2 id='stats-mkstats'>
 <title>mkStats.pl</title>
 
 <para>
@@ -1524,9 +1527,9 @@ bin&gt; perl mkStats.pl --help
 </programlisting>
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-cron'>
+<sect2 id='stats-cron'>
 <title>Automatisiertes Generieren von Statistiken - Cron</title>
 
 <para>
@@ -1546,9 +1549,9 @@ zu Beginn eines Monats dem Abteilungsleiter die
 gewünschte Statistik per Email zukommen zu lassen.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-static'>
+<sect2 id='stats-static'>
 <title>Statische Statistiken</title>
 
 <para>
@@ -1568,9 +1571,9 @@ Gespeichert werden diese Dateien unter folgendem Pfad
 <filename>Kernel/System/Stats/Static/</filename>.
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-using-old-stats'>
+<sect2 id='stats-using-old-stats'>
 <title>Wiederverwerten alter statischer Statistiken</title>
 
 <para>
@@ -1602,9 +1605,9 @@ Z. B. wird aus
 </programlisting>
 </para>
 
-</sect3>
+</sect2>
 
-<sect3 id='stats-default-stats'>
+<sect2 id='stats-default-stats'>
 <title>Defaultstatistiken</title>
 
 <para>
@@ -1619,8 +1622,8 @@ die Defaultstatistiken im XML-Format des Statistikmoduls im Verzeichnis
 <filename>scripts/test/sample/</filename>.
 </para>
 
-</sect3>
-
 </sect2>
+
+</sect1>
 
 </chapter>
