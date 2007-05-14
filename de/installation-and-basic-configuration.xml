@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation des OTRS Framework</title>
@@ -235,6 +235,379 @@ werden.
 <para>
 <screen>
 linux:~ # rcotrs restart-force
+Shutting down OTRS
+ Disable /opt/otrs/bin/PostMaster.pl ... done.
+no crontab for otrs
+ Shutting down cronjobs ... failed!
+Shutting down OTRS (completely)
+ Shutting down Apache ... done.
+ Shutting down MySQL ... done.
+                                                                     done
+Starting OTRS (completely)
+ Starting Apache ... done.
+ Starting MySQL ... done.
+Starting OTRS
+ Checking Apache ... done.
+ Checking MySQL ... done.
+ Checking database connect... (It looks Ok!).
+ Enable /opt/otrs/bin/PostMaster.pl ... done.
+ Checking otrs spool dir...  done.
+ Creating cronjobs (source /opt/otrs/var/cron/*) ... done.
+
+  -->> http://linux.example.com/otrs/index.pl &lt;&lt;--
+                                                                     done
+                                                                     done
+linux:~ #
+</screen>
+</para>
+
+<para>
+Die Installation von OTRS ist beendet, Sie sollten das System nun
+verwenden können. Um sich in die Weboberfläche des
+Trouble Ticket Systems einloggen zu können, geben sie die Adresse
+
+<ulink url="http://localhost/otrs/index.pl">
+<citetitle>http://localhost/otrs/index.pl</citetitle>
+</ulink>
+
+in Ihrem Browser ein. Melden sie sich als OTRS-Administrator an und
+konfigurieren Sie das System Ihren Wünschen entsprechend.
+Als Benutzername verwenden Sie root@localhost, das Passwort lautet
+root.
+</para>
+
+<warning>
+<para>
+Bitte ändern Sie auch dieses Passwort schnellstmöglich! Es
+handelt sich auch hier um ein Standardpasswort!
+</para>
+</warning>
+
+</sect2>
+
+<sect2 id="installation-on-rhel4">
+<title>Installation des rpm-Softwarepackets auf einer Red Hat Enterprise 4
+(RHEL4) Distribution</title>
+
+<para>
+Dieser Abschnitt beinhaltet die Anleitung für die Installation von OTRS
+auf RHEL4. Als DB-Backend wird MySQL verwendet. Es wird davon ausgegangen,
+dass sowohl MySQL als auch der Apache-Webserver soweit installiert und
+eingerichtet sind, dass beide Services automatisch starten und funktionieren.
+</para>
+
+<para>
+Damit OTRS problemlos auf RHEL4 funktioniert, schalten Sie bitte zuerst
+selinux für das System ab. Dazu muss in der Datei
+<filename>/etc/sysconfig/selinux</filename> der Konfigurationsparameter
+"SELINUX" von "enforcing" auf "disabled" gesetzt werden. Starten Sie nach
+dieser Änderung den Rechner komplett neu, damit selinux auf jeden Fall
+deaktiviert ist.
+</para>
+
+<para>
+Damit OTRS auf RHEL4 funktioniert, müssen die folgenden zusätzlichen Pakete
+vor dem Einspielen des OTRS-RPMs installiert sein. Falls es neuere Versionen
+der entsprechenden Pakete gibt, verwenden Sie bitte diese:
+</para>
+
+<para>
+<itemizedlist>
+<listitem>
+    <para>
+    mysql-4.1.7-4.RHEL4.1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    mysql-server-4.1.7-4.RHEL4.1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-DBD-MySQL-2.9004-3.1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    zlib-devel-1.2.1.2-1.2.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    libpng-devel-1.2.7-1el4.2.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    libjpeg-devel-6b-33.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    freetype-devel-2.1.9-1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    fontconfig-devel-2.2.3-7.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    gd-2.0.33-2_11.el4.at.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    libgd2-2.0.33-2_11.e14.at.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    gd-devel-2.0.33-2_11.el4.at.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Bit-Vector-6.3-3.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Date-Calc-5.3-9.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Perl-Date-Lepyear-1.71.-1.2.el4.rf.noarch.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Date-ICal-1.72-1.2.el4.rf.noarch.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-DBI-1.40-5.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Digest-HMAC-1.01-13.noarch.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Digest-SHA1-2.07-5.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Net-DNS-0.48-1.i386.rpm
+    </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>
+Weiterhin werden die folgenden perl-Module benötigt. Da RHEL4 diese nicht
+direkt als RPM beinhaltet, müssen die Module über CPAN händisch
+nachinstalliert werden:
+</para>
+
+<para>
+<itemizedlist>
+<listitem>
+    <para>
+    perl-GD
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-GD-Graph3d
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-GDGraph
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Perl-GDTextUtil
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PDF::API2
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Compress::Zlib
+    </para>
+</listitem>
+</itemizedlist>
+</para>
+
+
+<para>
+Im Abschnitt zur
+
+<link linkend="installation-of-needed-perl-modules">
+Installation der für OTRS benötigten perl-Module
+</link>
+
+wird die händische Installation von CPAN-Modulen näher beschrieben.
+</para>
+
+<para>
+Nun, nachdem alle Vorbereitungen abgeschlossen sind, kann das OTRS-rpm
+eingespielt werden. Bevor Sie mit der Installation beginnen, sehen Sie bitte
+unter
+
+<ulink url="http://www.otrs.org/">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+nach, ob eine aktuellere Version von OTRS als .rpm-Datei vorliegt.
+Sollte dies der Fall sein, verwenden Sie bitte diese neuere Version. Für
+RHEL4 können die RPMs verwendet werden, welche für Red Hat Linux 8.0 bereit
+gestellt werden.
+</para>
+
+<para>
+Installieren Sie OTRS nun über die Kommandozeile und <command>rpm</command>.
+Wurde das aktuelle OTRS-rpm in der Datei /tmp/otrs.rpm gespeichert,
+geschieht dies mit folgendem Befehl:
+</para>
+
+<para>
+<screen>
+linux:~ # rpm -ivh /tmp/otrs.rpm --nodeps
+linux:~ #
+</screen>
+</para>
+
+<para>
+Um sicher zu gehen, dass für die OTRS-Installation die richtigen
+Zugriffsrechte gesetzt sind, sollte nun das Skript
+<filename>SetPermissions.sh</filename> folgendermaßen aufgerufen werden:
+</para>
+
+<para>
+<screen>
+linux:~ # cd /opt/otrs/bin
+linux:~ # ./SetPermissions.sh /opt/otrs otrs apache apache apache
+[...]
+linux:~ #
+</screen>
+</para>
+
+<para>
+Die Installation des OTRS-rpm ist abgeschlossen. Starten Sie nun
+Ihren Webserver neu, um die Änderungen in der Konfiguration zu
+übernehmen.
+</para>
+
+<para>
+<screen>
+linux:~ # service httpd restart
+linux:~ #
+</screen>
+</para>
+
+<para>
+Der nächste Schritt ist das Aufsetzen der Datenbank.
+Wenn sie <application>MySQL</application> als Datenbankserver verwenden,
+können Sie hierzu den Webinstaller von OTRS benutzen. Geben Sie
+dazu folgende Adresse in Ihrem Browser ein.
+</para>
+
+<para>
+<ulink url="http://localhost/otrs/installer.pl">
+<citetitle>http://localhost/otrs/installer.pl</citetitle>
+</ulink>
+</para>
+
+<para>
+Der Webinstaller wird gestartet. Folgen Sie den Anweisungen auf dem
+Bildschirm.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Lizenz (1/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer1.png"></graphic>
+</screenshot>
+</para>
+
+<warning>
+<para>
+Es ist niemals eine gute Idee, Standardpasswörter zu
+verwenden! Bitte ändern Sie deshalb unbedingt das von OTRS
+standardmäßig gesetzte Passwort!
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - System einstellungen (3/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer3.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Fertig (4/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer4.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Nachdem alle Einstellungen vorgenommen wurden, kann der OTRS-Service nun
+eingerichtet und anschließend gestartet werden. Der erste Schritt ist die
+Aktivierung des OTRS-Services:
+</para>
+
+<para>
+<screen>
+linux:~ # chkconfig otrs on
+linux:~ #
+</screen>
+</para>
+
+<para>
+Nun wird überprüft, in welchen Runleveln der Service aktiv ist:
+</para>
+
+<para>
+<screen>
+linux:~ # chkconfig --list | grep otrs
+otrs            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+linux:~ #
+</screen>
+</para>
+
+<para>
+<screen>
+linux:~ # service otrs restart
 Shutting down OTRS
  Disable /opt/otrs/bin/PostMaster.pl ... done.
 no crontab for otrs
@@ -1233,7 +1606,7 @@ Cron-Jobs für den OTRS-Benutzer zu installieren, erweitern Sie bitte
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.18 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.19 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1256,7 +1629,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1266,7 +1639,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1276,7 +1649,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1289,7 +1662,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1299,7 +1672,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1309,7 +1682,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1320,7 +1693,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1330,7 +1703,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1340,7 +1713,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1350,7 +1723,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2007-03-09 13:51:01 cs Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2007-05-14 11:11:54 cs Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
