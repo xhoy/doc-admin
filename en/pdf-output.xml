@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: pdf-output.xml,v 1.1 2007-05-25 15:20:36 cs Exp $ -->
+<chapter id="pdf-output" >
+<title>Set-up of the pdf output</title>
+
+<para>
+From OTRS 2.1 on, pdf files can be generated for search results, statistics
+and ticket history (ticket content - print). Generally, every output which
+could be printed, i.e. with a print option given, is generated in pdf
+format.
+</para>
+
+<para>
+The feature is activated using the configuration parameter
+
+<link linkend="Framework:Core::PDF:PDF">
+PDF
+</link>
+
+. It is activated by default. Moreover via
+
+<link linkend="Framework:Core::PDF:PDF::LogoFile">
+PDF::LogoFile
+</link>
+
+the path to a graphic file to be included in all pdf files generated
+can be entered.
+
+<link linkend="Framework:Core::PDF:PDF::PageSize">
+PDF::PageSize
+</link>
+
+is used to define the standard page size of the pdf file and
+
+<link linkend="Framework:Core::PDF:PDF::MaxPages">
+PDF::MaxPages
+</link>
+
+facilitates the configuration of the maximum page number of a pdf file.
+</para>
+
+<para>
+The CPAN modules PDF::API2 and Compress::Zlib must be installed for the
+generation of pdf files. In many distributions they are available as package
+and can easily be installed using the respective package manager. In case
+this is not possible they have to be installed directly with CPAN. The
+chapter
+
+<link linkend="installation-of-needed-perl-modules">
+"Installation of perl modules required for OTRS"
+</link>
+
+describes the installation of the perl modules.
+</para>
+</chapter>
