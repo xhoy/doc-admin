@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.7 2007-05-04 12:20:13 cs Exp $ -->
+<!-- $Id: time.xml,v 1.8 2007-07-30 16:04:43 martin Exp $ -->
 
 <chapter id="time">
 <title>Time related functions in OTRS</title>
@@ -447,17 +447,20 @@ comments ("#"") for the following lines:
 <para>
 <programlisting>
 %Jobs = (
-   # --
-   # [name of job] -> send escalation notifications
-   # --
-   'send escalation notifications' => {
-       Escalation => 1,
-       # new ticket properties
-       New => {
-           Module => 'Kernel::System::GenericAgent::NotifyAgentGroupOfCustomQueue',
-       },
-   },
-   # insert your jobs (see Kernel/Config/GenericAgent.pm.examples)
+    # --
+    # [name of job] -> send escalation notifications
+    # --
+    'send escalation notifications' => {
+        Escalation => 1,
+        # new ticket properties
+        New => {
+            # notify all agents who selected the queue in "my queues/custom queues"
+#            Module => 'Kernel::System::GenericAgent::NotifyAgentGroupOfCustomQueue',
+            # notify all agents who can access the ticket with rw permissions
+            Module => 'Kernel::System::GenericAgent::NotifyAgentGroupWithWritePermission',
+        },
+    },
+    # insert your jobs (see Kernel/Config/GenericAgent.pm.examples)
 );
 </programlisting>
 </para>
