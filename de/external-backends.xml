@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.13 2006-10-18 13:12:28 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.14 2007-09-20 05:11:27 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Einbinden externer Back-ends</title>
@@ -730,9 +730,9 @@ gepflegt werden.
     # (map if agent should create/synced from LDAP to DB after login)
     $Self->{UserSyncLDAPMap} = {
         # DB -> LDAP
-        Firstname => 'givenName',
-        Lastname => 'sn',
-        Email => 'mail',
+        UserFirstname => 'givenName',
+        UserLastname => 'sn',
+        UserEmail => 'mail',
     };
 
     # UserSyncLDAPGroups
