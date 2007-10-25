@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.7 2007-09-20 05:11:28 martin Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.8 2007-10-25 11:48:09 cs Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -197,7 +197,7 @@ customer area in the agent interface.
 </para>
 
 <sect3 id='multi-customer-ids-db'>
-<title>Customer with multible IDs (Company tickets)</title>
+<title>Customer with multiple IDs (Company tickets)</title>
 
 <para>
 It is possible to assign more than one customer ID to a customer. This can
@@ -258,7 +258,7 @@ interface in the section for the customer user management now.
 
 <para>
 To ensure that one customer can access the tickets of other customer users
-add the IDs of this other users into the new field for the multible
+add the IDs of this other users into the new field for the multiple
 customer IDs. Each ID hast to be seperated by a semicolon.
 </para>
 
@@ -386,7 +386,7 @@ like to use this information with OTRS also, just expand the MAP array in
 </para>
 
 <sect3 id='multi-customer-ids-ldap'>
-<title>Customer with multible IDs (Company tickets)</title>
+<title>Customer with multiple IDs (Company tickets)</title>
 
 <para>
 It is possible to assign more than one customer ID to a customer. This can
@@ -418,7 +418,7 @@ has to be added to the MAP array in
 </para>
 
 <para>
-The field for the multible customer IDs has to be edited directly in the
+The field for the multiple customer IDs has to be edited directly in the
 LDAP directory, OTRS can only read from LDAP.
 </para>
 
@@ -450,7 +450,7 @@ LDAP directory.
 </sect3>
 </sect2>
 
-<sect2 id='multible-customer-backends'>
+<sect2 id='multiple-customer-backends'>
 <title>Use more than one customer backend with OTRS</title>
 
 <para>
@@ -460,7 +460,7 @@ parameter  has to be expanded with a number, e.g. "CustomerUser1",
 "CustomerUser2".
 </para>
 
-<example id='multible-customer-backend-example'>
+<example id='multiple-customer-backend-example'>
 <title>Using more than one customer backend with OTRS</title>
 
 <para>
