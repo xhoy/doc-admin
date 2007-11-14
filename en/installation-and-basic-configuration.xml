@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation of the OTRS framework</title>
@@ -335,13 +335,14 @@ please.
 </para>
 
 <para>
-Unpack the archive for example with <command>tar</command> e.g. into the
-directory <filename>/opt</filename>:
+Unpack the archive for example with <command>tar</command> into the
+directory <filename>/opt</filename> and rename the directory from otrs-2.2.x to otrs:
 </para>
 
 <para>
 <screen>
-linux:/opt# tar xf /tmp/otrs-2.0.0.tar.gz
+linux:/opt# tar xf /tmp/otrs-2.2.x.tar.gz
+linux:/opt# mv otrs-2.2.-x otrs
 linux:/opt# ls
 otrs
 linux:/opt#
@@ -377,9 +378,7 @@ use the copied files. The files are located in
 linux:/opt# cd otrs/Kernel/
 linux:/opt/otrs/Kernel# cp Config.pm.dist Config.pm
 linux:/opt/otrs/Kernel# cd Config
-linux:/opt/otrs/Kernel/Config# for foo in *.dist; do cp $foo `basename
-$foo .dist`; done
-linux:/opt/otrs/Kernel/Config#
+linux:/opt/otrs/Kernel/Config#  cp GenericAgent.pm.dist GenericAgent.pm
 </screen>
 </para>
 
@@ -417,7 +416,7 @@ Is your web server running with the same user rights as OTRS, the command
 to set the proper access rights is
 <command>SetPermissions.sh /opt/otrs otrs otrs</command>. On SUSE systems
 the web server is running with the user rights of wwwrun. You would use the
-command <command>SetPermissions.sh /opt/otrs otrs wwwrun</command> to set
+command <command>SetPermissions.sh /opt/otrs otrs wwwrun nogroup www</command> to set
 the proper access rights.
 </para>
 
@@ -681,7 +680,7 @@ with OTRS.
 linux:~# cd /opt/otrs
 linux:/opt/otrs# perl -cw bin/cgi-bin/installer.pl
 cgi-bin/installer.pl syntax OK
-linux:/opt/otrs# perl -cw PostMaster.pl
+linux:/opt/otrs# perl -cw bin/PostMaster.pl
 PostMaster.pl syntax OK
 linux:/opt/otrs#
 </screen>
@@ -921,6 +920,10 @@ user and change the following parameters to your needs:
 <para>
 <programlisting>
 
+    # DatabaseHost
+    # (The database host.)
+    $Self->{'DatabaseHost'} = 'localhost';
+
     # Database
     # (The database name.)
     $Self->{Database} = 'otrs';
@@ -969,11 +972,12 @@ linux:/opt/otrs/var/cron#
 
 <para>
 All scripts are ending in .dist. You should copy them to files with no ending.
+If you are using bash, you might use the command listed below.
 </para>
 
 <para>
 <screen>
-linux:/opt/otrs/var/cron# for foo in `ls -1 *.dist` ; do cp $foo
+linux:/opt/otrs/var/cron# for foo in *.dist; do cp $foo
 `basename $foo .dist`; done
 linux:/opt/otrs/var/cron# ls
 aaa_base                     generic_agent.dist    rebuild_ticket_index
@@ -1146,7 +1150,7 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.12 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.13 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1168,7 +1172,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1178,7 +1182,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1188,7 +1192,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1201,7 +1205,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1211,7 +1215,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1221,7 +1225,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1232,7 +1236,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1242,7 +1246,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1252,7 +1256,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2004 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1262,7 +1266,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2002-2003 Martin Edenhofer &lt;martin+code@otrs.org&gt;
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.12 2007-04-02 16:45:59 bb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.13 2007-11-14 13:31:15 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
