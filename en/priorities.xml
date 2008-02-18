@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: priorities.xml,v 1.1 2006-07-03 13:31:15 cs Exp $ -->
+<!-- $Id: priorities.xml,v 1.2 2008-02-18 17:07:46 martin Exp $ -->
 
 <chapter id="priorities">
 <title>Modifying ticket priorities</title>
@@ -107,14 +107,14 @@ OTRS database has to be changed directly.
         [...]
         # Ticket::Frontend::EmailPriority
         # default priority for email tickets [default: 3 normal]
-        $Self->{'Ticket::Frontend::EmailPriority'} = '3 default';
+        $Self->{'Ticket::Frontend::AgentTicketEmail'}->{'Priority'} = '3 default';
         [...]
         # default phone priority [default: 3 normal]
-        $Self->{'Ticket::Frontend::PhonePriority'} = '3 default';
+        $Self->{'Ticket::Frontend::AgentTicketPhone'}->{'Priority'} = '3 default';
         [...]
         # CustomerDefaultPriority
         # (default priority of new customer tickets)
-        $Self->{CustomerDefaultPriority} = '3 default';
+        $Self->{'Ticket::Frontend::CustomerTicketMessage'}->{'PriorityDefault'} = '3 default';
         [...]
     </programlisting>
     </para>
