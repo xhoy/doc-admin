@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.6 2006-04-13 10:13:47 ho Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.7 2008-06-30 11:54:45 cep Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
@@ -78,8 +78,10 @@ Kernel::System::Ticket::ArticleStorageDB (Standard), speichere Anhänge &amp; Co.
 Pro: Ist der Benutzer, unter dem der Webserver läuft, nicht der OTRS Benutzer, können Sie mit diesem Modul Dateiberechtigungsprobleme vermeiden.
 </para>
 <para>
-Contra: Es ist nicht wirklich nett, Anhänge in Ihrer Datenbank zu speichern. Achten Sie darauf, dass Ihre Datenbank das kann. Für MySQL setzen Sie in dessen Konfiguration bspw.
-"set-variable = max_allowed_packet=8M", um 8 MB große Objekte zu speichern (Standard ist 2M).
+Contra: Es ist nicht wirklich nett, Anhänge in Ihrer Datenbank zu speichern.
+Achten Sie darauf, dass Ihre Datenbank das kann. Für MySQL setzen Sie in dessen
+Konfiguration bspw. <quote>set-variable = max_allowed_packet=8M</quote>, um 8
+MB große Objekte zu speichern (Standard ist 2M).
 </para>
 </listitem>
 
@@ -117,7 +119,11 @@ Einstellungen sind immer spezifisch für die jeweils eingesetzte Datenbank. Bei P
 <sect2 id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-Wenn Sie den Tabellentyp MyISAM (Standard) benutzen, und einen großen Teil einer Tabelle gelöscht haben, oder wenn Sie sehr viele Änderungen an einer Tabelle mit Zeilen variabler Länge vorgenommen haben (Tabellen mit VARCHAR, BLOB oder TEXT Spalten), sollten Sie die Datendateien mit dem "optimize" Kommando behandeln.
+Wenn Sie den Tabellentyp MyISAM (Standard) benutzen, und einen großen Teil
+einer Tabelle gelöscht haben, oder wenn Sie sehr viele Änderungen an einer
+Tabelle mit Zeilen variabler Länge vorgenommen haben (Tabellen mit VARCHAR,
+BLOB oder TEXT Spalten), sollten Sie die Datendateien mit dem
+<quote>optimize</quote> Kommando behandeln.
 </para>
 <para>
 Dies bietet sich an, wenn MySQL viel CPU Zeit braucht. Optimieren Sie die Tabellen ticket, ticket_history und article.
@@ -136,7 +142,9 @@ mysql$ optimize table article;
 PostgreSQL konfigurieren Sie am besten in der postgresql.conf Datei in Ihrem PostgreSQL Datenverzeichnis. Hier gibt es Hilfe dazu:
 <ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html</ulink>
 <ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html</ulink>
-Ist die Leistung immer noch nicht genügend, empfehlen wir, Fragen auf der "PostgreSQL Performance Mailing Liste" zu stellen. Die Teilnehmer der PostgreSQL Liste sind sehr freundlich und können wahrscheinlich helfen.
+Ist die Leistung immer noch nicht genügend, empfehlen wir, Fragen auf der
+<quote>PostgreSQL Performance Mailing Liste</quote> zu stellen. Die Teilnehmer
+der PostgreSQL Liste sind sehr freundlich und können wahrscheinlich helfen.
 <ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
 </para>
 </sect2>
@@ -177,7 +185,9 @@ Wichtig, es hat dadurch zur Folge, dass der OTRS-Paket-Manager nicht mehr über d
 <sect2 id="performance-tuning-webserver-strategy">
 <title>Die richtige Strategie wählen</title>
 <para>
-Bei wirklich großen Installationen (über 1000 neue Tickets am Tag, über 40 Agenten) ist es eine sehr gute Idee, den Artikel "Choosing the Right Strategy" (in englisch) zu lesen
+Bei wirklich großen Installationen (über 1000 neue Tickets am Tag, über 40
+Agenten) ist es eine sehr gute Idee, den Artikel <quote>Choosing the Right
+Strategy</quote> (in englisch) zu lesen
 (<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">http://perl.apache.org/docs/1.0/guide/strategy.html</ulink>).
 </para>
 </sect2>
