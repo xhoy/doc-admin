@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.13 2007-10-24 17:58:03 cs Exp $ -->
+<!-- $Id: otrs.xml,v 1.14 2008-08-21 16:14:16 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -259,10 +259,10 @@ included in the central framework.
     </para>
     <itemizedlist>
       <listitem>
-	    <para>
+        <para>
         OTRS runs on many operating systems (Linux, Solaris, AIX,
-	    FreeBSD, OpenBSD, Mac OS 10.x, Microsoft Windows).
-	    </para>
+        FreeBSD, OpenBSD, Mac OS 10.x, Microsoft Windows).
+        </para>
       </listitem>
       <listitem>
         <para>
@@ -574,8 +574,8 @@ CPU, 2 GB RAM and a 160 GB hard drive.
 <para>
 If you want to use OTRS, you need some other software components. The basic
 software requirements are a web and a database server as well as a working
-perl environment with some additional modules. The web server and
-<application>perl</application> has to be installed on the same machine
+Perl environment with some additional modules. The web server and
+<application>Perl</application> has to be installed on the same machine
 as OTRS. The database back-end can be installed on the local or on an other
 host.
 </para>
@@ -585,7 +585,7 @@ For the web server, we recommend using <application>apache 1.3.x</application>
 or <application>apache 2.x</application>. With this web server, you can use
 the mod_perl module which improves greatly the performance of OTRS.
 If you can't use apache, OTRS should run on any web server
-that can execute perl scripts.
+that can execute Perl scripts.
 </para>
 
 <para>
@@ -598,9 +598,9 @@ settings during the installation through a web front-end.
 </para>
 
 <para>
-For <application>perl</application>, we recommend using at least version
+For <application>Perl</application>, we recommend using at least version
 5.8. You need some additional modules which can be installed either with
-the perl shell and CPAN or via the package manager of your operating system
+the Perl shell and CPAN or via the package manager of your operating system
 (<application>rpm</application>, <application>yast</application>,
 <application>apt-get</application>).
 </para>
@@ -609,18 +609,18 @@ the perl shell and CPAN or via the package manager of your operating system
 The section on the
 
 <link linkend="installation-of-needed-perl-modules">
-manual installation of perl modules needed
+manual installation of Perl modules needed
 </link>
 
-describes in more detail how you can set up the perl modules that you need for
+describes in more detail how you can set up the Perl modules that you need for
 OTRS.
 </para>
 
 <para>
 If you install a binary package of OTRS, which was built for your operating
-system (rpm, Windows-Installer), either the package contains all perl
+system (rpm, Windows-Installer), either the package contains all Perl
 modules needed or the package manager of your system should take care of the
-dependences of the perl modules needed.
+dependences of the Perl modules needed.
 </para>
 </sect1>
 

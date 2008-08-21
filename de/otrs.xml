@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.15 2007-10-25 11:46:41 cs Exp $ -->
+<!-- $Id: otrs.xml,v 1.16 2008-08-21 16:14:16 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -287,10 +287,10 @@ Fähigkeiten des zentralen OTRS-Frameworks.
     </para>
     <itemizedlist>
       <listitem>
-	    <para>
-	    OTRS läuft unter vielen Betriebssystemen (Linux, Solaris, AIX,
-	    FreeBSD, OpenBSD, Mac OS 10.x, Microsoft Windows).
-	    </para>
+        <para>
+        OTRS läuft unter vielen Betriebssystemen (Linux, Solaris, AIX,
+        FreeBSD, OpenBSD, Mac OS 10.x, Microsoft Windows).
+        </para>
       </listitem>
       <listitem>
         <para>
@@ -607,9 +607,9 @@ es sich, mindestens einen 2 GHz Pentium Xeon oder vergleichbare CPU,
 <para>
 Für den Betrieb von OTRS werden einige externe Software-Komponenten
 benötigt. Ein Web- sowie ein Datenbankserver und eine
-funktionierende perl-Installation mit einigen Zusatzmodulen sind die
+funktionierende Perl-Installation mit einigen Zusatzmodulen sind die
 Grundvorraussetzungen für ein funktionierendes System. Der Webserver
-und <application>perl</application> müssen auf der gleichen
+und <application>Perl</application> müssen auf der gleichen
 Maschine installiert sein, auf der später auch OTRS ausgeführt werden soll.
 Das Datenbank-Back-End kann auf der lokalen oder auf einer entfernten Maschine
 installiert werden.
@@ -621,7 +621,7 @@ Für den Webserver wird empfohlen, auf <application>apache
 zurück zu greifen. Vor allem durch die Erweiterung der
 apache-Konfiguration um das mod-perl-Modul, kann die Geschwindigkeit
 von OTRS enorm gesteigert werden. Prinzipiell sollte aber jeder Webserver,
-der die Ausführung von perl-Skripten unterstützt, für den
+der die Ausführung von Perl-Skripten unterstützt, für den
 Betrieb von OTRS geeignet sein.
 </para>
 
@@ -636,9 +636,9 @@ Webinstaller die Datenbank und Tabellen automatisch anlegen kann.
 </para>
 
 <para>
-Für <application>perl</application> gilt mindestens die Version 5.8 zu
+Für <application>Perl</application> gilt mindestens die Version 5.8 zu
 verwenden. Es werden einige Zusatzmodule benötigt, die Sie entweder
-direkt über die Shell von <application>perl</application> und
+direkt über die Shell von <application>Perl</application> und
 CPAN oder mit Hilfe des Paketmanagers (<application>yast</application>,
 <application>apt-get</application>) Ihres Betriebssystems einspielen
 müssen.
@@ -648,16 +648,16 @@ müssen.
 Im Abschnitt für die
 
 <link linkend="installation-of-needed-perl-modules">
-manuelle Installation der für OTRS benötigten perl-Module
+manuelle Installation der für OTRS benötigten Perl-Module
 </link>
 
-wird beschrieben, wie Sie perl-Module manuell einspielen können.
+wird beschrieben, wie Sie Perl-Module manuell einspielen können.
 </para>
 
 <para>
 Wenn Sie ein bereits vorgefertigtes OTRS-Paket für Ihr Betriebssystem
 zur Installation verwenden (rpm, Windows-Installer), sollten
-die benötigten perl-MOdule automatisch installiert werden.
+die benötigten Perl-MOdule automatisch installiert werden.
 </para>
 </sect1>
 

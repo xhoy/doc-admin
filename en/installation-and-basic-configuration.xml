@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation of the OTRS framework</title>
@@ -15,7 +15,7 @@ manually from source or with a binary package, ex. rpm or for Win32.
 
 <para>
 The configuration of the web and database server, the interface between
-OTRS and the database, the installation of needed perl modules, setting
+OTRS and the database, the installation of needed Perl modules, setting
 proper access rights for OTRS, setting up the cron jobs for OTRS and some
 basic settings in the config files of OTRS are described in this chapter.
 </para>
@@ -63,7 +63,7 @@ rpm package, if available.
 
 <para>
 Please install OTRS with <application>yast</application> (yast2) or via
-the command line and <command>rpm</command>. Because OTRS needs some perl
+the command line and <command>rpm</command>. Because OTRS needs some Perl
 modules which are not installed on a SUSE system by default, we recommend
 to use <application>yast</application>, because
 <application>yast</application> solves the package dependencies automatically.
@@ -71,7 +71,7 @@ to use <application>yast</application>, because
 
 <para>
 If you decide to install OTRS via the command line and
-<application>rpm</application>, you have to install the needed perl modules
+<application>rpm</application>, you have to install the needed Perl modules
 manually before. Lets say, that you have saved the file
 <filename>otrs.rpm</filename> into the directory
 <filename>/tmp</filename>, you can execute the following command to install
@@ -305,7 +305,7 @@ administrator.
 The Win32 installer for OTRS contains all needed components for the trouble
 ticket system. That means, that also the <application>apache2</application>
 web server, the <application>MySQL</application> database server,
-<application>perl</application> with all needed modules and
+<application>Perl</application> with all needed modules and
 <application>cron</application> for Windows will be installed. For that reason
 you should only install OTRS on Windows systems that don't already have
  <application>apache2</application> or another web server and
@@ -423,24 +423,24 @@ the proper access rights.
 </sect2>
 
 <sect2 id="installation-of-needed-perl-modules">
-<title>Installation of needed perl modules</title>
+<title>Installation of needed Perl modules</title>
 
 <para>
-OTRS needs some additional perl modules. If you install OTRS from source,
+OTRS needs some additional Perl modules. If you install OTRS from source,
 you'll have to install these modules manually. This can either be done with
 the packagemanager of your distro (<application>yast</application>,
 <application>apt-get</application>) or, like described in this section,
-through the perl shell and CPAN.
+through the Perl shell and CPAN.
 </para>
 
 <para>
-OTRS requires the following additional perl modules:
+OTRS requires the following additional Perl modules:
 </para>
 
 <para>
 
 <table id="table-of-needed-perl-modules">
-<title>Needed perl modules for OTRS</title>
+<title>Needed Perl modules for OTRS</title>
   <tgroup cols="2">
     <thead>
       <row>
@@ -617,17 +617,17 @@ OTRS requires the following additional perl modules:
 
 <para>
 To install one of the modules from above with CPAN, you have to execute the
-command <command>perl -e shell -MCPAN</command>. The perl shell will be
+command <command>perl -e shell -MCPAN</command>. The Perl shell will be
 started in interactive mode and the CPAN module will be loaded. If CPAN is
 already configured, you can install the modules with the command
 <command>install</command> followed by the name of the module. CPAN takes
-care of the dependencies of a module to other perl modules and lets you know,
+care of the dependencies of a module to other Perl modules and lets you know,
 if other modules are needed.
 </para>
 
 <para>
 After you have installed all modules you can use the script
-<command>otrss.checkModules</command> to check if OTRS has all needed perl
+<command>otrss.checkModules</command> to check if OTRS has all needed Perl
 modules. The script is located in the <filename>bin</filename>
 directory in the home directory of the OTRS user.
 </para>
@@ -671,7 +671,7 @@ Execute also the two commands
 <command>perl -cw bin/cgi-bin/index.pl</command> and
 <command>perl -cw bin/PostMaster.pl</command> after changing into the
 directory <filename>/opt/otrs</filename>. If the output of
-both commands is "syntax OK", you have a proper perl installation to use
+both commands is "syntax OK", you have a proper Perl installation to use
 with OTRS.
 </para>
 
@@ -694,7 +694,7 @@ linux:/opt/otrs#
 <para>
 This section describes the basic configuration of the
 <application>apache</application> web server for OTRS. The web server
-should be able to execute CGI scripts. OTRS won't work if no perl scripts
+should be able to execute CGI scripts. OTRS won't work if no Perl scripts
 can be parsed. Check the config files of your web server and search for the
 line that loads the CGI module. If you see something like the following,
 the CGI module should be in use.
@@ -1150,7 +1150,7 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.16 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1172,7 +1172,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1182,7 +1182,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1192,7 +1192,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1205,7 +1205,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1215,7 +1215,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1225,7 +1225,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1236,7 +1236,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1246,7 +1246,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1256,7 +1256,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1266,7 +1266,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.15 2008-08-15 11:35:00 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets

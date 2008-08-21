@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.5 2006-11-06 07:45:54 cs Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.6 2008-08-21 16:14:16 ub Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -190,12 +190,12 @@ This saves time (see README.webserver).
 <sect2 id="performance-tuning-webserver-startup">
 <title>Preloaded modules - startup.pl</title>
 <para>
-Use the scripts/apache-perl-startup.pl (mod_perl 1.0) or scripts/apache2-perl-startup.pl (mod_perl 2.0) startup script for preloaded/precompiled perl
+Use the scripts/apache-perl-startup.pl (mod_perl 1.0) or scripts/apache2-perl-startup.pl (mod_perl 2.0) startup script for preloaded/precompiled Perl
 modules on your mod_perl webserver to be faster and smaller (see README.webserver).
 </para>
 </sect2>
 <sect2 id="performance-tuning-webserver-reload">
-<title>Reload perl modules when updated on disk</title>
+<title>Reload Perl modules when updated on disk</title>
 <para>
 Per default Apache::Reload (mod_perl 2.0) is used
 in scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
