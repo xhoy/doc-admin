@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.15 2008-02-25 15:31:47 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.16 2008-08-21 18:43:31 ub Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -1064,7 +1064,7 @@ the graphical configuration frontend is described more detailed.
 </sect1>
 
 <sect1 id="adminarea-postmasterpop3-account">
-<title>Using POP3 accounts</title>
+<title>Using mail accounts</title>
 
 <para>
 There are several possibilities to transport new emails into the ticket
@@ -1074,15 +1074,16 @@ system. One possibility is the
 PostMaster.pl module
 </link>
 
-that pipes the mails directly into the system. Another possibility are POP3
+that pipes the mails directly into the system. Another possibility are mail
 accounts which can be administrated through the web interface. The
-"PostMaster POP3 Account" link in the admin area of OTRS loads the
-management console for the POP3 accounts.
+"PostMaster Mail Account" link in the admin area of OTRS loads the
+management console for the mail accounts. OTRS supports the mail
+protocols POP3, POP3S, IMAP and IMAPS.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>POP3 account management</screeninfo>
+<screeninfo>Mail account management</screeninfo>
 <graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
 </screenshot>
 </para>
@@ -1091,7 +1092,7 @@ management console for the POP3 accounts.
 See the section about the
 
 <link linkend="email-receiving-pop3">
-PostMaster POP3 accounts
+PostMaster mail accounts
 </link>
 
 for more details.
@@ -1104,8 +1105,8 @@ for more details.
 <para>
 Because incoming messages can be sorted automatically into queues or spam
 mails can be moved into a specific queue, OTRS has the possibility to
-filter incoming messages. It does not matter, if PostMasterPOP3.pl or
-PostMaster.pl is used to get messages into the ticket system. Filter
+filter incoming messages. It does not matter, if mail accounts are used, or if
+<filename>PostMaster.pl</filename> is used to get messages into the ticket system. Filter
 rules can be created through the link "PostMaster Filter" in the admin area
 of OTRS.
 </para>

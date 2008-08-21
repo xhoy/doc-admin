@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.10 2006-04-23 21:29:52 ck Exp $ -->
+<!-- $Id: email.xml,v 1.11 2008-08-21 18:43:31 ub Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -71,26 +71,28 @@ graphical administration frontend (Framework::Core::Sendmail) or via
 <title>Receiving emails</title>
 
 <sect2 id="email-receiving-pop3">
-<title>Via POP3 accounts - the easy way (PostMasterPOP3.pl)</title>
+<title>Via mail accounts - the easy way (PostMasterMailbox.pl)</title>
 
 <para>
-OTRS is able to receive emails from POP3 accounts.
+OTRS is able to receive emails from mail accounts.
 </para>
 
 <para>
-Configure your POP3 accounts via the admin interface (POP3 Account).
+Configure your mail accounts via the admin interface (PostMaster Mail Account ).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Configure your POP3 accounts</screeninfo>
+<screeninfo>Configure your mail accounts</screeninfo>
 <graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-If a new POP3 account is created then its POP3 server, username and password
-must be specified. If you select "Yes" for "Trusted", the X-OTRS headers
+If a new mail account is created then its mail server, username and password
+must be specified. Also, you need to select the mail server type,
+which can be POP3, POP3S, IMAP or IMAPS.
+If you select "Yes" for "Trusted", the X-OTRS headers
 are evaluated and executed if such headers are in the incoming message.
 Because the X-OTRS header can execute some actions in the ticket system you
 should only set "Trusted" to "Yes" for known senders. X-OTRS-Headers are used by the
@@ -104,7 +106,6 @@ in OTRS. The X-OTRS headers are explained
 <link linkend="table-of-x-otrs-headers">
 in this table
 </link>
-
 
 in more detailed. If you have created filter rules they are executed and used
 even if "Trusted" is set to "Yes".
@@ -137,12 +138,12 @@ after a default installation.
 </para>
 
 <para>
-All data for the POP3 accounts are saved in the OTRS database. The
-<filename>PostMasterPOP3.pl</filename> script, which is located in the
+All data for the mail accounts are saved in the OTRS database. The
+<filename>PostMasterMailbox.pl</filename> script, which is located in the
 <filename>bin</filename> directory of your OTRS installation, uses the
 settings in the database and fetches the mail. You can execute
-<filename>./bin/PostMasterPOP3.pl</filename> manually to check if all your
-POP3 settings are working properly. If you want to fetch your mail
+<filename>./bin/PostMasterMailbox.pl</filename> manually to check if all your
+mail settings are working properly. If you want to fetch your mail
 automatically every ten minutes, you can use a
 
 <link linkend="cronjobs">
@@ -150,7 +151,7 @@ cron job
 </link>
 
 and the example entries that are available in the file
-<filename>var/cron/postmaster_pop3.dist</filename>.
+<filename>var/cron/postmaster_mailbox.dist</filename>.
 </para>
 </sect2>
 
@@ -158,7 +159,7 @@ and the example entries that are available in the file
 <title>Via command line program and e.g. procmail (PostMaster.pl)</title>
 
 <para>
-If POP3 can't be used to get the email into OTRS, the command line
+If mail accounts can't be used to get the email into OTRS, the command line
 programm <filename>bin/PostMaster.pl</filename> might be a solution.
 <filename>bin/PostMaster.pl</filename> takes the mail via STDIN and pipes
 them directly into OTRS. That means email will be shown in your OTRS system
@@ -190,7 +191,7 @@ installed on most systems. If not, have a look at the
 
 <para>
 To configure procmail for OTRS (requires a procmail configured MTA (e.g.
-sendmail,  postfix, exim or qmail)) use the
+sendmail, postfix, exim or qmail)) use the
 <filename>~otrs/.procmailrc.dist</filename> file and copy it to
 <filename>.procmailrc</filename>. Add the following:
 </para>
@@ -263,7 +264,7 @@ command if you want to fetch the mails regularly.
 dispatching)</title>
 
 <para>
-If you use the bin/PostMaster.pl or bin/PostMasterPOP3.pl method, you can
+If you use the bin/PostMaster.pl or bin/PostMasterMailbox.pl method, you can
 insert or modify X-OTRS header entries with the PostMaster filter modules.
 With the X-OTRS headers the ticket system can execute some actions on
 incomming mails, sort them into a specific queue, change the priority oder
@@ -271,7 +272,7 @@ change the customer ID for example. More information about the X-OTRS
 headers are available in the chapter about
 
 <link linkend="adminarea-postmasterpop3-account">
-adding POP3 accounts
+adding mail accounts
 </link>
 
 in the admin area of OTRS.

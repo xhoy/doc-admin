@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.19 2008-02-25 15:30:50 cs Exp $ -->
+<!-- $Id: adminarea.xml,v 1.20 2008-08-21 18:43:31 ub Exp $ -->
 
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
@@ -1206,21 +1206,21 @@ geht ausführlicher auf das grafische Konfigurations-Frontend ein.
 </sect1>
 
 <sect1 id="adminarea-postmasterpop3-account">
-<title>Einrichten von POP3-Konten</title>
+<title>Einrichten von Mail-Konten</title>
 
 <para>
 Es gibt mehrere Möglichkeiten, Mails in OTRS einzuspeisen. Neben
 der Nutzung des PostMaster.pl-Skripts, welches die Mails direkt in das
-System piped, können auch POP3-Konten abgefragt werden, an die Mails
-für Ihr Ticket-System gehen. Über den Link "PostMaster POP3
-Account" innerhalb des Admin-Bereiches erreichen Sie die Verwaltung der
-POP3-Konten, die OTRS automatisch auf neue Nachrichten überprüfen
-soll.
+System piped, können auch Mail-Konten abgefragt werden, an die Mails
+für Ihr Ticket-System gehen. Über den Link "PostMaster Mail Account"
+innerhalb des Admin-Bereiches erreichen Sie die Verwaltung der
+Mail-Konten, die OTRS automatisch auf neue Nachrichten überprüfen
+soll. OTRS ünterstützt dabei die Mail-Protokolle POP3, POP3S, IMAP und IMAPS.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von POP3 Konten</screeninfo>
+<screeninfo>Verwaltung von Mail-Konten</screeninfo>
 <graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
 </screenshot>
 </para>
@@ -1232,7 +1232,7 @@ Im Kapitel über die
 Mailkonfiguration
 </link>
 
-für OTRS wird die Einrichtung der POP3-Konten näher erläutert.
+für OTRS wird die Einrichtung der Mail-Konten näher erläutert.
 </para>
 
 </sect1>
@@ -1244,7 +1244,7 @@ für OTRS wird die Einrichtung der POP3-Konten näher erläutert.
 Damit Sie automatisch Mails vorsortieren können bzw. ungewünschte Mails gar
 nicht in die Queues des Ticket-Systems gelangen, können Filterregeln für
 eingehende Nachrichten festgelegt werden. Dabei spielt es keine Rolle, ob die
-Mails über POP3-Konten oder mit Hilfe des
+Mails über Mail-Konten oder mit Hilfe des
 <filename>PostMaster.pl</filename> Skriptes ins System gelangen. Der Link
 "PostMaster Filter" innerhalb des Admin-Bereiches von OTRS ruft die
 Verwaltung für die Filterregeln auf.
