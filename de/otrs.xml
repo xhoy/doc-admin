@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.16 2008-08-21 16:14:16 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.17 2008-08-25 16:41:29 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -591,6 +591,185 @@ Fähigkeiten des zentralen OTRS-Frameworks.
 </itemizedlist>
 
 </sect2>
+
+<sect2 id="new-features-of-2.3">
+<title>Neue Features von OTRS 2.3</title>
+
+<itemizedlist>
+<title>Performance</title>
+
+<listitem>
+    <para>
+        Datenbank- und Codeverbesserungen führen zu einem allgemeinen Performance-Gewinn von bis zu 20%.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Es wurde eine indizierte Volltextsuche hinzugefügt. Standardmässig ist dieses Feature
+        deaktiviert, da zusätzlicher Festplattenplatz erforderlich ist. Der erwartete
+        Performance-Gewinn liegt bei 50%.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Reduziertes Neu-Laden von Seiten durch AJAX-Technologie.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Anstatt die Eskalationszeiten während der Laufzeit ständig neu zu berechnen,
+        werden sie nur noch dann neu berechnet, wenn sie sich durch ein Event in OTRS
+        verändern. Die Eskalationszeiten werden im Ticket-Objekt gespeichert, dadurch
+        können externe Reporting-Tools direkt darauf zugreifen. Ausserdem wird die
+        Performance signifikant erhöht.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Such-Funktionalität</title>
+<listitem>
+    <para>
+        Unterstützung von logischen Ausdrücken: Die Ticket-, Kunden-, und
+        die FAQ-Suche unterstützen logische Ausdrücke, wie die
+        Operatoren UND, ODER, !, als auch Klammern, um Ausdrücke zu strukturieren.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Die Suche nach Ticket-Nummern direkt aus dem Browser heraus, mithilfe des
+        OpenSearch features (OpenSearch Format).
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Die Suche nach dem Ticket-Titel im Agenten-Interface und im Generic Agent.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Die Suche nach Schließ-Zeiten von Tickets im Agenten-Interface und im Generic Agent.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Ticket-Inhalt und Verschieben von Tickets</title>
+<listitem>
+    <para>
+        Aus-/zuklappen von Artikeln: Die Artikel-Ansicht kann ausgeklappt
+        werden, um alle Artikel auf einmal zu sehen. Der aktuelle Artikel
+        bleibt im Fokus, und der vorherige und nachfolgende Artikel werden
+        zusätzlich angezeigt.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Strukturierter Artikel-Baum: Die Artikel-Baum-Ansicht wird jetzt als Tabelle dargestellt.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Das Ausdrucken von Artikeln ist jetzt möglich.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Der Ticket-Titel von verknüpften Tickets wird als Mouse-Over Effekt angezeigt.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Verknüpfte Tickets werden nun durchgestrichen dargestellt.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Beim Verschieben von Tickets können mehrere Dateien als Anhänge hinzugefügt werden.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Ticket FreeText und FreeTime Features</title>
+<listitem>
+    <para>
+        Beim Teilen eines Tickets werden nun alle FreeText und FreeTime Felder in das neue
+        Ticket kopiert.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Ticket-FreeTime Felder können als Pflichtfeld definiert werden.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Eine URL kann als Wert für FreeText-Felder konfiguriert werden, die dann als
+        Link in einem Ticket dargestellt wird.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Die Email-Header X-OTRS-TicketTime und X-OTRS-FollowUp-TicketTime wurden hinzugefügt.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Unterstützung von IMAP, IMAPS und POP3S</title>
+<listitem>
+    <para>
+        Mit OTRS 2.3 werden die Email-Protokolle IMAP, IMAPS und POP3S zusätzlich unterstützt.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Sicherheit</title>
+<listitem>
+    <para>
+        Im Falle eines vergessenen Passworts sendet OTRS mit Hilfe des
+        "Password Reset Links" eine E-mail an den Benutzer.
+        Nach dem der Benutzer auf den Bestätigungs-Link in der Mail klickt,
+        wird das Passwort in einer zweiten E-mail verschickt.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Benachrichtigungen und Escalationen</title>
+<listitem>
+    <para>
+        Alle Agenten mit Leseberechtigung für eine bestimmte Queue können für Benachrichtigungen
+        ausgewählt werden.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Eine neue Eskalationsübersicht wurde hinzugefügt. Sie zeigt alle
+        Tickets, sortiert nach der verbleibenden Zeit bis zur Eskalation.
+    </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+
 </sect1>
 
 <sect1 id="software-requirements">

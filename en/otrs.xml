@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.14 2008-08-21 16:14:16 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.15 2008-08-25 16:41:29 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -557,6 +557,192 @@ included in the central framework.
 </itemizedlist>
 
 </sect2>
+
+
+<sect2 id="new-features-of-2.3">
+<title>New features of OTRS 2.3</title>
+
+<itemizedlist>
+<title>Performance</title>
+
+<listitem>
+    <para>
+        Data base- and code-improvements increase lead to a general performance gain of up to 20%.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        The support of an indexed full text search has been added. The feature is disabled per
+        default because additional disc space is needed. The expected performance gain is 50%.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Reduced reloads by using AJAX technology.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Instead of an ongoing recalculating of the escalation time
+        during the run time, it is only recalculated when it changes
+        due to an event in OTRS. It is then being stored in the ticket
+        object which allows a direct access of external reporting
+        tools to the data base as well as a more efficient reporting
+        on escalations. This will also lead into a substantial
+        performance improvement.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Search functionality</title>
+<listitem>
+    <para>
+        Support of logical expressions: ticket-, customer- and FAQ-
+        search supports logical expressions, utilizing the AND, OR
+        and ! operators as well as structuring expressions with
+        parentheses.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Search for ticket numbers by using the Browser OpenSearch
+        feature (OpenSearch format).
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Search for ticket titles in the agent ticket search form
+        and in the generic agent.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Search for ticket close time in the agent ticket search form
+        and in the generic agent.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Ticket zoom and ticket move</title>
+<listitem>
+    <para>
+        Expand/Collapse of articles: the article view can be expanded
+        to display all articles at once. The current article will
+        remain in focus, and the preceding, or following articles will
+        be displayed.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Structured article tree - The article tree has been changed
+        to a table.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Printing of articles has been realized.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        The ticket title of linked tickets are displayed in case of a
+        mouse over action.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Merged tickets are displayed crossed out.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Multiple files can be attached while moving a ticket using the
+        ticket move mask.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Ticket FreeText and FreeTime opportunities</title>
+<listitem>
+    <para>
+        When splitting a ticket, all FreeText and Free Time data will
+        be copied to the new ticket.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Ticket Free Time fields can be declared as mandatory.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        A URL can be configured that takes the value of a FreeText
+        field and displays it as an URL link in the ticket.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        Added X-OTRS-TicketTime and X-OTRS-FollowUp-TicketTime email headers.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>IMAP, IMAPS and POP3S support</title>
+<listitem>
+    <para>
+        With OTRS 2.3 IMAP, IMAPS, and POP3S is supported to fetch
+        mails from your MTA.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Security</title>
+<listitem>
+    <para>
+        In case of a lost password, OTRS is sending an e-mail to the
+        user with a "password reset link". After clicking this link
+        the new password is sent to the user in a second e-mail.
+    </para>
+</listitem>
+</itemizedlist>
+
+<itemizedlist>
+<title>Notifications and escalations</title>
+<listitem>
+    <para>
+        All agents that have a read permission on a certain queue can
+        be selected for notification.
+    </para>
+</listitem>
+
+<listitem>
+    <para>
+        An escalation view has been added that displays all tickets
+        sorted by their remaining time to escalation.
+    </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
 
 </sect1>
 
