@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.9 2008-08-21 22:07:05 ub Exp $ -->
+<!-- $Id: time.xml,v 1.10 2008-08-25 16:55:12 ub Exp $ -->
 
 <chapter id="time">
 <title>Time related functions in OTRS</title>
@@ -227,12 +227,6 @@ Inside the following table are the unlock cycles versus the OTRS versions are sh
 "Unlock" Properties
 </entry>
 <entry>
-1.2.x
-</entry>
-<entry>
-1.3.x
-</entry>
-<entry>
 2.0.x
 </entry>
 <entry>
@@ -243,6 +237,9 @@ Inside the following table are the unlock cycles versus the OTRS versions are sh
 </entry>
 <entry>
 2.2.x
+</entry>
+<entry>
+2.3.x
 </entry>
 </row>
 </thead>
@@ -271,25 +268,19 @@ x
 <entry>
 x
 </entry>
-<entry>
-x
-</entry>
 </row>
 <row>
 <entry>
 The "unlock" time will reset, if a agent add a new external article to the ticket. Inside the OTRS standard product external article are all articel depending on the article type "email-external", "phone", "fax", "sms", or "note-ext".
 </entry>
 <entry>
-x
-</entry>
-<entry>
-x
-</entry>
-<entry>
 -
 </entry>
 <entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x
@@ -317,25 +308,20 @@ x
 <entry>
 x
 </entry>
-<entry>
-x
-</entry>
 </row>
 <row>
 <entry>
 The "unlock" time will reset, if a agent add a new external article to the ticket (for example a "email article" or a "phone note").
 </entry>
-<entry>
-x
-</entry>
-<entry>
-x
-</entry>
+
 <entry>
 -
 </entry>
 <entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x
@@ -349,16 +335,13 @@ x
 The "unlock" time will reset, if a customer add a new article to the ticket (for example depending on a "FollowUp") and if the last article is written from a agent.
 </entry>
 <entry>
-x
-</entry>
-<entry>
-x
-</entry>
-<entry>
 -
 </entry>
 <entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x

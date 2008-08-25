@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.17 2008-08-25 16:41:29 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.18 2008-08-25 16:55:12 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -410,188 +410,6 @@ Fähigkeiten des zentralen OTRS-Frameworks.
   </listitem>
 </itemizedlist>
 
-<sect2 id="new-features-of-2.1">
-<title>Neue Features von OTRS 2.1</title>
-
-<itemizedlist>
-<title>Die neuen Kern-Features von OTRS 2.1 im Überblick</title>
-<listitem>
-    <para>
-    Multi-Kalender-Funktionalität: Dieses Feature vereinfacht das Arbeiten in
-    verschiedenen Umgebungen mit verschiedenen Zeitzonen. Die relevanten
-    Arbeitsstunden des Systems können abhängig von der Zeitzone festgelegt
-    werden, die Spezifikation von Urlaubs- und Feiertagen ist abhängig von
-    der Region möglich.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Statistik-Framework: Integration eines komplett überarbeiteten
-    Statistik-Frameworks der es erlaubt, nahezu jede Art von Report über die
-    Weboberfläche zu erstellen. Die Erstellung und Ansicht von Statistiken
-    kann pro Benutzer, Gruppe und / oder Rolle freigeschaltet werden. Der
-    Ex- und Import von bereits vorhandenen oder neuen Statistiken ist
-    möglich, Statistikmodule aus früheren OTRS-Versionen können weiter
-    verwendet werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    PDF-Generator: Die Druck-Ansicht von Tickets, Statistiken und
-    Suchergebnisse können nun als PDF-Datei exportiert werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Unterstützung von MSSQL: Eine Schnittstelle zu Microsofts SQL-Server
-    wurde integriert, so dass nun die komplette OTRS Datenbank auch auf
-    MSSQL-basierten Systemen installiert und benutzt werden kann.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    FAQ-Modul: Das FAQ-Modul von OTRS wurde komplett neu implementiert
-    und aus dem zentralen OTRS-Framework herausgenommen, so dass eine
-    Installation als seperates Modul möglich ist. Das neue FAQ-Modul bietet
-    erweiterte Such- und Navigationsfunktionen, eine verbesserte
-    Administration und eine Möglichkeit zur Bewertung von einzelnen FAQ-Einträgen.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Unterstützung hirarchischer Team-Strukturen: Mit hilfe der neu
-    eingeführten Überwachungs- und Verantwortlichkeitsfunktionen für
-    Tickets, wird die strukturierte Bearbeitung von Tickets in Teams
-    vereinfacht. Das Verantwortlichkeits-Feature ermöglicht es einem Agenten
-    den Ticket-Besitz abzugeben, jedoch trotzdem noch alle Schreibrechte am
-    Ticket zu behalten. Das Überwachungs-Features ermöglicht die Verfolgung der
-    Aktivitäten für ein Ticket, ohne selbst Eigentümer des Tickets zu sein.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Optimierte Erkennung von Follow-Ups: Neben der Auswertung der
-    Ticketnummer im Betreff einer Nachricht kann OTRS 2.1 nun auch nach
-    Ticket-Bezeichnern im Body einer Mail und innerhalb von Textanhängen
-    suchen und so ggfs. ein Follow-Up automatisiert zuordnen.
-    </para>
-</listitem>
-</itemizedlist>
-
-</sect2>
-
-<sect2 id="new-features-of-2.2">
-<title>Neue Features von OTRS 2.2</title>
-
-<itemizedlist>
-<title>Die neuen Kern-Features von OTRS 2.2 im Überblick</title>
-
-<listitem>
-    <para>
-    Services und SLAs:
-    Auf dem Weg hin zu einem IT-Servicemanagement-Werkzeug, wurden in OTRS 2.2
-    die neuen Attribute 'Service' und 'Service Level Agreements (SLA)'
-    integriert. Bei der Erstellung eines neuen Tickets kann der
-    Anfragesteller einen Service (z. B. Email-Service) und ein zugehöriges
-    SLA auswählen. SLA Atribute sind "response time" (Antwortzeit),
-    "update time" (Updatezeit) und "solution time" (Lösungszeit). Diese
-    Attribute können vom IT-Service für Benachrichtigungen oder für die
-    Eskalation von Tickets herangezogen werden, um bestehende SLAs einzuhalten.
-    Service- und SLA-spezifische Informationen innerhalb der Header neuer
-    Emails können weiterhin mit Hilfe des  PostMasterFilter-Moduls
-    ausgewertet werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Unterstützung nativer Tickettypen: Verschiedene Tickettypen können nun
-    über das Admin-Interface verwaltet werden. Die Benutzung von
-    Freitext-Feldern für die Spezifikation von Tickettypen ist somit
-    nicht mehr notwendig. Installationen, die Freitextfelder für die
-    Klassifikation von Tickettypen verwenden, müssen nicht migriert werden.
-    Dieses neue Feature wird ebenfalls im ticketinhalt und auch in der
-    Druckansicht für Agenten und Kunden angezeigt und kann über das
-    Agenten-Interface angepasst werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Unterstützung multipler Authentifikation-Quellen: Durch die
-    Unterstützung multipler vertrauenswürdiger Authentifikations-Quellen
-    wird es möglich, mehrere Backends für die Anmeldung von Kunden und
-    Agenten einzubinden. Schlägt die Authentifikation für die erste Quelle
-    fehl (z. B. für ein LDAP-Backend), kann als 2. Quelle ein weiteres
-    Backend (z. B. eine SQL-Datenbank) eingebunden werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Support von Kennworten mit verschiedener Verschlüsselung:
-    Die verschiedenen unterstützten und erlaubten Verschlüsselungen für
-    Agenten- und Kundenkennworte sind:
-    </para>
-
-    <itemizedlist>
-    <listitem>
-        <para>unix_crypt()</para>
-    </listitem>
-    <listitem>
-        <para>md5()</para>
-    </listitem>
-    <listitem>
-        <para>plain()</para>
-    </listitem>
-    </itemizedlist>
-
-    <para>
-    Die Standardeinstellung ist 'unix_crypt()'. Für ein laufendes System ist
-    ein Wechsel ohne großen Aufwand von
-    unix_crypt() zu md5() möglich, es muss lediglich der entsprechende
-    Konfigurationsparameter angepasst werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Änderung der OTRS-internen Struktur zur Speicherung der Kundendaten:
-    Die Speicherung der Kundendaten wurde restrukturiert und in die Objekte
-    "CustomerCompany" und "CustomerUser" aufgeteilt. Firmenspezifische Daten
-    (Company) wie z. B. der Firmenname, die Firmenadresse, usw. werden nun
-    gegenüber den personenspezifischen Daten (Vor- und Nachname, Anrede, etc.)
-    gesondert gepflegt.
-    </para>
-
-    <para>
-    Diese Informationen werden wie gewohnt innerhalb des Agent-Interfaces
-    angezeigt.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Erweitertes OPM-Format: OPM Pakete werden nun mit einer zusätzlichen
-    Beschreibung ausgeliefert. Die einleitende Seite für ein OPM Paket
-    informiert den Benutzer über neue Features und über die Schritte, die
-    nach der Installation des Paketes nötig sind.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    PostMaster-Admin-Interface: Durch diese Erweiterung kann genauer
-    definiert werden, welche Email-Adressen vom PostMasterFilter-Modul
-    behandelt und in Betracht gezogen werden sollen.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Verbesserung des SysConfig-Interfaces: Durch interne Umstrukturierungen des
-    SysConfig-Interfaces wurde die Performance stark erhöht. Die
-    Seiten werden nun viel flüssiger aufgebaut wodurch ein viel
-    schnelleres Arbeiten mit dem Tool möglich wird.
-    </para>
-</listitem>
-</itemizedlist>
-
-</sect2>
-
 <sect2 id="new-features-of-2.3">
 <title>Neue Features von OTRS 2.3</title>
 
@@ -764,6 +582,188 @@ Fähigkeiten des zentralen OTRS-Frameworks.
     <para>
         Eine neue Eskalationsübersicht wurde hinzugefügt. Sie zeigt alle
         Tickets, sortiert nach der verbleibenden Zeit bis zur Eskalation.
+    </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+
+<sect2 id="new-features-of-2.2">
+<title>Neue Features von OTRS 2.2</title>
+
+<itemizedlist>
+<title>Die neuen Kern-Features von OTRS 2.2 im Überblick</title>
+
+<listitem>
+    <para>
+    Services und SLAs:
+    Auf dem Weg hin zu einem IT-Servicemanagement-Werkzeug, wurden in OTRS 2.2
+    die neuen Attribute 'Service' und 'Service Level Agreements (SLA)'
+    integriert. Bei der Erstellung eines neuen Tickets kann der
+    Anfragesteller einen Service (z. B. Email-Service) und ein zugehöriges
+    SLA auswählen. SLA Atribute sind "response time" (Antwortzeit),
+    "update time" (Updatezeit) und "solution time" (Lösungszeit). Diese
+    Attribute können vom IT-Service für Benachrichtigungen oder für die
+    Eskalation von Tickets herangezogen werden, um bestehende SLAs einzuhalten.
+    Service- und SLA-spezifische Informationen innerhalb der Header neuer
+    Emails können weiterhin mit Hilfe des  PostMasterFilter-Moduls
+    ausgewertet werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Unterstützung nativer Tickettypen: Verschiedene Tickettypen können nun
+    über das Admin-Interface verwaltet werden. Die Benutzung von
+    Freitext-Feldern für die Spezifikation von Tickettypen ist somit
+    nicht mehr notwendig. Installationen, die Freitextfelder für die
+    Klassifikation von Tickettypen verwenden, müssen nicht migriert werden.
+    Dieses neue Feature wird ebenfalls im ticketinhalt und auch in der
+    Druckansicht für Agenten und Kunden angezeigt und kann über das
+    Agenten-Interface angepasst werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Unterstützung multipler Authentifikation-Quellen: Durch die
+    Unterstützung multipler vertrauenswürdiger Authentifikations-Quellen
+    wird es möglich, mehrere Backends für die Anmeldung von Kunden und
+    Agenten einzubinden. Schlägt die Authentifikation für die erste Quelle
+    fehl (z. B. für ein LDAP-Backend), kann als 2. Quelle ein weiteres
+    Backend (z. B. eine SQL-Datenbank) eingebunden werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Support von Kennworten mit verschiedener Verschlüsselung:
+    Die verschiedenen unterstützten und erlaubten Verschlüsselungen für
+    Agenten- und Kundenkennworte sind:
+    </para>
+
+    <itemizedlist>
+    <listitem>
+        <para>unix_crypt()</para>
+    </listitem>
+    <listitem>
+        <para>md5()</para>
+    </listitem>
+    <listitem>
+        <para>plain()</para>
+    </listitem>
+    </itemizedlist>
+
+    <para>
+    Die Standardeinstellung ist 'unix_crypt()'. Für ein laufendes System ist
+    ein Wechsel ohne großen Aufwand von
+    unix_crypt() zu md5() möglich, es muss lediglich der entsprechende
+    Konfigurationsparameter angepasst werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Änderung der OTRS-internen Struktur zur Speicherung der Kundendaten:
+    Die Speicherung der Kundendaten wurde restrukturiert und in die Objekte
+    "CustomerCompany" und "CustomerUser" aufgeteilt. Firmenspezifische Daten
+    (Company) wie z. B. der Firmenname, die Firmenadresse, usw. werden nun
+    gegenüber den personenspezifischen Daten (Vor- und Nachname, Anrede, etc.)
+    gesondert gepflegt.
+    </para>
+
+    <para>
+    Diese Informationen werden wie gewohnt innerhalb des Agent-Interfaces
+    angezeigt.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Erweitertes OPM-Format: OPM Pakete werden nun mit einer zusätzlichen
+    Beschreibung ausgeliefert. Die einleitende Seite für ein OPM Paket
+    informiert den Benutzer über neue Features und über die Schritte, die
+    nach der Installation des Paketes nötig sind.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PostMaster-Admin-Interface: Durch diese Erweiterung kann genauer
+    definiert werden, welche Email-Adressen vom PostMasterFilter-Modul
+    behandelt und in Betracht gezogen werden sollen.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Verbesserung des SysConfig-Interfaces: Durch interne Umstrukturierungen des
+    SysConfig-Interfaces wurde die Performance stark erhöht. Die
+    Seiten werden nun viel flüssiger aufgebaut wodurch ein viel
+    schnelleres Arbeiten mit dem Tool möglich wird.
+    </para>
+</listitem>
+</itemizedlist>
+
+</sect2>
+
+<sect2 id="new-features-of-2.1">
+<title>Neue Features von OTRS 2.1</title>
+
+<itemizedlist>
+<title>Die neuen Kern-Features von OTRS 2.1 im Überblick</title>
+<listitem>
+    <para>
+    Multi-Kalender-Funktionalität: Dieses Feature vereinfacht das Arbeiten in
+    verschiedenen Umgebungen mit verschiedenen Zeitzonen. Die relevanten
+    Arbeitsstunden des Systems können abhängig von der Zeitzone festgelegt
+    werden, die Spezifikation von Urlaubs- und Feiertagen ist abhängig von
+    der Region möglich.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Statistik-Framework: Integration eines komplett überarbeiteten
+    Statistik-Frameworks der es erlaubt, nahezu jede Art von Report über die
+    Weboberfläche zu erstellen. Die Erstellung und Ansicht von Statistiken
+    kann pro Benutzer, Gruppe und / oder Rolle freigeschaltet werden. Der
+    Ex- und Import von bereits vorhandenen oder neuen Statistiken ist
+    möglich, Statistikmodule aus früheren OTRS-Versionen können weiter
+    verwendet werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PDF-Generator: Die Druck-Ansicht von Tickets, Statistiken und
+    Suchergebnisse können nun als PDF-Datei exportiert werden.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Unterstützung von MSSQL: Eine Schnittstelle zu Microsofts SQL-Server
+    wurde integriert, so dass nun die komplette OTRS Datenbank auch auf
+    MSSQL-basierten Systemen installiert und benutzt werden kann.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    FAQ-Modul: Das FAQ-Modul von OTRS wurde komplett neu implementiert
+    und aus dem zentralen OTRS-Framework herausgenommen, so dass eine
+    Installation als seperates Modul möglich ist. Das neue FAQ-Modul bietet
+    erweiterte Such- und Navigationsfunktionen, eine verbesserte
+    Administration und eine Möglichkeit zur Bewertung von einzelnen FAQ-Einträgen.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Unterstützung hirarchischer Team-Strukturen: Mit hilfe der neu
+    eingeführten Überwachungs- und Verantwortlichkeitsfunktionen für
+    Tickets, wird die strukturierte Bearbeitung von Tickets in Teams
+    vereinfacht. Das Verantwortlichkeits-Feature ermöglicht es einem Agenten
+    den Ticket-Besitz abzugeben, jedoch trotzdem noch alle Schreibrechte am
+    Ticket zu behalten. Das Überwachungs-Features ermöglicht die Verfolgung der
+    Aktivitäten für ein Ticket, ohne selbst Eigentümer des Tickets zu sein.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Optimierte Erkennung von Follow-Ups: Neben der Auswertung der
+    Ticketnummer im Betreff einer Nachricht kann OTRS 2.1 nun auch nach
+    Ticket-Bezeichnern im Body einer Mail und innerhalb von Textanhängen
+    suchen und so ggfs. ein Follow-Up automatisiert zuordnen.
     </para>
 </listitem>
 </itemizedlist>

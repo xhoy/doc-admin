@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.20 2008-08-21 22:07:05 ub Exp $ -->
+<!-- $Id: time.xml,v 1.21 2008-08-25 16:55:12 ub Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -232,12 +232,6 @@ In der nachfolgenden Tabelle werden die Unlock-Zyklen der bisherigen OTRS Versio
 "Freigabe" (unlock) Eigenschaften
 </entry>
 <entry>
-1.2.x
-</entry>
-<entry>
-1.3.x
-</entry>
-<entry>
 2.0.x
 </entry>
 <entry>
@@ -248,6 +242,9 @@ In der nachfolgenden Tabelle werden die Unlock-Zyklen der bisherigen OTRS Versio
 </entry>
 <entry>
 2.2.x
+</entry>
+<entry>
+2.3.x
 </entry>
 </row>
 </thead>
@@ -276,25 +273,19 @@ x
 <entry>
 x
 </entry>
-<entry>
-x
-</entry>
 </row>
 <row>
 <entry>
 Die Unlockzeit wird zurück gesetzt, wenn ein Agent einen extenen Artikel am Ticket erstellt. Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", oder "note-ext".
 </entry>
 <entry>
-x
-</entry>
-<entry>
-x
-</entry>
-<entry>
 -
 </entry>
 <entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x
@@ -322,9 +313,6 @@ x
 <entry>
 x
 </entry>
-<entry>
-x
-</entry>
 </row>
 <row>
 <entry>
@@ -332,16 +320,13 @@ Die Unlockzeit wird zurück gesetzt, wenn ein Agent einen extenen Artikel am Tick
 Als externer Artikel gelten im OTRS Standard Produkt alle Artikel mit dem Artikel-Typ "email-external", "phone", "fax", "sms", "note-ext".
 </entry>
 <entry>
-x
-</entry>
-<entry>
-x
-</entry>
-<entry>
 -
 </entry>
 <entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x
@@ -354,17 +339,15 @@ x
 <entry>
 Die Unlockzeit wird zurück gesetzt, wenn ein Kunde ein "Follow-Up" auf ein Ticket sendet und der letzte Artikel von einem Agenten stammt.
 </entry>
-<entry>
-x
-</entry>
-<entry>
-x
-</entry>
+
 <entry>
 -
 </entry>
 <entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x

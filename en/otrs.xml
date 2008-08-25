@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.15 2008-08-25 16:41:29 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.16 2008-08-25 16:55:12 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -374,191 +374,6 @@ included in the central framework.
   </listitem>
 </itemizedlist>
 
-<sect2 id="new-features-of-2.1">
-<title>New features of OTRS 2.1</title>
-
-<itemizedlist>
-<title>New features of OTRS 2.1</title>
-
-<listitem>
-    <para>
-    Stable Support of MicrosoftRSQL Server: The first time OTRS offers an
-    interface to MS SQL Server platforms. Thatþs why OTRS supports all
-    popular operating systems like Linux, Windows, UNIX, Mac OS X etc. as
-    well as all major Databases like MS SQL, MySQL, PostgreSQL, MaxDB/SAP,
-    Oracle and DB2.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Multi-Calender Function: This Feature simplifies working in distributed
-    surroundings. National teams are supported by permitting different local
-    working schedules and public holiday regulations. International
-    organiszations are additionally supported by a time-zone feature.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    New Statistics-Framework: Gain access and define your Reports- and
-    Statistics in a more flexible way than ever. A powerful and easy to use
-    Wizard will guide you through the process. Once defined OTRS may deliver
-    periodicaly needed Reports automatically to a predefined Mailing List.
-    Export- and Importfunctions allow to transfer Statistics between
-    different OTRS Installations. So you can define and test your Statistics
-    before loading them up to your productive System.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Optimized Synchronization of authorizations from LDAP-Directory Services:
-    That simplifies the connection of all known LDAP-Directory Services like
-    Microsoft Active Directory, OpenLDAP, Novell eDirectory, Oracle Internet
-    Directory, etc. A usefull Feature which saves time and effort of
-    maintaining authorizations in the local Database of OTRS.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    PDF-Generator: OTRS now supports the Output of Reports and Statistics
-    as well as the results of a ticket search and ticket zoom in the
-    PDF-Format.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    New implemented Knowledge Database / FAQ-Module: OTRS makes allowance
-    for the need of an efficient Knowledge Management within daily Service
-    Request handling. Fundamental in this context is a quick access towards
-    existing problem-solving Know-How and standardized answers. Advantages:
-    optimized search-functions, more
-    effective administration of FAQ-Articles, faster Navigation and
-    opportunities to rate an existing FAQ-Article.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Tracking of Sub-orders and Support of hierarchical Team-Structures:
-    New Features like the Ticket Supervisor and the Ticket Watchers
-    support working within hierarchical Teams and enable you to define and
-    depute Work packages temporarily to another Service Agent. While the
-    Ticket Supervisor enables authorized Team members to depute a Ticket to
-    another Service Agent without loosing the right to edit this ticket the
-    Ticket Watcher allows you to track a ticket passive on the basis of an
-    individual watchlist.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Optimized Follow-Up-Detection: In addition to the subject heading, OTRS
-    also checks for referable ticket numbers inside the Email-body and further
-    attachments. This new feature aims to automatically assign an incoming
-    Service Request to an existing Incident much faster than before.
-    </para>
-</listitem>
-</itemizedlist>
-
-</sect2>
-
-<sect2 id="new-features-of-2.2">
-<title>New features of OTRS 2.2</title>
-
-<itemizedlist>
-<title>New features of OTRS 2.2</title>
-
-<listitem>
-    <para>
-    Support of Services and SLAs:
-    As major step towards IT Servicemanagement OTRS 2.2 brings in the new
-    attributes 'Service' and 'Service Level Agreements (SLA)'. While creating
-    a new ticket a service requester has to select both a service
-    (e. g. email-service)
-    and a related SLA . SLA attributes are "response time", "update time" and
-    "solution time". These attributes are used by the IT Service Organization
-    for notification and escalation purposes in order to keep the agreed SLA.
-    Service- and SLA-related informations within incoming email headers might
-    also be used by the Postmaster-Filter as already known before.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Support of native ticket types: Ticket types can now be managed over the admin interface. You
-    do not longer need to use ticket free text field for this purpose.
-    Installations which already use a ticket free text field for ticket type
-    classification do not need to migrate. This feature will also be shown in
-    zoom and print view for agents and customers and can be changed via the
-    agent interface.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Support of multiple authentication backends: Added support of multi authentication feature for agent and customer backend.
-    By using this feature it is now possible to use multiple trusted
-    authentication sources (i.e. use LDAP as a first source for authentification and in case
-    of an
-    unsuccessful authentification try a SQL DB as a second source).
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Support of different password crypt types:
-    Supported and permitted password authentication types for agent and/or customer
-    login are:
-    </para>
-
-    <itemizedlist>
-    <listitem>
-        <para>unix_crypt()</para>
-    </listitem>
-    <listitem>
-        <para>md5()</para>
-    </listitem>
-    <listitem>
-        <para>plain()</para>
-    </listitem>
-    </itemizedlist>
-
-    <para>
-    Default is 'unix_crypt()'. The administrator can easily switch from unix_crypt()
-    to md5() on the fly by changing the related configuration parameter.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Changed OTRS internal CustomerUser structure:
-    Customer datas (CustomerUser) are restructured and split into the objects
-    "CustomerCompany" and "CustomerUser" within the internal OTRS database. Company
-    related attributes like company name and address will be managed separately from
-    those attributes related to a single contact (e.g. prename, surname, phone etc.).
-    </para>
-
-    <para>
-    This information will be shown in zoom and print like the current customer info.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Enhanced OPM-Format: OPM Packages are now delivered with an additional online help. The introducing
-    page will inform the user about new features and will also give a short
-    overview about the next steps to do after having installed the packages.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    PostMaster-Admin-Interface: The improvement has lead to a more detailled definition of those email adresses
-    which have to be matched by PostMaster filter.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    SysConfig Improvement: A quicker page view and page saving leads to essential time savings during
-    configuration process.
-    </para>
-</listitem>
-</itemizedlist>
-
-</sect2>
-
-
 <sect2 id="new-features-of-2.3">
 <title>New features of OTRS 2.3</title>
 
@@ -742,6 +557,194 @@ included in the central framework.
 </listitem>
 </itemizedlist>
 </sect2>
+
+
+<sect2 id="new-features-of-2.2">
+<title>New features of OTRS 2.2</title>
+
+<itemizedlist>
+<title>New features of OTRS 2.2</title>
+
+<listitem>
+    <para>
+    Support of Services and SLAs:
+    As major step towards IT Servicemanagement OTRS 2.2 brings in the new
+    attributes 'Service' and 'Service Level Agreements (SLA)'. While creating
+    a new ticket a service requester has to select both a service
+    (e. g. email-service)
+    and a related SLA . SLA attributes are "response time", "update time" and
+    "solution time". These attributes are used by the IT Service Organization
+    for notification and escalation purposes in order to keep the agreed SLA.
+    Service- and SLA-related informations within incoming email headers might
+    also be used by the Postmaster-Filter as already known before.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Support of native ticket types: Ticket types can now be managed over the admin interface. You
+    do not longer need to use ticket free text field for this purpose.
+    Installations which already use a ticket free text field for ticket type
+    classification do not need to migrate. This feature will also be shown in
+    zoom and print view for agents and customers and can be changed via the
+    agent interface.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Support of multiple authentication backends: Added support of multi authentication feature for agent and customer backend.
+    By using this feature it is now possible to use multiple trusted
+    authentication sources (i.e. use LDAP as a first source for authentification and in case
+    of an
+    unsuccessful authentification try a SQL DB as a second source).
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Support of different password crypt types:
+    Supported and permitted password authentication types for agent and/or customer
+    login are:
+    </para>
+
+    <itemizedlist>
+    <listitem>
+        <para>unix_crypt()</para>
+    </listitem>
+    <listitem>
+        <para>md5()</para>
+    </listitem>
+    <listitem>
+        <para>plain()</para>
+    </listitem>
+    </itemizedlist>
+
+    <para>
+    Default is 'unix_crypt()'. The administrator can easily switch from unix_crypt()
+    to md5() on the fly by changing the related configuration parameter.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Changed OTRS internal CustomerUser structure:
+    Customer datas (CustomerUser) are restructured and split into the objects
+    "CustomerCompany" and "CustomerUser" within the internal OTRS database. Company
+    related attributes like company name and address will be managed separately from
+    those attributes related to a single contact (e.g. prename, surname, phone etc.).
+    </para>
+
+    <para>
+    This information will be shown in zoom and print like the current customer info.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Enhanced OPM-Format: OPM Packages are now delivered with an additional online help. The introducing
+    page will inform the user about new features and will also give a short
+    overview about the next steps to do after having installed the packages.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PostMaster-Admin-Interface: The improvement has lead to a more detailled definition of those email adresses
+    which have to be matched by PostMaster filter.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    SysConfig Improvement: A quicker page view and page saving leads to essential time savings during
+    configuration process.
+    </para>
+</listitem>
+</itemizedlist>
+
+</sect2>
+
+
+<sect2 id="new-features-of-2.1">
+<title>New features of OTRS 2.1</title>
+
+<itemizedlist>
+<title>New features of OTRS 2.1</title>
+
+<listitem>
+    <para>
+    Stable Support of MicrosoftRSQL Server: The first time OTRS offers an
+    interface to MS SQL Server platforms. Thatþs why OTRS supports all
+    popular operating systems like Linux, Windows, UNIX, Mac OS X etc. as
+    well as all major Databases like MS SQL, MySQL, PostgreSQL, MaxDB/SAP,
+    Oracle and DB2.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Multi-Calender Function: This Feature simplifies working in distributed
+    surroundings. National teams are supported by permitting different local
+    working schedules and public holiday regulations. International
+    organiszations are additionally supported by a time-zone feature.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    New Statistics-Framework: Gain access and define your Reports- and
+    Statistics in a more flexible way than ever. A powerful and easy to use
+    Wizard will guide you through the process. Once defined OTRS may deliver
+    periodicaly needed Reports automatically to a predefined Mailing List.
+    Export- and Importfunctions allow to transfer Statistics between
+    different OTRS Installations. So you can define and test your Statistics
+    before loading them up to your productive System.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Optimized Synchronization of authorizations from LDAP-Directory Services:
+    That simplifies the connection of all known LDAP-Directory Services like
+    Microsoft Active Directory, OpenLDAP, Novell eDirectory, Oracle Internet
+    Directory, etc. A usefull Feature which saves time and effort of
+    maintaining authorizations in the local Database of OTRS.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PDF-Generator: OTRS now supports the Output of Reports and Statistics
+    as well as the results of a ticket search and ticket zoom in the
+    PDF-Format.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    New implemented Knowledge Database / FAQ-Module: OTRS makes allowance
+    for the need of an efficient Knowledge Management within daily Service
+    Request handling. Fundamental in this context is a quick access towards
+    existing problem-solving Know-How and standardized answers. Advantages:
+    optimized search-functions, more
+    effective administration of FAQ-Articles, faster Navigation and
+    opportunities to rate an existing FAQ-Article.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Tracking of Sub-orders and Support of hierarchical Team-Structures:
+    New Features like the Ticket Supervisor and the Ticket Watchers
+    support working within hierarchical Teams and enable you to define and
+    depute Work packages temporarily to another Service Agent. While the
+    Ticket Supervisor enables authorized Team members to depute a Ticket to
+    another Service Agent without loosing the right to edit this ticket the
+    Ticket Watcher allows you to track a ticket passive on the basis of an
+    individual watchlist.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Optimized Follow-Up-Detection: In addition to the subject heading, OTRS
+    also checks for referable ticket numbers inside the Email-body and further
+    attachments. This new feature aims to automatically assign an incoming
+    Service Request to an existing Incident much faster than before.
+    </para>
+</listitem>
+</itemizedlist>
+
+</sect2>
+
+
 
 
 </sect1>
