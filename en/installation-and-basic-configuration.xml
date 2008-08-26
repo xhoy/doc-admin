@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
-<title>Installation of the OTRS framework</title>
+<title>Installation / Upgrade of the OTRS framework</title>
 
 <abstract>
 <para>
@@ -1150,7 +1150,7 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.16 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.17 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1172,7 +1172,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1182,7 +1182,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1192,7 +1192,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1205,7 +1205,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1215,7 +1215,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1225,7 +1225,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1236,7 +1236,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1246,7 +1246,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1256,7 +1256,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1266,7 +1266,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.16 2008-08-21 16:14:16 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.17 2008-08-26 07:31:14 ub Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
@@ -1278,6 +1278,15 @@ linux:/opt/otrs/bin#
 
 </sect2>
 
+</sect1>
+
+<sect1 id="upgrade">
+<title>Upgrading the OTRS Frameworks</title>
+<para>
+    If you want to upgrade your OTRS 2.2.x framework to version 2.3.x,
+    download the latest OTRS 2.3 framework and follow the instructions
+    in the file UPGRADING.
+</para>
 </sect1>
 
 </chapter>
