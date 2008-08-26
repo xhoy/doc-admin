@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.10 2008-08-21 18:43:31 ub Exp $ -->
+<!-- $Id: email.xml,v 1.11 2008-08-26 21:29:48 ub Exp $ -->
 
 <chapter id="email">
 <title>E-Mails versenden/empfangen</title>
@@ -300,8 +300,8 @@ Vergessen Sie nicht, die Zugriffsrechte von
 Wird das Kommando <command>"fetchmail -a</command> ausgeführt
 (ggf. via cron), werden alle E-Mails auf das lokale OTRS-Konto
 weitergeleitet und mit Hilfe von procmail an
-<filename>bin/PostMasterPOP3.pl</filename> übergeben.
-<filename>bin/PostMasterPOP3.pl</filename> sorgt wiederum dafür, dass die
+<filename>bin/PostMasterMailbox.pl</filename> übergeben.
+<filename>bin/PostMasterMailbox.pl</filename> sorgt wiederum dafür, dass die
 neuen Mails in das Ticket System gelangen.
 </para>
 </sect2>
@@ -312,7 +312,7 @@ Verteilungsszenarien)</title>
 
 <para>
 Falls die <filename>bin/PostMaster.pl</filename> oder
-<filename>bin/PostMasterPOP3.pl</filename> Methoden verwendet werden, können
+<filename>bin/PostMasterMailbox</filename> Methoden verwendet werden, können
 X-OTRS-Header mit Hilfe der PostMaster-Filtermodule in die eingehenden
 Mails eingefügt bzw. bereits vorhandene X-OTRS-Header verändert werden. Mit
 Hilfe von X-OTRS-Headern kann das Ticket System bestimmte Aktionen für
