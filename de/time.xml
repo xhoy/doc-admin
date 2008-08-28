@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.22 2008-08-26 07:19:57 ub Exp $ -->
+<!-- $Id: time.xml,v 1.23 2008-08-28 15:26:38 ub Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -509,18 +509,13 @@ In der nachfolgenden Tabelle werden die Eskalationszyklen der bisherigen OTRS Ve
 
 <table id="table-of-escalation-mechanismen">
 <title>Eskalations Eigenschaften</title>
-<tgroup cols="6">
+<tgroup cols="5">
 <thead>
 <row>
 <entry>
 Eskalations Eigenschaften
 </entry>
-<entry>
-1.2.x
-</entry>
-<entry>
-1.3.x
-</entry>
+
 <entry>
 2.0.x
 </entry>
@@ -529,6 +524,9 @@ Eskalations Eigenschaften
 </entry>
 <entry>
 2.2.x
+</entry>
+<entry>
+2.3.x
 </entry>
 </row>
 </thead><tbody>
@@ -553,22 +551,16 @@ x
 <entry>
 x
 </entry>
-<entry>
-x
-</entry>
 </row>
 <row>
 <entry>
 Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Kunde einen Artikel am Ticket erstellt (z. B. durch Email-FollowUp). Das Ticket muss dabei nicht wiedereröffnet werden. Ist bereits der letzte Artikel von einem Kunden, wird die Eskalationszeit (Startpunkt) nicht zurück gesetzt, da sich hier die Eskalation verzögern würde.
 </entry>
 <entry>
-x
-</entry>
-<entry>
-x
-</entry>
-<entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x
@@ -582,13 +574,10 @@ x
 Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Agent einen externen Artikel (z. B. eine Email an einen Kunden oder eine Telefon-Notiz) anlegt.
 </entry>
 <entry>
-x
-</entry>
-<entry>
-x
-</entry>
-<entry>
 -
+</entry>
+<entry>
+x
 </entry>
 <entry>
 x
