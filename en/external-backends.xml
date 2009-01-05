@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.8 2007-10-25 11:48:09 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.9 2009-01-05 22:37:36 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -728,27 +728,29 @@ access is given, so the data have to be managed directly in the LDAP tree.
 
 <para>
 <programlisting>
-    # UserSyncLDAPMap
-    # (map if agent should create/synced from LDAP to DB after login)
-    $Self->{UserSyncLDAPMap} = {
+
+    # agent data sync against ldap
+    $Self->{'AuthSyncModule'} = 'Kernel::System::Auth::Sync::LDAP';
+    $Self->{'AuthSyncModule::LDAP::Host'} = 'ldap://ldap.example.com/';
+    $Self->{'AuthSyncModule::LDAP::BaseDN'} = 'dc=otrs, dc=org';
+    $Self->{'AuthSyncModule::LDAP::UID'} = 'uid';
+    $Self->{'AuthSyncModule::LDAP::SearchUserDN'} = 'uid=sys, ou=user, dc=otrs, dc=org';
+    $Self->{'AuthSyncModule::LDAP::SearchUserPw'} = 'some_pass';
+    $Self->{'AuthSyncModule::LDAP::UserSyncMap'} = {
         # DB -> LDAP
         UserFirstname => 'givenName',
-        UserLastname => 'sn',
-        UserEmail => 'mail',
+        UserLastname  => 'sn',
+        UserEmail     => 'mail',
     };
+    [...]
 
-    # UserSyncLDAPGroups
-    # (If "LDAP" was selected for AuthModule, you can specify
-    # initial user groups for first login.)
-    $Self->{UserSyncLDAPGroups} = [
+    # AuthSyncModule::LDAP::UserSyncInitialGroups
+    # (sync following group with rw permission after initial create of first agent
+    # login)
+    $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
         'users',
     ];
 
-    # UserTable
-    $Self->{DatabaseUserTable} = 'system_user';
-    $Self->{DatabaseUserTableUserID} = 'id';
-    $Self->{DatabaseUserTableUserPW} = 'pw';
-    $Self->{DatabaseUserTableUser} = 'login';
 </programlisting>
 </para>
 
