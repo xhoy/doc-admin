@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.8 2008-08-21 14:22:17 ub Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.9 2009-01-21 13:18:30 ub Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
@@ -62,7 +62,7 @@ Es stehen zwei Module für das Speichern der Tickets und Artikel bereit.
 Kernel/Config.pm
 <programlisting>
 [...]
-    $Self->{TicketStorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
+    $Self->{Ticket::StorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
 [...]
 </programlisting>
 </para>
