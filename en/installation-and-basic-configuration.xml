@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -693,42 +693,74 @@ linux:/opt/otrs#
 
 <para>
 This section describes the basic configuration of the
-<application>apache</application> web server for OTRS. The web server
-should be able to execute CGI scripts. OTRS won't work if no Perl scripts
-can be parsed. Check the config files of your web server and search for the
+<application>apache</application> web server for OTRS for use with mod_cgi . The web server
+should be able to execute CGI scripts. OTRS won't work if the Perl scripts
+cannot be parsed. Check the configuration files of your web server, and search for the
 line that loads the CGI module. If you see something like the following,
-the CGI module should be in use.
+the CGI module should already be in use.
 </para>
 
 <para>
-<programlisting id="load-cgi-module">
 LoadModule cgi_module /usr/lib/apache2/modules/mod_cgi.so
-</programlisting>
 </para>
 
+
 <para>
-To access the web interface of OTRS comfortably via a short address, an
+To access the web interface of OTRS comfortably, via a short address, an
 Alias and a ScriptAlias entry is needed. Most
 <application>apache</application>  installations have a
 <filename>conf.d</filename> directory included. On linux systems you can
 find this directory very often under <filename>/etc/apache</filename> or
-<filename>/etc/apache2</filename>. Log in as root and change to the
-<filename>conf.d</filename> directory and open/create a file called
-<filename>otrs.conf</filename>. Insert the following lines into this file:
+<filename>/etc/apache2</filename>. Log in as root, change to the
+<filename>conf.d</filename> directory and copy the appropriate
+template to a file called <filename>otrs.conf</filename>.
 </para>
 
+
 <para>
-<programlisting id="basic-apache-configuration-for-otrs">
-#
-# Basic apache configuration file for OTRS
-#
+First find the example configuration file in otrs/scripts/ that is fitting for
+your version of the apache webserver.
+
+Either:
+Apache2
+apache2-httpd-new.include.conf
+<screen>
+# --
+# added for OTRS (http://otrs.org/)
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
+# --
+
 # agent, admin and customer frontend
-#
 ScriptAlias /otrs/ "/opt/otrs/bin/cgi-bin/"
 Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
-#
-# Directory settings
-#
+
+# if mod_perl is used
+&lt;IfModule mod_perl.c&gt;
+
+    # load all otrs modules
+    Perlrequire /opt/otrs/scripts/apache2-perl-startup.pl
+
+    # Apache::Reload - Reload Perl Modules when Changed on Disk
+    PerlModule Apache2::Reload
+    PerlInitHandler Apache2::Reload
+    PerlModule Apache2::RequestRec
+
+    # set mod_perl2 options
+    &lt;Location /otrs&gt;
+#        ErrorDocument 403 /otrs/customer.pl
+        ErrorDocument 403 /otrs/index.pl
+        SetHandler  perl-script
+        PerlResponseHandler ModPerl::Registry
+        Options +ExecCGI
+        PerlOptions +ParseHeaders
+        PerlOptions +SetupEnv
+        Order allow,deny
+        Allow from all
+    &lt;/Location&gt;
+
+&lt;/IfModule&gt;
+
+# directory settings
 &lt;Directory "/opt/otrs/bin/cgi-bin/"&gt;
     AllowOverride None
     Options +ExecCGI -Includes
@@ -740,11 +772,53 @@ Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
     Order allow,deny
     Allow from all
 &lt;/Directory&gt;
-</programlisting>
+
+# MaxRequestsPerChild (so no apache child will be to big!)
+MaxRequestsPerChild 400
+</screen>
+Apache1
+apache-httpd.include.conf
+<screen>
+# --
+# added for OTRS (http://otrs.org/)
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
+# --
+
+# agent, admin and customer frontend (mod_alias required!)
+ScriptAlias /otrs/ "/opt/otrs/bin/cgi-bin/"
+Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
+
+# if mod_perl is used
+&lt;IfModule mod_perl.c&gt;
+
+    # load all otrs modules (speed improvement!)
+#   Perlrequire /opt/otrs/scripts/apache-perl-startup.pl
+
+    # Apache::StatINC - Reload %INC files when updated on disk
+    # (just use it for testing, setup, ... not for high productiv systems)
+#   PerlInitHandler Apache::StatINC
+
+    &lt;Location /otrs&gt;
+#        ErrorDocument 403 /otrs/customer.pl
+        ErrorDocument 403 /otrs/index.pl
+        SetHandler  perl-script
+        PerlHandler Apache::Registry
+        Options ExecCGI
+        PerlSendHeader On
+        PerlSetupEnv On
+    &lt;/Location&gt;
+
+&lt;/IfModule&gt;
+
+# MaxRequestsPerChild (so no apache child will be to big!)
+MaxRequestsPerChild 400
+
+</screen>
+
 </para>
 
 <para>
-Save the file and restart your webserver to load the new config settings
+Restart your webserver to load the new config settings
 for the web server. On most systems you can start/restart your webserver
 with the command <command>/etc/init.d/apache restart</command> or
 <command>/etc/init.d/apache2 restart</command>.
@@ -761,8 +835,35 @@ linux:/etc/apache2/conf.d#
 <para>
 Now your webserver should be basicaly configured for OTRS.
 </para>
-</sect2>
 
+<para>
+If you choose to increase performance, and you can install mod_perl, then you
+can leave mod_cgi off, and configure the
+<application>apache</application> web server for use with mod_perl, in
+the following manner.
+</para>
+
+<para>
+Please enusre that mod_perl is installed, and loaded, in order to take advantage of
+this feature. Due to the nature of the start-up script, your server will not fail
+to start, if the mod_perl is not properly loaded or compiled in your apache web server, unless
+mod_cgi is also on. Technically speaking you can leave mod_cgi on as well, but you
+should not.
+</para>
+
+<para>
+Search your /etc/apache* directory directory for mod_perl.so
+i.e.<screen> #:/ grep -Rn mod_perl.so /etc/apache*</screen>
+to see if the module is already loaded somewhere, or not.
+</para>
+
+<para>
+When you use the apropriate start script (listed above), and the module
+is loaded, the script (when commented in) /opt/otrs/scripts/apache-perl-startup.pl can be
+used to load the perl modules into memory one time, saving on load times and
+increasing performance.
+</para>
+</sect2>
 <sect2 id="database-configuration">
 <title>Configuring the database</title>
 
@@ -1150,7 +1251,7 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.18 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.19 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1170,9 +1271,9 @@ entries are right:
 linux:/opt/otrs/bin# crontab -l -u otrs
 # --
 # cron/aaa_base - base crontab package
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1180,9 +1281,9 @@ MAILTO="root@localhost"
 
 # --
 # cron/fetchmail - fetchmail cron of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1190,9 +1291,9 @@ MAILTO="root@localhost"
 
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1203,9 +1304,9 @@ MAILTO="root@localhost"
 #0 23 * * * $HOME/bin/GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1213,9 +1314,9 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1223,9 +1324,9 @@ MAILTO="root@localhost"
 45 */2 * * * $HOME/bin/PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1234,9 +1335,9 @@ MAILTO="root@localhost"
 10 0 * * * $HOME/bin/otrs.cleanup &gt;&gt; /dev/null
 # --
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1244,9 +1345,9 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/PostMasterPOP3.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1254,9 +1355,9 @@ MAILTO="root@localhost"
 
 # --
 # cron/session - delete old session ids of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1264,9 +1365,9 @@ MAILTO="root@localhost"
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
-# Copyright (C) 2001-2008 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.18 2008-10-29 10:02:30 ub Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.19 2009-03-05 10:29:51 shb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
