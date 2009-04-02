@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.8 2007-10-25 11:48:09 cs Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.8.4.1 2009-04-02 13:52:58 ho Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -745,7 +745,7 @@ access is given, so the data have to be managed directly in the LDAP tree.
     ];
 
     # UserTable
-    $Self->{DatabaseUserTable} = 'system_user';
+    $Self->{DatabaseUserTable} = 'users';
     $Self->{DatabaseUserTableUserID} = 'id';
     $Self->{DatabaseUserTableUserPW} = 'pw';
     $Self->{DatabaseUserTableUser} = 'login';
