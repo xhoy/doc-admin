@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.18 2009-04-02 09:21:08 ho Exp $ -->
+<!-- $Id: otrs.xml,v 1.19 2009-04-03 11:42:28 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -778,7 +778,7 @@ that can execute Perl scripts.
 
 <para>
 For database back-ends, we recommend to use <application>MySQL</application>
-(3.1.x or higher) or <application>PostgreSQL</application>.
+(4.1 or higher) or <application>PostgreSQL</application>.
 However, all database servers that use SQL for their database language should be
 able to work with OTRS. If you use <application>MySQL</application> you
 have the advantage that you can configure your database and some system
@@ -787,7 +787,7 @@ settings during the installation through a web front-end.
 
 <para>
 For <application>Perl</application>, we recommend using at least version
-5.8. You need some additional modules which can be installed either with
+5.8.6. You need some additional modules which can be installed either with
 the Perl shell and CPAN or via the package manager of your operating system
 (<application>rpm</application>, <application>yast</application>,
 <application>apt-get</application>).
