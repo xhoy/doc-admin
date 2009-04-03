@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.19 2009-04-03 11:42:28 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.20 2009-04-03 12:10:51 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -769,28 +769,47 @@ host.
 </para>
 
 <para>
-For the web server, we recommend using <application>apache 1.3.x</application>
-or <application>apache 2.x</application>. With this web server, you can use
+For the web server, we recommend using <application>apache 2</application>. With this web server, you can use
 the mod_perl module which improves greatly the performance of OTRS.
 If you can't use apache, OTRS should run on any web server
 that can execute Perl scripts.
 </para>
 
 <para>
-For database back-ends, we recommend to use <application>MySQL</application>
-(4.1 or higher) or <application>PostgreSQL</application>.
-However, all database servers that use SQL for their database language should be
-able to work with OTRS. If you use <application>MySQL</application> you
+For database back-ends, you can use <application>MySQL</application>,
+ <application>PostgreSQL</application>, <application>Oracle</application>,
+<application>MSSQL</application> or <application>DB2</application>.
+If you use <application>MySQL</application> you
 have the advantage that you can configure your database and some system
 settings during the installation through a web front-end.
 </para>
 
 <para>
 For <application>Perl</application>, we recommend using at least version
-5.8.6. You need some additional modules which can be installed either with
+5.8.8. You need some additional modules which can be installed either with
 the Perl shell and CPAN or via the package manager of your operating system
 (<application>rpm</application>, <application>yast</application>,
 <application>apt-get</application>).
+</para>
+
+<para>
+Software requirements
+=====================
+
+  Perl
+    * Perl 5.8.8 or higher
+
+  Webserver
+    * Webserver with CGI support (CGI is not recommended)
+    * Apache2+mod_perl2 or higher (recommended, mod_perl is really fast!)
+    * IIS6 or higher
+
+  Databases
+    * MySQL 4.1 or higher
+    * PostgreSQL 8.0 or higher
+    * Oracle 10g or higher
+    * DB2 8 or higher
+    * MSSQL 2003 or higher
 </para>
 
 <para>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.21 2009-04-03 11:42:28 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.22 2009-04-03 12:10:51 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -795,8 +795,7 @@ installiert werden.
 </para>
 
 <para>
-Für den Webserver wird empfohlen, auf <application>apache
-1.3.x</application> oder <application>apache 2.x</application>
+Für den Webserver wird empfohlen, auf <application>apache 2</application>
 zurück zu greifen. Vor allem durch die Erweiterung der
 apache-Konfiguration um das mod-perl-Modul, kann die Geschwindigkeit
 von OTRS enorm gesteigert werden. Prinzipiell sollte aber jeder Webserver,
@@ -805,22 +804,40 @@ Betrieb von OTRS geeignet sein.
 </para>
 
 <para>
-Als Datenbank-Back-End eignen sich besonders <application>MySQL</application>
-ab Version 4.1 oder <application>PostgreSQL</application>.
-Grundsätzlich sollten jedoch alle Datenbankserver zusammen mit OTRS
-verwendet werden können, die SQL als Datenbanksprache
-unterstützen. Ein Vorteil der Benutzung von
-<application>MySQL</application> ist, dass OTRS über einen
+Als Datenbank-Back-End eignen sich <application>MySQL</application>,
+ <application>PostgreSQL</application>, <application>Oracle</application>,
+<application>MSSQL</application> oder <application>DB2</application>.
+Ein Vorteil der Benutzung von <application>MySQL</application> ist, dass OTRS über einen
 Webinstaller die Datenbank und Tabellen automatisch anlegen kann.
 </para>
 
 <para>
-Für <application>Perl</application> gilt mindestens die Version 5.8.6 zu
+Für <application>Perl</application> gilt mindestens die Version 5.8.8 zu
 verwenden. Es werden einige Zusatzmodule benötigt, die Sie entweder
 direkt über die Shell von <application>Perl</application> und
 CPAN oder mit Hilfe des Paketmanagers (<application>yast</application>,
 <application>apt-get</application>) Ihres Betriebssystems einspielen
 müssen.
+</para>
+
+<para>
+Software-Anforderungen
+======================
+
+  Perl
+    * Perl 5.8.8 oder höher
+
+  Webserver
+    * Webserver mit CGI support (CGI nicht empfohlen)
+    * Apache2+mod_perl2 or higher (empfohlen, mod_perl ist sehr schnell!)
+    * IIS6 oder höher
+
+  Databases
+    * MySQL 4.1 oder höher
+    * PostgreSQL 8.0 oder höher
+    * Oracle 10g oder höher
+    * DB2 8 oder höher
+    * MSSQL 2003 oder höher
 </para>
 
 <para>
