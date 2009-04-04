@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.20 2009-04-03 12:10:51 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.21 2009-04-04 16:52:31 ub Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -792,25 +792,46 @@ the Perl shell and CPAN or via the package manager of your operating system
 <application>apt-get</application>).
 </para>
 
-<para>
-Software requirements
-=====================
+<para>Software requirements</para>
 
-  Perl
-    * Perl 5.8.8 or higher
+<para>Perl</para>
+    <itemizedlist>
+    <listitem>
+        <para>Perl 5.8.8 oder höher</para>
+    </listitem>
+    </itemizedlist>
 
-  Webserver
-    * Webserver with CGI support (CGI is not recommended)
-    * Apache2+mod_perl2 or higher (recommended, mod_perl is really fast!)
-    * IIS6 or higher
+<para>Webserver</para>
+    <itemizedlist>
+    <listitem>
+        <para>Webserver with CGI support (CGI is not recommended)</para>
+    </listitem>
+    <listitem>
+        <para>Apache2+mod_perl2 or higher (recommended, mod_perl is really fast!)</para>
+    </listitem>
+    <listitem>
+        <para>IIS6 or higher</para>
+    </listitem>
+    </itemizedlist>
 
-  Databases
-    * MySQL 4.1 or higher
-    * PostgreSQL 8.0 or higher
-    * Oracle 10g or higher
-    * DB2 8 or higher
-    * MSSQL 2003 or higher
-</para>
+<para>Databases</para>
+    <itemizedlist>
+    <listitem>
+        <para>MySQL 4.1 or higher</para>
+    </listitem>
+    <listitem>
+        <para>PostgreSQL 8.0 or higher</para>
+    </listitem>
+    <listitem>
+        <para>Oracle 10g or higher</para>
+    </listitem>
+    <listitem>
+        <para>DB2 8 or higher</para>
+    </listitem>
+    <listitem>
+        <para>MSSQL 2003 or higher</para>
+    </listitem>
+    </itemizedlist>
 
 <para>
 The section on the
