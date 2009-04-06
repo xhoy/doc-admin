@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation/Upgrading des OTRS Frameworks</title>
@@ -1147,7 +1147,7 @@ Version von <application>Apache</application> passende Konfigurationsdatei. Für
 <programlisting>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1200,7 +1200,7 @@ und für ältere Versionen <filename>apache-httpd.include.conf</filename>
 <programlisting>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 
 # agent, admin and customer frontend (mod_alias required!)
@@ -1255,7 +1255,6 @@ Das war bereits die grundlegende Konfiguration des Webservers für
 OTRS.
 </para>
 
-</sect2>
 <para>
 Zur Verbesserung der Performance können sie mod_cgi deaktivieren und den
 <application>Apache</application> Webserver stattdessen für die Benutzung von
@@ -1263,7 +1262,10 @@ Mod_Perl konfigurieren:
 </para>
 
 <para>
-Stellen Sie bitte sicher, daß Mod_Perl installiert und geladen ist. Andernfalls wird der Webserver-Dienst trotzdem starten, in diesem Fall wird jedoch Mod_CGI verwendet. Ob Mod_Perl geladen ist, können Sie z. B. für <application>Apache2</application> folgendermaßen ermitteln:
+Stellen Sie bitte sicher, daß Mod_Perl installiert und geladen ist. Andernfalls
+wird der Webserver-Dienst trotzdem starten, in diesem Fall wird jedoch Mod_CGI
+verwendet. Ob Mod_Perl geladen ist, können Sie z. B. für
+<application>Apache2</application> folgendermaßen ermitteln:
 <screen> linux:~# apache2ctl -M
  core_module (static)
  log_config_module (static)
@@ -1279,6 +1281,7 @@ Stellen Sie bitte sicher, daß Mod_Perl installiert und geladen ist. Andernfalls 
 Wenn Mod_Perl geladen ist, werden beim Start des Webservers, mittels des Scripts
 <filename>otrs/scripts/apache2-perl-startup.pl</filename> die für <application>OTRS</application> benötigten Perl-Module persistent in den Arbeitsspeicher geladen und müssen auf diese Weise nicht bei jedem Request wieder geladen werden, was eine enorme Geschwindigkeitssteigerung zur Folge hat.
 </para>
+</sect2>
 
 <sect2 id="database-configuration">
 <title>Einrichten der Datenbank</title>
@@ -1712,7 +1715,7 @@ Cron-Jobs für den OTRS-Benutzer zu installieren, erweitern Sie bitte
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.28 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.29 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1735,7 +1738,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1745,7 +1748,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1755,7 +1758,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1768,7 +1771,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1778,7 +1781,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1788,7 +1791,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1799,7 +1802,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1809,7 +1812,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1819,7 +1822,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1829,7 +1832,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-04-02 09:56:06 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2009-04-06 13:25:39 ho Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
