@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.24 2009-04-22 08:12:56 martin Exp $ -->
+<!-- $Id: otrs.xml,v 1.25 2009-04-22 08:23:25 martin Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -380,6 +380,7 @@ included in the central framework.
 <itemizedlist>
 <title>Licensing changed to AGPL Version 3</title>
 
+<listitem>
 <para>
 Why AGPL instead of GPL? - AGPL and GPL are identical, with one exception: For software used in an SaaS environment Copyleft is effective in AGPL - which is not the case when using GPL. Keeping in mind the growing world of SaaS, ((otrs)) wants to ensure that future developments continue to return to the OTRS community. This is the reason for the switch to AGPL.
 </para>
@@ -387,14 +388,18 @@ Why AGPL instead of GPL? - AGPL and GPL are identical, with one exception: For s
 <para>
 Why v3 instead of v2? - GPL v2 is getting older and has, especially in the USA, various legal uncertainties. In the opinion of ((otrs)) GPL v3 is keeping the spirit of GPL v2, and at the same time has been tailored to new needs. ((otrs)) views GPLv3, more specifically AGPLv3, as being the best balanced Copyleft Open Source License available today, offering Protection for copyright owners and users and providing the best security under the law.
 </para>
+</listitem>
+
 </itemizedlist>
 
 <itemizedlist>
 <title>New Management Dashboard</title>
 
+<listitem>
 <para>
 The need for a system-spanning, next to real-time, and personalized presentation of useful information led to an integrated Management Dashboard. It is possible to create plug-ins to display content from individual extensions alongside the standard content. Standard plug-ins are:
 </para>
+</listitem>
 
 <listitem>
     <para>
@@ -432,9 +437,11 @@ Integration of RSS
 <itemizedlist>
 <title>New Standard Reports</title>
 
+<listitem>
 <para>
 The new reports provided with OTRS 2.4 are:
 </para>
+</listitem>
 
 <listitem>
     <para>
@@ -477,6 +484,8 @@ Answer time analysis per customer / per queue
 
 <itemizedlist>
 <title>New Master/Slave Ticket Feature</title>
+
+<listitem>
 <para>
 With the Master/Slave Ticket, it is possible to link multiple tickets of a similar nature, and handle them collectively. As soon as the problem is solved, only the master ticket must be closed. All other tickets will be closed automatically, and the solution text for the master ticket will be sent to all customers of slave tickets.
 </para>
@@ -484,6 +493,7 @@ With the Master/Slave Ticket, it is possible to link multiple tickets of a simil
 <para>
 A new link type 'Slave' will be available. All tickets with this Type of link will inherit the following actions from their Master ticket:
 </para>
+</listitem>
 
 <listitem>
     <para>
@@ -540,9 +550,11 @@ Responsibility changes
 <itemizedlist>
 <title>New Rich-Text/HTML E-Mail Support (WYSIWYG)</title>
 
+<listitem>
 <para>
 With this feature, it is now possible to write e-mails, notes, and notifications in rich text format (HTML format). Using a WYSIWIG editor (What You See Is What You Get), it is possible to comfortably write using formatted text and even include inline pictures.
 </para>
+</listitem>
 
 </itemizedlist>
 
@@ -550,6 +562,7 @@ With this feature, it is now possible to write e-mails, notes, and notifications
 <itemizedlist>
 <title>New Out-Of-Office Feature</title>
 
+<listitem>
     <para>
 With this new feature it is possible for all users to activate "out-of-office" to notify colleagues and OTRS of the period of their absence. The out-of-office feature is active for a time frame set by the user. Activation of this feature has the following effects:
     </para>
@@ -559,45 +572,54 @@ In the lists in which an agent can be selected as owner or reponsible (i.e. Tick
     <para>
 If an agent receives a follow-up during a period of absence, the ticket is automatically unlocked and a notifcation is sent to all agents in the queue. This allows immediate reaction to the customer follow-up by another service employee.
     </para>
+</listitem>
 
 </itemizedlist>
 
 <itemizedlist>
 <title>New Ticket Overviews and global Bulk Action</title>
 
+<listitem>
     <para>
 Flexibility of presentation within the ticket overview is a must. Based on the "S/M/L" (Small/Medium/Large) Ticket View every agent has the possibility to change the view for each type of overview (Queue View, Status View, etc) on-the-fly with a simple mouse click on the appropriate icon. This allows for the highest possible level of individualization and adjustment to any operational situation.
     </para>
     <para>
 Additionally, decentralization of the Bulk Action feature integrated the Bulk Action in all ticket overviews (Bulk Action allows processing of multiple tickets at a time).
     </para>
+</listitem>
 
 </itemizedlist>
 
 <itemizedlist>
 <title>Postmaster Filter recognizes Follo-Ups to internal forwarded messages</title>
 
+<listitem>
     <para>
 Currently, e-mail replies to forwarded articles arrive in OTRS as email-external. The problem is that the answers to these forwarded articles can be seen by the customer in the web- interface. Although it is possible to classify e-mails of an entire domain as email-internal, this only shifts the problem. Also, such step makes it impossible to properly service customers in the domain, as the customer would not be able to track tickets in the customer web-interface any more. With this new feature, e-mail replies can be traced back, and email- internal or email-external will be set based upon the original Forward-Article type.
     </para>
+</listitem>
 
 </itemizedlist>
 
 <itemizedlist>
 <title>READ-ONLY Permissions and Notifications with watched Tickets</title>
 
+<listitem>
     <para>
 In the current release of OTRS it is possible for a user to maintain a Watched Tickets List. This feature is dealing with tickets marked as "subscribed" by a user. It has the advantage that users no longer lose track of tickets marked as "sub- scribed", and are able to view them on an individual list. The "Read-Only" Feature - Up to now, tickets marked as "sub- scribed" were shown in a list, however, the agent could only actually view them if they were in a queue for which the agent had read permissions. With the "Read-Only" Feature, agents subscribed to a ticket always have read permissions on the ticket, even if the ticket is moved to a queue where the agent has no permissions. "Notify" Feature - Via a personalized setting, every agent can define whether or not to receive notifications about tickets, just as the owner and responsible of a ticket would receive. This allows for active tracking of watched tickets.
     </para>
+</listitem>
 
 </itemizedlist>
 
 <itemizedlist>
 <title>Secure SMTP</title>
 
+<listitem>
     <para>
 OTRS can receive and send mails in multiple ways. All currently available methods for receiving emails have been implemented within OTRS 2.3 (POP3,POP3S,IMAP,IMAPS). Until now, there were two options for sending emails: using a local MTA (Sendmail, Postfix, etc.) or per SMTP. In OTRS 2.4.x, SMTPS (Sercure SMTP) has been implemented in order to keep up to the growing security standards.
     </para>
+</listitem>
 
 </itemizedlist>
 
