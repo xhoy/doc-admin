@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.24 2009-04-22 12:41:06 martin Exp $ -->
+<!-- $Id: time.xml,v 1.25 2009-04-27 15:32:54 sr Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
 
 <sect1 id="time-settings">
-<title>Relevante Zeiten für das System festlegen</title>
+<title>Relevante Zeiteinstellungen für das System festlegen</title>
 
 <para>
 In OTRS werden einige Aktionen abhängig von der aktuellen Systemzeit
@@ -220,7 +220,7 @@ die Benachrichtigung für vom System freigegebene Tickets aktiviert ist.
 </para>
 
 <para>
-In der nachfolgenden Tabelle werden die Unlock-Zyklen der bisherigen OTRS Versionen vergleichen.
+In der nachfolgenden Tabelle werden die Unlock-Zyklen der bisherigen OTRS Versionen verglichen.
 </para>
 
 <table id="table-of-unlock-mechanismen">
@@ -392,30 +392,37 @@ den Versand der Benachrichtigungen aus.
 <title>Ticket Eskalation</title>
 
 <para>
-OTRS bietet die Möglichkeit der Eskalation von Tickets. Agenten welche diese Ticket bearbeiten könnten werden in der Agente-Oberfläche und wenn konfiguriert auch per Email benachrichtigt. Durch die Ticket-Eskalation kann also gewährleistet werden, dass Tickets die ein bestimmtes Alter überschreiten, auf jeden Fall beachtet werden müssen.
+OTRS bietet verschiedene Möglichkeit, Tickets im System eskalieren zu lassen. Agenten wird hierbei mit Hilfe des Eskalations-Mechanismus eine Eskalationsmeldung in der Oberfläche eingeblendet. Weiterhin bietet OTRS die Möglichkeit, Agenten per Email auf eskalierte Tickets aufmerksam zu machen. Durch die Ticket-Eskalation kann gewährleistet werden, dass Tickets die ein bestimmtes Alter (oder ein vereinbartes SLA) überschreiten, die notwendige Beachtung bei den zuständigen Agenten finden.
 </para>
 
 <para>
-Die Eskalationszeiten (Reaktionszeit, Updatezeit und Lösungszeit) kann in den
-<link linkend="adminarea-queue">Einstellungen jeder Queue</link> oder zu
-<link linkend="adminarea-queue">Einstellungen jedes SLA</link> festgelegt werden.
-Mit Hilfe des <link linkend="adminarea-genericagent">GenericAgents</link>
-werden Benachrichtigungen über eskalierte Tickets an die Agenten versendet.
-<para>
-
+Es gibt verschiedene Möglichkeiten die Eskalationen in OTRS zu konfigurieren. Zuerst müssen wir entscheiden, wer Eskalations-Nachrichten zu welchem Zeitpunkt bekommen soll. OTRS bietet hier standardmäßig zwei verschiedene Varianten.
 </para>
-Je nach konfiguration werden Agenten welche die Queue mit dem eskalierten Tickets in "Meine Queues" aufgenommen haben oder welche in der Queue in welcher das Ticket eskalliert Schreibrechte besitzen per Email Benachrichtigt.
+
+<para>
+In der Einstellung "NotifyAgentGroupOfCustomQueue" werden alle Agenten benachrichtigt, die die Queue in der sich das eskalierte Ticket befindet, unter Ihren Einstellungen als "Eigene Queue" gewählt haben und damit die Zuständigkeit für die betroffene Queue bestätigt haben.
+</para>
+
+<para>
+In der Einstellung "NotifyAgentGroupWithWritePermission" werden alle Agenten benachrichtigt, die Schreib-Berechtigung (rw) auf die betroffene Queue und somit auch auf das eskalierte Ticket besitzen.
+</para>
+<para>
+Hier die "richtige" Einstellung zu finden, ist eine reine Philosophiefrage. Sollen sich alle berechtigten Agenten um eskalierte Tickets kümmern, oder ausschließlich die, die sich für die betroffene Queue zuständig erklärt haben? Diese Entscheidung muss bei der initialen Konfiguration des Systems, in Abhängigkeit der firmeninternen Prozesse, getroffen werden.
+</para>
+
+<para>
+Die Eskalationszeiten (Reaktionszeit, Updatezeit und Lösungszeit) können in den <link linkend="adminarea-queue"> Queue-Einstellungen</link> und in den <link linkend="adminarea-queue"> SLA-Einstellungen</link> festgelegt werden.
+Falls in Ihrem Unternehmen SLA´s mit  festgelegten Eskalationszeiten (z. B. in Form eines Service-Katalogs) existieren, macht es Sinn diese in OTRS zu konfigurieren und mit den entsprechenden Eskalationszeiten zu versehen.
+Falls keine Services und SLA´s verwendet werden sollen, muss die Eskalationszeit in den <link linkend="adminarea-queue"> Queue-Einstellungen</link> hinterlegt werden.
+Falls nur eine Teilmenge der Tickets ein SLA zugewiesen bekommt, kann es auch Sinn machen, die Eskalationszeiten in den  den <link linkend="adminarea-queue"> Queue-Einstellungen</link> und in den <link linkend="adminarea-queue"> SLA-Einstellungen</link> zu hinterlegen.
+Die Eskalationszeiten in der Konfiguration des SLA überschreiben hierbei immer die Einstellungen der Queue, falls an beiden Stellen Eskalationszeiten gesetzt wurden.
 </para>
 
 <example id='genericagent-job-for-escalated-tickets'>
 <title>GenericAgent Job zum Versand von Eskalations Benachrichtigungen</title>
 
 <para>
-In der Datei <filename>Kernel/Config/GenericAgent.pm</filename> ist bereits
-ein Job eingetragen, über den der GenericAgent, regelmäßig durch einen
-cron-Job ausgeführt, Benachrichtigungen über eskalierte Tickets an die
-Agenten verschickt. Öffnen Sie diese Datei und entfernen Sie die
-Kommentarzeichen vor den entsprechenden Zeilen:
+Mit Hilfe des <link linkend="adminarea-genericagent">GenericAgents</link> können Eskalations-Benachrichtigungen per E-Mail an die Agenten versendet werden. In der Datei <filename>Kernel/Config/GenericAgent.pm(.dist)</filename> ist  eine Beispielkonfiguration aufgeführt, mit der Benachrichtigungen über eskalierte Tickets an Agenten versendet werden. Öffnen Sie diese Datei und entfernen Sie die Kommentarzeichen vor den entsprechenden Zeilen:
 </para>
 
 <para>
@@ -436,40 +443,45 @@ Kommentarzeichen vor den entsprechenden Zeilen:
 </programlisting>
 </para>
 
+<para>
+Bitte beachten Sie, dass sie je nach benötigter Konfiguration das zugrunde liegende Eskalationsmodul anpassen müssen. Mithilfe der nachfolgenden Konfiguration werden die Eskalationsnachrichten an alle Agenten versendet, die Schreib-Berechtigung (rw) auf die betroffene Queue und somit auch auf das eskalierte Ticket, besitzen:
+<programlisting>
+%Jobs = (
+   # --
+   # [name of job] -> send escalation notifications
+   # --
+   'send escalation notifications' => {
+       Escalation => 1,
+       # new ticket properties
+       New => {
+           Module => 'Kernel::System::GenericAgent:: NotifyAgentGroupWithWritePermission',
+       },
+   },
+   # insert your jobs (see Kernel/Config/GenericAgent.pm.examples)
+);
+</programlisting>
+</para>
 </example>
 
 <para>
-Wird ein neues Ticket in einer Queue erstellt oder verschoben für die eine
-Eskalationszeit festgelegt wurde, wird zunächst der positive Wert für
-die eingestellte Eskalationszeit angezeigt. Die Anzeige bleibt auf den für die
-Queue oder SLA eingestellten Wert stehen, wenn das System sich nicht in den in
-TimeWorkingHours festgelegten Stunden befindet oder wenn aktuell ein in
-TimeVacationDays bzw. TimeVacationDaysOneTime definierter Tag ist,
-außerhalb der für das System relevanten Zeiten findet keine Berechnung der
-Eskalationszeit statt.
+Wird ein Ticket erstellt oder in eine andere Queue verschoben,  werden dem Agenten zunächst die verbleibenden Eskalationszeiten (Reaktions-, Update-, Lösungszeit) dargestellt. Befindet sich das Ticket in einem für die Berechnung relevanten Zeitfenster, werden die Eskalationszeiten von diesem Zeitpunkt an herunter gezählt. Befindet sich  das Ticket nicht in den in TimeWorkingHours festgelegten "Arbeitsstunden", oder es ist aktuell ein in TimeVacationDays bzw. TimeVacationDaysOneTime definierter Feiertag, finden keine Berechnungen der Eskalationszeiten statt und die Eskalationszeiten werden angehalten.
+Wird der Wert 0 bei einer der Eskalationszeiten erreicht, eskaliert das Ticket. Im weiteren Verlauf wird der Wert negativ, das Ticket hat die Eskalationszeit überschritten. Beim nächsten Lauf des GenericAgent-Jobs, werden die Eskalations-Nachrichten versendet und dem Agenten wird eine Eskalationsmeldung in der Oberfläche eingeblendet.
 </para>
 
 <para>
-Befindet sich das System in einem für die Berechnung relevanten
-Zeitfenster, wird die Eskalationszeit heruntergezählt. Wird der Wert 0
-erreicht, eskaliert das Ticket. Im weiteren Verlauf wird der Wert negativ,
-das Ticket hat die Eskalationszeit überschritten. Bei der nächsten Ausführung
-des GenericAgent-Jobs für das Versenden der Eskalationsbenachrichtigungen
-an die Agenten, werden die entsprechenden Mails verschickt, das eskalierte
-Ticket blockiert die Anzeige der anderen Tickets in der Queue. Auch wenn das
-eskalierte Ticket gesperrt und bearbeitet wird, wird der angezeigte Wert für die
-Eskalationszeit immer kleiner, der eigentliche Eskalationszeitpunkt rückt
-immer weiter in die Vergangenheit. An diesem Verhalten ändert sich nichts,
-so lange das Ticket sich in einem offenen Status befindet (open, new, pending,
-usw.). Erst wenn das Ticket geschlossen wird, also sich der Status von offen
-auf geschlossen ändert (closed), wird auch die Eskalationszeit zurück gesetzt.
-Wird dasselbe Ticket z. B. durch ein Follow-up wieder in einen offenen Status
-gebracht, beginnt das Herunterzählen der Eskalationszeit erneut beim für
-die Queue eingestellten positiven Wert.
+Die Reaktionszeit wird auf den konfigurierten Ursprungswert zurückgesetzt, wenn der erste "externe Artikel" (E-Mail, Telefonanruf) am Ticket dokumentiert wird.
 </para>
 
 <para>
-In der nachfolgenden Tabelle werden die Eskalationszyklen/Eskalationseigenschaften der bisherigen OTRS Versionen vergleichen.
+Die Updatezeit wird auf den konfigurierten Ursprungswert zurückgesetzt, wenn ein "externe Artikel" (E-Mail, Telefonanruf) in Form eines "FollowUps" am Ticket dokumentiert wird.
+</para>
+
+<para>
+Die Lösungszeit wird zurückgesetzt, sobald der Ticketstatus in einen Status des Typs "Geschlossen" wechselt.
+</para>
+
+<para>
+In der nachfolgenden Tabelle werden die Eskalationszyklen/Eskalationseigenschaften der bisherigen OTRS Versionen verglichen.
 </para>
 
 <table id="table-of-escalation-mechanismen-firstresponse">
@@ -483,27 +495,29 @@ In der nachfolgenden Tabelle werden die Eskalationszyklen/Eskalationseigenschaft
                 <entry>2.1.x</entry>
                 <entry>2.2.x</entry>
                 <entry>2.3.x</entry>
+              <entry>2.4.x</entry>
             </row>
         </thead>
         <tbody>
             <row>
                 <entry>
 <para>
-Ein Ticket eskaliert wenn nach Erstellung eines Tickets der Kunde nach Ablauf der hinterlegten Eskalationszeit keine "Reaktion/Information" z. B. durch einen Email, Telefon-Anruf o. ä. bekommen hat.
+Ein Ticket eskaliert, wenn der Kunde nach Ablauf der hinterlegten Reaktionszeit keine Antwort in Form eines "externen Artikels" (Email, Telefonanruf) bekommen hat.
 </para>
 <para>
-D. h. durch einen "Email-Antwort" oder "Anruf" wird die Eskalation-Reaktionszeit deaktiviert.
+Nachdem ein  "externer Artikel" einem Ticket hinzugefügt wurde, wird die Reaktionszeit zurückgesetzt und deaktiviert.
 </para>
 <para>
-Die Eskalationszeit (Startpunkt) ist die Ticket-Erstellung und endet (Endpunkt) mit der "Reaktion/Information" an den Kunden.
+Die Reaktionszeit beginnt bei der Ticketerstellung und endet mit dem Anlegen eines "externen Artikels" in Form eines E-Mail oder eines Anrufs.
 </para>
 <para>
-Ob das Ticket von einem Agenten gesperrt oder frei ist findet keine Berücksichtigung.
+Ob das Ticket von einem Agenten gesperrt ist findet keine Berücksichtigung.
 </para>
                 </entry>
                 <entry>-</entry>
                 <entry>-</entry>
                 <entry>-</entry>
+                <entry>x</entry>
                 <entry>x</entry>
             </row>
         </tbody>
@@ -521,6 +535,7 @@ Ob das Ticket von einem Agenten gesperrt oder frei ist findet keine Berücksichti
                 <entry>2.1.x</entry>
                 <entry>2.2.x</entry>
                 <entry>2.3.x</entry>
+                <entry>2.4.x</entry>
             </row>
         </thead>
         <tbody>
@@ -528,11 +543,11 @@ Ob das Ticket von einem Agenten gesperrt oder frei ist findet keine Berücksichti
                 <entry>
 Ein Ticket eskaliert...
 <para/>
-<para>a) wenn für die Queue, in der sich das Ticket befindet, eine Eskalationszeit gesetzt ist.</para>
-<para>b) Wenn die in den Queue Einstellungen hinterlegte Eskalationszeit abgelaufen ist.</para>
-<para>c) Wenn das Ticket nicht von einem Agenten gesperrt ist.</para>
-<para>d) Wenn sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Eskalationszeit ausgesetzt.</para>
+<para>a) Wenn eine Aktualisierungszeit für die entsprechende Queue gesetzt, oder wenn dem Ticket ein SLA mit Aktualisierungszeit zugewiesen wurde.</para>
+<para>b) Wenn die in den Einstellungen hinterlegte Aktualisierungszeit abgelaufen ist.</para>
+<para>c) Wenn sich das Ticket in einem "offen" Status befindet. Wenn ein "pending" Status gesetzt ist, wird die Eskalationszeit ausgesetzt.</para>
                 </entry>
+                <entry>x</entry>
                 <entry>x</entry>
                 <entry>x</entry>
                 <entry>x</entry>
@@ -540,18 +555,20 @@ Ein Ticket eskaliert...
             </row>
             <row>
                 <entry>
-Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Kunde einen Artikel am Ticket erstellt (z. B. durch Email-FollowUp). Das Ticket muss dabei nicht wiedereröffnet werden. Ist bereits der letzte Artikel von einem Kunden, wird die Eskalationszeit (Startpunkt) nicht zurück gesetzt, da sich hier die Eskalation verzögern würde.
+Die Eskalationszeit wird zurückgesetzt, wenn ein Kunde einen Artikel am Ticket erstellt (z. B. durch Email-FollowUp). Das Ticket muss dabei nicht wiedereröffnet werden. Ist bereits der letzte Artikel von einem Kunden, wird die Eskalationszeit (Startpunkt) nicht zurück gesetzt, da sich hier die Eskalation verzögern würde.
                 </entry>
                 <entry>-</entry>
+                <entry>x</entry>
                 <entry>x</entry>
                 <entry>x</entry>
                 <entry>x</entry>
             </row>
             <row>
                 <entry>
-Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Agent einen externen Artikel (z. B. eine Email an einen Kunden oder eine Telefon-Notiz) anlegt.
+Die Eskalationszeit wird zurückgesetzt, wenn ein Agent einen externen Artikel (z. B. eine Email an einen Kunden oder eine Telefon-Notiz) anlegt.
                 </entry>
                 <entry>-</entry>
+                <entry>x</entry>
                 <entry>x</entry>
                 <entry>x</entry>
                 <entry>x</entry>
@@ -571,19 +588,20 @@ Die Eskalationszeit (Startpunkt) wird zurückgesetzt, wenn ein Agent einen extern
                 <entry>2.1.x</entry>
                 <entry>2.2.x</entry>
                 <entry>2.3.x</entry>
+                <entry>2.4.x</entry>
             </row>
         </thead>
         <tbody>
             <row>
                 <entry>
 <para>
-Ein Ticket eskaliert wenn nach Erstellung das Tickets nach Ablauf der hinterlegten Eskalationszeit nicht geschlossen ist (Status-Typ "geschlossen").
+Die Lösungszeit eines Tickets wird überschritten, wenn das Ticket nicht innerhalb der konfigurierten Lösungszeit in einen Status des Typs "geschlossen" wechselt.
 </para>
 <para>
-D. h. durch das schließen eines Tickets wird die Eskalation-Lösungszeit deaktiviert.
+Durch das Schließen eines Tickets wird die Lösungszeit deaktiviert und zurückgesetzt.
 </para>
 <para>
-Die Eskalationszeit (Startpunkt) ist die Ticket-Erstellung und endet (Endpunkt) mit dem schließen eines Tickets.
+Die Eskalationszeit  beginnt mit der Ticket-Erstellung und endet (Endpunkt) mit dem Schließen eines Tickets.
 </para>
 <para>
 Ob das Ticket von einem Agenten gesperrt oder frei ist findet keine Berücksichtigung.
@@ -592,6 +610,7 @@ Ob das Ticket von einem Agenten gesperrt oder frei ist findet keine Berücksichti
                 <entry>-</entry>
                 <entry>-</entry>
                 <entry>-</entry>
+                <entry>x</entry>
                 <entry>x</entry>
             </row>
         </tbody>
