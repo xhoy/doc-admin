@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.25 2009-04-27 15:32:54 sr Exp $ -->
+<!-- $Id: time.xml,v 1.26 2009-04-28 10:47:47 martin Exp $ -->
 
 <chapter id="time">
 <title>Zeitabhängige Funktionen in OTRS</title>
@@ -396,7 +396,7 @@ OTRS bietet verschiedene Möglichkeit, Tickets im System eskalieren zu lassen. Ag
 </para>
 
 <para>
-Es gibt verschiedene Möglichkeiten die Eskalationen in OTRS zu konfigurieren. Zuerst müssen wir entscheiden, wer Eskalations-Nachrichten zu welchem Zeitpunkt bekommen soll. OTRS bietet hier standardmäßig zwei verschiedene Varianten.
+Es gibt verschiedene Möglichkeiten die Email-Eskalationen in OTRS zu konfigurieren. Zuerst müssen wir entscheiden, wer Eskalations-Nachrichten zu welchem Zeitpunkt bekommen soll. OTRS bietet hier standardmäßig zwei verschiedene Varianten.
 </para>
 
 <para>
@@ -414,7 +414,7 @@ Hier die "richtige" Einstellung zu finden, ist eine reine Philosophiefrage. Soll
 Die Eskalationszeiten (Reaktionszeit, Updatezeit und Lösungszeit) können in den <link linkend="adminarea-queue"> Queue-Einstellungen</link> und in den <link linkend="adminarea-queue"> SLA-Einstellungen</link> festgelegt werden.
 Falls in Ihrem Unternehmen SLA´s mit  festgelegten Eskalationszeiten (z. B. in Form eines Service-Katalogs) existieren, macht es Sinn diese in OTRS zu konfigurieren und mit den entsprechenden Eskalationszeiten zu versehen.
 Falls keine Services und SLA´s verwendet werden sollen, muss die Eskalationszeit in den <link linkend="adminarea-queue"> Queue-Einstellungen</link> hinterlegt werden.
-Falls nur eine Teilmenge der Tickets ein SLA zugewiesen bekommt, kann es auch Sinn machen, die Eskalationszeiten in den  den <link linkend="adminarea-queue"> Queue-Einstellungen</link> und in den <link linkend="adminarea-queue"> SLA-Einstellungen</link> zu hinterlegen.
+Falls nur eine Teilmenge der Tickets ein SLA zugewiesen bekommt, kann es auch Sinn machen, die Eskalationszeiten in den  den <link linkend="adminarea-queue">Queue-Einstellungen</link> und in den <link linkend="adminarea-queue">SLA-Einstellungen</link> zu hinterlegen.
 Die Eskalationszeiten in der Konfiguration des SLA überschreiben hierbei immer die Einstellungen der Queue, falls an beiden Stellen Eskalationszeiten gesetzt wurden.
 </para>
 
@@ -444,7 +444,7 @@ Mit Hilfe des <link linkend="adminarea-genericagent">GenericAgents</link> können
 </para>
 
 <para>
-Bitte beachten Sie, dass sie je nach benötigter Konfiguration das zugrunde liegende Eskalationsmodul anpassen müssen. Mithilfe der nachfolgenden Konfiguration werden die Eskalationsnachrichten an alle Agenten versendet, die Schreib-Berechtigung (rw) auf die betroffene Queue und somit auch auf das eskalierte Ticket, besitzen:
+Bitte beachten Sie, dass Sie je nach benötigter Konfiguration das zugrunde liegende Eskalationsmodul (siehe oben) anpassen müssen. Mithilfe der nachfolgenden Konfiguration werden die Eskalationsnachrichten an alle Agenten versendet, die Schreib-Berechtigung (rw) auf die betroffene Queue und somit auch auf das eskalierte Ticket, besitzen:
 <programlisting>
 %Jobs = (
    # --
@@ -464,7 +464,7 @@ Bitte beachten Sie, dass sie je nach benötigter Konfiguration das zugrunde liege
 </example>
 
 <para>
-Wird ein Ticket erstellt oder in eine andere Queue verschoben,  werden dem Agenten zunächst die verbleibenden Eskalationszeiten (Reaktions-, Update-, Lösungszeit) dargestellt. Befindet sich das Ticket in einem für die Berechnung relevanten Zeitfenster, werden die Eskalationszeiten von diesem Zeitpunkt an herunter gezählt. Befindet sich  das Ticket nicht in den in TimeWorkingHours festgelegten "Arbeitsstunden", oder es ist aktuell ein in TimeVacationDays bzw. TimeVacationDaysOneTime definierter Feiertag, finden keine Berechnungen der Eskalationszeiten statt und die Eskalationszeiten werden angehalten.
+Wird ein Ticket erstellt oder in eine andere Queue verschoben, werden dem Agenten zunächst die verbleibenden Eskalationszeiten (Reaktions-, Update-, Lösungszeit) dargestellt. Befindet sich das Ticket in einem für die Berechnung relevanten Zeitfenster, werden die Eskalationszeiten von diesem Zeitpunkt an herunter gezählt. Befindet sich das Ticket nicht in den in TimeWorkingHours festgelegten "Arbeitsstunden", oder es ist aktuell ein in TimeVacationDays bzw. TimeVacationDaysOneTime definierter Feiertag, finden keine Berechnungen der Eskalationszeiten statt und die Eskalationszeiten werden angehalten.
 Wird der Wert 0 bei einer der Eskalationszeiten erreicht, eskaliert das Ticket. Im weiteren Verlauf wird der Wert negativ, das Ticket hat die Eskalationszeit überschritten. Beim nächsten Lauf des GenericAgent-Jobs, werden die Eskalations-Nachrichten versendet und dem Agenten wird eine Eskalationsmeldung in der Oberfläche eingeblendet.
 </para>
 
@@ -473,7 +473,7 @@ Die Reaktionszeit wird auf den konfigurierten Ursprungswert zurückgesetzt, wenn 
 </para>
 
 <para>
-Die Updatezeit wird auf den konfigurierten Ursprungswert zurückgesetzt, wenn ein "externe Artikel" (E-Mail, Telefonanruf) in Form eines "FollowUps" am Ticket dokumentiert wird.
+Die Updatezeit wird auf den konfigurierten Ursprungswert zurückgesetzt, wenn ein "externe Artikel" (E-Mail, Telefonanruf) in Form eines "FollowUps" durch einen Kunden oder einen Agenten am Ticket dokumentiert wird.
 </para>
 
 <para>
