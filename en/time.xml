@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.8.2.1 2008-08-21 22:08:11 ub Exp $ -->
+<!-- $Id: time.xml,v 1.8.2.2 2009-06-23 09:44:24 ub Exp $ -->
 
 <chapter id="time">
 <title>Time related functions in OTRS</title>
@@ -393,7 +393,7 @@ TimeWorkingHours
 </link>
 
 configuration parameter. The <filename>bin/PendingJobs.pl</filename> module,
-which should be executed periodicaly via a cron job, triggers the delivery
+which should be executed periodically via a cron job, triggers the delivery
 of the pending reminders.
 </para>
 
@@ -440,7 +440,7 @@ preferences
 The file <filename>Kernel/Config/GenericAgent.pm</filename> already
 contains a example job for notification delivery to agents on escalated
 tickets. The jobs in this file are processed by the GenericAgent, which is
-executed periodicaly by a cron job. Just open the file and remove the
+executed periodically by a cron job. Just open the file and remove the
 comments ("#"") for the following lines:
 </para>
 
