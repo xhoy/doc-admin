@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -727,7 +727,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 
 # agent, admin and customer frontend
@@ -781,7 +781,7 @@ apache-httpd.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 
 # agent, admin and customer frontend (mod_alias required!)
@@ -1250,7 +1250,7 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.20 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.21 $&gt;
 Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1272,7 +1272,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1282,7 +1282,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1292,7 +1292,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1305,7 +1305,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1315,7 +1315,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1325,7 +1325,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1336,7 +1336,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1346,7 +1346,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1356,7 +1356,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1366,7 +1366,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.20 2009-04-02 09:21:08 ho Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.21 2009-07-28 10:12:24 martin Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
@@ -1383,10 +1383,176 @@ linux:/opt/otrs/bin#
 <sect1 id="upgrade">
 <title>Upgrading the OTRS Frameworks</title>
 <para>
-    If you want to upgrade your OTRS 2.2.x framework to version 2.3.x,
-    download the latest OTRS 2.3 framework and follow the instructions
-    in the file UPGRADING.
+These instructions are for people upgrading OTRS from "2.3" to "2.4".
 </para>
+<para>
+If you are running a lower version of OTRS you need to follow the upgrade path
+to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4 ...).
+</para>
+
+<sect2 id="upgrade-tar-gz">
+  <title>Upgrading .tar.gz</title>
+
+  <listitem>
+    <para>
+    This section shows you how to upgrade OTRS from "2.3" to "2.4" with .tar.gz.
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+Stop all your services (e. g. rcapache stop, rcmysql stop).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Backup everything (database, Kernel/Config.pm, Kernel/Config/GenericAgent.pm, var/*).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Make sure that you have backed up everything.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Try this install on a separate machine, on a test machine first.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Install the new release tar.gz
+        </para>
+        <para>
+Note: The OTRS themes between 2.3 and 2.4 are _not_ compatible (don't use the old themes)!
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Update the database changes with (part 1)
+        </para>
+        <para>
+MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.mysql.sql | mysql -p -f -u root otrs
+        </para>
+        <para>
+PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.postgresql.sql | psql otrs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Run the migration script (as OTRS user, _not_ as root):
+You must execute the migration script to migrate some data from the old database
+structure to the new one. Run $OTRS_HOME/scripts/DBUpdate-to-2.4.pl!
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Update the database changes with (part 2):
+        </para>
+        <para>
+MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.mysql.sql | mysql -p -f -u root otrs
+        </para>
+        <para>
+PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.postgresql.sql | psql otrs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Execute $OTRS_HOME/bin/SetPermissions.pl!
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Restart your services (e. g. rcmysql start, rcapache start)
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+</sect2>
+
+<sect2 id="upgrade-rpm">
+<title>Upgrading RPM</title>
+  <listitem>
+    <para>
+    This section shows you how to upgrade OTRS from "2.3" to "2.4" with .tar.gz.
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+Stop all your services (e. g. rcotrs stop-force).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Backup everything (database, Kernel/Config.pm, Kernel/Config/GenericAgent.pm, var/*).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Make sure that you have backed up everything.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Try this install on a separate machine, on a test machine first.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Install the new release RPM
+        </para>
+        <para>
+shell&gt; rpm -Uvh otrs-2.4.x-noarch.rpm
+        </para>
+        <para>
+Note: The OTRS themes between 2.3 and 2.4 are _not_ compatible (don't use the old themes)!
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Update the database changes with (part 1)
+        </para>
+        <para>
+MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.mysql.sql | mysql -p -f -u root otrs
+        </para>
+        <para>
+PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.postgresql.sql | psql otrs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Run the migration script (as OTRS user, _not_ as root):
+You must execute the migration script to migrate some data from the old database
+structure to the new one. Run $OTRS_HOME/scripts/DBUpdate-to-2.4.pl!
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Update the database changes with (part 2):
+        </para>
+        <para>
+MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.mysql.sql | mysql -p -f -u root otrs
+        </para>
+        <para>
+PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.postgresql.sql | psql otrs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Restart your services (e. g. rcotrs restart-force or each service manually)
+        </para>
+      </listitem>
+    </itemizedlist>
+  </listitem>
+</sect2>
+
+<!--
+<sect2 id="upgrade-windows-installer">
+<title>Upgrading Windows Installer</title>
+<para>
+</para>
+</sect2>
+-->
+
 </sect1>
 
 </chapter>
