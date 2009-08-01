@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.27 2009-06-23 09:51:08 ub Exp $ -->
+<!-- $Id: otrs.xml,v 1.28 2009-08-01 12:16:16 martin Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -600,6 +600,21 @@ Currently, e-mail replies to forwarded articles arrive in OTRS as email-external
 </listitem>
 
 </itemizedlist>
+
+<itemizedlist>
+<title>Configurable event based notifications</title>
+
+<listitem>
+    <para>
+Until now, a very inflexible notification could be sent to an agents and customers, for example Agent: New Ticket or Customer: Status Change. In order to make the notification system more flexible, a complete overhaul was performed on the messaging mechanism. The new system allows messaging to agents, customers, or a dedicated email address, based on the event taking place.
+    </para>
+    <para>
+With this, it is now possible to just inform the customer when the ticket has been closed. Or, for example, when a VIP customer creates a ticket, a message can be sent to a specific address. Events (i.e. TicketCreate, TicketStateUpdate, TicketPriorityUpdate, ArticleCreate), and all known message variables (i.e. &lt;OTRS_TICKET_TicketNumber&gt; &lt;OTRS_TICKET_Priority&gt;), are freely selectable for creating triggered messages via the web interface.
+    </para>
+</listitem>
+
+</itemizedlist>
+
 
 <itemizedlist>
 <title>READ-ONLY Permissions and Notifications with watched Tickets</title>

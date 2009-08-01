@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.25 2009-04-20 13:47:15 martin Exp $ -->
+<!-- $Id: otrs.xml,v 1.26 2009-08-01 12:13:00 martin Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -312,7 +312,7 @@ Fähigkeiten des zentralen OTRS-Frameworks.
       <listitem>
         <para>
         Festlegen einer eigenen Kennzeichnung für Tickets, z. B.
-        Cal#, Ticket#, Request# o.ä.
+        Call#, Ticket#, Request# o.ä.
         </para>
       </listitem>
       <listitem>
@@ -324,7 +324,7 @@ Fähigkeiten des zentralen OTRS-Frameworks.
         <para>
         Unterstützung verschiedener Datenbanktypen für die
         zentrale Datenbank von OTRS (MySQL, PostgreSQL, Oracle
-        MSSQL, usw.).
+        MSSQL, DB2, usw.).
         </para>
       </listitem>
       <listitem>
@@ -409,6 +409,176 @@ Fähigkeiten des zentralen OTRS-Frameworks.
     </itemizedlist>
   </listitem>
 </itemizedlist>
+
+<sect2 id="new-features-of-2.4">
+<title>Neue Features von OTRS 2.4</title>
+
+<itemizedlist>
+  <title>Lizenzwechsel auf die AGPL Version 3</title>
+
+  <listitem>
+    <para>
+Warum AGPL statt GPL? AGPL und GPL sind bis auf einen einzigen Punkt identisch. Wird Software im Bereich SaaS eingesetzt, greift bei der AGPL das Copyleft, bei der GPL nicht. Wir möchten, dass auch im wachsenden SaaS-Umfeld Weiterentwicklungen an OTRS in die Community zurückfließen.
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+Warum v3 statt v2? Die GPL v2 ist in die Jahre gekommen und hat insbesondere außerhalb der USA diverse rechtliche Unsicherheiten. Die GPLv3 bzw. AGPLv3 ist unter den Open Source Lizenzen diejenige Copyleft-Lizenz, die sowohl den Copyright-Inhabern als auch dem Anwender den besten Schutz und die größte Rechtssicherheit bietet.
+    </para>
+  </listitem>
+
+</itemizedlist>
+<itemizedlist>
+  <title>Management Dashboard</title>
+
+  <listitem>
+    <para>
+    Systemübergreifede, real-time Anzeige und personalisierte Darstellung Ihrer Service-Performance.
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+    Anzeige von individueller Zusatz-Plug-Ins
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+    Enthaltene Standard-Plug-Ins: Neue &amp; offene Tickets der letzten 24, 48, 72 Stunden, Kalender zukünftiger Events, z. B. Eskalationen, Wiedervorlagen, Auto-Unlocks usw., Ticket-Volumenverteilung auf Queues, Reaktions-/Lösungszeit in Queues, Einbindung von RSS-Feeds, usw.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Weitere Standard-Reports</title>
+
+  <listitem>
+    <para>
+z. B. Erstellte Tickets, Geschlossene Tickets, SLA-Auswertung, Benötigte Arbeitszeit pro Kunde, Benötigte Arbeitszeit pro Queue, Lösungszeiten (pro Kunde/pro Queue), Antwortzeiten (pro Kunde/ pro Queue.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Master/Slave Funktion</title>
+
+  <listitem>
+    <para>
+Die Master Slave Funktion erlaubt Ihnen, Tickets zum gleichen Thema zu markieren, um sie über das Master-Ticket gebündelt abzuarbeiten. Die Slave-Tickets werden automatisch gelöst und Ihre Kunden mit der im Master-Ticket hinterlegten Antwort benachrichtigt, wenn das Master-Tickt auf gelöst gesetzt wird. Alle Slave-Tickets, 'erben' die folgenden Aktionen ihres Masters: Status ändern, E-Mail-Antwort erstellen, Freitext-Felder ändern, Notizen anhängen, Wiedervorlagezeit ändern, Priorität ändern, Besitzer ändern, Verantwortlicher ändern;
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>HTML E-Mail Unterstützung</title>
+
+  <listitem>
+    <para>
+Erstellen und formatieren Sie E-Mails, Notizen &amp; Benachrichtigungen nun auch im Rich-Text-Format (HTML-Format) oder binden Sie Bilder über der WYSIWYG-Editor ein.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Out-of-Office Funktion</title>
+
+  <listitem>
+    <para>
+Definieren Sie über Ihre persönlichen Einstellungen den Zeitraum Ihrer Abwesenheit. In Auswahllisten, die der Zuweisung eines Besitzers oder Verantwortlichen dienen, wird die Abwesenheitszeit und -dauer hinter Ihrem Namen dargestellt. Bei FollowUps, wird das Ticket vollautomatisch "entsperrt" und das Bearbeitungs-Team der Queue erhält eine Benachrichtigung.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Small/Medium/Large Ticket-Übersichten &amp; globale Sammelaktion</title>
+
+  <listitem>
+    <para>
+Flexibel zur Laufzeit gestaltbare Ticket-Übersichten erleichtern Ihnen die tägliche die Arbeit. Ob tabellarische Übersicht oder Ticket-Vorschau, ein Small / Medium / Large View Icon erlaubt es Ihnen, sich je nach Einsatzszenario Ihre Übersichten, z. B. den Queue View, Status View, Escalation View oder Suchergebnisse  individuell einzurichten.    </para>
+  </listitem>
+  <listitem>
+    <para>
+Die systemweit in allen Ticket-Übersichten integrierte Sammelaktion erlaubt Ihnen die gleichzeitige Bearbeitung mehrerer Tickets.    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Event-basierte Benachrichtigungen</title>
+
+  <listitem>
+    <para>
+Um eine höhere Flexibilität für E-Mail-Benachrichtigungen zu erreichen, wurde ein komplett neuer Benachrichtigungs-Mechanismus implementiert. Dieser ermöglicht es, event-basierte Benachrichtigungen an Agenten, Kunden oder dedizierte Email-Adressen zu versenden. Somit ist es einfach möglich, nur beim Schließen eines Tickets eine E-Mail-Benachrichtigung an den Kunden eines Tickets zu senden. Oder z. B. beim Erstellen von VIP Tickets für einen bestimmten Kundenkreis mit sehr hoher Priorität, eine bestimmte E-Mail-Adresse (z. B. ein Bereitschaftshandy) zu benachrichtigen. Die dabei jeweils zu berücksichtigenden Events (z. B. Erstellung neuer Tickets, Ticketstatus-Update, Queue-Update, Erstellung neuer Artikel, usw.) und Inhalt der Benachrichtigungen (inkl. OTRS-Platzhalter) sind frei über ein Web-Interface konfigurierbar.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Optimierte Kundensuchfunktion (Autocompletion)</title>
+
+  <listitem>
+    <para>
+Tickets effizient und ohne Seiten-Reload erstellen. Mit der neuen AJAX-basierten "Autocompletion"-Funktion zur Kunden-Suche kein Problem. Anhand der ersten drei Buchstaben eines Suchbegriffs präsentiert Ihnen OTRS zur Laufzeit Vorschläge zum Suchergebnis in einer Auswahlliste.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Verschieben von Ticket-Artikeln zwischen unterschiedlichen Backends</title>
+
+  <listitem>
+    <para>
+Standardmäßig speichert OTRS E-Mail-Anhänge in Ihrer Datenbank. Alternativ ist die Ablage im lokalen Server-File-System möglich. Die Option kann zur Laufzeit geändert werden. Meist stellt sich die Frage nach dem Speicherort von Attachments erst während des laufenden Betriebs. Auslöser ist häufig der verlängerte Backup-Zyklus in Folge hoher Volumina (z. B. > 50 GB). Bei der Umstellung auf das File-System als Speicherort werden zwar keine neuen Anhänge in die Datenbank gespeichert, jedoch verbleiben die bisher dort gespeicherten Anhänge in dieser. Mittels der Erweiterung können Anhänge nachträglich verschoben werden.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>PostMaster-Filter erkennt Follow-Ups auf weitergeleitete Nachrichten</title>
+
+  <listitem>
+    <para>
+Antworten auf "Forwards" gehen derzeit als "email-external" ein. Ihre Kunden können diese E-Mails im Kunden-Interface einsehen, was häufig nicht gewünscht ist. Mit Hilfe der Erweiterung werden eingehende E-Mails auf "Forward"-Rücklauf überprüft und vollautomatisch das FollowUp auf "email-internal" bzw. "email-external" gesetzt, je nach ursprünglichem Forward-Artikel-Typ.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Leserechte &amp; Benachrichtigungen auf Tickets der Watchliste</title>
+
+  <listitem>
+    <para>
+Mit der "Read-Only"-Feature haben Sie Leserechte auf ein Ticket in Ihrer Watchliste, auch wenn das Ticket in eine Queue verschoben wurde, in der Sie keine Leserechte haben.
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+Über Ihre persönlichen Einstellungen haben Sie die Möglichkeit zu definieren, ob Sie bei beobachteten Tickets, wie ein Besitzer oder Verantwortlicher über Änderungen per E-Mail benachrichtigt werden soll.
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+<itemizedlist>
+  <title>Secure SMTP Unterstützung</title>
+
+  <listitem>
+    <para>
+Beim Empfang von E-Mails unterstützt OTRS bislang POP3, POP3s, IMAP &amp; IMAPs. Beim Versand neben lokalen Mail-Transfer-Agents (z. B. Sendmail, Postfix, Exim) und SMTP nun auch SMTPS (Secure-SMTP).
+    </para>
+  </listitem>
+
+</itemizedlist>
+
+</sect2>
 
 <sect2 id="new-features-of-2.3">
 <title>Neue Features von OTRS 2.3</title>
