@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.10 2009-08-13 08:25:59 martin Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.11 2009-08-13 09:38:22 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -1016,8 +1016,8 @@ add the new field around line 128.
 <programlisting>
     [...]
     &lt;tr&gt;
-      &lt;td&gt;$Text{"Phonenumber"}: &lt;/td&gt;
-      &lt;td&gt;&lt;input type="text" name="Phone" value="$QData{"UserPhone"}" size="20" maxlength="50"&gt;&lt;/td>
+      &lt;td&gt;$Text{"Room Number"}: &lt;/td&gt;
+      &lt;td&gt;&lt;input type="text" name="Room" value="$QData{"UserRoom"}" size="20" maxlength="50"&gt;&lt;/td>
     &lt;/tr&gt;
     [...]
 </programlisting>
