@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.9 2009-01-05 22:37:36 martin Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.10 2009-08-13 08:25:59 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -117,23 +117,33 @@ uses customer data stored in the OTRS database.
 #        AutoLoginCreationPrefix => 'auto',
 #        # admin can change customer preferences
 #        AdminSetPreferences => 1,
+#        # cache time to life in sec. - cache any database queris
+#        CacheTTL => 0,
 #        # just a read only source
 #        ReadOnly => 1,
         Map => [
             # note: Login, Email and CustomerID needed!
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [ 'UserSalutation', 'Salutation', 'salutation',  1, 0, 'var', '', 0 ],
-            [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
-            [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
-            [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
-            [ 'UserPassword',   'Password',   'pw',          0, 1, 'var', '', 0 ],
-            [ 'UserEmail',      'Email',      'email',       0, 1, 'var', '', 0 ],
-#            [ 'UserEmail',      'Email', 'email',           1, 1,
-#            'var','$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target
+            [ 'UserSalutation', 'Salutation', 'salutation', 1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'first_name', 1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'last_name',  1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'login',      1, 1, 'var', '', 0 ],
+            [ 'UserPassword',   'Password',   'pw',         0, 0, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'email',      1, 1, 'var', '', 0 ],
+
+#            [ 'UserEmail',      'Email', 'email',           1, 1, 'var', '$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
             [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
+
 #            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
-            [ 'UserComment',     'Comment',   'comments',    1, 0, 'var', '', 0 ],
-            [ 'ValidID',         'Valid',     'valid_id',    0, 1, 'int', '', 0 ],
+            [ 'UserPhone',        'Phone',       'phone',        1, 0, 'var', '', 0 ],
+            [ 'UserFax',          'Fax',         'fax',          1, 0, 'var', '', 0 ],
+            [ 'UserMobile',       'Mobile',      'mobile',       1, 0, 'var', '', 0 ],
+            [ 'UserStreet',       'Street',      'street',       1, 0, 'var', '', 0 ],
+            [ 'UserZip',          'Zip',         'zip',          1, 0, 'var', '', 0 ],
+            [ 'UserCity',         'City',        'city',         1, 0, 'var', '', 0 ],
+            [ 'UserCountry',      'Country',     'country',      1, 0, 'var', '', 0 ],
+            [ 'UserComment',      'Comment',     'comments',     1, 0, 'var', '', 0 ],
+            [ 'ValidID',          'Valid',       'valid_id',     0, 1, 'int', '', 0 ],
         ],
         # default selections
         Selections => {
@@ -151,7 +161,7 @@ uses customer data stored in the OTRS database.
 <para>
 If you want to customize the customer data, change the table columns in
 the customer_user table in the OTRS database or add new columns. In the
-following example a new field for phone number is added.
+following example a new field for room number is added.
 </para>
 
 <para>
@@ -168,7 +178,7 @@ Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Database changed
-mysql&gt; ALTER TABLE customer_user ADD phone VARCHAR (250);
+mysql&gt; ALTER TABLE customer_user ADD room VARCHAR (250);
 Query OK, 1 rows affected (0.01 sec)
 Records: 1  Duplicates: 0  Warnings: 0
 
@@ -187,7 +197,7 @@ Now add the new column to the MAP array in
 <programlisting>
     # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
     [...]
-    [ 'UserPhone',      'Phone',      'phone',       0, 1, 'var', '', 0 ],
+    [ 'UserRoom',      'Room',      'room',       0, 1, 'var', '', 0 ],
 </programlisting>
 </para>
 
@@ -351,6 +361,8 @@ information in a LDAP directory.
 #       CustomerUserValidFilter => '(!(description=gesperrt))',
         # admin can't change customer preferences
         AdminSetPreferences => 0,
+#        # cache time to life in sec. - cache any database queris
+#        CacheTTL => 0,
         Map => [
             # note: Login, Email and CustomerID needed!
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
@@ -411,9 +423,9 @@ has to be added to the MAP array in
 
 <para>
 <programlisting>
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [...]
-            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
 </programlisting>
 </para>
 
@@ -504,23 +516,30 @@ customer backend with OTRS.
 #        AutoLoginCreationPrefix => 'auto',
 #        # admin can change customer preferences
 #        AdminSetPreferences => 1,
+#        # cache time to life in sec. - cache any database queris
+#        CacheTTL => 0,
 #        # just a read only source
 #        ReadOnly => 1,
         Map => [
+
             # note: Login, Email and CustomerID needed!
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
-            [ 'UserSalutation', 'Salutation', 'salutation',  1, 0, 'var', '', 0 ],
-            [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
-            [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
-            [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
-            [ 'UserPassword',   'Password',   'pw',          0, 1, 'var', '', 0 ],
-            [ 'UserEmail',      'Email',      'email',       0, 1, 'var', '', 0 ],
-#            [ 'UserEmail',      'Email', 'email',           1, 1,
-#            'var','$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
-            [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
-#            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
-            [ 'UserComment',     'Comment',   'comments',    1, 0, 'var', '', 0 ],
-            [ 'ValidID',         'Valid',     'valid_id',    0, 1, 'int', '', 0 ],
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target
+            [ 'UserSalutation', 'Salutation', 'salutation',   1, 0, 'var', '', 0 ],
+            [ 'UserFirstname',  'Firstname',  'first_name',   1, 1, 'var', '', 0 ],
+            [ 'UserLastname',   'Lastname',   'last_name',    1, 1, 'var', '', 0 ],
+            [ 'UserLogin',      'Username',   'login',        1, 1, 'var', '', 0 ],
+            [ 'UserPassword',   'Password',   'pw',           0, 0, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'email',        1, 1, 'var', '', 0 ],
+            [ 'UserCustomerID', 'CustomerID', 'customer_id',  0, 1, 'var', '', 0 ],
+            [ 'UserPhone',      'Phone',      'phone',        1, 0, 'var', '', 0 ],
+            [ 'UserFax',        'Fax',        'fax',          1, 0, 'var', '', 0 ],
+            [ 'UserMobile',     'Mobile',     'mobile',       1, 0, 'var', '', 0 ],
+            [ 'UserStreet',     'Street',     'street',       1, 0, 'var', '', 0 ],
+            [ 'UserZip',        'Zip',        'zip',          1, 0, 'var', '', 0 ],
+            [ 'UserCity',       'City',       'city',         1, 0, 'var', '', 0 ],
+            [ 'UserCountry',    'Country',    'country',      1, 0, 'var', '', 0 ],
+            [ 'UserComment',    'Comment',    'comments',     1, 0, 'var', '', 0 ],
+            [ 'ValidID',        'Valid',      'valid_id',     0, 1, 'int', '', 0 ],
         ],
         # default selections
         Selections => {
@@ -974,11 +993,11 @@ against a radius server.
 <para>
 It is possible to customize the self registration for new customer users
 which is reachable via the customer.pl panel. New optional or required fields
-like phone number, address or state can be added.
+like room number, address or state can be added.
 </para>
 
 <para>
-The following example shows how a required field for the phone number can
+The following example shows how a required field for the room number can
 be specified.
 </para>
 
@@ -986,7 +1005,7 @@ be specified.
 <title>Customizing the web interface</title>
 
 <para>
-To display the new field for the phone number in the customer.pl web
+To display the new field for the room number in the customer.pl web
 interface the .dtl file which is responsible for the layout in this
 interface has to be modified. Edit the
 <filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file and
@@ -1010,11 +1029,11 @@ add the new field around line 128.
 
 <para>
 In the next step the customer mapping has to be expanded with the new
-entry for the phone number. To ensure that the changes are not lost after
+entry for the room number. To ensure that the changes are not lost after
 an update, put the "CustomerUser" settings from the
 <filename>Kernel/Config/Defaults.pm</filename> into the
 <filename>Kernel/Config.pm</filename>. Now change the MAP array and add the
-nie phone number field:
+new room number field:
 </para>
 
 <para>
@@ -1054,23 +1073,31 @@ nie phone number field:
 #        AutoLoginCreationPrefix => 'auto',
 #        # admin can change customer preferences
 #        AdminSetPreferences => 1,
+#        # cache time to life in sec. - cache any database queris
+#        CacheTTL => 0,
 #        # just a read only source
 #        ReadOnly => 1,
         Map => [
+
             # note: Login, Email and CustomerID needed!
-            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+            # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target
             [ 'UserSalutation', 'Salutation', 'salutation',  1, 0, 'var', '', 0 ],
             [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
             [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
             [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
-            [ 'UserPassword',   'Password',   'pw',          0, 1, 'var', '', 0 ],
-            [ 'UserEmail',      'Email',      'email',       0, 1, 'var', '', 0 ],
-#            [ 'UserEmail',      'Email', 'email',           1, 1, 'var','$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
+            [ 'UserPassword',   'Password',   'pw',          0, 0, 'var', '', 0 ],
+            [ 'UserEmail',      'Email',      'email',       1, 1, 'var', '', 0 ],
             [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
-#            [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
-            [ 'UserComment',     'Comment',   'comments',    1, 0, 'var', '', 0 ],
-            [ 'UserPhone',       'Phone',     'phone',       1, 0, 'var', '', 0 ],
-            [ 'ValidID',         'Valid',     'valid_id',    0, 1, 'int', '', 0 ],
+            [ 'UserPhone',      'Phone',      'phone',       1, 0, 'var', '', 0 ],
+            [ 'UserFax',        'Fax',        'fax',         1, 0, 'var', '', 0 ],
+            [ 'UserMobile',     'Mobile',     'mobile',      1, 0, 'var', '', 0 ],
+            [ 'UserRoom',       'Room',       'room',        1, 0, 'var', '', 0 ],
+            [ 'UserStreet',     'Street',     'street',      1, 0, 'var', '', 0 ],
+            [ 'UserZip',        'Zip',        'zip',         1, 0, 'var', '', 0 ],
+            [ 'UserCity',       'City',       'city',        1, 0, 'var', '', 0 ],
+            [ 'UserCountry',    'Country',    'country',     1, 0, 'var', '', 0 ],
+            [ 'UserComment',    'Comment',    'comments',    1, 0, 'var', '', 0 ],
+            [ 'ValidID',        'Valid',      'valid_id',    0, 1, 'int', '', 0 ],
         ],
         # default selections
         Selections => {
@@ -1088,8 +1115,8 @@ nie phone number field:
 <title>Customize the customer_user table in the OTRS DB</title>
 
 <para>
-The last step is to add the new phone number column to the customer_user
-table in the OTRS database. In this column the entries for the phone numbers
+The last step is to add the new room number column to the customer_user
+table in the OTRS database. In this column the entries for the room numbers
 will be stored.
 </para>
 
@@ -1107,7 +1134,7 @@ Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Database changed
-mysql&gt; ALTER TABLE customer_user ADD phone VARCHAR (200);
+mysql&gt; ALTER TABLE customer_user ADD room VARCHAR (200);
 Query OK, 3 rows affected (0.01 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
@@ -1118,9 +1145,9 @@ linux:~#
 </para>
 
 <para>
-All needed settings were done and the new field for the phone should be
+All needed settings were done and the new field for the room should be
 displaied in the customer.pl panel. New customer users should have to
-insert their phone number if they register a new account. If your apache is
+insert their room number if they register a new account. If your apache is
 configured to use mod_perl for OTRS, you should restart the web server to
 activate the changes.
 </para>
