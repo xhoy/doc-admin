@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -17,7 +17,7 @@ manually from source or with a binary package, ex. rpm or for Win32.
 The configuration of the web and database server, the interface between
 OTRS and the database, the installation of needed Perl modules, setting
 proper access rights for OTRS, setting up the cron jobs for OTRS and some
-basic settings in the config files of OTRS are described in this chapter.
+basic settings in the configuration files of OTRS are described in this chapter.
 </para>
 
 <para>
@@ -28,28 +28,28 @@ administrate the system via the web interface.
 </abstract>
 
 <sect1 id="installation-of-prepared-packages">
-<title>The simple way - Installation of prebuilt packages</title>
+<title>The simple way - Installation of pre-built packages</title>
 
 <para>
-The simplest and most comfortable way to install OTRS is to use prebuilt
-packages. Many prebuilt packages of OTRS can be found in the download area
+The simplest and most comfortable way to install OTRS is to use pre-built
+packages. Many pre-built packages of OTRS can be found in the download area
 on
 
 <ulink url="http://www.otrs.org">
 <citetitle>http://www.otrs.org</citetitle>
 </ulink>
 
-. The following sections describe the installation of OTRS with a prebuilt
+. The following sections describe the installation of OTRS with a pre-built
 or binary package on SUSE, Debian and Microsoft Windows systems. Use
-prebuilt packages to install OTRS and only setup OTRS manually, if you have
+pre-built packages to install OTRS and only setup OTRS manually, if you have
 no other possibility.
 </para>
 
 <sect2 id="installation-on-suse">
-<title>Installing the rpm on a SUSE distro</title>
+<title>Installing the rpm on a SUSE Linux server</title>
 
 <para>
-This section describes the installation of a prebuilt rpm package on a SUSE
+This section describes the installation of a pre-built rpm package on a SUSE
 Linux distro. We tested the SUSE versions from 7.x to 10.0. Before you
 start the installation please have a look on
 
@@ -87,13 +87,13 @@ Check OTRS user (/etc/passwd)... otrs exists.
 Next steps:
 
 [SuSEconfig]
- Execute 'SuSEconfig' to configure the webserver.
+ Execute 'SuSEconfig' to configure the web server.
 
 [start Apache and MySQL]
  Execute 'rcapache restart' and 'rcmysql start' in case they don't run.
 
 [install the OTRS database]
- Use a webbrowser and open this link:
+ Use a web browser and open this link:
  http://localhost/otrs/installer.pl
 
 [OTRS services]
@@ -139,7 +139,7 @@ linux:~ #
 </para>
 
 <para>
-The installation of the OTRS rpm is finished. Restart your webserver to
+The installation of the OTRS rpm is finished. Restart your web server to
 load the OTRS specific changes in your web server configuration:
 </para>
 
@@ -154,7 +154,7 @@ linux:~ #
 
 <para>
 In the next step you have to setup the OTRS database. If you use
-<application>MySQL</application> as the database backend, you can use the web
+<application>MySQL</application> as the database back-end, you can use the web
 installer of OTRS to setup the database. Use the following address to
 access the web installer start file.
 </para>
@@ -252,15 +252,14 @@ with the system. To log into the web interface of OTRS, use the address
 <citetitle>http://localhost/otrs/index.pl</citetitle>
 </ulink>
 
-in your web browser. Log in as OTRS admin and configure the system for your
-needs. To log in as OTRS admin use the username root@localhost and the
-password root.
+in your web browser. Log in as OTRS administrator and configure the system for your
+needs. To log in as OTRS administrator use the username root@localhost and the
+default password root.
 </para>
 
 <warning>
 <para>
-Please change the pasword for the OTRS admin as soon as possible. It is
-also a default password!
+Please change the password for the root@localhost account as soon as possible
 </para>
 </warning>
 
@@ -270,9 +269,9 @@ also a default password!
 <title>Installing OTRS on a Debian system</title>
 
 <para>
-Torsten Werner, the maintainer of the Debian OTRS package, kindly provided an
-excelent documentation on the installation of OTRS on Debian systems. The
-docu can be found on
+Torsten Werner, the maintainer of the Debian OTRS package, kindly provided
+excellent documentation on the installation of OTRS on Debian systems. The
+document can be found on:
 
 <ulink url="http://docs.google.com/View?docid=drm3kmx_0cbr3x9">
 http://www.writely.com/View?docid=drm3kmx_0cbr3x9
@@ -290,8 +289,8 @@ http://www.writely.com/View?docid=drm3kmx_0cbr3x9
 Installing OTRS on a Microsoft Window system is very easy. Download the latest
 installer for Win32 from
 
-<ulink url="http://www.otrs.org/">
-<citetitle>http://www.otrs.org</citetitle>
+<ulink url="http://www.otrs.org/download/">
+<citetitle>http://www.otrs.org/download/</citetitle>
 </ulink>
 
 and save the file to your local file system. Then simply click on the file
@@ -324,25 +323,23 @@ you should only install OTRS on Windows systems that don't already have
 <title>Preparing the installation from source</title>
 
 <para>
-If you have to install OTRS from source, first download the .tar.gz or
-.tar.bz2 file with the sources from
+If you want to install OTRS from source, first download the source archive as .tar.gz,
+.tar.bz2, or .zip file from
 
-<ulink url="http://www.otrs.org/">
-<citetitle>http://www.otrs.org</citetitle>
+<ulink url="http://www.otrs.org/download/">
+<citetitle>http://www.otrs.org/download/</citetitle>
 </ulink>
-
-please.
 </para>
 
 <para>
 Unpack the archive for example with <command>tar</command> into the
-directory <filename>/opt</filename> and rename the directory from otrs-2.2.x to otrs:
+directory <filename>/opt</filename> and rename the directory from otrs-2.4.x to otrs:
 </para>
 
 <para>
 <screen>
-linux:/opt# tar xf /tmp/otrs-2.2.x.tar.gz
-linux:/opt# mv otrs-2.2.-x otrs
+linux:/opt# tar xf /tmp/otrs-2.4.x.tar.gz
+linux:/opt# mv otrs-2.4.-x otrs
 linux:/opt# ls
 otrs
 linux:/opt#
@@ -350,27 +347,27 @@ linux:/opt#
 </para>
 
 <para>
-Because the modules of OTRS should not be executed with root rights, a new
-user for OTRS will be added in the next step. The home directory of this
-new user should be <filename>/opt/otrs</filename>. If your webserver is not
-running with the same user rights like the new otrs users (this is the case
-on most systems), you have to add the new otrs user to the group of the web
+Because the modules of OTRS should not be executed with root rights, you should add a new
+user for OTRS as the next step. The home directory of this
+new user should be <filename>/opt/otrs</filename>. If your web server is not
+running with the same user rights as the new otrs user, which is the case
+on most systems, you have to add the new otrs user to the group of the web
 server user:
 </para>
 
 <para>
 <screen>
-linux:/opt# useradd -d /opt/otrs/ -c 'OTRS user' otrs
+linux:/opt# useradd -r -d /opt/otrs/ -c 'OTRS user' otrs
 linux:/opt# usermod -G nogroup otrs
 linux:/opt#
 </screen>
 </para>
 
 <para>
-Now some demo config files of OTRS have to be copied. The system will later
+Now you have to copy some sample configuration files. The system will later
 use the copied files. The files are located in
 <filename>/opt/otrs/Kernel</filename> and
-<filename>/opt/otrs/Kernel/Config</filename> and have the ending .dist.
+<filename>/opt/otrs/Kernel/Config</filename> and have the suffix .dist.
 </para>
 
 <para>
@@ -384,10 +381,10 @@ linux:/opt/otrs/Kernel/Config#  cp GenericAgent.pm.dist GenericAgent.pm
 
 <para>
 The last step to prepare the installation of OTRS is to set the proper
-access rights for the files of the ticket system. You can use the script
+access rights for the files. You can use the script
 <command>SetPermissions.sh</command>, which is located in the
 <filename>bin</filename> directory in the home directory of the OTRS user.
-The script can be executed with the following parameters:
+You can execute the script with the following parameters:
 </para>
 
 <para>
@@ -412,25 +409,28 @@ The script can be executed with the following parameters:
 </para>
 
 <para>
-Is your web server running with the same user rights as OTRS, the command
+If your web server is running with the same user rights as OTRS, the command
 to set the proper access rights is
 <command>SetPermissions.sh /opt/otrs otrs otrs</command>. On SUSE systems
-the web server is running with the user rights of wwwrun. You would use the
+the web server is running with the user rights of wwwrun. On Debian-based systems
+this is www-data. You would use the
 command <command>SetPermissions.sh /opt/otrs otrs wwwrun nogroup www</command> to set
 the proper access rights.
 </para>
 
 </sect2>
 
-<sect2 id="installation-of-needed-perl-modules">
-<title>Installation of needed Perl modules</title>
+<sect2 id="installation-of-perl-modules">
+<title>Installation of Perl modules</title>
 
 <para>
 OTRS needs some additional Perl modules. If you install OTRS from source,
 you'll have to install these modules manually. This can either be done with
-the packagemanager of your distro (<application>yast</application>,
+the package manager of your Linux distribution (<application>yast</application>,
 <application>apt-get</application>) or, like described in this section,
-through the Perl shell and CPAN.
+through the Perl shell and CPAN. If you're using ActiveState Perl, for instance
+on Windows, you could use PPM, the built-in Perl Package Manager. If possible we advise you to use your
+package manager.
 </para>
 
 <para>
@@ -475,7 +475,7 @@ OTRS requires the following additional Perl modules:
           DBI
         </entry>
         <entry>
-          OTRS needs this module to connect to the database backend.
+          OTRS needs this module to connect to the database back-end.
         </entry>
       </row>
       <row>
@@ -484,7 +484,16 @@ OTRS requires the following additional Perl modules:
         </entry>
         <entry>
           Module with special functions to connect to the MySQL
-          database backend.
+          database back-end. (only required if you use MySQL)
+        </entry>
+      </row>
+      <row>
+        <entry>
+          DBD::pg
+        </entry>
+        <entry>
+          Module with special functions to connect to the PostgreSQL
+          database back-end. (only required if you use PostgreSQL)
         </entry>
       </row>
       <row>
@@ -492,7 +501,7 @@ OTRS requires the following additional Perl modules:
           Digest::MD5
         </entry>
         <entry>
-          This module makes it possible to use the md5 algorithm..
+          This module makes it possible to use the md5 algorithm.
         </entry>
       </row>
       <row>
@@ -525,8 +534,7 @@ OTRS requires the following additional Perl modules:
           Mail::Internet
         </entry>
         <entry>
-          This module makes it possible to process emails based on the
-          RFC 822 standard.
+          Used for OTRS email processing.
         </entry>
       </row>
       <row>
@@ -544,6 +552,23 @@ OTRS requires the following additional Perl modules:
         <entry>
           This module contains procedures to access and process messages on a
           POP3 server.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Net::POP3Client
+        </entry>
+        <entry>
+          This module contains procedures to access and process messages on a
+          POP3 server.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          IO::Socket::SSL
+        </entry>
+        <entry>
+          Required for SSL connections to your mail server.
         </entry>
       </row>
       <row>
@@ -570,6 +595,14 @@ OTRS requires the following additional Perl modules:
         <entry>
           SASL authentication framework, e.g. needed for the
           authentication against mailservers.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Net::SMTP::SSL
+        </entry>
+        <entry>
+          Required if you use SSL connections to your SMTP server.
         </entry>
       </row>
       <row>
@@ -614,9 +647,54 @@ OTRS requires the following additional Perl modules:
 </table>
 
 </para>
+<para>
+You can verify which modules you need to install with
+<command>otrss.checkModules</command>. The script is located in the
+ <filename>bin</filename>
+directory in the home directory of the OTRS user.
+</para>
 
 <para>
-To install one of the modules from above with CPAN, you have to execute the
+<screen>
+linux:~# cd /opt/otrs/bin/
+linux:/opt/otrs/bin# ./otrs.checkModules
+   o CGI............................ok (v3.43)
+   o Date::Pcalc....................ok (v1.2)
+   o Date::Format...................ok (v2.22)
+   o DBI............................ok (v1.607)
+   o DBD::mysql.....................ok (v4.008)
+   o Digest::MD5....................ok (v2.36_01)
+   o Crypt::PasswdMD5...............ok (v1.3)
+   o LWP::UserAgent.................ok (v5.819)
+   o Encode::HanExtra...............ok (v0.23)
+   o IO::Scalar.....................ok (v2.110)
+   o IO::Wrap.......................ok (v2.110)
+   o MIME::Base64...................ok (v3.07_01)
+   o Mail::Internet.................ok (v2.04)
+   o MIME::Tools....................ok (v5.427)
+   o Net::DNS.......................ok (v0.63)
+   o Net::POP3......................ok (v2.29)
+   o Mail::POP3Client...............ok (v2.18 )
+      o IO::Socket::SSL.............ok (v1.18)
+   o Net::IMAP::Simple..............ok (v1.17)
+      o Net::IMAP::Simple::SSL......ok (v1.3)
+   o Net::SMTP......................ok (v2.31)
+      o Authen::SASL................ok (v2.12)
+      o Net::SMTP::SSL..............ok (v1.01)
+   o Net::LDAP......................ok (v0.39)
+   o GD.............................ok (v2.39)
+      o GD::Text....................ok (v0.86)
+      o GD::Graph...................ok (v1.44)
+      o GD::Graph::lines............ok (v1.15)
+      o GD::Text::Align.............ok (v1.18)
+   o PDF::API2......................ok (v0.73)
+   o XML::Parser....................ok (v2.36)
+linux:/opt/otrs/bin#
+</screen>
+</para>
+
+<para>
+To install one of the modules from above via CPAN, you have to execute the
 command <command>perl -e shell -MCPAN</command>. The Perl shell will be
 started in interactive mode and the CPAN module will be loaded. If CPAN is
 already configured, you can install the modules with the command
@@ -625,54 +703,13 @@ care of the dependencies of a module to other Perl modules and lets you know,
 if other modules are needed.
 </para>
 
-<para>
-After you have installed all modules you can use the script
-<command>otrss.checkModules</command> to check if OTRS has all needed Perl
-modules. The script is located in the <filename>bin</filename>
-directory in the home directory of the OTRS user.
-</para>
-
-<para>
-<screen>
-linux:~# cd /opt/otrs/bin/
-linux:/opt/otrs/bin# ./otrs.checkModules
-                  CGI ... ok
-          Date::Pcalc ... ok
-         Date::Format ... ok
-                  DBI ... ok
-           DBD::mysql ... ok
-          Digest::MD5 ... ok
-     Crypt::PasswdMD5 ... ok
-       LWP::UserAgent ... ok
-           IO::Scalar ... ok
-             IO::Wrap ... ok
-         MIME::Base64 ... ok
-          MIME::Tools ... ok
-       Mail::Internet ... ok
-             Net::DNS ... ok
-            Net::POP3 ... ok
-            Net::LDAP ... ok
-            Net::SMTP ... ok
-         Authen::SASL ... ok
-                   GD ... ok
-             GD::Text ... ok
-            GD::Graph ... ok
-     GD::Graph::lines ... ok
-      GD::Text::Align ... ok
-          XML::Parser ... ok
-            PDF::API2 ... not installed! (for PDF output - not required)
-       Compress::Zlib ... ok
-linux:/opt/otrs/bin#
-</screen>
-</para>
 
 <para>
 Execute also the two commands
 <command>perl -cw bin/cgi-bin/index.pl</command> and
 <command>perl -cw bin/PostMaster.pl</command> after changing into the
 directory <filename>/opt/otrs</filename>. If the output of
-both commands is "syntax OK", you have a proper Perl installation to use
-with OTRS.
+both commands is "syntax OK", your Perl is properly set up.
 </para>
 
 <para>
@@ -688,7 +725,7 @@ linux:/opt/otrs#
 
 </sect2>
 
-<sect2 id="webserver-configuration">
+<sect2 id="web server-configuration">
 <title>Configuring the apache web server</title>
 
 <para>
@@ -719,7 +756,7 @@ template to a file called <filename>otrs.conf</filename>.
 
 <para>
 First find the example configuration file in otrs/scripts/ that is fitting for
-your version of the apache webserver.
+your version of the apache web server.
 
 Either:
 Apache2
@@ -727,7 +764,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -781,7 +818,7 @@ apache-httpd.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 
 # agent, admin and customer frontend (mod_alias required!)
@@ -818,8 +855,8 @@ MaxRequestsPerChild 400
 </para>
 
 <para>
-Restart your webserver to load the new config settings
-for the web server. On most systems you can start/restart your webserver
+Restart your web server to load the new config settings
+for the web server. On most systems you can start/restart your web server
 with the command <command>/etc/init.d/apache restart</command> or
 <command>/etc/init.d/apache2 restart</command>.
 </para>
@@ -833,7 +870,7 @@ linux:/etc/apache2/conf.d#
 </para>
 
 <para>
-Now your webserver should be basicaly configured for OTRS.
+Now your web server should be basicaly configured for OTRS.
 </para>
 
 <para>
@@ -844,7 +881,7 @@ the following manner.
 </para>
 
 <para>
-Please enusre that mod_perl is installed, and loaded, in order to take advantage of
+Please ensure that mod_perl is installed, and loaded, in order to take advantage of
 this feature. Due to the nature of the start-up script, your server will not fail
 to start, if the mod_perl is not properly loaded or compiled in your apache web server, unless
 mod_cgi is also on. Technically speaking you can leave mod_cgi on as well, but you
@@ -1250,8 +1287,9 @@ or removed by the <filename>Cron.sh</filename> script. Please change the
 linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.24 $&gt;
-Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
+/opt/otrs/bin
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.25 $&gt;
+Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
 exit
@@ -1272,7 +1310,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1282,7 +1320,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1292,7 +1330,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1305,7 +1343,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1315,7 +1353,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1325,7 +1363,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1336,7 +1374,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1346,7 +1384,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1356,7 +1394,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1366,7 +1404,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.24 2009-08-27 22:34:47 martin Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.25 2009-08-28 14:45:58 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
@@ -1442,6 +1480,11 @@ Note: The OTRS themes between 2.3 and 2.4 are _not_ compatible (don't use the ol
       </listitem>
       <listitem>
         <para>
+Execute $OTRS_HOME/bin/SetPermissions.pl!
+        </para>
+      </listitem>
+      <listitem>
+        <para>
 Update the database changes with (part 1/2)
         </para>
         <para>
@@ -1467,11 +1510,6 @@ MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.mysql.sql | mysql -p -f -u ro
         </para>
         <para>
 PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.postgresql.sql | psql otrs
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Execute $OTRS_HOME/bin/SetPermissions.pl!
         </para>
       </listitem>
       <listitem>
