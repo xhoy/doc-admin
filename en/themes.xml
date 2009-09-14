@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: themes.xml,v 1.3 2007-03-02 12:01:46 cs Exp $ -->
+<!-- $Id: themes.xml,v 1.4 2009-09-14 20:26:04 mb Exp $ -->
 
 <chapter id="themes">
-<title>Creating own themes</title>
+<title>Creating your own themes</title>
 
 <para>
 You can create your own themes for OTRS to use the layout you like in the
-web frontend. To create own themes the output template have to be
-customized to your needs.
+web frontend. To create own themes you should customize the output templates
+to your needs.
 </para>
 
 <para>
@@ -21,7 +21,7 @@ be found in the Developer Manual on
 </ulink>
 , especialy in the chapter about
 
-<ulink url="http://doc.otrs.org/developer/2.0/en/html/c494.html">
+<ulink url="http://doc.otrs.org/developer/2.4/en/html/c629.html">
 <citetitle>templates</citetitle>
 </ulink>
 .
@@ -41,6 +41,9 @@ To create a new theme called "Company" perform the following steps:
     <filename>Kernel/Output/HTML/Standard</filename>
     into the new folder.
     </para>
+    <important><para>Only copy over the files you actually change. OTRS
+    will automatically get the missing files from the Standard theme.
+    This will make upgrading in a later stage much easier.</para></important>
 </listitem>
 <listitem>
     <para>
@@ -51,9 +54,9 @@ To create a new theme called "Company" perform the following steps:
 </listitem>
 <listitem>
     <para>
-    To activate the new theme for OTRS the database has to be changed
-    manualy and the new theme has to be added to the theme table in the
-    OTRS database. Use the following commands with MySQL:
+    To activate the new theme in OTRS the database has to be changed
+    manualy and the new theme has to be added to the theme table.
+    Below is an example of how to do this with MySQL:
     </para>
 
     <para>
@@ -82,7 +85,7 @@ mysql&gt;
 </para>
 
 <para>
-Now the new theme should be useable in OTRS. It should be possible to
+Now the new theme should be useable in OTRS. You can
 select it via your
 
 <link linkend="user-preferences">
@@ -94,8 +97,8 @@ page.
 
 <warning>
 <para>
-Do not change the theme files shipped with OTRS, the changes will be lost
-after an update. Create your own themes only performing the steps described
+Do not change the theme files shipped with OTRS, these changes will be lost
+after an update. Create your own themes only by performing the steps described
 above.
 </para>
 </warning>
