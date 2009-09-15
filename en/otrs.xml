@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.28 2009-08-01 12:16:16 martin Exp $ -->
+<!-- $Id: otrs.xml,v 1.29 2009-09-15 14:55:46 mb Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -136,8 +136,8 @@ included in the central framework.
       </listitem>
       <listitem>
         <para>
-        Support for viewing and encrypting SMIME messages, handling of
-        SMIME certificates.
+        Support for viewing and encrypting S/MIME messages, handling of
+        S/MIME certificates.
         </para>
       </listitem>
       <listitem>
@@ -552,7 +552,7 @@ Responsibility changes
 
 <listitem>
 <para>
-With this feature, it is now possible to write e-mails, notes, and notifications in rich text format (HTML format). Using a WYSIWIG editor (What You See Is What You Get), it is possible to comfortably write using formatted text and even include inline pictures.
+With this feature, it is now possible to write e-mails, notes, and notifications in rich text format (HTML format). Using a WYSIWIG editor (What You See Is What You Get), it is possible to comfortably write using formatted text and even include in-line pictures.
 </para>
 </listitem>
 
@@ -567,10 +567,10 @@ With this feature, it is now possible to write e-mails, notes, and notifications
 With this new feature it is possible for all users to activate "out-of-office" to notify colleagues and OTRS of the period of their absence. The out-of-office feature is active for a time frame set by the user. Activation of this feature has the following effects:
     </para>
     <para>
-In the lists in which an agent can be selected as owner or reponsible (i.e. Ticket creation or changing ownership), the period of absence and the time till return will be shown behind the user's name. This will help making the absence of the user more transparent.
+In the lists in which an agent can be selected as owner or responsible (i.e. Ticket creation or changing ownership), the period of absence and the time till return will be shown behind the user's name. This will help making the absence of the user more transparent.
     </para>
     <para>
-If an agent receives a follow-up during a period of absence, the ticket is automatically unlocked and a notifcation is sent to all agents in the queue. This allows immediate reaction to the customer follow-up by another service employee.
+If an agent receives a follow-up during a period of absence, the ticket is automatically unlocked and a notification is sent to all agents in the queue. This allows immediate reaction to the customer follow-up by another service employee.
     </para>
 </listitem>
 
@@ -632,7 +632,7 @@ In the current release of OTRS it is possible for a user to maintain a Watched T
 
 <listitem>
     <para>
-OTRS can receive and send mails in multiple ways. All currently available methods for receiving emails have been implemented within OTRS 2.3 (POP3,POP3S,IMAP,IMAPS). Until now, there were two options for sending emails: using a local MTA (Sendmail, Postfix, etc.) or per SMTP. In OTRS 2.4.x, SMTPS (Sercure SMTP) has been implemented in order to keep up to the growing security standards.
+OTRS can receive and send mails in multiple ways. All currently available methods for receiving emails have been implemented within OTRS 2.3 (POP3,POP3S,IMAP,IMAPS). Until now, there were two options for sending emails: using a local MTA (Sendmail, Postfix, etc.) or per SMTP. In OTRS 2.4.x, SMTPS (Secure SMTP) has been implemented in order to keep up to the growing security standards.
     </para>
 </listitem>
 
@@ -669,7 +669,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
 <listitem>
     <para>
         Instead of an ongoing recalculating of the escalation time
-        during the run time, it is only recalculated when it changes
+        during run time, it is only recalculated when it changes
         due to an event in OTRS. It is then being stored in the ticket
         object which allows a direct access of external reporting
         tools to the data base as well as a more efficient reporting
@@ -835,7 +835,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
 <listitem>
     <para>
     Support of Services and SLAs:
-    As major step towards IT Servicemanagement OTRS 2.2 brings in the new
+    As major step towards IT Service Management OTRS 2.2 brings in the new
     attributes 'Service' and 'Service Level Agreements (SLA)'. While creating
     a new ticket a service requester has to select both a service
     (e. g. email-service)
@@ -860,9 +860,9 @@ OTRS can receive and send mails in multiple ways. All currently available method
     <para>
     Support of multiple authentication backends: Added support of multi authentication feature for agent and customer backend.
     By using this feature it is now possible to use multiple trusted
-    authentication sources (i.e. use LDAP as a first source for authentification and in case
+    authentication sources (i.e. use LDAP as a first source for authentication and in case
     of an
-    unsuccessful authentification try a SQL DB as a second source).
+    unsuccessful authentication try a SQL DB as a second source).
     </para>
 </listitem>
 <listitem>
@@ -895,7 +895,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
     Customer datas (CustomerUser) are restructured and split into the objects
     "CustomerCompany" and "CustomerUser" within the internal OTRS database. Company
     related attributes like company name and address will be managed separately from
-    those attributes related to a single contact (e.g. prename, surname, phone etc.).
+    those attributes related to a single contact (e.g. first name, surname, phone etc.).
     </para>
 
     <para>
@@ -904,7 +904,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
 </listitem>
 <listitem>
     <para>
-    Enhanced OPM-Format: OPM Packages are now delivered with an additional online help. The introducing
+    Enhanced OPM-Format: OPM Packages are now delivered with an additional on-line help. The introduction
     page will inform the user about new features and will also give a short
     overview about the next steps to do after having installed the packages.
     </para>
@@ -934,18 +934,18 @@ OTRS can receive and send mails in multiple ways. All currently available method
 
 <listitem>
     <para>
-    Stable Support of MicrosoftRSQL Server: The first time OTRS offers an
-    interface to MS SQL Server platforms. Thatþs why OTRS supports all
+    Stable Support of Microsoft SQL Server: starting this version OTRS offers an
+    interface to MS SQL Server databases. OTRS supports all
     popular operating systems like Linux, Windows, UNIX, Mac OS X etc. as
-    well as all major Databases like MS SQL, MySQL, PostgreSQL, Oracle and DB2.
+    well as all major databases like MS SQL, MySQL, PostgreSQL, Oracle and DB2.
     </para>
 </listitem>
 <listitem>
     <para>
-    Multi-Calender Function: This Feature simplifies working in distributed
+    Multi-Calendar Function: This Feature simplifies working in distributed
     surroundings. National teams are supported by permitting different local
     working schedules and public holiday regulations. International
-    organiszations are additionally supported by a time-zone feature.
+    organizations are additionally supported by a time-zone feature.
     </para>
 </listitem>
 <listitem>
@@ -954,7 +954,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
     Statistics in a more flexible way than ever. A powerful and easy to use
     Wizard will guide you through the process. Once defined OTRS may deliver
     periodically needed Reports automatically to a predefined Mailing List.
-    Export- and Importfunctions allow to transfer Statistics between
+    Export- and Import functions allow to transfer Statistics between
     different OTRS Installations. So you can define and test your Statistics
     before loading them up to your production System.
     </para>
@@ -964,7 +964,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
     Optimized Synchronization of authorizations from LDAP-Directory Services:
     That simplifies the connection of all known LDAP-Directory Services like
     Microsoft Active Directory, OpenLDAP, Novell eDirectory, Oracle Internet
-    Directory, etc. A usefull Feature which saves time and effort of
+    Directory, etc. A useful Feature which saves time and effort of
     maintaining authorizations in the local Database of OTRS.
     </para>
 </listitem>
@@ -995,7 +995,7 @@ OTRS can receive and send mails in multiple ways. All currently available method
     Ticket Supervisor enables authorized Team members to depute a Ticket to
     another Service Agent without loosing the right to edit this ticket the
     Ticket Watcher allows you to track a ticket passive on the basis of an
-    individual watchlist.
+    individual watch list.
     </para>
 </listitem>
 <listitem>
@@ -1077,7 +1077,7 @@ the Perl shell and CPAN or via the package manager of your operating system
         <para>Apache2+mod_perl2 or higher (recommended, mod_perl is really fast!)</para>
     </listitem>
     <listitem>
-        <para>IIS6 or higher</para>
+        <para>IIS 6 or higher</para>
     </listitem>
     </itemizedlist>
 
@@ -1103,7 +1103,7 @@ the Perl shell and CPAN or via the package manager of your operating system
 <para>
 The section on the
 
-<link linkend="installation-of-needed-perl-modules">
+<link linkend="installation-of-perl-modules">
 manual installation of Perl modules needed
 </link>
 
@@ -1123,15 +1123,16 @@ dependences of the Perl modules needed.
 <title>Community</title>
 
 <para>
-OTRS has a large user community. users and developers discuss OTRS and exchange information on the
-trouble ticket system Via
+OTRS has a large user community. Users and developers discuss OTRS and
+exchange information on
+related issues via the
 
 <link linkend="additional-resources-mailinglists">
 mailinglists
 </link>
 
 . There is available help for questions about the installation,
-configuration, usage, localisation and development. Software bugs
+configuration, usage, localization and development. Software bugs
 can be reported via a
 
 <link linkend="additional-resources-bugtracking">
@@ -1139,8 +1140,7 @@ bug tracking system
 </link>
 
 so that they reach the responsible developers directly and without getting
-lost. That ensures that fixes for problems
-are available very quick.
+lost.
 </para>
 
 <para>
@@ -1165,23 +1165,23 @@ you can reach the homepage of the OTRS community.
 <title>Commercial Support for OTRS</title>
 
 <para>
-Commercial support for OTRS is also available. Via the URL
+Commercial support for OTRS is also available. You can find the available
+options on the website of OTRS AG, the company behind OTRS:
 
-<ulink url="http://www.otrs.com">
-<citetitle>http://www.otrs.com</citetitle>
+<ulink url="http://www.otrs.com/en/support">
+<citetitle>http://www.otrs.com/en/support</citetitle>
 </ulink>
-
-the pages of the OTRS AG can be reached, representing the commercial
-part of the OtRS.org project.
+.
 </para>
 
 <para>
-The OTRS AG provide support, consulting and training for the Open Ticket
+OTRS AG provides support, consulting and training for the Open Ticket
 Request System. It also provides easy-to-handle complete solutions.
-With these packages, the OTRS AG would like to serve medium-sized companies, local
+With these packages, the OTRS AG would like to serve medium- to big-sized
+companies, local
 authorities, institutions and big corporate groups. You can either buy
 ready-made high-performance and high-availability systems or order special
-made-to-measure packages.
+custom-tailored packages.
 </para>
 
 <para>
@@ -1191,8 +1191,8 @@ On
 <citetitle>http://www.otrs.com</citetitle>
 </ulink>
 
-are available more detailed information about the OTRS AG. You can
-contact the OTRS AG per email to
+are available more detailed information about OTRS AG. You can
+contact OTRS AG per email at
 
 <ulink url="mailto:sales at otrs.com">
 <citetitle>sales at otrs.com</citetitle>
