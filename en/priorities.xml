@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: priorities.xml,v 1.3 2009-09-14 19:52:06 mb Exp $ -->
+<!-- $Id: priorities.xml,v 1.4 2009-09-15 14:43:41 mb Exp $ -->
 
 <chapter id="priorities">
 <title>Modifying ticket priorities</title>
@@ -26,19 +26,19 @@ want to modify some values in SysConfig:
 
 
 <itemizedlist>
-<listitem><para><link linkend="Ticket:Core::Postmaster:PostmasterDefaultPriority">
+<listitem><para><link linkend="Ticket:Core::PostMaster:PostmasterDefaultPriority">
 Ticket:Core::Postmaster::PostmasterDefaultPriority</link> - defines the default
 priority for all incoming email.</para></listitem>
 
-<listitem><para><link linkend="Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority">
+<listitem><para><link linkend="Ticket:Frontend::Agent::Ticket::ViewPhoneNew:Ticket::Frontend::AgentTicketPhone_Priority">
 Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority</link> - defines the default
 priority in the New Phone Ticket screen for the agents.</para></listitem>
 
-<listitem><para><link linkend="Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority">
+<listitem><para><link linkend="Ticket:Frontend::Agent::Ticket::ViewEmailNew:Ticket::Frontend::AgentTicketEmail_Priority">
 Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority</link> - defines the default
 priority in the New Email Ticket screen for the agents.</para></listitem>
 
-<listitem><para><link linkend="Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault">
+<listitem><para><link linkend="Ticket:Frontend::Customer::Ticket::ViewNew:Ticket::Frontend::CustomerTicketMessage_PriorityDefault">
 Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault</link> - defines the
 default priority in the New Ticket screen in the Customer frontend.
 </para></listitem>
