@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.12 2009-09-14 18:46:37 mb Exp $ -->
+<!-- $Id: email.xml,v 1.13 2009-09-15 11:31:52 mb Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -44,31 +44,19 @@ frontend (Framework::Core::Sendmail) or via
 
 <para>
 OTRS can send emails via SMTP (
-<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol / RFC 821</ulink>)
-or Secure SMTP. You will want to use this on non-unix platforms (e.g. Windows).
+<ulink url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol /
+RFC 821</ulink>) or Secure SMTP. You will want to use this on non-UNIX
+platforms (e.g. Windows).
 </para>
 
 <para>
-The SMTP server settings can be configured either via the
-SysConfig (Framework::Core::Sendmail). If you don't see
-SMTPS available as an option, you miss the required Perl modules. In that case, please
-refer to <link linkend="installation-of-needed-perl-modules">
+The SMTP server settings can be configured via the SysConfig
+(Framework::Core::Sendmail). If you don't see SMTPS available as an option, you
+miss the required Perl modules. In that case, please refer to
+<link linkend="installation-of-needed-perl-modules">
 "Installation of Perl modules required for OTRS"
 </link> for instructions.</para>
 
-<para>You can also add your SMTP configuration to
-<filename>Kernel/Config.pm</filename>:
-</para>
-
-<para>
-<programlisting>
-    # SendmailModule
-    $Self-&gt;{"SendmailModule"} = "Kernel::System::Email::SMTP";
-    $Self-&gt;{"SendmailModule::Host"} = "mail.example.com";
-    $Self-&gt;{"SendmailModule::AuthUser"} = "";
-    $Self-&gt;{"SendmailModule::AuthPassword"} = "";
-</programlisting>
-</para>
 </sect2>
 
 </sect1>
@@ -95,7 +83,8 @@ Configure your mail accounts via the admin interface (PostMaster Mail Account ).
 </para>
 
 <para>
-If a new mail account is created then its mail server, username and password
+If a new mail account is created then its mail server name, login name and
+password
 must be specified. Also, you need to select the mail server type,
 which can be POP3, POP3S, IMAP or IMAPS. If you don't see
 server type you'd want to use  available as an option, you miss the required
@@ -105,10 +94,10 @@ refer to <link linkend="installation-of-needed-perl-modules">
 </link> for instructions.</para>
 
 
-<para>If you select "Yes" for "Trusted", any X-OTRS headers
-attached to an incoming message are evaluated and executed.
-Because the X-OTRS header can execute some actions in the ticket system you
-should only set "Trusted" to "Yes" for known senders. X-OTRS-Headers are used by the
+<para>If you select "Yes" for "Trusted", any X-OTRS headers attached to an
+incoming message are evaluated and executed. Because the X-OTRS header can
+execute some actions in the ticket system you should only set "Trusted" to
+"Yes" for known senders. X-OTRS-Headers are used by the
 
 <link linkend="adminarea-postmasterfilter">
 filter module
@@ -125,11 +114,12 @@ even if "Trusted" is set to "Yes".
 </para>
 
 <para>
-The distribution of incoming messages can be controled if they need to
+The distribution of incoming messages can be controlled if they need to
 be sorted by queue or by the content of the To: field. If "Dispatching by
-selected queue" is selected for "Dispatching", all incomming messages will
+selected queue" is selected for "Dispatching", all incoming messages will
 be sorted into the specified queue. The address where the
-mail was sent to doesn't matter. If "Dispatching by email To: field" was
+mail was sent to is disregarded in this case.
+If "Dispatching by email To: field" was
 selected for "Dispatching", the system checks if a queue is linked with the
 address in the To: field of the incoming mail. You can link an address in
 the
@@ -195,7 +185,7 @@ If the email is shown in the QueueView then your setup is working.
 </para>
 
 <para>
-Procmail is a very common e-mail filter in Linux enviroments. It will be
+Procmail is a very common e-mail filter in Linux environments. It will be
 installed on most systems. If not, have a look at the
 <ulink url="http://www.procmail.org/"><citetitle>procmail homepage</citetitle></ulink>.
 </para>
