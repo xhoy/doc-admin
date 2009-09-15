@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -10,7 +10,8 @@
 <para>
 This chapter describes the installation and the basic configuration of the
 central OTRS framework. You'll find information about installing OTRS
-manually from source or with a binary package, ex. rpm or for Win32.
+from source or with a binary package, for example RPM or with the
+Windows Installer.
 </para>
 
 <para>
@@ -594,7 +595,7 @@ OTRS requires the following additional Perl modules:
         </entry>
         <entry>
           SASL authentication framework, e.g. needed for the
-          authentication against mailservers.
+          authentication against mail servers.
         </entry>
       </row>
       <row>
@@ -658,7 +659,7 @@ OTRS requires the following additional Perl modules:
 </para>
 <para>
 You can verify which modules you need to install with
-<command>otrss.checkModules</command>. The script is located in the
+<command>otrs.checkModules</command>. The script is located in the
  <filename>bin</filename>
 directory in the home directory of the OTRS user.
 </para>
@@ -735,7 +736,7 @@ linux:/opt/otrs#
 
 </sect2>
 
-<sect2 id="web server-configuration">
+<sect2 id="web-server-configuration">
 <title>Configuring the apache web server</title>
 
 <para>
@@ -774,7 +775,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -828,7 +829,7 @@ apache-httpd.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 
 # agent, admin and customer frontend (mod_alias required!)
@@ -880,7 +881,7 @@ linux:/etc/apache2/conf.d#
 </para>
 
 <para>
-Now your web server should be basicaly configured for OTRS.
+Now your web server should be configured for OTRS.
 </para>
 
 <para>
@@ -905,7 +906,7 @@ to see if the module is already loaded somewhere, or not.
 </para>
 
 <para>
-When you use the apropriate start script (listed above), and the module
+When you use the appropriate start script (listed above), and the module
 is loaded, the script (when commented in) /opt/otrs/scripts/apache-perl-startup.pl can be
 used to load the perl modules into memory one time, saving on load times and
 increasing performance.
@@ -1298,7 +1299,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.26 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.27 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1320,7 +1321,7 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 # cron/aaa_base - base crontab package
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # Who gets the cron emails?
@@ -1330,7 +1331,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1340,7 +1341,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1353,7 +1354,7 @@ MAILTO="root@localhost"
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1363,7 +1364,7 @@ MAILTO="root@localhost"
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1373,7 +1374,7 @@ MAILTO="root@localhost"
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1384,7 +1385,7 @@ MAILTO="root@localhost"
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1394,7 +1395,7 @@ MAILTO="root@localhost"
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
@@ -1404,7 +1405,7 @@ MAILTO="root@localhost"
 # cron/session - delete old session ids of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
@@ -1414,7 +1415,7 @@ MAILTO="root@localhost"
 # cron/unlock - unlock old locked ticket of the OTRS
 # Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.26 2009-08-31 12:32:09 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.27 2009-09-15 14:56:24 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
