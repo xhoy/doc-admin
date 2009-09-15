@@ -1,8 +1,8 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pdf-output.xml,v 1.3 2009-09-14 20:14:46 mb Exp $ -->
+<!-- $Id: pdf-output.xml,v 1.4 2009-09-15 11:43:39 mb Exp $ -->
 <chapter id="pdf-output" >
-<title>Set-up of the pdf output</title>
+<title>Customize the PDF output</title>
 
 <para>
 This section handles the configurable options for PDF output in OTRS.
@@ -39,14 +39,14 @@ user would generate a very big output file by accident.
 </para>
 
 <para>
-The CPAN modules PDF::API2 and Compress::Zlib must be installed for the
+The Perl CPAN modules PDF::API2 and Compress::Zlib must be installed for the
 generation of pdf files. In many distributions they are available as package
 and can easily be installed using the respective package manager. In case
 this is not possible they have to be installed with CPAN. The
 chapter
 
-<link linkend="installation-of-needed-perl-modules">
-"Installation of Perl modules required for OTRS"
+<link linkend="installation-of-perl-modules">
+"Installation of Perl modules"
 </link>
 
 describes the installation of the Perl modules.
