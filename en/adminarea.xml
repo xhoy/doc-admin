@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.19 2009-06-23 00:03:53 martin Exp $ -->
+<!-- $Id: adminarea.xml,v 1.20 2009-09-22 18:00:30 mb Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -279,7 +279,7 @@ helps to save time.
 </para>
 
 <para>
-To explaine the advantages of the role feature imagine that you have a
+To explain the advantages of the role feature imagine that you have a
 system with 100 users. 90 users have access to a queue called "support"
 that contains some sub queues. All support requests are handled through
 this queue. All other queues of the system are not accessible for the 90
@@ -458,8 +458,8 @@ queues
 </link>
 
 of your system. In a new installed system the "Junk", "Misc", "Postmaster"
-and "Raw" queues already exist in your system. "Raw" is the default queue, all
-incomming messages are stored in this queue if no filter rules are defined.
+and "Raw" queues already exist. "Raw" is the default queue, all
+incoming messages will be stored in this queue if no filter rules are defined.
 The "Junk" queue can be used to store spam messages.
 </para>
 
@@ -471,29 +471,41 @@ The "Junk" queue can be used to store spam messages.
 </para>
 
 <para>
-The form on the right site of the screen lets you add a new queue.
-You can specify the name and the group who should use the queue and if you
-want the new queue to be a sub queue of another already existing queue.
+Here you can add queues and modify them.
+You can specify the name and the group that should use the queue.
+You can also specify whether you want the new queue to be a sub-queue of
+another already existing queue.
 </para>
 
 <para>
-If a ticket was locked by an agent, you can specify a time interval when
-the ticket is unlocked automatically by the system.
+You can define an unlock timeout for this queue. If an agent locks a ticket and
+does not close it before the unlock timeout has passed, the ticket will unlock
+and will become available for other agents.
 </para>
 
 <para>
-If you specify a escalation time tickets which are older than this time
-block newer tickets to and the escalated tickets have to be processed
-first. This setting is usefull to force the processing of older tickets,
-new tickets don't apear in the QueueView if a ticket is escalated.
+There are three escalation time settings at the queue level. For
+'Escalation - First Response Time': if there is not added a customer
+interaction, either email-external or phone, to a new ticket before the time
+defined here expires, the ticket is escalated.
 </para>
 
 <para>
-Also you can specify that the old owner of a processed ticket is
-automatically the owner again, if a followup of the old ticket is send to
-the ticket system. This feature makes sure that a folowup for a ticket is
-first shown to the origianl owner of the ticket who already knows the facts
-of this ticket.
+Escalation - Update Time: If there is an article added, such as a follow-up
+via e-mail or the customer portal, the escalation update time is reset. If
+there is no customer contact, either email-external or phone, added to a
+ticket before the time defined here expires, the ticket is escalated.
+</para>
+
+<para>Escalation - Solution Time: If the ticket is not set to closed before
+the time defined here expires, the ticket is escalated.
+</para>
+
+<para>
+With 'Ticket lock after a follow-up' you can define if a ticket should be
+set to 'locked' to the old owner if a ticket that has been set to closed
+is re-opened. This ensures that a follow up for a ticket is processed by the
+agent that has previously handled the same ticket.
 </para>
 
 <para>
@@ -517,24 +529,19 @@ and
 signatures
 </link>
 
-explained more detailed this different parameters.
-</para>
-
-<para>
-The different customer info parameters let you specify the queue events when
-a notification to a customer is send.
+explaine these parameters in more detail.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
+To keep the consistency of the data in OTRS it is not possible to delete a
 queue. To deactivate a queue set it to
 "invalid" or "invalid-temporarily".
 </para>
 </note>
 
 <para>
-All described config settings for new queues are also valid for sub queues.
+All configuration settings for new queues are also available for sub-queues.
 </para>
 
 </sect1>
@@ -547,7 +554,7 @@ To accelerate answering tickets and to standardize the look of answers you
 can define responses in OTRS. A response can be linked to one or more
 queues, a queue can be linked to one or more responses. To make it possible
 to use a response quickly the different responses are displayed below of
-every ticket in the QueueVie or in "My Queues".
+every ticket in the QueueView or in "My Queues".
 </para>
 
 <para>
@@ -611,13 +618,12 @@ different salutations of your system.
 </para>
 
 <para>
-After a default installation there are already two salutations available in
-the system, "system standard salutation (de/buiss)" and
+After a default installation there is already one salutations available,
 "system standard salutation (en)".
 </para>
 
 <para>
-Because the content of a salutation can be created dynamicaly, for example
+Because the content of a salutation can be created dynamically, for example
 for things that change for every ticket (e.g. the name or mail address of
 the sender), it is possible to use variables in salutations. The text which
 is saved in the variables will be placed in the response text if you reply
@@ -627,7 +633,7 @@ to a ticket.
 <para>
 The different variables you can use in responses are listed in the lower
 part of the salutation screen. If you use for example the variable
-&lt;OTRS_LAST_NAME&gt; the lastname of the sender of the ticket will be
+&lt;OTRS_LAST_NAME&gt; the last name of the sender of the ticket will be
 included in your reply.
 </para>
 
