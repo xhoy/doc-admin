@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.11 2009-08-13 09:38:22 martin Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.12 2009-09-30 11:10:19 martin Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -110,7 +110,7 @@ uses customer data stored in the OTRS database.
         CustomerUserPostMasterSearchFields => ['email'],
         CustomerUserNameFields => ['salutation','first_name','last_name'],
         CustomerUserEmailUniqCheck => 1,
-#        # show now own tickets in customer panel, CompanyTickets
+#        # show not own tickets in customer panel, CompanyTickets
 #        CustomerUserExcludePrimaryCustomerID => 0,
 #        # generate auto logins
 #        AutoLoginCreation => 0,
@@ -355,7 +355,7 @@ information in a LDAP directory.
         CustomerUserSearchListLimit => 250,
         CustomerUserPostMasterSearchFields => ['mail'],
         CustomerUserNameFields => ['givenname', 'sn'],
-        # show now own tickets in customer panel, CompanyTickets
+        # show not own tickets in customer panel, CompanyTickets
         CustomerUserExcludePrimaryCustomerID => 0,
         # add a ldap filter for valid users (expert setting)
 #       CustomerUserValidFilter => '(!(description=gesperrt))',
@@ -509,7 +509,7 @@ customer backend with OTRS.
         CustomerUserPostMasterSearchFields => ['email'],
         CustomerUserNameFields => ['salutation','first_name','last_name'],
         CustomerUserEmailUniqCheck => 1,
-#        # show now own tickets in customer panel, CompanyTickets
+#        # show not own tickets in customer panel, CompanyTickets
 #        CustomerUserExcludePrimaryCustomerID => 0,
 #        # generate auto logins
 #        AutoLoginCreation => 0,
@@ -592,7 +592,7 @@ customer backend with OTRS.
         CustomerUserSearchListLimit => 250,
         CustomerUserPostMasterSearchFields => ['mail'],
         CustomerUserNameFields => ['givenname', 'sn'],
-        # show now own tickets in customer panel, CompanyTickets
+        # show not own tickets in customer panel, CompanyTickets
         CustomerUserExcludePrimaryCustomerID => 0,
         # add a ldap filter for valid users (expert setting)
 #       CustomerUserValidFilter => '(!(description=gesperrt))',
@@ -1066,7 +1066,7 @@ new room number field:
         CustomerUserPostMasterSearchFields => ['email'],
         CustomerUserNameFields => ['salutation', 'first_name', 'last_name'],
         CustomerUserEmailUniqCheck => 1,
-#        # show now own tickets in customer panel, CompanyTickets
+#        # show not own tickets in customer panel, CompanyTickets
 #        CustomerUserExcludePrimaryCustomerID => 0,
 #        # generate auto logins
 #        AutoLoginCreation => 0,
