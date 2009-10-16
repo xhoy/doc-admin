@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: tts.xml,v 1.6 2009-09-25 07:12:58 mb Exp $ -->
+<!-- $Id: tts.xml,v 1.7 2009-10-16 18:50:39 mb Exp $ -->
 
 <chapter id="tts">
 <title>Basics about trouble ticket systems</title>
@@ -9,13 +9,13 @@
 <abstract>
 <para>
 This chapter gives a short overview about the idea of trouble
-tickets in general and trouble ticket systems in detail. A short example
-shows the advantages of a ticket system.
+tickets in general and trouble ticket systems in specific. A short example
+shows the advantages of using a ticket system.
 </para>
 </abstract>
 
 <sect1 id="basic-tts-example">
-<title>What is a trouble ticket system, when do you need it?</title>
+<title>What is a trouble ticket system and why do you need it?</title>
 
 <para>
 The following example describes what a trouble ticket system is and how you
@@ -28,10 +28,10 @@ Since programming video recorders is very complex, Max gets many
 mails from customers who need help with the devices. Some days,
 Max has not enough time to answer all mails so that
 his customers have to be patient until they get an answer. Some customers
-don't want to wait that long so that they write another mail with the same
+don't want to wait that long so they write a second mail with the same
 question. All mails containing support requests are stored in only one inbox
-file. The requests are not sorted and the mails are answered with a normal
-mail program.
+file. The requests are not sorted and Max answers the mails with a regular
+email program.
 </para>
 
 <para>
@@ -52,16 +52,17 @@ customer support.
 <para>
 At a meeting, a colleague tells Max about trouble ticket systems and
 that they can solve Max's problems with the customer support. After
-looking for information in the internet, Max  decides to install the Open Ticket
-Request System (OTRS) on a computer that can be reached via the web
+looking for information on the Internet, Max  decides to install the Open Ticket
+Request System (OTRS) on a computer that is accessible from the web
 by both his customers and his employees. Now, the customer requests are no
 longer sent to Max's private inbox but to the mail account that is used for
 OTRS. The ticket system is connected to this mailbox and saves all requests in
 its database. For every new request, the system generates an auto-answer and
 sends it to the customer so that the customer knows that his request has
 arrived and will be answered soon. OTRS generates an explicit
-identification, the ticket number, for every single request. Now, the
-customers are happy because they got a quick response to their requests and
+
+reference, the ticket number, for every single request. Now, the
+customers are happy because they receive a quick response to their requests and
 it is not necessary to send a second message with the same question. Max,
 John and Joe can now login into OTRS with a simple web browser and answer
 the requests. Since the system locks a ticket that is answered, no message
@@ -71,12 +72,12 @@ is edited twice.
 <para>
 Let's imagine that Mr Smith makes a request to Max's company and his
 message is processed by OTRS. John gives a brief reply to this request but Mr
-Smith wants to know more so he replies to John's mail. Since John
+Smith has an additional question so he replies to John's mail. Since John
 has other things to do, Max answers Mr Smith's message. The
 history function of OTRS makes it easy for Max to read both Mr Smith's first
 message and John's response so that he is able to write a more
 detailed reply to Mr Smith. Mr Smith does not know that two different
-people were involved in the communication process, he is only happy about
+people were involved in the communication, he is happy about
 the solution for his problem that arrived with Max's last reply.
 </para>
 
@@ -84,10 +85,10 @@ the solution for his problem that arrived with Max's last reply.
 Of course, this is only a short overview about the possibilities and features of
 trouble ticket systems. But if many customer requests (mails and phone
 calls) must be handled by different people, a ticket system can help
-to save working time and money. A ticket system helps you to structure your
-support or helpdesk environment and you can define workflow processes. The
-communication between customers and companies gets more transparent which
-results in more effectiveness for both sides.
+to save time and money. A ticket system helps you to structure your
+support or help desk environment and you can define work flow processes. The
+communication between customers and companies will become more transparent which
+results in more effectiveness for both customers and support staff.
 </para>
 
 </sect1>
@@ -96,15 +97,15 @@ results in more effectiveness for both sides.
 <title>What is a trouble ticket?</title>
 
 <para>
-A trouble ticket is comparable to a medical report for a hospital
+You can compare a trouble ticket with medical report for a hospital
 patient. A medical report is generated when the patient visits the
 hospital for the first time. All important data about the patient, such as personal
-data and facts about the medical problem, are noted in the medical report.
-Each doctor adds to the medical report information on the illness and any medication
- so that all doctors and the whole nursing staff can get a quick
-and detailed overview about the patient's problem. When the patient has
-recovered and leaves hospital, the medical report gets closed and all
-information get archived.
+data and facts about medical issues, are stored in the medical report.
+Each doctor adds information on the illness and any medication to the medical report
+so that all doctors and the nursing staff can get a quick
+and detailed overview about the patient's situation. When the patient has
+recovered and leaves hospital, the medical report is closed and all
+information is archived.
 </para>
 
 <para>
