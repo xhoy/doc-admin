@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: configuration.xml,v 1.4 2006-04-20 15:58:34 cs Exp $ -->
+<!-- $Id: configuration.xml,v 1.5 2009-10-16 18:51:59 mb Exp $ -->
 
 <chapter id="configuration">
 <title>Configuring the system</title>
@@ -10,9 +10,9 @@
 <title>The config files of OTRS</title>
 
 <para>
-All config files of OTRS are stored in the directory
-<filename>Kernel</filename> or in sub directories below. There is no need
-to change manually any file other than <filename>Kernel/Config.pm</filename>
+All configuration files of OTRS are stored in the directory
+<filename>Kernel</filename> and in sub directories below. There is no need
+to manually change any file other than <filename>Kernel/Config.pm</filename>
 as all other files will be changed when the system is upgraded. Just
 copy the configuration parameters from the other files into
 <filename>Kernel/Config.pm</filename> and change them to your needs,
@@ -32,14 +32,14 @@ configuration parameters for the trouble ticket system.
 <para>
 In the directory <filename>Kernel/Config/Files</filename> some more files
 are stored that are parsed when the OTRS login page is accessed. If
-additional applications like the web mailer or the file manager are
-installed, the configuration files for these applications can be found in
+additional applications like the FAQ or the file manager are
+installed, the configuration files for these applications can also be found in
 <filename>Kernel/Config/Files</filename>.
 
 To keep compatibility with
 older OTRS versions, there is always a .pm- and a .xml file
 for every application and for the central framework. The .pm
-files are needed to parse all default and your own settings. The .xml files
+files are needed to parse all default and your own settings. The XML files
 are used by the graphical configuration frontend which is available with
 OTRS 2.0 onwards and which lets you configure most of the configuration parameters
 of the system through your web browser. In future versions of OTRS the .pm
@@ -61,7 +61,7 @@ applications will be loaded. Afterwards the settings in the two files
 <filename>Kernel/Config/Files/ZZZAuto.pm</filename> will be evaluated. Both
 files are used by the graphical configuration frontend and should never be
 changed manually. Lastly the file <filename>Kernel/Config.pm</filename>
-that contains your individual settings and manualy changed
+that contains your individual settings and manually changed
 configuration parameters will be parsed. Reading the configuration files in this order
 makes sure that your specific configuration settings are used by the
 system.
@@ -74,7 +74,7 @@ system.
 
 <para>
 With OTRS 2.0 and subsequent versions nearly all configuration parameters of the central framework
-or additionaly installed applications can be changed easily with the graphical
+or additionally installed applications can be changed easily with the graphical
 configuration frontend. Log in as OTRS administrator and follow the
 "SysConfig" link in the adminarea to execute the new configuration tool.
 </para>
