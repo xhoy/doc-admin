@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.20 2009-09-22 18:00:30 mb Exp $ -->
+<!-- $Id: adminarea.xml,v 1.21 2009-10-16 18:48:30 mb Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -10,28 +10,28 @@
 <title>Basics</title>
 
 <para>
-The admin area of OTRS is the central part in the web interface for the
-OTRS administrator. All important settings for the system can be done,
-changed and viewed via this module.
-</para>
+This is the central place for OTRS administrators. Here you can alter your
+configuration, install additional packages such as FAQ and ITSM, add
+queues and users, and much more.</para>
 
 <para>
-The admin area is reachable via the "Admin" link in the navbar of the agent
-interface. The link is only displayed, if you are logged in as OTRS
-administrator or if you are a member of the admin group. After a default
-installation you can log in as OTRS admin with the username root@localhost
-and the password root.
+You start the Admin area by clicking the <emphasis>Admin</emphasis> link
+in the navigation bar of the agent interface. The link is only displayed
+if you are a member of the <emphasis>admin</emphasis> group. On a new
+installation you can log in with the login
+<emphasis>root@localhost</emphasis> and the password
+<emphasis>root</emphasis>.
 </para>
 
 <warning>
 <para>
-Please change this password as fast as possible via the
+Please change the password for this account as soon as possible via the
 
 <link linkend="user-preferences">
 user preferences
 </link>
 
-page, because this password is set per default on new OTRS systems.
+page, because this is a default password on OTRS systems.
 </para>
 </warning>
 
@@ -44,17 +44,25 @@ page, because this password is set per default on new OTRS systems.
 </sect1>
 
 <sect1 id="adminarea-user-groups-and-roles">
-<title>User, groups and roles</title>
+<title>Users, groups and roles</title>
 
 <sect2 id="adminarea-user">
-<title>User</title>
+<title>Users</title>
 
 <para>
-Via the link "User" the user management of OTRS can be reached. It is
-possible to add, change or deactivate user accounts. Also some basic
-setting for a user account can be adjusted, e.g. the language for the web
-interface or the theme.
+Via the link <emphasis>Users</emphasis> you can enter the user management of
+OTRS. Administrators can add, change or deactivate user accounts.
+Administrators can also manage user preferences, for instance the language
+of the user interface and notification settings for individual users.
 </para>
+
+<note>
+<para>
+To keep the consistency of the data for OTRS it is not possible to delete a
+user account. To deactivate an account set it to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
+</para>
+</note>
 
 <para>
 <screenshot>
@@ -66,15 +74,15 @@ interface or the theme.
 <note>
 <para>
 To keep the consistency of the data for OTRS it is not possible to delete a
-user. To deactivate a user account set it to
-"invalid" or "invalid-temporarily".
+user account. To deactivate an account set it to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
-After a new user has been created the user must be added to one or more
+After you have created a new user you should make it a member of one or more
 groups or roles. You will be redirected automatically to the screen for the
-group and user management when a new accounted has been created.
+group and user management when you finished creating a user account.
 </para>
 
 </sect2>
@@ -83,13 +91,13 @@ group and user management when a new accounted has been created.
 <title>Groups</title>
 
 <para>
-Every user account should at least belong to one group. The group
-management can bereached via the "Groups" link.
+Every user account should at least belong to one group or role. You can
+access Group management via the <emphasis>groups</emphasis> link.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Gruppenverwaltung in OTRS</screeninfo>
+<screeninfo>Group management in OTRS</screeninfo>
 <graphic srccredit="Adminarea group management - screenshot" scale="40" fileref="screenshots/admin-groups.png"></graphic>
 </screenshot>
 </para>
@@ -98,13 +106,12 @@ management can bereached via the "Groups" link.
 <para>
 To keep the consistency of the data for OTRS it is not possible to delete a
 group. To deactivate a group set it to
-"invalid" or "invalid-temporarily".
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
-After a default installation already four groups are available in the
-system.
+After installation three pre-defined groups are available.
 </para>
 
 <para>
@@ -127,19 +134,9 @@ system.
             admin
         </entry>
         <entry>
-          Group for the users who should have admin rights in the system.
+          Group for the users who should perform administrative tasks in the system.
           After the system has been installed only the user "root@localhost" is
           in this group.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          faq
-        </entry>
-        <entry>
-          Users in this group may create and change articles in the FAQ
-          system. After the system has been installed no user is in this
-          group.
         </entry>
       </row>
       <row>
@@ -169,8 +166,8 @@ system.
 </para>
 
 <para>
-To add a user to a group or to change the group settings of a user the link
-"Users &lt;-&gt; Groups" can be used.
+To add a user to a group or to change the users inside a group you can use
+the link <emphasis>Users &lt;-&gt; Groups</emphasis>.
 </para>
 
 <para>
@@ -181,16 +178,15 @@ To add a user to a group or to change the group settings of a user the link
 </para>
 
 <para>
-A overview of all groups and users in the system is displayed in the lower
-part of the screen. If you want to change the group settings of a user just
-click on the username. To change the users in a group just click on the
-group that you want to change.
+An overview of all groups and users in the system is displayed in the lower
+part of the screen. If you want to change the groups that a user is a member of just
+click on the user name. To change the users that are part of a group just click on the
+group you want to change.
 </para>
 
 <para>
-To setup the rights for a user very graduately there are some rights that
-can be set for a user account. After a default installation the follwoing
-rights are available.
+Users can have different rights in a group. Below is a list of the
+permission rights available:
 </para>
 
 <para>
@@ -248,7 +244,7 @@ rights are available.
           priority
         </entry>
         <entry>
-          Right to change the priority of a ticket or entrie in queues or
+          Right to change the priority of tickets or entries in queues or
           areas that belong to this groups.
         </entry>
       </row>
@@ -257,7 +253,7 @@ rights are available.
           rw
         </entry>
         <entry>
-          Full read and write access on all tickets or entries in the
+          Full read and write access on tickets or entries in the
           queues or areas that belong to this group.
         </entry>
       </row>
@@ -290,7 +286,7 @@ opens a new department that sells products. Offerings, confirmations of
 offerings, bills, e.g. must be created and some of the agents in your
 system shall do this via OTRS. The different users have to get access to
 the new queues that must be created. Because it would take a long time to
-change the access rights for the different users manualy, roles can be
+change the access rights for the different users manually, roles can be
 created that define the different access levels. Then the users can be
 added to one or more roles and the user rights get for this user accounts
 get changed. If a new user account is created it is also possible to add
@@ -342,10 +338,10 @@ To define the different access rights for a role the links
 <title>Customer users</title>
 
 <para>
-OTRS supports different types of users. The link "Customer Users" can be
-used to mange the accounts of your customers. A customer can log in the
+OTRS supports different types of users. Using the link "Customer Users"
+used to manage accounts of your customers. A customer can log in the
 system via the customer interface (customer.pl). The customer interface
-enables a user to manage own tickets and change the own account settings.
+enables your customers to access their own tickets as well as log new ones.
 Also a customer user is needed for the ticket history in the system.
 </para>
 
@@ -358,7 +354,7 @@ Also a customer user is needed for the ticket history in the system.
 
 <para>
 You can search for a specific customer user in the database and change the
-customer user backend. More infos about customer user backends are available
+customer user backend. More information about customer user backends is available
 in the chapter about
 
 
@@ -369,12 +365,12 @@ external backends
 
 <para>
 You can create new customer user accounts. All input fields that are marked
-through an asterisk (*) have to contain values. Very important is to
+with an asterisk (*) are mandatory and have to contain values. Very important is to
 specify a account name and a password for the new user to enable that this
-user can log in the system. Also you have to specifiy a customer ID
-("Customer#"). This ID needs the system to identify the user and the
-tickets of this user. Ffor example the mail address of the user can be
-specified for Customer#, because a mail address is explicit.
+user can log in the system. Also you have to specify a customer ID
+("Customer#"). This ID is needed by the system to identify the user and the
+tickets of this user. For example the mail address of the user can be
+specified for Customer#, because a mail address is a unique value for a user.
 </para>
 
 <note>
@@ -419,9 +415,8 @@ with the configuration parameter
 CustomerGroupSupport
 </link>
 
-either via the graphical configuration frontend of OTRS or via inserting
-this parameter into your <filename>Kernel/Config.pm</filename> file.
-The parameter
+via the graphical configuration frontend of OTRS.
+Using the parameter
 
 <link linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">
 CustomerGroupAlwaysGroups
@@ -618,7 +613,7 @@ different salutations of your system.
 </para>
 
 <para>
-After a default installation there is already one salutations available,
+After a default installation there is already one salutation available,
 "system standard salutation (en)".
 </para>
 
@@ -671,8 +666,8 @@ your system.
 </para>
 
 <para>
-After a default installation of OTRS there are already two signatures
-stored in your system, "system standard signature (de/buiss)" and
+After a default installation of OTRS there is one predefined signature
+stored in your system,
 "system standard signature (en)".
 </para>
 
@@ -744,7 +739,7 @@ attachment. To deactivate a attachment set it to
 <para>
 OTRS can send auto answers to customer users. Auto answers are send if
 special events happen, e.g. if a new ticket is created in a queue, if a
-followup for a ticke is receifed, if a ticket is closed or rejected by the
+follow-up for a ticket is received, if a ticket is closed or rejected by the
 system. Through the link "Auto answers" the auto answers of the system can
 be managed. If you create a auto answer you can select the event that
 should trigger the auto answer. The following system events are available
@@ -821,10 +816,10 @@ after a default installation.
 </table>
 
 <para>
-The subjectline and the text of auto answers can also be dynamicly generated
+The subject and the text of auto answers can also be generated
 by variables, like for signatures or salutations. If you insert the
 variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; for example into the body of the
-autoanswer, the first 5 lines of the customer mailtext is inserted into the
+auto answer, the first 5 lines of the customer mail text is inserted into the
 auto answer. See the lower part of the auto answer screen for more details
 about the variables that can be used.
 </para>
@@ -861,10 +856,10 @@ by the system. Because many setups need more than one mail addresses OTRS is
 able to work with many mail addresses at the same time. At least one mail
 address can be specified for a queue, but it is also possible to specify
 the same address for more than one queue. That means that more than one
-address can be used to send mails from outsite to a queue, but one address
+address can be used to send mails from outside to a queue, but one address
 has to be specified for the outgoing mails of a queue. The address, that
 shall be used for outgoing messages of a queue, can be set if the queue is
-created. Follow the "Email Addresses" link to manage all mal addresses of
+created. Follow the "Email Addresses" link to manage all mail addresses of
 the system.
 </para>
 
@@ -878,7 +873,7 @@ the system.
 <para>
 If you create a new mail address you can select the queue or sub queue that
 shall be linked with the new address. This link enables the system to sort
-incomming messages via the address in the To: field of the mail into the
+incoming messages via the address in the To: field of the mail into the
 right queue.
 </para>
 
@@ -924,7 +919,7 @@ send to an agent or a customer.
 
 <para>
 Like signatures or salutation it is possible to create the content of a
-notification dynamicly by using special variables. In the lower part of the
+notification dynamically by using special variables. In the lower part of the
 notification screen you can find a list of all variables that can used for
 notifications.
 </para>
@@ -971,7 +966,7 @@ SMIME data.
 <title>PGP</title>
 
 <para>
-Since OTRS 2.0 it is possible to de- and encrypt messages with PGP. Also
+You can use OTRS to de- and encrypt messages with PGP. Also
 you can sign outgoing messages. Before this feature can be used you need
 to activate it and change some
 
@@ -997,7 +992,7 @@ to the needs of your operating system.
 
 <para>
 Through the "PGP" link in the admin area of OTRS it is possible to manage
-the key ring of the userer who shall be used for PGP with OTRS, e.g. the
+the key ring of the user who shall be used for PGP with OTRS, e.g. the
 local OTRS user or the web server user. It is possible to add and remove
 keys and signatures and you can search through all data in your key ring.
 </para>
@@ -1025,7 +1020,7 @@ After a default setup the states "closed successful",
 "pending auto close-" "pending reminder" and "removed" are already
 installed in the system. Every state is linked to a state type that needs
 to be specified if a new state is created. Per default the state types
-"closed", "merged", "new", "open", "pending auto", "pendig reminder" and
+"closed", "merged", "new", "open", "pending auto", "pending reminder" and
 "removed".
 </para>
 </sect1>
@@ -1050,10 +1045,10 @@ configuration frontend makes it possible.
 The "SysConfig" link in the admin area of OTRS loads the graphical
 configuration frontend. You can upload own config files for the system and
 backup all your current settings into a file. Almost all config parameters
-of the OTRS framework and the installed applications can be viewd and
+of the OTRS framework and the installed applications can be viewed and
 changed through the web interface. Because all config parameters are sorted
 into groups and sub groups it is possible to navigate quickly through the
-multitude of the parameters. Also it is possible to mae a full-text
+multitude of the parameters. Also it is possible to perform a full-text
 search through all the config parameters.
 </para>
 
@@ -1125,13 +1120,13 @@ of OTRS.
 </para>
 
 <para>
-A filter rule consists of one or more filter criterias that must match if
-the filter rule shall be executed and of one or more actions that are
-executed, if the filter criterias match. You can define filter
-criterias for the headers or the body of an email, e.g. search for specific
+A filter rule consists of one or more filter criteria that must match if
+the filter rule shall be executed and one or more actions that are
+executed, if the filter criteria match. You can define filter
+criteria for the headers or the body of an email, e.g. search for specific
 header entries or strings in the body, even regular expressions are
 allowed. All actions for a filter rule are triggered by X-OTRS headers,
-which are inserted if the filter criterias match. The ticket system
+which are inserted if the filter criteria match. The ticket system
 evaluates the inserted X-OTRS headers and executes the specific actions.
 X-OTRS headers can be used to sort an incoming message into a specific
 queue, change the priority of the message or ignore the message and deliver
@@ -1382,11 +1377,11 @@ triggered, if the filter rules match. You can select for "Header 1",
 <title>Sort spam mails into a specific queue</title>
 
 <para>
-A nice and usefull filter rule could be to let OTRS sort mails marked for
-spam with Spamassassin into the "Junk" queue automatically.
-Spamassassin adds for every checked mail the "X-Spam-Flag" header.
-Is the mail marked as spam, the Header is set to "Yes". So the filter criteria
-is "X-Spam-Flag: Yes". To create a filter rule with this criteria you can
+A useful filter rule could be to let OTRS sort mails marked for
+spam with a spam detection tool such as SpamAssassin into the "Junk" queue automatically.
+SpamAssassin adds the "X-Spam-Flag" header to every checked mail.
+When the mail is marked as spam, the Header is set to "Yes". So the filter criteria
+would be "X-Spam-Flag: Yes". To create a filter rule with this criteria you can
 insert the name for example "spam-mails". Also choose in the section for
 "Match" for "Header 1" from the listbox "X-Spam-Flag:". Insert "Yes" as
 value for this header. Now the filter criteria is specified. To make sure,
@@ -1398,13 +1393,13 @@ new messages in the system.
 </example>
 
 <para>
-There are aditional modules, that can be used to
+There are additional modules, that can be used to
 
 <link linkend="email-receiving-filter">
 filter incoming messages
 </link>
 
-more specificaly. This modules might be usefull on bigger and more complex
+more specifically. These modules might be useful on bigger and more complex
 systems.
 </para>
 
@@ -1414,9 +1409,10 @@ systems.
 <title>Executing automated jobs with the  GenericAgent</title>
 
 <para>
-The GenericAgent is a tool to execute tasks automatically that must be done
-by a human person, a real agent,normaly. The GenericAgent for example can
-close or move tickets, send notifications aboout escalated tickets, e.g.
+The GenericAgent is a tool to execute tasks automatically that otherwise
+should be done
+by a human person, a real agent. The GenericAgent for example can
+close or move tickets, send notifications on escalated tickets, e.g.
 </para>
 
 <para>
@@ -1429,7 +1425,7 @@ close or move tickets, send notifications aboout escalated tickets, e.g.
 <para>
 To create a new job for the GenericAgent the link "GenericAgent" in the
 admin area of OTRS can be used. A table with the already created jobs is
-displayed where jobs can be executed manualy or be removed. To create a new
+displayed where jobs can be executed manually or be removed. To create a new
 job a name must be specified and the "Add" button must be pressed.
 </para>
 
@@ -1461,7 +1457,7 @@ really activated if it is saved into the job list.
 <title>Admin email</title>
 
 <para>
-The OTRS administrator can send a message to specific users or user groups.
+OTRS administrators can send messages to specific users or user groups.
 The "Admin Notification" link opens the screen where the users and groups
 can be selected that should be notified by the admin.
 </para>
@@ -1485,8 +1481,8 @@ should receive the message can be selected from the table.
 <title>Session management</title>
 
 <para>
-To get an overview on the currently loged in users and their session
-properties the "Session Management" link in the admin area can be used.
+You can see all logged in users and their session details by clicking the
+<emphasis>Session Management</emphasis> link in the admin area.
 </para>
 
 <para>
@@ -1497,11 +1493,13 @@ properties the "Session Management" link in the admin area can be used.
 </para>
 
 <para>
-Some general information about all active sessions are displayed, e.g. how
-many users currently are loged in, how many agent and customer users are
-using the system, e.g. With the "kill all sessions" button all users
-sessions can be deactivated. Also detailed information for every session are
-available and every session can be removed separately.
+Some statistics about all active sessions are displayed, e.g. how
+many agents and customer users are logged in, and how many sessions there are.
+You have the option to <emphasis>Kill all sessions</emphasis> which can be
+useful if you would like to bring the system down.
+Also detailed information for every session is
+available. Every individual session can be removed separately by clicking on
+the <emphasis>x</emphasis> in the right-hand side of the session list.
 </para>
 
 </sect1>
@@ -1522,14 +1520,15 @@ of the system.
 </para>
 
 <para>
-A line in the log contains a timestamp, the log priority, the system
+Each line in the log contains a time stamp, the log priority, the system
 component and the log entry itself.
 </para>
 
 <note>
 <para>
 The system logs are only available via the web interface on linux or
-unix systems.
+unix systems. On Windows systems you can see the log by opening the file
+<filename>[install_dir]otrs\var\log\otrs.log</filename> with a text editor.
 </para>
 </note>
 
@@ -1559,47 +1558,58 @@ tables, only queries are allowed.
 <title>Package manager</title>
 
 <para>
-Since OTRS 2.0 OTRS is splitted into a central framework and some
-separated applications like a file manager, a web based calendar or a
-web mailer. To ease the handling of the separated applications the web
-based package manager can be used, the "Package Manager" link in the admin
-area of OTRS opens this module.
+With the Package Manager you can install  and manage packages that extend the
+functionality of OTRS. See the
+<link linkend="application">Additional applications</link>
+section for a discussion on the extensions that are available from the
+OTRS repositories.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Package Manage</screeninfo>
-<graphic srccredit="Adminarea packagemanager - sreenshot" scale="40" fileref="screenshots/admin-packagemanager.png"></graphic>
+<screeninfo>Package Manager</screeninfo>
+<graphic srccredit="Adminarea packagemanager - screenshot" scale="40" fileref="screenshots/admin-packagemanager.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-The package manager can only handle opm packages, other formats (rpm, deb,
-e.g.) are not supported. It is possible to define several installation
-sources. Is an opm file stored on your local hard disk you can install the
-package by specifying this file in the input field for "Package" via the
-absolute path and the file name. The "Install" button installs this package
-in your system and adds all necessary files, changes the database, e.g.
+In the package manager you can review the packages you currently have installed
+together with their version numbers.
+</para>
+
+<para>You can install packages from a remote host by selecting the
+repository in the <emphasis>Online Repository</emphasis> section and clicking
+the <emphasis>Update</emphasis> button. The right side of the screen shows
+the available packages. You can install a package by clicking on the
+<emphasis>Install</emphasis> button.
+After installation the package is
+displayed in the <emphasis>Local Repository</emphasis>section.
 </para>
 
 <para>
-If always the most actual package should be used the packages can be
-installed via a online repository too. The latest list of all applications
-in the online repository can be downloaded if a server is selected via the
-"Source" listbox and the "Update" button is pressed. After a while on the
-right site of the screen all available application ar listed in the table
-for the online repository. You can use the "Install" button in the right
-column of the online repository table to integrate the module into your
-system. If a package depends on other packages the package manager takes
-care if the other needed applications are already installed. If a package
-has been installed successfuly the application is displayed in the local
-repository.
+To upgrade an installed package, the list of available packages in the online
+repository will show
+<emphasis>Upgrade</emphasis> in the Action column for any package that has
+ a higher version than installed locally. Just click Upgrade and it will
+install the package on your system.
 </para>
 
 <para>
-If you need to remove an application you can use the "Uninstall" button in
-the local repository for the specific application. Dependencies to other
-applications are also watched during deinstallation.
+In some cases, such as when your OTRS system is not connected to the
+Internet, you can also install packages you have downloaded to a local disk.
+Click the <emphasis>Browse</emphasis> button next to the
+<emphasis>Package</emphasis> field and select the .opm file on your disk.
+Click <emphasis>Open</emphasis> and then <emphasis>Install</emphasis>. After
+installation the package is displayed in the <emphasis>Local Repository</emphasis>
+section. You can use the same steps for updating a package that is already
+installed.
+</para>
+
+<para>
+In special cases you might want to configure the package manager, for instance
+to use a proxy, or to use a local repository. Just take a look at the
+available options in SysConfig under
+<link linkend="Framework:Core::Package">Framework:Core::Package</link>.
 </para>
 
 </sect1>
