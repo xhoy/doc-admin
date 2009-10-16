@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.13 2009-09-15 11:31:52 mb Exp $ -->
+<!-- $Id: email.xml,v 1.14 2009-10-16 18:52:18 mb Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -18,23 +18,12 @@ OTRS can send out emails via Sendmail (e.g.
  <ulink url="http://www.postfix.org/">Postfix</ulink>,
  <ulink url="http://www.qmail.org">Qmail</ulink> or
  <ulink url="http://www.exim.org">Exim</ulink>).
-The default configuration to use Sendmail should work out of the box.
+The default configuration is to use Sendmail and should work out of the box.
 </para>
 
 <para>
 You can configure the sendmail settings via the graphical configuration
-frontend (Framework::Core::Sendmail) or via
-<filename>Kernel/Config.pm</filename>:
-</para>
-
-<para>
-<programlisting>
-    # SendmailModule
-    # (Where is sendmail located and some options.
-    # See 'man sendmail' for details.)
-    $Self-&gt;{'SendmailModule'} = 'Kernel::System::Email::Sendmail';
-    $Self-&gt;{'SendmailModule::CMD'} = '/usr/sbin/sendmail -t -i -f ';
-</programlisting>
+frontend (Framework::Core::Sendmail)
 </para>
 
 </sect2>
@@ -53,7 +42,7 @@ platforms (e.g. Windows).
 The SMTP server settings can be configured via the SysConfig
 (Framework::Core::Sendmail). If you don't see SMTPS available as an option, you
 miss the required Perl modules. In that case, please refer to
-<link linkend="installation-of-needed-perl-modules">
+<link linkend="installation-of-perl-modules">
 "Installation of Perl modules required for OTRS"
 </link> for instructions.</para>
 
@@ -89,7 +78,7 @@ must be specified. Also, you need to select the mail server type,
 which can be POP3, POP3S, IMAP or IMAPS. If you don't see
 server type you'd want to use  available as an option, you miss the required
 Perl modules. In that case, please
-refer to <link linkend="installation-of-needed-perl-modules">
+refer to <link linkend="installation-of-perl-modules">
 "Installation of Perl modules required for OTRS"
 </link> for instructions.</para>
 
@@ -125,7 +114,7 @@ address in the To: field of the incoming mail. You can link an address in
 the
 
 <link linkend="adminarea-emailaddresses">
-mailaddress management
+E-mail address management
 </link>
 
 section of the admin area. If the address in the To field is linked with a
