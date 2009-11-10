@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.7 2009-01-21 13:18:30 ub Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.8 2009-11-10 22:58:54 mb Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -62,7 +62,7 @@ works like a view. Use bin/RebuildTicketIndex.pl for an initial index build.
 <sect2 id="performance-tuning-otrs-storage">
 <title>TicketStorageModule</title>
 <para>
-You have two backend modules for the ticket/article storage.
+There are two different backend modules for the ticket/article storage.
 </para>
 <para>
 Kernel/Config.pm
@@ -94,14 +94,14 @@ that your database is able to store large objects. E.g. MySQL (config)
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageFS, store attachments etc. in the local
+Kernel::System::Ticket::ArticleStorageFS, store attachments etc. on the local
 file system. Note: Use it for larger set ups.
 </para>
 <para>
 Pro: Faster!
 </para>
 <para>
-Contra: Your webserver user should be the otrs user (file system permissions!).
+Contra: Your web server user should be the otrs user (file system permissions!).
 </para>
 </listitem>
 
@@ -110,7 +110,7 @@ Contra: Your webserver user should be the otrs user (file system permissions!).
 </para>
 
 <para>
-Note: If you use OTRS 1.2 or higher, you can switch from one to the other
+Note: you can switch from one to the other
 backend on the fly.
 </para>
 
@@ -123,7 +123,7 @@ backend on the fly.
 <title>Database</title>
 <para>
 This depends on the database you are using. If you're having trouble, read the
-documentation for your database or ask your database admin.
+documentation for your database or ask your database administrator.
 </para>
 
 <sect2 id="performance-tuning-database-mysql">
@@ -135,10 +135,10 @@ variable-length rows (tables that have VARCHAR, BLOB or TEXT columns)
 you need to defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
-You should try it if mysqld needs a lot of your CPU time. Optimize table
+You should try this if mysqld needs a lot of your CPU time. Optimize tables
 ticket, ticket_history and article.
 <programlisting>
-shell$ mysql -u user -p datbase
+shell$ mysql -u user -p database
 mysql$ optimize table ticket;
 mysql$ optimize table ticket_history;
 mysql$ optimize table article;
@@ -152,16 +152,20 @@ mysql$ optimize table article;
 PostgreSQL is best tuned by modifying the postgresql.conf file in your
 PostgreSQL data directory. For advice on how to do this, see these
 articles:
-<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html">
-<citetitle>http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html</citetitle>
+
+<ulink url="http://www.revsys.com/writings/postgresql-performance.html">
+<citetitle>http://www.revsys.com/writings/postgresql-performance.html</citetitle>
 </ulink>
-<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html">
-<citetitle>http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html</citetitle>
+<ulink url="http://varlena.com/GeneralBits/Tidbits/perf.html">
+<citetitle>http://varlena.com/GeneralBits/Tidbits/perf.html</citetitle>
+</ulink>
+<ulink url="http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html">
+<citetitle>http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html</citetitle>
 </ulink>
 If performance is still not satisfactory, we suggest that you join the
 PostgreSQL Performance mailing list and ask questions there. The folks on
 the PostgreSQL list are very friendly and can probably help
-<ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
+<ulink url="http://www.postgresql.org/community/lists/">http://www.postgresql.org/community/lists/</ulink>.
 </para>
 </sect2>
 
@@ -180,9 +184,9 @@ httpd with mod_perl will be about 16 MB (~10MB shared).
 </para>
 
 <sect2 id="performance-tuning-webserver-db">
-<title>Preestablish datababase connections</title>
+<title>Pre-establish database connections</title>
 <para>
-You can have the datababase connections pe-established on process startup (httpd).
+You can have the database connections pre-established on startup of the web server.
 This saves time (see README.webserver).
 </para>
 </sect2>
@@ -199,9 +203,9 @@ modules on your mod_perl webserver to be faster and smaller (see README.webserve
 <para>
 Per default Apache::Reload (mod_perl 2.0) is used
 in scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
-speed. But remember to restart the webserver if you change the Kernel/Config.pm
+speed. But remember to restart the web server if you change Kernel/Config.pm
 or any other modules!
-Important; now you can't use the OTRS-Packet-Manager via web interface, you need to use
+Important: this would also mean you can't use the OTRS-Packet-Manager via the web interface, you need to use
 CMD - bin/opm.pl.
 </para>
 </sect2>
@@ -210,7 +214,7 @@ CMD - bin/opm.pl.
 <title>Choosing the Right Strategy</title>
 <para>
 If you have a really large installation (over 1,000 new tickets a day and over 40
-Agents) it is a good idea to read "Choosing the Right Strategy"
+agents) it is a good idea to read "Choosing the Right Strategy"
 (<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">
 <citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle>
 </ulink>).
@@ -226,16 +230,6 @@ If your bandwidth is a little bit small, use mod_gzip for Apache1
 </ulink>) or mod_deflate for Apache2 (default module in Apache2).
 If you have an html page with 45k, mod_gzip/mod_deflate compresses it. The page will be
 about 7k.
-</para>
-</sect2>
-
-<sect2 id="performance-tuning-webserver-dos">
-<title>mod_dosevasive</title>
-<para>
-If you want to block http DoS (Denial of Service) attacks, use mod_dosevasive.
-(<ulink url="http://www.nuclearelephant.com/projects/dosevasive/">
-<citetitle>http://www.nuclearelephant.com/projects/dosevasive/</citetitle>
-</ulink>).
 </para>
 </sect2>
 
