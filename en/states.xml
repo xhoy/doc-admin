@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: states.xml,v 1.3 2009-10-14 07:40:37 mb Exp $ -->
+<!-- $Id: states.xml,v 1.4 2009-11-16 14:30:05 mb Exp $ -->
 
 <chapter id="states">
+<title>States</title>
 
 <sect1 id="states-predefined">
-<title>Modifying ticket states and ticket state types</title>
+<title>Predefined states</title>
 
 <para>
 It is possible to change the predefined states and state types for tickets
@@ -43,15 +44,16 @@ After the pending time has expired, the bug owner will receive a reminder email
 concerning the ticket. If the ticket is not locked, the reminder will be sent
 to all agents in the queue. Reminder tickets will only be sent out within
 business hours, and are repeated every 24 hours until the state of the ticket
-is changed by the agent.
+is changed by the agent. Time spent by the ticket in this status will still add
+towards the escalation time calculations.
 </para>
 </sect2>
 
 <sect2 id="state-pending-autoclose-minus">
 <title>Pending auto close-</title>
 <para>
-Tickets in this status will be set to Closed Unsuccesful if the pending time
-has expired. Time spent by the ticket in this status will not add towards the
+Tickets in this status will be set to Closed Unsuccessful if the pending time
+has expired. Time spent by the ticket in this status will still add towards the
 escalation time calculations.
 </para>
 </sect2>
@@ -60,7 +62,7 @@ escalation time calculations.
 <title>Pending auto close+</title>
 <para>
 Tickets in this status will be set to Closed Successful if the pending time
-has expired. Time spent by the ticket in this status will not add towards the
+has expired. Time spent by the ticket in this status will still add towards the
 escalation time calculations.
 </para>
 </sect2>
