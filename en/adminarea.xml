@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.21 2009-10-16 18:48:30 mb Exp $ -->
+<!-- $Id: adminarea.xml,v 1.22 2009-11-19 09:09:24 mb Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -263,6 +263,13 @@ permission rights available:
 </para>
 
 </sect2>
+<note><para>By default, the QueueView only lists tickets in queues that an
+agent has <emphasis>rw</emphasis> access to. The idea behind it is that the
+QueueView lists only the tickets the agent needs to work on. If you'd like to
+change this behaviour, you can set
+<link linkend="Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets">Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets</link>
+to <emphasis>Yes</emphasis>.</para></note>
+
 
 <sect2 id="adminarea-roles">
 <title>Roles</title>
@@ -292,6 +299,19 @@ added to one or more roles and the user rights get for this user accounts
 get changed. If a new user account is created it is also possible to add
 this account to one or more roles.
 </para>
+
+<note>
+<para>
+Roles are really useful when maintaining larger OTRS installations. You should
+not use both User to Group and User to Role mappings at the same time though,
+this would make maintenance really hard. Therefore, if you decide to go with
+roles, we'd recommend you to to disable the Users &lt;-&gt; Groups option in
+the Admin area by modifying the
+<link linkend="Framework:front-end::Admin::ModuleRegistration:front-end::Module_AdminUserGroup">front-end::Admin::ModuleRegistration</link>
+in SysConfig. Of course this would not remove already existing User to Group
+assignments!</para>
+</note>
+
 
 <para>
 <screenshot>
@@ -354,12 +374,12 @@ Also a customer user is needed for the ticket history in the system.
 
 <para>
 You can search for a specific customer user in the database and change the
-customer user backend. More information about customer user backends is available
+customer user back-end. More information about customer user back-ends is available
 in the chapter about
 
 
 <link linkend="external-backends">
-external backends
+external back-ends
 </link>.
 </para>
 
@@ -411,14 +431,14 @@ and select the new group for this queues.
 The next step is to activate the customer group support. This can be done
 with the configuration parameter
 
-<link linkend="Framework:Frontend::Customer:CustomerGroupSupport">
+<link linkend="Framework:front-end::Customer:CustomerGroupSupport">
 CustomerGroupSupport
 </link>
 
-via the graphical configuration frontend of OTRS.
+via the graphical configuration front-end of OTRS.
 Using the parameter
 
-<link linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">
+<link linkend="Framework:front-end::Customer:CustomerGroupAlwaysGroups">
 CustomerGroupAlwaysGroups
 </link>
 
@@ -930,7 +950,7 @@ notifications.
 <title>SMIME</title>
 
 <para>
-Since OTRS 2.0 it is possible to decode and encode SMIME messages. Also you
+OTRS can process incoming S/MIME encoded messages. Also we
 can sign outgoing mails. Before this feature can be used you need to
 activate it and change some
 
@@ -938,13 +958,7 @@ activate it and change some
 config parameters
 </link>
 
-e.g. with the
-
-<link linkend="adminarea-sysconfig">
-graphical configuration frontend
-</link>
-
-to the needs of your operating system.
+in the SysConfig.
 </para>
 
 <para>
@@ -974,13 +988,7 @@ to activate it and change some
 config parameters
 </link>
 
-e.g. with the
-
-<link linkend="adminarea-sysconfig">
-graphical configuration frontend
-</link>
-
-to the needs of your operating system.
+in the SysConfig.
 </para>
 
 <para>
@@ -1026,24 +1034,22 @@ to be specified if a new state is created. Per default the state types
 </sect1>
 
 <sect1 id="adminarea-sysconfig">
-<title>The graphical configuration frontend (SysConfig)</title>
+<title>SysConfig</title>
 
 <para>
-Since OTRS 2.0 it is possible to change nearly all configuration parameter
-of the ticket system through the web interface. The new graphical
-configuration frontend makes it possible.
+The SysConfig is the place where many configuration options for OTRS are stored.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>The graphical configuration frontend of OTRS (SysConfig)</screeninfo>
+<screeninfo>The graphical configuration front-end of OTRS (SysConfig)</screeninfo>
 <graphic srccredit="Adminarea sysconfig - screenshot" scale="40" fileref="screenshots/admin-sysconfig.png"></graphic>
 </screenshot>
 </para>
 
 <para>
 The "SysConfig" link in the admin area of OTRS loads the graphical
-configuration frontend. You can upload own config files for the system and
+configuration front-end. You can upload own config files for the system and
 backup all your current settings into a file. Almost all config parameters
 of the OTRS framework and the installed applications can be viewed and
 changed through the web interface. Because all config parameters are sorted
@@ -1059,7 +1065,7 @@ In the chapter
 "Configuring the system through the web interface"
 </link>
 
-the graphical configuration frontend is described more detailed.
+the graphical configuration front-end is described in more detail.
 </para>
 
 </sect1>
