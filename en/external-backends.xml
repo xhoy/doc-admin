@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.12 2009-09-30 11:10:19 martin Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.13 2009-12-22 12:48:17 mb Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -13,18 +13,18 @@
 OTRS is able to handle different customer data, e.g. login, email, phone
 number. These information can be displaied in the customer interface and
 they are useable in the customer frontend. Also these data are used for the
-authentification of customer users.
+authentication of customer users.
 </para>
 
 <para>
 The used / displaied customer data are freely configurable, but without the
 following data OTRS won't work, this information is allways needed for the
-authentification of customers.
+authentication of customers.
 </para>
 
 <para>
 <itemizedlist>
-  <title>Necesary data needed for customer authentification</title>
+  <title>Necesary data needed for customer authentication</title>
     <listitem>
     <para>
     User login
@@ -629,21 +629,21 @@ viewed or edited (if write access is possible).
 </sect1>
 
 <sect1 id="auth-backends">
-<title>Backends to authentificate agents and customer users</title>
+<title>Backends to authenticate agents and customer users</title>
 
 <para>
-OTRS offers the possiblity to authentificate agents and customers against
+OTRS offers the option to authenticate agents and customers against
 different backends.
 </para>
 
 <sect2 id='agent-auth-backends'>
-<title>Authentification backends for agents</title>
+<title>authentication backends for agents</title>
 
 <sect3 id='agent-auth-backend-db'>
 <title>DB (Default)</title>
 
 <para>
-The backend to authenticate agents which is used per default by OTRS is the
+The backend to authenticate agents which is used per default is the
 OTRS database. Agents can be added and edited via the
 
 <link linkend="adminarea-user">
@@ -659,7 +659,7 @@ admin area
 </para>
 
 <example id='configuration-agent-auth-backend-db'>
-<title>Authenticate agents agains a DB backend</title>
+<title>Authenticate agents against a DB backend</title>
 
 <para>
 <programlisting>
@@ -735,14 +735,15 @@ user management interface
 <para>
 The following configuration parameters can be used to synchronize the
 user data from your LDAP directory into your local OTRS database. This
-reduces the requests to your LDAP server and speeds up the authentification
+reduces the number of requests to your LDAP server and speeds up the
+authentication
 with OTRS. The data sync is done when the agent authenticates the first
-time. Allthough the data can be synched into the local OTRS database the
-LDAP directory is the last instance for the authentification, so a inactive
+time. Although the data can be synced into the local OTRS database the
+LDAP directory is the last instance for the authentication, so an inactive
 user in the LDAP tree can't authenticate to OTRS even when the account data
-are allready stored in the OTRS database. The agent data in the LDAP
-directory can't be edited via the web interface of OTRS, because only read
-access is given, so the data have to be managed directly in the LDAP tree.
+is already stored in the OTRS database. The agent data in the LDAP
+directory can't be edited via the web interface of OTRS, so the data
+has to be managed directly in the LDAP tree.
 </para>
 
 <para>
@@ -780,13 +781,12 @@ access is given, so the data have to be managed directly in the LDAP tree.
 
 <para>
 If you want to implement a "single sign on" solution for all your agents,
-you can use http basic authentification (for all your systems) and the
-HTTPBasicAuth module for OTRS (the OTRS login is not needed any
-more).
+you can use http basic authentication (for all your systems) and the
+HTTPBasicAuth module for OTRS.
 </para>
 
 <example id='configuration-agent-auth-backend-htbasic'>
-<title>Authenticate agents via HTTPBasic</title>
+<title>Authenticate agents using HTTPBasic</title>
 
 <para>
 <programlisting>
@@ -836,19 +836,19 @@ against a radius server.
 </sect2>
 
 <sect2 id="customer-auth-backends">
-<title>Authentification backends for customer users</title>
+<title>authentication backends for customer users</title>
 
 <sect3 id='customer-auth-backend-db'>
 <title>Database (Default)</title>
 
 <para>
-The authentification backend for customer users which is used per default
+The authentication backend for customer users which is used per default
 by OTRS is the OTRS database. With this backend all customer data can be
 edited via the web interface of OTRS.
 </para>
 
 <example id='configuration-customer-auth-backend-db'>
-<title>Customer user authentification against a DB backend</title>
+<title>Customer user authentication against a DB backend</title>
 
 <para>
 <programlisting>
@@ -873,12 +873,12 @@ edited via the web interface of OTRS.
 <para>
 If you have a LDAP directory with all your customer data you can use the
 LDAP module to authenticate your customer users to OTRS. Because this
-module has only read access to the LDAP backend, it is not possible to edit
+module has only read-access to the LDAP backend, it is not possible to edit
 the customer data via the web interface of OTRs.
 </para>
 
 <example id='configuration-customer-auth-backend-ldap'>
-<title>Customer user authentification against a LDAP backend</title>
+<title>Customer user authentication against a LDAP backend</title>
 
 <para>
 <programlisting>
@@ -899,7 +899,7 @@ the customer data via the web interface of OTRs.
 #    $Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'DN';
 
     # The following is valid but would only be necessary if the
-    # anonymous user do NOT have permission to read from the LDAP tree
+    # anonymous user does NOT have permission to read from the LDAP tree
     $Self->{'Customer::AuthModule::LDAP::SearchUserDN'} = '';
     $Self->{'Customer::AuthModule::LDAP::SearchUserPw'} = '';
 
@@ -931,13 +931,13 @@ the customer data via the web interface of OTRs.
 
 <para>
 If you want to implement a "single sign on" solution  for all your customer
-users, you can use HTTPBasic authentification (for all your systems) and
+users, you can use HTTPBasic authentication (for all your systems) and
 use the HTTPBasicAuth module with OTRS (no login is needed with OTRS any
 more).
 </para>
 
 <example id='configuration-customer-auth-backend-htbasic'>
-<title>Customer user authentification with HTTPBasic</title>
+<title>Customer user authentication with HTTPBasic</title>
 
 <para>
 <programlisting>
@@ -968,7 +968,7 @@ against a radius server.
 </para>
 
 <example id='configuration-customer-auth-backend-radius'>
-<title>Customer user authentification against a radius backend</title>
+<title>Customer user authentication against a radius backend</title>
 
 <para>
 <programlisting>
@@ -997,8 +997,8 @@ like room number, address or state can be added.
 </para>
 
 <para>
-The following example shows how a required field for the room number can
-be specified.
+The following example shows how you can specify a required field in the customer
+database, in this case to store the room number of a customer user.
 </para>
 
 <sect2 id='customer-self-registration-dtl'>
@@ -1145,10 +1145,10 @@ linux:~#
 </para>
 
 <para>
-All needed settings were done and the new field for the room should be
-displaied in the customer.pl panel. New customer users should have to
-insert their room number if they register a new account. If your apache is
-configured to use mod_perl for OTRS, you should restart the web server to
+Now you took all the steps involved, and the new field for the room should be
+displayed in the customer.pl panel. New customer users should have to
+insert their room number if they register a new account. If you use apache
+and use mod_perl for OTRS, you should restart the web server to
 activate the changes.
 </para>
 </sect2>
