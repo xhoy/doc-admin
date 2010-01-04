@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.14 2009-10-07 09:30:42 mb Exp $ -->
+<!-- $Id: time.xml,v 1.15 2010-01-04 13:10:05 mb Exp $ -->
 
 <chapter id="time">
 <title>Time related functions</title>
@@ -58,13 +58,22 @@ Fourth of July, can be specified in
 <link linkend="Framework:Core::Time:TimeVacationDays">
 TimeVacationDays
 </link>
-or the corresponding section in your calendar.
+or the corresponding section for the calendars 1-9.
 </para>
 
 <para>
 Tickets will not escalate and
 will not be unlocked on dates defined in TimeVacationDays.
 </para>
+
+<note>
+<para>
+By default, OTRS ships with the <emphasis>German</emphasis> holidays installed.
+You would need to replace these with the days agreed on in your SLA, if you have
+one, or to the days that are considered holidays in your company.
+</para>
+</note>
+
 
 </sect2>
 
@@ -83,6 +92,16 @@ TimeVacationDaysOneTime
 Tickets will not escalate and will not be unlocked on dates defined in
 TimeVacationDaysOneTime.
 </para>
+
+<note>
+<para>
+OTRS does not ship with any One-Time holidays pre-installed.
+This means that you need to add holidays such as Eastern or Thanksgiving
+to the system when configuring OTRS.
+You should use the days agreed on in your SLA, if you have
+one, or to the days that are considered holidays in your company.
+</para>
+</note>
 
 </sect2>
 </sect1>
