@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.13 2009-12-22 12:48:17 mb Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.14 2010-01-26 18:53:36 mb Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -10,21 +10,21 @@
 <title>Customer data</title>
 
 <para>
-OTRS is able to handle different customer data, e.g. login, email, phone
-number. These information can be displaied in the customer interface and
-they are useable in the customer frontend. Also these data are used for the
+OTRS is able to handle different customer data attributes, e.g. login, email,
+phone number, room. This information will be displayed in both the agents and
+the customer frontend. Also these attributes are used for the
 authentication of customer users.
 </para>
 
 <para>
-The used / displaied customer data are freely configurable, but without the
-following data OTRS won't work, this information is allways needed for the
+The used / displayed customer data are freely configurable, but without the
+following data OTRS won't work, this information is always needed for the
 authentication of customers.
 </para>
 
 <para>
 <itemizedlist>
-  <title>Necesary data needed for customer authentication</title>
+  <title>Necessary data needed for customer authentication</title>
     <listitem>
     <para>
     User login
@@ -65,8 +65,8 @@ information in your agent interface.
 <title>Customer user backend</title>
 
 <para>
-You can use two types of customer backends, DB and LDAP. If you allready have
-another customer backend (e.g. SAP) it is ofcourse possible to write a
+You can use two types of customer backends, DB and LDAP. If you already have
+another customer backend (e.g. SAP) it is of course possible to write a
 module that uses this type of backend.
 </para>
 
@@ -202,7 +202,7 @@ Now add the new column to the MAP array in
 </para>
 
 <para>
-Ofcourse it is possible to edit all these customer information via the
+Of course it is possible to edit all these customer information via the
 customer area in the agent interface.
 </para>
 
@@ -211,7 +211,7 @@ customer area in the agent interface.
 
 <para>
 It is possible to assign more than one customer ID to a customer. This can
-be usefull if a customer must access tickets of other customers, e.g. a
+be useful if a customer must access tickets of other customers, e.g. a
 supervisor wants to watch the tickets of his assistants. If a customer can
 access the tickets of another customer user, the company ticket feature of
 OTRS is used. Company tickets can be accessed via the  "Company Ticket"
@@ -269,14 +269,14 @@ interface in the section for the customer user management now.
 <para>
 To ensure that one customer can access the tickets of other customer users
 add the IDs of this other users into the new field for the multiple
-customer IDs. Each ID hast to be seperated by a semicolon.
+customer IDs. Each ID has to be separated by a semicolon.
 </para>
 
 <example id='company-tickets-db'>
 <title>Using company tickets with a DB backend</title>
 
 <para>
-The customers A, B and C exists in your system and A wants to have
+The customers A, B and C exist in your system and A wants to have
 access to the tickets of B and C via the customer panel. B and C should have
 no access to the tickets of other users.
 </para>
@@ -285,7 +285,7 @@ no access to the tickets of other users.
 To realize this setup change the customer_user table and the mapping in
 <filename>Kernel/Config.pm</filename> like described above. Then load the
 settings for customer A via the customer area in the agent interface or via
-the admin area. If the settings are displaied add into the field for
+the admin area. If the settings are displayed add into the field for
 CustomerIDs the values "B;C;".
 </para>
 
@@ -402,7 +402,7 @@ like to use this information with OTRS also, just expand the MAP array in
 
 <para>
 It is possible to assign more than one customer ID to a customer. This can
-be usefull if a customer must access tickets of other customers, e.g. a
+be useful if a customer must access tickets of other customers, e.g. a
 supervisor wants to watch the tickets of his assistants. If a customer can
 access the tickets of another customer user, the company ticket feature of
 OTRS is used. Company tickets can be accessed via the  "Company Ticket"
@@ -437,7 +437,7 @@ LDAP directory, OTRS can only read from LDAP.
 <para>
 To ensure the access for a customer to the tickets of other customers add
 the customer IDs of the customers that tickets should be accessed to the
-new field in your LDAP directory. Each ID has to be seperated by a
+new field in your LDAP directory. Each ID has to be separated by a
 semicolon.
 </para>
 
@@ -445,7 +445,7 @@ semicolon.
 <title>Using Company tickets with a LDAP backend</title>
 
 <para>
-The customers A, B and C exists in your system and A wants to have
+The customers A, B and C exist in your system and A wants to have
 access to the tickets of B and C via the customer panel. B and C should have
 no access to tickets of other users.
 </para>

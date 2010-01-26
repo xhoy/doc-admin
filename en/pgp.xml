@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pgp.xml,v 1.1 2006-07-03 12:24:25 cs Exp $ -->
+<!-- $Id: pgp.xml,v 1.2 2010-01-26 18:53:36 mb Exp $ -->
 
 <chapter id='configure-pgp'>
 <title> PGP</title>
 
 <para>
 OTRS is able to sign or encrypt outgoing messages with PGP. Also encrypted
-incomming messages can be decrypted. Encryption and decryption is done with
+incoming messages can be decrypted. Encryption and decryption is done with
 the GPL tool GnuPG. To setup GnuPG for OTRS the following steps have to be
 performed:
 </para>
@@ -17,14 +17,14 @@ performed:
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    The first step is to install GnuPGt via the package manager of your
+    The first step is to install GnuPG via the package manager of your
     operating system.
     </para>
     </listitem>
     <listitem>
     <para>
     In the next step GnuPG has to be configured for the usage with OTRS.
-    The needed direcotries for GnuPG and a private key have to be created.
+    The needed directories for GnuPG and a private key have to be created.
     The following command has to be executed as OTRS user from a shell.
     </para>
 
@@ -136,7 +136,7 @@ performed:
     <para>
     The next config setting (PGP::Options) might to be changed. Via this
     config setting the parameters that are used for every execution of gpg
-    by the OTRS user can be specified. Especialy the directory of the
+    by the OTRS user can be specified. Especially the directory of the
     config files for GnuPG of the OTRS user is important. In the example
     <filename>/opt/otrs/.gnupg</filename> is used. Thsis directory was
     created in the first step of the PGP configuration.
@@ -145,14 +145,14 @@ performed:
     <para>
     Via the last config option it is possible to specify the pairs of key
     IDs and their passwords for the own private keys. Because
-    communication partners from outsite write to the ticket system and
-    their messages are encrypted with the public key, OTRS can decrypt
+    communication partners from outside write to the ticket system and
+    their messages are encrypted with their public key, OTRS can decrypt
     these messages with the ID/passwords specified here.
     </para>
 
     <para>
     How to get the id of your own private key? The ID of your own private
-    key is allready shown during the key generation (see step 1 from
+    key is already shown during the key generation (see step 1 from
     above). It is also possible to get the ID if the following command is
     executed as OTRS user:
     </para>
@@ -177,9 +177,9 @@ performed:
 
     <para>
     The ID of the private key can be found in the line that starts with
-    "sub". It is a hexa decimal string that is eight characters long,
+    "sub". It is a hexadecimal string that is eight characters long,
     in the example above it is "52B97069". The password you have to
-    specifiy for this key in the ticket system is the same like
+    specify for this key in the ticket system is the same like
     given during key generation.
     </para>
 
@@ -205,7 +205,7 @@ performed:
     <para>
     The second possibility is to specify the key via the PGP settings
     reachable from the admin area of OTRS. On the right site of this screen
-    all allready imported public keys of customers are displaied. After PGP
+    all already imported public keys of customers are displayed. After PGP
     has been activated and configured for OTRS your own public     key should be
     listed there also. In the left area of the PGP setting screen it is
     possible to search for keys. Also a new public key can be uploaded into
