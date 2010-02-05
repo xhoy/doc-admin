@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.14 2010-01-26 18:53:36 mb Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.15 2010-02-05 16:37:09 mb Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -86,7 +86,7 @@ uses customer data stored in the OTRS database.
     # CustomerUser
     # (customer user database backend and settings)
     $Self->{CustomerUser} = {
-        Name => 'Datenbank Quelle',
+        Name => 'Database Datasource',
         Module => 'Kernel::System::CustomerUser::DB',
         Params => {
             # if you want to use an external database, add the
@@ -97,7 +97,7 @@ uses customer data stored in the OTRS database.
 #            Password => '',
             Table => 'customer_user',
         },
-        # customer uniq id
+        # customer unique id
 	CustomerKey => 'login',
         # customer #
 	CustomerID => 'customer_id',
@@ -117,7 +117,7 @@ uses customer data stored in the OTRS database.
 #        AutoLoginCreationPrefix => 'auto',
 #        # admin can change customer preferences
 #        AdminSetPreferences => 1,
-#        # cache time to life in sec. - cache any database queris
+#        # cache time to live in sec. - cache any database queries
 #        CacheTTL => 0,
 #        # just a read only source
 #        ReadOnly => 1,
@@ -316,7 +316,7 @@ information in a LDAP directory.
     # CustomerUser
     # (customer user ldap backend and settings)
     $Self->{CustomerUser} = {
-        Name => 'LDAP Datenquelle',
+        Name => 'LDAP Data Source',
         Module => 'Kernel::System::CustomerUser::LDAP',
         Params => {
             # ldap host
@@ -333,9 +333,12 @@ information in a LDAP directory.
             # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
             AlwaysFilter => '',
             # if your frontend is e. g. iso-8859-1 and the charset of your
-            # ldap server is utf-8, use this options (if not, ignore it)
+            # ldap server is utf-8, use these options.
 #            SourceCharset => 'utf-8',
 #            DestCharset => 'iso-8859-1',
+            # if both your frontend and your LDAP are unicode, use this:
+#            SourceCharset => 'utf-8',
+#            DestCharset   => 'utf-8',
             # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
             Params => {
                 port => 389,
@@ -344,7 +347,7 @@ information in a LDAP directory.
                 version => 3,
             },
         },
-        # customer uniq id
+        # customer unique id
         CustomerKey => 'uid',
         # customer #
         CustomerID => 'mail',
@@ -357,14 +360,14 @@ information in a LDAP directory.
         CustomerUserNameFields => ['givenname', 'sn'],
         # show not own tickets in customer panel, CompanyTickets
         CustomerUserExcludePrimaryCustomerID => 0,
-        # add a ldap filter for valid users (expert setting)
-#       CustomerUserValidFilter => '(!(description=gesperrt))',
-        # admin can't change customer preferences
+        # add an ldap filter for valid users (expert setting)
+#       CustomerUserValidFilter => '(!(description=locked))',
+        # administrator can't change customer preferences
         AdminSetPreferences => 0,
-#        # cache time to life in sec. - cache any database queris
+#        # cache time to live in sec. - cache any database queries
 #        CacheTTL => 0,
         Map => [
-            # note: Login, Email and CustomerID needed!
+            # note: Login, Email and CustomerID are mandatory!
             # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
             [ 'UserSalutation', 'Title',      'title',           1, 0, 'var', '', 0 ],
             [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],
@@ -384,9 +387,10 @@ information in a LDAP directory.
 </example>
 
 <para>
-If additional customer information are stored in your LDAP directory and if you
-like to use this information with OTRS also, just expand the MAP array in
-<filename>Kernel/Config.pm</filename> with the entries for this data.
+If additional customer attributes are stored in your LDAP directory, such as a
+manager's name, a mobile phone number, or a department, and if you
+want to display this information in OTRS, just expand the MAP array in
+<filename>Kernel/Config.pm</filename> with the entries for these attributes.
 </para>
 
 <para>
@@ -410,8 +414,8 @@ link in the customer panel.
 </para>
 
 <para>
-Du use company tickets a new field has to be added to the LDAP directory
-that can contain the entries with the IDs for the customers that tickets
+To use company tickets a new field has to be added to the LDAP directory
+that contains the IDs that
 should be accessible for a customer user.
 </para>
 
@@ -431,7 +435,7 @@ has to be added to the MAP array in
 
 <para>
 The field for the multiple customer IDs has to be edited directly in the
-LDAP directory, OTRS can only read from LDAP.
+LDAP directory, OTRS can only read from LDAP, not write to it..
 </para>
 
 <para>
@@ -466,9 +470,9 @@ LDAP directory.
 <title>Use more than one customer backend with OTRS</title>
 
 <para>
-If more than one customer backend with different customer data should be
-used with OTRS (e.g. a LDAP and a DB backend), the CustomerUser config
-parameter  has to be expanded with a number, e.g. "CustomerUser1",
+If you want to use more than one customer data source
+used with OTRS (e.g. an LDAP and a database backend), the CustomerUser config
+parameter should be expanded with a number, e.g. "CustomerUser1",
 "CustomerUser2".
 </para>
 
@@ -476,7 +480,7 @@ parameter  has to be expanded with a number, e.g. "CustomerUser1",
 <title>Using more than one customer backend with OTRS</title>
 
 <para>
-The following configuration example shows parallel usage of an LDAP and DB
+The following configuration example shows usage of both an LDAP and a database
 customer backend with OTRS.
 </para>
 
@@ -485,7 +489,7 @@ customer backend with OTRS.
     # 1. Customer user backend: DB
     # (customer user database backend and settings)
     $Self->{CustomerUser1} = {
-        Name => 'Datenbank Quelle',
+        Name => 'Customer Database',
         Module => 'Kernel::System::CustomerUser::DB',
         Params => {
             # if you want to use an external database, add the
@@ -496,7 +500,7 @@ customer backend with OTRS.
 #            Password => '',
             Table => 'customer_user',
         },
-        # customer uniq id
+        # customer unique id
         CustomerKey = 'login',
         # customer #
         CustomerID = 'customer_id',
@@ -516,7 +520,7 @@ customer backend with OTRS.
 #        AutoLoginCreationPrefix => 'auto',
 #        # admin can change customer preferences
 #        AdminSetPreferences => 1,
-#        # cache time to life in sec. - cache any database queris
+#        # cache time to live in sec. - cache any database queries
 #        CacheTTL => 0,
 #        # just a read only source
 #        ReadOnly => 1,
@@ -553,7 +557,7 @@ customer backend with OTRS.
     # 2. Customer user backend: LDAP
     # (customer user ldap backend and settings)
     $Self->{CustomerUser2} = {
-        Name => 'LDAP Datenquelle',
+        Name => 'LDAP Datasource',
         Module => 'Kernel::System::CustomerUser::LDAP',
         Params => {
             # ldap host
@@ -569,10 +573,14 @@ customer backend with OTRS.
             # in case you want to add always one filter to each ldap query, use
             # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
             AlwaysFilter => '',
-            # if your frontend is e. g. iso-8859-1 and the charset of your
-            # ldap server is utf-8, use this options (if not, ignore it)
+            # if both your frontend and your LDAP are unicode, use this:
+#            SourceCharset => 'utf-8',
+#            DestCharset   => 'utf-8',
+            # if your frontend is e. g. iso-8859-1 and the character set of your
+            # ldap server is utf-8, use these options:
 #            SourceCharset => 'utf-8',
 #            DestCharset => 'iso-8859-1',
+
             # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
             Params => {
                 port => 389,
@@ -581,7 +589,7 @@ customer backend with OTRS.
                 version => 3,
             },
         },
-        # customer uniq id
+        # customer unique id
         CustomerKey => 'uid',
         # customer #
         CustomerID => 'mail',
@@ -595,7 +603,7 @@ customer backend with OTRS.
         # show not own tickets in customer panel, CompanyTickets
         CustomerUserExcludePrimaryCustomerID => 0,
         # add a ldap filter for valid users (expert setting)
-#       CustomerUserValidFilter => '(!(description=gesperrt))',
+#       CustomerUserValidFilter => '(!(description=locked))',
         # admin can't change customer preferences
         AdminSetPreferences => 0,
         Map => [
@@ -619,7 +627,7 @@ customer backend with OTRS.
 </example>
 
 <para>
-It is possible to integrate up to 10 different customer user backends. With
+It is possible to integrate up to 10 different customer user backends. Via
 the customer user management interface in OTRS all customer data can be
 viewed or edited (if write access is possible).
 </para>
@@ -691,7 +699,7 @@ user management interface
 <para>
 <programlisting>
     # This is an example configuration for an LDAP auth. backend.
-    # (take care that Net::LDAP is installed!)
+    # (Make sure Net::LDAP is installed!)
     $Self->{'AuthModule'} = 'Kernel::System::Auth::LDAP';
     $Self->{'AuthModule::LDAP::Host'} = 'ldap.example.com';
     $Self->{'AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';
@@ -781,7 +789,7 @@ has to be managed directly in the LDAP tree.
 
 <para>
 If you want to implement a "single sign on" solution for all your agents,
-you can use http basic authentication (for all your systems) and the
+you can use HTTP basic authentication (for all your systems) and the
 HTTPBasicAuth module for OTRS.
 </para>
 
@@ -798,7 +806,7 @@ HTTPBasicAuth module for OTRS.
     # Note:
     #
     # If you use this module, you should use as fallback
-    # the following config settings if user isn't login through
+    # the following configuration settings if the user is not authorized
     # apache ($ENV{REMOTE_USER})
     $Self->{LoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';
     $Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
@@ -874,7 +882,7 @@ edited via the web interface of OTRS.
 If you have a LDAP directory with all your customer data you can use the
 LDAP module to authenticate your customer users to OTRS. Because this
 module has only read-access to the LDAP backend, it is not possible to edit
-the customer data via the web interface of OTRs.
+the customer data via the web interface of OTRS.
 </para>
 
 <example id='configuration-customer-auth-backend-ldap'>
@@ -883,7 +891,7 @@ the customer data via the web interface of OTRs.
 <para>
 <programlisting>
     # This is an example configuration for an LDAP auth. backend.
-    # (take care that Net::LDAP is installed!)
+    # (make sure Net::LDAP is installed!)
      $Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::LDAP';
      $Self->{'Customer::AuthModule::LDAP::Host'} = 'ldap.example.com';
      $Self->{'Customer::AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';
@@ -1052,7 +1060,7 @@ new room number field:
 #            Password => '',
             Table => 'customer_user',
         },
-        # customer uniq id
+        # customer unique id
         CustomerKey => 'login',
         # customer #
         CustomerID => 'customer_id',
@@ -1073,7 +1081,7 @@ new room number field:
 #        AutoLoginCreationPrefix => 'auto',
 #        # admin can change customer preferences
 #        AdminSetPreferences => 1,
-#        # cache time to life in sec. - cache any database queris
+#        # cache time to live in sec. - cache database queries
 #        CacheTTL => 0,
 #        # just a read only source
 #        ReadOnly => 1,
