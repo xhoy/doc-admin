@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.15 2010-02-05 16:37:09 mb Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.16 2010-05-03 17:57:40 ub Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -98,10 +98,10 @@ uses customer data stored in the OTRS database.
             Table => 'customer_user',
         },
         # customer unique id
-	CustomerKey => 'login',
+    CustomerKey => 'login',
         # customer #
-	CustomerID => 'customer_id',
-	CustomerValid => 'valid_id',
+    CustomerID => 'customer_id',
+    CustomerValid => 'valid_id',
         CustomerUserListFields => ['first_name', 'last_name', 'email'],
         CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
         CustomerUserSearchPrefix => '',
@@ -645,7 +645,7 @@ different backends.
 </para>
 
 <sect2 id='agent-auth-backends'>
-<title>authentication backends for agents</title>
+<title>Authentication backends for agents</title>
 
 <sect3 id='agent-auth-backend-db'>
 <title>DB (Default)</title>
@@ -844,7 +844,7 @@ against a radius server.
 </sect2>
 
 <sect2 id="customer-auth-backends">
-<title>authentication backends for customer users</title>
+<title>Authentication backends for customer users</title>
 
 <sect3 id='customer-auth-backend-db'>
 <title>Database (Default)</title>
