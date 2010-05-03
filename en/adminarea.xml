@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.24 2010-04-28 10:40:08 ub Exp $ -->
+<!-- $Id: adminarea.xml,v 1.25 2010-05-03 13:40:42 ub Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -310,7 +310,7 @@ not use both User to Group and User to Role mappings at the same time though,
 this would make maintenance really hard. Therefore, if you decide to go with
 roles, we'd recommend you to to disable the Users &lt;-&gt; Groups option in
 the Admin area by modifying the
-<link linkend="Framework:front-end::Admin::ModuleRegistration:front-end::Module_AdminUserGroup">front-end::Admin::ModuleRegistration</link>
+<link linkend="Framework:Frontend::Admin::ModuleRegistration:front-end::Module_AdminUserGroup">front-end::Admin::ModuleRegistration</link>
 in SysConfig. Of course this would not remove already existing User to Group
 assignments!</para>
 </note>
@@ -434,14 +434,14 @@ and select the new group for this queues.
 The next step is to activate the customer group support. This can be done
 with the configuration parameter
 
-<link linkend="Framework:front-end::Customer:CustomerGroupSupport">
+<link linkend="Framework:Frontend::Customer:CustomerGroupSupport">
 CustomerGroupSupport
 </link>
 
 via the graphical configuration front-end of OTRS.
 Using the parameter
 
-<link linkend="Framework:front-end::Customer:CustomerGroupAlwaysGroups">
+<link linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">
 CustomerGroupAlwaysGroups
 </link>
 
