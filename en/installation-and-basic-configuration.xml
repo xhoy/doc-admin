@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.28 2009-09-27 19:13:26 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.29 2010-06-01 13:53:29 mg Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -464,6 +464,14 @@ OTRS requires the following additional Perl modules:
       </row>
       <row>
         <entry>
+          CSS::Minifier
+        </entry>
+        <entry>
+          Performs minification of CSS files.
+        </entry>
+      </row>
+      <row>
+        <entry>
           Date::Pcalc
         </entry>
         <entry>
@@ -503,6 +511,14 @@ OTRS requires the following additional Perl modules:
         </entry>
         <entry>
           This module makes it possible to use the md5 algorithm.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          JavaScript::Minifier
+        </entry>
+        <entry>
+          Performs minification of JavaScript files.
         </entry>
       </row>
       <row>
@@ -775,7 +791,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-09-27 19:13:26 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2010-06-01 13:53:29 mg Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1298,7 +1314,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.28 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.29 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1318,7 +1334,7 @@ entries are right:
 linux:/opt/otrs/bin# crontab -l -u otrs
 # --
 # cron/aaa_base - base crontab package
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1327,9 +1343,9 @@ MAILTO="root@localhost"
 
 # --
 # cron/fetchmail - fetchmail cron of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.28 2009-09-27 19:13:26 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.29 2010-06-01 13:53:29 mg Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1337,7 +1353,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
@@ -1349,7 +1365,7 @@ MAILTO="root@localhost"
 #0 23 * * * $HOME/bin/GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1357,7 +1373,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1365,7 +1381,7 @@ MAILTO="root@localhost"
 45 */2 * * * $HOME/bin/PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1374,7 +1390,7 @@ MAILTO="root@localhost"
 10 0 * * * $HOME/bin/otrs.cleanup &gt;&gt; /dev/null
 # --
 # cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1382,7 +1398,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/PostMasterPOP3.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1391,7 +1407,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/session - delete old session ids of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1400,7 +1416,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
-# Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
