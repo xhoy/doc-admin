@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.29 2010-06-01 13:53:29 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.30 2010-06-02 06:27:58 mg Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -464,14 +464,6 @@ OTRS requires the following additional Perl modules:
       </row>
       <row>
         <entry>
-          CSS::Minifier
-        </entry>
-        <entry>
-          Performs minification of CSS files.
-        </entry>
-      </row>
-      <row>
-        <entry>
           Date::Pcalc
         </entry>
         <entry>
@@ -511,14 +503,6 @@ OTRS requires the following additional Perl modules:
         </entry>
         <entry>
           This module makes it possible to use the md5 algorithm.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          JavaScript::Minifier
-        </entry>
-        <entry>
-          Performs minification of JavaScript files.
         </entry>
       </row>
       <row>
@@ -791,7 +775,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.29 2010-06-01 13:53:29 mg Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.30 2010-06-02 06:27:58 mg Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1314,7 +1298,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.29 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.30 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1345,7 +1329,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.29 2010-06-01 13:53:29 mg Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.30 2010-06-02 06:27:58 mg Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
