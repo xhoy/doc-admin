@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.31 2010-06-15 15:06:39 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.32 2010-06-15 15:24:33 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -794,7 +794,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.31 2010-06-15 15:06:39 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.32 2010-06-15 15:24:33 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1317,7 +1317,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.31 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.32 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1348,7 +1348,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.31 2010-06-15 15:06:39 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.32 2010-06-15 15:24:33 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1681,13 +1681,23 @@ shell&gt; /etc/init.d/cron stop
   </itemizedlist>
 </sect2>
 
-<!--
+
 <sect2 id="upgrade-windows-installer">
 <title>Upgrading Windows Installer</title>
 <para>
+There's currently no in-place upgrade available for OTRS installations that were
+done with the Windows Installer. The upgrade process basically consists of
+backing up the database and the filesystem, uninstalling OTRS, installing the
+new version, restoring the database and running the upgrade procedure if needed.
+</para>
+
+<para>Upgrading is described in
+<ulink url="http://faq.otrs.org/otrs/public.pl?Action=PublicFAQ;ItemID=351">FAQ# 4200351</ulink>, and
+there is also an informative
+<ulink url="http://www.youtube.com/watch?v=sf0R-reMTWc">YouTube video</ulink>
+available.
 </para>
 </sect2>
--->
 
 </sect1>
 
