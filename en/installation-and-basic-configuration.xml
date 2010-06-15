@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.30 2010-06-02 06:27:58 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.31 2010-06-15 15:06:39 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -51,11 +51,11 @@ no other possibility.
 
 <para>
 This section describes the installation of a pre-built rpm package on a SUSE
-Linux distro. We tested the SUSE versions from 7.x to 10.0. Before you
+Linux distro. We tested all recent SLES and OpenSUSE versions. Before you
 start the installation please have a look on
 
-<ulink url="http://www.otrs.org/">
-<citetitle>http://www.otrs.org</citetitle>
+<ulink url="http://www.otrs.org/download">
+<citetitle>http://www.otrs.org/download</citetitle>
 </ulink>
 
 and check, if a newer OTRS rpm package is available. Please use the newer
@@ -73,7 +73,7 @@ to use <application>yast</application>, because
 <para>
 If you decide to install OTRS via the command line and
 <application>rpm</application>, you have to install the needed Perl modules
-manually before. Lets say, that you have saved the file
+manually. Assume you saved the file
 <filename>otrs.rpm</filename> into the directory
 <filename>/tmp</filename>, you can execute the following command to install
 OTRS:
@@ -270,12 +270,23 @@ Please change the password for the root@localhost account as soon as possible.
 <title>Installing OTRS on a Debian system</title>
 
 <para>
-Torsten Werner, the maintainer of the Debian OTRS package, kindly provided
-excellent documentation on the installation of OTRS on Debian systems. The
-document can be found on:
+On the OTRS Wiki you can find detailed instructions for setting up OTRS on a Debian system.
+<ulink url="http://wiki.otrs.org/index.php?title=Installation_on_Debian_5.04_lenny">
+http://wiki.otrs.org/index.php?title=Installation_on_Debian_5.04_lenny
+</ulink>
 
-<ulink url="http://docs.google.com/View?docid=drm3kmx_0cbr3x9">
-http://www.writely.com/View?docid=drm3kmx_0cbr3x9
+.
+</para>
+
+</sect2>
+
+<sect2 id="installation-on-ubuntu">
+<title>Installing OTRS on a Ubuntu system</title>
+
+<para>
+On the OTRS Wiki you can find detailed instructions for setting up OTRS on a Ubuntu system.
+<ulink url="http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)">
+http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)
 </ulink>
 
 .
@@ -297,8 +308,16 @@ installer for Win32 from
 and save the file to your local file system. Then simply click on the file
 to execute the installer. Follow the few installation steps to setup the
 system, after installation you should be able to login as OTRS
-administrator.
+administrator. Now you can configure the system for your
+needs. To log in as OTRS administrator use the username root@localhost and the
+default password root.
 </para>
+
+<warning>
+<para>
+Please change the password for the root@localhost account as soon as possible.
+</para>
+</warning>
 
 <important>
 <para>
@@ -775,7 +794,7 @@ apache2-httpd-new.include.conf
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.30 2010-06-02 06:27:58 mg Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.31 2010-06-15 15:06:39 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1298,7 +1317,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.30 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.31 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1329,7 +1348,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.30 2010-06-02 06:27:58 mg Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.31 2010-06-15 15:06:39 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
