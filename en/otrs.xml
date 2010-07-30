@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.29 2009-09-15 14:55:46 mb Exp $ -->
+<!-- $Id: otrs.xml,v 1.30 2010-07-30 17:44:11 en Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -373,6 +373,263 @@ included in the central framework.
     </itemizedlist>
   </listitem>
 </itemizedlist>
+
+<sect2 id="new-features-of-3.0">
+    <title>New features of OTRS 3.0</title>
+
+    <itemizedlist>
+        <title>Context</title>
+
+        <listitem>
+            <para>Completely new GUI (Graphical User Interface).</para>
+        </listitem>
+
+    </itemizedlist>
+
+    <itemizedlist>
+        <title>User Interface</title>
+
+        <listitem>
+            <para>New design with CSS (Cascading Style Sheets) to guarantee a profesional look.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+Allows the definition of customized "skins" (i.e. set of CSS and image files), adapting the
+interface to each user's needs.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>
+New user experience with AJAX + JavaScript (dynamic rich application behavior), making the use
+of OTRS more effective and faster.
+            </para>
+            <para>Some of the new GUI elements used are:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Motions, such as fade in/out, of additional information or actions.</para>
+                </listitem>
+                <listitem>
+                    <para>Auto-completion, making easy and efficient the search in lists.</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>Greatly improved usability. For example:</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Selection and design of concrete-speaking texts.</para>
+                </listitem>
+                <listitem>
+                    <para>Use of intuitive icons.</para>
+                </listitem>
+                <listitem>
+                    <para>Unobtrusive colors in the default skin that draws attention to key areas.</para>
+                </listitem>
+                <listitem>
+                    <para>Improved work with form elements (click on the label sets the focus to the field).</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>Accesibility.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+Redesign paying particular attention to current accesibility standards (WCAG, WAI-ARIA).
+                    </para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>http://www.w3.org/TR/WCAG20/</para>
+                        </listitem>
+                        <listitem>
+                            <para>http://www.w3.org/TR/wai-aria/</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+                <listitem>
+                    <para>
+The interface is much more accessible for people with disabilities than the previous. In particular,
+the terms of Section 508 of the USA Rehabilitation Act are covered.
+                    </para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>http://www.section508.gov/</para>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>New main navigation.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Clearer and faster to use</para>
+                </listitem>
+                <listitem>
+                    <para>Allows access to various items at any time.</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>New toolbar.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>Makes possible to be informed anytime, anywhere on new events.</para>
+                </listitem>
+                <listitem>
+                    <para>It can be indivually extended over a free module layer.</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>New agent interface.</para>
+        </listitem>
+
+        <listitem>
+            <para>New admin interface.</para>
+        </listitem>
+
+        <listitem>
+            <para>New customer interface.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+Uses Web 2.0 style and functionality, remaining as neutral as possible to the harmonious integration
+in a customer environment (Internet, CRM, iframe, CI) guarantee.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </itemizedlist>
+
+    <itemizedlist>
+        <title>Functional features</title>
+
+        <listitem>
+            <para>Email answers with agent name instead of queue name.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+There's a new configuration option, called "Ticket::DefineEmailFrom", to influence the display
+name sent along with email anwers or new email tickets.
+Allows the definition of customized "skins" (i.e. set of CSS and image files), adapting the
+interface to each user's needs.
+                    </para>
+                    <para>
+This feature is there to improve the 'human touch' for emails coming from OTRS; the end users
+will see that there are actual people sending the replies.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>Configurable ticket subject.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+Left - the default behaviour. Subjects look like [TicketHook#:12345] Some Subject.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+Right - Subjects look like Some Subject [TicketHook#:12345]_. If you have the subject on the right
+side the part that's most important for the end user is displayed first in the customers mail client,
+this can help in determining what ticket an email is about.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+None - Subjects look like 'Some Subject' . This can look very friendly to the customer, if there's
+no ticket number in the subject there is no feeling that you are treated 'as a number'.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>Customer interface Queue, Service, and SLA input fields.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+You can now remove the Queue, Service and SLA input fields from the customer frontend at ticket
+creation time via SysConfig. Previously, if you enabled services in OTRS, customer users also needed
+to select a service when creating a ticket in the customer front end. If you remove the field from
+the customer front end the service desk can later select the correct service for the ticket.
+                    </para>
+                    <para>
+You can also specify a default queue for new customer tickets.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>Admin notification.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+You can now also use the Admin Notification function to notify customer users. Also, you can now also
+select recipients based on their role, instead of just based on their group.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </itemizedlist>
+
+    <itemizedlist>
+        <title>For developers/administrators</title>
+
+        <listitem>
+            <para>Valid XHTML to ensure compatibility with different browsers and operating systems.</para>
+        </listitem>
+
+        <listitem>
+            <para>New HTML button element.</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+Instead of "input type='button'" for generating a button, the "button" element is now used in OTRS.
+With this element it is now better possible to style the content of the button and the button
+itself with CSS.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            <para>Kernel::System::Config is now renamed to Kernel::System::SysConfig for consistency.</para>
+        </listitem>
+
+        <listitem>
+            <para>Added support for multiple Kernel::System::Ticket::Custom backends.</para>
+        </listitem>
+
+        <listitem>
+            <para>Kernel::System::Ticket</para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+The HistoryGet function now returns TicketID, ArticleID, Name, CreateBy, CreateTime, HistoryType,
+QueueID, OwnerID, PriorityID, and StateID. Previously it only returned the first five fields.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+
+    </itemizedlist>
+</sect2>
+
+
 
 <sect2 id="new-features-of-2.4">
 <title>New features of OTRS 2.4</title>
@@ -1011,12 +1268,10 @@ OTRS can receive and send mails in multiple ways. All currently available method
 </sect2>
 
 
-
-
 </sect1>
 
 <sect1 id="software-requirements">
-<title>Hard and software requirements</title>
+<title>Hardware and software requirements</title>
 
 <para>
 OTRS can be installed on many operating systems. OTRS runs not only on
@@ -1028,27 +1283,24 @@ CPU, 2 GB RAM and a 160 GB hard drive.
 
 <para>
 If you want to use OTRS, you need some other software components. The basic
-software requirements are a web and a database server as well as a working
+software requirements are: a web and a database servers, as well as a working
 Perl environment with some additional modules. The web server and
-<application>Perl</application> has to be installed on the same machine
-as OTRS. The database back-end can be installed on the local or on an other
-host.
+<application>Perl</application> have to be installed on the same machine
+as OTRS. The database back-end can be installed locally or on another host.
 </para>
 
 <para>
-For the web server, we recommend using <application>apache 2</application>. With this web server, you can use
-the mod_perl module which improves greatly the performance of OTRS.
-If you can't use apache, OTRS should run on any web server
-that can execute Perl scripts.
+For the web server, we recommend using <application>apache 2</application>, because
+its module mod_perl improves greatly the performance of OTRS. If you can't use apache,
+OTRS should run on any web server that can execute Perl scripts.
 </para>
 
 <para>
 For database back-ends, you can use <application>MySQL</application>,
  <application>PostgreSQL</application>, <application>Oracle</application>,
 <application>MSSQL</application> or <application>DB2</application>.
-If you use <application>MySQL</application> you
-have the advantage that you can configure your database and some system
-settings during the installation through a web front-end.
+If you use <application>MySQL</application> you have the advantage that the dabatase
+and some system settings can be configured during the installation, through a web front-end.
 </para>
 
 <para>
@@ -1071,10 +1323,10 @@ the Perl shell and CPAN or via the package manager of your operating system
 <para>Webserver</para>
     <itemizedlist>
     <listitem>
-        <para>Webserver with CGI support (CGI is not recommended)</para>
+        <para>Apache2 + mod_perl2 or higher (recommended, mod_perl is really fast!)</para>
     </listitem>
     <listitem>
-        <para>Apache2+mod_perl2 or higher (recommended, mod_perl is really fast!)</para>
+        <para>Webserver with CGI support (CGI is not recommended)</para>
     </listitem>
     <listitem>
         <para>IIS 6 or higher</para>
@@ -1101,21 +1353,20 @@ the Perl shell and CPAN or via the package manager of your operating system
     </itemizedlist>
 
 <para>
-The section on the
+The section in the manual about
 
 <link linkend="installation-of-perl-modules">
-manual installation of Perl modules needed
+installation of Perl modules
 </link>
 
-describes in more detail how you can set up the Perl modules that you need for
-OTRS.
+describes in more detail how you can set up those which are needed for OTRS.
 </para>
 
 <para>
 If you install a binary package of OTRS, which was built for your operating
 system (rpm, Windows-Installer), either the package contains all Perl
 modules needed or the package manager of your system should take care of the
-dependences of the Perl modules needed.
+dependencies of the Perl modules needed.
 </para>
 </sect1>
 
@@ -1123,24 +1374,33 @@ dependences of the Perl modules needed.
 <title>Community</title>
 
 <para>
-OTRS has a large user community. Users and developers discuss OTRS and
-exchange information on
-related issues via the
+OTRS has a large user community. Users and developers discuss about OTRS and
+interchange information on related issues through the
 
 <link linkend="additional-resources-mailinglists">
-mailinglists
+mailing-lists
 </link>
 
-. There is available help for questions about the installation,
+. There is available help for questions regarding the installation,
 configuration, usage, localization and development. Software bugs
-can be reported via a
+can be reported on the
 
 <link linkend="additional-resources-bugtracking">
 bug tracking system
 </link>
 
-so that they reach the responsible developers directly and without getting
+, so that they reach the responsible developers directly and without getting
 lost.
+</para>
+
+<para>
+The homepage of the OTRS community is:
+
+<ulink url="http://www.otrs.org">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+ (see Figure 2.1 below).
 </para>
 
 <para>
@@ -1151,21 +1411,16 @@ lost.
 </para>
 
 <para>
-Via the URL
-
-<ulink url="http://www.otrs.org">
-<citetitle>http://www.otrs.org</citetitle>
-</ulink>
-
-you can reach the homepage of the OTRS community.
+    Figure 2.1. OTRS community's homepage.
 </para>
+
 </sect1>
 
 <sect1 id="commercial-support-for-otrs">
 <title>Commercial Support for OTRS</title>
 
 <para>
-Commercial support for OTRS is also available. You can find the available
+Commercial support for OTRS is also available. You can find the disposable
 options on the website of OTRS AG, the company behind OTRS:
 
 <ulink url="http://www.otrs.com/en/support">
@@ -1178,26 +1433,24 @@ options on the website of OTRS AG, the company behind OTRS:
 OTRS AG provides support, consulting and training for the Open Ticket
 Request System. It also provides easy-to-handle complete solutions.
 With these packages, the OTRS AG would like to serve medium- to big-sized
-companies, local
-authorities, institutions and big corporate groups. You can either buy
-ready-made high-performance and high-availability systems or order special
-custom-tailored packages.
+companies, local authorities, institutions and big corporate groups. You can
+either buy ready-made high-performance and high-availability systems or order
+special custom-tailored packages.
 </para>
 
 <para>
-On
+You can find more detailed information about OTRS AG on
 
 <ulink url="http://www.otrs.com">
 <citetitle>http://www.otrs.com</citetitle>
 </ulink>
 
-are available more detailed information about OTRS AG. You can
-contact OTRS AG per email at
+and have contact via email on
 
 <ulink url="mailto:sales at otrs.com">
 <citetitle>sales at otrs.com</citetitle>
 </ulink>
-
+.
 </para>
 </sect1>
 
