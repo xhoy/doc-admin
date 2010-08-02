@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.33 2010-07-30 21:41:38 en Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.34 2010-08-02 08:04:32 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -482,22 +482,6 @@ to use your package manager.
       </row>
       <row>
         <entry>
-          Net::POP3
-        </entry>
-        <entry>
-          Contains procedures to access and process messages on a POP3 server.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Net::POP3Client
-        </entry>
-        <entry>
-          Contains procedures to access and process messages on a POP3 server.
-        </entry>
-      </row>
-      <row>
-        <entry>
           IO::Socket::SSL
         </entry>
         <entry>
@@ -721,7 +705,7 @@ apache-httpd.include.conf (see Script 3.10 below).
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.33 2010-07-30 21:41:38 en Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.34 2010-08-02 08:04:32 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1445,7 +1429,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.33 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.34 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1480,7 +1464,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.33 2010-07-30 21:41:38 en Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.34 2010-08-02 08:04:32 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
