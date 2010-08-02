@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.34 2010-08-02 08:04:32 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.35 2010-08-02 21:40:01 en Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -79,8 +79,13 @@ to install OTRS.
 </para>
 
 <para>
+Note: If you install it on SLES9 or OES, follow this description to
+install the missing perl-GD packages. http://faq.otrs.org/otrs/public.pl?FAQID=49
+</para>
+
+<para>
 <screen>
-linux:~ # rpm -ivh /tmp/otrs.rpm
+linux:~ # rpm -i /tmp/otrs-xxx.rpm
 otrs                        ##################################################
 Check OTRS user (/etc/passwd)... otrs exists.
 
@@ -114,7 +119,7 @@ Script 3.1. Command to install OTRS.
 
 <para>
 After the installation of the OTRS rpm package, you have to run
-<application>SuSEconfig</application>, using the command of the Script 3.2.
+<application>SuSEconfig</application>, as shown in the Script 3.2.
 </para>
 
 <para>
@@ -322,27 +327,31 @@ Script 3.6. Copying some sample files.
 <para>
 The last step to prepare the installation of OTRS is to set the proper
 access rights for the files. You can use the script
-<command>SetPermissions.sh</command>, which is located in the
+<command>otrs.SetPermissions.pl</command>, which is located in the
 <filename>bin</filename> directory, in the home directory of the OTRS user.
 You can execute the script with the following parameters:
 </para>
 
 <para>
 <cmdsynopsis>
-  <command>SetPermissions.sh</command>
+  <command>otrs.SetPermissions.pl</command>
     <arg choice='req'>
       <replaceable>Home directory of the OTRS user</replaceable>
     </arg>
     <arg choice='req'>
+      --otrs-user=
       <replaceable>OTRS user</replaceable>
     </arg>
     <arg choice='req'>
+      --web-user=
       <replaceable>Web server user</replaceable>
     </arg>
     <arg choice='opt'>
+      --otrs-group=
       <replaceable>Group of the OTRS user</replaceable>
     </arg>
     <arg choice='opt'>
+      --web-group=
       <replaceable>Group of the web server user</replaceable>
     </arg>
   </cmdsynopsis>
@@ -350,12 +359,12 @@ You can execute the script with the following parameters:
 
 <para>
 If your web server is running with the same user rights as OTRS, the command
-to set the proper access rights is
-<command>SetPermissions.sh /opt/otrs otrs otrs</command>. On SUSE systems
+to set the proper access rights is <command>otrs.SetPermissions.sl
+/opt/otrs --otrs-user=otrs --web-user=otrs</command>. On SUSE systems
 the web server is running with the user rights of wwwrun. On Debian-based systems
-this is www-data. You would use the
-command <command>SetPermissions.sh /opt/otrs otrs wwwrun nogroup www</command> to set
-the proper access rights.
+this is www-data. You would use the command <command>otrs.SetPermissions.sl
+/opt/otrs --otrs-user=otrs --web-user=wwwrun --otrs-group=nogroup --web-group=www</command>
+to set the proper access rights.
 </para>
 
 </sect2>
@@ -389,23 +398,6 @@ to use your package manager.
       </row>
     </thead>
     <tbody>
-      <row>
-        <entry>
-          CGI
-        </entry>
-        <entry>
-          Needed by the web interface of OTRS.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Date::Pcalc
-        </entry>
-        <entry>
-          Needed for date calculations, e.g. in time specific
-          calculations for tickets.
-        </entry>
-      </row>
       <row>
         <entry>
           DBI
@@ -442,10 +434,18 @@ to use your package manager.
       </row>
       <row>
         <entry>
-          LWP::UserAgent
+          CSS::Minifier
         </entry>
         <entry>
-          Processes HTTP requests.
+          Minifies a CSS file and writes the outpout directly to another file.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Crypt::PasswdMD5
+        </entry>
+        <entry>
+          Provides interoperable MD5-based crypt functions.
         </entry>
       </row>
       <row>
@@ -458,18 +458,10 @@ to use your package manager.
       </row>
       <row>
         <entry>
-          MIME::Tools
+          JavaScript:Minifier
         </entry>
         <entry>
-          Provides tools to process messages with MIME parts.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Mail::Internet
-        </entry>
-        <entry>
-          Used for OTRS email processing.
+          Minifies a JavaScript file and writes the outpout directly to another file.
         </entry>
       </row>
       <row>
@@ -482,10 +474,10 @@ to use your package manager.
       </row>
       <row>
         <entry>
-          IO::Socket::SSL
+          LWP::UserAgent
         </entry>
         <entry>
-          Allows establishing SSL connections to your mail server.
+          Processes HTTP requests.
         </entry>
       </row>
       <row>
@@ -494,31 +486,6 @@ to use your package manager.
         </entry>
         <entry>
           Perl interface to a LDAP directory (only required a LDAP back-end is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Net::SMTP
-        </entry>
-        <entry>
-          Contains procedures to send emails.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Authen::SASL
-        </entry>
-        <entry>
-          SASL authentication framework, e.g. needed for the
-          authentication against mail servers.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Net::SMTP::SSL
-        </entry>
-        <entry>
-          Required if you use SSL connections to your SMTP server.
         </entry>
       </row>
       <row>
@@ -537,23 +504,6 @@ to use your package manager.
         <entry>
           Some more text- and graphic tools for the GD graphics library (only
           required if the OTRS stats module is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          SOAP::Lite
-        </entry>
-        <entry>
-          Only needed if you'd like to use the XML-RPC interface of OTRS.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          XML::Parser
-        </entry>
-        <entry>
-          Allows reading and writing xml configuration files, i.e. the graphical
-          configuration front-end of OTRS uses this module.
         </entry>
       </row>
       <row>
@@ -583,40 +533,53 @@ directory, in the home directory of the OTRS user (see Script 3.7 below).
 </para>
 
 <para>
+Please note that some modules are optional.
+</para>
+
+<para>
 <screen>
 linux:~# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# ./otrs.checkModules
-   o CGI............................ok (v3.43)
-   o Date::Pcalc....................ok (v1.2)
-   o Date::Format...................ok (v2.22)
-   o DBI............................ok (v1.607)
-   o DBD::mysql.....................ok (v4.008)
-   o Digest::MD5....................ok (v2.36_01)
+   o CGI............................ok (v3.49)
    o Crypt::PasswdMD5...............ok (v1.3)
-   o LWP::UserAgent.................ok (v5.819)
+   o CSS::Minifier..................ok (v0.01)
+   o Date::Format...................ok (v2.24)
+   o Date::Pcalc....................ok (v1.2)
+   o DBI............................ok (v1.609)
+   o DBD::mysql.....................ok (v4.013)
+   o Digest::MD5....................ok (v2.36_01)
    o Encode::HanExtra...............ok (v0.23)
-   o IO::Scalar.....................ok (v2.110)
-   o IO::Wrap.......................ok (v2.110)
-   o MIME::Base64...................ok (v3.07_01)
-   o Mail::Internet.................ok (v2.04)
-   o MIME::Tools....................ok (v5.427)
-   o Net::DNS.......................ok (v0.63)
-   o Net::POP3......................ok (v2.29)
-   o Mail::POP3Client...............ok (v2.18 )
-      o IO::Socket::SSL.............ok (v1.18)
-   o Net::IMAP::Simple..............ok (v1.17)
-      o Net::IMAP::Simple::SSL......ok (v1.3)
-   o Net::SMTP......................ok (v2.31)
-      o Authen::SASL................ok (v2.12)
-      o Net::SMTP::SSL..............ok (v1.01)
-   o Net::LDAP......................ok (v0.39)
-   o GD.............................ok (v2.39)
+   o GD.............................ok (v2.44)
       o GD::Text....................ok (v0.86)
       o GD::Graph...................ok (v1.44)
       o GD::Graph::lines............ok (v1.15)
       o GD::Text::Align.............ok (v1.18)
+   o IO::Scalar.....................ok (v2.110)
+   o IO::Wrap.......................ok (v2.110)
+   o JavaScript::Minifier...........ok (v1.05)
+   o JSON...........................ok (v2.21)
+      o JSON::PP....................ok (v2.27003)
+      o JSON::XS....................Not installed! (Optional - Install it for faster AJAX/JavaScript handling.)
+   o LWP::UserAgent.................ok (v5.829)
+   o Mail::Internet.................ok (v2.06)
+   o Mail::POP3Client...............ok (v2.18 )
+      o IO::Socket::SSL.............ok (v1.31)
+   o MIME::Base64...................ok (v3.07_01)
+   o MIME::Tools....................ok (v5.428)
+   o Net::DNS.......................ok (v0.65)
+   o Net::POP3......................ok (v2.29)
+   o Net::IMAP::Simple..............ok (v1.1916)
+      o Net::IMAP::Simple::SSL......ok (v1.3)
+   o Net::SMTP......................ok (v2.31)
+      o Authen::SASL................ok (v2.15)
+      o Net::SMTP::SSL..............ok (v1.01)
+   o Net::LDAP......................ok (v0.4001)
    o PDF::API2......................ok (v0.73)
-   o SOAP::Lite.....................ok (v0.710.08)
+      o Compress::Zlib..............ok (v2.008)
+   o SOAP::Lite.....................ok (v0.712)
+   o Text::CSV......................ok (v1.18)
+      o Text::CSV_PP................ok (v1.26)
+      o Text::CSV_XS................Not installed! (Optional - Optional, install it for faster CSV handling.)
    o XML::Parser....................ok (v2.36)
 linux:/opt/otrs/bin#
 </screen>
@@ -705,7 +668,7 @@ apache-httpd.include.conf (see Script 3.10 below).
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.34 2010-08-02 08:04:32 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.35 2010-08-02 21:40:01 en Exp $
 # --
 
 # agent, admin and customer frontend
@@ -841,8 +804,8 @@ should not.
 </para>
 
 <para>
-Search your /etc/apache* directory directory for mod_perl.so
-(see Script 3.12 below)
+Search your /etc/apache* directory directory for mod_perl.so (see Script 3.12 below)
+to see if the module is already loaded somewhere, or not.
 </para>
 
 <para>
@@ -854,12 +817,8 @@ Script 3.12. Searching for mod_perl.
 </para>
 
 <para>
-to see if the module is already loaded somewhere, or not.
-</para>
-
-<para>
 When you use the appropriate start script (listed above), and the module
-is loaded, the script (when commented in) /opt/otrs/scripts/apache-perl-startup.pl can be
+is loaded, the script (when commented in) /opt/otrs/scripts/apache2-perl-startup.pl can be
 used to load the perl modules into memory one time, saving on load times and
 increasing performance.
 </para>
@@ -1028,7 +987,7 @@ Figure 3.8. Mail configuration.
 <screen>
 linux:~ # rcotrs restart-force
 Shutting down OTRS
- Disable /opt/otrs/bin/PostMaster.pl ... done.
+ Disable /opt/otrs/bin/otrs.PostMaster.pl ... done.
 no crontab for otrs
  Shutting down cronjobs ... failed!
 Shutting down OTRS (completely)
@@ -1042,7 +1001,7 @@ Starting OTRS
  Checking Apache ... done.
  Checking MySQL ... done.
  Checking database connect... (It looks Ok!).
- Enable /opt/otrs/bin/PostMaster.pl ... done.
+ Enable /opt/otrs/bin/otrs.PostMaster.pl ... done.
  Checking otrs spool dir...  done.
  Creating cronjobs (source /opt/otrs/var/cron/*) ... done.
 
@@ -1429,7 +1388,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.34 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.35 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1464,7 +1423,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.34 2010-08-02 08:04:32 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.35 2010-08-02 21:40:01 en Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1564,16 +1523,11 @@ If you are running a lower version of OTRS you need to follow the upgrade path
 to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4 ...).
 </para>
 
-<sect2 id="upgrade-tar-gz">
-  <title>Upgrading .tar.gz</title>
-
-  <para>
-  This section shows you how to upgrade OTRS from "2.4" to "3.0" with .tar.gz.
-  </para>
+<sect2 id="upgrade-2.4-to-3.0">
   <itemizedlist>
       <listitem>
         <para>
-Stop all your services
+    Stop all relevant services
         </para>
         <para>
     e. g. (depends on used services):
@@ -1593,59 +1547,136 @@ Stop all your services
       </listitem>
       <listitem>
         <para>
-Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs). Kernel/Config.pm, Kernel/Config/GenericAgent.pm, Kernel/Config/Files/ZZZAuto.pm, var/*, as well as the database.
+    Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs). Kernel/Config.pm, Kernel/Config/GenericAgent.pm, Kernel/Config/Files/ZZZAuto.pm, var/*, as well as the database.
         </para>
       </listitem>
       <listitem>
         <para>
-Make sure that you have backed up everything.
+    Make sure that you have backed up everything.
         </para>
       </listitem>
       <listitem>
         <para>
-Try this install on a separate machine, on a test machine first.
+    Setup new system (optional). If possible try this install on a separate machine for testing first.
         </para>
       </listitem>
       <listitem>
         <para>
-Install the new release tar.gz
+    Install the new release (tar or RPM)
+        </para>
+          <listitem>
+            <para>
+    With the tarball:
+            </para>
+            <para>
+    shell&gt; cd /opt
+            </para>
+            <para>
+    shell&gt; tar -xzf otrs-x.x.x.tar.gz
+            </para>
+            <para>
+    shell&gt; ln -s otrs-x.x.x otrs
+            </para>
+            <para>
+    Restore old config files.
+            </para>
+            <para>
+    o Kernel/Config.pm
+            </para>
+            <para>
+    o Kernel/Config/GenericAgent.pm
+            </para>
+            <para>
+    o Kernel/Config/Files/ZZZAuto.pm
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+    With the RPM:
+            </para>
+            <para>
+    shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
+            </para>
+            <para>
+    Restore old config files not needed, done by RPM.
+            </para>
+          </listitem>
+      </listitem>
+      <listitem>
+        <para>
+    Own themes
         </para>
         <para>
-Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible (don't use the old themes)!
+    Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible (don't use the old themes)!
+        </para>
+        <para>
+    Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)
         </para>
       </listitem>
       <listitem>
         <para>
-Execute $OTRS_HOME/bin/otrs.SetPermissions.pl!
+    Set file permissions
+        </para>
+        <para>
+If tarball is used, execute $OTRS_HOME/bin/otrs.SetPermissions.pl!
         </para>
       </listitem>
       <listitem>
         <para>
-Update the database changes with (part 1/2)
+Apply the database changes (part 1/2)
         </para>
         <para>
-MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.mysql.sql | mysql -p -f -u root otrs
+            shell&gt; cd /opt/otrs/
         </para>
         <para>
-PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.postgresql.sql | psql otrs
+MySQL:
+        </para>
+        <para>
+shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs
+        </para>
+        <para>
+PostgreSQL:
+        </para>
+        <para>
+shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs
         </para>
       </listitem>
       <listitem>
         <para>
 Run the migration script (as OTRS user, _not_ as root):
 You must execute the migration script to migrate some data from the old database
-structure to the new one. Run $OTRS_HOME/scripts/DBUpdate-to-2.4.pl!
+structure to the new one. Please run
+        </para>
+        <para>
+shell&gt; scripts/DBUpdate-to-3.0.pl
         </para>
       </listitem>
       <listitem>
         <para>
-Update the database changes with (part 2/2):
+Apply the database changes (part 2/2):
         </para>
         <para>
-MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.mysql.sql | mysql -p -f -u root otrs
+MySQL:
         </para>
         <para>
-PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.postgresql.sql | psql otrs
+shell&gt; cat scripts/DBUpdate-to-3.0-post.mysql.sql | mysql -p -f -u root otrs
+        </para>
+        <para>
+PostgreSQL:
+        </para>
+        <para>
+shell&gt; cat scripts/DBUpdate-to-3.0-post.postgresql.sql | psql otrs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Refresh the configuration and delete caches. Please run:
+        </para>
+        <para>
+shell&gt; bin/otrs.RebuildConfig.pl
+        </para>
+        <para>
+shell&gt; bin/otrs.DeleteCache.pl
         </para>
       </listitem>
       <listitem>
@@ -1656,151 +1687,43 @@ Restart your services
     e. g. (depends on used services):
         </para>
         <para>
-<screen>
-shell&gt; /etc/init.d/mysql stop
-</screen>
+    shell&gt; /etc/init.d/cron start
         </para>
         <para>
-<screen>
-shell&gt; /etc/init.d/apache stop
-</screen>
+    shell&gt; /etc/init.d/postfix start
         </para>
         <para>
-<screen>
-shell&gt; /etc/init.d/postfix stop
-</screen>
+    shell&gt; /etc/init.d/apache start
         </para>
         <para>
-<screen>
-shell&gt; /etc/init.d/cron stop
-</screen>
+    shell&gt; /etc/init.d/mysql start
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+    Check for encoding issues
+        </para>
+        <para>
+    With OTRS 3.0, the default charset of OTRS was changed from "iso-8859-1" to "utf-8".
+        </para>
+        <para>
+    This will only affect you if you didn't specify a charset in Kernel/Config.pm (all
+    installations that were made with the web installer have a custom setting there) or
+    if you didn't change the default charset in the AdminSysConfig.
+        </para>
+        <para>
+    If you experience problems with the new charset, add this line to Kernel/Config.pm:
+        </para>
+        <para>
+    $Self->{'DefaultCharset'} = 'iso-8859-1';
+        </para>
+        <para>
+    In General, using "utf-8" is the recommended mode of running OTRS, and switching from
+    "iso-8859-1" should work well.
         </para>
       </listitem>
   </itemizedlist>
 </sect2>
-
-<sect2 id="upgrade-rpm">
-<title>Upgrading RPM</title>
-  <para>
-  This section shows you how to upgrade OTRS from "2.3" to "2.4" with .rpm.
-  </para>
-  <itemizedlist>
-      <listitem>
-        <para>
-Stop all your services
-        </para>
-        <para>
-    e. g. (depends on used services):
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/cron stop
-</screen>
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/postfix stop
-</screen>
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/apache stop
-</screen>
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/mysql stop
-</screen>
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs). Kernel/Config.pm, Kernel/Config/GenericAgent.pm, Kernel/Config/Files/ZZZAuto.pm, var/*, as well as the database.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Make sure that you have backed up everything.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Try this install on a separate machine, on a test machine first.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Install the new release RPM
-        </para>
-        <para>
-<screen>
-shell&gt; rpm -Uvh otrs-2.4.x-noarch.rpm
-</screen>
-        </para>
-        <para>
-Note: The OTRS themes between 2.3 and 2.4 are _not_ compatible (don't use the old themes)!
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Update the database changes with (part 1)
-        </para>
-        <para>
-MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.mysql.sql | mysql -p -f -u root otrs
-        </para>
-        <para>
-PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4.postgresql.sql | psql otrs
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Run the migration script (as OTRS user, _not_ as root):
-You must execute the migration script to migrate some data from the old database
-structure to the new one. Run $OTRS_HOME/scripts/DBUpdate-to-2.4.pl!
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Update the database changes with (part 2):
-        </para>
-        <para>
-MySQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.mysql.sql | mysql -p -f -u root otrs
-        </para>
-        <para>
-PostgreSQL: cat $OTRS_HOME/scripts/DBUpdate-to-2.4-post.postgresql.sql | psql otrs
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-Restart your services
-        </para>
-        <para>
-    e. g. (depends on used services):
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/mysql stop
-</screen>
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/apache stop
-</screen>
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/postfix stop
-</screen>
-        </para>
-        <para>
-<screen>
-shell&gt; /etc/init.d/cron stop
-</screen>
-        </para>
-      </listitem>
-  </itemizedlist>
-</sect2>
-
 
 <sect2 id="upgrade-windows-installer">
 <title>Upgrading Windows Installer</title>
