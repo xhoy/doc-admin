@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.30 2010-07-30 17:44:11 en Exp $ -->
+<!-- $Id: otrs.xml,v 1.31 2010-08-02 16:30:01 en Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS - Open Ticket Request System</title>
@@ -375,256 +375,91 @@ included in the central framework.
 </itemizedlist>
 
 <sect2 id="new-features-of-3.0">
-    <title>New features of OTRS 3.0</title>
+    <title>Top new features of OTRS 3.0</title>
 
     <itemizedlist>
-        <title>Context</title>
 
         <listitem>
-            <para>Completely new GUI (Graphical User Interface).</para>
-        </listitem>
-
-    </itemizedlist>
-
-    <itemizedlist>
-        <title>User Interface</title>
-
-        <listitem>
-            <para>New design with CSS (Cascading Style Sheets) to guarantee a profesional look.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-Allows the definition of customized "skins" (i.e. set of CSS and image files), adapting the
-interface to each user's needs.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-
-        <listitem>
+            <title>Context</title>
             <para>
-New user experience with AJAX + JavaScript (dynamic rich application behavior), making the use
-of OTRS more effective and faster.
+User Centered redesign of the Graphical User Interface which
+results in a dramatic shift from a comprehensive but static
+to a more powerful and dynamic application using state-of-the
+art technologies like Ajax, xHTML and optimized CSS.
             </para>
-            <para>Some of the new GUI elements used are:</para>
-            <itemizedlist>
-                <listitem>
-                    <para>Motions, such as fade in/out, of additional information or actions.</para>
-                </listitem>
-                <listitem>
-                    <para>Auto-completion, making easy and efficient the search in lists.</para>
-                </listitem>
-            </itemizedlist>
         </listitem>
 
         <listitem>
-            <para>Greatly improved usability. For example:</para>
-            <itemizedlist>
-                <listitem>
-                    <para>Selection and design of concrete-speaking texts.</para>
-                </listitem>
-                <listitem>
-                    <para>Use of intuitive icons.</para>
-                </listitem>
-                <listitem>
-                    <para>Unobtrusive colors in the default skin that draws attention to key areas.</para>
-                </listitem>
-                <listitem>
-                    <para>Improved work with form elements (click on the label sets the focus to the field).</para>
-                </listitem>
-            </itemizedlist>
+            <title>New Ticket und Article Indicator</title>
+            <para>
+This new feature has been implemented on both ticket and article level.
+It allows an agent at a glance to check for any updates within a ticket
+or on the article level to check for new and unread articles. You
+benefit from increased transparency and decreased response times.
+            </para>
         </listitem>
 
         <listitem>
-            <para>Accesibility.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-Redesign paying particular attention to current accesibility standards (WCAG, WAI-ARIA).
-                    </para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>http://www.w3.org/TR/WCAG20/</para>
-                        </listitem>
-                        <listitem>
-                            <para>http://www.w3.org/TR/wai-aria/</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-                <listitem>
-                    <para>
-The interface is much more accessible for people with disabilities than the previous. In particular,
-the terms of Section 508 of the USA Rehabilitation Act are covered.
-                    </para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>http://www.section508.gov/</para>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-            </itemizedlist>
+            <title>Optimized Fulltext Search</title>
+            <para>
+The new search feature allows you to flexibly customize the way you browse
+the information base. Options the new search feature provides range from
+single search-string searches to complex multi-string boolean search
+operations including various operators. You benefit from fully
+customizable searches according to your needs.
+            </para>
         </listitem>
 
         <listitem>
-            <para>New main navigation.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>Clearer and faster to use</para>
-                </listitem>
-                <listitem>
-                    <para>Allows access to various items at any time.</para>
-                </listitem>
-            </itemizedlist>
+            <title>New Ticket Zoom View</title>
+            <para>
+The redesign based on Ajax technology
+allows agents to display complex and linked information
+structures in real-time while keeping the agents' current
+working environment. The agent will benefit from increased
+orientation and increased workflow efficiency.
+            </para>
         </listitem>
 
         <listitem>
-            <para>New toolbar.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>Makes possible to be informed anytime, anywhere on new events.</para>
-                </listitem>
-                <listitem>
-                    <para>It can be indivually extended over a free module layer.</para>
-                </listitem>
-            </itemizedlist>
+            <title>Global Ticket Overviews</title>
+            <para>
+Well known from OTRS 2.4 the global
+ticket overviews have been optimized to achieve increased inter-
+activity. Depending on the use case and preferences of your
+agents they can easily change the ticket overviews layout
+according to their special needs. Options are small, medium
+and large, each providing a different degree of information
+details.
+            </para>
         </listitem>
 
         <listitem>
-            <para>New agent interface.</para>
+            <title>Accessability</title>
+            <para>
+The redesign includes common accessibility standards WCAG and
+WAI-ARIA which also allows handicaped users to better interact
+with OTRS Help Desk. The US Rehabilitation Acts Section 508 has
+been fulfilled.
+            </para>
         </listitem>
 
         <listitem>
-            <para>New admin interface.</para>
+            <title>New Customer Interface</title>
+            <para>
+The customer web front-end can be integrated to your orgnizations
+intranet and is fully integrated into the redesigned help desk system.
+            </para>
         </listitem>
 
         <listitem>
-            <para>New customer interface.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-Uses Web 2.0 style and functionality, remaining as neutral as possible to the harmonious integration
-in a customer environment (Internet, CRM, iframe, CI) guarantee.
-                    </para>
-                </listitem>
-            </itemizedlist>
+            <title>Archive Feature</title>
+            <para>
+OTRS 3.0 now offers a new archiving feature. With a separated archive
+you'll benefit from a reduced time spent for searches and increased
+display of results.
+            </para>
         </listitem>
-    </itemizedlist>
-
-    <itemizedlist>
-        <title>Functional features</title>
-
-        <listitem>
-            <para>Email answers with agent name instead of queue name.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-There's a new configuration option, called "Ticket::DefineEmailFrom", to influence the display
-name sent along with email anwers or new email tickets.
-Allows the definition of customized "skins" (i.e. set of CSS and image files), adapting the
-interface to each user's needs.
-                    </para>
-                    <para>
-This feature is there to improve the 'human touch' for emails coming from OTRS; the end users
-will see that there are actual people sending the replies.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-
-        <listitem>
-            <para>Configurable ticket subject.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-Left - the default behaviour. Subjects look like [TicketHook#:12345] Some Subject.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-Right - Subjects look like Some Subject [TicketHook#:12345]_. If you have the subject on the right
-side the part that's most important for the end user is displayed first in the customers mail client,
-this can help in determining what ticket an email is about.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-None - Subjects look like 'Some Subject' . This can look very friendly to the customer, if there's
-no ticket number in the subject there is no feeling that you are treated 'as a number'.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-
-        <listitem>
-            <para>Customer interface Queue, Service, and SLA input fields.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-You can now remove the Queue, Service and SLA input fields from the customer frontend at ticket
-creation time via SysConfig. Previously, if you enabled services in OTRS, customer users also needed
-to select a service when creating a ticket in the customer front end. If you remove the field from
-the customer front end the service desk can later select the correct service for the ticket.
-                    </para>
-                    <para>
-You can also specify a default queue for new customer tickets.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-
-        <listitem>
-            <para>Admin notification.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-You can now also use the Admin Notification function to notify customer users. Also, you can now also
-select recipients based on their role, instead of just based on their group.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-    </itemizedlist>
-
-    <itemizedlist>
-        <title>For developers/administrators</title>
-
-        <listitem>
-            <para>Valid XHTML to ensure compatibility with different browsers and operating systems.</para>
-        </listitem>
-
-        <listitem>
-            <para>New HTML button element.</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-Instead of "input type='button'" for generating a button, the "button" element is now used in OTRS.
-With this element it is now better possible to style the content of the button and the button
-itself with CSS.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-
-        <listitem>
-            <para>Kernel::System::Config is now renamed to Kernel::System::SysConfig for consistency.</para>
-        </listitem>
-
-        <listitem>
-            <para>Added support for multiple Kernel::System::Ticket::Custom backends.</para>
-        </listitem>
-
-        <listitem>
-            <para>Kernel::System::Ticket</para>
-            <itemizedlist>
-                <listitem>
-                    <para>
-The HistoryGet function now returns TicketID, ArticleID, Name, CreateBy, CreateTime, HistoryType,
-QueueID, OwnerID, PriorityID, and StateID. Previously it only returned the first five fields.
-                    </para>
-                </listitem>
-            </itemizedlist>
-        </listitem>
-
 
     </itemizedlist>
 </sect2>
