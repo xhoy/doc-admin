@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: first-steps.xml,v 1.7 2009-01-21 11:45:35 ub Exp $ -->
+<!-- $Id: first-steps.xml,v 1.8 2010-08-03 23:03:58 en Exp $ -->
 
 <chapter id="first-steps-in-otrs">
 <title>First steps in OTRS</title>
@@ -23,7 +23,24 @@ available for every account.
 All agents use the agent web interface to work with OTRS. Agents answer the
 customer requests, create new tickets for customers or other agents, write
 tickets about telephone calls with customers, write FAQ entries or edit
-customer data, e.g.
+customer data, etc.
+</para>
+
+<para>
+Soposing that your OTRS host is reachable via the URL
+
+<ulink url="http://www.example.com/">
+<citetitle>http://www.example.com</citetitle>
+</ulink>
+
+, then the agents and also the OTRS administrator can reach the login screen by
+using the address
+
+<ulink url="http://www.example.com/otrs/index.pl">
+<citetitle>http://www.example.com/otrs/index.pl</citetitle>
+</ulink>
+
+in a web browser (see Figure 4.1 below).
 </para>
 
 <para>
@@ -34,21 +51,9 @@ customer data, e.g.
 </para>
 
 <para>
-Lets say that your OTRS host is reachable via the URL
-
-<ulink url="http://www.example.com/">
-<citetitle>http://www.example.com</citetitle>
-</ulink>
-
-then the agents and also the OTRS administrator can reach the login screen by
-using the address
-
-<ulink url="http://www.example.com/otrs/index.pl">
-<citetitle>http://www.example.com/otrs/index.pl</citetitle>
-</ulink>
-
-in a web browser.
+Figure 4.1. Login screen of the agent interface.
 </para>
+
 </sect1>
 
 <sect1 id="customer-interface">
@@ -57,18 +62,11 @@ in a web browser.
 <para>
 Customers have a special web interface in OTRS. Through this web interface
 customers can create new accounts, get an overview on own tickets, create
-and edit tickets, change the account settings, e.g.
+and edit tickets, change their account settings, etc.
 </para>
 
 <para>
-<screenshot>
-<screeninfo>customer.pl - Customer login screen</screeninfo>
-<graphic srccredit="customer.pl - screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Lets say the host with the OTRS installation is reachable via the domain
+Supposing that the host with the OTRS installation is reachable via the domain
 
 <ulink url="http://www.example.com/">
 <citetitle>http://www.example.com</citetitle>
@@ -80,29 +78,41 @@ then the login screen for customers can be reached by the URL
 <citetitle>http://www.example.com/otrs/customer.pl</citetitle>
 </ulink>
 
-with a web browser.
+with a web browser (see Figure 4.2 below).
 </para>
+
+<para>
+<screenshot>
+<screeninfo>customer.pl - Customer login screen</screeninfo>
+<graphic srccredit="customer.pl - screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Figure 4.2. Login screen of the customer interface.
+</para>
+
 </sect1>
 
 <sect1 id="public-interface">
 <title>Public web interface</title>
 
 <para>
-In addition to the web interfaces for agents and customers OTRS has a public
-web interface that is available through the FAQ-Module (must be installed
+In addition to the web interfaces for agents and customers, OTRS has a public
+web interface (see Figure 4.3 below) that is available through the FAQ-Module (must be installed
 separately). It provides public access to the FAQ system, and lets visitors
 search through the FAQ entries without any authorization.
 </para>
 
-<para>
-<screenshot>
-<screeninfo>public.pl - Public web interface</screeninfo>
-<graphic srccredit="public.pl - screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic>
-</screenshot>
-</para>
 
 <para>
-The public web interface can be reached via the URL
+Supposing that the host with the OTRS installation is reachable via the domain
+
+<ulink url="http://www.example.com/">
+<citetitle>http://www.example.com</citetitle>
+</ulink>
+
+then the public web interface can be reached via the URL
 
 <ulink url="http://www.example.com/otrs/faq.pl">
 <citetitle>http://www.example.com/otrs/faq.pl</citetitle>
@@ -116,47 +126,42 @@ The public web interface can be reached via the URL
 
 makes it possible to access the FAQ system.
 </para>
+
+<para>
+<screenshot>
+<screeninfo>public.pl - Public web interface</screeninfo>
+<graphic srccredit="public.pl - screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Figure 4.3. Public web interface.
+</para>
+
 </sect1>
 
 <sect1 id="first-login">
 <title>First login</title>
 
 <para>
-Like described in the section on
+Access to the login screen, as described in the section about
 
 <link linkend="agent-interface">
 the agent web interface
 </link>
-
-the login screen for agents and the OTRS administrator can be reached through
-the address
-
-<ulink url="http://www.example.com/otrs/index.pl">
-<citetitle>http://www.example.com/otrs/index.pl</citetitle>.
-</ulink>
-
-.
 </para>
 
 <para>
-<screenshot>
-<screeninfo>index.pl - Login screen for the OTRS administrator</screeninfo>
-<graphic srccredit="index.pl - screenshot" scale="40" fileref="screenshots/login.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-The screen lets you enter a user name and a password. Because no users are
+The login screen lets you enter a user name and a password. Because no users are
 created after a fresh installation of the system, you have to login as OTRS
-administrator first. To login as OTRS admin use "root@localhost" for user name
-and "root" for password.
+administrator first, using "root@localhost" for username and "root" for password.
 </para>
 
 <warning>
 <para>
-This account data are default on every new installed OTRS system. For
+This account data is valid on every new installed OTRS system. For
 that reason you should change the password for the OTRS administrator as
-fast as possible! This can be done via the
+soon as possible! This can be done via the
 
 <link linkend="user-preferences">
 preferences
@@ -168,28 +173,39 @@ for the OTRS administrator account.
 
 <para>
 If you don't want to login as OTRS administrator just enter the user name and
-password for your normal agent account. With the list box below the input
-fields for the user name and password you can select the language that you
-want to use in the web interface.
+password for your normal agent account.
 </para>
 
 <para>
 If you have forgotten your password, you can get a new password through the
-system. Just enter the mail address that is registered for you OTRS account
-into the input field at the lower part of the login screen and submit the
-input.
+system. Just press in the link below the login button and enter the mail address
+that is registered for you OTRS account into the input field and press the submit
+button (see Figure 4.4).
 </para>
+
+<para>
+<screenshot>
+<screeninfo>login.pl - Request new password</screeninfo>
+<graphic srccredit="login.pl - screenshot" scale="40" fileref="screenshots/request-new-password.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Figure 4.4. Request new password.
+</para>
+
 </sect1>
 
 <sect1 id="gui-overview">
 <title>An overview to the web interface</title>
 
 <para>
-After you have successfully logged into the system the web interface is loaded.
-Per default you are in the QueueView after the login.
-The QueueView provides you a quick
-overview about tickets in the different queues, notifies about new
-messages, tells you how many locked tickets you have, e.g.
+After you have successfully logged into the system, the web interface is loaded.
+Per default you are in the Dashboard after the login (see Figure 4.5 below).
+The Dashboard is completely customizable. At the beginnig it shows your locked tickets,
+allows direct access to the views: queue, status and escalation, and also to
+create new phone and e-mail tickets. Besides, it gives you a quick summary of the tickets
+which are: pending, escalated, new and open, among other things.
 </para>
 
 <para>
@@ -200,99 +216,104 @@ messages, tells you how many locked tickets you have, e.g.
 </para>
 
 <para>
-To improve the clarity the web interface is separated into different areas.
-The black bar on top of the windows shows some general information like the
-current time and date, your name and your mail address. Also on the left
-site a link is displayed that can be used to reload the page.
+Figure 4.5. Dashboard of the agent interface.
 </para>
 
 <para>
-The white bar below is the navigation bar. It shows buttons that enables you to
-navigate to different areas or modules of the system and lets you execute
-some global actions. The navbar is divided into three parts. In the left
-area the logout button, the button to activate the QueueView, a button to
-load the customer back-end and a button to load the full-text search are
-displayed. The "Phone-Ticket" button and "Email-Ticket" button lets you
-create a new phone or email ticket. The stats button is leading  to a screen
-where some system stats can be generated. With the preference button you
-can reach the screen to change your own account settings. "Bulk-Action"
-opens a screen to execute some actions on marked tickets, e.g. to close or
-move more than one ticket.
+To improve the clarity, the web interface is separated into different areas.
+At the very top of the windows, there is some general information, like the
+current username, the logout button, icons that show the amount of locked tickets and
+allow direct access to them, links to create a new phone/e-mail ticket. It also gives
+you the change to go to the queue, status and escalation views.
 </para>
 
 <para>
-The middle part of the navbar shows the buttons for the navigation to the
-other modules of the system. After a standard installation you only see the
-"Admin" button, if you are logged in as OTRS administrator. If some additional
-application are installed, e.g. the file manager or the web mailer, buttons
-to reach this applications are also displayed.
+Below the icons is the navigation bar. It shows buttons that enable you to
+navigate to different areas or modules of the system and let you execute
+some global actions. By pressing the Dashboard button, you can go to the dashboard
+(default start page, after login). If you click on the Ticket button, you will get
+a submenu with the different valid operations, like changing the ticket's view,
+create a new ticket (phone/e-mail) or search for a specific ticket.
+The Statistics button is also a menu that allows choosing from having an overview
+of the registered statistics, create a new one or import an existing one. The
+Customers button leads you to the Customer Managment. By clicking the Admin button,
+you can access to all the administrator modules, where you can, e.g. create new agents,
+queues, etc. There is also a Search button to make ticket searches.
 </para>
 
 <para>
-At the right site of the navbar you can get an overview on how many tickets
-you have locked and if new messages for you have been arrived.
+If some additional application are installed, e.g. the file manager or the web mailer,
+buttons to reach this applications are also displayed.
 </para>
 
 <para>
-The grey bar below the navbar shows different system messages. If you are
+The red bar below the navbar shows different system messages. If you are
 logged in as OTRS administrator you get a message, that you should not work
-as administrator. If the calendar module is installed, the next events are
-displayed in this section.
+as administrator.
 </para>
 
 <para>
-The black bar below shows the queue, which is currently selected or tells
-you, that "My Queues" is selected. "My Queues" are the queues, that you
-want to observe more attentive. You can select the queues for "My Queues"
-in your
+Below the title of the section you are currently in, there are several subsections (each
+of them in a separate box), which can be dragged and dropped to reallocate them, as long
+as they remain in the same column. In order to drag the single elements, you need to place
+the cursor in the header of the element.
+</para>
 
+<para>
+In the left column you can see the data about some tickets (if available), clasified in:
+reminder, escalated, new and open. In each of the categories, you are also able to see
+all tickets you are allowed to access or how many tickets you have locked and how many are
+located in "My Queues".
+</para>
+
+<para>
+"My Queues" are the queues, that you want to observe more attentive. You can select them
+in your
 <link linkend="user-preferences">
 account preferences
 </link>
-
 .
 </para>
 
 <para>
-Below the area with the currently selected queue a grey bar is displayed
-that contains informations about the tickets in the system. The next bar
-shows all queues and their number of open tickets. On a fresh installed
-system you can see, that the "raw" queue contains one new ticket and "My
-Queues" is empty.
+In the right column you can find the current settings, which will be expanded/hidden by pressing
+in the Settings area, as shown in the Figure 4.6 (this section is fixed, so you can not drag and
+drop it). Once you accessed to the settings, you can check/unchecked the items and save your changes.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Content of the "raw" queue after first sucessfull login</screeninfo>
-<graphic srccredit="raw queue - screenshot" scale="40" fileref="screenshots/raw-queue.png"></graphic>
+<screeninfo>Edit the dashboard's settings</screeninfo>
+<graphic srccredit="Dashboard's settings" scale="40" fileref="screenshots/edit-settings.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-If you select the "raw" queue, the interface will be reloaded and the
-content of the queue is displayed. Now the lower part of the screen
-contains additional information about the new ticket in the "raw" queue. A
-black bar is filled with the ID of the ticket and its age. At the left site
-of this bar the checkbox is available that lets you mark the ticket for
-the bulk action. The next grey line contains the actions that can be done
-with the ticket (e.g. Lock, Zoom, History). On the right site of this line
-the date and time when the ticket was created is displayed.
+Figure 4.6. Settings of the dashboard.
 </para>
 
 <para>
-Below the interface is divided into two parts. On the left site a preview
-of the ticket is displayed in white color. The sender of the ticket, the
-recipient address, the subject and the first lines are shown. On the right
-site some additional information for the ticket are displayed in grey color,
-e.g. the priority and the status. Some buttons allow to answer the ticket,
-make a telephone note or move the ticket into another queue.
+Below the settings you can see a statistic of the last 7 days' tickets, as you might expect, this
+graphic will be empty in a brand new system. There is also a section for upcoming events and OTRS news.
 </para>
 
 <para>
-On the bottom of the screen the site footer is displayed in black color. It
-also contains some buttons to activate the QueueView, jump to the beginning
-of the screen, e.g.
+On the bottom of the screen the site footer is displayed (see Figure 4.7 below). It contains some
+links to directly access to the OTRS official website, get information about OTRS, ask for help or
+go to the top of the page.
 </para>
+
+<para>
+<screenshot>
+<screeninfo>Footer</screeninfo>
+<graphic srccredit="Footer" scale="40" fileref="screenshots/footer.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Figure 4.7. Footer.
+</para>
+
 </sect1>
 
 <sect1 id="what-is-a-queue">
@@ -300,20 +321,19 @@ of the screen, e.g.
 
 <para>
 Because queues are very important in OTRS, this section tries to explain
-more detailed the meaning of queues.
+more detailed their meaning.
 </para>
 
 <para>
-On common mail systems all messages are saved into an inbox file. An inbox
-is a big file where the messages are arranged on to another. New messages
-are appended at the end of the inbox file. The mail program, which is used
-to read and write mails, reads the inbox file and presents the content to
-the user.
+On common mail systems all messages are into an inbox file. An inbox is a
+big file where the messages are stored. New messages are appended at the
+end of the inbox file. The mail program, which is used to read and write mails,
+reads the inbox file and presents the content to the user.
 </para>
 
 <para>
-A queue in OTRS is some how comparable to an inbox file, but has some
-more features. It also can store many messages, but the mails are saved in
+A queue in OTRS, is somehow comparable to an inbox file, but has some extra
+features. It also can store many messages, but the mails are saved in
 another way. You don't need to know any detail of queues if you only want
 to use OTRS, the only important thing to know is in which queue a ticket is
 stored. The users of OTRS, better called agents, can open and edit tickets
@@ -329,23 +349,37 @@ section about a
 example of a ticket system
 </link>
 
-. Max' has installed OTRS to get rid of his support chaos. He and his
-agents are using the system to manage the support requests for the video
-recorders. One queue that contains all request is enough for this
-situation. But some times later Max also sales a DVD recorder. Now the
-customer not only have questions about the video recorder but also for the
+. Max installed OTRS to get rid of his support chaos. His agents and himself
+are using the system to manage the support requests for the video
+recorders.
+</para>
+
+<para>
+One queue that contains all request is enough for this situation. However, after some
+time, Max decides to also sell DVD recorders.
+Now, the customers not only have questions about the video recorder, but also about the
 new product. More and more emails get into the one queue of Max's OTRS and
-its hard to keep the overview. Some day Max decides to optimize the
-structure of his support system and adds two new queues, so now three
-queues are used by the system. Into the old queue (called "raw") all mails are
+it's hard to keep the overview.
+</para>
+
+<para>
+One day, Max decides to optimize the structure of his support system and adds two
+new queues, thus now three queues are used. Into the old queue ("raw") all mails are
 stored if they arrive at the ticket system. The two new queues are one for
-the video recorder (called "video recorder) and the other one for the dvd recorder
-requests (called "dvd recorder"). Max tells Sandra to watch the "raw" queue
-and sort (dispatch) the mails either into "video recorder" or "dvd
-recorder", depending if a customer asks for support for a video recorder
-or dvd recorder. John only has access to the "video reorder" queue, Joe can
+the video recorder ("video recorder") and the other one for the dvd recorder
+requests ("dvd recorder").
+</para>
+
+<para>
+Max asks Sandra to watch the "raw" queue and sort (dispatch) the mails either into
+"video recorder" or "dvd recorder", depending on what the customer is asking.
+John only has access to the "video reorder" queue, Joe can
 only answer tickets in the "dvd recorder" queue. Max is able to edit
-tickets in all queues. Because OTRS supports access management for users,
+tickets in all queues.
+</para>
+
+<para>
+Because OTRS supports access management for users,
 groups and roles, it is easy to setup queues that only are accessible for
 some specific accounts. Max could also use another way to get his requests
 into the different queues, with filter rules or if two different mail
@@ -358,13 +392,16 @@ Sorting your incoming messages into different queues helps you to keep the
 support system structured and tidy. Because your agents are arranged into
 different groups with different access rights onto queues, the system can
 be optimized even more. Queues can be used to define work flow processes or
-they create the structure of a company. Max could implement for example
-another queue called "sales". this queue could contain the sub queues
-"requests", "offers", "orders", "billing", e.g. Such a queue structure
-could help Max to optimize his order transactions. The better a system is
-structured, the less time is needed for the different tasks. That results
-in less working time that is needed for the different tasks and that saves
-money. Queues can help to optimize the processes in your company.
+to create the structure of a company. Max could implement, for example,
+another queue called "sales", which could contain the sub queues "requests",
+"offers", "orders", "billing", etc. Such a queue structure could help Max
+to optimize his order transactions.
+</para>
+
+<para>
+The better a system is structured, the less time is needed for the different
+tasks. That results in less working time, consequently less money. Queues can
+help to optimize the processes in your company.
 </para>
 </sect1>
 
