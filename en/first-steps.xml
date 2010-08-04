@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: first-steps.xml,v 1.8 2010-08-03 23:03:58 en Exp $ -->
+<!-- $Id: first-steps.xml,v 1.9 2010-08-04 21:14:13 en Exp $ -->
 
 <chapter id="first-steps-in-otrs">
 <title>First steps in OTRS</title>
@@ -409,24 +409,11 @@ help to optimize the processes in your company.
 <title>User preferences</title>
 
 <para>
-Many settings of a user account in OTRS can be configured to their own needs
+Many settings of a user account in OTRS can be customized to meet each one needs,
 via the user preferences. Customers, agents and the OTRS administrator have
-the possibility to adjust their own account preferences. The preferences page
-can be reached via the "Preferences" link in the customer or agent
-interface.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Account preferences screen for customers</screeninfo>
-<graphic srccredit="customer.pl - screenshot" scale="40" fileref="screenshots/customer-preferences.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-A customer can select the web interface language, the maximal count of shown
-tickets and the refresh period for the interface. Also it is possible
-to set a new password and activate/deactivate the display of closed tickets.
+the possibility to adjust their own account preferences. In order to do so, agents have to
+click on their name at the right top corner of the web interface (see Figure 4.8 below), and
+customers must click on the "Preferences" link (see Figure 4.9 below).
 </para>
 
 <para>
@@ -437,19 +424,74 @@ to set a new password and activate/deactivate the display of closed tickets.
 </para>
 
 <para>
-An agent can adjust the interface language, the theme, the default
-dictionary and the view for the queues. Also the refresh period for the
-interface, the maximal count of shown tickets per page and the screen that
-should be displayed after a new ticket is created can be set. It is
-possible to change the password and select the events when the system
-shall send a notification to the email address, that is registered for your
-account.
+Figure 4.8. Agent's personal preferences.
 </para>
 
 <para>
-The queues, that you want to monitor in your "My Queues" settings, can also
-be selected in the user preferences. You should only select such queues that
-are important for you.
+An agent can configure 3 different categories of preferences:
+user profile, email settings and other settings. The default posibilities are:
+</para>
+
+<itemizedlist>
+    <title>User Profile</title>
+    <listitem>
+        <para>Change the current password.</para>
+    </listitem>
+    <listitem>
+        <para>Adjust the interface language.</para>
+    </listitem>
+    <listitem>
+        <para>Choose the default spelling dictionary.</para>
+    </listitem>
+    <listitem>
+        <para>Switch the frontend skin to wear.</para>
+    </listitem>
+    <listitem>
+        <para>Shift the frontend theme.</para>
+    </listitem>
+    <listitem>
+        <para>Activate and configure the out of office time.</para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Email Settings</title>
+    <listitem>
+        <para>
+Select the events when the system shall send a notification
+to the email address.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Other Settings</title>
+    <listitem>
+        <para>Select the queues you want to monitor in "My Queues".</para>
+    </listitem>
+    <listitem>
+        <para>Set the refresh period for the queue view.</para>
+    </listitem>
+    <listitem>
+        <para>Choose the screen that should be displayed after a ticket is created.</para>
+    </listitem>
+</itemizedlist>
+
+<para>
+<screenshot>
+<screeninfo>Account preferences screen for customers</screeninfo>
+<graphic srccredit="customer.pl - screenshot" scale="40" fileref="screenshots/customer-preferences.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Figure 4.8. Customer's personal preferences.
+</para>
+
+<para>
+A customer can select the web interface language, the refresh period for the ticket overview,
+manage the S/MIME certificates and choose the maximum amount of shown tickets. It is also possible
+to set a new password.
 </para>
 </sect1>
 
