@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.26 2010-05-03 13:58:07 ub Exp $ -->
+<!-- $Id: adminarea.xml,v 1.27 2010-08-04 23:00:17 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -11,16 +11,16 @@
 
 <para>
 This is the central place for OTRS administrators. Here you can alter your
-configuration, install additional packages such as FAQ and ITSM, add
+configuration, install additional packages, such as FAQ and ITSM; add
 queues and users, and much more.</para>
 
 <para>
-You start the Admin area by clicking the <emphasis>Admin</emphasis> link
-in the navigation bar of the agent interface. The link is only displayed
-if you are a member of the <emphasis>admin</emphasis> group. On a new
-installation you can log in with the login
-<emphasis>root@localhost</emphasis> and the password
-<emphasis>root</emphasis>.
+Agents who are members of the <emphasis>admin</emphasis> group can access the
+administrators area, by clicking the <emphasis>Admin</emphasis>
+link, in the navigation bar (see Figure 5.1 below); the rest of the agents won't
+see this link. On a new installation you can log in with the user
+<emphasis type="bold">root@localhost</emphasis> and the password
+<emphasis type="bold">root</emphasis>.
 </para>
 
 <warning>
@@ -31,7 +31,7 @@ Please change the password for this account as soon as possible via the
 user preferences
 </link>
 
-page, because this is a default password on OTRS systems.
+page, because this is a default password on all OTRS systems.
 </para>
 </warning>
 
@@ -43,46 +43,64 @@ page, because this is a default password on OTRS systems.
 </para>
 </sect1>
 
+<para>
+    <emphasis>Figure 5.1. Administrator's area of the agent interface.</emphasis>
+</para>
+
 <sect1 id="adminarea-user-groups-and-roles">
 <title>Users, groups and roles</title>
 
 <sect2 id="adminarea-user">
-<title>Users</title>
+<title>Agents</title>
 
 <para>
-Via the link <emphasis>Users</emphasis> you can enter the user management of
-OTRS. Administrators can add, change or deactivate user accounts.
-Administrators can also manage user preferences, for instance the language
-of the user interface and notification settings for individual users.
+By cliking the link <emphasis>Agent</emphasis> you get access to the agent management
+of OTRS (see Figure 5.2 below). Administrators can add, change or deactivate agent's accounts.
+Administrators can also manage agent's preferences, for instance, the language
+of their interface and notification settings.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-user account. To deactivate an account set it to
+To keep the consistency of the data for OTRS it is not possible to delete any agent's
+account, but only deactivate them. To do so, set them to
 <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
 <screenshot>
-<screeninfo>User account management</screeninfo>
-<graphic srccredit="Adminarea user management - screenshot" scale="40" fileref="screenshots/admin-users.png"></graphic>
+<screeninfo>Agent account management</screeninfo>
+<graphic srccredit="Adminarea agent management - screenshot" scale="40" fileref="screenshots/admin-agents.png"></graphic>
 </screenshot>
 </para>
 
-<note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-user account. To deactivate an account set it to
-<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
+    <emphasis>Figure 5.2. Agent's accounts management.</emphasis>
 </para>
-</note>
 
 <para>
-After you have created a new user you should make it a member of one or more
-groups or roles. You will be redirected automatically to the screen for the
-group and user management when you finished creating a user account.
+To register an agent, click on the "Add agent" button, type all the needed data and press
+the Submit button at the buttom of the screen that is shown in the Figure 5.3.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding an agent</screeninfo>
+<graphic srccredit="Adminarea agent management - screenshot" scale="40" fileref="screenshots/add-agent.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.3. Adding a new agent.</emphasis>
+</para>
+
+<para>
+After the new account has been created, you should make the agent a member of one or more
+groups or roles. Therefore, you will be redirected automatically to the appropiate screen.
+For further information about groups and roles, read the
+<link linkend="adminarea-groups">Groups</link> and <link linkend="adminarea-roles">Roles</link>
+sections of this chapter.
 </para>
 
 </sect2>
@@ -91,8 +109,59 @@ group and user management when you finished creating a user account.
 <title>Groups</title>
 
 <para>
-Every user account should at least belong to one group or role. You can
-access Group management via the <emphasis>groups</emphasis> link.
+Groups are very important in OTRS and every agent's account should at least
+belong to one group or role. In a brand new installation, there are three pre-defined
+groups available, as it is defined in the Table 5.1.
+</para>
+
+<para>
+<table id="table-of-groups-after-installation">
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>Group</entry>
+        <entry>Description</entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>admin</entry>
+        <entry>Allowed to perform administrative tasks in the system.</entry>
+      </row>
+      <row>
+        <entry>stats</entry>
+        <entry>
+          Qualified to access the stats module of OTRS and
+          generate statistics.
+        </entry>
+      </row>
+      <row>
+        <entry>users</entry>
+        <entry>
+          This is the group where your agents should belong to and have
+          read and write permissions. If users are in this group and have write
+          rights, they can use all functions of the ticket system.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</para>
+
+<para>
+    <emphasis>Table 5.1. Default groups after OTRS has been installed.</emphasis>
+</para>
+
+<note>
+    <para>
+        In a brand new OTRS installation, the group <emphasis>users</emphasis> is empty and
+        the agent "root@localhost" belongs per default to the admin and stats groups.
+    </para>
+</note>
+
+<para>
+You can access to the group management (see Figure 5.4 below ) by clicking the
+<emphasis>Groups</emphasis> link in the admin area.
 </para>
 
 <para>
@@ -102,86 +171,61 @@ access Group management via the <emphasis>groups</emphasis> link.
 </screenshot>
 </para>
 
+<para>
+    <emphasis>Figure 5.4. Group management.</emphasis>
+</para>
+
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-group. To deactivate a group set it to
+To keep the consistency of the data for OTRS it is not possible to delete groups,
+but only deactivate them. To do so, set them to
 <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
-After installation three pre-defined groups are available.
-</para>
-
-<para>
-<table id="table-of-groups-after-installation">
-<title>Default groups after OTRS has been installed</title>
-  <tgroup cols="2">
-    <thead>
-      <row>
-        <entry>
-         Group
-        </entry>
-        <entry>
-          Description
-        </entry>
-      </row>
-    </thead>
-    <tbody>
-      <row>
-        <entry>
-            admin
-        </entry>
-        <entry>
-          Group for the users who should perform administrative tasks in the system.
-          After the system has been installed only the user "root@localhost" is
-          in this group.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          stats
-        </entry>
-        <entry>
-          Users in this group may access the stats module of OTRS and
-          generate statistics. After the system has been installed only
-          "root@localhost" belongs to this group.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          users
-        </entry>
-        <entry>
-          This is the group where your agents should belong to and have
-          read and write access. If users are in this group and have write
-          rights they can use all functions of the ticket system. After the
-          system has been installed this group is empty.
-        </entry>
-      </row>
-    </tbody>
-  </tgroup>
-</table>
-</para>
-
-<para>
-To add a user to a group or to change the users inside a group you can use
-the link <emphasis>Users &lt;-&gt; Groups</emphasis>.
+To add an agent to a group or to change the agents who belong to a group you can use
+the link <emphasis>Agents &lt;-&gt; Groups</emphasis> of the admin area (see Figure 5.5 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>User group management</screeninfo>
-<graphic srccredit="Adminarea groups and users - screenshot" scale="40" fileref="screenshots/admin-users-and-groups.png"></graphic>
+<screeninfo>Agent group management</screeninfo>
+<graphic srccredit="Adminarea groups and agents - screenshot" scale="40" fileref="screenshots/admin-agents-and-groups.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-An overview of all groups and users in the system is displayed in the lower
-part of the screen. If you want to change the groups that a user is a member of just
-click on the user name. To change the users that are part of a group just click on the
-group you want to change.
+    <emphasis>Figure 5.5. Group management.</emphasis>
+</para>
+
+<para>
+An overview of all groups and users in the system is displayed, you can also use the filters
+to find a specific element. If you want to change the groups that an agent is member of, just
+click on the agent's name (see Figure 5.6 below). To change the users that are part of a group
+just click on the group you want to change (see Figure 5.7 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent group management</screeninfo>
+<graphic srccredit="Adminarea groups and agents - screenshot" scale="40" fileref="screenshots/agent-group-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.6. Change the groups an agent belongs to.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent group management</screeninfo>
+<graphic srccredit="Adminarea groups and agents - screenshot" scale="40" fileref="screenshots/agent-group-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.7. Change the agents that belong to a specific group.</emphasis>
 </para>
 
 <para>
