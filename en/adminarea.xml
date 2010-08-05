@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.27 2010-08-04 23:00:17 en Exp $ -->
+<!-- $Id: adminarea.xml,v 1.28 2010-08-05 15:13:57 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -19,8 +19,8 @@ Agents who are members of the <emphasis>admin</emphasis> group can access the
 administrators area, by clicking the <emphasis>Admin</emphasis>
 link, in the navigation bar (see Figure 5.1 below); the rest of the agents won't
 see this link. On a new installation you can log in with the user
-<emphasis type="bold">root@localhost</emphasis> and the password
-<emphasis type="bold">root</emphasis>.
+<emphasis>root@localhost</emphasis> and the password
+<emphasis>root</emphasis>.
 </para>
 
 <warning>
@@ -41,11 +41,13 @@ page, because this is a default password on all OTRS systems.
 <graphic srccredit="Adminarea - screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic>
 </screenshot>
 </para>
-</sect1>
 
 <para>
     <emphasis>Figure 5.1. Administrator's area of the agent interface.</emphasis>
 </para>
+
+</sect1>
+
 
 <sect1 id="adminarea-user-groups-and-roles">
 <title>Users, groups and roles</title>
@@ -111,11 +113,12 @@ sections of this chapter.
 <para>
 Groups are very important in OTRS and every agent's account should at least
 belong to one group or role. In a brand new installation, there are three pre-defined
-groups available, as it is defined in the Table 5.1.
+groups available, as it is defined in the Table 5-1.
 </para>
 
 <para>
 <table id="table-of-groups-after-installation">
+<title>Default groups after OTRS has been installed</title>
   <tgroup cols="2">
     <thead>
       <row>
@@ -146,10 +149,6 @@ groups available, as it is defined in the Table 5.1.
     </tbody>
   </tgroup>
 </table>
-</para>
-
-<para>
-    <emphasis>Table 5.1. Default groups after OTRS has been installed.</emphasis>
 </para>
 
 <note>
