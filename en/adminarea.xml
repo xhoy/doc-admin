@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.28 2010-08-05 15:13:57 en Exp $ -->
+<!-- $Id: adminarea.xml,v 1.29 2010-08-05 22:58:37 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -12,7 +12,7 @@
 <para>
 This is the central place for OTRS administrators. Here you can alter your
 configuration, install additional packages, such as FAQ and ITSM; add
-queues and users, and much more.</para>
+queues and agents, and much more.</para>
 
 <para>
 Agents who are members of the <emphasis>admin</emphasis> group can access the
@@ -50,7 +50,7 @@ page, because this is a default password on all OTRS systems.
 
 
 <sect1 id="adminarea-user-groups-and-roles">
-<title>Users, groups and roles</title>
+<title>Agents, groups and roles</title>
 
 <sect2 id="adminarea-user">
 <title>Agents</title>
@@ -142,7 +142,7 @@ groups available, as it is defined in the Table 5-1.
         <entry>users</entry>
         <entry>
           This is the group where your agents should belong to and have
-          read and write permissions. If users are in this group and have write
+          read and write permissions. If agents are in this group and have write
           rights, they can use all functions of the ticket system.
         </entry>
       </row>
@@ -199,10 +199,10 @@ the link <emphasis>Agents &lt;-&gt; Groups</emphasis> of the admin area (see Fig
 </para>
 
 <para>
-An overview of all groups and users in the system is displayed, you can also use the filters
+An overview of all groups and agents in the system is displayed, you can also use the filters
 to find a specific element. If you want to change the groups that an agent is member of, just
-click on the agent's name (see Figure 5.6 below). To change the users that are part of a group
-just click on the group you want to change (see Figure 5.7 below).
+click on the agent's name (see Figure 5.6 below). To change the agents that are part of a group
+just click on the group you want to edit (see Figure 5.7 below).
 </para>
 
 <para>
@@ -228,13 +228,13 @@ just click on the group you want to change (see Figure 5.7 below).
 </para>
 
 <para>
-Users can have different rights in a group. Below is a list of the
-permission rights available:
+Agents can have different rights in a group, there is a list of the
+permission rights available in the Table 5-2.
 </para>
 
 <para>
 <table id="table-of-group-permissions-after-installation">
-<title>Rights in the user groups of OTRS</title>
+<title>Rights in the groups of OTRS</title>
   <tgroup cols="2">
     <thead>
       <row>
@@ -308,10 +308,11 @@ permission rights available:
 <note>
     <para>
         By default, the QueueView only lists tickets in queues that an
-        agent has <emphasis>rw</emphasis> access to. The idea behind it is that the
-        QueueView lists only the tickets the agent needs to work on. If you'd like to
-        change this behaviour, you can set
-        <link linkend="Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets">Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets</link>
+        agent has <emphasis>rw</emphasis> access to, i.e., the tickets the agent needs
+        to work on. If you want to change this behaviour, you can set
+        <link linkend="Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets">
+            Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets
+        </link>
         to <emphasis>Yes</emphasis>.
     </para>
 </note>
@@ -321,42 +322,52 @@ permission rights available:
 <title>Roles</title>
 
 <para>
-Roles are a very powerful and helpful feature to manage and change the
-access rights of many users very simply and quickly. On big and complex
-systems with many users, groups and queues this feature is very useful and
-helps to save time.
+Roles are a very powerful and helpful feature to manage the access rights of many
+agents in a very simple and fast way. Therefore, it is ideal to save time on big and
+complex systems, that have a lot of agents, groups and queues.
 </para>
 
 <para>
-To explain the advantages of the role feature imagine that you have a
-system with 100 users. 90 users have access to a queue called "support"
-that contains some sub queues. All support requests are handled through
-this queue. All other queues of the system are not accessible for the 90
-users. The other 10 users may access all queues of the system, they are not
-restricted only to the support queue. they dispatch tickets, watch the raw
-queue and move spam messages into the "junk" queue. Some day the company
-opens a new department that sells products. Offerings, confirmations of
-offerings, bills, e.g. must be created and some of the agents in your
-system shall do this via OTRS. The different users have to get access to
-the new queues that must be created. Because it would take a long time to
-change the access rights for the different users manually, roles can be
-created that define the different access levels. Then the users can be
-added to one or more roles and the user rights get for this user accounts
-get changed. If a new user account is created it is also possible to add
-this account to one or more roles.
+To explain the advantages of the role feature, suppose that you have a system with
+100 agents, 90 of them have access only to a queue called "support", where all support
+requests are handled. The "support" queue contains some sub queues. The other 10 agents
+have permission to access all queues of the system, they are not restricted only to the
+support queue. These 10 agents dispatch tickets, watch the raw queue and move spam
+messages into the "junk" queue.
+</para>
+
+<para>
+Some day, the company opens a new department that sells products. Offerings, confirmations
+of offerings, bills, etc. must be created and some of the agents in your system shall do
+this via OTRS. The different agents have to get access to the new queues that must be
+created.
+</para>
+
+<para>
+Because it would take a long time to change the access rights for the different agents
+manually, roles that define the different access levels can be created. Then the agents
+can be added to one or more roles, therefore, their rights will automatically get changed.
+If a new agent account is created, it is also possible to add this account to one or more roles.
 </para>
 
 <note>
 <para>
 Roles are really useful when maintaining larger OTRS installations. You should
-not use both User to Group and User to Role mappings at the same time though,
-this would make maintenance really hard. Therefore, if you decide to go with
-roles, we'd recommend you to to disable the Users &lt;-&gt; Groups option in
-the Admin area by modifying the
-<link linkend="Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup">Frontend::Module###AdminUserGroup</link>
-in SysConfig. Of course this would not remove already existing User to Group
+not use both Agent to Group and Agent to Role mappings at the same time though,
+this would make maintenance really hard. Thence, if you decide to go with
+roles, we'd recommend you to to disable the Agents &lt;-&gt; Groups option in
+the Admin area, by modifying the
+<link linkend="Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup">
+    Frontend::Module###AdminUserGroup
+</link>
+in the SysConfig. Be aware that this won't remove already existing Agents to Group
 assignments!</para>
 </note>
+
+<para>
+You can access to the role management (see Figure 5.8 below ) by clicking the
+<emphasis>Roless</emphasis> link in the admin area.
+</para>
 
 <para>
 <screenshot>
@@ -365,105 +376,197 @@ assignments!</para>
 </screenshot>
 </para>
 
+<para>
+    <emphasis>Figure 5.8. Role management.</emphasis>
+</para>
+
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-role. To deactivate a role set it to "invalid" or
-"invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete roles,
+but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
-<screenshot>
-<screeninfo>Adding users to roles</screeninfo>
-<graphic srccredit="Adminarea roles users - screenshot" scale="40" fileref="screenshots/admin-roles-users.png"></graphic>
-</screenshot>
+An overview of all roles in the system is displayed, to edit an entry, just click on the
+role's name to get its editable data. Please be aware that in a brand new OTRS
+installation, there are no roles defined by default. To register one, click on the
+"Add role" button and provide the needed data and submit it (see Figure 5.9 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Adding groups to roles</screeninfo>
-<graphic srccredit="Adminarea roles groups - screenshot" scale="40" fileref="screenshots/admin-roles-groups.png"></graphic>
+<screeninfo>Role management in OTRS</screeninfo>
+<graphic srccredit="Adminarea roles - screenshot" scale="40" fileref="screenshots/add-role.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-To define the different access rights for a role the links
-"Roles &lt;-&gt; Users" or "Roles &lt;-&gt; Groups" can be used.
+    <emphasis>Figure 5.9. Adding a new role.</emphasis>
+</para>
+
+<para>
+To get an overview of all roles and agents in the system, click on the link
+Roles &lt;-&gt; Agents in the admin area of the SysConfig, you can also use the filters
+to find a specific element. If you want to change the roles that an agent has, just
+click on the agent's name (see Figure 5.10 below). To change the agents that have a role
+just click on the role you want to edit (see Figure 5.11 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent role management</screeninfo>
+<graphic srccredit="Adminarea roles and agents - screenshot" scale="40" fileref="screenshots/admin-roles-agents-relation.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.10. Change the roles an agent has.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent role management</screeninfo>
+<graphic srccredit="Adminarea groups and agents - screenshot" scale="40" fileref="screenshots/admin-roles-agents-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.11. Change the agents that have a specific role.</emphasis>
+</para>
+
+<para>
+To get an overview of all roles and groups in the system, click on the link
+Roles &lt;-&gt; Groups in the admin area of the SysConfig, you will see a similar screen
+as the one shown in the Figure 5.12. You can also use the filters to find a specific element.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Role group management</screeninfo>
+<graphic srccredit="Adminarea roles and groups - screenshot" scale="40" fileref="screenshots/admin-roles-groups.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.12. Manage role-groups relations.</emphasis>
+</para>
+
+<para>
+To define the different access rights for a role, click on the name of a role or a group
+(see below the Figures 5.13 and 5.14, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change group relations for a role</screeninfo>
+<graphic srccredit="Adminarea roles and groups - screenshot" scale="40" fileref="screenshots/groups-roles-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.13. Change group relations for a role.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change role relations for a group</screeninfo>
+<graphic srccredit="Adminarea roles and groups - screenshot" scale="40" fileref="screenshots/groups-roles-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.14. Change role relations for a group.</emphasis>
 </para>
 
 </sect2>
 
 </sect1>
 
+
 <sect1 id="customer-user-and-groups">
-<title>Customer users and customer groups</title>
+<title>Customers and customer groups</title>
 
 <sect2 id="adminarea-customeruser">
-<title>Customer users</title>
+<title>Customers</title>
 
 <para>
-OTRS supports different types of users. Using the link "Customer Users"
-used to manage accounts of your customers. A customer can log in the
-system via the customer interface (customer.pl). The customer interface
-enables your customers to access their own tickets as well as log new ones.
-Also a customer user is needed for the ticket history in the system.
+OTRS supports different types of users. Using the link "Customers" (via the navigation bar
+or the SysConfig), you can manage the accounts of your customers (see Figure 5.14 below),
+who can can log into the system via the customer interface (customer.pl). Through this
+interface, your customers can create tickets and access to them. It is importan to know
+that a customer is needed for the ticket history in the system.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Customer user management in OTRS</screeninfo>
+<screeninfo>Customer management in OTRS</screeninfo>
 <graphic srccredit="Adminarea customer - screenshot" scale="40" fileref="screenshots/admin-customer.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-You can search for a specific customer user in the database and change the
-customer user back-end. More information about customer user back-ends is available
-in the chapter about
+    <emphasis>Figure 5.14. Customer management.</emphasis>
+</para>
 
-
+<para>
+You can search for a registered customer, edit his data by clicking on his name.
+You also have the possibility to change the customer back-end, for further information
+please refer to the chapter about
 <link linkend="external-backends">
 external back-ends
 </link>.
 </para>
 
 <para>
-You can create new customer user accounts. All input fields that are marked
-with an asterisk (*) are mandatory and have to contain values. Very important is to
-specify a account name and a password for the new user to enable that this
-user can log in the system. Also you have to specify a customer ID
-("Customer#"). This ID is needed by the system to identify the user and the
-tickets of this user. For example the mail address of the user can be
-specified for Customer#, because a mail address is a unique value for a user.
+To create a new customer account, click on the "Add customer" button (see Figure 5.15
+below). Some of the fields are mandatory, i.e., they have to contain values, so if you
+leave one of those empty, it will be marked and a message will be displayed.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Customer management in OTRS</screeninfo>
+<graphic srccredit="Adminarea customer - screenshot" scale="40" fileref="screenshots/add-customer.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.14. Adding a customer.</emphasis>
+</para>
+
+<para>
+The customer can access to the system by providing his username and password. The
+CustomerID is needed by the system to identify the user and his tickets. Since the
+email address is a unique value, it can be used as ID.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-customer user. To deactivate a customer user account set it to
-"invalid" or "invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete customers,
+but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 </sect2>
 
+
 <sect2 id="adminarea-customer-user-groups">
 <title>Customer groups</title>
 
 <para>
-Customer users can also be added to a group. this feature might be useful,
-if you want to add some customer users of the same company that shall only
-have access to one or some queues through the customer interface. First
-create via the
-
+Customer users can also be added to a group, which can be useful if you want to add
+some customers of the same company that shall only have access to one or some queues,
+through the customer interface. First create the group which your customers will belong
+to, via the
 
 <link linkend="adminarea-groups">
 group management module
 </link>
 
-the group, that shall contain all customer users of the company. Then
-create the
+. Then add the
 
 <link linkend="adminarea-queue">
 queues
@@ -480,15 +583,19 @@ with the configuration parameter
 CustomerGroupSupport
 </link>
 
-via the graphical configuration front-end of OTRS.
-Using the parameter
+, via the graphical configuration front-end of OTRS (SysConfig). Using the parameter
 
 <link linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">
 CustomerGroupAlwaysGroups
 </link>
 
-you can specify the groups for a new added customer user, the new account
-will be added to this group automatically.
+, you can specify the default groups for a new added customer, so that every new
+account will be automatically added to this groups.
+</para>
+
+<para>
+Through the link "Customers &lt;-&gt; Groups" you can manage which customer user shall
+belong to the different groups (see Figure 5.15 below).
 </para>
 
 <para>
@@ -499,8 +606,34 @@ will be added to this group automatically.
 </para>
 
 <para>
-Through the link "Customer Users  &lt;-&gt; Groups" you can manage which
-customer user shall belong to the different groups.
+    <emphasis>Figure 5.15. Customer-Group relations management.</emphasis>
+</para>
+
+<para>
+To define the different groups a customer should be part of and viceversa, click on the corresponding
+customer username or group (see below the Figures 5.16 and 5.17, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change group relations for a customer</screeninfo>
+<graphic srccredit="Adminarea customers and groups - screenshot" scale="40" fileref="screenshots/groups-customers-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.16. Change group relations for a customer.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change customer relations for a group</screeninfo>
+<graphic srccredit="Adminarea roles and groups - screenshot" scale="40" fileref="screenshots/groups-customers-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.17. Change customer relations for a group.</emphasis>
 </para>
 
 </sect2>
@@ -511,16 +644,16 @@ customer user shall belong to the different groups.
 <title>Queues</title>
 
 <para>
-Through the link "Queue" you can manage the
+Through the link "Queue" of the SysConfig, you can manage the
 
 <link linkend="what-is-a-queue">
 queues
 </link>
 
-of your system. In a new installed system the "Junk", "Misc", "Postmaster"
-and "Raw" queues already exist. "Raw" is the default queue, all
-incoming messages will be stored in this queue if no filter rules are defined.
-The "Junk" queue can be used to store spam messages.
+of your system (see Figure 5.18 below). In a new OTRS installation there are 4 default
+queues: Junk, Misc, Postmaster and Raw.All incoming messages will be stored in it the
+"Raw" queue if no filter rules are defined. The "Junk" queue can be used to store
+spam messages.
 </para>
 
 <para>
@@ -531,53 +664,83 @@ The "Junk" queue can be used to store spam messages.
 </para>
 
 <para>
-Here you can add queues and modify them.
-You can specify the name and the group that should use the queue.
-You can also specify whether you want the new queue to be a sub-queue of
-another already existing queue.
+    <emphasis>Figure 5.18. Queue management.</emphasis>
 </para>
 
 <para>
-You can define an unlock timeout for this queue. If an agent locks a ticket and
-does not close it before the unlock timeout has passed, the ticket will unlock
-and will become available for other agents.
+Here you can add queues (see Figure 5.19 below) and modify them. You can specify the
+name and the group that should use the queue; it is also possible to determine if you
+want it to be a sub-queue of an existing one.
 </para>
 
 <para>
-There are three escalation time settings at the queue level. For
-'Escalation - First Response Time': if there is not added a customer
-interaction, either email-external or phone, to a new ticket before the time
-defined here expires, the ticket is escalated.
+<screenshot>
+<screeninfo>Queue management in OTRS</screeninfo>
+<graphic srccredit="Adminarea queue - screenshot" scale="40" fileref="screenshots/add-queue.png"></graphic>
+</screenshot>
 </para>
 
 <para>
-Escalation - Update Time: If there is an article added, such as a follow-up
-via e-mail or the customer portal, the escalation update time is reset. If
-there is no customer contact, either email-external or phone, added to a
-ticket before the time defined here expires, the ticket is escalated.
-</para>
-
-<para>Escalation - Solution Time: If the ticket is not set to closed before
-the time defined here expires, the ticket is escalated.
+    <emphasis>Figure 5.19. Adding a new queue.</emphasis>
 </para>
 
 <para>
-With 'Ticket lock after a follow-up' you can define if a ticket should be
-set to 'locked' to the old owner if a ticket that has been set to closed
-is re-opened. This ensures that a follow up for a ticket is processed by the
-agent that has previously handled the same ticket.
+You can define an unlock timeout for a queue, i.e., if an agent locks a ticket and
+does not close it before the unlock timeout has passed, the ticket will be automatically
+unlocked and hence, available for other agents.
 </para>
 
 <para>
-The parameter for the system address sets the mail address that is used for
-the outgoing tickets of this queue. With the salutation and signature
-parameter the used values for the new queue can be selected. The sections
+There are three escalation time settings that can be associated at queue level:
+</para>
+
+<itemizedlist>
+    <title>Escalation - First Response Time</title>
+    <listitem>
+        <para>
+If there is not customer interaction added, either email-external or phone, to a new ticket
+before the time defined here expires, the ticket is escalated.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Escalation - Update Time</title>
+    <listitem>
+        <para>
+If there is an article added, such as a follow-up, via e-mail or the customer portal, the
+escalation update time is reset. If there is no customer contact, either email-external or
+phone, added to a ticket before the time defined here expires, the ticket is escalated.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Escalation - Solution Time</title>
+    <listitem>
+        <para>
+If the ticket is not set to closed before the time defined here expires, the ticket is escalated.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<para>
+With 'Ticket lock after a follow-up' you can define if a ticket should be set to 'locked'
+to the old owner if a ticket that has been set to closed and later is re-opened. This ensures
+that a follow up for a ticket is processed by the agent that has previously handled that ticket.
+</para>
+
+<para>
+The parameter for the system address especifies the email address that will be used for the outgoing
+tickets of this queue. There is also possibility to associate a queue to a salutation and a signature,
+for the email answers. For more detailed information, please refer to the sections
 
 
 <link linkend="adminarea-emailaddresses">
 email addresses
 </link>
 
+,
 
 <link linkend="adminarea-salutations">
 salutations
@@ -589,38 +752,34 @@ and
 signatures
 </link>
 
-explaine these parameters in more detail.
+.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data in OTRS it is not possible to delete a
-queue. To deactivate a queue set it to
-"invalid" or "invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete queues,
+but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
-<para>
-All configuration settings for new queues are also available for sub-queues.
-</para>
-
 </sect1>
+
 
 <sect1 id="adminarea-salutations-signatures-attachments-and-answers">
 <title>Salutations, signatures, attachments and responses</title>
 
 <para>
-To accelerate answering tickets and to standardize the look of answers you
+To accelerate answering tickets and to standardize the look of answers, you
 can define responses in OTRS. A response can be linked to one or more
-queues, a queue can be linked to one or more responses. To make it possible
-to use a response quickly the different responses are displayed below of
-every ticket in the QueueView or in "My Queues".
+queues and viceversa. In order to be able to use a response quickly, the different
+responses are displayed below of every ticket in the QueueView or in "My Queues".
 </para>
 
 <para>
 After a a default installation of the system the "empty answer" response is
-defined for every queue. Through the "Responses" link it is possible to
-manage the different responses.
+defined for every queue. Through the "Responses" link in the SysConfig, it is possible
+to manage the different responses (see Figure 5.20 below).
 </para>
 
 <para>
@@ -631,15 +790,67 @@ manage the different responses.
 </para>
 
 <para>
+    <emphasis>Figure 5.20. Responses management.</emphasis>
+</para>
+
+<para>
+To store a new response, just click on the Add response button, provide the required data and submit
+it (see Figure 5.21 below).
+</para>
+
+<para>
 <screenshot>
-<screeninfo>Zuweisung einer Antwortvorlage zu einer Queue</screeninfo>
+<screeninfo>Responses</screeninfo>
+<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/add-response.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.21. Adding a response.</emphasis>
+</para>
+
+<para>
+To add/remove responses to one or more queues, the "Responses &lt;-&gt; Queues"
+link of the SysConfig can be used (see Figure 5.22 below). You can also use the filters
+to look for a specific element.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Manage response-queue relations</screeninfo>
 <graphic srccredit="Adminarea response queue - screenshot" scale="40" fileref="screenshots/admin-response-queue.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-To add or remove response to one or more queues the "Responses &lt;-&gt; Queues"
-link can be used.
+    <emphasis>Figure 5.22. Response-Queue relations management.</emphasis>
+</para>
+
+<para>
+To define the different responses that will be available for a queue and viceversa,
+click on the corresponding response or queue (see below the Figures 5.23 and 5.24, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change queue relations for a response</screeninfo>
+<graphic srccredit="Adminarea response and queue - screenshot" scale="40" fileref="screenshots/responses-queues-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.16. Change queue relations for a response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change response relations for a queue</screeninfo>
+<graphic srccredit="Adminarea response and queue - screenshot" scale="40" fileref="screenshots/responses-queues-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.17. Change response relations for a queue.</emphasis>
 </para>
 
 <para>
