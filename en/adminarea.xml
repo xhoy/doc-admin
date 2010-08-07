@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.29 2010-08-05 22:58:37 en Exp $ -->
+<!-- $Id: adminarea.xml,v 1.30 2010-08-07 01:16:33 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -49,10 +49,10 @@ page, because this is a default password on all OTRS systems.
 </sect1>
 
 
-<sect1 id="adminarea-user-groups-and-roles">
+<sect1 id="adminarea-agents-groups-and-roles">
 <title>Agents, groups and roles</title>
 
-<sect2 id="adminarea-user">
+<sect2 id="adminarea-agents">
 <title>Agents</title>
 
 <para>
@@ -408,7 +408,7 @@ installation, there are no roles defined by default. To register one, click on t
 
 <para>
 To get an overview of all roles and agents in the system, click on the link
-Roles &lt;-&gt; Agents in the admin area of the SysConfig, you can also use the filters
+Roles &lt;-&gt; Agents in the admin area, you can also use the filters
 to find a specific element. If you want to change the roles that an agent has, just
 click on the agent's name (see Figure 5.10 below). To change the agents that have a role
 just click on the role you want to edit (see Figure 5.11 below).
@@ -438,7 +438,7 @@ just click on the role you want to edit (see Figure 5.11 below).
 
 <para>
 To get an overview of all roles and groups in the system, click on the link
-Roles &lt;-&gt; Groups in the admin area of the SysConfig, you will see a similar screen
+Roles &lt;-&gt; Groups in the admin area, you will see a similar screen
 as the one shown in the Figure 5.12. You can also use the filters to find a specific element.
 </para>
 
@@ -485,15 +485,15 @@ To define the different access rights for a role, click on the name of a role or
 </sect1>
 
 
-<sect1 id="customer-user-and-groups">
+<sect1 id="customers-and-groups">
 <title>Customers and customer groups</title>
 
-<sect2 id="adminarea-customeruser">
+<sect2 id="adminarea-customers">
 <title>Customers</title>
 
 <para>
 OTRS supports different types of users. Using the link "Customers" (via the navigation bar
-or the SysConfig), you can manage the accounts of your customers (see Figure 5.14 below),
+or the admin area), you can manage the accounts of your customers (see Figure 5.14 below),
 who can can log into the system via the customer interface (customer.pl). Through this
 interface, your customers can create tickets and access to them. It is importan to know
 that a customer is needed for the ticket history in the system.
@@ -553,7 +553,7 @@ but only deactivate them. To do so, set them to
 </sect2>
 
 
-<sect2 id="adminarea-customer-user-groups">
+<sect2 id="adminarea-customers-groups">
 <title>Customer groups</title>
 
 <para>
@@ -594,7 +594,7 @@ account will be automatically added to this groups.
 </para>
 
 <para>
-Through the link "Customers &lt;-&gt; Groups" you can manage which customer user shall
+Through the link "Customers &lt;-&gt; Groups" you can manage which customer shall
 belong to the different groups (see Figure 5.15 below).
 </para>
 
@@ -644,7 +644,7 @@ customer username or group (see below the Figures 5.16 and 5.17, respectively).
 <title>Queues</title>
 
 <para>
-Through the link "Queue" of the SysConfig, you can manage the
+Through the link "Queue" of the admin area, you can manage the
 
 <link linkend="what-is-a-queue">
 queues
@@ -769,115 +769,20 @@ but only deactivate them. To do so, set them to
 <sect1 id="adminarea-salutations-signatures-attachments-and-answers">
 <title>Salutations, signatures, attachments and responses</title>
 
-<para>
-To accelerate answering tickets and to standardize the look of answers, you
-can define responses in OTRS. A response can be linked to one or more
-queues and viceversa. In order to be able to use a response quickly, the different
-responses are displayed below of every ticket in the QueueView or in "My Queues".
-</para>
-
-<para>
-After a a default installation of the system the "empty answer" response is
-defined for every queue. Through the "Responses" link in the SysConfig, it is possible
-to manage the different responses (see Figure 5.20 below).
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Responses</screeninfo>
-<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/admin-response.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-    <emphasis>Figure 5.20. Responses management.</emphasis>
-</para>
-
-<para>
-To store a new response, just click on the Add response button, provide the required data and submit
-it (see Figure 5.21 below).
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Responses</screeninfo>
-<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/add-response.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-    <emphasis>Figure 5.21. Adding a response.</emphasis>
-</para>
-
-<para>
-To add/remove responses to one or more queues, the "Responses &lt;-&gt; Queues"
-link of the SysConfig can be used (see Figure 5.22 below). You can also use the filters
-to look for a specific element.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Manage response-queue relations</screeninfo>
-<graphic srccredit="Adminarea response queue - screenshot" scale="40" fileref="screenshots/admin-response-queue.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-    <emphasis>Figure 5.22. Response-Queue relations management.</emphasis>
-</para>
-
-<para>
-To define the different responses that will be available for a queue and viceversa,
-click on the corresponding response or queue (see below the Figures 5.23 and 5.24, respectively).
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Change queue relations for a response</screeninfo>
-<graphic srccredit="Adminarea response and queue - screenshot" scale="40" fileref="screenshots/responses-queues-relations.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-    <emphasis>Figure 5.16. Change queue relations for a response.</emphasis>
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Change response relations for a queue</screeninfo>
-<graphic srccredit="Adminarea response and queue - screenshot" scale="40" fileref="screenshots/responses-queues-relations2.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-    <emphasis>Figure 5.17. Change response relations for a queue.</emphasis>
-</para>
-
-<para>
-If you use a response for example through the QueueView you can see, that
-not only the text of the response and the ticket text is displayed but also
-a salutation and a signature. A response is assembled by different text
-modules. The signature and the salutation of the queue where the ticket is
-stored are two of the text modules of the response and also the original
-ticket text and, if defined, the text of the response is included. The
-different text modules are ordered that first the salutation is displayed,
-then the quoted ticket text then the text of the response and after all
-these text modules the signature is shown.
-</para>
-
 <sect2 id="adminarea-salutations">
 <title>Salutations</title>
 
 <para>
-A text module for a response is the salutation. Salutations can be linked
-to one or more queues as described in the section about
+A salutation is a text module for a response. Salutations can be linked
+to one or more queues, as described in the section about
 
 <link linkend="adminarea-queue">
 queues
 </link>
 
-. Only if a salutation is linked to a queue it is used if a ticket from
-this queue is answered. The "Salutations" link lets you manage the
+. A salutation is used only if a ticket from a queue the salutation is linked to,
+is answered. To manage the different salutations of your system, use the "Salutations"
+link of the admin area (see Figure 5.20 below).
 different salutations of your system.
 </para>
 
@@ -889,49 +794,70 @@ different salutations of your system.
 </para>
 
 <para>
+    <emphasis>Figure 5.20. Salutation management.</emphasis>
+</para>
+
+<para>
 After a default installation there is already one salutation available,
 "system standard salutation (en)".
 </para>
 
 <para>
-Because the content of a salutation can be created dynamically, for example
-for things that change for every ticket (e.g. the name or mail address of
-the sender), it is possible to use variables in salutations. The text which
-is saved in the variables will be placed in the response text if you reply
-to a ticket.
+To create a new salutation, press the button "Add salutation", provide the
+needed data and submit it (see Figure 5.21 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Add a salutation</screeninfo>
+<graphic srccredit="Adminarea salutation - screenshot" scale="40" fileref="screenshots/add-salutation.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.21. Adding a new salutation.</emphasis>
+</para>
+
+<para>
+Because the content of a salutation can be created dynamically, for example,
+for things that change for every ticket (sender's name or email address), it is
+possible to use variables in salutations. Thus, ir you reply a ticket, the variables
+names will be replaced for their real content, i.e., the text which is saved in
+the variables.
 </para>
 
 <para>
 The different variables you can use in responses are listed in the lower
-part of the salutation screen. If you use for example the variable
-&lt;OTRS_LAST_NAME&gt; the last name of the sender of the ticket will be
+part of the salutation screen. If you use, for example, the variable
+&lt;OTRS_LAST_NAME&gt; the last name of the ticket's sender  will be
 included in your reply.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-salutation. To deactivate a salutation set it to
-"invalid" or "invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete
+salutations, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 </sect2>
+
 
 <sect2 id="adminarea-signatures">
 <title>Signatures</title>
 
 <para>
 Another text module for a response is the signature. Signatures can be
-linked to a queue as described in the section about the
+linked to a queue, as described in the section about the
 
 <link linkend="adminarea-queue">
 queues
 </link>
 
 . Only if a signature is linked to a queue it will be included into the
-response text. Through "Signatures" link you can manage the signatures in
-your system.
+response text. Through "Signatures" link of the admin area, you can manage the
+signatures in your system (see Figure 5.22 below).
 </para>
 
 <para>
@@ -942,38 +868,62 @@ your system.
 </para>
 
 <para>
-After a default installation of OTRS there is one predefined signature
-stored in your system,
-"system standard signature (en)".
+    <emphasis>Figure 5.22. Signatures management.</emphasis>
 </para>
 
 <para>
-Like salutations signatures also can contain dynamical content (e.g. the first and
-last name of the agent who answers the ticket), also variables replace
+After a default installation of OTRS, there is one predefined signature
+stored in your system, "system standard signature (en)".
+</para>
+
+<para>
+To create a new signature, press the button "Add signature", provide the
+needed data and submit it (see Figure 5.23 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Add a signature</screeninfo>
+<graphic srccredit="Adminarea signature - screenshot" scale="40" fileref="screenshots/add-signature.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.23. Adding a new signature.</emphasis>
+</para>
+
+<para>
+Like salutations, signatures can also contain dynamical content (e.g. the first
+and lastname of the agent who answers the ticket), also variables replace
 the content of the signature text for every ticket. See the lower part of
 the signatures screen for the variables which can be used. If you include
-the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the last
-name of the agent who answers the ticket will be included in the signature
-text.
+the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the lastname of
+the agent who answers the ticket will replace the variable's name.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-signature. To deactivate a signature set it to
-"invalid" or "invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete
+signatures, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 </sect2>
 
+
 <sect2 id="adminarea-attachments">
 <title>Attachments</title>
 
 <para>
-Another optional part of a response can be one ore more attachments. The
-attachment will be send if the response is used, but with checkboxes it is
-possible to deactivate the attachment in the answer screen for tickets.
+Another optional part of a response is one or more attachments. The
+attachments will be sent if the response is used, but with checkboxes
+in the answer screen for tickets, it is possible to deactivate them.
+</para>
+
+<para>
+Through the "Attachment" link of the admin area, you can load the attachments
+into the database of the system (see Figure 5.24 below).
 </para>
 
 <para>
@@ -984,10 +934,29 @@ possible to deactivate the attachment in the answer screen for tickets.
 </para>
 
 <para>
-Through the "Attachment" link it is possible to load the attachments into
-the database of the system. If an attachment is stored it can be linked to
+    <emphasis>Figure 5.24. Attachments management.</emphasis>
+</para>
+
+<para>
+To create a new attachment, press the button "Add attachment", provide the
+needed data and submit it (see Figure 5.25 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Add an attachment</screeninfo>
+<graphic srccredit="Adminarea signature - screenshot" scale="40" fileref="screenshots/add-attachment.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.25. Adding a new attachment.</emphasis>
+</para>
+
+<para>
+If an attachment is stored it can be linked to
 one or more responses, just follow the "Attachment &lt;-&gt; Responses"
-link.
+link of the admin area (see Figure 5.26 below).
 </para>
 
 <para>
@@ -997,36 +966,195 @@ link.
 </screenshot>
 </para>
 
-<note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-attachment. To deactivate a attachment set it to
-"invalid" or "invalid-temporarily".
+    <emphasis>Figure 5.26. Linking attachments to responses.</emphasis>
 </para>
-</note>
+
+<para>
+To define the different attachments a response can have and viceversa, click on the corresponding
+response name or attachment (see below the Figures 5.27 and 5.28, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change attachment relations for a response</screeninfo>
+<graphic srccredit="Adminarea responses and attachments - screenshot" scale="40" fileref="screenshots/response-attachment-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.27. Change attachment relations for a response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change response relations for an attachment</screeninfo>
+<graphic srccredit="Adminarea responses and attachments - screenshot" scale="40" fileref="screenshots/response-attachment-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.28. Change response relations for an attachment.</emphasis>
+</para>
+
+</sect2>
+
+
+<sect2 id="adminarea-Responses">
+<title>Responses</title>
+
+<para>
+To accelerate answering tickets and to standardize the look of answers, you
+can define responses in OTRS. A response can be linked to one or more
+queues and viceversa. In order to be able to use a response quickly, the different
+responses are displayed below of every ticket in the QueueView or in "My Queues".
+</para>
+
+<para>
+After a a default installation of the system the "empty answer" response is
+defined for every queue. Through the "Responses" link in the admin area, it is possible
+to manage the different responses (see Figure 5.29 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Responses</screeninfo>
+<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/admin-response.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.29. Responses management.</emphasis>
+</para>
+
+<para>
+To store a new response, just click on the Add response button, provide the required data and submit
+it (see Figure 5.30 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Responses</screeninfo>
+<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/add-response.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.30. Adding a response.</emphasis>
+</para>
+
+<para>
+To add/remove responses to one or more queues, the "Responses &lt;-&gt; Queues"
+link of the admin area can be used (see Figure 5.31 below). You can also use the filters
+to look for a specific element.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Manage response-queue relations</screeninfo>
+<graphic srccredit="Adminarea response queue - screenshot" scale="40" fileref="screenshots/admin-response-queue.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.31. Response-Queue relations management.</emphasis>
+</para>
+
+<para>
+To define the different responses that will be available for a queue and viceversa,
+click on the corresponding response or queue (see below the Figures 5.32 and 5.33, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change queue relations for a response</screeninfo>
+<graphic srccredit="Adminarea response and queue - screenshot" scale="40" fileref="screenshots/responses-queues-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.32. Change queue relations for a response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change response relations for a queue</screeninfo>
+<graphic srccredit="Adminarea response and queue - screenshot" scale="40" fileref="screenshots/responses-queues-relations2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.33. Change response relations for a queue.</emphasis>
+</para>
+
+<para>
+If you use a response, for example through the QueueView, you can see that
+not only the text of the response and the ticket text is displayed, but also
+a salutation and a signature. A response is assembled by different text
+modules. The signature and the salutation of the queue, where the ticket is
+stored, are two of the text modules of the response and also the original
+ticket text and, if defined, the text of the response is included. The
+different text modules are ordered in a way that first the salutation is displayed,
+then the quoted ticket text, after that, the text of the response comes, and finally,
+the signature is shown.
+</para>
 
 </sect2>
 
 </sect1>
 
+
+
 <sect1 id="adminarea-auto-responses">
-<title>Auto answers</title>
+<title>Auto responses</title>
 
 <para>
-OTRS can send auto answers to customer users. Auto answers are send if
-special events happen, e.g. if a new ticket is created in a queue, if a
-follow-up for a ticket is received, if a ticket is closed or rejected by the
-system. Through the link "Auto answers" the auto answers of the system can
-be managed. If you create a auto answer you can select the event that
-should trigger the auto answer. The following system events are available
-after a default installation.
+With OTRS, you can send automatic responses to customers if
+special events happen, e.g. creation of a ticket in certain queue, reception of a
+follow-up for a ticket, closure or rejection of a ticket, etc. To manage this
+type of responses, just use "Auto responses" of the admin area (see Figure 5.34 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von automatischen Antworten</screeninfo>
+<screeninfo>Auto response management</screeninfo>
 <graphic srccredit="Adminarea auto response - screenshot" scale="40" fileref="screenshots/admin-autoresponse.png"></graphic>
 </screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.34. Auto response management.</emphasis>
+</para>
+
+<para>
+To crreate an automatic response, click on the button "Add auto response", provide the needed
+data and submit it (see Figure 5.35 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding an auto response</screeninfo>
+<graphic srccredit="Adminarea auto response - screenshot" scale="40" fileref="screenshots/add-autoresponse.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.35. Adding an auto response.</emphasis>
+</para>
+
+<para>
+The subject and text of auto responses can also be generated
+by variables, the same as in signatures and salutations. If you insert, for example,
+the variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; into the body of the
+auto answer, the first 5 lines of the customer mail text will be inserted into the
+auto answer. At the buttom of the screen, shown in the Figure 5.35, you will find more details
+about the valid variables thata can be used.
+</para>
+
+<para>
+For every automatic answer, you can specify the event that
+should trigger it. The system events that are available
+after a default installation are described in the Table 5-3.
 </para>
 
 <table id="table-of-autoanswer-types">
@@ -1048,7 +1176,7 @@ after a default installation.
           auto reply
         </entry>
         <entry>
-          This event is triggered if a new ticket in a queue is created.
+          Creation of a ticket in a certain queue.
         </entry>
       </row>
       <row>
@@ -1056,9 +1184,8 @@ after a default installation.
           auto reply/new ticket
         </entry>
         <entry>
-          This event is triggered if a already closed ticket with a new
-          ticketnumber is reopened, e.g. if a customer replyes to such
-          a ticket.
+          Reopenning of an already closed ticket, e.g. if a customer replies to such
+          ticket.
         </entry>
       </row>
       <row>
@@ -1066,8 +1193,7 @@ after a default installation.
           auto follow up
         </entry>
         <entry>
-          This event is triggered if a followup for a ticket is received by
-          the system.
+          Reception of a follow-up for a ticket.
         </entry>
       </row>
       <row>
@@ -1075,8 +1201,7 @@ after a default installation.
           auto reject
         </entry>
         <entry>
-          This event is triggered if the system rejects a ticket
-          automatically.
+          Automatic rejection of a ticket, done by the system.
         </entry>
       </row>
       <row>
@@ -1084,137 +1209,187 @@ after a default installation.
           auto remove
         </entry>
         <entry>
-          This event is triggered if a ticket is removed by the system.
+          Deletion of a ticket, done by the system.
         </entry>
       </row>
     </tbody>
   </tgroup>
 </table>
 
-<para>
-The subject and the text of auto answers can also be generated
-by variables, like for signatures or salutations. If you insert the
-variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; for example into the body of the
-auto answer, the first 5 lines of the customer mail text is inserted into the
-auto answer. See the lower part of the auto answer screen for more details
-about the variables that can be used.
-</para>
-
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-auto answer. To deactivate a auto answer set it to
-"invalid" or "invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete
+auto responses, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
+To add an auto response to a queue, use the "Auto Response &lt;-&gt; Queues"
+link in the admin area (see Figure 5.36 below). All system events are listed for
+every queue and an auto answer with the same event can be selected or removed
+via a listbox.
+</para>
+
+<para>
 <screenshot>
-<screeninfo>Adding an auto answer to a queue</screeninfo>
-<graphic srccredit="Adminarea auto response queue - screenshot" scale="40" fileref="screenshots/admin-autoresponse-queue.png"></graphic>
+<screeninfo>Manage queue - auto response relations</screeninfo>
+<graphic srccredit="Adminarea queue - auto response - screenshot" scale="40" fileref="screenshots/admin-autoresponse-queue.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-To add an auto answer to a queue follow the "Auto Answer &lt;-&gt; Queues"
-link in the admin area. All system events are listed for every queue and a
-auto answer with the same event can be selected or removed via a listbox.
+    <emphasis>Figure 5.36. Queue-Auto response relations management.</emphasis>
+</para>
+
+<para>
+To define the different auto responses that will be available for a queue,
+click on the corresponding queue name (see Figure 5.37 below). It is also possible
+to edit an existing auto response, to do so, click on the wished registry and
+change anything you need to, as if it was a new auto response.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change auto response relations for a queue</screeninfo>
+<graphic srccredit="Adminarea auto response and queue - screenshot" scale="40" fileref="screenshots/autoresponses-queues-relations.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.37. Change auto response relations for a queue.</emphasis>
 </para>
 
 </sect1>
+
 
 <sect1 id="adminarea-emailaddresses">
 <title>Email addresses</title>
 
 <para>
-To enable OTRS to send emails you need at least a valid email address used
-by the system. Because many setups need more than one mail addresses OTRS is
-able to work with many mail addresses at the same time. At least one mail
-address can be specified for a queue, but it is also possible to specify
-the same address for more than one queue. That means that more than one
-address can be used to send mails from outside to a queue, but one address
-has to be specified for the outgoing mails of a queue. The address, that
-shall be used for outgoing messages of a queue, can be set if the queue is
-created. Follow the "Email Addresses" link to manage all mail addresses of
-the system.
+To enable OTRS to send emails, you need at least a valid email address to be used
+by the system. Due to a lot of setups need more than one email address, OTRS is
+able to simultaneously work with several of them. A queue can be linked to many
+email addresses, and viceversa. The address, that shall be used for outgoing messages
+from a queue, can be set when the queue is created. Use the "Email Addresses"
+link of the admin area, to manage all email addresses of the system (see Figure 5.38 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Managing the mail addresses of the system</screeninfo>
+<screeninfo>Managing the email addresses of the system</screeninfo>
 <graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-If you create a new mail address you can select the queue or sub queue that
-shall be linked with the new address. This link enables the system to sort
-incoming messages via the address in the To: field of the mail into the
-right queue.
+    <emphasis>Figure 5.38. System email addresses manegement.</emphasis>
+</para>
+
+<para>
+If you create a new mail address (see Figure 5.39 below) you can select the queue or sub
+queue that shall be linked with it. This link enables the system to sort incoming messages
+via the address in the To: field of the mail into the right queue.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding a system email address</screeninfo>
+<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/add-email.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.39. Adding a system email address.</emphasis>
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete a
-mail address. To deactivate a mail address set it to
-"invalid" or "invalid-temporarily".
+To keep the consistency of the data for OTRS it is not possible to delete
+system email addresses, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 </sect1>
 
+
 <sect1 id="adminarea-notifications">
 <title>Notifications</title>
 
 <para>
-Via their
+OTRS allows sending notifications to agents and customer when a specific event happens.
+Agents can select the system events for their own notifications in the
 
 <link linkend="user-preferences">
 preferences
 </link>
 
-agents and customers can select the system events for notifications.
+.
+</para>
+
+<para>
+Through the "Notification" link in the adminarea, you can manage the
+notifications of your system (see Figure 5.40 below). With the help of the filters,
+you can search for specific registries.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Managing ntifications</screeninfo>
+<screeninfo>Managing notifications</screeninfo>
 <graphic srccredit="Adminarea notifications - screenshot" scale="40" fileref="screenshots/admin-notification.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Through the "Notification" link in the adminarea you can manage the
-notifications of your system. You can customize the subject and the text of
-the notifications. Just select the notification you want to change from the
-listbox and load the content of the notification via the "Change" button.
-The name of the notification tells you for which language the notification
-is used, which event triggers the notification and if the notification is
-send to an agent or a customer.
+    <emphasis>Figure 5.40. Notification management.</emphasis>
 </para>
 
 <para>
-Like signatures or salutation it is possible to create the content of a
-notification dynamically by using special variables. In the lower part of the
-notification screen you can find a list of all variables that can used for
-notifications.
+You can customize the subject and the text of the notifications. Just select
+the notification you want to change from the list and load its content by clicking
+on it (see Figure 5.41). Please note that there is a notification with the same
+name for each of the available languages.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing notifications</screeninfo>
+<graphic srccredit="Adminarea notifications - screenshot" scale="40" fileref="screenshots/customize-notification.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.40. Customizing a notification.</emphasis>
+</para>
+
+<para>
+Like signatures and salutations, it is possible to dinamically create the content of a
+notification, by using special variables. At the buttom of the screen shown in the Figure 5.41
+you can find a list of them.
 </para>
 
 </sect1>
+
 
 <sect1 id="adminarea-smime">
 <title>SMIME</title>
 
 <para>
-OTRS can process incoming S/MIME encoded messages. Also we
-can sign outgoing mails. Before this feature can be used you need to
-activate it and change some
+OTRS can process incoming S/MIME encoded messages and sign outgoing mails.
+Before this feature can be used, you need to activate it and change some
 
 <link linkend="Framework:Crypt::SMIME">
 config parameters
 </link>
 
 in the SysConfig.
+</para>
+
+<para>
+The "S/MIME Certificates" link in the admin area of OTRS, allows you manage your S/MIME
+certificates (see Figure 5.42 below). You can add or remove certificates and search through the
+SMIME data.
 </para>
 
 <para>
@@ -1225,19 +1400,18 @@ in the SysConfig.
 </para>
 
 <para>
-The "SMIME" link in the admin area of OTRS lets you manage your SMIME
-certificates. You can add or remove certificates and search through the
-SMIME data.
+    <emphasis>Figure 5.42. S/MIME management.</emphasis>
 </para>
 
 </sect1>
+
 
 <sect1 id="adminarea-pgp">
 <title>PGP</title>
 
 <para>
-You can use OTRS to de- and encrypt messages with PGP. Also
-you can sign outgoing messages. Before this feature can be used you need
+OTRS handles PGP keys, which allows you to encrypt/decrypt messages and to
+sign outgoing messages. Before this feature can be used, you need
 to activate it and change some
 
 <link linkend="Framework:Crypt::PGP">
@@ -1248,6 +1422,13 @@ in the SysConfig.
 </para>
 
 <para>
+Through the "PGP Keys" link in the admin area of OTRS, it is possible to manage
+the key ring of the user who shall be used for PGP with OTRS (see Figure 5.43 below),
+e.g. the local OTRS user or the web server user. It is possible to add and remove
+keys and signatures, and you can search through all data in your key ring.
+</para>
+
+<para>
 <screenshot>
 <screeninfo>PGP</screeninfo>
 <graphic srccredit="Adminarea pgp -  screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic>
@@ -1255,45 +1436,145 @@ in the SysConfig.
 </para>
 
 <para>
-Through the "PGP" link in the admin area of OTRS it is possible to manage
-the key ring of the user who shall be used for PGP with OTRS, e.g. the
-local OTRS user or the web server user. It is possible to add and remove
-keys and signatures and you can search through all data in your key ring.
+    <emphasis>Figure 5.43. PGP management.</emphasis>
 </para>
 
 </sect1>
+
 
 <sect1 id="adminarea-status">
 <title>States</title>
 
 <para>
-Through the "Status" link in the admin area of OTRS you can manage the
-different states you want to use in the ticket system.
+Through the "States" link, in the admin area of OTRS, you can manage the
+different ticket states you want to use in the system (see Figure 5.44 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Managing states</screeninfo>
-<graphic srccredit="Adminarea states - screenshot" scale="40" fileref="screenshots/admin-status.png"></graphic>
+<screeninfo>Managing ticket states</screeninfo>
+<graphic srccredit="Adminarea states - screenshot" scale="40" fileref="screenshots/admin-states.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-After a default setup the states "closed successful",
-"closed unsuccessful", "merged", "new", "open", "pending auto close+",
-"pending auto close-" "pending reminder" and "removed" are already
-installed in the system. Every state is linked to a state type that needs
-to be specified if a new state is created. Per default the state types
-"closed", "merged", "new", "open", "pending auto", "pending reminder" and
-"removed".
+    <emphasis>Figure 5.44. State management.</emphasis>
 </para>
+
+<para>
+After a default setup, there are some states defined:
+</para>
+
+<itemizedlist>
+  <listitem>
+    <para>
+        closed successful
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        closed unsuccessful
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        merged
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        new
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        open
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending auto close+
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending auto close-
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending reminder
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        removed
+    </para>
+  </listitem>
+</itemizedlist>
+
+<para>
+Every state is linked to a type, which needs to be specified if a new state
+is created. Per default the state types are:
+</para>
+
+<itemizedlist>
+  <listitem>
+    <para>
+        closed
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        merged
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        new
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        open
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending auto
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending reminder
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        removed
+    </para>
+  </listitem>
+</itemizedlist>
+
 </sect1>
+
 
 <sect1 id="adminarea-sysconfig">
 <title>SysConfig</title>
 
 <para>
 The SysConfig is the place where many configuration options for OTRS are stored.
+</para>
+
+<para>
+The "SysConfig" link in the admin area of OTRS loads the graphical
+configuration front-end (see Figure 5.45 below). You can upload own config files
+for the system and backup all your current settings into a file. Almost all config
+parameters of the OTRS framework and the installed applications, can be viewed and
+changed through the web interface. Because all config parameters are sorted
+into groups and sub groups, it is possible to navigate quickly through the
+multitude of the parameters. Also it is possible to perform a full-text
+search through all the config parameters.
 </para>
 
 <para>
@@ -1304,51 +1585,49 @@ The SysConfig is the place where many configuration options for OTRS are stored.
 </para>
 
 <para>
-The "SysConfig" link in the admin area of OTRS loads the graphical
-configuration front-end. You can upload own config files for the system and
-backup all your current settings into a file. Almost all config parameters
-of the OTRS framework and the installed applications can be viewed and
-changed through the web interface. Because all config parameters are sorted
-into groups and sub groups it is possible to navigate quickly through the
-multitude of the parameters. Also it is possible to perform a full-text
-search through all the config parameters.
+    <emphasis>Figure 5.45. The graphical configuration front-end of OTRS (SysConfig).</emphasis>
 </para>
 
 <para>
-In the chapter
+The graphical configuration front-end is described in more detail in the chapter
 
 <link linkend="sysconfig">
 "Configuring the system through the web interface"
 </link>
 
-the graphical configuration front-end is described in more detail.
+.
 </para>
 
 </sect1>
+
 
 <sect1 id="adminarea-postmasterpop3-account">
 <title>Using mail accounts</title>
 
 <para>
 There are several possibilities to transport new emails into the ticket
-system. One possibility is the
+system. One of them is the
 
 <link linkend="email-receiving-cmd">
 PostMaster.pl module
 </link>
 
-that pipes the mails directly into the system. Another possibility are mail
-accounts which can be administrated through the web interface. The
-"PostMaster Mail Account" link in the admin area of OTRS loads the
-management console for the mail accounts. OTRS supports the mail
-protocols POP3, POP3S, IMAP and IMAPS.
+that pipes the mails directly into the system. Another possibility is the use
+of mail accounts, which can be administrated through the web interface. The
+"PostMaster Mail Accounts" link in the admin area of OTRS, loads the
+management console for the mail accounts (see Figure 5.46 below). OTRS supports the mail
+protocols: POP3, POP3S, IMAP and IMAPS.
 </para>
 
 <para>
 <screenshot>
 <screeninfo>Mail account management</screeninfo>
-<graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
+<graphic srccredit="Adminarea postmaster - screenshot" scale="40" fileref="screenshots/admin-mailaccount.png"></graphic>
 </screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.46. Mail account management.</emphasis>
 </para>
 
 <para>
@@ -1360,7 +1639,10 @@ PostMaster mail accounts
 
 for more details.
 </para>
+
 </sect1>
+
+
 
 <sect1 id="adminarea-postmasterfilter">
 <title>Filtering incoming messages</title>
@@ -1368,10 +1650,10 @@ for more details.
 <para>
 Because incoming messages can be sorted automatically into queues or spam
 mails can be moved into a specific queue, OTRS has the possibility to
-filter incoming messages. It does not matter, if mail accounts are used, or if
-<filename>PostMaster.pl</filename> is used to get messages into the ticket system. Filter
+filter incoming messages. It does not matter, if <filename>PostMaster.pl</filename>
+or mail accounts are used to get messages into the ticket system. Filter
 rules can be created through the link "PostMaster Filter" in the admin area
-of OTRS.
+of OTRS (see Figure 5.47 below).
 </para>
 
 <para>
@@ -1382,9 +1664,12 @@ of OTRS.
 </para>
 
 <para>
-A filter rule consists of one or more filter criteria that must match if
-the filter rule shall be executed and one or more actions that are
-executed, if the filter criteria match. You can define filter
+    <emphasis>Figure 5.47. PostMaster filter management.</emphasis>
+</para>
+
+<para>
+A filter consists of one or more criteria that must match for the defined
+actions to be executed. You can define filter
 criteria for the headers or the body of an email, e.g. search for specific
 header entries or strings in the body, even regular expressions are
 allowed. All actions for a filter rule are triggered by X-OTRS headers,
@@ -1392,7 +1677,7 @@ which are inserted if the filter criteria match. The ticket system
 evaluates the inserted X-OTRS headers and executes the specific actions.
 X-OTRS headers can be used to sort an incoming message into a specific
 queue, change the priority of the message or ignore the message and deliver
-it not to the system. The following table lists the different X-OTRS
+it not to the system. The Table 5-4 lists the different X-OTRS
 headers and their meaning.
 </para>
 
@@ -1480,7 +1765,7 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
           X-OTRS-State-PendingTime:
         </entry>
         <entry>
-         e. g. 2007-03-20 00:00:00
+         e. g. 2010-11-20 00:00:00
         </entry>
         <entry>
           Sets the pending time of a ticket (you also should sent a pending state via X-OTRS-State).
@@ -1632,15 +1917,26 @@ the filter criteria can be specified. Choose via the listboxes for
 like to search and specify via the input files on the right sides the
 values. In the section for "Set" you can choose the actions that are
 triggered, if the filter rules match. You can select for "Header 1",
-"Header 2" and so on the X-OTRS-Header and set the values.
+"Header 2" and so on the X-OTRS-Header and set the values (see Figure 5.48 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Addin filter rules for incoming messages</screeninfo>
+<graphic srccredit="Adminarea postmasterfilter - screenshot" scale="40" fileref="screenshots/add-postmasterfilter.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.48. Add a PostMaster filter.</emphasis>
 </para>
 
 <example id="sort-mails-into-junk">
 <title>Sort spam mails into a specific queue</title>
 
 <para>
-A useful filter rule could be to let OTRS sort mails marked for
-spam with a spam detection tool such as SpamAssassin into the "Junk" queue automatically.
+A useful filter rule could be to let OTRS automatically sort mails marked for
+spam with a spam detection tool, such as SpamAssassin, into the "Junk" queue.
 SpamAssassin adds the "X-Spam-Flag" header to every checked mail.
 When the mail is marked as spam, the Header is set to "Yes". So the filter criteria
 would be "X-Spam-Flag: Yes". To create a filter rule with this criteria you can
@@ -1661,59 +1957,66 @@ There are additional modules, that can be used to
 filter incoming messages
 </link>
 
-more specifically. These modules might be useful on bigger and more complex
+more specifically. These modules might be useful on bigger and complex
 systems.
 </para>
 
 </sect1>
 
+
 <sect1 id="adminarea-genericagent">
-<title>Executing automated jobs with the  GenericAgent</title>
+<title>Executing automated jobs with the GenericAgent</title>
 
 <para>
-The GenericAgent is a tool to execute tasks automatically that otherwise
-should be done
-by a human person, a real agent. The GenericAgent for example can
-close or move tickets, send notifications on escalated tickets, e.g.
+The GenericAgent is a tool to execute tasks automatically, that otherwise
+should be done by a human person, a real agent. The GenericAgent, for example, can
+close or move tickets, send notifications on escalated tickets, etc.
+</para>
+
+<para>
+To access to the GenericAgent, the link "GenericAgent" in the
+admin area of OTRS can be used (see Figure 5.49 below). A table with the already created jobs is
+displayed, where jobs can be executed manually or removed.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Joblist for the GenericAgent</screeninfo>
-<graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/admin-genericagent-new.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-To create a new job for the GenericAgent the link "GenericAgent" in the
-admin area of OTRS can be used. A table with the already created jobs is
-displayed where jobs can be executed manually or be removed. To create a new
-job a name must be specified and the "Add" button must be pressed.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Creating a job for the GenericAgent</screeninfo>
+<screeninfo>Job list for the GenericAgent</screeninfo>
 <graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/admin-genericagent.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-Via the screen for the creation of a new job for the GenericAgent the times
-can be specified when the job shall be executed. Also different criteria
-can be specified to select the tickets that shall be affected by the job.
-Also it is possible to set the new properties of the tickets which are
-affected by the new job.
+    <emphasis>Figure 5.49. Job list for the GenericAgent.</emphasis>
 </para>
 
 <para>
-If the creation of the job is finished all tickets are listed, that are
-affected by the job. This list of tickets let you control if the job
-works right, no changes are made to these tickets yet. The job will be
+To create a new job a name must be specified and the "Add job" button must be
+pressed. Via the screen for the creation of a new job for the GenericAgent you can specify
+the times when the job shall be executed, different criteria to select the tickets
+to work on and the new properties of those tickets (see Figure 5.50 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Creating a job for the GenericAgent</screeninfo>
+<graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/add-genericagent-job.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.49. Creating a job for the GenericAgent.</emphasis>
+</para>
+
+<para>
+If the creation of the job is finished all affected tickets by the job are
+listed. This list helps you verify that the job is having the expected behavior,
+no changes are made to these tickets yet. The job will be
 really activated if it is saved into the job list.
 </para>
 
 </sect1>
+
 
 <sect1 id="adminarea-adminemail">
 <title>Admin email</title>
