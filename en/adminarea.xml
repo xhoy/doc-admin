@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.30 2010-08-07 01:16:33 en Exp $ -->
+<!-- $Id: adminarea.xml,v 1.31 2010-08-09 16:30:22 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -916,9 +916,10 @@ signatures, but only deactivate them. To do so, set them to
 <title>Attachments</title>
 
 <para>
-Another optional part of a response is one or more attachments. The
-attachments will be sent if the response is used, but with checkboxes
-in the answer screen for tickets, it is possible to deactivate them.
+Optionally, you can also create one or more attachments for a response. If the
+response is selected, the attachments will be attached to the message
+composition window. If necessary, the agent can remove the attachment from an individual
+response  before sending it to the customer.
 </para>
 
 <para>
@@ -2005,7 +2006,7 @@ to work on and the new properties of those tickets (see Figure 5.50 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.49. Creating a job for the GenericAgent.</emphasis>
+    <emphasis>Figure 5.50. Creating a job for the GenericAgent.</emphasis>
 </para>
 
 <para>
@@ -2022,22 +2023,25 @@ really activated if it is saved into the job list.
 <title>Admin email</title>
 
 <para>
-OTRS administrators can send messages to specific users or user groups.
-The "Admin Notification" link opens the screen where the users and groups
-can be selected that should be notified by the admin.
+OTRS administrators can send messages to specific users or groups.
+The "Admin Notification" in the admin area, opens the screen where the agents
+and groups that should be notified can be selected (see Figure 5.51 below).
 </para>
 
 <para>
 <screenshot>
 <screeninfo>Admin notification</screeninfo>
-<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
+<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/send-admin-notification.png"></graphic>
 </screenshot>
 </para>
 
 <para>
-The sender, the subject and the message text of the notification can be
-specified via the admin notification screen. Also the users and groups who
-should receive the message can be selected from the table.
+    <emphasis>Figure 5.51. Admin notification.</emphasis>
+</para>
+
+<para>
+It is possible to specify the sender, subject and body text of the notification.
+You can also select the agents, groups and roles who should receive the message.
 </para>
 
 </sect1>
@@ -2047,7 +2051,7 @@ should receive the message can be selected from the table.
 
 <para>
 You can see all logged in users and their session details by clicking the
-<emphasis>Session Management</emphasis> link in the admin area.
+"Session Management" link in the admin area (see Figure 5.52 below).
 </para>
 
 <para>
@@ -2058,13 +2062,28 @@ You can see all logged in users and their session details by clicking the
 </para>
 
 <para>
+    <emphasis>Figure 5.52. Session management.</emphasis>
+</para>
+
+<para>
 Some statistics about all active sessions are displayed, e.g. how
-many agents and customer users are logged in, and how many sessions there are.
-You have the option to <emphasis>Kill all sessions</emphasis> which can be
-useful if you would like to bring the system down.
-Also detailed information for every session is
-available. Every individual session can be removed separately by clicking on
-the <emphasis>x</emphasis> in the right-hand side of the session list.
+many agents and customer users are logged in, number of active sessions.
+Every individual session can be removed y clicking on
+the <emphasis>Kill this session</emphasis> in the right-hand side of the list.
+You also have the option to <emphasis>Kill all sessions</emphasis>, which can be
+useful if you'd like to bring the system down.
+Detailed information for every session is available, too (see Figure 5.53 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Session details</screeninfo>
+<graphic srccredit="Adminarea session management - screenshot" scale="40" fileref="screenshots/admin-session-details.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.53. Session details.</emphasis>
 </para>
 
 </sect1>
@@ -2073,8 +2092,8 @@ the <emphasis>x</emphasis> in the right-hand side of the session list.
 <title>System Log</title>
 
 <para>
-The "System Log" link in the admin area of OTRS shows the last log entries
-of the system.
+The "System Log" link in the admin area of OTRS, shows the last log entries
+of the system (see Figure 5.54 below).
 </para>
 
 <para>
@@ -2085,7 +2104,11 @@ of the system.
 </para>
 
 <para>
-Each line in the log contains a time stamp, the log priority, the system
+    <emphasis>Figure 5.54. System Log.</emphasis>
+</para>
+
+<para>
+Each line in the log contains: a time stamp, the log priority, the system
 component and the log entry itself.
 </para>
 
@@ -2097,34 +2120,38 @@ unix systems. On Windows systems you can see the log by opening the file
 </para>
 </note>
 
-
 </sect1>
+
 
 <sect1 id="adminarea-selectbox">
 <title>SQL queries via the SQL box</title>
 
 <para>
-The "SQL Box" link opens a screen that lets you query the content of the
-tables in the OTRS database. It is not possible to change the content of
-the
-tables, only queries are allowed.
+The "SQL Box" link in the admin area, opens a screen that lets you query the content of the
+tables in the OTRS database (see Figure 5.55 below). It is not possible to change the content
+of the tables, only queries are allowed.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Select Box</screeninfo>
+<screeninfo>SQL Box</screeninfo>
 <graphic srccredit="Adminarea selectbox - screenshot" scale="40" fileref="screenshots/admin-selectbox.png"></graphic>
 </screenshot>
 </para>
 
+<para>
+    <emphasis>Figure 5.55. SQL Box.</emphasis>
+</para>
+
 </sect1>
+
 
 <sect1 id="adminarea-package-manager">
 <title>Package manager</title>
 
 <para>
-With the Package Manager you can install  and manage packages that extend the
-functionality of OTRS. See the
+Using the "Package Manager" in the admin area, you can install and manage packages
+that extend the functionality of OTRS (see Figure 5.56 below). See the
 <link linkend="application">Additional applications</link>
 section for a discussion on the extensions that are available from the
 OTRS repositories.
@@ -2138,41 +2165,44 @@ OTRS repositories.
 </para>
 
 <para>
+    <emphasis>Figure 5.56. Package Manager.</emphasis>
+</para>
+
+<para>
 In the package manager you can review the packages you currently have installed
 together with their version numbers.
 </para>
 
-<para>You can install packages from a remote host by selecting the
-repository in the <emphasis>Online Repository</emphasis> section and clicking
-the <emphasis>Update</emphasis> button. The right side of the screen shows
-the available packages. You can install a package by clicking on the
-<emphasis>Install</emphasis> button.
-After installation the package is
-displayed in the <emphasis>Local Repository</emphasis>section.
+<para>You can install packages from a remote host by selecting the repository in
+the <emphasis>Online Repository</emphasis> section and clicking
+the <emphasis>Update repository information</emphasis> button. The available packages
+are displayed in the corresponding table. The right side of the screen shows
+the available packages. To install one, click on <emphasis>Install</emphasis>.
+After installation the package is displayed in the <emphasis>Local Repository</emphasis>
+section.
 </para>
 
 <para>
 To upgrade an installed package, the list of available packages in the online
-repository will show
-<emphasis>Upgrade</emphasis> in the Action column for any package that has
- a higher version than installed locally. Just click Upgrade and it will
-install the package on your system.
+repository will show <emphasis>Upgrade</emphasis> in the Action column for any package
+that has a higher version than the locally installed. Just click Upgrade and it will
+install the new package on your system.
 </para>
 
 <para>
 In some cases, such as when your OTRS system is not connected to the
 Internet, you can also install packages you have downloaded to a local disk.
-Click the <emphasis>Browse</emphasis> button next to the
-<emphasis>Package</emphasis> field and select the .opm file on your disk.
-Click <emphasis>Open</emphasis> and then <emphasis>Install</emphasis>. After
+Click the <emphasis>Browse</emphasis> button on the Actions side bar and select the
+.opm file on your disk.
+Click <emphasis>Open</emphasis> and then <emphasis>Install Package</emphasis>. After
 installation the package is displayed in the <emphasis>Local Repository</emphasis>
 section. You can use the same steps for updating a package that is already
 installed.
 </para>
 
 <para>
-In special cases you might want to configure the package manager, for instance
-to use a proxy, or to use a local repository. Just take a look at the
+In special cases, you might want to configure the package manager, e.g.,
+to use a proxy or to use a local repository. Just take a look at the
 available options in SysConfig under
 <link linkend="Framework:Core::Package">Framework:Core::Package</link>.
 </para>
