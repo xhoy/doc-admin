@@ -1,47 +1,46 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: configuration.xml,v 1.5 2009-10-16 18:51:59 mb Exp $ -->
+<!-- $Id: configuration.xml,v 1.6 2010-08-09 18:39:06 en Exp $ -->
 
 <chapter id="configuration">
-<title>Configuring the system</title>
+<title>Configuration of the system</title>
 
 <sect1 id="directories-and-configfiles">
 <title>The config files of OTRS</title>
 
 <para>
 All configuration files of OTRS are stored in the directory
-<filename>Kernel</filename> and in sub directories below. There is no need
-to manually change any file other than <filename>Kernel/Config.pm</filename>
-as all other files will be changed when the system is upgraded. Just
+<filename>Kernel</filename> and in its sub directories. There is no need
+to manually change any other file than <filename>Kernel/Config.pm</filename>,
+because the rest of the files will be changed when the system gets upgraded. Just
 copy the configuration parameters from the other files into
-<filename>Kernel/Config.pm</filename> and change them to your needs,
-<filename>Kernel/Config.pm</filename> will never be touched during the
-upgrade process and your manual settings are saved in this file.
+<filename>Kernel/Config.pm</filename> and change them to your needs. This file
+will never be touched during the upgrade process, so your manual settings are safe.
 </para>
 
 <para>
-The file <filename>Kernel/Config/Defaults.pm</filename> contains the
-parameters of the central OTRS framework. All basic system
-settings like the mail configuration, database connection, default charset
-or standard language are located in this file. The file
+The file <filename>Kernel/Config/Defaults.pm</filename> contains the parameters of the
+central OTRS framework. It defines all basic system settings, like the mail configuration,
+database connection, default charset and standard language. The file
 <filename>Kernel/Config/Files/Ticket.pm</filename> contains all
 configuration parameters for the trouble ticket system.
 </para>
 
 <para>
-In the directory <filename>Kernel/Config/Files</filename> some more files
-are stored that are parsed when the OTRS login page is accessed. If
+In the directory <filename>Kernel/Config/Files</filename> there are some other files
+that are parsed when the OTRS login page is accessed. If
 additional applications like the FAQ or the file manager are
-installed, the configuration files for these applications can also be found in
-<filename>Kernel/Config/Files</filename>.
+installed, the configuration files for those can also be found in the mentioned path.
+</para>
 
+<para>
 To keep compatibility with
 older OTRS versions, there is always a .pm- and a .xml file
 for every application and for the central framework. The .pm
-files are needed to parse all default and your own settings. The XML files
-are used by the graphical configuration frontend which is available with
-OTRS 2.0 onwards and which lets you configure most of the configuration parameters
+files are needed to parse all default and customized settings. The XML files
+are used by the graphical configuration frontend, which is available with
+OTRS 2.0 onwards, and which lets you set most of the configuration parameters
 of the system through your web browser. In future versions of OTRS the .pm
 files will be removed and the system will be configurable only via the .xml
 files. All parameters in <filename>Kernel/Config/Defaults.pm</filename>
@@ -56,27 +55,28 @@ configuration parameters will completely change to xml.
 If the web frontend of OTRS is accessed, all .xml files in the
 <filename>Kernel/Config/Files</filename> directory are parsed in alphabetical
 order and the settings for the central framework and additional
-applications will be loaded. Afterwards the settings in the two files
+applications will be loaded. Afterwards, the settings in the two files
 <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> and
 <filename>Kernel/Config/Files/ZZZAuto.pm</filename> will be evaluated. Both
 files are used by the graphical configuration frontend and should never be
-changed manually. Lastly the file <filename>Kernel/Config.pm</filename>
+changed manually. Lastly, the file <filename>Kernel/Config.pm</filename>
 that contains your individual settings and manually changed
-configuration parameters will be parsed. Reading the configuration files in this order
+configuration parameters, will be parsed. Reading the configuration files in this order
 makes sure that your specific configuration settings are used by the
 system.
 </para>
 
 </sect1>
 
+
 <sect1 id="sysconfig">
 <title>Configuring the system through the web interface</title>
 
 <para>
-With OTRS 2.0 and subsequent versions nearly all configuration parameters of the central framework
-or additionally installed applications can be changed easily with the graphical
+With OTRS 2.0 and subsequent versions, nearly all configuration parameters of the central
+framework or additional installed applications, can be changed easily with the graphical
 configuration frontend. Log in as OTRS administrator and follow the
-"SysConfig" link in the adminarea to execute the new configuration tool.
+"SysConfig" link in the adminarea to execute the new configuration tool (see Figure 6.1 below).
 </para>
 
 <para>
@@ -87,44 +87,47 @@ configuration frontend. Log in as OTRS administrator and follow the
 </para>
 
 <para>
+    <emphasis>Figure 6.1. The graphical configuration frontend.</emphasis>
+</para>
+
+<para>
 Because OTRS  currently has over 600 configuration parameters, there
-are different ways to access quickly a specific configuration parameter.
-With the full text search all configuration parameters can be scanned for
+are different ways to access quickly to a specific one.
+With the full text search, all configuration parameters can be scanned for
 one or more keywords. The full text search not only searches through the
-names of the configuration parameters but the descriptions of the
-parameters are scanned also. This makes it possible to find a configuration
-parameter even if the name of the parameter is not known.
+names of the configuration parameters, but also the descriptions of the
+parameters are scanned. This allows to find an element, even if its name is
+unknown.
 </para>
 
 <para>
 Furthermore, all configuration parameters are sorted in main groups and sub
 groups. The main group represents the application that the configuration
 parameter belongs to, e.g. "Framework" for the central OTRS framework,
-"Ticket" for the ticket system, "FAQ" for the FAQ system and so on. The sub
-groups of a main group can be accessed if the application is selected from
-the groups listbox and the "Show" button is pressed.
+"Ticket" for the ticket system, "FAQ" for the FAQ system, and so on. The sub
+groups can be accessed if the application is selected from
+the groups listbox and the "Select group" button is pressed.
 </para>
 
 <para>
 Every configuration parameter can be turned on or off via a checkbox. If the
 parameter is turned off, the system will ignore this
 parameter or the default is used. It is possible to
-switch a changed configuration parameter back to the system default using the "Reset" button . The
-"Update" button submits all changes and the system uses the new settings.
+switch a changed configuration parameter back to the system default using the reset link.
+The "Update" button, submits all changes for the the system to use the new settings.
 </para>
 
 <para>
-If you like to save all the changes you made to the configuration of the
-system, you can download a .pm file that contains all those system parameters
-that differ from the default. To restore your own settings it is possible
-to upload such a previously saved file, for example, to setup a new
-installed system quickly.
+If you want to save all the changes you made to the configuration of your
+system, for example, to setup a new installed system quickly, you can use the "Export
+settings" button, which will create a .pm file. To restore
+your own settings, just press the "Import settings" and select the .pm created before.
 </para>
 
 <note>
 <para>
-The configuration parameters for the database connection cannot be changed
-via the graphical configuration frontend for security reasons. They have to
+For security reasons, the configuration parameters for the database connection cannot
+be changed in the SysConfig. They have to
 be set manually in <filename>Kernel/Config.pm</filename>.
 </para>
 </note>
