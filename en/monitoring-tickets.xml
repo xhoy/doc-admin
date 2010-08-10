@@ -1,24 +1,25 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: monitoring-tickets.xml,v 1.3 2008-08-25 11:10:53 ub Exp $ -->
+<!-- $Id: monitoring-tickets.xml,v 1.4 2010-08-10 18:53:56 en Exp $ -->
 <chapter id="monitoring-tickets" >
 <title>Ticket responsibility and ticket watching</title>
 
 <para>
-From OTRS 2.1 on it is possible to define a person responsible for a ticket
-additionally to the ticket owner. Moreover all activities connected with the
+From OTRS 2.1 on, it is possible to define a person responsible for a ticket,
+additionally to its owner. Moreover, all activities connected with the
 ticket can be watched. These two functionalities are implemented with
-the TicketResponsible and TicketWatcher features and facilitate the
+the TicketResponsible and TicketWatcher features, and facilitate the
 assignment of tasks and working within hierarchic team structures.
 </para>
+
 
 <sect1 id="ticket-responsible" >
 <title>Ticket responsibility</title>
 
 <para>
 The ticket responsible feature facilitates the complete processing of a ticket
-by an agent other then the ticket owner. Thus an agent who has locked a
-ticket can pass it on to another agent who is not the ticket owner in order for
+by an agent, other then the ticket owner. Thus an agent who has locked a
+ticket can pass it on to another agent, who is not the ticket owner, in order for
 the second to respond to a customer request. After the request has been dealt
 with, the first agent can withdraw the ticket responsibility from the
 second agent.
@@ -31,7 +32,14 @@ With the configuration parameter
 Ticket::Responsible
 </link>
 
-the ticket responsible feature can be activated.
+, the ticket responsible feature can be activated. This will cause that 3 new icons appear
+in your toolbar.
+</para>
+
+<para>
+Ticket responsibility can be assigned by calling up the ticket content and
+clicking on the "Responsible" link in the actions bar of a zoomed ticket in
+the agent interface (see the Figure 9.1 below).
 </para>
 
 <para>
@@ -42,8 +50,13 @@ the ticket responsible feature can be activated.
 </para>
 
 <para>
-Ticket responsibility can be assigned by calling up the ticket content and
-activating the "responsible" switch in the ticket activities menu.
+    <emphasis>Figure 9.1. Changing the responsible of a ticket in its zoomed view.</emphasis>
+</para>
+
+<para>
+After clicking on "Responsible", a pop-up to change the responsible of that ticket
+will open (see Figure 9.2 below). This template can also be used to send a message to the
+new responsible agent.
 </para>
 
 <para>
@@ -54,32 +67,25 @@ activating the "responsible" switch in the ticket activities menu.
 </para>
 
 <para>
-The ticket responsible template can also be used to send a message to the new
-agent responsible.
+    <emphasis>Figure 9.2. Change a ticket's responsible pop-up.</emphasis>
 </para>
 
 <para>
-The list of all tickets for which an agent is responsible can be accessed
-<!--
-<link linkend="gloss-responsibletickets" >
--->
-via the "responsible" notification
-<!--
-</link>
--->
-
-, which is shown in the upper part of the OTRS user interface as soon as the
-ticket responsible feature is activated.
+The list of all tickets for which an agent is responsible from, can be accessed
+through the Responsible View, which is shown as 3 icons in the toolbar of the OTRS
+agent interface, as soon as the
+ticket responsible feature gets activated.
 </para>
 
 </sect1>
+
 
 <sect1 id="ticket-watcher">
 <title>Ticket watching</title>
 
 <para>
-From OTRS 2.1 on, users as for example heads of department can watch
-certain tickets within the system without processing them by using the
+From OTRS 2.1 on, agents (e.g. heads of department) can watch
+certain tickets within the system without processing them, by using the
 TicketWatcher feature.
 </para>
 
@@ -91,13 +97,18 @@ parameter
 Ticket::Watcher
 </link>
 
-. Using
+, which will add 3 new icons to your toolbar. Using
 
 <link linkend="Ticket:Core::TicketWatcher:Ticket::WatcherGroup">
 Ticket::WatcherGroup
 </link>
 
 one or more user groups with permission to watch tickets can be defined.
+</para>
+
+<para>
+In order to watch a ticket, go to its zoomed view and click on the
+"Subscribe" link in the ticket activities menu (see Figure 9.3 below).
 </para>
 
 <para>
@@ -108,8 +119,12 @@ one or more user groups with permission to watch tickets can be defined.
 </para>
 
 <para>
-In order to watch a ticket, select the ticket content display and activate
-the "subscribe" switch in the ticket activities menu.
+    <emphasis>Figure 9.3. Subscribing to a ticket in its zomed view.</emphasis>
+</para>
+
+<para>
+If you no longer want to watch a specific ticket, go to its zoomed view and click on the
+"Unsubscribe" link in the ticket activities menu (see Figure 9.4 below).
 </para>
 
 <para>
@@ -120,9 +135,8 @@ the "subscribe" switch in the ticket activities menu.
 </para>
 
 <para>
-Stop watching a ticket by selecting the ticket content display and activating
- the "unsubscribe" switch in the ticket activities menu.
- </para>
+    <emphasis>Figure 9.4. Unsubscribing from a ticket in its zomed view.</emphasis>
+</para>
 
 <para>
 <screenshot>
@@ -132,16 +146,10 @@ Stop watching a ticket by selecting the ticket content display and activating
 </para>
 
 <para>
-A list of all watched tickets can be called up via
-<!--
-<link linkend="gloss-watchedtickets">
--->
-the "Watched Tickets" notification
-<!--
-</link>
--->
-, which is displayed in the upper part of the OTRS user interface as soon as the
-TicketWatcher feature is activated.
+The list of all watched tickets can be accessed
+through the Watched View, which is shown as 3 icons in the toolbar of the OTRS
+agent interface, as soon as the
+ticket watcher feature gets activated.
 </para>
 
 </sect1>
