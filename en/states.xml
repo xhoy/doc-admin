@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: states.xml,v 1.5 2010-08-11 20:38:48 en Exp $ -->
+<!-- $Id: states.xml,v 1.6 2010-08-11 20:42:53 en Exp $ -->
 
 <chapter id="states">
 <title>States</title>
@@ -111,8 +111,8 @@ In the section for states, in the admin area of OTRS, the name of already
 existing states can be changed or new states can be added. If the state
 "new" has been changed via the web interface, this change also has to be
 configured via the config file <filename>Kernel/Config.pm</filename> or via
-the SysConfig interface. The following settings have to be modified to
-ensure that OTRS works with the changed state for "new":
+the SysConfig interface. The settings specified in the Script 12.1 have to be
+modified to ensure that OTRS works with the changed state for "new".
 </para>
 
 <para>
@@ -130,8 +130,13 @@ ensure that OTRS works with the changed state for "new":
 </para>
 
 <para>
-If a new state type should be added the ticket_state_type table in the OTRS
-database needs to be modified with a database client program.
+    <emphasis>Script 12.1. Modifying the Kernel/Config.pm settings.</emphasis>
+</para>
+
+<para>
+If a new state type should be added, the ticket_state_type table in the OTRS
+database needs to be modified with a database client program, as shown in the
+Script 12.2.
 </para>
 
 <para>
@@ -156,6 +161,10 @@ mysql&gt; quit
 Bye
 linux:~#
 </screen>
+</para>
+
+<para>
+    <emphasis>Script 12.2. Modifying the OTRS database.</emphasis>
 </para>
 
 <para>
