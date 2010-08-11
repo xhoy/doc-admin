@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: states.xml,v 1.4 2009-11-16 14:30:05 mb Exp $ -->
+<!-- $Id: states.xml,v 1.5 2010-08-11 20:38:48 en Exp $ -->
 
 <chapter id="states">
 <title>States</title>
@@ -10,14 +10,13 @@
 <title>Predefined states</title>
 
 <para>
-It is possible to change the predefined states and state types for tickets
-in OTRS. Also additional states or state types can be added.
-Two options are important for a state, the name (state-name)
-and the type of the state (state-type).
+In OTRS, it is possible to change the predefined ticket states and their types,
+or even add new ones. Two attributes are important for a state: the name (state-name)
+and type (state-type).
 </para>
 
 <para>
-The default states of OTRS are 'closed successful', 'closed unsuccessful',
+The default states of OTRS are: 'closed successful', 'closed unsuccessful',
 'merged', 'new', 'open', 'pending auto close+',
 'pending auto close-', 'pending reminder' and 'removed'.
 </para>
@@ -90,26 +89,25 @@ your configuration, you might not be able to reopen closed tickets.
 </para>
 </sect2>
 
-
 </sect1>
 
 
 <sect1 id="states-customizing">
 <title>Customizing states</title>
 <para>
-Every state has a name (status-name) and a status type (status-type). The
-name of a state can be anything you want and can you can specify this via
-the admin area of OTRS in the section for
-<link linkend="adminarea-status">states.</link> The state types can not be
-changed via the web interface, the database has to be modified if you'd want
-to add new types or if the name of types has to be changed. We would generally
-recommend not to modify the default state types as this can cause unexpected
-results. For instance escalation calculations and the unlock feature are
+Every state has a name (state-name) and a type (state-type). You can freely choose the
+name of a state, via
+the admin area of OTRS, in the section for
+<link linkend="adminarea-status">states</link>. The state types can not be
+changed in the web interface, but the database has to be modified if you want
+to add new types or change existing names. We would generally
+recommend not to modify the default state types, as this can cause unexpected
+results. For instance, escalation calculations and the unlock feature are
 based on certain state types.
 </para>
 
 <para>
-In the section for states in the admin area of OTRS the name of already
+In the section for states, in the admin area of OTRS, the name of already
 existing states can be changed or new states can be added. If the state
 "new" has been changed via the web interface, this change also has to be
 configured via the config file <filename>Kernel/Config.pm</filename> or via
@@ -162,8 +160,8 @@ linux:~#
 
 <para>
 Now it is possible to use the new state type you just created
-in the section for states in the admin area. After a state has been linked
-with this new state type also the configuration of OTRS has to be changed
+in the section for states, in the admin area. After a state has been linked
+with this new state type, also the configuration of OTRS has to be changed,
 to ensure that the new state is used. Just modify
 the following options via SysConfig:
 </para>
@@ -197,20 +195,20 @@ Ticket -&gt; Frontend::Agent::Ticket::ViewEmailNew &gt; AgentTicketEmail###State
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewPhoneOutbound:Ticket::Frontend::AgentTicketPhoneOutbound_State">
 Ticket -&gt; Frontend::Agent::Ticket::ViewPhoneOutbound &gt; AgentTicketPhoneOutbound###State
-</link> - to define the default next status for new phone articles.
+</link> - to define the default next state for new phone articles.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewPhoneOutbound:Ticket::Frontend::AgentTicketPhoneOutbound_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewPhoneOutbound &gt; AgentTicketPhoneOutbound###StateType
-</link> - to define the available next statuses for new phone articles you can here define the status types.
+</link> - to define the available next states for new phone articles.
 </para>
 
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewMove:Ticket::DefaultNextMoveStateType">
 Ticket:Frontend::Agent::Ticket::ViewMove:Ticket::DefaultNextMoveStateType
-</link> - to define the available next statuses in the AgentTicketMove screen you can here define the status types.
+</link> - to define the default next state after moving a ticket.
 </para>
 
 
@@ -223,94 +221,94 @@ Ticket -&gt; Frontend::Agent::Ticket::ViewBounce &gt; StateDefault
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewBounce:Ticket::Frontend::AgentTicketBounce_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewBounce &gt; StateType
-</link> - to define the available next statuses in the bounce screen you can here define the status types.
+</link> - to define the available next states in the bounce screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewBulk:Ticket::Frontend::AgentTicketBulk_StateDefault">
 Ticket -&gt; Frontend::Agent::Ticket::ViewBulk &gt; StateDefault
-</link> - to define the default next status in a bulk action.
+</link> - to define the default next state in a bulk action.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewBulk:Ticket::Frontend::AgentTicketBulk_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewBulk &gt; StateType
-</link> - to define the available next statuses in the bulk action screen you can here define the status types.
+</link> - to define the available next states in the bulk action screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewClose:Ticket::Frontend::AgentTicketClose_StateDefault">
 Ticket -&gt; Frontend::Agent::Ticket::ViewClose &gt; StateDefault
-</link> - to define the default next status in a close action.
+</link> - to define the default next state after closing a ticket.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewClose:Ticket::Frontend::AgentTicketClose_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewClose &gt; StateType
-</link> - to define the available next statuses in the close screen you can here define the status types.
+</link> - to define the available next states in the close screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewCompose:Ticket::Frontend::AgentTicketCompose_StateDefault">
 Ticket -&gt; Frontend::Agent::Ticket::ViewCompose &gt; StateDefault
-</link> - to define the default next status in the Compose (reply) screen.
+</link> - to define the default next state in the Compose (reply) screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewCompose:Ticket::Frontend::AgentTicketCompose_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewCompose &gt; StateType
-</link> - to define the available next statuses in the Compose (reply) screen you can here define the status types.
+</link> - to define the available next states in the Compose (reply) screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewForward:Ticket::Frontend::AgentTicketForward_StateDefault">
 Ticket -&gt; Frontend::Agent::Ticket::ViewForward &gt; StateDefault
-</link> - to define the default next status in a Forward action.
+</link> - to define the default next state after forwarding a ticket.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewForward:Ticket::Frontend::AgentTicketForward_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewForward &gt; StateType
-</link> - to define the available next statuses in the Forward screen you can here define the status types.
+</link> - to define the available next states in the Forward screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewFreeText:Ticket::Frontend::AgentTicketFreeText_StateDefault">
 Ticket -&gt; Frontend::Agent::Ticket::ViewForward &gt; StateDefault
-</link> - to define the default next status in a Forward action.
+</link> - to define the default next state of a ticket in the free text screen.
 </para>
 
 <para>
 <link linkend="Ticket:Frontend::Agent::Ticket::ViewFreeText:Ticket::Frontend::AgentTicketFreeText_StateType">
 Ticket -&gt; Frontend::Agent::Ticket::ViewForward &gt; StateType
-</link> - to define the available next statuses in the Forward screen you can here define the status types.
+</link> - to define the available next states in the free text screen.
 </para>
 
 
 <para>
 <link linkend="Ticket:Core::PostMaster:PostmasterDefaultState">
 Ticket -&gt; Core::PostMaster &gt; PostmasterDefaultState
-</link> - to define the status of tickets created from emails.
+</link> - to define the state of tickets created from emails.
 </para>
 
 <para>
 <link linkend="Ticket:Core::PostMaster:PostmasterFollowUpState">
 Ticket -&gt; Core::PostMaster &gt; PostmasterFollowUpState
-</link> - to define the status of tickets after a follow-up has been received.
+</link> - to define the state of tickets after a follow-up has been received.
 </para>
 
 <para>
 <link linkend="Ticket:Core::PostMaster:PostmasterFollowUpStateClosed">
 Ticket -&gt; Core::PostMaster &gt; PostmasterFollowUpStateClosed
-</link> - to define the status of tickets after a follow-up has been received
-and the ticket was closed already.
+</link> - to define the state of tickets after a follow-up has been received
+and the ticket was already closed.
 </para>
 
 <para>
 <link linkend="Ticket:Core::Ticket:Ticket::ViewableStateType">
 Ticket -&gt; Core::Ticket &gt; ViewableStateType
-</link> - to define the status types that are displayed at various places
-in the system, for instance in the Queueview.
+</link> - to define the state types that are displayed at various places
+in the system, for example in the Queueview.
 </para>
 
 <para>
@@ -335,7 +333,7 @@ Ticket -&gt; Core::Ticket &gt; PendingAutoStateType
 <link linkend="Ticket:Core::Ticket:Ticket::StateAfterPending">
 Ticket -> Core::Ticket > StateAfterPending
 </link> - to define the state a ticket is set to after the Pending Auto timer
-of the configured state has been expired.
+of the configured state has expired.
 </para>
 
 </sect1>
