@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: states.xml,v 1.6 2010-08-11 20:42:53 en Exp $ -->
+<!-- $Id: states.xml,v 1.7 2010-08-12 14:03:47 mg Exp $ -->
 
 <chapter id="states">
 <title>States</title>
 
-<sect1 id="states-predefined">
+<section id="states-predefined">
 <title>Predefined states</title>
 
 <para>
@@ -21,22 +21,22 @@ The default states of OTRS are: 'closed successful', 'closed unsuccessful',
 'pending auto close-', 'pending reminder' and 'removed'.
 </para>
 
-<sect2 id="state-new">
+<section id="state-new">
 <title>New</title>
 <para>
 Tickets are usually only in this state when they are created from
 incoming e-mails.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-open">
+<section id="state-open">
 <title>Open</title>
 <para>
 The default state for tickets assigned to queues and agents.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-pending-reminder">
+<section id="state-pending-reminder">
 <title>Pending reminder</title>
 <para>
 After the pending time has expired, the bug owner will receive a reminder email
@@ -46,53 +46,53 @@ business hours, and are repeated every 24 hours until the state of the ticket
 is changed by the agent. Time spent by the ticket in this status will still add
 towards the escalation time calculations.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-pending-autoclose-minus">
+<section id="state-pending-autoclose-minus">
 <title>Pending auto close-</title>
 <para>
 Tickets in this status will be set to Closed Unsuccessful if the pending time
 has expired. Time spent by the ticket in this status will still add towards the
 escalation time calculations.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-pending-autoclose-plus">
+<section id="state-pending-autoclose-plus">
 <title>Pending auto close+</title>
 <para>
 Tickets in this status will be set to Closed Successful if the pending time
 has expired. Time spent by the ticket in this status will still add towards the
 escalation time calculations.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-merged">
+<section id="state-merged">
 <title>Merged</title>
 <para>
 State for tickets that have been merged with other tickets.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-closed-successful">
+<section id="state-closed-successful">
 <title>Closed Successful</title>
 <para>
 End state for tickets that have been successfully resolved. Depending on your
 configuration, you might not be able to reopen closed tickets.
 </para>
-</sect2>
+</section>
 
-<sect2 id="state-closed-unsuccessful">
+<section id="state-closed-unsuccessful">
 <title>Closed Unsuccessful</title>
 <para>
 End state for tickets that have not been successfully resolved. Depending on
 your configuration, you might not be able to reopen closed tickets.
 </para>
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 
-<sect1 id="states-customizing">
+<section id="states-customizing">
 <title>Customizing states</title>
 <para>
 Every state has a name (state-name) and a type (state-type). You can freely choose the
@@ -345,5 +345,5 @@ Ticket -> Core::Ticket > StateAfterPending
 of the configured state has expired.
 </para>
 
-</sect1>
+</section>
 </chapter>

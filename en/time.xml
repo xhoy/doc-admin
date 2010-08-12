@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: time.xml,v 1.16 2010-08-10 17:35:28 en Exp $ -->
+<!-- $Id: time.xml,v 1.17 2010-08-12 14:03:47 mg Exp $ -->
 
 <chapter id="time">
 <title>Time related functions</title>
 
-<sect1 id="time-settings">
+<section id="time-settings">
 <title>Setting up business hours, holidays and time zones</title>
 
 <para>
@@ -32,7 +32,7 @@ OTRS can handle up to 99 different calendars.
 </para>
 
 
-<sect2 id="TimeWorkingHours">
+<section id="TimeWorkingHours">
 <title>Business Hours</title>
 
 <para>
@@ -48,10 +48,10 @@ OTRS can handle a granularity of one hour. Checking the marks in the boxes
 Only during the business hours: tickets can escalate, notifications
 for escalated and pending tickets will be send and tickets will be unlocked.
 </para>
-</sect2>
+</section>
 
 
-<sect2 id="TimeVacationDays">
+<section id="TimeVacationDays">
 <title>Fixed date holidays</title>
 
 <para>
@@ -73,10 +73,10 @@ By default, OTRS ships with the <emphasis>German</emphasis> holidays installed.
 </para>
 </note>
 
-</sect2>
+</section>
 
 
-<sect2 id="TimeVacationDaysOneTime">
+<section id="TimeVacationDaysOneTime">
 <title>TimeVacationDaysOneTime</title>
 
 <para>
@@ -100,12 +100,12 @@ to the system when configuring OTRS.
 </para>
 </note>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 
-<sect1 id="unlock-tickets">
+<section id="unlock-tickets">
 <title>Automated Unlocking</title>
 
 <para>
@@ -179,6 +179,6 @@ The last event that will reset the unlock timer is when the ticket
 is assigned to another agent.
 </para>
 
-</sect1>
+</section>
 
 </chapter>

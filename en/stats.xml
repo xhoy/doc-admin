@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.2 2007-07-18 12:36:16 ea Exp $ -->
+<!-- $Id: stats.xml,v 1.3 2010-08-12 14:03:47 mg Exp $ -->
 <chapter id="statistic-module">
 <title>Stats module</title>
 
@@ -73,7 +73,7 @@ All things considered, the stats module enables OTRS users a quick
 and easy evaluation of the activities on their system.
 </para>
 
-<sect1 id="stats-usage" >
+<section id="stats-usage" >
 <title>Handling of the module by the agent</title>
 
 <para>
@@ -137,7 +137,7 @@ module are shown in the navigation bar.
 </itemizedlist>
 </para>
 
-<sect2 id="stats-overview" >
+<section id="stats-overview" >
 <title>Overview</title>
 
 <para>
@@ -228,9 +228,9 @@ A few sample stats are imported when the stats module
 is used for the first time.
 </para>
 
-</sect2>
+</section>
 
-<sect2 id="stats-viewing-generating">
+<section id="stats-viewing-generating">
 <title>Generate and view stats</title>
 
 <para>
@@ -628,9 +628,9 @@ If the settings on the view page are incorrect, the page is shown again
 after the "start" button was pushed and information about which input
 was incorrect is provided in the notification section.
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-modify-new">
+<section id="stats-modify-new">
 <title>Edit - New</title>
 
 <para>
@@ -1181,9 +1181,9 @@ called up.
 </listitem>
 </orderedlist>
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-import">
+<section id="stats-import">
 <title>Import</title>
 
 <para>
@@ -1209,11 +1209,11 @@ system afterwards.
 The import is effected by an easy file upload. The "view" user
 interface of the imported stat is opened automatically afterwards.
 </para>
-</sect2>
+</section>
 
-</sect1>
+</section>
 
-<sect1 id="stats-managing-the-module">
+<section id="stats-managing-the-module">
 <title>Administration of the stat module by the OTRS administrator</title>
 
 <para>
@@ -1221,7 +1221,7 @@ This paragraph provides information about the tasks and possibilities
 of the OTRS administrator dealing with the stat module.
 </para>
 
-<sect2 id="stats-permissions" >
+<section id="stats-permissions" >
 <title>Permission settings, groups and queues</title>
 
 <para>
@@ -1258,9 +1258,9 @@ The OTRS administrator decides whether agents with the permission to
 generate pre-configured stats are allocated ro rights in the "stats" group or
 whether their respective groups are added in the module registration in SysConfig.
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-sysconfig" >
+<section id="stats-sysconfig" >
 <title>SysConfig</title>
 
 <para>
@@ -1290,11 +1290,11 @@ $Self-&gt;{'Frontend::Module'}-&gt;{'AgentStats'}
 controls the arrangement and registration of the modules and icons within the
 stats module.
 </para>
-</sect2>
+</section>
 
-</sect1>
+</section>
 
-<sect1 id="stats-managing-the-stats-module-by-the-sysadmin" >
+<section id="stats-managing-the-stats-module-by-the-sysadmin" >
 <title>Administration of the stats module by the system administrator</title>
 
 <para>
@@ -1310,7 +1310,7 @@ directory (in most cases<filename>/opt/otrs</filename>.
 </para>
 </note>
 
-<sect2 id="stats-db-table" >
+<section id="stats-db-table" >
 <title>Data base table</title>
 
 <para>
@@ -1320,9 +1320,9 @@ Therefore all stats configurations are stored in the database table
 format use this table as well.
 </para>
 
-</sect2>
+</section>
 
-<sect2 id="stats-filelist" >
+<section id="stats-filelist" >
 <title>List of all files</title>
 
 <para>
@@ -1403,9 +1403,9 @@ The following files are necessary for the stats module to work accurately.
     </listitem>
 </itemizedlist>
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-caching" >
+<section id="stats-caching" >
 <title>Caching</title>
 
 <para>
@@ -1425,9 +1425,9 @@ stat is called up the stats module will not find the file any more
 and thus will generate a new stat  which will probably take
 a little longer.
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-mkstats" >
+<section id="stats-mkstats" >
 <title>mkStats.pl</title>
 
 <para>
@@ -1461,9 +1461,9 @@ bin> perl mkStats.pl --help
 </programlisting>
 </para>
 
-</sect2>
+</section>
 
-<sect2 id="stats-cron" >
+<section id="stats-cron" >
 <title>Automated stat generation - Cron</title>
 
 <para>
@@ -1480,9 +1480,9 @@ month. By combining a cronjob and command line call the
 stats can be sent to them automatically by e-mail.
 </para>
 
-</sect2>
+</section>
 
-<sect2 id="stats-static" >
+<section id="stats-static" >
 <title>Static stats</title>
 
 <para>
@@ -1499,9 +1499,9 @@ is that they are not particularly flexible.
 The files are saved in the following directory
 <filename>Kernel/System/Stats/Static/</filename>.
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-using-old-stats" >
+<section id="stats-using-old-stats" >
 <title>Using old static stats</title>
 
 <para>
@@ -1532,9 +1532,9 @@ The following example shows how the first path is amended.
     package Kernel::System::Stats::Static::AccountedTime;
 </programlisting>
 </para>
-</sect2>
+</section>
 
-<sect2 id="stats-default-stats" >
+<section id="stats-default-stats" >
 <title>Default stats</title>
 
 <para>"It is not always necessary to reinvent the wheel..."
@@ -1547,8 +1547,8 @@ of the stats module package. Default stats are saved in the stats module
 xml format in the<filename>scripts/test/sample/</filename> directory.
 </para>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 </chapter>

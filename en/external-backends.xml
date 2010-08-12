@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.17 2010-08-10 23:50:25 en Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.18 2010-08-12 14:03:47 mg Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
 
-<sect1 id='customer-data'>
+<section id='customer-data'>
 <title>Customer data</title>
 
 <para>
@@ -63,10 +63,10 @@ information in your agent interface.
     <emphasis>Script 11.1. Kernel/Config.pm configuration parameters.</emphasis>
 </para>
 
-</sect1>
+</section>
 
 
-<sect1 id="customer-user-backend">
+<section id="customer-user-backend">
 <title>Customer user backend</title>
 
 <para>
@@ -75,7 +75,7 @@ another customer backend (e.g. SAP), it is of course possible to write a
 module that uses it.
 </para>
 
-<sect2 id='customer-backend-db'>
+<section id='customer-backend-db'>
 <title>Database (Default)</title>
 
 <para>
@@ -218,7 +218,7 @@ customer area in the agent interface.
 </para>
 
 
-<sect3 id='multi-customer-ids-db'>
+<section id='multi-customer-ids-db'>
 <title>Customer with multiple IDs (Company tickets)</title>
 
 <para>
@@ -312,12 +312,12 @@ CustomerIDs the values "B;C;".
 
 </example>
 
-</sect3>
+</section>
 
-</sect2>
+</section>
 
 
-<sect2 id='customer-backend-ldap'>
+<section id='customer-backend-ldap'>
 <title>LDAP</title>
 
 <para>
@@ -424,7 +424,7 @@ in the Script 11.6.
 </para>
 
 
-<sect3 id='multi-customer-ids-ldap'>
+<section id='multi-customer-ids-ldap'>
 <title>Customer with multiple IDs (Company tickets)</title>
 
 <para>
@@ -490,12 +490,12 @@ LDAP directory.
 
 </example>
 
-</sect3>
+</section>
 
-</sect2>
+</section>
 
 
-<sect2 id='multiple-customer-backends'>
+<section id='multiple-customer-backends'>
 <title>Use more than one customer backend with OTRS</title>
 
 <para>
@@ -661,11 +661,11 @@ the customer management interface in OTRS all customer data can be
 viewed or edited (if write access is enabled).
 </para>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
-<sect1 id="auth-backends">
+<section id="auth-backends">
 <title>Backends to authenticate agents and customers</title>
 
 <para>
@@ -673,10 +673,10 @@ OTRS offers the option to authenticate agents and customers against
 different backends.
 </para>
 
-<sect2 id='agent-auth-backends'>
+<section id='agent-auth-backends'>
 <title>Authentication backends for agents</title>
 
-<sect3 id='agent-auth-backend-db'>
+<section id='agent-auth-backend-db'>
 <title>DB (Default)</title>
 
 <para>
@@ -707,9 +707,9 @@ admin area
 
 </example>
 
-</sect3>
+</section>
 
-<sect3 id='agent-auth-backend-ldap'>
+<section id='agent-auth-backend-ldap'>
 <title>LDAP</title>
 
 <para>
@@ -816,10 +816,10 @@ $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
     <emphasis>Script 11.8. Synchronizing the user data from the LDAP directory into the OTRS database.</emphasis>
 </para>
 
-</sect3>
+</section>
 
 
-<sect3 id='agent-auth-backend-httpbasic'>
+<section id='agent-auth-backend-httpbasic'>
 <title>HTTPBasicAuth for agents</title>
 
 <para>
@@ -850,10 +850,10 @@ $Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
 
 </example>
 
-</sect3>
+</section>
 
 
-<sect3 id='agent-auth-backend-radius'>
+<section id='agent-auth-backend-radius'>
 <title>Radius</title>
 
 <para>
@@ -875,15 +875,15 @@ $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
 
 </example>
 
-</sect3>
+</section>
 
-</sect2>
+</section>
 
 
-<sect2 id="customer-auth-backends">
+<section id="customer-auth-backends">
 <title>Authentication backends for customers</title>
 
-<sect3 id='customer-auth-backend-db'>
+<section id='customer-auth-backend-db'>
 <title>Database (Default)</title>
 
 <para>
@@ -910,10 +910,10 @@ $Self->{'Customer::AuthModule::DB::CustomerPassword'} = 'pw';
 
 </example>
 
-</sect3>
+</section>
 
 
-<sect3 id='customer-auth-backend-ldap'>
+<section id='customer-auth-backend-ldap'>
 <title>LDAP</title>
 
 <para>
@@ -970,10 +970,10 @@ $Self->{'Customer::AuthModule::LDAP::Params'} = {
 
 </example>
 
-</sect3>
+</section>
 
 
-<sect3 id='customer-auth-backend-httpbasic'>
+<section id='customer-auth-backend-httpbasic'>
 <title>HTTPBasicAuth for customers</title>
 
 <para>
@@ -1004,10 +1004,10 @@ $Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs
 
 </example>
 
-</sect3>
+</section>
 
 
-<sect3 id='customer-auth-backend-radius'>
+<section id='customer-auth-backend-radius'>
 <title>Radius</title>
 
 <para>
@@ -1029,14 +1029,14 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 
 </example>
 
-</sect3>
+</section>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 
-<sect1 id="customer-self-registration">
+<section id="customer-self-registration">
 <title>Customize the customer self registration</title>
 
 <para>
@@ -1050,7 +1050,7 @@ The following example shows how you can specify a required field in the customer
 database, in this case, to store the room number of a customer.
 </para>
 
-<sect2 id='customer-self-registration-dtl'>
+<section id='customer-self-registration-dtl'>
 <title>Customizing the web interface</title>
 
 <para>
@@ -1076,10 +1076,10 @@ add the new field around line 80 (see Script 11.9 below).
     <emphasis>Script 11.9. Displaying a new field in the web interface.</emphasis>
 </para>
 
-</sect2>
+</section>
 
 
-<sect2 id="customer-self-registration-mapping">
+<section id="customer-self-registration-mapping">
 <title>Customer mapping</title>
 
 <para>
@@ -1169,9 +1169,9 @@ $Self->{CustomerUser} = {
     <emphasis>Script 11.10. Changing the map array.</emphasis>
 </para>
 
-</sect2>
+</section>
 
-<sect2 id="customer-self-registration-customer-table">
+<section id="customer-self-registration-customer-table">
 <title>Customize the customer_user table in the OTRS DB</title>
 
 <para>
@@ -1215,8 +1215,8 @@ insert their room number if they register a new account. If you use apache
 and use mod_perl for OTRS, you should restart the web server to
 activate the changes.
 </para>
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 </chapter>

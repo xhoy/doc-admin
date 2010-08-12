@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.17 2010-08-09 22:26:08 en Exp $ -->
+<!-- $Id: email.xml,v 1.18 2010-08-12 14:03:47 mg Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
 
-<sect1 id="email-sending">
+<section id="email-sending">
 <title>Sending emails</title>
 
-<sect2 id="email-sending-sendmail">
+<section id="email-sending-sendmail">
 <title>Via Sendmail (default)</title>
 
 <para>
@@ -26,9 +26,9 @@ You can configure the sendmail settings via the graphical configuration
 frontend (Framework::Core::Sendmail)
 </para>
 
-</sect2>
+</section>
 
-<sect2 id="email-sending-smtp">
+<section id="email-sending-smtp">
 <title>Via SMTP server or smarthost</title>
 
 <para>
@@ -46,15 +46,15 @@ miss the required Perl modules. In that case, please refer to
 "Installation of Perl modules required for OTRS"
 </link> for instructions.</para>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 
-<sect1 id="email-receiving">
+<section id="email-receiving">
 <title>Receiving emails</title>
 
-<sect2 id="email-receiving-pop3">
+<section id="email-receiving-pop3">
 <title>Mail accounts configured via the OTRS GUI</title>
 
 <para>
@@ -150,10 +150,10 @@ cron jobs
 </link> chapter.
 </para>
 
-</sect2>
+</section>
 
 
-<sect2 id="email-receiving-cmd">
+<section id="email-receiving-cmd">
 <title>Via command line program and e.g. procmail (otrs.PostMaster.pl)</title>
 
 <para>
@@ -219,10 +219,10 @@ All email sent to the local OTRS user will be piped into
 <filename>bin/otrs.PostMaster.pl</filename> and then shown in your QueueView.
 </para>
 
-</sect2>
+</section>
 
 
-<sect2 id="email-receiving-fetchmail">
+<section id="email-receiving-fetchmail">
 <title>Fetching emails via POP3 or IMAP and fetchmail for otrs.PostMaster.pl</title>
 
 <para>
@@ -265,10 +265,10 @@ will be forwarded to the local OTRS account, if the command
 <command>fetchmail -a</command> is executed. Set up a cronjob with this
 command if you want to fetch the mails regularly.
 </para>
-</sect2>
+</section>
 
 
-<sect2 id="email-receiving-filter">
+<section id="email-receiving-filter">
 <title>Filtering/dispatching by OTRS/PostMaster modules (for more complex
 dispatching)</title>
 
@@ -371,8 +371,8 @@ or X-OTRS-Queue: spam). The Example 7-3 can be used in
 Of course it's also possible to develop your own PostMaster filter modules.
 </para>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 </chapter>
