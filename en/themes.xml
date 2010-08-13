@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: themes.xml,v 1.4 2009-09-14 20:26:04 mb Exp $ -->
+<!-- $Id: themes.xml,v 1.5 2010-08-13 12:19:57 mb Exp $ -->
 
 <chapter id="themes">
 <title>Creating your own themes</title>
@@ -54,31 +54,10 @@ To create a new theme called "Company" perform the following steps:
 </listitem>
 <listitem>
     <para>
-    To activate the new theme in OTRS the database has to be changed
-    manualy and the new theme has to be added to the theme table.
-    Below is an example of how to do this with MySQL:
-    </para>
-
-    <para>
-    <screen>
-linux:~# mysql -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 26 to server version: 5.0.22-Debian_2-log
-
-Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
-
-mysql&gt; use otrs;
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
-
-Database changed
-mysql&gt; INSERT INTO theme
-    -&gt;     (theme, valid_id, create_time, create_by, change_time, change_by)
-    -&gt;     VALUES
-    -&gt;     ('Company', 1, current_timestamp, 1, current_timestamp, 1);
-mysql&gt;
-    </screen>
+    To activate the new theme in OTRS, add them in the SysConfig under
+    <link linkend="Framework:Core::Web:Frontend::Themes">
+    Frontend::Themes
+    </link>.
     </para>
 </listitem>
 </orderedlist>
@@ -97,7 +76,7 @@ page.
 
 <warning>
 <para>
-Do not change the theme files shipped with OTRS, these changes will be lost
+Do not change the theme files shipped with OTRS, since these changes will be lost
 after an update. Create your own themes only by performing the steps described
 above.
 </para>
