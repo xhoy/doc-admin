@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.41 2010-08-12 14:03:47 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.42 2010-08-16 13:41:47 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -10,19 +10,19 @@
 <para>
 This chapter describes the installation and the basic configuration of the
 central OTRS framework. You'll find information about installing OTRS
-from source or with a binary package, for example RPM or with the
+from source or with a binary package, for example an RPM or with the
 Windows Installer.
 </para>
 
 <para>
 The configuration of the web and database servers, the interface between
-OTRS and the database, the installation of needed Perl modules, setting
+OTRS and the database, the installation of additional Perl modules, setting
 proper access rights for OTRS, setting up the cron jobs for OTRS and some
 basic settings in the configuration files of OTRS are covered in this chapter.
 </para>
 
 <para>
-When you finish reading this chapter, you will have a running OTRS
+When you follow the steps in this chapter, you will have a running OTRS
 system installed on your computer, where you can login and
 administrate the system via the web interface.
 </para>
@@ -33,7 +33,7 @@ administrate the system via the web interface.
 
 <para>
 The simplest and most comfortable way to install OTRS is to use pre-built
-packages. You can find a lot of them in the download area on
+packages. You can find them in the download area on
 
 <ulink url="http://www.otrs.org">
 <citetitle>http://www.otrs.org</citetitle>
@@ -179,6 +179,21 @@ section 3.2.4.
 
 </section>
 
+<section id="installation-on-centos">
+<title>Installing OTRS on a CentOS system</title>
+
+<para>
+On the OTRS Wiki you can find detailed instructions for setting up OTRS on a
+CentOS system. Please note that these instructions will also apply to RedHat
+systems as those use the same source:
+
+<ulink url="http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5">
+http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5
+</ulink>
+.
+</para>
+
+</section>
 <section id="installation-on-debian">
 <title>Installing OTRS on a Debian system</title>
 
@@ -187,7 +202,6 @@ On the OTRS Wiki you can find detailed instructions for setting up OTRS on a Deb
 <ulink url="http://wiki.otrs.org/index.php?title=Installation_on_Debian_5.04_lenny">
 http://wiki.otrs.org/index.php?title=Installation_on_Debian_5.04_lenny
 </ulink>
-
 .
 </para>
 
@@ -211,7 +225,7 @@ http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)
 <title>Installing OTRS on Microsoft Windows systems</title>
 
 <para>
-Installing OTRS on a Microsoft Window system is very easy. Download the latest
+Installing OTRS on a Microsoft Windows system is very easy. Download the latest
 installer for Win32 from
 
 <ulink url="http://www.otrs.org/download/">
@@ -233,8 +247,8 @@ Please change the password for the root@localhost account as soon as possible.
 
 <important>
 <para>
-The Win32 installer for OTRS contains all needed components for the trouble
-ticket system, i.e. the <application>apache2</application>
+The Win32 installer for OTRS contains all needed components for OTRS,
+i.e. the <application>apache2</application>
 web server, the <application>MySQL</application> database server,
 <application>Perl</application> (with all needed modules) and
 <application>cron</application> for Windows will be installed. For that reason
@@ -664,7 +678,7 @@ apache-httpd.include.conf (see Script 3.10 below).
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.41 2010-08-12 14:03:47 mg Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.42 2010-08-16 13:41:47 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1382,7 +1396,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.41 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.42 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1417,7 +1431,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.41 2010-08-12 14:03:47 mg Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.42 2010-08-16 13:41:47 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
