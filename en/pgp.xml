@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pgp.xml,v 1.2 2010-01-26 18:53:36 mb Exp $ -->
+<!-- $Id: pgp.xml,v 1.3 2010-08-17 16:20:12 en Exp $ -->
 
 <chapter id='configure-pgp'>
 <title> PGP</title>
@@ -9,7 +9,7 @@
 <para>
 OTRS is able to sign or encrypt outgoing messages with PGP. Also encrypted
 incoming messages can be decrypted. Encryption and decryption is done with
-the GPL tool GnuPG. To setup GnuPG for OTRS the following steps have to be
+the GPL tool GnuPG. To setup GnuPG for OTRS, the following steps have to be
 performed:
 </para>
 
@@ -17,15 +17,14 @@ performed:
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    The first step is to install GnuPG via the package manager of your
-    operating system.
+    Install GnuPG, via the package manager of your operating system.
     </para>
     </listitem>
     <listitem>
     <para>
-    In the next step GnuPG has to be configured for the usage with OTRS.
+    Configure GnuPG for the usage with OTRS.
     The needed directories for GnuPG and a private key have to be created.
-    The following command has to be executed as OTRS user from a shell.
+    The command shown in the Sript 16.1 has to be executed as OTRS user, from a shell.
     </para>
 
     <para>
@@ -116,29 +115,33 @@ performed:
     </para>
 
     <para>
-    Like shown in the screen above for the most settings the default is OK.
+        <emphasis>Script 16.1. Configuring GnuPG.</emphasis>
+    </para>
+
+    <para>
+    Like shown in the Script 16.1, for most of the settings the default is OK.
     Only the values for the key owner have to be entered correctly and a
-    propper password has to be specified for the key.
+    propper password for the key has to be specified.
     </para>
     </listitem>
     <listitem>
     <para>
-    Now OTRS has to be prepared to use PGP. Open the SysConfig interface
-    via the admin panel and search for ``PGP''. Select the sub group
-     Crypt::PGP from the search results.
+    Now OTRS has to be prepared to use PGP. Open the SysConfig interface,
+    via the admin panel and search for "PGP". Select the sub group
+    Crypt::PGP from the search results.
     </para>
 
     <para>
-    In the screen for the PGP settings PGP should be activated for OTRS
+    In the screen for the PGP settings, PGP should be activated for OTRS
     (first option). Also the path to the gpg program should be checked.
     </para>
 
     <para>
     The next config setting (PGP::Options) might to be changed. Via this
-    config setting the parameters that are used for every execution of gpg
-    by the OTRS user can be specified. Especially the directory of the
+    config setting, the parameters that are used for every execution of gpg,
+    by the OTRS user, can be specified. Especially the directory of the
     config files for GnuPG of the OTRS user is important. In the example
-    <filename>/opt/otrs/.gnupg</filename> is used. Thsis directory was
+    <filename>/opt/otrs/.gnupg</filename> is used. This directory was
     created in the first step of the PGP configuration.
     </para>
 
