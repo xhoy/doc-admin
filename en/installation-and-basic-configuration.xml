@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.42 2010-08-16 13:41:47 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.43 2010-08-20 12:23:34 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -678,7 +678,7 @@ apache-httpd.include.conf (see Script 3.10 below).
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.42 2010-08-16 13:41:47 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.43 2010-08-20 12:23:34 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -974,8 +974,8 @@ shown in the Figure 3.6. Click next to go to the next screen.
 </para>
 
 <para>
-6. If you want, you can provide the needed data to configure your inbound and outboud mail
-or skip this step by pressing the right button  at the buttom of the screen (see Figure 3.8 below).
+6. If you want, you can provide the needed data to configure your inbound and outbound mail
+or skip this step by pressing the right button  at the bottom of the screen (see Figure 3.8 below).
 </para>
 
 <para>
@@ -1035,7 +1035,7 @@ work with the system (see Figure 3.9 below). To log into the web interface of OT
 </ulink>
 
 in your web browser. Log in as OTRS administrator, using the username root@localhost
-and the root password. After that you can configure the system for your needs.
+and the password root. After that you can configure the system for your needs.
 </para>
 
 <warning>
@@ -1396,7 +1396,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.42 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.43 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1431,7 +1431,7 @@ MAILTO="root@localhost"
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.42 2010-08-16 13:41:47 mb Exp $
+# $Id: installation-and-basic-configuration.xml,v 1.43 2010-08-20 12:23:34 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1729,7 +1729,7 @@ Restart your services
     $Self->{'DefaultCharset'} = 'iso-8859-1';
         </para>
         <para>
-    In General, using "utf-8" is the recommended mode of running OTRS, and switching from
+    In general, using "utf-8" is the recommended mode of running OTRS, and switching from
     "iso-8859-1" should work well.
         </para>
       </listitem>
