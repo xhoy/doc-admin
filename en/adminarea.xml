@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.32 2010-08-12 14:03:47 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.33 2010-08-20 12:07:37 mb Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -56,7 +56,7 @@ page, because this is a default password on all OTRS systems.
 <title>Agents</title>
 
 <para>
-By cliking the link <emphasis>Agent</emphasis> you get access to the agent management
+By clicking the link <emphasis>Agent</emphasis> you get access to the agent management
 of OTRS (see Figure 5.2 below). Administrators can add, change or deactivate agent's accounts.
 Administrators can also manage agent's preferences, for instance, the language
 of their interface and notification settings.
@@ -83,7 +83,7 @@ account, but only deactivate them. To do so, set them to
 
 <para>
 To register an agent, click on the "Add agent" button, type all the needed data and press
-the Submit button at the buttom of the screen that is shown in the Figure 5.3.
+the Submit button at the bottom of the screen that is shown in the Figure 5.3.
 </para>
 
 <para>
@@ -99,7 +99,7 @@ the Submit button at the buttom of the screen that is shown in the Figure 5.3.
 
 <para>
 After the new account has been created, you should make the agent a member of one or more
-groups or roles. Therefore, you will be redirected automatically to the appropiate screen.
+groups or roles. Therefore, you will be redirected automatically to the appropriate screen.
 For further information about groups and roles, read the
 <link linkend="adminarea-groups">Groups</link> and <link linkend="adminarea-roles">Roles</link>
 sections of this chapter.
@@ -731,7 +731,7 @@ that a follow up for a ticket is processed by the agent that has previously hand
 </para>
 
 <para>
-The parameter for the system address especifies the email address that will be used for the outgoing
+The parameter for the system address specifies the email address that will be used for the outgoing
 tickets of this queue. There is also possibility to associate a queue to a salutation and a signature,
 for the email answers. For more detailed information, please refer to the sections
 
@@ -821,7 +821,7 @@ needed data and submit it (see Figure 5.21 below).
 <para>
 Because the content of a salutation can be created dynamically, for example,
 for things that change for every ticket (sender's name or email address), it is
-possible to use variables in salutations. Thus, ir you reply a ticket, the variables
+possible to use variables in salutations. Thus, if you reply a ticket, the variable
 names will be replaced for their real content, i.e., the text which is saved in
 the variables.
 </para>
@@ -894,10 +894,10 @@ needed data and submit it (see Figure 5.23 below).
 
 <para>
 Like salutations, signatures can also contain dynamical content (e.g. the first
-and lastname of the agent who answers the ticket), also variables replace
+and last name of the agent who answers the ticket), also variables replace
 the content of the signature text for every ticket. See the lower part of
 the signatures screen for the variables which can be used. If you include
-the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the lastname of
+the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the last name of
 the agent who answers the ticket will replace the variable's name.
 </para>
 
@@ -1007,7 +1007,7 @@ response name or attachment (see below the Figures 5.27 and 5.28, respectively).
 <para>
 To accelerate answering tickets and to standardize the look of answers, you
 can define responses in OTRS. A response can be linked to one or more
-queues and viceversa. In order to be able to use a response quickly, the different
+queues and vice versa. In order to be able to use a response quickly, the different
 responses are displayed below of every ticket in the QueueView or in "My Queues".
 </para>
 
@@ -1062,7 +1062,7 @@ to look for a specific element.
 </para>
 
 <para>
-To define the different responses that will be available for a queue and viceversa,
+To define the different responses that will be available for a queue and vice versa,
 click on the corresponding response or queue (see below the Figures 5.32 and 5.33, respectively).
 </para>
 
@@ -1128,7 +1128,7 @@ type of responses, just use "Auto responses" of the admin area (see Figure 5.34 
 </para>
 
 <para>
-To crreate an automatic response, click on the button "Add auto response", provide the needed
+To create an automatic response, click on the button "Add auto response", provide the needed
 data and submit it (see Figure 5.35 below).
 </para>
 
@@ -1148,8 +1148,8 @@ The subject and text of auto responses can also be generated
 by variables, the same as in signatures and salutations. If you insert, for example,
 the variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; into the body of the
 auto answer, the first 5 lines of the customer mail text will be inserted into the
-auto answer. At the buttom of the screen, shown in the Figure 5.35, you will find more details
-about the valid variables thata can be used.
+auto answer. At the bottom of the screen, shown in the Figure 5.35, you will find more details
+about the valid variables that can be used.
 </para>
 
 <para>
@@ -1185,7 +1185,7 @@ after a default installation are described in the Table 5-3.
           auto reply/new ticket
         </entry>
         <entry>
-          Reopenning of an already closed ticket, e.g. if a customer replies to such
+          Reopening of an already closed ticket, e.g. if a customer replies to such
           ticket.
         </entry>
       </row>
@@ -1271,7 +1271,7 @@ change anything you need to, as if it was a new auto response.
 To enable OTRS to send emails, you need at least a valid email address to be used
 by the system. Due to a lot of setups need more than one email address, OTRS is
 able to simultaneously work with several of them. A queue can be linked to many
-email addresses, and viceversa. The address, that shall be used for outgoing messages
+email addresses, and vice versa. The address, that shall be used for outgoing messages
 from a queue, can be set when the queue is created. Use the "Email Addresses"
 link of the admin area, to manage all email addresses of the system (see Figure 5.38 below).
 </para>
@@ -1284,7 +1284,7 @@ link of the admin area, to manage all email addresses of the system (see Figure 
 </para>
 
 <para>
-    <emphasis>Figure 5.38. System email addresses manegement.</emphasis>
+    <emphasis>Figure 5.38. System email addresses management.</emphasis>
 </para>
 
 <para>
@@ -1365,8 +1365,8 @@ name for each of the available languages.
 </para>
 
 <para>
-Like signatures and salutations, it is possible to dinamically create the content of a
-notification, by using special variables. At the buttom of the screen shown in the Figure 5.41
+Like signatures and salutations, it is possible to dynamically create the content of a
+notification, by using special variables. At the bottom of the screen shown in the Figure 5.41
 you can find a list of them.
 </para>
 
