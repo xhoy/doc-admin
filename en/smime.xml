@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: smime.xml,v 1.3 2010-08-10 23:51:09 en Exp $ -->
+<!-- $Id: smime.xml,v 1.4 2010-08-30 22:38:51 en Exp $ -->
 
 <chapter id="smime">
 <title>S/MIME</title>
 
 <para>
 At first sight, encryption with S/MIME seems to be a little bit more
-complicated than encryption with PGP. First of all, you have to establish
+complicated than with PGP. First of all, you have to establish
 a Certification Authority (CA) for the OTRS system. Then, the following
 procedures are very much like those you have to perform using PGP:
 configure OTRS, install your own certificate, import other public
-certificates if needed etc.
+certificates (if needed), etc.
 </para>
 
 <para>
@@ -21,10 +21,10 @@ the most part, and should be carried out in a shell by the OTRS user, i.e.
 with his/her user rights. The MIME configuration under Linux is based on
 SSL (OpenSSL). Therefore, check first of all whether the OpenSSL package
 is installed on your system. The OpenSSL package includes a script called
-CA.pl with which the most important steps of certificate creation can be
+CA.pl, with which the most important steps of certificate creation can be
 performed. To simplify the procedure, find out where in the file system
 the CA.pl script is stored and enter the location temporarily into the path
-variable of the shell.
+variable of the shell (see Script 17.1 below).
 </para>
 
 <para>
@@ -40,7 +40,11 @@ otrs@linux:~/tmp&gt;
 </para>
 
 <para>
-The example shows that a new temporary directory ~/tmp has been created in
+    <emphasis>Script 17.1. Configuring S/MIME.</emphasis>
+</para>
+
+<para>
+The Script 17.1 shows that a new temporary directory ~/tmp has been created, in
 which the certificate is generated.
 </para>
 
@@ -48,8 +52,7 @@ which the certificate is generated.
 To create a certificate, perform the following operations in the command
 line (we assume that the OTRS administrator has to create a SSL
 certificate for test and learning purposes. In case you already have a
-certified SSL certificate for the encryption, use it and skip the
-following):
+certified SSL certificate for the encryption, use it and skip these steps):
 </para>
 
 <para>
@@ -57,7 +60,7 @@ following):
 <listitem>
     <para>
     Establish your own Certification Authority for SSL. You need it to
-    certify the request for your own SSL certificate.
+    certify the request for your own SSL certificate (see Script 17.2 below).
     </para>
 
     <para>
@@ -99,10 +102,15 @@ drwxr-xr-x  2 otrs otrs   80 2006-01-08 17:54 private
 otrs@linux:~/tmp&gt;
     </screen>
     </para>
+
+    <para>
+        <emphasis>Script 17.2. Establishing a Certification Authority for SSL.</emphasis>
+    </para>
+
 </listitem>
 <listitem>
     <para>
-    Generate a certificate request.
+    Generate a certificate request (see Script 17.3 below).
     </para>
 
     <para>
@@ -142,12 +150,16 @@ drwxr-xr-x  6 otrs otrs  232 2006-01-08 17:54 demoCA
 otrs@linux:~/tmp&gt;
     </screen>
     </para>
+
+    <para>
+        <emphasis>Script 17.3. Creating a certificate request.</emphasis>
+    </para>
 </listitem>
 <listitem>
     <para>
     Signing of the certificate request. The certificate request can either
     be signed, and thereby certified, by your own CA or, which is more
-    respectable, by another extern certified CA.
+    respectable, by another extern certified CA (see Script 17.4 below).
     </para>
 
     <para>
@@ -193,11 +205,14 @@ Signed certificate is in newcert.pem
 otrs@linux:~/tmp&gt;
     </screen>
     </para>
+    <para>
+        <emphasis>Script 17.4. Signing of the certificate request.</emphasis>
+    </para>
 </listitem>
 <listitem>
     <para>
     Generate your own certificate, and all data going with it, using the
-    signed certificate request.
+    signed certificate request (see Script 17.5 below).
     </para>
 
     <para>
@@ -215,13 +230,16 @@ drwxr-xr-x  6 otrs otrs  328 2006-01-08 18:04 demoCA
 otrs@linux:~/tmp&gt;
     </screen>
     </para>
+    <para>
+        <emphasis>Script 17.5. Generating a new certificate.</emphasis>
+    </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-these operations have been performed, the S/MIME setup must be
-completed in OTRS.
+Now that these operations have been performed, the S/MIME setup must be
+complete in OTRS.
 </para>
 
 <para>
@@ -238,13 +256,12 @@ and provides a comfortable link for that purpose.
 </para>
 
 <para>
-With the SysConfig, you can enable and configure the general S/MIME
-support. You can find this option in the SysConfig group
-
+With the SysConfig group
 <link linkend="Framework:Crypt::SMIME">
 "Crypt::SMIME"
 </link>
-.
+, you can also enable and configure the general S/MIME
+support.
 </para>
 
 <para>

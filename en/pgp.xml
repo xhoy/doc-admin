@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pgp.xml,v 1.3 2010-08-17 16:20:12 en Exp $ -->
+<!-- $Id: pgp.xml,v 1.4 2010-08-30 22:38:03 en Exp $ -->
 
 <chapter id='configure-pgp'>
 <title> PGP</title>
@@ -119,7 +119,7 @@ performed:
     </para>
 
     <para>
-    Like shown in the Script 16.1, for most of the settings the default is OK.
+    As shown in the Script 16.1, for most of the settings the default is OK.
     Only the values for the key owner have to be entered correctly and a
     propper password for the key has to be specified.
     </para>
@@ -156,8 +156,8 @@ performed:
     <para>
     How to get the id of your own private key? The ID of your own private
     key is already shown during the key generation (see step 1 from
-    above). It is also possible to get the ID if the following command is
-    executed as OTRS user:
+    above). It is also possible to get the ID if the command specified in the
+    Script 16.2 is executed as OTRS user:
     </para>
 
     <para>
@@ -179,6 +179,10 @@ performed:
     </para>
 
     <para>
+        <emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>
+    </para>
+
+    <para>
     The ID of the private key can be found in the line that starts with
     "sub". It is a hexadecimal string that is eight characters long,
     in the example above it is "52B97069". The password you have to
@@ -187,16 +191,16 @@ performed:
     </para>
 
     <para>
-    After these data have been inserted the "Update" button can be used to
+    After these data have been inserted, the "Update" button can be used to
     store the settings. OTRS is ready to receive and decrypt encoded
     messages now.
     </para>
     </listitem>
     <listitem>
     <para>
-    The last step is the import of a customers public key. This ensures
+    Finally, import a customer's public key. This ensures
     that also encrypted messages can be sent out to this customer. There
-    are two possibilities to import a public key of a customer.
+    are two ways to import a public key of a customer.
     </para>
 
     <para>
@@ -206,10 +210,10 @@ performed:
     </para>
 
     <para>
-    The second possibility is to specify the key via the PGP settings
+    The second possibility is to specify the key via the PGP settings,
     reachable from the admin area of OTRS. On the right site of this screen
     all already imported public keys of customers are displayed. After PGP
-    has been activated and configured for OTRS your own public     key should be
+    has been activated and configured for OTRS your own public key should be
     listed there also. In the left area of the PGP setting screen it is
     possible to search for keys. Also a new public key can be uploaded into
     the system from a file.
@@ -217,8 +221,8 @@ performed:
 
     <para>
     The files with the public key that need to be imported into OTRS have
-    to be GnuPGP conform key files. In most cases the key stored in a file
-    is an ``ASCII armored key''.. OTRS can deal with this format.
+    to be GnuPGP conform key files. In most cases, the key stored in a file
+    is an "ASCII armored key". OTRS can deal with this format.
     </para>
     </listitem>
 </orderedlist>
