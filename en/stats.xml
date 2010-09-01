@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.4 2010-08-20 12:23:34 mb Exp $ -->
+<!-- $Id: stats.xml,v 1.5 2010-09-01 21:47:19 en Exp $ -->
 <chapter id="statistic-module">
 <title>Stats module</title>
 
@@ -18,41 +18,40 @@ A stats module should meet a multitude of requirements:
 <itemizedlist>
     <listitem>
         <para>
-        Various OTRS modules are to be evaluated,
+        Various OTRS modules are to be evaluated.
         </para>
     </listitem>
     <listitem>
         <para>
-        the user permission settings of the respective installation should be
-        considered,
+        Consideration of the user permission settings of the respective installation.
         </para>
     </listitem>
     <listitem>
         <para>
-        it should be able to generate complex statistics,
+        Generation of complex statistics.
         </para>
     </listitem>
     <listitem>
         <para>
-        configuration of stats should be easy and quick,
+        Easy and fast configuration of stats.
         </para>
     </listitem>
     <listitem>
         <para>
-        performance should be high,
+        High performance.
         </para>
     </listitem>
     <listitem>
         <para>
-        and a number of output variants should be supported.
+        Support of a large number of output variants.
         </para>
     </listitem>
 </itemizedlist>
 </para>
 
 <para>
-The stats module tries to meet all these requirements. The core
-feature is a GUI which allows to configure stats with the click
+The OTRS stats module tries to satisfy all these requirements. The core
+feature is a GUI, which allows to configure stats with the click
 of a mouse.
 </para>
 
@@ -69,7 +68,7 @@ the activities of individual agents in the standard configuration.
 </para>
 
 <para>
-All things considered, the stats module enables OTRS users a quick
+The stats module enables OTRS users to make a quick
 and easy evaluation of the activities on their system.
 </para>
 
@@ -80,58 +79,39 @@ and easy evaluation of the activities on their system.
 As soon as the stats module has been installed and configured
 successfully by the OTRS admin, the navigation
 bar of every agent with read and/or write rights displays
-the additional module link "Stats".
+the additional module link "Statistics", which has various action links,
+as shown in the Figure 19.1.
 </para>
 
 <para>
 <screenshot>
 <screeninfo>The stats module</screeninfo>
-<graphic fileref="screenshots/stats-icon.png" scale="40" srccredit="stats-icon - Screenshot" />
+<graphic fileref="screenshots/stats-menu.png" scale="40" srccredit="stats-menu - Screenshot" />
 </screenshot>
 </para>
 
 <para>
-After the link has been activated, various action links for the stats
-module are shown in the navigation bar.
+    <emphasis>Figure 19.1. Action lists of the statistics.</emphasis>
 </para>
+
+The different options provided in the statistics menu are:
 
 <para>
 <itemizedlist>
     <listitem>
         <para>
-        "Overview"
-        </para>
-
-        <para>
-        is also shown automatically if the module link "Stats"
-        is chosen
+            <emphasis>Overview</emphasis>.
+            Automatically shown if the module link "Statistics" is chosen.
         </para>
     </listitem>
     <listitem>
         <para>
-        "New"
-        </para>
-
-        <para>
-        rw rights required
+            <emphasis>New</emphasis>. Requires rw rights.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Import"
-        </para>
-
-        <para>
-        rw rights required
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Preferences"
-        </para>
-
-        <para>
-        OTRS user interface for personal settings
+            <emphasis>Import</emphasis>. Requires rw rights.
         </para>
     </listitem>
 </itemizedlist>
@@ -141,21 +121,25 @@ module are shown in the navigation bar.
 <title>Overview</title>
 
 <para>
-A list of all pre-configured stats the agent can use.
+A list of all pre-configured stats the agent can use (see Figure 19.2 below).
 </para>
 
 <para>
-The easiest way to access the overview is to select the "Stat"
+The easiest way to access the overview is to select the "Statistics"
 link and then the action link "Overview" in the navigation bar. The
 stats overview is called up automatically when the module
-link "Stats" in the navigation bar is chosen.
+link "Statistics" in the navigation bar is chosen.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Overview with standard stats</screeninfo>
+<screeninfo>Overview of the standard statistics</screeninfo>
 <graphic fileref="screenshots/stats-overview.png" scale="40" srccredit="stats-overview - Screenshot" />
 </screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 19.2. Overview of the standard statistics.</emphasis>
 </para>
 
 <para>
@@ -167,60 +151,44 @@ in the overview:
 <itemizedlist>
     <listitem>
         <para>
-        "Stat#"
-        </para>
-
-        <para>
-        the unique stat number
+            <emphasis>Stat#</emphasis>. Unique statistic number.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Title"
-        </para>
-
-        <para>
-        the stat title
+            <emphasis>Title</emphasis>. Title of the statistic.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Object"
-        </para>
-
-        <para>
-        Object used for generating the stat. In the case of a static stat
-        no object is displayed as no dynamic object is used for the
-        generation.
+            <emphasis>Object</emphasis>. Object used for generating the statistic.
+            In the case of a static statistic, no object is displayed as no dynamic
+            object is used for its generation.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Description"
-        </para>
-
-        <para>
-        Excerpt of the description
+            <emphasis>Description</emphasis>. Excerpt of the statistic's description.
         </para>
     </listitem>
 </itemizedlist>
 </para>
 
 <para>
-A results display can be found above the list. It provides
+Below the list of statistics, there is a results display, which provides
 information about the number of accessible stats. If the
 overview covers more than one page, the agent can browse
 through the different pages.
 </para>
 
 <para>
-The agents can sort the stats according to their needs
-with the blue "up" and "down" icons in the headline.
+The agents can sort the stats ascending or descending, according to their needs,
+just by clicking the desired sorting key field of the headline.
 </para>
 
 <para>
-To generate a stat the right one is chosen by clicking the
-link with the stat number which leads to the "View" user interface.
+To generate a statistic, the right one is chosen by clicking the
+link with the stat number, which leads to the "View" user interface.
 </para>
 
 <para>
@@ -235,15 +203,7 @@ is used for the first time.
 
 <para>
 The view user interface is supposed to provide the agent with an
-overview of the stat's pre-configuration.
-</para>
-
-<para>
-The agents can perform configurations within the range of the
-pre-configuration. The originator of a stat configuration can determine
-the degree to which the stat generation can be influenced. The most extreme
-examples of this would be agents who cannot effect any changes or can
-change all attributes, respectively.
+overview of the stat's pre-configuration (see Figure 19.3 below).
 </para>
 
 <para>
@@ -254,6 +214,18 @@ change all attributes, respectively.
 </para>
 
 <para>
+    <emphasis>Figure 19.3. Viewing a specific statistic.</emphasis>
+</para>
+
+<para>
+The agents can perform configurations within the range of the
+pre-configuration. The originator of a stat configuration can determine
+the degree to which the stat generation can be influenced. The most extreme
+examples of this would be agents who can't effect any changes or can
+change all attributes, respectively.
+</para>
+
+<para>
 The page shows the following:
 </para>
 
@@ -261,53 +233,40 @@ The page shows the following:
 <itemizedlist>
     <listitem>
         <para>
-        the menu links
+        Possible actions:
         </para>
 
         <para>
         <itemizedlist>
             <listitem>
                 <para>
-                "Back"
-                </para>
-
-                <para>
-                Link back to the starting point
+                    <emphasis>Go to overview</emphasis>.
+                    Link back to the starting point.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "Edit"
-                </para>
-
-                <para>
-                Link to the edit user interface of the stat
-                (rw rights required)
+                    <emphasis>Edit</emphasis>.
+                    Edit the current stat (rw rights required).
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "Delete"
-                </para>
-
-                <para>
-                Delete a stat (rw rights required)
+                    <emphasis>Delete</emphasis>.
+                    Delete the current stat (rw rights required).
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "Export Config"
+                    <emphasis>Export config</emphasis>.
+                    Export a stat configuration, via file download
+                   (rw rights required).
                 </para>
 
                 <para>
-                Export a stat configuration via file download
-                (rw rights required)
-                </para>
-
-                <para>
-                Usage: export and import functions allow for the convenient
-                creation and testing of stats on test systems and subsequent
-                easy integration into the production system.
+                    Usage: export and import functions allow for the convenient
+                    creation and testing of stats on test systems and subsequent
+                    easy integration into the production system.
                 </para>
             </listitem>
         </itemizedlist>
@@ -315,276 +274,214 @@ The page shows the following:
     </listitem>
     <listitem>
         <para>
-        Meta data (gray block on the right)
+        The stat details:
         </para>
-
-        <para>
-        Provides information about the stat originators. Information
-        is provided about who created the stat and when as well
-        as who last changed it.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        The stat data itself
-        </para>
-
-        <para>
-        can be found in the central block of the user interface.
-        </para>
-    </listitem>
-</itemizedlist>
-</para>
-
-<para>
-In the following, details to the stat input are provided as this input
-contains the core information.
-</para>
-
-<para>
-General information is provided first.
-</para>
-
-<para>
-<itemizedlist>
-    <listitem>
-        <para>
-        "Stat#"
-        </para>
-
-        <para>
-        The stat number
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Title"
-        </para>
-
-        <para>
-        The stat title
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Object"
-        </para>
-
-        <para>
-        Object used for generating the stat
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Description"
-        </para>
-
-        <para>
-        The description provides more detailed information
-        about the intention of the
-        stat.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Format"
-        </para>
-
-        <para>
-        Stat output format. Depending on the configuration, following output
-        formats can be chosen:
-        </para>
-
-        <para>
-        <itemizedlist>
-            <listitem>
-            <para>
-            "CSV" -&gt; stat download in csv format
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Print" -&gt; printable html or pdf table
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            Graph-lines
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Graph-bars"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Graph-hbars"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Graph-points"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Graph-lines-points"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Graph-area"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Graph-pie"
-            </para>
-        </listitem>
-    </itemizedlist>
-    </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Graphsize"
-        </para>
-
-        <para>
-        size which the graphic / chart may have
-        </para>
-
         <para>
         <itemizedlist>
             <listitem>
                 <para>
-                indicated in pixels
-                </para>
-                <para>
-                this option is only given when the stat pre-configuration
-                allows for a chart.
+                    <emphasis>Stat#</emphasis>.
+                    The number of the statistic.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                All generally usable graphic sizes are configured by the
-                OTRS admin in the SysConfig. The agent can then pre-select all
-                relevant formats while configuring the stats.
-                </para>
-            </listitem>
-        </itemizedlist>
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Sum rows"
-        </para>
-
-        <para>
-        Indicates whether the stat is amended by a column whose cells
-        state the sums of the respective rows.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Sum columns"
-        </para>
-
-        <para>
-        Indicates whether the stat is amended by a
-        row whose cells state the sum of the
-        respective columns
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Cache"
-        </para>
-
-        <para>
-        Indicates whether the generated stats are
-        cached in the file system.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Valid"
-        </para>
-
-        <para>
-        The "valid" element is set "invalid" if a pre-configured statistic
-        is still being created or must not be used temoprarily for certain
-        reasons. Also the "Start" button in the bottom right of the
-        block is then no longer displayed. The stat can no longer
-        be generated.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Exchange axis"
-        </para>
-
-        <para>
-        Using this function, the agent can exchange the x
-        and y axes (only when activated by the OTRS
-        administrator).
-        </para>
-    </listitem>
-</itemizedlist>
-</para>
-
-<para>
-The general information is followed by information about the stat
-itself. There are two different stat views:
-</para>
-
-<para>
-<itemizedlist>
-    <listitem>
-        <para>
-        Static stat view
-        </para>
-
-        <para>
-        Complex stats cannot be generated dynamically. Static stat generators
-        can be integrated into the stat module for that reason. They were
-        developed specifically for the particular evaluation.
-        The various job definitions result in different views.
-        </para>
-
-        <para>
-        <screenshot>
-        <screeninfo>Static stat view</screeninfo>
-        <graphic fileref="screenshots/stats-view-static.png" scale="40" srccredit="stats-view-static - Screenshot" />
-        </screenshot>
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Dynamic stats can be displayed in two different ways:
-        </para>
-
-        <para>
-        <itemizedlist>
-            <listitem>
-                <para>
-                Unchangeable settings
-                </para>
-
-                <para>
-                In this case, the originator of the stat has not allowed
-                for alterations on the part of the agent who wants to
-                generate a stat.
+                    <emphasis>Title</emphasis>.
+                    The title of the statistic.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                changeable settings
+                    <emphasis>Object</emphasis>.
+                    Object used for generating the stat.
                 </para>
-
+            </listitem>
+            <listitem>
                 <para>
-                The pre-configuration of such stats can be changed by the
-                agent.
+                    <emphasis>Description</emphasis>.
+                    Provides more detailed information
+                    about the intention of the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Format</emphasis>.
+                    Stat output format. Depending on the configuration, any of the
+                    following output formats can be chosen:
+                </para>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                    <para>
+                    CSV.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Print.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-lines.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-bars.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-hbars.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-points.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-lines-points.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-area.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                    Graph-pie.
+                    </para>
+                </listitem>
+            </itemizedlist>
+            </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Graphsize</emphasis>.
+                    Size (in pixels) which the graphic / chart may have.
+                    This option is only given when the stat pre-configuration
+                    allows it for a chart. All generally usable graphic sizes
+                    are configured by the OTRS admin in the SysConfig. The agent
+                    can then pre-select all relevant formats, while configuring the stats.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Sum rows</emphasis>.
+                    Indicates whether the stat is amended by a column,
+                    whose cells state the sums of the respective rows.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Sum columns</emphasis>.
+                    Indicates whether the stat is amended by a row,
+                    whose cells state the sum of the respective columns.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Cache</emphasis>.
+                    Indicates whether the generated stats are
+                    cached in the file system.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Valid</emphasis>.
+                    This is set to "invalid" if a pre-configured statistic
+                    is still being created or must not be used temporarily for certain
+                    reasons. Also the "Start" button in the bottom right of the
+                    block is then no longer displayed. The stat can no longer
+                    be generated.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Created</emphasis>.
+                    Creation time of the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Created by</emphasis>.
+                    Agent who created the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Changed</emphasis>.
+                    Time of the last stat's modification.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Changed by</emphasis>.
+                    Agent who altered the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>X-axis</emphasis>.
+                    Using this function, the agent can exchange the x
+                    and y axes (only when activated by the OTRS
+                    administrator).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                The general information is followed by information about the stat
+                itself. There are two different stat views:
+                </para>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis>Static stat view</emphasis>.
+                            Complex stats cannot be generated dynamically, that is the reason why
+                            static stat generators can be integrated into the stat module (see Figure 19.4 below).
+                            They were developed specifically for the particular evaluation.
+                            The various job definitions result in different views.
+                        </para>
+                        <para>
+                        <screenshot>
+                        <screeninfo>Static stat view</screeninfo>
+                        <graphic fileref="screenshots/stats-view-static.png" scale="40" srccredit="stats-view-static - Screenshot" />
+                        </screenshot>
+                        </para>
+                        <para>
+                            <emphasis>Figure 19.4. Viewing a static statistic.</emphasis>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Dinamic stat view</emphasis> (see Figure 19.3 above).
+                            They can be displayed in two different ways:
+                        </para>
+                        <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Unchangeable settings</emphasis>.
+                                    The originator of the stat has no permission
+                                    for modifying this fields.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Changeable settings</emphasis>.
+                                    The pre-configuration of such stats can be changed by the
+                                    agent.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                        </para>
+                    </listitem>
+                </itemizedlist>
                 </para>
             </listitem>
         </itemizedlist>
@@ -594,28 +491,21 @@ itself. There are two different stat views:
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Display of a changeable dynamic stat</screeninfo>
-<graphic fileref="screenshots/stats-view-configurable.png" scale="40" srccredit="stats-view-configurable - Screenshot" />
-</screenshot>
-</para>
-
-<para>
-Pressing the "start" button at the bottom right end of the block is the
-last simple step to generate a stat. There are two possible reasons if
-the "start" button is not displayed:
+Pressing the "Start" button (at the bottom of the screen) is the
+last simple step to generate a stat. There are two possible reasons for
+this button to not be displayed:
 </para>
 
 <para>
 <orderedlist numeration="arabic" >
     <listitem>
         <para>
-        The stat was set invalid and thus deactivated
+        The stat was set to invalid and thus, deactivated.
         </para>
     </listitem>
     <listitem>
         <para>
-        The stat was not configured neatly and is therefore not yet
+        The stat was not configured neatly and is, therefore, not yet
         executable. In this case, the necessary information can be found
         in the OTRS notification section (below the navigation bar).
         </para>
@@ -624,8 +514,8 @@ the "start" button is not displayed:
 </para>
 
 <para>
-If the settings on the view page are incorrect, the page is shown again
-after the "start" button was pushed and information about which input
+If the settings on the view page are incorrect, this page is shown again
+after the "Start" button was pushed, and information about which input
 was incorrect is provided in the notification section.
 </para>
 </section>
@@ -634,28 +524,23 @@ was incorrect is provided in the notification section.
 <title>Edit - New</title>
 
 <para>
-Agents can call up the edit user interface of the stat module in two
-different ways:
+Agents, who have write rights, can edit an existing stat configuration by calling
+up the edit user interface of the stat module. There are two possibilites for that:
 </para>
 
 <para>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    via the "edit" menu link in the stat view to edit an existing stat
-    configuration.
+    Via the "Edit" button in the stat view.
     </para>
 </listitem>
 <listitem>
     <para>
-    via the "new" link in the navigation bar.
+    Via the "New" link in the menu of the Statistics module in the navigation bar.
     </para>
 </listitem>
 </orderedlist>
-</para>
-
-<para>
-These links are only visible to agents with write rights for this module.
 </para>
 
 <para>
@@ -666,35 +551,35 @@ The stats are edited with a wizard in four steps:
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    General information about the stat
+    General specifications.
     </para>
 </listitem>
 <listitem>
     <para>
-    Definition of the element for the x axis
+    Definition of the element for the X-axis.
     </para>
 </listitem>
 <listitem>
     <para>
-    Definition of the value series
+    Specification of the value series.
     </para>
 </listitem>
 <listitem>
     <para>
-    Definition of the restrictions
+    Definition of the restrictions to characterize the stat.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Points 2-4 are only needed for the generation of dynamic stats. For a
-static stat only the entering of general information in point 1 is required.
+Points 2 to 4 are only needed for the generation of dynamic stats. For a
+static stat, only the general information (point 1) is required.
 </para>
 
 <para>
 Information about how to handle the page is provided below the
-input forms on all input user interfaces of the stats module.
+input forms, on all input user interfaces of the stats module.
 </para>
 
 <para>
@@ -702,7 +587,7 @@ If incorrect data is entered nevertheless, the previously processed user
 interface is displayed again and amended by information about the
 incorrect input.
 This information can be found in the OTRS notification section. The next
-input use interface is only displayed after the form has been filled out
+input user interface is only displayed after the form has been filled out
 correctly.
 </para>
 
