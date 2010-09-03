@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.5 2010-09-01 21:47:19 en Exp $ -->
+<!-- $Id: stats.xml,v 1.6 2010-09-03 22:14:27 en Exp $ -->
 <chapter id="statistic-module">
 <title>Stats module</title>
 
@@ -94,7 +94,9 @@ as shown in the Figure 19.1.
     <emphasis>Figure 19.1. Action lists of the statistics.</emphasis>
 </para>
 
+<para>
 The different options provided in the statistics menu are:
+</para>
 
 <para>
 <itemizedlist>
@@ -595,194 +597,141 @@ correctly.
 <orderedlist numeration="arabic" >
 <listitem>
     <para>
-    "Common specification"
-    </para>
-
-    <para>
-    The first page of the wizard is the input user interface "Common
-    specification". A great number of common specifications and settings
-    can be edited on this page.
+        <emphasis>General specifications</emphasis>.
+        It is the first page of the wizard (see Figure 19.5 below).
     </para>
 
     <para>
     <screenshot>
-    <screeninfo>Common specifications of the stat</screeninfo>
+    <screeninfo>General specifications of the stat</screeninfo>
     <graphic fileref="screenshots/stats-edit-general.png" scale="40" srccredit="stats-edit-general - Screenshot" />
     </screenshot>
+    </para>
+
+    <para>
+        <emphasis>Figure 19.5. Editing the general specifications of a stat.</emphasis>
+    </para>
+
+
+    <para>
+        In the screen showed in the Figure 19.5 there is a great number of common specifications
+        and settings can be edited:
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-            "Title"
-            </para>
-
-            <para>
-            Should reflect the stat's purpose in a concise manner.
+                <emphasis>Title</emphasis>.
+                Should reflect the stat's purpose in a concise manner.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Description"
-            </para>
-
-            <para>
-            More detailed information about the job definition, type of
-            configuration parameters etc.
+                <emphasis>Description</emphasis>.
+                More detailed information about the job definition, type of
+                configuration parameters, etc.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Dynamic object"
-            </para>
-
-            <para>
-            If the OTRS installation provides various dynamic
-            objects, one of them can be selected at this step.
-            The objects meet the requirements of the particular
-            modules.
+                <emphasis>Dynamic object</emphasis>.
+                If the OTRS installation provides various dynamic
+                objects, one of them can be chosen.
+                The objects meet the requirements of the particular
+                modules.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Static file"
-            </para>
-
-            <para>
-            A static file can be selected at this point. Usually this
-            selection is not shown as only static files which
-            are not yet assigned to any stats are displayed! If
-            "Static file" is displayed, however, it is important to
-            tick the option field and select a generation mode
-            (dynamic with a dynamic object or static with a file).
-            If a static file is selected, the input user interfaces 2-4
-            are not shown as the static file contains all configurations
-            required.
+                <emphasis>Static file</emphasis>.
+                Usually this selection is not shown, as only static files which
+                are not yet assigned to any stats are displayed. If
+                "Static file" is displayed, however, it is important to
+                tick the option field and select a generation mode
+                (dynamic with a dynamic object or static with a file).
+                If a static file is selected, the input user interfaces 2-4
+                are not shown as the static file contains all required configurations.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Permission settings"
+                <emphasis>Permission settings</emphasis>.
+                Facilitate a restriction of the groups (and
+                therefore, agents) who can later view and generate the
+                preconfigured stats. Thus the various stats can be allocated to the
+                different departments and work groups who need them. It is possible
+                to allocate one stat to various groups.
             </para>
 
             <para>
-            The permission settings facilitate a restriction of the groups (and
-            therefore agents) who can later view and generate the
-            preconfigured stats. Thus the various stats can be allocated to the
-            different departments and work groups needing them. It is possible
-            to allocate one stat to various groups.
+                Example 1: The "stats" group was selected. The stat is
+                viewable for all users having at least ro rights for the "stats"
+                group. As the base requirement for accessing the view mode of the stat
+                module in the default configuration is to have ro rights in the
+                "stats" group, all users with permission to create statistics can view
+                it in this configuration.
             </para>
 
             <para>
-            Example 1: the "stats" group was selected. The stat is
-            viewable for all users having at least ro rights for the "stats"
-            group. As the base requirement for accessing the
-            view mode of the stat module in the default configuration is to
-            have ro rights in the
-            "stats" group, all users with permission to create statistics can view it in this
-            configuration.
-            </para>
-
-            <para>
-            Example 2: a group named "sales" was selected. All users with ro
-            rights for the "sales" group can
-            see the stat in the view mode and generate it. However, the stat will not be shown to other users
-            with permission to generate stats.
+                Example 2: A group named "sales" was selected. All users with ro
+                rights for the "sales" group can see the stat in the view mode and generate
+                it. However, the stat will not be shown to other users
+                with permission to generate stats.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Format" -  output format of the stat
-            </para>
-
-            <para>
-            Depending on the configuration, the following output formats
-            can be chosen:
+                <emphasis>Format</emphasis>.
+                Output format of the stat.
+                Depending on the configuration, one or more of the following formats can be chosen:
             </para>
 
             <para>
             <itemizedlist>
                 <listitem>
                 <para>
-                "CSV" -&gt; stat output in csv format
+                    CSV.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "Print" -&gt; printable html or pdf table
+                    Print.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-lines"
+                    graph-lines.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-bars"
+                    graph-bars.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-hbars"
+                    graph-hbars.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-points"
+                    graph-points.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-lines-points"
+                    graph-lines-points.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-area"
+                    graph-area.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                "graph-pie"
-                </para>
-            </listitem>
-        </itemizedlist>
-        </para>
-
-        <para>
-        More than one format can be selected.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Graphsize"
-        </para>
-
-        <para>
-        Select which size the charts can have.
-        </para>
-
-        <para>
-        <itemizedlist>
-            <listitem>
-                <para>
-                indicated in pixels
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                this selection is only necessary if a graphical output format
-                has been chosen under "Format".
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                all graphic sizes that can generally be used are
-                defined by the OTRS admin in SysConfig. When
-                configuring the stat, the agent can pre-select all
-                relevant formats.
+                    graph-pie.
                 </para>
             </listitem>
         </itemizedlist>
@@ -790,76 +739,55 @@ correctly.
     </listitem>
     <listitem>
         <para>
-        "Sum rows"
-        </para>
-
-        <para>
-        If "yes" is chosen in the pulldown menu, the stat is amended by a
-        column whose cells display the sum of the respective row.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Sum columns"
-        </para>
-
-        <para>
-        Indicates whether the stat is amended by a row whose
-        cells contain the sum of the respective column.
+            <emphasis>Graphsize</emphasis>.
+            Select the size (in pixels) the charts should have. This selection is only
+            necessary if a graphical output format has been chosen under "Format".
+            All graphic sizes that can generally be used are defined by the OTRS admin
+            in SysConfig. When configuring the stat, the agent can pre-select all
+            relevant formats.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Cache"
-        </para>
-
-        <para>
-        The generated stats are cached in the file system if "yes" is selected
-        in the pulldown menu. This saves computing power and time if
-        the stat is called up again.
-        </para>
-
-        <para>
-        This function should only be used if the stat's content is no longer
-        changing. Thorough checking is required before the caching
-        function is used.
-        </para>
-
-        <para>
-        Caching is automatically prevented in the following situations:
-        </para>
-
-        <para>
-        <itemizedlist>
-            <listitem>
-                <para>
-                if the stat contains no time designation values (new data is
-                added continuously)
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                if a time designation value points to the future
-                </para>
-            </listitem>
-        </itemizedlist>
-        </para>
-
-        <para>
-        If a cached stat is edited, all cached data is deleted.
+            <emphasis>Sum rows</emphasis>.
+            Indicates whether the stat is amended by a column, whose
+            cells contain the sum of the respective row.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Valid"
+            <emphasis>Sum columns</emphasis>.
+            Indicates whether the stat is amended by a row, whose
+            cells contain the sum of the respective column.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            <emphasis>Cache</emphasis>.
+            Specifies if the generated stats should be cached in the file system.
+            This saves computing power and time if the stat is called up again, but
+            it only should be used if the stat's content is no longer
+            changing.
         </para>
 
         <para>
-        The "valid" element is set "invalid" if a pre-configured stat is
-        still being created or must not be used temoprarily for certain
-        reasons. Also the "Start" button in the bottom right of the
-        block is no longer displayed. It is impossible to generate the
-        stat.
+            Caching is automatically prevented if the stat contains no time designation
+            values (new data is added continuously) or if a time designation value points
+            to the future.
+        </para>
+
+        <para>
+            If a cached stat is edited, all cached data is deleted.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            <emphasis>Valid</emphasis>.
+            It is set "invalid" if a pre-configured stat is
+            still being created or must not be used temporarily for certain
+            reasons. Also the "Start" button in the bottom right of the
+            block is no longer displayed. It is impossible to generate the
+            stat.
         </para>
     </listitem>
 </itemizedlist>
