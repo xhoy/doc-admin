@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.6 2010-09-03 22:14:27 en Exp $ -->
+<!-- $Id: stats.xml,v 1.7 2010-09-06 23:20:42 en Exp $ -->
 <chapter id="statistic-module">
 <title>Stats module</title>
 
@@ -793,30 +793,23 @@ correctly.
 </itemizedlist>
 </para>
 
-<para>
-By clicking the "Next" button the next user interface of the wizard is
-called up.
-</para>
 </listitem>
 <listitem>
     <para>
-    "xaxis"
-    </para>
-
-    <para>
-    The "Common statements" section is followed by the "xaxis" form.
+        <emphasis>Definition of the element for the X-axis</emphasis>.
+        It is the configuration of the element used for the depiction of the X-axis or,
+        if tables are used, of the column name chosen for the stat (see Figure 19.6).
     </para>
 
     <para>
     <screenshot>
-    <screeninfo>Definition of the element for the x axis.</screeninfo>
+    <screeninfo>Definition of the element for the X-axis.</screeninfo>
     <graphic fileref="screenshots/stats-edit-xaxis.png" scale="40" srccredit="stats-edit-xaxis - Screenshot" />
     </screenshot>
     </para>
 
     <para>
-    Configuration of the element used for the depiction of the x axis or,
-    if tables are used, of the column name chosen for the stat.
+        <emphasis>Figure 19.6. Definition of the element for the X-axis.</emphasis>
     </para>
 
     <para>
@@ -832,27 +825,24 @@ called up.
 
     <para>
     Time elements are different as time period and scale have to be stated.
-    </para>
-
-    <para>
     Type and number of elements result from the used dynamic object
     and vary depending on it.
     </para>
 
     <para>
-    If all input is correct, the "next" button leads to the "Value series"
+    If all input is correct, the "Next" button leads to the "Value series"
     form. It is also possible to go back to editing the "common statements"
     section again.
     </para>
 </listitem>
 <listitem>
     <para>
-    "Value series"
+        <emphasis>Specification of the value series</emphasis>.
     </para>
 
     <para>
     In the third step of the stat pre-configuration the value series are
-    defined. They will lateron form the individual graphs of a diagramm
+    defined (see Figure 19.7 below). They will lateron form the individual graphs of a diagramm
     or the various series (tabular view).
     </para>
 
@@ -864,8 +854,12 @@ called up.
     </para>
 
     <para>
-    If an element is selected, each chosen attribute corresponds to a
-    value series.
+        <emphasis>Figure 19.6. Definition of the value series.</emphasis>
+    </para>
+
+    <para>
+    If an element is selected, each chosen attribute will correspond to a
+    value series (see the Example 19-1 below).
     </para>
 
     <para>
@@ -900,7 +894,8 @@ called up.
 
     <para>
     If two elements are selected, each selected attribute of the first element
-    is combined with an attribute of the second element to form a value series.
+    is combined with an attribute of the second element to form a value series
+    (see the Example 19-2 below).
     </para>
 
     <para>
@@ -939,20 +934,20 @@ called up.
     </para>
 
     <para>
-    Selection of three or more elements does not make sense and is therefore
+    Selection of three or more elements does not make sense and is, therefore,
     prevented by an error message.
     </para>
 
     <para>
     Additionally the same conditions apply to the selection of the attributes
-    and the "Fixed" checkbox as to the "Xaxis" selection.
+    and the "Fixed" checkbox as to the "X'axis" selectionÑ
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-            If no attributes of the element are selected, all attributes are used
+            If no attributes of the element are selected, all attributes are used,
             including those added after the configuration of the stat.
             </para>
         </listitem>
@@ -967,13 +962,10 @@ called up.
 </listitem>
 <listitem>
     <para>
-    "Restrictions"
-    </para>
-
-    <para>
-    The fourth and last step of the pre-configuration is the definition
-    of restrictions. These restrictions facilitate to limit the results
-    and are comparable to entering data into a search window.
+        <emphasis>Definition of the restrictions to characterize the stat</emphasis>.
+        It is the fourth and last step of the pre-configuration (see Figure 19.7 below).
+        The restrictions facilitate to limit the results and are comparable to entering
+        data into a search window. In quite a few cases, no restrictions at all must be set up.
     </para>
 
     <para>
@@ -984,7 +976,7 @@ called up.
     </para>
 
     <para>
-    In quite a few cases, no restrictions at all must be set up.
+        <emphasis>Figure 19.7. Definition of restrictions.</emphasis>
     </para>
 
     <para>
@@ -1000,7 +992,7 @@ called up.
 <title>Import</title>
 
 <para>
-The import user interface can be accessed by chosing "Import" in the
+The import user interface (see Figure 19.8 below) can be accessed by chosing "Import" in the
 navigation bar (rw rights required).
 </para>
 
@@ -1012,10 +1004,14 @@ navigation bar (rw rights required).
 </para>
 
 <para>
+    <emphasis>Figure 19.8. The import user interface.</emphasis>
+</para>
+
+<para>
 Facilitates the import of stats and is, combined with the export function
 of the module, a very handy functionality. Stats can be created
-and tested conveniently on test systems and be imported into the production
-system afterwards.
+and tested conveniently on test systems and then imported into the production
+system.
 </para>
 
 <para>
@@ -1030,8 +1026,8 @@ interface of the imported stat is opened automatically afterwards.
 <title>Administration of the stat module by the OTRS administrator</title>
 
 <para>
-This paragraph provides information about the tasks and possibilities
-of the OTRS administrator dealing with the stat module.
+This section provides information about the tasks and possibilities
+of the OTRS administrator dealing with the statistics module.
 </para>
 
 <section id="stats-permissions" >
@@ -1055,12 +1051,12 @@ Access according to permission settings:
 <itemizedlist>
     <listitem>
         <para>
-        "rw" -&gt; permission to configurate stats
+            <emphasis>rw</emphasis>. Allows configurating statistics.
         </para>
     </listitem>
     <listitem>
         <para>
-        "ro" -&gt; permission to generate pre-configured stats
+            <emphasis>ro</emphasis>. Permits generating pre-configured statistics.
         </para>
     </listitem>
 </itemizedlist>
@@ -1068,8 +1064,8 @@ Access according to permission settings:
 
 <para>
 The OTRS administrator decides whether agents with the permission to
-generate pre-configured stats are allocated ro rights in the "stats" group or
-whether their respective groups are added in the module registration in SysConfig.
+generate pre-configured stats are allocated ro rights in the "stats" group, or
+if their respective groups are added in the module registration in SysConfig.
 </para>
 </section>
 
@@ -1093,7 +1089,7 @@ Framework:Core::Stats::Graph
 Framework:Frontend::Agent::Stats
 </link>
 
-contain all configuration parameters for the basic set-up of the stats module.
+contain all configuration parameters for the basic set-up of the statistics module.
 Moreover, the configuration parameter
 
 <link linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentStats" >
@@ -1101,7 +1097,7 @@ $Self-&gt;{'Frontend::Module'}-&gt;{'AgentStats'}
 </link>
 
 controls the arrangement and registration of the modules and icons within the
-stats module.
+statistics module.
 </para>
 </section>
 
@@ -1111,15 +1107,15 @@ stats module.
 <title>Administration of the stats module by the system administrator</title>
 
 <para>
-Generally no system administrator is needed for the operation, configuration
-and maintenance. However, a little background information for the system
-administrator is given at this point.
+Generally, no system administrator is needed for the operation, configuration
+and maintenance of the statistics module. However, a little background information
+for the system administrator is given at this point.
 </para>
 
 <note>
 <para>
 File paths refer to subdirectories of the OTRS home
-directory (in most cases<filename>/opt/otrs</filename>.
+directory (in most cases<filename>/opt/otrs</filename>).
 </para>
 </note>
 
@@ -1127,8 +1123,8 @@ directory (in most cases<filename>/opt/otrs</filename>.
 <title>Data base table</title>
 
 <para>
-All stat configurations are implemented and administrated in XML.
-Therefore all stats configurations are stored in the database table
+All stat configurations are implemented and administrated in XML and,
+therefore, stored in the database table
 "xml_storage". Other modules whose content is presented in xml
 format use this table as well.
 </para>
@@ -1139,7 +1135,7 @@ format use this table as well.
 <title>List of all files</title>
 
 <para>
-The following files are necessary for the stats module to work accurately.
+The following files are necessary for the stats module to work accurately:
 </para>
 
 <para>
@@ -1222,8 +1218,8 @@ The following files are necessary for the stats module to work accurately.
 <title>Caching</title>
 
 <para>
-Whether the results of a stat are to be cached or not can be defined in
-the pre-configuration. Cached stat results are stored as files in the
+Whether the results of a statistic are to be cached or not can be defined in
+the pre-configuration. Cached statistic results are stored as files in the
 <filename>var/tmp</filename>directory of the OTRS
 installation (in most cases<filename>/opt/otrs/var/tmp</filename>).
 </para>
@@ -1233,9 +1229,9 @@ Cached stats can be recognized by the "Stats" prefix.
 </para>
 
 <para>
-If the data is lost, no major damage is caused.The next time the
-stat is called up the stats module will not find the file any more
-and thus will generate a new stat  which will probably take
+If the data is lost, no major damage is caused. The next time the
+stat is called up, the stats module will not find the file any more
+and thus, will generate a new stat, which will probably take
 a little longer.
 </para>
 </section>
@@ -1249,7 +1245,7 @@ It facilitates the generation of stats in the command line.
 </para>
 
 <para>
-The following command line call is exemplary:
+The command line call in the Script 19.1 is an exemplary.
 </para>
 
 <para>
@@ -1259,13 +1255,17 @@ bin> perl mkStats.pl -n 10004 -o /output/dir
 </para>
 
 <para>
+    <emphasis>Script 19.1. Generating a stat via command line.</emphasis>
+</para>
+
+<para>
 A stat from the stat configuration "Stat# 10004" is generated and saved
 as csv in the <filename>/output/dir</filename>directory.
 </para>
 
 <para>
 The generated stat can also be sent as an e-mail.
-More information can be called up with the following call
+More information can be called up with the command of the Script 19.2.
 </para>
 
 <para>
@@ -1274,20 +1274,24 @@ bin> perl mkStats.pl --help
 </programlisting>
 </para>
 
+<para>
+    <emphasis>Script 19.2. Getting information about the mkStats.pl file.</emphasis>
+</para>
+
 </section>
 
 <section id="stats-cron" >
-<title>Automated stat generation - Cron</title>
+<title>Automated stat generation - Cronjob</title>
 
 <para>
 It obviously does not really make sense to generate stats manually in
-the command line as the stat module has a convenient graphical user
+the command line, as the stat module has a convenient graphical user
 interface. However, generating stats manually does make sense when
 combined with a Cronjob.
 </para>
 
 <para>
-Imagine the following scenario: On every first of the month
+Imagine the following scenario: On every first day of the month
 the heads of department want to receive a stat for the past
 month. By combining a cronjob and command line call the
 stats can be sent to them automatically by e-mail.
@@ -1299,8 +1303,8 @@ stats can be sent to them automatically by e-mail.
 <title>Static stats</title>
 
 <para>
-The stats module facilitates the generation of static stats. For every
-static stat a file exists in which the stat content is precisely defined.
+The stats module facilitates the generation of static statistics. For every
+static stat a file exists in which its content is precisely defined.
 </para>
 
 <para>
