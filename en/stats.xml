@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.7 2010-09-06 23:20:42 en Exp $ -->
+<!-- $Id: stats.xml,v 1.8 2010-09-07 16:48:07 en Exp $ -->
 <chapter id="statistic-module">
 <title>Stats module</title>
 
@@ -314,52 +314,52 @@ The page shows the following:
                 <para>
                 <itemizedlist>
                     <listitem>
-                    <para>
-                    CSV.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Print.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-lines.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-bars.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-hbars.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-points.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-lines-points.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-area.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                    Graph-pie.
-                    </para>
-                </listitem>
-            </itemizedlist>
-            </para>
+                        <para>
+                        CSV.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Print.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-lines.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-bars.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-hbars.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-points.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-lines-points.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-area.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-pie.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                </para>
             </listitem>
             <listitem>
                 <para>
@@ -690,109 +690,108 @@ correctly.
             <para>
             <itemizedlist>
                 <listitem>
-                <para>
-                    CSV.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    Print.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-lines.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-bars.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-hbars.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-points.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-lines-points.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-area.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    graph-pie.
-                </para>
-            </listitem>
-        </itemizedlist>
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-            <emphasis>Graphsize</emphasis>.
-            Select the size (in pixels) the charts should have. This selection is only
-            necessary if a graphical output format has been chosen under "Format".
-            All graphic sizes that can generally be used are defined by the OTRS admin
-            in SysConfig. When configuring the stat, the agent can pre-select all
-            relevant formats.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-            <emphasis>Sum rows</emphasis>.
-            Indicates whether the stat is amended by a column, whose
-            cells contain the sum of the respective row.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-            <emphasis>Sum columns</emphasis>.
-            Indicates whether the stat is amended by a row, whose
-            cells contain the sum of the respective column.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-            <emphasis>Cache</emphasis>.
-            Specifies if the generated stats should be cached in the file system.
-            This saves computing power and time if the stat is called up again, but
-            it only should be used if the stat's content is no longer
-            changing.
-        </para>
+                    <para>
+                        CSV.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Print.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-lines.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-bars.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-hbars.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-points.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-lines-points.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-area.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-pie.
+                    </para>
+                </listitem>
+            </itemizedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Graphsize</emphasis>.
+                Select the size (in pixels) the charts should have. This selection is only
+                necessary if a graphical output format has been chosen under "Format".
+                All graphic sizes that can generally be used are defined by the OTRS admin
+                in SysConfig. When configuring the stat, the agent can pre-select all
+                relevant formats.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Sum rows</emphasis>.
+                Indicates whether the stat is amended by a column, whose
+                cells contain the sum of the respective row.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Sum columns</emphasis>.
+                Indicates whether the stat is amended by a row, whose
+                cells contain the sum of the respective column.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Cache</emphasis>.
+                Specifies if the generated stats should be cached in the file system.
+                This saves computing power and time if the stat is called up again, but
+                it only should be used if the stat's content is no longer
+                changing.
+            </para>
 
-        <para>
-            Caching is automatically prevented if the stat contains no time designation
-            values (new data is added continuously) or if a time designation value points
-            to the future.
-        </para>
+            <para>
+                Caching is automatically prevented if the stat contains no time designation
+                values (new data is added continuously) or if a time designation value points
+                to the future.
+            </para>
 
-        <para>
-            If a cached stat is edited, all cached data is deleted.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-            <emphasis>Valid</emphasis>.
-            It is set "invalid" if a pre-configured stat is
-            still being created or must not be used temporarily for certain
-            reasons. Also the "Start" button in the bottom right of the
-            block is no longer displayed. It is impossible to generate the
-            stat.
-        </para>
-    </listitem>
-</itemizedlist>
-</para>
-
+            <para>
+                If a cached stat is edited, all cached data is deleted.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Valid</emphasis>.
+                It is set "invalid" if a pre-configured stat is
+                still being created or must not be used temporarily for certain
+                reasons. Also the "Start" button in the bottom right of the
+                block is no longer displayed. It is impossible to generate the
+                stat.
+            </para>
+        </listitem>
+    </itemizedlist>
+    </para>
 </listitem>
 <listitem>
     <para>
@@ -854,7 +853,7 @@ correctly.
     </para>
 
     <para>
-        <emphasis>Figure 19.6. Definition of the value series.</emphasis>
+        <emphasis>Figure 19.7. Definition of the value series.</emphasis>
     </para>
 
     <para>
@@ -940,7 +939,7 @@ correctly.
 
     <para>
     Additionally the same conditions apply to the selection of the attributes
-    and the "Fixed" checkbox as to the "X'axis" selectionÑ
+    and the "Fixed" checkbox as to the "X-axis" selection:
     </para>
 
     <para>
@@ -963,7 +962,7 @@ correctly.
 <listitem>
     <para>
         <emphasis>Definition of the restrictions to characterize the stat</emphasis>.
-        It is the fourth and last step of the pre-configuration (see Figure 19.7 below).
+        It is the fourth and last step of the pre-configuration (see Figure 19.8 below).
         The restrictions facilitate to limit the results and are comparable to entering
         data into a search window. In quite a few cases, no restrictions at all must be set up.
     </para>
@@ -976,7 +975,7 @@ correctly.
     </para>
 
     <para>
-        <emphasis>Figure 19.7. Definition of restrictions.</emphasis>
+        <emphasis>Figure 19.8. Definition of restrictions.</emphasis>
     </para>
 
     <para>
@@ -992,7 +991,7 @@ correctly.
 <title>Import</title>
 
 <para>
-The import user interface (see Figure 19.8 below) can be accessed by chosing "Import" in the
+The import user interface (see Figure 19.9 below) can be accessed by chosing "Import" in the
 navigation bar (rw rights required).
 </para>
 
@@ -1004,7 +1003,7 @@ navigation bar (rw rights required).
 </para>
 
 <para>
-    <emphasis>Figure 19.8. The import user interface.</emphasis>
+    <emphasis>Figure 19.9. The import user interface.</emphasis>
 </para>
 
 <para>
@@ -1051,12 +1050,14 @@ Access according to permission settings:
 <itemizedlist>
     <listitem>
         <para>
-            <emphasis>rw</emphasis>. Allows configurating statistics.
+            <emphasis>rw</emphasis>.
+            Allows configurating statistics.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>ro</emphasis>. Permits generating pre-configured statistics.
+            <emphasis>ro</emphasis>.
+            Permits generating pre-configured statistics.
         </para>
     </listitem>
 </itemizedlist>
