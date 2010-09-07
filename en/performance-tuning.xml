@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.9 2010-08-12 14:03:47 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.10 2010-09-07 23:00:31 en Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -23,15 +23,7 @@ There are several options to improve the performance of OTRS.
 <section id="performance-tuning-otrs-index">
 <title>TicketIndexModule</title>
 <para>
-You have two backend modules for the ticket index.
-</para>
-<para>
-Kernel/Config.pm
-<programlisting>
-[...]
-    $Self->{TicketIndexModule} = 'Kernel::System::Ticket::IndexAccelerator::RuntimeDB';
-[...]
-</programlisting>
+There are two backend modules for the ticket index:
 </para>
 
 <para>
@@ -48,13 +40,30 @@ trouble until you have about 60,000 tickets (with 6,000 open tickets) in your sy
 <listitem>
 <para>
 Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful module, it
-should be used when you have above 80,000 tickets (more than 6,000 open tickets) - use an extra ticket_index table,
-works like a view. Use bin/RebuildTicketIndex.pl for an initial index build.
+should be used when you have above 80,000 tickets (more than 6,000 open tickets) -
+use an extra ticket_index table, works like a view. Use bin/RebuildTicketIndex.pl
+for an initial index build.
 </para>
 </listitem>
 
 </itemizedlist>
+</para>
 
+<para>
+The used backend module for the ticket index is specified in Kernel/Config.pm, as shown
+in the Script 21.1 below.
+</para>
+
+<para>
+<programlisting>
+[...]
+    $Self->{TicketIndexModule} = 'Kernel::System::Ticket::IndexAccelerator::RuntimeDB';
+[...]
+</programlisting>
+</para>
+
+<para>
+    <emphasis>Script 21.1. Identifying the used backend module for the ticket index.</emphasis>
 </para>
 </section>
 
@@ -62,15 +71,7 @@ works like a view. Use bin/RebuildTicketIndex.pl for an initial index build.
 <section id="performance-tuning-otrs-storage">
 <title>TicketStorageModule</title>
 <para>
-There are two different backend modules for the ticket/article storage.
-</para>
-<para>
-Kernel/Config.pm
-<programlisting>
-[...]
-    $Self->{Ticket::StorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
-[...]
-</programlisting>
+There are two different backend modules for the ticket/article storage:
 </para>
 
 <para>
@@ -78,8 +79,8 @@ Kernel/Config.pm
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageDB (default), store attachments etc.
-in the database. Note: Don't use it for larger set ups.
+Kernel::System::Ticket::ArticleStorageDB (default), store attachments, etc.
+in the database. Note: Don't use it for large set ups.
 </para>
 <para>
 Pro: If your webserver user isn't the otrs user, use this module to avoid
@@ -95,10 +96,10 @@ that your database is able to store large objects. E.g. MySQL (config)
 <listitem>
 <para>
 Kernel::System::Ticket::ArticleStorageFS, store attachments etc. on the local
-file system. Note: Use it for larger set ups.
+file system. Note: Recommended for large set ups.
 </para>
 <para>
-Pro: Faster!
+Pro: Fast!
 </para>
 <para>
 Contra: Your web server user should be the otrs user (file system permissions!).
@@ -110,8 +111,20 @@ Contra: Your web server user should be the otrs user (file system permissions!).
 </para>
 
 <para>
-Note: you can switch from one to the other
-backend on the fly.
+Note: you can switch from one to the other backend on the fly. To know which backend
+is in use, check in the Kernel/Config.pm file, as shown in the Script 21.2 below.
+</para>
+
+<para>
+<programlisting>
+[...]
+    $Self->{Ticket::StorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
+[...]
+</programlisting>
+</para>
+
+<para>
+    <emphasis>Script 21.2. Identifying the used backend module for the ticket/article storage.</emphasis>
 </para>
 
 </section>
@@ -129,14 +142,17 @@ documentation for your database or ask your database administrator.
 <section id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-If you use MySQL table type MyISAM (which is the default) and have deleted a
+If you use MySQL table type MyISAM (which is the default), and have deleted a
 large part of a table or if you have made many changes to a table with
-variable-length rows (tables that have VARCHAR, BLOB or TEXT columns)
+variable-length rows (tables that have VARCHAR, BLOB or TEXT columns),
 you need to defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
 You should try this if mysqld needs a lot of your CPU time. Optimize tables
-ticket, ticket_history and article.
+ticket, ticket_history and article (see Script 21.3 below).
+</para>
+
+<para>
 <programlisting>
 shell$ mysql -u user -p database
 mysql$ optimize table ticket;
@@ -144,6 +160,11 @@ mysql$ optimize table ticket_history;
 mysql$ optimize table article;
 </programlisting>
 </para>
+
+<para>
+    <emphasis>Script 21.3. Optimizing data base tables.</emphasis>
+</para>
+
 </section>
 
 <section id="performance-tuning-database-postgresql">
@@ -152,20 +173,43 @@ mysql$ optimize table article;
 PostgreSQL is best tuned by modifying the postgresql.conf file in your
 PostgreSQL data directory. For advice on how to do this, see these
 articles:
+</para>
 
-<ulink url="http://www.revsys.com/writings/postgresql-performance.html">
-<citetitle>http://www.revsys.com/writings/postgresql-performance.html</citetitle>
-</ulink>
-<ulink url="http://varlena.com/GeneralBits/Tidbits/perf.html">
-<citetitle>http://varlena.com/GeneralBits/Tidbits/perf.html</citetitle>
-</ulink>
-<ulink url="http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html">
-<citetitle>http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html</citetitle>
-</ulink>
+<para>
+    <itemizedlist>
+        <listitem>
+            <para>
+            <ulink url="http://www.revsys.com/writings/postgresql-performance.html">
+            <citetitle>http://www.revsys.com/writings/postgresql-performance.html</citetitle>
+            </ulink>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            <ulink url="http://varlena.com/GeneralBits/Tidbits/perf.html">
+            <citetitle>http://varlena.com/GeneralBits/Tidbits/perf.html</citetitle>
+            </ulink>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            <ulink url="http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html">
+            <citetitle>http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html</citetitle>
+            </ulink>
+            </para>
+        </listitem>
+    </itemizedlist>
+</para>
+
+<para>
 If performance is still not satisfactory, we suggest that you join the
-PostgreSQL Performance mailing list and ask questions there. The folks on
-the PostgreSQL list are very friendly and can probably help
-<ulink url="http://www.postgresql.org/community/lists/">http://www.postgresql.org/community/lists/</ulink>.
+PostgreSQL Performance mailing list
+(
+<ulink url="http://www.postgresql.org/community/lists/">
+    http://www.postgresql.org/community/lists/
+</ulink>
+) and ask questions there. The folks on the PostgreSQL list are very friendly
+and can probably help.
 </para>
 </section>
 

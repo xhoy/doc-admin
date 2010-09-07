@@ -1,29 +1,27 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: backup-and-restore.xml,v 1.8 2010-08-12 14:03:47 mg Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.9 2010-09-07 23:00:31 en Exp $ -->
 
 <chapter id="backup-and-restore">
 <title>Backing up the system</title>
 
-<abstract>
 <para>
 This chapter describes the backup and restore of the OTRS data.
 </para>
-</abstract>
 
 <section id="backup">
-<title>Backup</title>
+<title>Back up</title>
 
 <para>
-There are two types of data to backup; the application (e.g. the files in
-<filename>/opt/otrs</filename> and the data stored in the database.
+There are two types of data to back up: the application (e.g. the files in
+<filename>/opt/otrs</filename>) and the data stored in the database.
 </para>
 
 <para>
-To simplify backups, the script <filename>scripts/backup.pl</filename> is
-included in every OTRS installation. It is able to backup all important
-data.
+To simplify back ups, the script <filename>scripts/backup.pl</filename> is
+included in every OTRS installation, which backs up all important data
+(see Script 22.1 below).
 </para>
 
 <para>
@@ -38,14 +36,18 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-Execute the following command to create a backup:
+    <emphasis>Script 22.1. Getting help about the back up mechanism.</emphasis>
+</para>
+
+<para>
+Execute command specified in the Script 22.2 to create a back up:
 </para>
 
 <para>
 <screen>
 linux:/opt/otrs/scripts# ./backup.pl -d /backup/
-Backup /backup//2005-09-12_14-28/Config.tar.gz ... done
-Backup /backup//2005-09-12_14-28/Application.tar.gz ... done
+Backup /backup//2010-09-07_14-28/Config.tar.gz ... done
+Backup /backup//2010-09-07_14-28/Application.tar.gz ... done
 Dump MySQL rdbms ... done
 Compress SQL-file... done
 linux:/opt/otrs/scripts#
@@ -53,17 +55,25 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
+    <emphasis>Script 22.2. Creating a back up.</emphasis>
+</para>
+
+<para>
 All data was stored in the directory
-<filename>/backup/2005-09-12_14-28/</filename>. additionally the  data was
-saved into a .tar.gz file.
+<filename>/backup/2010-09-07_14-28/</filename> (see Script 22.3 below).
+Additionally the  data was saved into a .tar.gz file.
 </para>
 
 <para>
 <screen>
-linux:/opt/otrs/scripts# ls /backup/2005-09-12_14-28/
+linux:/opt/otrs/scripts# ls /backup/2010-09-07_14-28/
 Application.tar.gz  Config.tar.gz  DatabaseBackup.sql.gz
 linux:/opt/otrs/scripts#
 </screen>
+</para>
+
+<para>
+    <emphasis>Script 22.3. Checking the back up files.</emphasis>
 </para>
 
 </section>
@@ -72,13 +82,14 @@ linux:/opt/otrs/scripts#
 <title>Restore</title>
 
 <para>
-To restore a backup, the saved data for the application has to be written
+To restore a back up, the saved data of the application has to be written
 back into the installation directory, e.g. <filename>/opt/otrs</filename>.
 Also the database has to be restored.
 </para>
 
 <para>
-A script <filename>scripts/restore.pl</filename> to simplify the restore process is shipped with every
+A script <filename>scripts/restore.pl</filename> (see Script 22.4 below) to simplify
+the restore process is shipped with every
 OTRS installation. It supports MySQL and PostgreSQL.
 </para>
 
@@ -93,23 +104,31 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
+    <emphasis>Script 22.4. Getting help about the restore mechanism.</emphasis>
+</para>
+
+<para>
 Data, that is stored in the directory
-<filename>/backup/2005-09-12_14-28/</filename>, can be restored with the
-following command and an OTRS installation in
+<filename>/backup/2010-09-07_14-28/</filename>, can be restored with the
+command specified in the Script 22.5 and an OTRS installation in
 <filename>/opt/otrs</filename>.
 </para>
 
 <para>
 <screen>
-linux:/opt/otrs/scripts# ./restore.pl -b /backup/2005-09-12_14-28 -d /opt/otrs/
-Restore /backup/2005-09-12_14-28//Config.tar.gz ...
-Restore /backup/2005-09-12_14-28//Application.tar.gz ...
+linux:/opt/otrs/scripts# ./restore.pl -b /backup/2010-09-07_14-28 -d /opt/otrs/
+Restore /backup/2010-09-07_14-28//Config.tar.gz ...
+Restore /backup/2010-09-07_14-28//Application.tar.gz ...
 create MySQL
 decompresses SQL-file ...
 cat SQL-file into MySQL database
 compress SQL-file...
 linux:/opt/otrs/scripts#
 </screen>
+</para>
+
+<para>
+    <emphasis>Script 22.5. Restoring the system.</emphasis>
 </para>
 
 </section>
