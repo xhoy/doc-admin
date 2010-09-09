@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ISO-8859-1'?><!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: applications.xml,v 1.9 2010-08-20 12:23:34 mb Exp $ -->
+<!-- $Id: applications.xml,v 1.10 2010-09-09 18:06:07 en Exp $ -->
 
 <chapter id="application">
 <title>Additional applications</title>
@@ -8,9 +8,8 @@
 <abstract>
 <para>
 You can install additional application packages to extend the functionality
-of the OTRS framework.
-You can install packages via the package manager in the adminarea. The package
-manager downloads the applications from an online repository and manages package
+of the OTRS framework. This can be done via the package manager in the adminarea, which downloads
+the applications from an online repository and manages package
 dependencies. It is also possible to install packages from local files, in case
 your OTRS system does not have a direct internet connection.
 </para>
@@ -20,7 +19,8 @@ your OTRS system does not have a direct internet connection.
 <title>Calendar</title>
 
 <para>
-You can edit and view both private and public user-based appointments with the web-based calendar.
+You can edit and view both private and public user-based appointments with the web-based Calendar
+(see Figure 20.1 below).
 </para>
 
 <para>
@@ -30,41 +30,51 @@ You can edit and view both private and public user-based appointments with the w
 </screenshot>
 </para>
 
+<para>
+    <emphasis>Figure 20.1. Calendar package.</emphasis>
+</para>
 </section>
 
 <section id="application-filemanager">
-<title>File manager</title>
+<title>File Manager</title>
 
 <para>
-The file manager makes it possible to access the content of a directory that
-is located in the file system of the machine where OTRS is installed. You
-can use your web browser to upload, download, delete and view files, browse
-and create subdirectories, etc.
+The File Manager (see Figure 20.2 below) makes it possible to access the content
+of a directory that is located in the file system of the machine where OTRS is
+installed. You can use your web browser to upload, download, delete and view files,
+browse and create subdirectories, etc.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>File manager</screeninfo>
+<screeninfo>File Manager</screeninfo>
 <graphic srccredit="Filemanager - screenshot" scale="40" fileref="screenshots/filemanager.png"></graphic>
 </screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 20.2. File Manager package.</emphasis>
 </para>
 
 </section>
 
 <section id="application-webmail">
-<title>Web mailer</title>
+<title>Web Mail</title>
 
 <para>
-With the webmailer you can access your mailbox via an IMAP server. It is
-possible to compose new messages, answer and forward your mails, etc. simply
-with your web browser.
+Using the Web Mail package (see Figure 20.3 below), you can access your mailbox via an IMAP server.
+With a web browser, it is possible to compose new messages, answer and forward your mails, etc.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Web mailer</screeninfo>
+<screeninfo>Web Mail</screeninfo>
 <graphic srccredit="Webmail - screenshot" scale="40" fileref="screenshots/webmail.png"></graphic>
 </screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 20.3. Web Mail module.</emphasis>
 </para>
 
 </section>
@@ -73,9 +83,9 @@ with your web browser.
 <title>FAQ</title>
 
 <para>
-The Knowledge Base component. It supports editing and viewing of FAQ
+It is the Knowledge Base component. It supports editing and viewing of FAQ
 articles. Articles can be viewed and restricted to agents, customer users or
-anonymous users. Articles can be structured in groups and have different
+anonymous users; they can also be structured in groups and have different
 languages.
 </para>
 
