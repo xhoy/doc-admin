@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.44 2010-11-10 13:10:12 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.45 2010-11-10 13:17:23 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -660,125 +660,14 @@ Alias and a ScriptAlias entry is needed. Most
 find this directory very often under <filename>/etc/apache</filename> or
 <filename>/etc/apache2</filename>. Log in as root, change to the
 <filename>conf.d</filename> directory and copy the appropriate
-template to a file called <filename>otrs.conf</filename>.
+template in <filename>/opt/otrs/scripts/apache2-httpd.include.conf</filename>
+to a file called <filename>otrs.conf</filename> in the Apache configuration directory.
 </para>
 
 
 <para>
-First find the example configuration file in otrs/scripts/ that is fitting for
-your version of the apache web server.
-
-Either:
-Apache2
-apache2-httpd.include.conf (see Script 3.9 below) or Apache1
-apache-httpd.include.conf (see Script 3.10 below).
-</para>
-
-<para>
-<screen>
-# --
-# added for OTRS (http://otrs.org/)
-# --
-
-# agent, admin and customer frontend
-ScriptAlias /otrs/ "/opt/otrs/bin/cgi-bin/"
-Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
-
-# if mod_perl is used
-&lt;IfModule mod_perl.c&gt;
-
-    # load all otrs modules
-    Perlrequire /opt/otrs/scripts/apache2-perl-startup.pl
-
-    # Apache::Reload - Reload Perl Modules when Changed on Disk
-    PerlModule Apache2::Reload
-    PerlInitHandler Apache2::Reload
-    PerlModule Apache2::RequestRec
-
-    # set mod_perl2 options
-    &lt;Location /otrs&gt;
-#        ErrorDocument 403 /otrs/customer.pl
-        ErrorDocument 403 /otrs/index.pl
-        SetHandler  perl-script
-        PerlResponseHandler ModPerl::Registry
-        Options +ExecCGI
-        PerlOptions +ParseHeaders
-        PerlOptions +SetupEnv
-        Order allow,deny
-        Allow from all
-    &lt;/Location&gt;
-
-&lt;/IfModule&gt;
-
-# directory settings
-&lt;Directory "/opt/otrs/bin/cgi-bin/"&gt;
-    AllowOverride None
-    Options +ExecCGI -Includes
-    Order allow,deny
-    Allow from all
-&lt;/Directory&gt;
-&lt;Directory "/opt/otrs/var/httpd/htdocs/"&gt;
-    AllowOverride None
-    Order allow,deny
-    Allow from all
-&lt;/Directory&gt;
-
-# MaxRequestsPerChild (so no apache child will be to big!)
-MaxRequestsPerChild 400
-</screen>
-</para>
-
-<para>
-    <emphasis>Script 3.9. Template for the file otrs.conf using Apache 2.</emphasis>
-</para>
-
-<para>
-<screen>
-# --
-# added for OTRS (http://otrs.org/)
-# --
-
-# agent, admin and customer frontend (mod_alias required!)
-ScriptAlias /otrs/ "/opt/otrs/bin/cgi-bin/"
-Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
-
-# if mod_perl is used
-&lt;IfModule mod_perl.c&gt;
-
-    # load all otrs modules (speed improvement!)
-#   Perlrequire /opt/otrs/scripts/apache-perl-startup.pl
-
-    # Apache::StatINC - Reload %INC files when updated on disk
-    # (just use it for testing, setup, ... not for high-load systems)
-#   PerlInitHandler Apache::StatINC
-
-    &lt;Location /otrs&gt;
-#        ErrorDocument 403 /otrs/customer.pl
-        ErrorDocument 403 /otrs/index.pl
-        SetHandler  perl-script
-        PerlHandler Apache::Registry
-        Options ExecCGI
-        PerlSendHeader On
-        PerlSetupEnv On
-    &lt;/Location&gt;
-
-&lt;/IfModule&gt;
-
-# MaxRequestsPerChild (so no apache child will be to big!)
-MaxRequestsPerChild 400
-
-</screen>
-</para>
-
-<para>
-    <emphasis>Script 3.10. Template for the file otrs.conf using Apache 1.</emphasis>
-</para>
-
-<para>
-Restart your web server to load the new configuration settings
-for the web server. On most systems you can start/restart your web server
-with the command <command>/etc/init.d/apache restart</command> or
-<command>/etc/init.d/apache2 restart</command> (see Script 3.11 below).
+Restart your web server to load the new configuration settings. On most systems you can start/restart your web server
+with the command <command>/etc/init.d/apache2 restart</command>(see Script 3.11 below).
 </para>
 
 <para>
@@ -1403,7 +1292,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.44 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.45 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
