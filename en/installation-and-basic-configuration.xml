@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.43 2010-08-20 12:23:34 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.44 2010-11-10 13:10:12 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -670,7 +670,7 @@ your version of the apache web server.
 
 Either:
 Apache2
-apache2-httpd-new.include.conf (see Script 3.9 below) or Apache1
+apache2-httpd.include.conf (see Script 3.9 below) or Apache1
 apache-httpd.include.conf (see Script 3.10 below).
 </para>
 
@@ -678,7 +678,6 @@ apache-httpd.include.conf (see Script 3.10 below).
 <screen>
 # --
 # added for OTRS (http://otrs.org/)
-# $Id: installation-and-basic-configuration.xml,v 1.43 2010-08-20 12:23:34 mb Exp $
 # --
 
 # agent, admin and customer frontend
@@ -1200,10 +1199,10 @@ All scripts with the cron jobs are located in
 <screen>
 linux:~# cd /opt/otrs/var/cron
 linux:/opt/otrs/var/cron# ls
-aaa_base.dist                pending_jobs.dist          session.dist
-fetchmail.dist               postmaster.dist            unlock.dist
-generic_agent-database.dist  postmaster_pop3.dist
-generic_agent.dist           rebuild_ticket_index.dist
+aaa_base.dist                generic_agent.dist       rebuild_ticket_index.dist
+cache.dist                   pending_jobs.dist        session.dist
+fetchmail.dist               postmaster.dist          unlock.dist
+generic_agent-database.dist  postmaster_mailbox.dist
 linux:/opt/otrs/var/cron#
 </screen>
 </para>
@@ -1214,7 +1213,8 @@ linux:/opt/otrs/var/cron#
 
 <para>
 All scripts are ending in .dist. You should copy them to files with no ending.
-If you are using bash, you might use the command listed in the Script 3.17 below.
+If you are using bash, you might want to use the command listed in Script 3.17
+below.
 </para>
 
 <para>
@@ -1222,14 +1222,14 @@ If you are using bash, you might use the command listed in the Script 3.17 below
 linux:/opt/otrs/var/cron# for foo in *.dist; do cp $foo
 `basename $foo .dist`; done
 linux:/opt/otrs/var/cron# ls
-aaa_base                     generic_agent.dist    rebuild_ticket_index
-aaa_base.dist                pending_jobs
-rebuild_ticket_index.dist
-fetchmail                    pending_jobs.dist     session
-fetchmail.dist               postmaster            session.dist
-generic_agent                postmaster.dist       unlock
-generic_agent-database       postmaster_pop3       unlock.dist
-generic_agent-database.dist  postmaster_pop3.dist
+aaa_base                generic_agent-database.dist  rebuild_ticket_index
+aaa_base.dist           generic_agent.dist           rebuild_ticket_index.dist
+cache                   pending_jobs                 session
+cache.dist              pending_jobs.dist            session.dist
+fetchmail               postmaster                   unlock
+fetchmail.dist          postmaster.dist              unlock.dist
+generic_agent           postmaster_mailbox
+generic_agent-database  postmaster_mailbox.dist
 linux:/opt/otrs/var/cron#
 </screen>
 </para>
@@ -1241,8 +1241,7 @@ linux:/opt/otrs/var/cron#
 </para>
 
 <para>
-The Table 3-2 describes what the several scripts do and why
-they are needed to be a cron job for the OTRS user.
+Table 3-2 describes the different cron jobs and what they do.
 </para>
 
 <para>
@@ -1266,6 +1265,14 @@ they are needed to be a cron job for the OTRS user.
         </entry>
         <entry>
           Sets the basics for the crontab of the OTRS user.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          cache
+        </entry>
+        <entry>
+          Removes expired cache entries from disk. Clears the loader cache for CSS and JavaScript files.
         </entry>
       </row>
       <row>
@@ -1299,7 +1306,7 @@ they are needed to be a cron job for the OTRS user.
           pending_jobs
         </entry>
         <entry>
-          Checks in the system for pending tickets.
+          Checks in the system for pending tickets, and closes them or sends reminders if needed.
         </entry>
       </row>
       <row>
@@ -1313,11 +1320,11 @@ they are needed to be a cron job for the OTRS user.
       </row>
       <row>
         <entry>
-          postmaster_pop3
+          postmaster_mailbox
         </entry>
         <entry>
           Fetches the mails from the POP3 accounts that were specified in the admin
-          area, in the section for "PostMaster POP3 Account".
+          area, in the section for "PostMaster Mail Accounts".
         </entry>
       </row>
       <row>
@@ -1386,7 +1393,7 @@ below to install the cron jobs.
 <para>
 Please note that other crontab entries of the OTRS user will be overwritten
 or removed by the <filename>Cron.sh</filename> script. Please change the
-<filename>Cron.sh</filename> script to keep also other crontab entries.
+<filename>Cron.sh</filename> script to keep also other crontab entries if needed.
 </para>
 </warning>
 
@@ -1396,7 +1403,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.43 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.44 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1428,10 +1435,18 @@ linux:/opt/otrs/bin# crontab -l -u otrs
 MAILTO="root@localhost"
 
 # --
+# cron/cache - delete expired cache
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# delete expired cache weekly (Sunday mornings)
+20 0 * * 0  $HOME/bin/otrs.CacheDelete.pl --expired >> /dev/null
+30 0 * * 0  $HOME/bin/otrs.LoaderCache.pl -o delete >> /dev/null
+
+# --
 # cron/fetchmail - fetchmail cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
-# $Id: installation-and-basic-configuration.xml,v 1.43 2010-08-20 12:23:34 mb Exp $
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch every 5 minutes emails via fetchmail
@@ -1618,7 +1633,7 @@ to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4 ...).
     Own themes
         </para>
         <para>
-    Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible (don't use the old themes)!
+    Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible, so don't use your old themes)!
         </para>
         <para>
     Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)
@@ -1629,7 +1644,7 @@ to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4 ...).
     Set file permissions
         </para>
         <para>
-If tarball is used, execute $OTRS_HOME/bin/otrs.SetPermissions.pl!
+If you use the tarball, execute $OTRS_HOME/bin/otrs.SetPermissions.pl!
         </para>
       </listitem>
       <listitem>
@@ -1718,7 +1733,7 @@ Restart your services
     With OTRS 3.0, the default charset of OTRS was changed from "iso-8859-1" to "utf-8".
         </para>
         <para>
-    This will only affect you if you didn't specify a charset in Kernel/Config.pm (all
+    This will only affect you if you did not specify a charset in Kernel/Config.pm (all
     installations that were made with the web installer have a custom setting there) or
     if you didn't change the default charset in the AdminSysConfig.
         </para>
