@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.45 2010-11-10 13:17:23 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.46 2010-11-11 11:56:13 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -537,7 +537,7 @@ to use your package manager.
 
 <para>
 You can verify which modules you need to install with
-<command>otrs.checkModules</command>. This script is located in the
+<command>otrs.CheckModules.pl</command>. This script is located in the
  <filename>bin</filename>
 directory, in the home directory of the OTRS user (see Script 3.7 below).
 </para>
@@ -549,7 +549,7 @@ Please note that some modules are optional.
 <para>
 <screen>
 linux:~# cd /opt/otrs/bin/
-linux:/opt/otrs/bin# ./otrs.checkModules
+linux:/opt/otrs/bin# ./otrs.CheckModules.pl
    o CGI............................ok (v3.49)
    o Crypt::PasswdMD5...............ok (v1.3)
    o CSS::Minifier..................ok (v0.01)
@@ -600,6 +600,15 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
+You should strive to install the missing modules from your linux distributions
+package management system. In that way, the packages will be automatically updated
+when new versions are available or when security issues are found. Please refer
+to your distributions documentation on how to install additional packages. If
+the (correct version of) the module is not available from the package repositories,
+you can also install from CPAN, the Comprehensive Perl Archive Network.
+</para>
+
+<para>
 To install one of the modules from above via CPAN, you have to execute the
 command <command>perl -e shell -MCPAN</command>. The Perl shell will be
 started in interactive mode and the CPAN module will be loaded. If CPAN is
@@ -608,7 +617,6 @@ already configured, you can install the modules with the command
 care of the dependencies of a module to other Perl modules and will let you know,
 if other modules are needed.
 </para>
-
 
 <para>
 Execute also the two commands
@@ -630,7 +638,7 @@ linux:/opt/otrs#
 </para>
 
 <para>
-    <emphasis>Script 3.8. Checking syntaxis.</emphasis>
+    <emphasis>Script 3.8. Checking syntax.</emphasis>
 </para>
 
 </section>
@@ -761,7 +769,7 @@ When the web installer starts, please follow the next steps to setup your system
 
 <para>
 2. Read the GNU Affero General Public License (see Figure 3.2 below) and accept it, by clicking the corresponding
-button at the buttom of the page.
+button at the bottom of the page.
 </para>
 
 <para>
@@ -776,7 +784,7 @@ button at the buttom of the page.
 </para>
 
 <para>
-3. Provide the username and password of the administrator, the ip address of the computer which
+3. Provide the username and password of the administrator, the DNS name of the computer which
 hosts OTRS and the type of database system to be used. After that, check the settings (see Figure
 3.3 below).
 </para>
@@ -793,7 +801,7 @@ hosts OTRS and the type of database system to be used. After that, check the set
 </para>
 
 <para>
-If the checking was successful, you will get a notification. Press ok to continue (see Figure
+If the checking was successful, you will get a notification. Press OK to continue (see Figure
 3.4 below).
 </para>
 
@@ -1292,7 +1300,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.45 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.46 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
