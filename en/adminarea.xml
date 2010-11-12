@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.38 2010-09-08 20:58:26 en Exp $ -->
+<!-- $Id: adminarea.xml,v 1.39 2010-11-12 15:59:14 mb Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -651,7 +651,7 @@ queues
 </link>
 
 of your system (see Figure 5.18 below). In a new OTRS installation there are 4 default
-queues: Junk, Misc, Postmaster and Raw.All incoming messages will be stored in it the
+queues: Junk, Misc, Postmaster and Raw. All incoming messages will be stored in it the
 "Raw" queue if no filter rules are defined. The "Junk" queue can be used to store
 spam messages.
 </para>
@@ -1610,7 +1610,7 @@ There are several possibilities to transport new emails into the ticket
 system. One of them is the
 
 <link linkend="email-receiving-cmd">
-PostMaster.pl module
+otrs.PostMaster.pl module
 </link>
 
 that pipes the mails directly into the system. Another possibility is the use

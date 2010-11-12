@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.46 2010-11-11 11:56:13 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.47 2010-11-12 15:59:14 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -1300,7 +1300,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.46 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.47 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1350,7 +1350,7 @@ MAILTO="root@localhost"
 #*/5 * * * * /usr/bin/fetchmail -a &gt;&gt; /dev/null
 
 # --
-# cron/generic_agent - GenericAgent.pl cron of the OTRS
+# cron/generic_agent - otrs.GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # --
@@ -1360,7 +1360,7 @@ MAILTO="root@localhost"
 */20 * * * * $HOME/bin/GenericAgent.pl &gt;&gt; /dev/null
 # example to execute GenericAgent.pl on 23:00 with
 # Kernel::Config::GenericAgentMove job file
-#0 23 * * * $HOME/bin/GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
+#0 23 * * * $HOME/bin/otrs.GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
@@ -1368,7 +1368,7 @@ MAILTO="root@localhost"
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # start generic agent every 10 minutes
-*/10 * * * * $HOME/bin/GenericAgent.pl -c db &gt;&gt; /dev/null
+*/10 * * * * $HOME/bin/otrs.GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
@@ -1376,7 +1376,7 @@ MAILTO="root@localhost"
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # check every 120 min the pending jobs
-45 */2 * * * $HOME/bin/PendingJobs.pl &gt;&gt; /dev/null
+45 */2 * * * $HOME/bin/otrs.PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
@@ -1385,15 +1385,15 @@ MAILTO="root@localhost"
 # --
 # check daily the spool directory of OTRS
 #10 0 * * * * test -e /etc/init.d/otrs &amp; /etc/init.d/otrs cleanup &gt;&gt; /dev/null; test -e /etc/rc.d/init.d/otrs &amp;&amp; /etc/rc.d/init.d/otrs cleanup &gt;&gt; /dev/null
-10 0 * * * $HOME/bin/otrs.cleanup &gt;&gt; /dev/null
+10 0 * * * $HOME/bin/otrs.CleanUp.pl &gt;&gt; /dev/null
 # --
-# cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
+# cron/postmaster_mailbox - postmaster_mailbox cron of the OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # fetch emails every 10 minutes
-*/10 * * * * $HOME/bin/PostMasterPOP3.pl &gt;&gt; /dev/null
+*/10 * * * * $HOME/bin/otrs.PostMasterMailbox.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
 # Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
@@ -1401,7 +1401,7 @@ MAILTO="root@localhost"
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # just every day
-01 01 * * * $HOME/bin/RebuildTicketIndex.pl &gt;&gt; /dev/null
+01 01 * * * $HOME/bin/otrs.RebuildTicketIndex.pl &gt;&gt; /dev/null
 
 # --
 # cron/session - delete old session ids of the OTRS
@@ -1410,7 +1410,7 @@ MAILTO="root@localhost"
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete every 120 minutes old/idle session ids
-55 */2 * * * $HOME/bin/DeleteSessionIDs.pl --expired &gt;&gt; /dev/null
+55 */2 * * * $HOME/bin/otrs.DeleteSessionIDs.pl --expired &gt;&gt; /dev/null
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
@@ -1419,7 +1419,7 @@ MAILTO="root@localhost"
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # unlock every hour old locked tickets
-35 * * * * $HOME/bin/UnlockTickets.pl --timeout &gt;&gt; /dev/null
+35 * * * * $HOME/bin/otrs.UnlockTickets.pl --timeout &gt;&gt; /dev/null
 
 linux:/opt/otrs/bin#
 </screen>
