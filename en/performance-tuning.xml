@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.10 2010-09-07 23:00:31 en Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.11 2010-11-12 15:49:52 mb Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -41,8 +41,9 @@ trouble until you have about 60,000 tickets (with 6,000 open tickets) in your sy
 <para>
 Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful module, it
 should be used when you have above 80,000 tickets (more than 6,000 open tickets) -
-use an extra ticket_index table, works like a view. Use bin/RebuildTicketIndex.pl
-for an initial index build.
+it use an extra ticket_index table, which works like a view. Use
+<file>bin/otrs.RebuildTicketIndex.pl</file>
+for generating an initial index build after switching backends.
 </para>
 </listitem>
 
@@ -50,21 +51,9 @@ for an initial index build.
 </para>
 
 <para>
-The used backend module for the ticket index is specified in Kernel/Config.pm, as shown
-in the Script 21.1 below.
+You can change the IndexAccelerator via SysConfig.
 </para>
 
-<para>
-<programlisting>
-[...]
-    $Self->{TicketIndexModule} = 'Kernel::System::Ticket::IndexAccelerator::RuntimeDB';
-[...]
-</programlisting>
-</para>
-
-<para>
-    <emphasis>Script 21.1. Identifying the used backend module for the ticket index.</emphasis>
-</para>
 </section>
 
 
@@ -96,13 +85,16 @@ that your database is able to store large objects. E.g. MySQL (config)
 <listitem>
 <para>
 Kernel::System::Ticket::ArticleStorageFS, store attachments etc. on the local
-file system. Note: Recommended for large set ups.
+file system. Note: Recommended for large setups.
 </para>
 <para>
 Pro: Fast!
 </para>
 <para>
 Contra: Your web server user should be the otrs user (file system permissions!).
+Also, if you have multiple front end servers, you should make sure the file system
+is shared between the servers. So place it on an NFS share or preferably a SAN
+or similar solution.
 </para>
 </listitem>
 
@@ -111,22 +103,24 @@ Contra: Your web server user should be the otrs user (file system permissions!).
 </para>
 
 <para>
-Note: you can switch from one to the other backend on the fly. To know which backend
-is in use, check in the Kernel/Config.pm file, as shown in the Script 21.2 below.
+Note: you can switch from one to the other back-end on the fly. You can switch
+the backend in the SysConfig, and then you can run the command line utility
+<filename>otrs.ArticleStorageSwitch.pl</filename> to put the articles from
+the database onto the filesystem or the other way around. You can use the
+<emphasis>-s</emphasis> and <emphasis>-d</emphasis> option to specify the
+source and destination back-ends. Please note that the whole process can take a
+lot of time, depending on the amount of articles you have and the available
+CPU power and/or network capacity.
 </para>
 
 <para>
 <programlisting>
-[...]
-    $Self->{Ticket::StorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
-[...]
+shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
-
 <para>
-    <emphasis>Script 21.2. Identifying the used backend module for the ticket/article storage.</emphasis>
+    <emphasis>Script 21.1 Switching storage back-ends from database to filesystem.</emphasis>
 </para>
-
 </section>
 
 </section>
@@ -149,7 +143,7 @@ you need to defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
 You should try this if mysqld needs a lot of your CPU time. Optimize tables
-ticket, ticket_history and article (see Script 21.3 below).
+ticket, ticket_history and article (see Script 21.2 below).
 </para>
 
 <para>
@@ -162,7 +156,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-    <emphasis>Script 21.3. Optimizing data base tables.</emphasis>
+    <emphasis>Script 21.2. Optimizing data base tables.</emphasis>
 </para>
 
 </section>
@@ -223,8 +217,7 @@ Of course you should use mod_perl 2.0 (
 <ulink url="http://perl.apache.org/">
 <citetitle>http://perl.apache.org/</citetitle>
 </ulink>).
-It's much faster (~ * 100) than pure cgi. But needs more RAM. So your
-httpd with mod_perl will be about 16 MB (~10MB shared).
+It's much faster (~ * 100) than pure cgi. But it needs more RAM.
 </para>
 
 <section id="performance-tuning-webserver-db">
@@ -238,26 +231,26 @@ This saves time (see README.webserver).
 <section id="performance-tuning-webserver-startup">
 <title>Preloaded modules - startup.pl</title>
 <para>
-Use the scripts/apache-perl-startup.pl (mod_perl 1.0) or scripts/apache2-perl-startup.pl (mod_perl 2.0) startup script for preloaded/precompiled Perl
+Use the startup script <filename>scripts/apache2-perl-startup.pl</filename> for preloaded/precompiled Perl
 modules on your mod_perl webserver to be faster and smaller (see README.webserver).
 </para>
 </section>
 <section id="performance-tuning-webserver-reload">
 <title>Reload Perl modules when updated on disk</title>
 <para>
-Per default Apache::Reload (mod_perl 2.0) is used
+By default Apachee::Reload is used
 in scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
-speed. But remember to restart the web server if you change Kernel/Config.pm
-or any other modules!
-Important: this would also mean you can't use the OTRS-Packet-Manager via the web interface, you need to use
-CMD - bin/opm.pl.
+speed. But remember to restart the web server if you install any modules via the
+OTRS Package Manager, any values in your SysConfig or in Kernel/Config.pm.
+Important: this would also mean you can't use the OTRS Package Manager via the web interface, you need to use
+the command line variant - <filename>bin/otrs.PackageManager.pl</filename>.
 </para>
 </section>
 
 <section id="performance-tuning-webserver-strategy">
 <title>Choosing the Right Strategy</title>
 <para>
-If you have a really large installation (over 1,000 new tickets a day and over 40
+If you have a really large installation (over 1,000 new tickets per day and over 40
 agents) it is a good idea to read "Choosing the Right Strategy"
 (<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">
 <citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle>
@@ -268,12 +261,9 @@ agents) it is a good idea to read "Choosing the Right Strategy"
 <section id="performance-tuning-webserver-gzip">
 <title>mod_gzip/mod_deflate</title>
 <para>
-If your bandwidth is a little bit small, use mod_gzip for Apache1
-(<ulink url="http://www.schroepl.net/projekte/mod_gzip/">
-<citetitle>http://www.schroepl.net/projekte/mod_gzip/</citetitle>
-</ulink>) or mod_deflate for Apache2 (default module in Apache2).
+If your bandwidth is a little bit small, use mod_deflate for Apache2.
 If you have an html page with 45k, mod_gzip/mod_deflate compresses it. The page will be
-about 7k.
+about 7k. The drawback is that this increases load on the server side.
 </para>
 </section>
 
