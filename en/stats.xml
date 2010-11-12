@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.9 2010-09-07 16:59:37 en Exp $ -->
+<!-- $Id: stats.xml,v 1.10 2010-11-12 15:22:01 mb Exp $ -->
 
 <chapter id="statistic-module">
 <title>Stats module</title>
@@ -1210,7 +1210,7 @@ The following files are necessary for the stats module to work accurately:
     </listitem>
     <listitem>
         <para>
-        <filename>bin/mkStats.pl</filename>
+        <filename>bin/otrs.GenerateStats.pl</filename>
         </para>
     </listitem>
 </itemizedlist>
@@ -1240,7 +1240,7 @@ a little longer.
 </section>
 
 <section id="stats-mkstats" >
-<title>mkStats.pl</title>
+<title>otrs.GenerateStats.pl</title>
 
 <para>
 This file is saved in the <filename>bin/</filename>directory.
@@ -1253,7 +1253,7 @@ The command line call in the Script 19.1 is an exemplary.
 
 <para>
 <programlisting>
-bin> perl mkStats.pl -n 10004 -o /output/dir
+bin> perl otrs.GenerateStats.pl -n 10004 -o /output/dir
 </programlisting>
 </para>
 
@@ -1273,12 +1273,12 @@ More information can be called up with the command of the Script 19.2.
 
 <para>
 <programlisting>
-bin> perl mkStats.pl --help
+bin> perl otrs.GenerateStats.pl --help
 </programlisting>
 </para>
 
 <para>
-    <emphasis>Script 19.2. Getting information about the mkStats.pl file.</emphasis>
+    <emphasis>Script 19.2. Getting information about the otrs.GenerateStats.pl file.</emphasis>
 </para>
 
 </section>
