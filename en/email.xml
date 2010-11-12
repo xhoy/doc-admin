@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.18 2010-08-12 14:03:47 mg Exp $ -->
+<!-- $Id: email.xml,v 1.19 2010-11-12 12:09:18 mb Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -150,6 +150,14 @@ cron jobs
 </link> chapter.
 </para>
 
+<note>
+<para>
+When fetching mail OTRS deletes the mail from the POP or IMAP server. There's no
+option to also keep a copy on the server. If you'd want to achieve this, you'd
+probably best create forwarding rules on your mail server. Please consult your
+mail server documentation for details.
+</para>
+</note>
 </section>
 
 
