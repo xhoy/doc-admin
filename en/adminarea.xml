@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.39 2010-11-12 15:59:14 mb Exp $ -->
+<!-- $Id: adminarea.xml,v 1.40 2010-11-17 21:41:05 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -1370,6 +1370,50 @@ notification, by using special variables. At the bottom of the screen shown in t
 you can find a list of them.
 </para>
 
+<para>
+It is also possible to create notifications based in events. You can specify in detail when and to whom
+you want this notification to be sent, since you can choose from a wide diversity of parameters, such as:
+recipient group(s), agent(s), role(s), email address(es); type of event that will trigger the notification,
+ticket: type, state, priority, queue, lock, service, SLA, etc.
+</para>
+
+<para>
+In order to see a list of all the event based notifications, click on the link Notifications(Event)
+in the admin area (see Figure 5.42).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing event based notifications</screeninfo>
+<graphic srccredit="Adminarea event based notifications - screenshot" scale="40" fileref="screenshots/admin-notification-eventbased.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.42. Event based notification management.</emphasis>
+</para>
+
+<para>
+In the screen shown in the Figure 5.42 you can create a new notification by clicking on the
+Add button (see Figure 5.43).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing event based notifications</screeninfo>
+<graphic srccredit="Adminarea event based notifications - screenshot" scale="40" fileref="screenshots/admin-notification-eventbased-new.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.43. Registering an event based notification management.</emphasis>
+</para>
+
+<para>
+Please note that the content of the event based notifications can also be dynamically created by using
+the special variables listed at the bottom of the screen shown in the Figure 5.43.
+</para>
+
 </section>
 
 
@@ -1389,7 +1433,7 @@ in the SysConfig.
 
 <para>
 The "S/MIME Certificates" link in the admin area of OTRS, allows you manage your S/MIME
-certificates (see Figure 5.42 below). You can add or remove certificates and search through the
+certificates (see Figure 5.44 below). You can add or remove certificates and search through the
 SMIME data.
 </para>
 
@@ -1401,7 +1445,7 @@ SMIME data.
 </para>
 
 <para>
-    <emphasis>Figure 5.42. S/MIME management.</emphasis>
+    <emphasis>Figure 5.44. S/MIME management.</emphasis>
 </para>
 
 </section>
@@ -1424,7 +1468,7 @@ in the SysConfig.
 
 <para>
 Through the "PGP Keys" link in the admin area of OTRS, it is possible to manage
-the key ring of the user who shall be used for PGP with OTRS (see Figure 5.43 below),
+the key ring of the user who shall be used for PGP with OTRS (see Figure 5.45 below),
 e.g. the local OTRS user or the web server user. It is possible to add and remove
 keys and signatures, and you can search through all data in your key ring.
 </para>
@@ -1437,7 +1481,7 @@ keys and signatures, and you can search through all data in your key ring.
 </para>
 
 <para>
-    <emphasis>Figure 5.43. PGP management.</emphasis>
+    <emphasis>Figure 5.45. PGP management.</emphasis>
 </para>
 
 </section>
@@ -1448,7 +1492,7 @@ keys and signatures, and you can search through all data in your key ring.
 
 <para>
 Through the "States" link, in the admin area of OTRS, you can manage the
-different ticket states you want to use in the system (see Figure 5.44 below).
+different ticket states you want to use in the system (see Figure 5.46 below).
 </para>
 
 <para>
@@ -1459,7 +1503,7 @@ different ticket states you want to use in the system (see Figure 5.44 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.44. State management.</emphasis>
+    <emphasis>Figure 5.46. State management.</emphasis>
 </para>
 
 <para>
@@ -1569,7 +1613,7 @@ The SysConfig is the place where many configuration options for OTRS are stored.
 
 <para>
 The "SysConfig" link in the admin area of OTRS loads the graphical
-configuration front-end (see Figure 5.45 below). You can upload own config files
+configuration front-end (see Figure 5.47 below). You can upload own config files
 for the system and backup all your current settings into a file. Almost all config
 parameters of the OTRS framework and the installed applications, can be viewed and
 changed through the web interface. Because all config parameters are sorted
@@ -1586,7 +1630,7 @@ search through all the config parameters.
 </para>
 
 <para>
-    <emphasis>Figure 5.45. The graphical configuration front-end of OTRS (SysConfig).</emphasis>
+    <emphasis>Figure 5.47. The graphical configuration front-end of OTRS (SysConfig).</emphasis>
 </para>
 
 <para>
@@ -1616,7 +1660,7 @@ otrs.PostMaster.pl module
 that pipes the mails directly into the system. Another possibility is the use
 of mail accounts, which can be administrated through the web interface. The
 "PostMaster Mail Accounts" link in the admin area of OTRS, loads the
-management console for the mail accounts (see Figure 5.46 below). OTRS supports the mail
+management console for the mail accounts (see Figure 5.48 below). OTRS supports the mail
 protocols: POP3, POP3S, IMAP and IMAPS.
 </para>
 
@@ -1628,7 +1672,7 @@ protocols: POP3, POP3S, IMAP and IMAPS.
 </para>
 
 <para>
-    <emphasis>Figure 5.46. Mail account management.</emphasis>
+    <emphasis>Figure 5.48. Mail account management.</emphasis>
 </para>
 
 <para>
@@ -1654,7 +1698,7 @@ mails can be moved into a specific queue, OTRS has the possibility to
 filter incoming messages. It does not matter, if <filename>PostMaster.pl</filename>
 or mail accounts are used to get messages into the ticket system. Filter
 rules can be created through the link "PostMaster Filter" in the admin area
-of OTRS (see Figure 5.47 below).
+of OTRS (see Figure 5.49 below).
 </para>
 
 <para>
@@ -1665,7 +1709,7 @@ of OTRS (see Figure 5.47 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.47. PostMaster filter management.</emphasis>
+    <emphasis>Figure 5.49. PostMaster filter management.</emphasis>
 </para>
 
 <para>
@@ -1918,7 +1962,7 @@ the filter criteria can be specified. Choose via the listboxes for
 like to search and specify via the input files on the right sides the
 values. In the section for "Set" you can choose the actions that are
 triggered, if the filter rules match. You can select for "Header 1",
-"Header 2" and so on the X-OTRS-Header and set the values (see Figure 5.48 below).
+"Header 2" and so on the X-OTRS-Header and set the values (see Figure 5.50 below).
 </para>
 
 <para>
@@ -1929,7 +1973,7 @@ triggered, if the filter rules match. You can select for "Header 1",
 </para>
 
 <para>
-    <emphasis>Figure 5.48. Add a PostMaster filter.</emphasis>
+    <emphasis>Figure 5.50. Add a PostMaster filter.</emphasis>
 </para>
 
 <example id="sort-mails-into-junk">
@@ -1976,7 +2020,7 @@ close or move tickets, send notifications on escalated tickets, etc.
 
 <para>
 To access to the GenericAgent, the link "GenericAgent" in the
-admin area of OTRS can be used (see Figure 5.49 below). A table with the already created jobs is
+admin area of OTRS can be used (see Figure 5.51 below). A table with the already created jobs is
 displayed, where jobs can be executed manually or removed.
 </para>
 
@@ -1988,14 +2032,14 @@ displayed, where jobs can be executed manually or removed.
 </para>
 
 <para>
-    <emphasis>Figure 5.49. Job list for the GenericAgent.</emphasis>
+    <emphasis>Figure 5.51. Job list for the GenericAgent.</emphasis>
 </para>
 
 <para>
 To create a new job a name must be specified and the "Add job" button must be
 pressed. Via the screen for the creation of a new job for the GenericAgent you can specify
 the times when the job shall be executed, different criteria to select the tickets
-to work on and the new properties of those tickets (see Figure 5.50 below).
+to work on and the new properties of those tickets (see Figure 5.52 below).
 </para>
 
 <para>
@@ -2006,7 +2050,7 @@ to work on and the new properties of those tickets (see Figure 5.50 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.50. Creating a job for the GenericAgent.</emphasis>
+    <emphasis>Figure 5.52. Creating a job for the GenericAgent.</emphasis>
 </para>
 
 <para>
@@ -2025,7 +2069,7 @@ really activated if it is saved into the job list.
 <para>
 OTRS administrators can send messages to specific users or groups.
 The "Admin Notification" in the admin area, opens the screen where the agents
-and groups that should be notified can be selected (see Figure 5.51 below).
+and groups that should be notified can be selected (see Figure 5.53 below).
 </para>
 
 <para>
@@ -2036,7 +2080,7 @@ and groups that should be notified can be selected (see Figure 5.51 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.51. Admin notification.</emphasis>
+    <emphasis>Figure 5.53. Admin notification.</emphasis>
 </para>
 
 <para>
@@ -2051,7 +2095,7 @@ You can also select the agents, groups and roles who should receive the message.
 
 <para>
 You can see all logged in users and their session details by clicking the
-"Session Management" link in the admin area (see Figure 5.52 below).
+"Session Management" link in the admin area (see Figure 5.54 below).
 </para>
 
 <para>
@@ -2062,7 +2106,7 @@ You can see all logged in users and their session details by clicking the
 </para>
 
 <para>
-    <emphasis>Figure 5.52. Session management.</emphasis>
+    <emphasis>Figure 5.54. Session management.</emphasis>
 </para>
 
 <para>
@@ -2072,7 +2116,7 @@ Every individual session can be removed y clicking on
 the <emphasis>Kill this session</emphasis> in the right-hand side of the list.
 You also have the option to <emphasis>Kill all sessions</emphasis>, which can be
 useful if you'd like to bring the system down.
-Detailed information for every session is available, too (see Figure 5.53 below).
+Detailed information for every session is available, too (see Figure 5.55 below).
 </para>
 
 <para>
@@ -2083,7 +2127,7 @@ Detailed information for every session is available, too (see Figure 5.53 below)
 </para>
 
 <para>
-    <emphasis>Figure 5.53. Session details.</emphasis>
+    <emphasis>Figure 5.55. Session details.</emphasis>
 </para>
 
 </section>
@@ -2093,7 +2137,7 @@ Detailed information for every session is available, too (see Figure 5.53 below)
 
 <para>
 The "System Log" link in the admin area of OTRS, shows the last log entries
-of the system (see Figure 5.54 below).
+of the system (see Figure 5.56 below).
 </para>
 
 <para>
@@ -2104,7 +2148,7 @@ of the system (see Figure 5.54 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.54. System Log.</emphasis>
+    <emphasis>Figure 5.56. System Log.</emphasis>
 </para>
 
 <para>
@@ -2128,7 +2172,7 @@ unix systems. On Windows systems you can see the log by opening the file
 
 <para>
 The "SQL Box" link in the admin area, opens a screen that lets you query the content of the
-tables in the OTRS database (see Figure 5.55 below). It is not possible to change the content
+tables in the OTRS database (see Figure 5.57 below). It is not possible to change the content
 of the tables, only queries are allowed.
 </para>
 
@@ -2140,7 +2184,7 @@ of the tables, only queries are allowed.
 </para>
 
 <para>
-    <emphasis>Figure 5.55. SQL Box.</emphasis>
+    <emphasis>Figure 5.57. SQL Box.</emphasis>
 </para>
 
 </section>
@@ -2151,7 +2195,7 @@ of the tables, only queries are allowed.
 
 <para>
 Using the "Package Manager" in the admin area, you can install and manage packages
-that extend the functionality of OTRS (see Figure 5.56 below). See the
+that extend the functionality of OTRS (see Figure 5.58 below). See the
 <link linkend="application">Additional applications</link>
 section for a discussion on the extensions that are available from the
 OTRS repositories.
@@ -2165,7 +2209,7 @@ OTRS repositories.
 </para>
 
 <para>
-    <emphasis>Figure 5.56. Package Manager.</emphasis>
+    <emphasis>Figure 5.58. Package Manager.</emphasis>
 </para>
 
 <para>
