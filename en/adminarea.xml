@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.26.2.1 2010-08-09 15:54:35 mb Exp $ -->
+<!-- $Id: adminarea.xml,v 1.26.2.2 2010-11-17 21:42:21 en Exp $ -->
 
 <chapter id="adminarea">
 <title>The admin area of OTRS</title>
@@ -945,6 +945,42 @@ Like signatures or salutation it is possible to create the content of a
 notification dynamically by using special variables. In the lower part of the
 notification screen you can find a list of all variables that can used for
 notifications.
+</para>
+
+<para>
+It is also possible to create notifications based in events. You can specify in detail when and to whom
+you want this notification to be sent, since you can choose from a wide diversity of parameters, such as:
+recipient group(s), agent(s), role(s), email address(es); type of event that will trigger the notification,
+ticket: type, state, priority, queue, lock, service, SLA, etc.
+</para>
+
+<para>
+In order to see a list of all the event based notifications, click on the link Notifications(Event)
+in the admin area.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing event based notifications</screeninfo>
+<graphic srccredit="Adminarea event based notifications - screenshot" scale="40" fileref="screenshots/admin-notification-eventbased.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+In the Event Notifications Management screen you can create a new notification by clicking on the
+Add button.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing event based notifications</screeninfo>
+<graphic srccredit="Adminarea event based notifications - screenshot" scale="40" fileref="screenshots/admin-notification-eventbased-new.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Please note that the content of the event based notifications can also be dynamically created by using
+the special variables listed at the bottom of the screen shown in the Figure 5.43.
 </para>
 
 </sect1>
