@@ -1,0 +1,1864 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $ -->
+
+<chapter id="installation-and-basic-configuration">
+<title>Installation/Upgrading des OTRS Frameworks</title>
+
+<abstract>
+<para>
+Dieser Abschnitt beschreibt die Installation und die grundlegende
+Einrichtung des zentralen OTRS Frameworks. Dabei wird auf die Installation
+von bereits fertigen Paketen für die Betriebssysteme Linux und
+Microsoft Windows eingegangen, aber auch die manuelle Installation direkt
+über die Quellen erklärt, wodurch eine Installation auch auf
+anderen, hier nicht näher beschriebenen, Betriebssystemen
+übertragbar sein sollte.
+</para>
+
+<para>
+Die Einrichtung des Web- und Datenbankservers,
+die Schnittstelle zwischen OTRS und der Datenbank, das Einspielen
+einzelner Perl-Module, das Setzen der richtigen Berechtigungen, die
+Einrichtung der OTRS-eigenen cron-Jobs sowie grundlegende Einstellungen
+in den OTRS-Konfigurationsdateien, sind in diesem Kapitel zu finden.
+</para>
+
+<para>
+Am Ende dieses Abschnitts sollte ein lauffähiges OTRS auf Ihrem
+Betriebssystem installiert sein, an dessen Weboberfläche Sie sich
+bereits als OTRS-Administrator anmelden können.
+</para>
+</abstract>
+
+<sect1 id="installation-of-prepared-packages">
+<title>Der einfache Weg - Installation fertiger Pakete</title>
+
+<para>
+Der einfachste und komfortableste Weg ein lauffähiges OTRS zu
+installieren ist sicherlich, auf bereits vorgefertigte Pakete zurück
+zu greifen. Viele bereits vorgefertigte Installations-Pakete sind im
+Download-Bereich unter
+
+<ulink url="http://www.otrs.org">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+zu finden. Da der Aufwand viel zu groß wäre, die Installation
+aller dort aufgeführten Pakete in dieser Dokumentation anzuführen,
+soll im Folgenden nur näher auf die Installation von OTRS unter SUSE
+Linux, Debian und Microsoft Windows eingegangen werden. Sehen Sie unter
+der o.g. URL nach, ob auch für Ihr Betriebssystem ein fertiges
+Installations-Paket vorhanden ist und greifen Sie nur auf die manuelle
+Installation zurück, wenn Sie keine andere Möglichkeit haben.
+</para>
+
+<sect2 id="installation-on-suse">
+<title>Installation des rpm-Softwarepackets auf einer SUSE Linux
+Distribution</title>
+
+<para>
+Dieser Abschnitt beinhaltet die Anleitung für die Installation von OTRS
+unter SUSE Linux. Getestet wurden die Versionen bis SUSE Linux 9.3.
+Bevor Sie mit der Installation beginnen, sehen Sie bitte unter
+
+<ulink url="http://www.otrs.org/">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+nach, ob eine aktuellere Version von OTRS als .rpm-Datei vorliegt.
+Sollte dies der Fall sein, verwenden Sie bitte diese neuere Version.
+</para>
+
+<para>
+Installieren Sie OTRS mittels <application>yast</application> (yast2)
+oder der Kommandozeile und <command>rpm</command>, je nach
+Vorliebe. Beachten Sie jedoch, dass OTRS einige Perl-Module
+benötigt, die nicht standardmäßig in einer typischen
+SUSE-Installation enthalten sind. <application>yast</application> sollte
+die bessere Wahl sein, da es alle Abhängikeiten automatisch
+beachtet und auflösen kann.
+</para>
+
+<para>
+Sollten Sie den Weg über die Kommandozeile mit
+<command>rpm</command> bevorzugen, so müssen Sie die
+Perl-Module manuell vor Beginn der Installation von
+OTRS installieren. Angenommen Sie haben die Datei
+<filename>otrs.rpm</filename> im Verzeichnis <filename>/tmp</filename>
+gespeichert, dann geben Sie zur Installation von OTRS folgenden Befehl ein.
+</para>
+
+<para>
+<screen>
+linux:~ # rpm -ivh /tmp/otrs.rpm
+otrs                        ##################################################
+Check OTRS user (/etc/passwd)... otrs exists.
+
+Next steps:
+
+[SuSEconfig]
+ Execute 'SuSEconfig' to configure the webserver.
+
+[start Apache and MySQL]
+ Execute 'rcapache restart' and 'rcmysql start' in case they don't run.
+
+[install the OTRS database]
+ Use a webbrowser and open this link:
+ http://localhost/otrs/installer.pl
+
+[OTRS services]
+ Start OTRS 'rcotrs start-force' (rcotrs {start|stop|status|restart|start-force|stop-force}).
+
+Have fun!
+
+ Your OTRS Team
+ http://otrs.org/
+
+linux:~ #
+</screen>
+</para>
+
+<para>
+Nach der Installation des rpm's ist es notwendig
+<application>SuSEconfig</application> zu starten. Geben Sie hierzu
+Folgendes ein.
+</para>
+
+<para>
+<screen>
+linux:~ # SuSEconfig
+Starting SuSEconfig, the SuSE Configuration Tool...
+Running in full featured mode.
+Reading /etc/sysconfig and updating the system...
+Executing /sbin/conf.d/SuSEconfig.aaa_at_first...
+Executing /sbin/conf.d/SuSEconfig.apache...
+Including /opt/otrs/scripts/apache-httpd.include.conf
+Executing /sbin/conf.d/SuSEconfig.bootsplash...
+Executing /sbin/conf.d/SuSEconfig.doublecheck...
+Executing /sbin/conf.d/SuSEconfig.guile...
+Executing /sbin/conf.d/SuSEconfig.hostname...
+Executing /sbin/conf.d/SuSEconfig.ispell...
+Executing /sbin/conf.d/SuSEconfig.perl...
+Executing /sbin/conf.d/SuSEconfig.permissions...
+Executing /sbin/conf.d/SuSEconfig.postfix...
+Setting up postfix local as MDA...
+Setting SPAM protection to "off"...
+Executing /sbin/conf.d/SuSEconfig.profiles...
+Finished.
+linux:~ #
+</screen>
+</para>
+
+<para>
+Die Installation des OTRS-rpm ist abgeschlossen. Starten Sie nun
+Ihren Webserver neu, um die Änderungen in der Konfiguration zu
+übernehmen.
+</para>
+
+<para>
+<screen>
+linux:~ # rcapache restart
+Shutting down httpd                                         done
+Starting httpd [ PERL ]                                     done
+linux:~ #
+</screen>
+</para>
+
+<para>
+Der nächste Schritt ist das Aufsetzen der Datenbank.
+Wenn sie <application>MySQL</application> als Datenbankserver verwenden,
+können Sie hierzu den Webinstaller von OTRS benutzen. Geben Sie
+dazu folgende Adresse in Ihrem Browser ein.
+</para>
+
+<para>
+<ulink url="http://localhost/otrs/installer.pl">
+<citetitle>http://localhost/otrs/installer.pl</citetitle>
+</ulink>
+</para>
+
+<para>
+Der Webinstaller wird gestartet. Folgen Sie den Anweisungen auf dem
+Bildschirm.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Lizenz (1/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer1.png"></graphic>
+</screenshot>
+</para>
+
+<warning>
+<para>
+Es ist niemals eine gute Idee, Standardpasswörter zu
+verwenden! Bitte ändern Sie deshalb unbedingt das von OTRS
+standardmäßig gesetzte Passwort!
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - System einstellungen (3/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer3.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Fertig (4/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer4.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Nachdem alle Einstellungen vorgenommenw urden, kann OTRS nun gestartet
+werden.
+</para>
+
+<para>
+<screen>
+linux:~ # rcotrs restart-force
+Shutting down OTRS
+ Disable /opt/otrs/bin/PostMaster.pl ... done.
+no crontab for otrs
+ Shutting down cronjobs ... failed!
+Shutting down OTRS (completely)
+ Shutting down Apache ... done.
+ Shutting down MySQL ... done.
+                                                                     done
+Starting OTRS (completely)
+ Starting Apache ... done.
+ Starting MySQL ... done.
+Starting OTRS
+ Checking Apache ... done.
+ Checking MySQL ... done.
+ Checking database connect... (It looks Ok!).
+ Enable /opt/otrs/bin/PostMaster.pl ... done.
+ Checking otrs spool dir...  done.
+ Creating cronjobs (source /opt/otrs/var/cron/*) ... done.
+
+  -->> http://linux.example.com/otrs/index.pl &lt;&lt;--
+                                                                     done
+                                                                     done
+linux:~ #
+</screen>
+</para>
+
+<para>
+Die Installation von OTRS ist beendet, Sie sollten das System nun
+verwenden können. Um sich in die Weboberfläche des
+Trouble Ticket Systems einloggen zu können, geben sie die Adresse
+
+<ulink url="http://localhost/otrs/index.pl">
+<citetitle>http://localhost/otrs/index.pl</citetitle>
+</ulink>
+
+in Ihrem Browser ein. Melden sie sich als OTRS-Administrator an und
+konfigurieren Sie das System Ihren Wünschen entsprechend.
+Als Benutzername verwenden Sie root@localhost, das Passwort lautet
+root.
+</para>
+
+<warning>
+<para>
+Bitte ändern Sie auch dieses Passwort schnellstmöglich! Es
+handelt sich auch hier um ein Standardpasswort!
+</para>
+</warning>
+
+</sect2>
+
+<sect2 id="installation-on-rhel4">
+<title>Installation des rpm-Softwarepackets auf einer Red Hat Enterprise 4
+(RHEL4) Distribution</title>
+
+<para>
+Dieser Abschnitt beinhaltet die Anleitung für die Installation von OTRS
+auf RHEL4. Als DB-Backend wird MySQL verwendet. Es wird davon ausgegangen,
+dass sowohl MySQL als auch der Apache-Webserver soweit installiert und
+eingerichtet sind, dass beide Services automatisch starten und funktionieren.
+</para>
+
+<para>
+Damit OTRS problemlos auf RHEL4 funktioniert, schalten Sie bitte zuerst
+selinux für das System ab. Dazu muss in der Datei
+<filename>/etc/sysconfig/selinux</filename> der Konfigurationsparameter
+"SELINUX" von "enforcing" auf "disabled" gesetzt werden. Starten Sie nach
+dieser Änderung den Rechner komplett neu, damit selinux auf jeden Fall
+deaktiviert ist.
+</para>
+
+<para>
+Damit OTRS auf RHEL4 funktioniert, müssen die folgenden zusätzlichen Pakete
+vor dem Einspielen des OTRS-RPMs installiert sein. Falls es neuere Versionen
+der entsprechenden Pakete gibt, verwenden Sie bitte diese:
+</para>
+
+<para>
+<itemizedlist>
+<listitem>
+    <para>
+    mysql-4.1.7-4.RHEL4.1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    mysql-server-4.1.7-4.RHEL4.1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-DBD-MySQL-2.9004-3.1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    zlib-devel-1.2.1.2-1.2.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    libpng-devel-1.2.7-1el4.2.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    libjpeg-devel-6b-33.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    freetype-devel-2.1.9-1.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    fontconfig-devel-2.2.3-7.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    gd-2.0.33-2_11.el4.at.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    libgd2-2.0.33-2_11.e14.at.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    gd-devel-2.0.33-2_11.el4.at.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Bit-Vector-6.3-3.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Date-Calc-5.3-9.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Perl-Date-Lepyear-1.71.-1.2.el4.rf.noarch.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Date-ICal-1.72-1.2.el4.rf.noarch.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-DBI-1.40-5.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Digest-HMAC-1.01-13.noarch.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Digest-SHA1-2.07-5.i386.rpm
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-Net-DNS-0.48-1.i386.rpm
+    </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>
+Weiterhin werden die folgenden Perl-Module benötigt. Da RHEL4 diese nicht
+direkt als RPM beinhaltet, müssen die Module über CPAN händisch
+nachinstalliert werden:
+</para>
+
+<para>
+<itemizedlist>
+<listitem>
+    <para>
+    perl-GD
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-GD-Graph3d
+    </para>
+</listitem>
+<listitem>
+    <para>
+    perl-GDGraph
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Perl-GDTextUtil
+    </para>
+</listitem>
+<listitem>
+    <para>
+    PDF::API2
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Compress::Zlib
+    </para>
+</listitem>
+</itemizedlist>
+</para>
+
+
+<para>
+Im Abschnitt zur
+
+<link linkend="installation-of-needed-perl-modules">
+Installation der für OTRS benötigten Perl-Module
+</link>
+
+wird die händische Installation von CPAN-Modulen näher beschrieben.
+</para>
+
+<para>
+Nun, nachdem alle Vorbereitungen abgeschlossen sind, kann das OTRS-rpm
+eingespielt werden. Bevor Sie mit der Installation beginnen, sehen Sie bitte
+unter
+
+<ulink url="http://www.otrs.org/">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+nach, ob eine aktuellere Version von OTRS als .rpm-Datei vorliegt.
+Sollte dies der Fall sein, verwenden Sie bitte diese neuere Version. Für
+RHEL4 können die RPMs verwendet werden, welche für Red Hat Linux 8.0 bereit
+gestellt werden.
+</para>
+
+<para>
+Installieren Sie OTRS nun über die Kommandozeile und <command>rpm</command>.
+Wurde das aktuelle OTRS-rpm in der Datei /tmp/otrs.rpm gespeichert,
+geschieht dies mit folgendem Befehl:
+</para>
+
+<para>
+<screen>
+linux:~ # rpm -ivh /tmp/otrs.rpm --nodeps
+linux:~ #
+</screen>
+</para>
+
+<para>
+Um sicher zu gehen, dass für die OTRS-Installation die richtigen
+Zugriffsrechte gesetzt sind, sollte nun das Skript
+<filename>SetPermissions.sh</filename> folgendermaßen aufgerufen werden:
+</para>
+
+<para>
+<screen>
+linux:~ # cd /opt/otrs/bin
+linux:/opt/otrs/bin # ./SetPermissions.sh /opt/otrs otrs apache apache apache
+[...]
+linux:/opt/otrs/bin #
+</screen>
+</para>
+
+<para>
+Die Installation des OTRS-rpm ist abgeschlossen. Starten Sie nun
+Ihren Webserver neu, um die Änderungen in der Konfiguration zu
+übernehmen.
+</para>
+
+<para>
+<screen>
+linux:~ # service httpd restart
+linux:~ #
+</screen>
+</para>
+
+<para>
+Der nächste Schritt ist das Aufsetzen der Datenbank.
+Wenn sie <application>MySQL</application> als Datenbankserver verwenden,
+können Sie hierzu den Webinstaller von OTRS benutzen. Geben Sie
+dazu folgende Adresse in Ihrem Browser ein.
+</para>
+
+<para>
+<ulink url="http://localhost/otrs/installer.pl">
+<citetitle>http://localhost/otrs/installer.pl</citetitle>
+</ulink>
+</para>
+
+<para>
+Der Webinstaller wird gestartet. Folgen Sie den Anweisungen auf dem
+Bildschirm.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Lizenz (1/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer1.png"></graphic>
+</screenshot>
+</para>
+
+<warning>
+<para>
+Es ist niemals eine gute Idee, Standardpasswörter zu
+verwenden! Bitte ändern Sie deshalb unbedingt das von OTRS
+standardmäßig gesetzte Passwort!
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - System einstellungen (3/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer3.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Fertig (4/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer4.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Nachdem alle Einstellungen vorgenommen wurden, kann der OTRS-Service nun
+eingerichtet und anschließend gestartet werden. Der erste Schritt ist die
+Aktivierung des OTRS-Services:
+</para>
+
+<para>
+<screen>
+linux:~ # chkconfig otrs on
+linux:~ #
+</screen>
+</para>
+
+<para>
+Nun wird überprüft, in welchen Runleveln der Service aktiv ist:
+</para>
+
+<para>
+<screen>
+linux:~ # chkconfig --list | grep otrs
+otrs            0:off   1:off   2:on    3:on    4:on    5:on    6:off
+linux:~ #
+</screen>
+</para>
+
+<para>
+Mit folgendem Befehl kann der otrs-Service gestartet werden:
+</para>
+
+<para>
+<screen>
+linux:~ # service otrs restart
+Shutting down OTRS
+ Disable /opt/otrs/bin/PostMaster.pl ... done.
+no crontab for otrs
+ Shutting down cronjobs ... failed!
+Shutting down OTRS (completely)
+ Shutting down Apache ... done.
+ Shutting down MySQL ... done.
+                                                                     done
+Starting OTRS (completely)
+ Starting Apache ... done.
+ Starting MySQL ... done.
+Starting OTRS
+ Checking Apache ... done.
+ Checking MySQL ... done.
+ Checking database connect... (It looks Ok!).
+ Enable /opt/otrs/bin/PostMaster.pl ... done.
+ Checking otrs spool dir...  done.
+ Creating cronjobs (source /opt/otrs/var/cron/*) ... done.
+
+  -->> http://linux.example.com/otrs/index.pl &lt;&lt;--
+                                                                     done
+                                                                     done
+linux:~ #
+</screen>
+</para>
+
+<para>
+Die Installation von OTRS ist beendet, Sie sollten das System nun
+verwenden können. Um sich in die Weboberfläche des
+Trouble Ticket Systems einloggen zu können, geben sie die Adresse
+
+<ulink url="http://localhost/otrs/index.pl">
+<citetitle>http://localhost/otrs/index.pl</citetitle>
+</ulink>
+
+in Ihrem Browser ein. Melden sie sich als OTRS-Administrator an und
+konfigurieren Sie das System Ihren Wünschen entsprechend.
+Als Benutzername verwenden Sie root@localhost, das Passwort lautet
+root.
+</para>
+
+<warning>
+<para>
+Bitte ändern Sie auch dieses Passwort schnellstmöglich! Es
+handelt sich auch hier um ein Standardpasswort!
+</para>
+</warning>
+
+</sect2>
+
+<sect2 id="installation-on-debian">
+<title>Installation von OTRS auf einer Debian-Distribution</title>
+
+<para>
+Eine ausführliche Beschreibung zur Installation von OTRS auf Debian-Systemen
+wurde dankenswerter Weise vom Maintainer des OTRS-Pakets, Torsten Werner,
+bereit gestellt. Sie kann über den Link
+
+<ulink url="http://docs.google.com/View?docid=drm3kmx_0cbr3x9">
+http://www.writely.com/View?docid=drm3kmx_0cbr3x9
+</ulink>
+
+eingesehen werden.
+</para>
+</sect2>
+
+<sect2 id="installation-on-windows">
+<title>Installation von OTRS unter Microsoft Windows</title>
+
+<para>
+Die Installation von OTRS unter Microsoft Windows ist denkbar einfach.
+Laden Sie den auf
+
+<ulink url="http://www.otrs.org/">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+bereit gestellten Installer herunter und speichern Sie die Datei.
+Anschließend führen Sie den Installer einfach aus und folgen
+den einzelnen Installationsschritten.
+</para>
+
+<important>
+<para>
+Der Windows-Installer für OTRS beinhaltet bereits alle Komponenten,
+die für den Betrieb von OTRS benötigt werden. D.h., es wird
+zusätzlich zum eigentlichen OTRS der <application>apache2</application>
+Webserver, <application>MySQL</application>, <application>Perl</application>
+mit den für OTRS benötigten Modulen und
+<application>cron</application> für Windows installiert. Aus diesem
+Grund ist es empfehlenswert OTRS über den Installer nur auf solchen
+Windowssystemen zu installieren, auf denen noch kein
+<application>apache2</application> bzw. ein anderer Webserver und
+<application>MySQL</application> läuft.
+</para>
+</important>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="manual-installation-of-otrs">
+<title>Manuelle Installation (Linux, Unix)</title>
+
+<sect2 id="preparing-manual-installation">
+<title>Vorbereiten der manuellen Installation</title>
+
+<para>
+Wenn Sie OTRS manuell über die Quellen installieren möchten oder
+müssen, laden Sie sich zuerst das aktuelle Archiv herunter. Sie finden
+die entsprechenden .tar.gz- oder .tar.bz2-Dateien im Downloadbereich auf
+
+<ulink url="http://www.otrs.org/">
+<citetitle>http://www.otrs.org</citetitle>
+</ulink>
+
+</para>
+
+<para>
+Entpacken Sie das Archiv mit Hilfe von <command>tar</command> z. B. in das
+Verzeichnis <filename>/opt</filename>:
+</para>
+
+<para>
+<screen>
+linux:/opt# tar xf /tmp/otrs-2.0.0.tar.gz
+linux:/opt# ls
+otrs
+linux:/opt#
+</screen>
+</para>
+
+<para>
+Da die Skripte von OTRS später nicht mit root-Rechten laufen sollen, muss
+im nächsten Schritt ein Benutzer für OTRS im System angelegt
+werden. Dieser Benutzer sollte als Homeverzeichnis das Verzeichnis erhalten,
+in das gerade die Quellen von OTRS entpackt wurden, also
+<filename>/opt/otrs</filename>. Wird der Webserver unter einem anderen
+Benutzer als dem OTRS-User betrieben, so muss der neue OTRS-Benutzer
+noch zur Gruppe des Webserver-Users hinzugefügt werden.
+</para>
+
+<para>
+<screen>
+linux:/opt# useradd -d /opt/otrs/ -c 'OTRS user' otrs
+linux:/opt# usermod -G nogroup otrs
+linux:/opt#
+</screen>
+</para>
+
+<para>
+Im nächsten Schritt werden einige Demo-Konfigurationsdateien
+innerhalb der entpackten Quelldateien bzw. innerhalb des Homeverzeichnisses
+des OTRS-Benutzers kopiert. Die Dateien befinden sich in den Verzeichnissen
+<filename>/opt/otrs/Kernel</filename> bzw.
+<filename>/opt/otrs/Kernel/Config</filename> und haben die Endung .dist.
+</para>
+
+<para>
+<screen>
+linux:/opt# cd otrs/Kernel/
+linux:/opt/otrs/Kernel# cp Config.pm.dist Config.pm
+linux:/opt/otrs/Kernel# cd Config
+linux:/opt/otrs/Kernel/Config# for foo in *.dist; do cp $foo `basename
+$foo .dist`; done
+linux:/opt/otrs/Kernel/Config#
+</screen>
+</para>
+
+<para>
+Zum Abschluss der Vorbereitungen werden noch die richtigen
+Zugriffsrechte für die Dateien des Ticket Systems gesetzt. Dazu kann
+das Skript <command>SetPermissions.sh</command> verwendet werden, das sich
+im Verzeichnis <filename>bin</filename> innerhalb des Homeverzeichnisses des
+OTRS-Benutzers befindet. Das Skript kann mit folgenden Parametern
+aufgerufen werden:
+</para>
+
+<para>
+<cmdsynopsis>
+  <command>SetPermissions.sh</command>
+    <arg choice='req'>
+      <replaceable>Homedirectory des OTRS Benutzers</replaceable>
+    </arg>
+    <arg choice='req'>
+      <replaceable>OTRS Benutzer</replaceable>
+    </arg>
+    <arg choice='req'>
+      <replaceable>Webserver Benutzer</replaceable>
+    </arg>
+    <arg choice='opt'>
+      <replaceable>Gruppe des OTRS Benutzers</replaceable>
+    </arg>
+    <arg choice='opt'>
+      <replaceable>Gruppe des Webserver Benutzers</replaceable>
+    </arg>
+  </cmdsynopsis>
+</para>
+
+<para>
+Läuft Ihr Webserver mit den Benutzerrechten des OTRS Benutzers, dann
+lautet das Kommando also
+<command>SetPermissions.sh /opt/otrs otrs otrs</command>. Unter SUSE Linux
+wird der Webserver mit dem Benutzer wwwrun betrieben. Geben Sie hier
+das Komando <command>SetPermissions.sh /opt/otrs otrs wwwrun</command> ein.
+</para>
+
+<para>
+Nach diesen Schritten ist die Vorbereitung zur Installation des Ticket
+Systems abgeschlossen und es kann der Webserver auf die Verwendung von OTRS
+vorbereitet werden.
+</para>
+
+</sect2>
+
+<sect2 id="installation-of-needed-perl-modules">
+<title>Installation der für OTRS benötigten Perl-Module</title>
+
+<para>
+Für den Betrieb von OTRS werden einige Perl-Module benötigt. Wenn
+Sie OTRS manuell einrichten, müssen Sie wahrscheinlich einige
+dieser Module per Hand nachinstallieren. Dies können Sie entweder
+über den Paketmanager ihrer Distribution erledigen (<application>yast</application>,
+<application>apt-get</application>), oder, wie in diesem Kapitel
+beschrieben,  direkt über die Shell von <application>Perl</application>
+und CPAN.
+</para>
+
+<para>
+Die folgenden Perl-Module werden von OTRS
+benötigt.
+</para>
+
+<para>
+
+<table id="table-of-needed-perl-modules">
+<title>Die von OTRS benötigten Perl-Module</title>
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>
+          Name
+        </entry>
+        <entry>
+          Beschreibung
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>
+          CGI
+        </entry>
+        <entry>
+          Mit diesem Modul wird die Darstellung der OTRS-Oberfläche
+          als Webinterface ermöglicht.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Date::Pcalc
+        </entry>
+        <entry>
+          Dieses Modul enthält Berechnungsgrundlagen zum
+          gregorianischen Kalender und wird in OTRS z. B. für die
+          zeitspezifischen Berechnungen auf Tickets benötigt.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          DBI
+        </entry>
+        <entry>
+          Dieses Modul wird von OTRS für die Verbindung zum
+          Datenbank-Backend benötigt.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          DBD::mysql
+        </entry>
+        <entry>
+          Modul zum Verbindungsaufbau zum MySQL-Datenbank-Backend.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Digest::MD5
+        </entry>
+        <entry>
+          Ermöglicht die Verwendung des md5-Algorithmus.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          LWP::UserAgent
+        </entry>
+        <entry>
+          Modul zur Verarbeitung von http-Anfragen.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          MIME::Base64
+        </entry>
+        <entry>
+          En- und Decodierung von Base64-Strings.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          MIME::Tools
+        </entry>
+        <entry>
+          Modul mit verschiedenen Werkzeugen für die Verarbeitung von
+          Nachrichten mit MIME-Teil.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Mail::Internet
+        </entry>
+        <entry>
+          Modul für die Bearbeitung von E-Mails nach RFC 822
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Net::DNS
+        </entry>
+        <entry>
+          Schnittstelle zum Domain Name System (DNS).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Net::POP3
+        </entry>
+        <entry>
+          Modul mit Funktionen für den Zugriff auf einen
+          POP3-Server.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Net::LDAP
+        </entry>
+        <entry>
+          Modul zur Verarbeitung von Anfragen an ein LDAP-Directory. Dieses
+          Modul wird nur benötigt, wenn OTRS mit einem LDAP-Directory
+          betrieben werden soll, z. B. fuer die Abfrage von Kundendaten.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Net::SMTP
+        </entry>
+        <entry>
+          Modul mit Funktionen zum Versenden von Mails.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          Authen::SASL
+        </entry>
+        <entry>
+          SASL Authentication Framework, wird z. B. für die Anmeldung
+          an Mailservern benötigt.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          GD
+        </entry>
+        <entry>
+          Schnittstelle zur Gd Graphics Library. Wird nur
+          benötigt, wenn das Statistikmodul von OTRS verwendet
+          werden soll.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          GD::Text, GD::Graph, GD::Graph::lines, GD::Text::Align
+        </entry>
+        <entry>
+          Text- und Grafikwerkzeuge für die Benutzung zusammen mit der
+          GD Graphics Library. Diese Komponenten werden nur benötigt,
+          wenn das Statistikmodul von OTRS verwendet werden soll.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          XML::Parser
+        </entry>
+        <entry>
+          Dieses Modul wird benötigt, um Konfigurationsparameter
+          aus XML-Files auszulesen bzw. Konfigurationen in XML-Dateien zu
+          schreiben. Die grafische Administrations-Oberfläche von OTRS
+          greift auf diese Mechanissmen zurück.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          PDF::API2, Compress::Zlib
+        </entry>
+        <entry>
+          Diese Module werden für die Generierung der PDF-Ausgaben von
+          Statistiken, Suchergebnissen oder Druckansicht eines Tickets benötigt.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+</para>
+
+<para>
+Um eines der oben aufgeführten Module mit Hilfe von CPAN zu
+installieren, geben Sie als root das Kommando
+<command>perl -e shell -MCPAN</command> ein. Perl wird im interaktiven
+Modus gestartet und das CPAN Modul wird geladen. Ist CPAN bereits
+ordentlich konfiguriert, können Sie die für OTRS benötigten
+Module mit Hilfe des Kommandos <command>install</command> gefolgt vom
+Modulnamen einrichten. CPAN weist darauf hin, wenn Abhängigkeiten
+zwischen einzelnen Modulen nicht erfüllt sind und schlägt
+automatisch die zusätzlich benötigten Module für die
+Installation vor.
+</para>
+
+<para>
+Nachdem Sie alle Perl-Module installiert haben, können Sie mit Hilfe
+des Skriptes <command>otrs.checkModules</command> überprüfen, ob
+OTRS wirklich alle benötigten Module finden und verwenden kann. Das
+Skript finden sie im Verzeichnis <filename>bin</filename> innerhalb des
+Homeverzeichnisses des OTRS Benutzers.
+</para>
+
+<para>
+<screen>
+linux:~# cd /opt/otrs/bin/
+linux:/opt/otrs/bin# ./otrs.checkModules
+
+                  CGI ... ok
+          Date::Pcalc ... ok
+         Date::Format ... ok
+                  DBI ... ok
+           DBD::mysql ... ok
+          Digest::MD5 ... ok
+     Crypt::PasswdMD5 ... ok
+       LWP::UserAgent ... ok
+           IO::Scalar ... ok
+             IO::Wrap ... ok
+         MIME::Base64 ... ok
+          MIME::Tools ... ok
+       Mail::Internet ... ok
+             Net::DNS ... ok
+            Net::POP3 ... ok
+            Net::LDAP ... ok
+            Net::SMTP ... ok
+         Authen::SASL ... ok
+                   GD ... ok
+             GD::Text ... ok
+            GD::Graph ... ok
+     GD::Graph::lines ... ok
+      GD::Text::Align ... ok
+          XML::Parser ... ok
+            PDF::API2 ... not installed! (for PDF output - not required)
+       Compress::Zlib ... ok
+linux:/opt/otrs/bin#
+</screen>
+</para>
+
+<para>
+Führen Sie weiterhin die beiden Befehle
+<command>perl -cw bin/cgi-bin/index.pl</command> und
+<command>perl -cw bin/PostMaster.pl</command> aus, nach dem Sie in das
+Verzeichnis <filename>/opt/otrs</filename> gewechselt sind. Wird bei
+beiden Befehlen die Meldung "syntax OK" angezeigt, verfügt Ihre
+Perl-Installation über alle von OTRS benötigten Module und Sie
+können im nächsten Schritt mit der Einrichtung des Webservers
+beginnen.
+</para>
+
+<para>
+<screen>
+linux:~# cd /opt/otrs
+linux:/opt/otrs# perl -cw cgi-bin/installer.pl
+cgi-bin/installer.pl syntax OK
+linux:/opt/otrs# perl -cw PostMaster.pl
+PostMaster.pl syntax OK
+linux:/opt/otrs#
+</screen>
+</para>
+
+</sect2>
+
+<sect2 id="webserver-configuration">
+<title>Konfiguration des apache Webservers</title>
+
+<para>
+In diesem Abschnitt wird beschrieben, wie der
+<application>apache</application> Webserver grundlegend für OTRS
+eingerichtet werden muss. Der Webserver sollte cgi- bzw. Perl-Skripte
+ausführen können, andernfalls ist kein Betrieb von
+OTRS möglich. Überprüfen Sie die Konfigurationsdateien Ihres
+Webservers und stellen Sie fest, ob das cgi-Modul geladen wird: Wenn Ihr
+Webserver die Ausführung von cgi-Skripten unterstützt, sollte
+eine Zeile ähnlich der folgenden zu finden sein.
+</para>
+
+<para>
+<programlisting id="load-cgi-module">
+LoadModule cgi_module /usr/lib/apache2/modules/mod_cgi.so
+</programlisting>
+</para>
+
+<para>
+Um die Oberfläche von OTRS bequem erreichen zu können, wird ein
+Alias- und ein ScriptAlias-Eintrag angelegt. Für die meisten
+Installationen des <application>apache</application> Webservers gilt, dass
+ein Verzeichnis mit dem Namen <filename>conf.d</filename> vorhanden ist,
+unter Linux ist es meist unterhalb des Verzeichnisses
+<filename>/etc/apache</filename> bzw. <filename>/etc/apache2</filename> zu
+finden. Wechseln Sie als root in dieses Verzeichnis und kopieren Sie die
+passende Konfigurationsvorlage in die Datei <filename>otrs.conf</filename>.
+</para>
+
+<para>
+Suchen Sie zunächst in <filename>otrs/scripts/</filename> die zur eingesetzten
+Version von <application>Apache</application> passende Konfigurationsdatei. Für
+<application>Apache2</application> verwenden Sie bitte
+<filename>apache2-httpd-new.include.conf</filename>
+<programlisting>
+# --
+# added for OTRS (http://otrs.org/)
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+
+# agent, admin and customer frontend
+ScriptAlias /otrs/ "/opt/otrs/bin/cgi-bin/"
+Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
+
+# if mod_perl is used
+&lt;IfModule mod_perl.c&gt;
+
+    # load all otrs modules
+    Perlrequire /opt/otrs/scripts/apache2-perl-startup.pl
+
+    # Apache::Reload - Reload Perl Modules when Changed on Disk
+    PerlModule Apache2::Reload
+    PerlInitHandler Apache2::Reload
+    PerlModule Apache2::RequestRec
+
+    # set mod_perl2 options
+    &lt;Location /otrs&gt;
+#        ErrorDocument 403 /otrs/customer.pl
+        ErrorDocument 403 /otrs/index.pl
+        SetHandler  perl-script
+        PerlResponseHandler ModPerl::Registry
+        Options +ExecCGI
+        PerlOptions +ParseHeaders
+        PerlOptions +SetupEnv
+        Order allow,deny
+        Allow from all
+    &lt;/Location&gt;
+
+&lt;/IfModule&gt;
+
+# directory settings
+&lt;Directory "/opt/otrs/bin/cgi-bin/"&gt;
+    AllowOverride None
+    Options +ExecCGI -Includes
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+&lt;Directory "/opt/otrs/var/httpd/htdocs/"&gt;
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+
+# MaxRequestsPerChild (so no apache child will be to big!)
+MaxRequestsPerChild 400
+</programlisting>
+und für ältere Versionen <filename>apache-httpd.include.conf</filename>
+<programlisting>
+# --
+# added for OTRS (http://otrs.org/)
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+
+# agent, admin and customer frontend (mod_alias required!)
+ScriptAlias /otrs/ "/opt/otrs/bin/cgi-bin/"
+Alias /otrs-web/ "/opt/otrs/var/httpd/htdocs/"
+
+# if mod_perl is used
+&lt;IfModule mod_perl.c&gt;
+
+    # load all otrs modules (speed improvement!)
+#   Perlrequire /opt/otrs/scripts/apache-perl-startup.pl
+
+    # Apache::StatINC - Reload %INC files when updated on disk
+    # (just use it for testing, setup, ... not for high productiv systems)
+#   PerlInitHandler Apache::StatINC
+
+    &lt;Location /otrs&gt;
+#        ErrorDocument 403 /otrs/customer.pl
+        ErrorDocument 403 /otrs/index.pl
+        SetHandler  perl-script
+        PerlHandler Apache::Registry
+        Options ExecCGI
+        PerlSendHeader On
+        PerlSetupEnv On
+    &lt;/Location&gt;
+
+&lt;/IfModule&gt;
+
+# MaxRequestsPerChild (so no apache child will be to big!)
+MaxRequestsPerChild 400
+</programlisting>
+</para>
+
+<para>
+Speichern Sie die Datei, schließen Sie den Editor und starten Sie Ihren
+Webserver neu, um die neue Konfiguration zu laden. Auf den meisten Systemen
+lässt sich der Webserver über den Befehl
+<command>/etc/init.d/apache restart</command> bzw.
+<command>/etc/init.d/apache2 restart</command> neu starten.
+</para>
+
+<para>
+<screen>
+linux:/etc/apache2/conf.d# /etc/init.d/apache2 restart
+Forcing reload of web server: Apache2.
+linux:/etc/apache2/conf.d#
+</screen>
+</para>
+
+<para>
+Das war bereits die grundlegende Konfiguration des Webservers für
+OTRS.
+</para>
+
+<para>
+Zur Verbesserung der Performance können sie mod_cgi deaktivieren und den
+<application>Apache</application> Webserver stattdessen für die Benutzung von
+Mod_Perl konfigurieren:
+</para>
+
+<para>
+Stellen Sie bitte sicher, daß Mod_Perl installiert und geladen ist. Andernfalls
+wird der Webserver-Dienst trotzdem starten, in diesem Fall wird jedoch Mod_CGI
+verwendet. Ob Mod_Perl geladen ist, können Sie z. B. für
+<application>Apache2</application> folgendermaßen ermitteln:
+<screen> linux:~# apache2ctl -M
+ core_module (static)
+ log_config_module (static)
+ logio_module (static)
+ mpm_worker_module (static)
+ http_module (static)
+[...]
+ perl_module (shared)
+</screen>
+</para>
+
+<para>
+Wenn Mod_Perl geladen ist, werden beim Start des Webservers, mittels des Scripts
+<filename>otrs/scripts/apache2-perl-startup.pl</filename> die für <application>OTRS</application> benötigten Perl-Module persistent in den Arbeitsspeicher geladen und müssen auf diese Weise nicht bei jedem Request wieder geladen werden, was eine enorme Geschwindigkeitssteigerung zur Folge hat.
+</para>
+</sect2>
+
+<sect2 id="database-configuration">
+<title>Einrichten der Datenbank</title>
+
+<sect3 id="installation-of-database-with-the-webinstaller">
+<title>Einrichtung der Datenbank mit Hilfe des Webinstallers (nur für
+<application>MySQL</application>)</title>
+
+<para>
+Wenn Sie <application>MySQL</application> als Datenbankserver einsetzen,
+können Sie die OTRS Datenbank leicht und bequem mit Hilfe des
+Webinstallers einrichten. Geben Sie folgende Adresse in Ihrem Browser ein,
+um den Webinstaller zu starten:
+</para>
+
+<para>
+<ulink url="http://localhost/otrs/installer.pl">
+<citetitle>http://localhost/otrs/installer.pl</citetitle>
+</ulink>
+</para>
+
+<para>
+Der Webinstaller wird gestartet. Folgen Sie den Anweisungen auf dem
+Bildschirm.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Lizenz (1/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer1.png"></graphic>
+</screenshot>
+</para>
+
+<warning>
+<para>
+Es ist niemals eine gute Idee, Standardpasswörter zu
+verwenden! Bitte ändern Sie deshalb unbedingt das von OTRS
+standardmäßig gesetzte Passwort!
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Datenbank erstellen (2/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer2.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - System einstellungen (3/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer3.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Fertig (4/4)</screeninfo>
+<graphic srccredit="installer.pl - screenshot" scale="40" fileref="screenshots/installer4.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+Die OTRS Datenbank wurde aufgesetzt. Im nächsten Schritt werden die
+cron-Jobs eingerichtet, die von OTRS benötigt werden.
+</para>
+
+</sect3>
+
+<sect3 id="manual-installation-of-database">
+<title>Manuelle Installation der OTRS Datenbank</title>
+
+<para>
+Wenn Sie den Webinstaller nicht einsetzen können, kann die Datenbank
+für OTRS auch manuell eingerichtet werden. Skripte mit dem
+Datenbankschema und den SQL-Statements finden Sie im Verzeichnis
+<filename>scripts/database</filename> innerhalb des Homeverzeichnisses des
+OTRS Benutzers.
+</para>
+
+<para>
+<screen>
+linux:~# cd /opt/otrs/scripts/database/
+linux:/opt/otrs/scripts/database# ls
+otrs-initial_insert.db2.sql
+otrs-initial_insert.ingres.sql
+otrs-initial_insert.mssql.sql
+otrs-initial_insert.mysql.sql
+otrs-initial_insert.oracle.sql
+otrs-initial_insert.postgresql.sql
+otrs-initial_insert.xml
+otrs-schema.db2.sql
+otrs-schema.ingres.sql
+otrs-schema.mssql.sql
+otrs-schema.mysql.sql
+otrs-schema.oracle.sql
+otrs-schema-post.db2.sql
+otrs-schema.postgresql.sql
+otrs-schema-post.ingres.sql
+otrs-schema-post.mssql.sql
+otrs-schema-post.mysql.sql
+otrs-schema-post.oracle.sql
+otrs-schema-post.postgresql.sql
+otrs-schema.xml
+update
+linux:/opt/otrs/scripts/database#
+</screen>
+</para>
+
+<para>
+Für die verschiedenen Datenbanktypen sind mehrere .sql-Dateien
+vorhanden, die nacheinander abgearbeitet werden müssen. Um die Datenbank
+anzulegen, gehen Sie folgendermaßen vor:
+</para>
+
+<para>
+<orderedlist numeration="arabic">
+<title>Die verschiedenen Schritte für die manuelle Erstellung der
+Datenbank</title>
+<listitem>
+<para>
+Anlegen der Datenbank für OTRS: Legen Sie mit Hilfe Ihres
+Datenbankinterfaces bzw. Ihrer Datenbankoberfläche die Datenbank
+an, die später von OTRS verwendet werden soll.
+</para>
+</listitem>
+<listitem>
+<para>
+Erstellen der Tabellen: Mit Hilfe der otrs-schema.Datenbanktyp.sql-Dateien
+(z. B. <filename>otrs-schema.oracle.sql</filename>,
+<filename>otrs-schema.postgresql.sql</filename>, usw.) können Sie die
+Tabellen innerhalb der OTRS Datenbank erzeugen.
+</para>
+</listitem>
+<listitem>
+<para>
+Einfügen der vom System benötigten Daten: Damit OTRS richtig
+funktioniert, müssen einige Daten in verschiedene Tabellen geschrieben
+werden (z. B. die verschiedenen Ticketstatus, Ticket- und
+Benachrichtigungstypen, etc.). Verwenden Sie entweder die Datei
+<filename>otrs-initial_insert.mysql.sql</filename>,
+<filename>otrs-initial_insert.db2.sql</filename>,
+<filename>otrs-initial_insert.oracle.sql</filename>,
+<filename>otrs-initial_insert.postgresql.sql</filename> oder
+<filename>otrs-initial_insert.mssql.sql </filename>
+zum Einspielen der Daten, je nachdem welche Datenbank verwendet wird.
+</para>
+</listitem>
+<listitem>
+<para>
+Erzeugen von "foreign keys" auf andere Tabellen: Abschließend
+müssen noch die "foreign keys" erstellt werden, über die die
+verschiedenen Tabellen in der OTRS Datenbank voneinander abhängen.
+Dies kann mit Hilfe der otrs-schema-post.Datenbanktyp.sql-Dateien erreicht
+werden (z. B. <filename>otrs-schema-oracle.post.sql</filename>,
+<filename>otrs-schema-post.postgresql.sql</filename>, usw.).
+</para>
+</listitem>
+</orderedlist>
+</para>
+
+<para>
+Nachdem Sie die Datenbank angelegt haben, sollten Sie die Zugriffsrechte
+dafür setzen und z. B. sicherstellen, dass nur ein bestimmter
+Benutzer ohne Datenbank-Administrationsrechte Zugriff auf die OTRS
+Datenbank hat. Je nachdem, welche Datenbank Sie einsetzen, unterscheiden
+sich hier die Vorgehensweisen, es sollte jedoch möglich sein dies mit
+Hilfe Ihres Datenbankinterfaces bzw. Ihrer Datenbankoberfläche zu
+erledigen.
+</para>
+
+<para>
+Wurden die nötigen Einstellungen für die Datenbank vorgenommen,
+muss nun noch dem Ticket System mitgeteilt werden, welche Datenbank es
+verwenden soll. Öffnen Sie die Datei
+<filename>Kernel/Config.pm</filename> innerhalb des Homeverzeichnisses des
+OTRS Benutzers und passen Sie die dafür vorgesehenen Parameter an. Am
+wichtigsten sind die folgenden Parameter.
+</para>
+
+<para>
+<programlisting>
+
+    # Database
+    # (The database name.)
+    $Self->{Database} = 'otrs';
+
+    # DatabaseUser
+    # (The database user.)
+    $Self->{DatabaseUser} = 'otrs';
+
+    # DatabasePw
+    # (The password of database user.)
+    $Self->{DatabasePw} = 'some-pass';
+
+</programlisting>
+</para>
+
+<para>
+Nachdem nun die Verbindung zur Datenbank steht, können im
+nächsten Schritt die verschiedenen cron-Jobs für OTRS
+eingerichtet werden.
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="cronjobs">
+<title>Einrichten der von OTRS benötigten cron-Jobs</title>
+
+<para>
+Damit OTRS voll funktioniert, werden einige cron-Jobs benötigt. Die
+cron-Jobs sollten mit denselben Benutzerrechten ausgeführt werden,
+die auch für die restlichen OTRS-Skripte vergeben wurden, d.h. die
+cronJobs sollten in die crontab des OTRS-Benutzers eingetragen werden. Alle
+Skripte für die verschiedenen cron-Jobs befinden sich im Verzeichnis
+<filename>var/cron</filename> innerhalb des Homeverzeichnisses des
+OTRS-Benutzers.
+</para>
+
+<para>
+<screen>
+linux:~# cd /opt/otrs/var/cron
+linux:/opt/otrs/var/cron# ls
+aaa_base.dist                pending_jobs.dist          session.dist
+fetchmail.dist               postmaster.dist            unlock.dist
+generic_agent-database.dist  postmaster_pop3.dist
+generic_agent.dist           rebuild_ticket_index.dist
+linux:/opt/otrs/var/cron#
+</screen>
+</para>
+
+<para>
+Alle Skripte tragen die Endung .dist und sollten zunächst so
+umkopiert werden, dass keine Endung mehr vorhanden ist.
+</para>
+
+<para>
+<screen>
+linux:/opt/otrs/var/cron# for foo in `ls -1 *.dist` ; do cp $foo
+`basename $foo .dist`; done
+linux:/opt/otrs/var/cron# ls
+aaa_base                     generic_agent.dist    rebuild_ticket_index
+aaa_base.dist                pending_jobs
+rebuild_ticket_index.dist
+fetchmail                    pending_jobs.dist     session
+fetchmail.dist               postmaster            session.dist
+generic_agent                postmaster.dist       unlock
+generic_agent-database       postmaster_pop3       unlock.dist
+generic_agent-database.dist  postmaster_pop3.dist
+linux:/opt/otrs/var/cron#
+</screen>
+</para>
+
+<para>
+Die folgende Tabelle gibt eine kurze Übersicht über die Aufgabe
+der verschiedenen Skripte, die als cron-Job in der crontab des
+OTRS-Benutzers installiert werden sollten.
+</para>
+
+<para>
+<table id="table-of-cronjobs-for-otrs">
+<title>Die verschiedenen Skripte für die cron-Jobs von OTRS</title>
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>
+          Skript
+        </entry>
+        <entry>
+          Aufgabe
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>
+          aaa_base
+        </entry>
+        <entry>
+          Über dieses Skript werden die grundlegenden Einstellungen
+          für die crontab des OTRS-Benutzers festgelegt.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          fetchmail
+        </entry>
+        <entry>
+          Falls Nachrichten mit Hilfe von fetchmail in das System
+          eingespeißt werden sollen, kann dieses Skript verwendet werden.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          generic_agent
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts werden die Jobs des GenericAgents
+          ausgeführt, die über eigene Konfigurationsdateien
+          festgelegt wurden.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          generic_agent-database
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts werden die Jobs des GenericAgents
+          ausgeführt, die über dem Administrations-Bereich
+          innerhalb von "GenericAgent" angelegt wurden.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          pending_jobs
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts wird das System auf "wartende" (pending)
+          Tickets überprüft.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          postmaster
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts wird die Nachrichten-Warteschlange von
+          OTRS überprüft und noch nicht verarbeitete Nachrichten
+          werden im System gespeichert bzw. zugestellt..
+        </entry>
+      </row>
+      <row>
+        <entry>
+          postmaster_pop3
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts werden die verschiedenen pop3-Konten
+          abgefragt, die im Administrations-Bereich innerhalb von
+          "PostMaster POP3 Account" eingerichtet wurden.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          rebuild_ticket_index
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts wird der Ticket-Index für die
+          Queue-Ansicht neu erzeugt, wodurch die Anzeige beschleunigt wird.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          session
+        </entry>
+        <entry>
+          Über dieses Skript werden alte und nicht mehr gültige
+          Session-IDs entfernt.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          unlock
+        </entry>
+        <entry>
+          Mit Hilfe dieses Skripts wird die Freigabe von Tickets innerhalb
+          des Systems ermöglicht.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</para>
+
+<para>
+Für die Einrichtung aller cron-Jobs kann das Skript
+<filename>Cron.sh</filename> verwendet werden, das sich im Verzeichnis
+<filename>bin</filename> innerhalb des Homeverzeichnisses des
+OTRS-Benutzers befindet. Dem Cron.sh Skript muss beim Aufruf ein
+Parameter übergeben werden. Dieser Parameter legt fest, ob die
+cron-Jobs installiert, deinstalliert oder neu gestartet werden. Es sind
+folgende Parameter zulässig.
+</para>
+
+<para>
+<cmdsynopsis>
+  <command>Cron.sh</command>
+    <arg choice='req'>
+      <replaceable>start</replaceable>
+    </arg>
+    <arg choice='req'>
+      <replaceable>stop</replaceable>
+    </arg>
+    <arg choice='req'>
+      <replaceable>restart</replaceable>
+    </arg>
+    <arg choice='opt'>
+      <replaceable>OTRS-Benutzer</replaceable>
+    </arg>
+  </cmdsynopsis>
+</para>
+
+<para>
+Da die cron-Jobs für den OTRS-Benutzer angelegt werden sollen,
+muss das Skript von diesem Benutzer ausgeführt werden. Sind Sie z. B.
+als Benutzer root am System angemeldet, können Sie mit Hilfe des
+Kommandos <command>su otrs</command> zum OTRS-Benutzer wechseln. Nehmen Sie
+also die Installation wie folgt vor.
+</para>
+
+<warning>
+<para>
+Bitte beachten Sie, dass durch die Verwendung von
+<filename>Cron.sh</filename> evtl. andere Cron-Jobs des OTRS-Benutzers
+überschrieben bzw. gelöscht werden. Um weitere, nicht von OTRS benötigte
+Cron-Jobs für den OTRS-Benutzer zu installieren, erweitern Sie bitte
+<filename>Cron.sh</filename> dementsprechent.
+</para>
+</warning>
+
+<para>
+<screen>
+linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
+linux:/opt/otrs/bin# su otrs
+linux:~/bin$ ./Cron.sh start
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.1 $&gt;
+Copyright (c) 2002 Martin Edenhofer &lt;martin@otrs.org&gt;
+(using /opt/otrs) done
+linux:~/bin$ exit
+exit
+linux:/opt/otrs/bin#
+</screen>
+</para>
+
+<para>
+Mit Hilfe des Kommandos <command>crontab -l -u otrs</command>, das Sie als
+root ausführen können, wird die crontab-Datei des OTRS-Benutzers
+angezeigt und Sie können überprüfen, ob alle Einträge
+vorhanden sind.
+</para>
+
+<para>
+<screen>
+linux:/opt/otrs/bin# crontab -l -u otrs
+# --
+# cron/aaa_base - base crontab package
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# Who gets the cron emails?
+MAILTO="root@localhost"
+
+# --
+# cron/fetchmail - fetchmail cron of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# fetch every 5 minutes emails via fetchmail
+#*/5 * * * * /usr/bin/fetchmail -a &gt;&gt; /dev/null
+
+# --
+# cron/generic_agent - GenericAgent.pl cron of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# start generic agent every 20 minutes
+*/20 * * * * $HOME/bin/GenericAgent.pl &gt;&gt; /dev/null
+# example to execute GenericAgent.pl on 23:00 with
+# Kernel::Config::GenericAgentMove job file
+#0 23 * * * $HOME/bin/GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
+# --
+# cron/generic_agent - GenericAgent.pl cron of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# start generic agent every 10 minutes
+*/10 * * * * $HOME/bin/GenericAgent.pl -c db &gt;&gt; /dev/null
+# --
+# cron/pending_jobs - pending_jobs cron of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# check every 120 min the pending jobs
+45 */2 * * * $HOME/bin/PendingJobs.pl &gt;&gt; /dev/null
+# --
+# cron/postmaster - postmaster cron of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# check daily the spool directory of OTRS
+#10 0 * * * * test -e /etc/init.d/otrs &amp; /etc/init.d/otrs cleanup &gt;&gt; /dev/null; test -e /etc/rc.d/init.d/otrs &amp;&amp; /etc/rc.d/init.d/otrs cleanup &gt;&gt; /dev/null
+10 0 * * * $HOME/bin/otrs.cleanup &gt;&gt; /dev/null
+# --
+# cron/postmaster_pop3 - postmaster_pop3 cron of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# --
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# fetch emails every 10 minutes
+*/10 * * * * $HOME/bin/PostMasterPOP3.pl &gt;&gt; /dev/null
+# --
+# cron/rebuild_ticket_index - rebuild ticket index for OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# just every day
+01 01 * * * $HOME/bin/RebuildTicketIndex.pl &gt;&gt; /dev/null
+
+# --
+# cron/session - delete old session ids of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# delete every 120 minutes old/idle session ids
+55 */2 * * * $HOME/bin/DeleteSessionIDs.pl --expired &gt;&gt; /dev/null
+
+# --
+# cron/unlock - unlock old locked ticket of the OTRS
+# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# --
+# $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-01 10:43:32 mg Exp $
+# This software comes with ABSOLUTELY NO WARRANTY.
+# --
+# unlock every hour old locked tickets
+35 * * * * $HOME/bin/UnlockTickets.pl --timeout &gt;&gt; /dev/null
+
+linux:/opt/otrs/bin#
+</screen>
+</para>
+
+<para>
+Nach der Einrichtung der Cron-Jobs ist die Installation von OTRS
+abgeschlossen, Sie können das System nun über dessen Weboberfläche weiter
+an Ihre Bedürfnisse anpassen und benutzen.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="upgrade">
+<title>Upgrade des OTRS Frameworks</title>
+<para>
+    Wenn Sie Ihren OTRS Framework 2.2.x auf Version 2.3.x upgraden möchten,
+    laden Sie dazu den aktuellen OTRS 2.3 Framework herunter
+    und folgen Sie den Anweisungen in der Datei UPGRADING.
+</para>
+</sect1>
+
+</chapter>

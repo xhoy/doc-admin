@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: performance-tuning.xml,v 1.1 2010-12-01 10:43:32 mg Exp $ -->
+
+<chapter id="performance-tuning">
+<title>Leistungsverbesserung</title>
+
+<abstract>
+<para>
+Eine erschöpfende Liste verschiedener Techniken, um das Maximum an Leistung aus Ihrem OTRS System herauszuholen: Konfiguration, Programmierung, Speichernutzung und mehr.
+</para>
+</abstract>
+
+<sect1 id="performance-tuning-otrs">
+<title>OTRS</title>
+<para>
+Im folgenden finden Sie Optionen, die Leistung des Systems via OTRS selbst zu verbessern.
+</para>
+
+<sect2 id="performance-tuning-otrs-index">
+<title>TicketIndexModule</title>
+<para>
+Zur Verfügung stehen zwei Hintergrundmodule für den Ticket Index.
+</para>
+<para>
+Kernel/Config.pm
+<programlisting>
+[...]
+    $Self->{TicketIndexModule} = 'Kernel::System::Ticket::IndexAccelerator::RuntimeDB';
+[...]
+</programlisting>
+</para>
+
+<para>
+<itemizedlist mark='opencircle'>
+
+<listitem>
+<para>
+Kernel::System::Ticket::IndexAccelerator::RuntimeDB (Standard), generiere jede Queue-Ansicht dynamisch aus der Ticket Tabelle. Sie werden keine Probleme mit der Leistung bekommen bis zu etwa 60.000 Tickets (oder 6000 offenen) in Ihrem System.
+</para>
+</listitem>
+
+<listitem>
+<para>
+Kernel::System::Ticket::IndexAccelerator::StaticDB, das leistungsfähigste Modul. Es sollte ab 80.000 Tickets oder mehr als 6000 offenen eingesetzt werden. Benutzt eine extra ticket_index Tabelle, arbeitet wie eine Ansicht (View). Führen Sie bin/RebuildTicketIndex.pl zum erstmaligen Aufbau des Index aus.
+</para>
+</listitem>
+
+</itemizedlist>
+
+</para>
+</sect2>
+
+
+<sect2 id="performance-tuning-otrs-storage">
+<title>TicketStorageModule</title>
+<para>
+Es stehen zwei Module für das Speichern der Tickets und Artikel bereit.
+</para>
+<para>
+Kernel/Config.pm
+<programlisting>
+[...]
+    $Self->{Ticket::StorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
+[...]
+</programlisting>
+</para>
+
+<para>
+<itemizedlist mark='opencircle'>
+
+<listitem>
+<para>
+Kernel::System::Ticket::ArticleStorageDB (Standard), speichere Anhänge &amp; Co. in der Datenbank. Merke: Benutzen Sie diese Option nicht für größere Systeme.
+</para>
+<para>
+Pro: Ist der Benutzer, unter dem der Webserver läuft, nicht der OTRS Benutzer, können Sie mit diesem Modul Dateiberechtigungsprobleme vermeiden.
+</para>
+<para>
+Contra: Es ist nicht wirklich nett, Anhänge in Ihrer Datenbank zu speichern. Achten Sie darauf, dass Ihre Datenbank das kann. Für MySQL setzen Sie in dessen Konfiguration bspw.
+"set-variable = max_allowed_packet=8M", um 8 MB große Objekte zu speichern (Standard ist 2M).
+</para>
+</listitem>
+
+<listitem>
+<para>
+Kernel::System::Ticket::ArticleStorageFS, speichere Anhänge &amp; Co. im lokalen Filesystem ab. Merke: Benutzen Sie dies für große Installationen.
+</para>
+<para>
+Pro: Schneller!
+</para>
+<para>
+Contra: Der Benutzer, unter dem der Webserver läuft, sollte der OTRS Benutzer sein (Dateisystemberechtigungen!).
+</para>
+</listitem>
+
+</itemizedlist>
+
+</para>
+
+<para>
+Note: Ab OTRS 1.2 oder höher, kann man das TicketStorageModule im Betrieb ändern!
+</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="performance-tuning-database">
+<title>Datenbank</title>
+<para>
+Einstellungen sind immer spezifisch für die jeweils eingesetzte Datenbank. Bei Problemen lesen Sie die Dokumentation und fragen Sie Ihren Datenbankadministrator.
+</para>
+
+<sect2 id="performance-tuning-database-mysql">
+<title>MySQL</title>
+<para>
+Wenn Sie den Tabellentyp MyISAM (Standard) benutzen, und einen großen Teil einer Tabelle gelöscht haben, oder wenn Sie sehr viele Änderungen an einer Tabelle mit Zeilen variabler Länge vorgenommen haben (Tabellen mit VARCHAR, BLOB oder TEXT Spalten), sollten Sie die Datendateien mit dem "optimize" Kommando behandeln.
+</para>
+<para>
+Dies bietet sich an, wenn MySQL viel CPU Zeit braucht. Optimieren Sie die Tabellen ticket, ticket_history und article.
+<programlisting>
+shell$ mysql -u user -p datbase
+mysql$ optimize table ticket;
+mysql$ optimize table ticket_history;
+mysql$ optimize table article;
+</programlisting>
+</para>
+</sect2>
+
+<sect2 id="performance-tuning-database-postgresql">
+<title>PostgreSQL</title>
+<para>
+PostgreSQL konfigurieren Sie am besten in der postgresql.conf Datei in Ihrem PostgreSQL Datenverzeichnis. Hier gibt es Hilfe dazu:
+<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html</ulink>
+<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html</ulink>
+Ist die Leistung immer noch nicht genügend, empfehlen wir, Fragen auf der "PostgreSQL Performance Mailing Liste" zu stellen. Die Teilnehmer der PostgreSQL Liste sind sehr freundlich und können wahrscheinlich helfen.
+<ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
+</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="performance-tuning-webserver">
+<title>Webserver</title>
+<para>
+Natürlich empfehlen wir mod_perl 2.0 (
+<ulink url="http://perl.apache.org/">http://perl.apache.org/</ulink>).
+Es ist sehr viel schneller (etwa um den Faktor 100) als pures CGI, braucht aber auch mehr Speicher. Ihr httpd wird mit mod_perl also größer sein.
+</para>
+
+<sect2 id="performance-tuning-webserver-db">
+<title>Datenbank Verbindung</title>
+<para>
+Sie können die Datenbankverbindung bereits beim Start des httpd-Prozeß herstellen lassen - dies spart ebenso Zeit (siehe auch README.webserver).
+</para>
+</sect2>
+
+<sect2 id="performance-tuning-webserver-startup">
+<title>Vorgeladene Module - startup.pl</title>
+<para>
+Nutzen Sie das Start Skript scripts/apache-perl-startup.pl (mod_perl 1.0) bzw. scripts/apache2-perl-startup.pl (mod_perl 2.0), um die Perl Module vorzuladen (siehe README.webserver).
+</para>
+</sect2>
+<sect2 id="performance-tuning-webserver-reload">
+<title>Perl Module bei Änderung neu laden</title>
+<para>
+Standardmäßig wird Apache::Reload (mod_perl 1.0) bzw. Apache2::Reload (mod_perl 2.0) in scripts/apache2-httpd.include.conf eingesetzt. Deaktivieren Sie es und die Geschwindigkeit steigt um etwa 8%.
+Ab nun müssen Sie den Webserver neu starten, wenn Sie irgendetwas ändern!
+Wichtig, es hat dadurch zur Folge, dass der OTRS-Paket-Manager nicht mehr über das Web-Interface bedient werden kann (nur noch über CMD - bin/opm.pl).
+</para>
+</sect2>
+
+<sect2 id="performance-tuning-webserver-strategy">
+<title>Die richtige Strategie wählen</title>
+<para>
+Bei wirklich großen Installationen (über 1000 neue Tickets am Tag, über 40 Agenten) ist es eine sehr gute Idee, den Artikel "Choosing the Right Strategy" (in englisch) zu lesen
+(<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">http://perl.apache.org/docs/1.0/guide/strategy.html</ulink>).
+</para>
+</sect2>
+
+<sect2 id="performance-tuning-webserver-gzip">
+<title>mod_gzip/mod_deflate</title>
+<para>
+Falls Ihre Bandbreite ein wenig schmal sein sollte, benutzen Sie mod_gzip für Apache1
+(<ulink url="http://www.schroepl.net/projekte/mod_gzip/">http://www.schroepl.net/projekte/mod_gzip/</ulink>) bzw. mod_deflate für Apache2 (default Modul in Apache2).
+Eine HTML-Seite von 45k wird mod_gzip/mod_deflate auf etwa 7k zusammendrücken - nett.
+</para>
+</sect2>
+
+<sect2 id="performance-tuning-webserver-dos">
+<title>mod_dosevasive</title>
+<para>
+Um http DoS (Denial of Service) Angriffe zu blocken kann mod_dosevasive
+benutzt werden (leider nur für Apache1 verfügbar).
+(<ulink url="http://www.nuclearelephant.com/projects/dosevasive/">http://www.nuclearelephant.com/projects/dosevasive/</ulink>).
+</para>
+</sect2>
+
+</sect1>
+
+</chapter>

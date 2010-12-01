@@ -1,0 +1,516 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE glossary PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: glossary.xml,v 1.1 2010-12-01 10:43:32 mg Exp $ -->
+
+<glossary>
+<title>Glossar</title>
+
+<para>
+Innerhalb dieses Glossars werden OTRS-spezifische Begriffe kurz erklärt.
+</para>
+
+<glossdiv><title>Benutzertypen</title>
+
+<glossentry id="gloss-admin">
+    <glossterm>Administrator</glossterm>
+    <glossdef>
+        <para>
+        Der Administrator des OTRS Systems. Dieser führt alle administrativen
+        Aufgaben im System über die Agenten-Oberfläche und innerhalb des
+        Admin-Bereiches durch und muss Lese- und Schreibrechte in der
+        Admin-Gruppe haben.
+        </para>
+
+        <glossseealso otherterm="gloss-agentinterface">Agenten-Oberfläche</glossseealso>
+        <glossseealso otherterm="gloss-adminarea">Admin-Bereich</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-agent">
+    <glossterm>Agent</glossterm>
+    <glossdef>
+    <para>
+    Agenten sind die Bearbeiter der Tickets, sie beantworten, priorisieren,
+    und sortieren die Anfragen der Kunden über die Web-Oberfläche für Agenten.
+    </para>
+
+    <glossseealso otherterm="gloss-agentinterface">Agenten-Oberfläche</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-customer">
+    <glossterm>Kunde</glossterm>
+        <glossdef>
+        <para>
+        Kunden stellen die Anfragen per Mail oder über die Kunden-Oberfläche,
+        welche später durch die Agenten bearbeitet werden.
+        </para>
+
+        <glossseealso otherterm="gloss-customerinterface">Administrator</glossseealso>
+    </glossdef>
+</glossentry>
+
+</glossdiv>
+
+<glossdiv>
+<title>Berechtigungskonzept</title>
+
+<glossentry id="gloss-role">
+    <glossterm>Rolle</glossterm>
+        <glossdef>
+        <para>
+        In einer Rolle werden verschiedene Gruppenberechtigungen
+        vordefiniert. Benutzer und ganze Benutzergruppen können verschiedenen
+        Rollen zugewiesen werden. Rollen vereinfachen die Einrichtung der
+        Berechtigungen für Benutzer innerhalb großer und komplexer
+        Installationen.
+        </para>
+
+        <glossseealso otherterm="gloss-group">Gruppe</glossseealso>
+        <glossseealso otherterm="gloss-agent">Agent</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-group">
+    <glossterm>Gruppe</glossterm>
+        <glossdef>
+        <para>
+        Agenten können in Gruppen zusammengefasst werden. Über die
+        Gruppenberechtigungen wird der Zugriff auf einzelne OTRS-Module
+        gesteuert. So dürfen z. B. nur die Mitglieder der Admin-Gruppe auf
+        den Administrations-Bereich von OTRS zugreifen.
+        </para>
+
+        <glossseealso otherterm="gloss-group">Gruppe</glossseealso>
+        <glossseealso otherterm="gloss-agent">Agent</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-acl">
+    <glossterm>ACL (Access control list)</glossterm>
+        <glossdef>
+        <para>
+        Mit Hilfe von ACL's lässt sich der Zugriff auf bestimmte Module und
+        Teile von OTRS abhängig von bestimmten Aktionen steuern. Es kann also
+        ein noch feineres Berechtigungsschema erstellt werden, als es mit
+        Gruppen und Rollen möglich ist. Weiterhin lassen sich Workflows
+        mit ACL's abbilden.
+        </para>
+
+        <glossseealso otherterm="gloss-group">Gruppe</glossseealso>
+        <glossseealso otherterm="gloss-role">Rolle</glossseealso>
+        <glossseealso otherterm="gloss-agent">Agent</glossseealso>
+    </glossdef>
+</glossentry>
+
+</glossdiv>
+
+<glossdiv>
+<title>Web-Oberflächen - Die verschiedenen Bereiche von OTRS</title>
+
+<glossentry id="gloss-adminarea">
+    <glossterm>Admin-Bereich</glossterm>
+    <glossdef>
+        <para>
+        Der Administrations-Bereich des OTRS Systems. Innerhalb dieses
+        Bereiches der Agenten-Oberfläche können alle wichtigen
+        Systemeinstellungen vom OTRS-Administrator durchgeführt werden.
+        Dieser Teil der Web-Oberfläche ist über den Admin-Schalter der
+        Agenten-Oberfläche erreichbar.
+        </para>
+
+        <glossseealso otherterm="gloss-agentinterface">Agenten-Oberfläche</glossseealso>
+        <glossseealso otherterm="gloss-admin">Administrator</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-agentinterface">
+    <glossterm>Agenten-Oberfläche</glossterm>
+    <glossdef>
+        <para>
+        Die Web-Oberfläche für Agenten.  Innerhalb dieser Oberfläche können
+        die Mitarbeiter Tickets bearbeiten, ihre persönlichen Einstellungen
+        für das System vornehmen und auf ggfs. installierte Zusatzmodule
+        zugreifen.
+        </para>
+
+        <glossseealso otherterm="gloss-agent">AAgent</glossseealso>
+        <glossseealso otherterm="gloss-admin">Administrator</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-customerinterface">
+    <glossterm>Kunden-Oberfläche</glossterm>
+        <glossdef>
+        <para>
+        Die Web-Oberfläche für Kunden. Über diese Oberfläche können Kunden
+        neue Tickets anlegen, Tickets bearbeiten und die persönlichen
+        Einstellungen innerhalb des Systems festlegen (Kennwort,
+        Oberflächensprache, usw.).
+        </para>
+
+        <glossseealso otherterm="gloss-customer">Kunden</glossseealso>
+    </glossdef>
+</glossentry>
+
+</glossdiv>
+
+<glossdiv>
+<title>Zentrale Elemente der Agenten-Oberfläche</title>
+
+<para>
+Die folgenden Elemente sind zentrale Bestandteile der Agenten-Oberfläche von
+OTRS und können von nahezu jeder Stelle aus erreicht werden bzw. werden
+für jedes Ticket angeboten.
+</para>
+
+<glossentry id="gloss-mailbox">
+    <glossterm>Mailbox (erfasste Tickets)</glossterm>
+        <glossdef>
+        <para>
+        In der Mailbox werden alle vom Agenten erfassten / gesperrten Tickets
+        aufgelistet. Es ist möglich die Übersicht über die gesperrten Tickets
+        anhand verschiedener Kriterien zu verändern, z. B. können nur alle
+        Erinnerungstickets angezeigt werden.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-queueview">
+    <glossterm>Queue-Ansicht</glossterm>
+        <glossdef>
+        <para>
+        Mit Hilfe der Queue-Ansicht werden die in den verschiedenen Queues
+        gespeicherten, noch nicht gesperrten und noch offenen  Tickets
+        sortiert nach der Priorität und dem Alter aufgelistet. Welche
+        Queues in die Queue-Ansicht mit aufgenommen werden, kann innerhalb
+        der persönlichen Einstellungen jedes Agenten über die Einstellung
+        "[ Meine Queues ]" festgelegt werden.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-phoneticket">
+    <glossterm>Telefon-Ticket</glossterm>
+        <glossdef>
+        <para>
+        Mit Hilfe des Telefon-Ticket-Schalters kann ein neues Telefon-Ticket
+        angelegt werden.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-emailticket">
+    <glossterm>E-Mail-Ticket</glossterm>
+        <glossdef>
+        <para>
+        Mit Hilfe des E-Mail-Ticket-Schalters kann ein neues Telefon-Ticket
+        angelegt werden.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-bulkaction">
+    <glossterm>Sammel-Aktion</glossterm>
+        <glossdef>
+        <para>
+        Mit Hilfe des Sammel-Aktion-Schalters kann die gleiche Aktion
+        auf mehrere markierte Tickets ausgeführt werden.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-newmessages">
+    <glossterm>Sie haben 1 neue Nachricht(en) bekommen!</glossterm>
+    <glossdef>
+        <para>
+        Es liegt eine neue Nachricht in der Mailbox des Agenten vor. Diese
+        Anzeige erscheint dann, wenn der letzte Artikel eines Tickets nicht
+        vom Agenten selbst verfasst wurde.
+        </para>
+
+        <glossseealso otherterm="gloss-mailbox">Mailbox</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-lockedtickets">
+    <glossterm>Gesperrte Tickets (5)</glossterm>
+        <glossdef>
+        <para>
+        Diese Anzeige stellt die Anzahl der gesperrten Tickets eines Agenten
+        dar. Die Mailbox des Agenten wird geöffnet, um die gesperrten Tickets
+        anzuzeigen.
+        </para>
+
+        <glossseealso otherterm="gloss-mailbox">Mailbox</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-lock">
+    <glossterm>Ticket Sperren / Ticket Lock</glossterm>
+        <glossdef>
+        <para>
+        Sperren eines Tickets. Durch das Sperren / Locken eines Tickets
+        wird ein Agent zum Eigentümer des Tickets, der Agent ist für das
+        Ticket zuständig.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-unlock">
+    <glossterm>Ticket Freigeben / Ticket Unlock</glossterm>
+        <glossdef>
+        <para>
+        Freigabe eines Tickets. Nach der Freigabe ist das Ticket wieder
+        allen Agenten zugänglich und wird z. B. wieder in der Queue-Ansicht
+        aufgelistet.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-zoom">
+    <glossterm>Ticket Inhalt / Ticket Zoom</glossterm>
+        <glossdef>
+        <para>
+        Eine detaillierte Ansicht aller Artikel und alle möglichen
+        Aktionen (Link, Merge, Schließen, usw.) und Eigenschaften (Queue,
+        Status) eines Tickets. Weiterhin werden im Ticket Zoom auch
+        die Kundeninformationen in ausführlicher Form angezeigt.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-history">
+    <glossterm>Ticket Historie / Ticket History</glossterm>
+        <glossdef>
+        <para>
+        Ein detaillierter überblick über jede Aktion (z. B. verschieben,
+        sperren, usw.) eines Tickets. Die verschiedenen Aktionen werden
+        geordnet in zeitlicher Reihenfolge aufgelistet.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-priority">
+    <glossterm>Ticket Priorität / Ticket Priority</glossterm>
+        <glossdef>
+        <para>
+        Festlegen der Priorität eines Tickets. Standardmäßig gibt es die
+        Prioritäten "1 sehr niedrig", "2 niedrig", "3 normal", "4 hoch" und
+        "5 sehr hoch". Die Prioritäten können angepasst / geändert werden,
+        es ist möglich neue Prioritäten hinzuzufügen / zu entfernen.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-note">
+    <glossterm>Ticket Notiz / Ticket Note</glossterm>
+        <glossdef>
+        <para>
+        Hinzufügen einer Notiz an das Ticket. Die Notiz wird als
+        zusätzlicher Artikel gespeichert, es gibt interne (nur für Agenten
+        zugängliche), externe (auch für den Kunden einsehbar) und Report
+        Notizen.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-close">
+    <glossterm>Ticket Schließen / Ticket Close</glossterm>
+    <glossdef>
+        <para>
+        Schließen eines Tickets nach abgeschlossener Bearbeitung. Nachdem
+        ein Ticket geschlossen wurde, wird es nicht mehr in der
+        persönlichen Mailbox eines Kunden aufgelistet, da keine Bearbeitung
+        mehr nötig ist.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-responsibletickets">
+    <glossterm>Verantwortlicher (2)</glossterm>
+        <glossdef>
+        <para>
+        Diese Anzeige zeigt die Anzahl an Tickets, für die ein Agent
+        verantwortlich ist. Sie erscheint nur, wenn das Responsible-Feature
+        aktiviert wurde. Die Mailbox des Agenten wird geöffnet, um diese
+        Tickets aufzulisten.
+        </para>
+
+        <glossseealso otherterm="gloss-mailbox">Mailbox</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-watchedtickets">
+    <glossterm>Watched Tickets (3)</glossterm>
+        <glossdef>
+        <para>
+        Diese Anzeige zeigt die Anzahl an Tickets, die ein Agent zur
+        Beobachtung selektiert hat. Sie erscheint nur, wenn das
+        TicketWatcher-Feature aktiviert wurde. Die Mailbox des Agenten
+        wird geöffnet, um diese Tickets aufzulisten.
+        </para>
+
+        <glossseealso otherterm="gloss-mailbox">Mailbox</glossseealso>
+    </glossdef>
+</glossentry>
+
+</glossdiv>
+
+<glossdiv>
+<title>Ticketeigenschaften</title>
+
+<para>
+Die folgenden Eigenschaften kann ein Ticket haben, jenachdem ob ein
+bestimmtes Feature im System aktiviert wurde oder nicht. Alle Eigenschaften
+werden entweder in der Queue-Ansicht, in der Mailbox oder im
+Ticket-Zoom angezeigt.
+</para>
+
+<glossentry id="gloss-ticketnumber">
+    <glossterm>Ticketnummer</glossterm>
+        <glossdef>
+        <para>
+        Eindeutige Ticket Nummer. Referenz für Agenten und Kunden. Es ist
+        möglich, das Ticketnummernformat zu ändern.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketage">
+    <glossterm>Alter</glossterm>
+        <glossdef>
+        <para>
+        Das Alter eines Tickets im System. Das Alter eines tickets wird
+        unabhängig vom Status erhöht, d.h. auch geschlossene Tickets werden
+        älter.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketcreated">
+    <glossterm>Erstellt</glossterm>
+        <glossdef>
+        <para>
+        Der Zeitpunkt zu dem das Ticket im System erstellt wurde.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketstate">
+    <glossterm>Status</glossterm>
+        <glossdef>
+        <para>
+        Der Status des Tickets. Nach einer Standardinstallation sind die
+        Status "closed successful", "closed unsuccessful", "merged", "new",
+        "open", "pending auto close+", "pending auto close-" "pending
+        reminder" und "removed" verfügbar. Es ist möglich neue Status
+        hinzuzufügen bzw. vorhandene Status und Statustypen anzupassen.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketpriority">
+    <glossterm>Priorität</glossterm>
+        <glossdef>
+        <para>
+        Die momentane Priorität des Tickets.
+        </para>
+
+        <glossseealso otherterm="gloss-priority">Ticket Priorität / Ticket Priority</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketqueue">
+    <glossterm>Queue</glossterm>
+        <glossdef>
+        <para>
+        Die Queue in der das Ticket momentan gespeichert ist.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-eskalation-in">
+    <glossterm>"Eskalation in:"</glossterm>
+        <glossdef>
+        <para>
+        Die verbleibende Zeit bis zur Ticket-Eskalation.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketlocked">
+    <glossterm>Sperre</glossterm>
+        <glossdef>
+        <para>
+        Information darüber, ob ein Ticket momentan gesperrt oder noch frei
+        ist.
+        </para>
+
+        <glossseealso otherterm="gloss-lock">Ticket Sperren / Ticket Lock</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketcustomerid">
+    <glossterm>Kunden#</glossterm>
+        <glossdef>
+        <para>
+        Die ID des Kunden, der das Ticket an das System geschickt hat. Ist
+        der Kunde noch nicht im System angelegt, wird keine Kunden# angezeigt.
+        </para>
+
+        <glossseealso otherterm="gloss-customer">Kunde</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketaccountedtime">
+    <glossterm>Zugewiesene Zeit</glossterm>
+        <glossdef>
+        <para>
+        Die Summe aller Zeiteinheiten, die für die bisherige Bearbeitung des
+        Tickets angefallen sind.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketescalationin">
+    <glossterm>Eskalation in</glossterm>
+        <glossdef>
+        <para>
+        Die verbleibende Zeit bis zur Eskalation des Tickets. Ist keine
+        Eskalationszeit für die Queue in der sich das Ticket befindet
+        definiert, bleibt die Anzeige leer.
+        </para>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketowner">
+    <glossterm>Besitzer</glossterm>
+    <glossdef>
+    <para>
+    Der aktuelle Besitzr des Tickets. Ist das Ticket gesperrt, wird der
+    Benutzername des Agenten angezeigt,  welcher das Ticket gelocked hat.
+    Ist das Ticket noch nicht gesperrt, wird der Benutzername des
+    OTRS-Administrators aufgeführt.
+    </para>
+
+        <glossseealso otherterm="gloss-admin">Administrator</glossseealso>
+        <glossseealso otherterm="gloss-lock">Ticket Sperren / Ticket Lock</glossseealso>
+        <glossseealso otherterm="gloss-unlock">Ticket Freigeben / Ticket Unlock</glossseealso>
+    </glossdef>
+</glossentry>
+
+<glossentry id="gloss-ticketlinked">
+    <glossterm>Verknüpft (Normal, Eltern, Kinder</glossterm>
+        <glossdef>
+        <para>
+        Zeigt die Tickets an, mit denen das aktuelle Ticket auf welche Art
+        verknüpft ist.
+        </para>
+    </glossdef>
+</glossentry>
+
+</glossdiv>
+
+</glossary>
