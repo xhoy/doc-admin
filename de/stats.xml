@@ -1,1116 +1,837 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: stats.xml,v 1.7 2008-08-27 10:12:27 ub Exp $ -->
 
-<chapter id='statistic-module'>
-<title>Statistikmodul</title>
+
+<!-- $Id: stats.xml,v 1.8 2010-12-01 11:02:21 mg Exp $ -->
+<chapter id="statistic-module">
+<title>Stats module</title>
 
 <para>
-Statistiken und Reports sind für Unternehmen existenziell.
-An Hand der Statistiken können Informationen ausgewertet, beurteilt
-und zu guter letzt fundiert Entscheidungen getroffen werden.
+Stats and reports are essential for companies.  On the basis of stats,
+information can be evaluated and rated, and eventually informed decisions
+can be made.
 </para>
 
 <para>
-Die Anforderungen an ein Statistikmodul sind vielfältig.
+A stats module should meet a multitude of requirements:
 </para>
 
 <para>
 <itemizedlist>
-<listitem>
-    <para>
-    es müssen verschiedene OTRS-Module ausgewertet werden können,
-    </para>
-</listitem>
-<listitem>
-    <para>
-    es muss dem Rechtekonzept der jeweiligen Installation Rechnung
-    getragen werden,
-    </para>
-</listitem>
-<listitem>
-    <para>
-    komplexe Statistiken müssen generiert werden können,
-    </para>
-</listitem>
-<listitem>
-    <para>
-    die Konfiguration einer Statistik muss schnell und einfach
-    durchführbar sein,
-    </para>
-</listitem>
-<listitem>
-    <para>
-    eine hohe Performance muss gegeben sein,
-    </para>
-</listitem>
-<listitem>
-    <para>
-    verschiedene Ausgabevarianten müssen unterstützt werden.
-    </para>
-</listitem>
+    <listitem>
+        <para>
+        Various OTRS modules are to be evaluated.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        Consideration of the user permission settings of the respective
+installation.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        Generation of complex statistics.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        Easy and fast configuration of stats.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        High performance.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        Support of a large number of output variants.
+        </para>
+    </listitem>
 </itemizedlist>
 </para>
 
 <para>
-Das Statistikmodul versucht diese Anforderungen zu vereinigen.
-Kern des Ganzen ist dabei eine grafische Benutzeroberfläche,
-durch die sich Statistiken per Mausklick konfigurieren lassen.
+The OTRS stats module tries to satisfy all these requirements. The core
+feature is a GUI, which allows to configure stats with the click of a mouse.
 </para>
 
 <para>
-Um komplexe Statistiken abzubilden, besteht ferner die Möglichkeit
-statische Elemente zu integrieren (Dateien die die Funktionalität
-des Statistik-Moduls um ganz spezifische Anforderungen ergänzen).
+Statistical elements, i.e. files which supplement the functionalities of the
+stats module for specific requirements, can be integrated to model complex
+stats.
 </para>
 
 <para>
-Hinzu kommt, dass Anforderungen zum Thema
-"Auswertung personenbezogener Daten" berücksichtigt werden, so ist
-es z. B. in der Standardkonfiguration nicht möglich, direkt Auswertungen über
-die Aktivitäten einzelner Agents zu erstellen.
+All requirements concerning the evaluation of personal data have been
+considered. It is, for instance, not possible to directly evaluate the
+activities of individual agents in the standard configuration.
 </para>
 
 <para>
-Alles in allem ermöglicht das Statistik-Modul OTRS-Anwendern
-schnell und unproblematisch die Auswertung der Aktivitäten auf ihrem
-System.
+The stats module enables OTRS users to make a quick and easy evaluation of
+the activities on their system.
 </para>
 
-<sect1 id='stats-usage'>
-<title>Bedienung des Moduls durch den Agent</title>
+<section id="stats-usage" >
+<title>Handling of the module by the agent</title>
 
 <para>
-Wurde das Statistik-Modul erfolgreich durch den OTRS-Admin
-installiert und konfiguriert,  erhält jeder Agent mit Schreib-
-oder/und Leserechten den zusätzlichen Modullink "Statistiken"
-in der Navigationsleiste.
+As soon as the stats module has been installed and configured successfully
+by the OTRS admin, the navigation bar of every agent with read and/or write
+rights displays the additional module link "Statistics", which has various
+action links, as shown in the Figure 19.1.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Das Statistikmodul</screeninfo>
-<graphic srccredit="stats-icon - Screenshot" scale="40" fileref="screenshots/stats-icon.png"></graphic>
-</screenshot>
+<screeninfo>The stats module</screeninfo> <graphic
+fileref="screenshots/stats-menu.png" scale="40" srccredit="stats-menu -
+Screenshot" /></screenshot>
 </para>
 
 <para>
-Ferner werden nach der Auswahl des Links verschiedene Aktionslinks
-für das Statistikmodul in der Navigationsleiste angezeigt.
+    <emphasis>Figure 19.1. Action lists of the statistics.</emphasis>
+</para>
+
+<para>
+The different options provided in the statistics menu are:
 </para>
 
 <para>
 <itemizedlist>
-<listitem>
-    <para>
-    "Übersicht"
-    </para>
-
-    <para>
-    wird auch automatisch nach der Auswahl des Modullinks
-    "Statistiken" angezeigt
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Neu"
-    </para>
-
-    <para>
-    rw-Rechte erforderlich
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Import"
-    </para>
-
-    <para>
-    rw-Rechte erforderlich
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Einstellungen"
-    </para>
-
-    <para>
-    Oberfläche für persönliche Einstellungen in OTRS
-    </para>
-</listitem>
+    <listitem>
+        <para>
+            <emphasis>Overview</emphasis>.  Automatically shown if the module link
+"Statistics" is chosen.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            <emphasis>New</emphasis>. Requires rw rights.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            <emphasis>Import</emphasis>. Requires rw rights.
+        </para>
+    </listitem>
 </itemizedlist>
 </para>
 
-<sect2 id='stats-overview'>
-<title>Übersicht</title>
+<section id="stats-overview" >
+<title>Overview</title>
 
 <para>
-Hierbei handelt es sich um die Auflistung aller vorkonfigurierten
-Statistiken, die der Agent benutzen darf.
+A list of all pre-configured stats the agent can use (see Figure 19.2
+below).
 </para>
 
 <para>
-Zur Übersicht gelangt man am besten durch die Auswahl des
-Aktionslinks "Übersicht" in der Navigationsleiste, wenn zuvor der
-Link "Statistik" ausgewählt wurde. Ferner gelangt man automatisch zur
-Übersicht des Statistik-Moduls, wenn man den Modullink "Statistik"
-in der Navigationsleiste folgt.
+The easiest way to access the overview is to select the "Statistics" link
+and then the action link "Overview" in the navigation bar. The stats
+overview is called up automatically when the module link "Statistics" in the
+navigation bar is chosen.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Übersicht mit den Standardstatistiken</screeninfo>
-<graphic srccredit="stats-overview - Screenshot" scale="40" fileref="screenshots/stats-overview.png"></graphic>
-</screenshot>
+<screeninfo>Overview of the standard statistics</screeninfo> <graphic
+fileref="screenshots/stats-overview.png" scale="40"
+srccredit="stats-overview - Screenshot" /></screenshot>
 </para>
 
 <para>
-Folgende Informationen sind den in der Übersicht aufgelisteten
-Statistiken zu entnehmen:
+    <emphasis>Figure 19.2. Overview of the standard statistics.</emphasis>
 </para>
 
 <para>
-<itemizedlist>
-<listitem>
-    <para>
-    "Stat\#"
-    </para>
-
-    <para>
-    die eindeutige Statistiknummer
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Titel"
-    </para>
-
-    <para>
-    der Titel der Statistik
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Objekt"
-    </para>
-
-    <para>
-    Objekt, das für die Generierung der Statistik verwendet wird.
-    Wenn es sich um eine statische Statistik handelt,
-    wird kein Objekt angezeigt, da kein dynamisches
-    Objekt zur Generierung verwendet wird.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Beschreibung"
-    </para>
-
-    <para>
-    Ein Auszug aus der Beschreibung
-    </para>
-</listitem>
-</itemizedlist>
-</para>
-
-<para>
-Oberhalb der Auflistung befindet sich eine Ergebnisanzeige. Sie
-gibt Auskunft über die Anzahl der zugänglichen Statistiken. Bei
-mehrseitigen Auflistungen kann der Agent in den einzelnen
-Übersichtsseiten blättern.
-</para>
-
-<para>
-Die blauen "Auf"- und "Ab"-Icons in der Benamungszeile ermöglichen
-dem Agent eine Sortierung der Statistiken nach eigenen Bedürfnissen.
-</para>
-
-<para>
-Will man nun eine Statistik generieren, wählt man einfach die
-gewünschte Statistik aus, indem man den Link der Statistiknummer
-folgt. Anschließend gelangt man in die Oberfläche "Ansehen".
-</para>
-
-<para>
-Wird das Statistik-Modul initial verwendet, werden sofort einige
-Musterstatistiken importiert.
-</para>
-</sect2>
-
-<sect2 id='stats-viewing-generating'>
-<title>Ansehen und Generieren von Statistiken</title>
-
-<para>
-Aufgabe der "Ansehen"-Oberfläche ist es, dem Agent einen Überblick
-über die Vorkonfiguration der Statistik zu ermöglichen.
-</para>
-
-<para>
-Ferner kann der Agent im Rahmen der vorkonfigurierten Möglichkeiten
-weitere Konfigurationen vornehmen. D. h. der Ersteller einer
-Statistikkonfiguration kann bei der Definition der Statistik
-festlegen, inwieweit die eigentliche Generierung der Statistik
-noch beeinflusst werden kann. Im Extremfall bedeutet dies, dass
-der Agent gar keine Veränderung mehr vornehmen kann oder im anderen
-Extrem sämtliche Attribute beeinflussen darf.
-</para>
-
-<para>
-<screenshot id="stats-view-screenshot">
-<screeninfo>Ansicht einer Statistik</screeninfo>
-<graphic srccredit="stats-view - Screenshot" scale="40" fileref="screenshots/stats-view.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Konkret wird auf dieser Seite folgendes angezeigt:
+The following information is provided about the stats listed in the
+overview:
 </para>
 
 <para>
 <itemizedlist>
-<listitem>
-    <para>
-    die Menülinks
-    </para>
-
-    <para>
-    <itemizedlist>
     <listitem>
         <para>
-        "Zurück"
-        </para>
-
-        <para>
-        Link zurück zum Ausgangspunkt
+            <emphasis>Stat#</emphasis>. Unique statistic number.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Bearbeiten"
-        </para>
-
-        <para>
-        Link um in die Bearbeiten-Oberfläche
-        der Statistik zu gelangen
-        (rw-Rechte erforderlich)
+            <emphasis>Title</emphasis>. Title of the statistic.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Löschen"
-        </para>
-
-        <para>
-        Erlaubt das Löschen einer Statistik
-        (rw-Rechte erforderlich)
+            <emphasis>Object</emphasis>. Object used for generating the statistic.  In
+the case of a static statistic, no object is displayed as no dynamic object
+is used for its generation.
         </para>
     </listitem>
     <listitem>
         <para>
-        "Konfiguration exportieren"
-        </para>
-
-        <para>
-        Exportieren einer Statistikkonfiguration
-        mittels Dateidownload (rw-Rechte erforderlich).
-        </para>
-
-        <para>
-        Verwendung: Mittels der Export- und Importfunktionen
-        können Statistiken bequem auf Testsystemen entworfen
-        und getestet werden, um dann anschließend einfach in
-        das Produktivsystem integriert zu werden.
+            <emphasis>Description</emphasis>. Excerpt of the statistic's description.
         </para>
     </listitem>
-    </itemizedlist>
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Meta-Angaben (grauer Block auf der rechten Seite)
-    </para>
-
-    <para>
-    Dort finden Sie Angaben zu den Erstellern der Statistik. So
-    kann man an dieser Stelle entnehmen, wer wann die Statistik
-    initial erstellt hat und von wem Sie zuletzt verändert wurde.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    die eigentlichen Statistikangaben
-    </para>
-
-    <para>
-    Diese befinden sich im zentralen Block der Oberfläche.
-    </para>
-</listitem>
 </itemizedlist>
 </para>
 
 <para>
-Nachfolgend wird auf die eigentlichen Statistikeingaben eingegangen,
-da diese Eingaben die Kerninformationen enthalten.
+Below the list of statistics, there is a results display, which provides
+information about the number of accessible stats. If the overview covers
+more than one page, the agent can browse through the different pages.
 </para>
 
 <para>
-Zuerst erhält man dabei allgemeine Angaben:
+The agents can sort the stats ascending or descending, according to their
+needs, just by clicking the desired sorting key field of the headline.
+</para>
+
+<para>
+To generate a statistic, the right one is chosen by clicking the link with
+the stat number, which leads to the "View" user interface.
+</para>
+
+<para>
+A few sample stats are imported when the stats module is used for the first
+time.
+</para>
+
+</section>
+
+<section id="stats-viewing-generating">
+<title>Generate and view stats</title>
+
+<para>
+The view user interface is supposed to provide the agent with an overview of
+the stat's pre-configuration (see Figure 19.3 below).
+</para>
+
+<para>
+<screenshot id="stats-view-screenshot" >
+<screeninfo>Stat view</screeninfo> <graphic
+fileref="screenshots/stats-view.png" scale="40" srccredit="stats-view -
+Screenshot" /></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 19.3. Viewing a specific statistic.</emphasis>
+</para>
+
+<para>
+The agents can perform configurations within the range of the
+pre-configuration. The originator of a stat configuration can determine the
+degree to which the stat generation can be influenced. The most extreme
+examples of this would be agents who can't effect any changes or can change
+all attributes, respectively.
+</para>
+
+<para>
+The page shows the following:
 </para>
 
 <para>
 <itemizedlist>
-<listitem>
-    <para>
-    "Stat#"
-    </para>
-
-    <para>
-    die Statistiknummer
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Titel"
-    </para>
-
-    <para>
-    der Titel der Statistik
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Objekt"
-    </para>
-
-    <para>
-    Objekt durch das die Statistik generiert wird
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Beschreibung"
-    </para>
-
-    <para>
-    die Beschreibung gibt einen tieferen Einblick
-    über die Intention der Statistik.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Format"
-    </para>
-
-    <para>
-    Ausgabeformat der Statistik.
-    Hierbei stehen je nach Konfiguration folgende
-    Ausgabeformate zur Verfügung:
-    </para>
-
-    <para>
-    <itemizedlist>
     <listitem>
         <para>
-        "CSV" -&gt; Download der Statistik im csv-Format
+        Possible actions:
+        </para>
+
+        <para>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis>Go to overview</emphasis>.  Link back to the starting point.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Edit</emphasis>.  Edit the current stat (rw rights required).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Delete</emphasis>.  Delete the current stat (rw rights required).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Export config</emphasis>.  Export a stat configuration, via file
+download (rw rights required).
+                </para>
+
+                <para>
+                    Usage: export and import functions allow for the convenient creation and
+testing of stats on test systems and subsequent easy integration into the
+production system.
+                </para>
+            </listitem>
+        </itemizedlist>
         </para>
     </listitem>
     <listitem>
         <para>
-        "Drucken" -&gt; Druckfähige HTML-Tabelle oder Tabelle im PDF-Format
+        The stat details:
+        </para>
+        <para>
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis>Stat#</emphasis>.  The number of the statistic.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Title</emphasis>.  The title of the statistic.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Object</emphasis>.  Object used for generating the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Description</emphasis>.  Provides more detailed information about
+the intention of the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Format</emphasis>.  Stat output format. Depending on the
+configuration, any of the following output formats can be chosen:
+                </para>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                        CSV.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Print.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-lines.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-bars.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-hbars.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-points.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-lines-points.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-area.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                        Graph-pie.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Graphsize</emphasis>.  Size (in pixels) which the graphic / chart
+may have.  This option is only given when the stat pre-configuration allows
+it for a chart. All generally usable graphic sizes are configured by the
+OTRS admin in the SysConfig. The agent can then pre-select all relevant
+formats, while configuring the stats.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Sum rows</emphasis>.  Indicates whether the stat is amended by a
+column, whose cells state the sums of the respective rows.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Sum columns</emphasis>.  Indicates whether the stat is amended by
+a row, whose cells state the sum of the respective columns.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Cache</emphasis>.  Indicates whether the generated stats are
+cached in the file system.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Valid</emphasis>.  This is set to "invalid" if a pre-configured
+statistic is still being created or must not be used temporarily for certain
+reasons. Also the "Start" button in the bottom right of the block is then no
+longer displayed. The stat can no longer be generated.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Created</emphasis>.  Creation time of the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Created by</emphasis>.  Agent who created the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Changed</emphasis>.  Time of the last stat's modification.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>Changed by</emphasis>.  Agent who altered the stat.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <emphasis>X-axis</emphasis>.  Using this function, the agent can exchange
+the x and y axes (only when activated by the OTRS administrator).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                The general information is followed by information about the stat
+itself. There are two different stat views:
+                </para>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis>Static stat view</emphasis>.  Complex stats cannot be generated
+dynamically, that is the reason why static stat generators can be integrated
+into the stat module (see Figure 19.4 below).  They were developed
+specifically for the particular evaluation.  The various job definitions
+result in different views.
+                        </para>
+                        <para>
+                        <screenshot>
+<screeninfo>Static stat view</screeninfo> <graphic
+fileref="screenshots/stats-view-static.png" scale="40"
+srccredit="stats-view-static - Screenshot" /></screenshot>
+                        </para>
+                        <para>
+                            <emphasis>Figure 19.4. Viewing a static statistic.</emphasis>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Dinamic stat view</emphasis> (see Figure 19.3 above).  They can be
+displayed in two different ways:
+                        </para>
+                        <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Unchangeable settings</emphasis>.  The originator of the stat has
+no permission for modifying this fields.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Changeable settings</emphasis>.  The pre-configuration of such
+stats can be changed by the agent.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                </para>
+            </listitem>
+        </itemizedlist>
         </para>
     </listitem>
-    <listitem>
-        <para>
-        "Liniendiagramm"
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Balkendiagramm"
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Balkendiagramm (horizontal)"
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Punktdiagramm"
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Linienpunktdiagramm"
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Flächendiagramm"
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Tortendiagramm"
-        </para>
-    </listitem>
-    </itemizedlist>
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Grafikgröße"
-    </para>
-
-    <para>
-    mögliche Größe der Grafik bzw. des Diagramms.
-    </para>
-
-    <para>
-    <itemizedlist>
-    <listitem>
-        <para>
-        Angabe in Pixeln
-        </para>
-
-        <para>
-        diese Auswahl bzw. Anzeige erscheint nur,
-        wenn die Statistikvorkonfiguration ein
-        Diagramm vorsieht bzw. ermöglicht.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Alle generell verwendbaren Grafikgrößen
-        </para>
-
-        <para>
-        werden durch den otrs-Admin in der
-        SysConfig definiert. Beim
-        Konfigurieren der Statistiken kann dann
-        der Ersteller alle relevanten Formate
-        vorselektieren.
-        </para>
-    </listitem>
-    </itemizedlist>
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Zeilensummierung"
-    </para>
-
-    <para>
-    Gibt an, ob die Statistik durch eine Spalte ergänzt
-    wird, deren Zellen die Summe der
-    jeweiligen Zeile darstellt.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Spaltensummierung"
-    </para>
-
-    <para>
-    Angabe, ob die Statistik durch eine
-    Zeile ergänzt wird, deren Zellen die Summe
-    der jeweiligen Spalte beinhaltet
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Cache"
-    </para>
-
-    <para>
-    Gibt an, ob die errechneten Statistiken im
-    Dateisystem gecachet werden.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Gültig"
-    </para>
-
-    <para>
-    Ist eine vorkonfigurierte Statistik erst im Entstehen
-    oder darf sie aus bestimmten Gründen temporär nicht mehr
-    ausgeführt werden so wird das Element "Gültig" auf
-    "ungültig" gesetzt. Ferner wird dadurch die Schaltfläche
-    "Start" rechts unten am Ende des Block ausgeblendet.
-    Ein Generieren der Statistik ist somit nicht möglich.
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "Achsen vertauschen"
-    </para>
-
-    <para>
-    Diese Option erlaubt es dem Agenten, die X- und
-    Y-Achsen zu vertauschen (Diese Funktion muss vom
-    OTRS-Administrator freigeschaltet werden).
-    </para>
-</listitem>
 </itemizedlist>
 </para>
 
 <para>
-Nach den allgemeinen Angaben sieht der Agent die Angaben zur
-eigentlichen Statistik. Hierbei kommen grundsätzlich zwei
-verschiedene Anzeigen zum Einsatz:
+Pressing the "Start" button (at the bottom of the screen) is the last simple
+step to generate a stat. There are two possible reasons for this button to
+not be displayed:
 </para>
 
 <para>
-<itemizedlist>
-<listitem>
-    <para>
-    Anzeige statischer Statistiken:
-    </para>
-
-    <para>
-    Komplexe Statistiken können nicht dynamisch generiert werden.
-    Hierfür kann das Statistik-Modul statische Statistik-Generatoren
-    integrieren. Diese wurden von Programmierern
-    speziell für die jeweilige Auswertung geschaffen. Durch die
-    jeweilige Aufgabenstellung der Statistik ergeben sich
-    unterschiedliche Darstellungen.
-    </para>
-
-    <para>
-    <screenshot>
-    <screeninfo>Ansicht der statischen Statistik</screeninfo>
-    <graphic srccredit="stats-view-static - Screenshot" scale="40" fileref="screenshots/stats-view-static.png"></graphic>
-    </screenshot>
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Dynamische Statistiken können auf zweierlei Weise angezeigt werden:
-    </para>
-
-    <para>
-    <itemizedlist>
+<orderedlist numeration="arabic" >
     <listitem>
         <para>
-        unveränderbare Einstellungen
-        </para>
-
-        <para>
-        in diesem Fall hat der Ersteller der Statistik dem Agent,
-        der eine Statistik generieren will, keinen Freiraum für
-        Veränderungen gelassen.
+        The stat was set to invalid and thus, deactivated.
         </para>
     </listitem>
     <listitem>
         <para>
-        veränderbare Einstellungen
-        </para>
-
-        <para>
-        Bei derartigen Statistiken ist es dem Agent noch erlaubt
-        die vorkonfigurierte Statistik zu verändern.
+        The stat was not configured neatly and is, therefore, not yet executable. In
+this case, the necessary information can be found in the OTRS notification
+section (below the navigation bar).
         </para>
     </listitem>
-    </itemizedlist>
-    </para>
-</listitem>
-</itemizedlist>
+</orderedlist>
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Ansicht einer veränderbaren dynamischen Statistik</screeninfo>
-<graphic srccredit="stats-view-configurable - Screenshot" scale="40" fileref="screenshots/stats-view-configurable.png"></graphic>
-</screenshot>
+If the settings on the view page are incorrect, this page is shown again
+after the "Start" button was pushed, and information about which input was
+incorrect is provided in the notification section.
 </para>
+</section>
+
+<section id="stats-modify-new">
+<title>Edit - New</title>
 
 <para>
-Um eine Statistik zu generieren, muss abschließend lediglich der
-"Start"-Button am rechten unteren Ende des Blocks gedrückt werden.
-Sollte einmal der "Start"-Button nicht sichtbar sein, kann dies
-zwei Ursachen haben:
+Agents, who have write rights, can edit an existing stat configuration by
+calling up the edit user interface of the stat module. There are two
+possibilites for that:
 </para>
 
 <para>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    die Statistik wurde auf ungültig gesetzt und damit deaktiviert.
+    Via the "Edit" button in the stat view.
     </para>
 </listitem>
 <listitem>
     <para>
-    die Statistik wurde nicht sauber konfiguriert und ist noch
-    nicht lauffähig. Ist dies der Fall, findet man die nötigen Informationen im
-    Notification-Bereich von OTRS (unterhalb der Navigationsleiste).
+    Via the "New" link in the menu of the Statistics module in the navigation
+bar.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Bei falschen Einstellungen auf der Ansichtsseite wird nach
-Drücken des "Start"-Button wieder die Ansichtseite gezeigt und
-im Notificationbereich darauf hingewiesen, welche Eingaben falsch
-waren.
-</para>
-</sect2>
-
-<sect2 id='stats-modify-new'>
-<title>Bearbeiten - Neu</title>
-
-<para>
-Es gibt für den Agent zwei Möglichkeiten in die Bearbeitenoberfläche des
-Statistikmoduls zu gelangen:
+The stats are edited with a wizard in four steps:
 </para>
 
 <para>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    Durch den Menülink "Bearbeiten" in der Statistikansicht.
-    Dadurch kann eine bestehende Statistikkonfiguration
-    bearbeitet werden.
+    General specifications.
     </para>
 </listitem>
 <listitem>
     <para>
-    durch den "Neu"-Link in der Navigationsleiste.
+    Definition of the element for the X-axis.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Specification of the value series.
+    </para>
+</listitem>
+<listitem>
+    <para>
+    Definition of the restrictions to characterize the stat.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Damit diese Links für den Agent sichtbar werden, benötigt man für
-dieses Modul Schreibrechte (rw).
+Points 2 to 4 are only needed for the generation of dynamic stats. For a
+static stat, only the general information (point 1) is required.
 </para>
 
 <para>
-Das Bearbeiten der Statistiken erfolgt in vier Schritten mit Hilfe eines
-Assistenten bzw. Wizards:
+Information about how to handle the page is provided below the input forms,
+on all input user interfaces of the stats module.
 </para>
 
 <para>
-<orderedlist numeration="arabic">
+If incorrect data is entered nevertheless, the previously processed user
+interface is displayed again and amended by information about the incorrect
+input.  This information can be found in the OTRS notification section. The
+next input user interface is only displayed after the form has been filled
+out correctly.
+</para>
+
+<para>
+<orderedlist numeration="arabic" >
 <listitem>
     <para>
-    Allgemeine Angaben zur Statistik
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Festlegen des Elements für die X-Achse
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Festlegen der Wertereihen
-    </para>
-</listitem>
-<listitem>
-    <para>
-    Festlegen der Einschränkungen
-    </para>
-</listitem>
-</orderedlist>
-</para>
-
-<para>
-Die Punkte 2-4 werden nur für dynamisch zusammengestellte Statistiken
-benötigt. Benutzt man eine statische Statistik ist man mit dem Einfügen der
-allgemeinen Angaben in Punkt 1. bereits fertig.
-</para>
-
-<para>
-Für alle Eingabeoberflächen des Statistik-Moduls gilt: Im Anschluss
-an das jeweilige Eingabeformular findet der Benutzer Informationen
-zur Bedienung der Seite.
-</para>
-
-<para>
-Sollte es dennoch zu fehlerhaften Eingaben  kommen, wird die
-zuvor bearbeitete Oberfläche wieder geladen. Dabei wird die Seite um
-Informationen zur fehlerhaften Eingabe ergänzt.
-Diese Informationen findet man im Notificationbereich von OTRS.
-Erst nachdem ein Formular korrekt ausgefüllt wurde, gelangt man zur
-nächsten Eingabeoberfläche.
-</para>
-
-<para>
-<orderedlist numeration="arabic">
-<listitem>
-    <para>
-    "Allgemeine Angaben"
-    </para>
-
-    <para>
-    Die Eingabeoberfläche "Allgemeine Angaben" ist die erste Seite des
-    Assistenten. Der Ersteller einer Statistik kann dort eine Vielzahl von
-    allgemeinen Angaben und Einstellungen tätigen.
+        <emphasis>General specifications</emphasis>.  It is the first page of the
+wizard (see Figure 19.5 below).
     </para>
 
     <para>
     <screenshot>
-    <screeninfo>Allgemeine Angaben zur Statistik</screeninfo>
-    <graphic srccredit="stats-bearbeiten-allgemein - Screenshot" scale="40" fileref="screenshots/stats-bearbeiten-allgemein.png"></graphic>
-    </screenshot>
+<screeninfo>General specifications of the stat</screeninfo> <graphic
+fileref="screenshots/stats-edit-general.png" scale="40"
+srccredit="stats-edit-general - Screenshot" /></screenshot>
+    </para>
+
+    <para>
+        <emphasis>Figure 19.5. Editing the general specifications of a
+stat.</emphasis>
+    </para>
+
+
+    <para>
+        In the screen showed in the Figure 19.5 there is a great number of common
+specifications and settings can be edited:
     </para>
 
     <para>
     <itemizedlist>
-    <listitem>
-        <para>
-        "Titel"
-        </para>
-
-        <para>
-        Er soll kurz und prägnant die Aufgabe der Statistik wiedergeben.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Beschreibung"
-        </para>
-
-        <para>
-        Hier werden Informationen eingetragen, die einen
-        tieferen Einblick in die Aufgabenstellung, Art
-        der Konfigurationsparameter, usw. erlauben.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Dynamisches Objekt"
-        </para>
-
-        <para>
-        Sollte die OTRS-Installation über mehrere
-        dynamische Objekte verfügen, kann hier das
-        gewünschte Objekt ausgewählt werden. Die
-        Objekte sind jeweils auf die Anforderungen
-        des entsprechenden Moduls ausgelegt.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Statische Datei"
-        </para>
-
-        <para>
-        An dieser Stelle kann eine gewünschte statische
-        Datei ausgewählt werden. Diese Auswahl wird für
-        gewöhnlich nicht erscheinen, da nur die statischen
-        Dateien angezeigt werden, die noch keiner Statistik
-        zugeordnet wurden! Wenn der Punkt "Statische Datei"
-        angezeigt wird, ist es wichtig im Formular
-        durch die Auswahl des Optionsfelds die gewünschte
-        Generierungsart auszuwählen (Dynamisch durch ein
-        dynamisches Objekt oder statisch durch eine Datei).
-        Wird eine statische Datei ausgewählt entfallen die
-        Eingabeoberflächen 2-4, da die statische Datei die
-        nötigen Konfigurationen bereits mitbringt.
-        </para>
-    </listitem>
-    <listitem>
-      <para>
-        "Rechtevergabe"
-        </para>
-
-        <para>
-        Durch die Rechtevergabe kann man regeln, welche Gruppen
-        (und dadurch welche Agents) die vorkonfigurierten Statistiken
-        später ansehen und generieren können. So können die
-        verschiedenen Statistiken auf die verschiedenen Abteilungen
-        und Arbeitsgruppen aufgeteilt werden, die diese benötigen.
-        Eine Mehrfachauswahl ist dabei möglich.
-        </para>
-
-        <para>
-        Beispiel 1: Es wurde die Gruppe "stats" selektiert. Dann wird diese Statistik
-        für alle sichtbar die mindestens ro-Rechte auf die Gruppe "stats" haben. In der
-        Standardkonfiguration bedeutet dies aber, dass alle Benutzer die Statistiken erzeugen
-        können diese Statistik sehen können, da in der Standardkonfiguration ro-Rechte in der
-        Gruppe "stats" Grundbedingung ist um überhaupt in den Ansichtsmodus des Statistikmoduls
-        zu gelangen.
-        </para>
-
-        <para>
-        Beispiel 2: Es wurde eine Gruppe namens "sales" selektiert. Alle Benutzer die ro-Rechte
-        in der Gruppe "sales" haben können nun diese Statistik im Ansichtsmodus sehen und generieren.
-        Anderen Benutzern, die in der Lage sind Statistiken zu generieren wird dann diese Statistik nicht
-        angeboten.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Format" Ausgabeformat der Statistik
-        </para>
-
-        <para>
-        Hierbei stehen je nach Konfiguration folgende
-        Ausgabeformate zur Verfügung:
-        </para>
-
-        <para>
-        <itemizedlist>
         <listitem>
             <para>
-            "CSV" -&gt; Statistik im csv-Format
+                <emphasis>Title</emphasis>.  Should reflect the stat's purpose in a concise
+manner.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Drucken" -&gt; Druckfähige HTML-Tabelle oder Tabelle im PDF-Format
+                <emphasis>Description</emphasis>.  More detailed information about the job
+definition, type of configuration parameters, etc.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Liniendiagramm"
+                <emphasis>Dynamic object</emphasis>.  If the OTRS installation provides
+various dynamic objects, one of them can be chosen.  The objects meet the
+requirements of the particular modules.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Balkendiagramm"
+                <emphasis>Static file</emphasis>.  Usually this selection is not shown, as
+only static files which are not yet assigned to any stats are displayed. If
+"Static file" is displayed, however, it is important to tick the option
+field and select a generation mode (dynamic with a dynamic object or static
+with a file).  If a static file is selected, the input user interfaces 2-4
+are not shown as the static file contains all required configurations.
             </para>
         </listitem>
         <listitem>
             <para>
-            "Balkendiagramm (horizontal)"
+                <emphasis>Permission settings</emphasis>.  Facilitate a restriction of the
+groups (and therefore, agents) who can later view and generate the
+preconfigured stats. Thus the various stats can be allocated to the
+different departments and work groups who need them. It is possible to
+allocate one stat to various groups.
             </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Punktdiagramm"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Linienpunktdiagramm"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Flächendiagramm"
-            </para>
-        </listitem>
-        <listitem>
-            <para>
-            "Tortendiagramm"
-            </para>
-        </listitem>
-        </itemizedlist>
-        </para>
 
-        <para>
-        Eine Mehrfachauswahl ist möglich.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Grafikgröße"
-        </para>
-
-        <para>
-        Hier kann ausgewählt werden, in welchen Größen die
-        Diagramme ausgegeben werden dürfen.
-        </para>
-
-        <para>
-        <itemizedlist>
-        <listitem>
             <para>
-            Angabe in Pixeln
+                Example 1: The "stats" group was selected. The stat is viewable for all
+users having at least ro rights for the "stats" group. As the base
+requirement for accessing the view mode of the stat module in the default
+configuration is to have ro rights in the "stats" group, all users with
+permission to create statistics can view it in this configuration.
+            </para>
+
+            <para>
+                Example 2: A group named "sales" was selected. All users with ro rights for
+the "sales" group can see the stat in the view mode and generate
+it. However, the stat will not be shown to other users with permission to
+generate stats.
             </para>
         </listitem>
         <listitem>
             <para>
-            diese Auswahl ist nur sinnvoll, wenn unter dem Punkt "Format"
-            ein grafisches Ausgabeformat ausgewählt wurde.
+                <emphasis>Format</emphasis>.  Output format of the stat.  Depending on the
+configuration, one or more of the following formats can be chosen:
+            </para>
+
+            <para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        CSV.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Print.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-lines.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-bars.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-hbars.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-points.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-lines-points.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-area.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        graph-pie.
+                    </para>
+                </listitem>
+            </itemizedlist>
             </para>
         </listitem>
         <listitem>
             <para>
-            alle generell verwendbaren Grafikgrößen werden
-            durch den OTRS-Admin in der SysConfig
-            definiert. Bei der Konfiguration der
-            Statistiken kann der Ersteller alle
-            relevanten Formate vorselektieren.
-            </para>
-        </listitem>
-        </itemizedlist>
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Zeilensummierung"
-        </para>
-
-        <para>
-        Wird im Pulldownmenü "Ja" ausgewählt, wird die Statistik durch
-        eine Spalte ergänzt, deren Zellen die Summe der jeweiligen
-        Zeile darstellt.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Spaltensummierung"
-        </para>
-
-        <para>
-        Angabe, ob die Statistik durch eine Zeile ergänzt
-        wird, deren Zellen die Summe der jeweiligen Spalte
-        beinhaltet.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Cache"
-        </para>
-
-        <para>
-        Wird im Pulldownmenü "Ja" ausgewählt, werden die errechneten
-        Statistiken im Dateisystem gecachet. Dies spart
-        Rechenleistung und Zeit, sollte genau diese Statistik wieder
-        aufgerufen werden.
-        </para>
-
-        <para>
-        Diese Funktion ist jedoch nur sinnvoll, wenn sichergestellt ist, dass
-        sich der Inhalt der Statistik nicht mehr ändert. Dies ist genau
-        zu prüfen, bevor man die Cachingfunktion nutzt.
-        </para>
-
-        <para>
-        Bei folgenden Situationen wird das Cachen automatisch verhindert.
-        </para>
-
-        <para>
-        <itemizedlist>
-        <listitem>
-            <para>
-            wenn die Statistik keinerlei Zeitangaben enthält.
-            (Es kommen laufend neue Daten hinzu)
+                <emphasis>Graphsize</emphasis>.  Select the size (in pixels) the charts
+should have. This selection is only necessary if a graphical output format
+has been chosen under "Format".  All graphic sizes that can generally be
+used are defined by the OTRS admin in SysConfig. When configuring the stat,
+the agent can pre-select all relevant formats.
             </para>
         </listitem>
         <listitem>
             <para>
-            wenn eine Zeitangabe in der Zukunft liegt
+                <emphasis>Sum rows</emphasis>.  Indicates whether the stat is amended by a
+column, whose cells contain the sum of the respective row.
             </para>
         </listitem>
-        </itemizedlist>
-        </para>
+        <listitem>
+            <para>
+                <emphasis>Sum columns</emphasis>.  Indicates whether the stat is amended by
+a row, whose cells contain the sum of the respective column.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Cache</emphasis>.  Specifies if the generated stats should be
+cached in the file system.  This saves computing power and time if the stat
+is called up again, but it only should be used if the stat's content is no
+longer changing.
+            </para>
 
-        <para>
-        Sollte eine Statistik zwischenzeitlich wieder bearbeitet werden,
-        werden alle gecachten Daten wieder gelöscht.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        "Gültig"
-        </para>
+            <para>
+                Caching is automatically prevented if the stat contains no time designation
+values (new data is added continuously) or if a time designation value
+points to the future.
+            </para>
 
-        <para>
-        Ist eine vorkonfigurierte Statistik erst im Entstehen
-        oder darf sie aus bestimmten Gründen temporär nicht mehr
-        ausgeführt werden, so wird das Element "Gültig" auf "ungültig"
-        gesetzt. Ferner wird dadurch die Schaltfläche "Start" in der
-        "Ansehen" Oberfläche ausgeblendet. Ein Generieren
-        der Statistik ist somit nicht möglich.
-        </para>
-    </listitem>
+            <para>
+                If a cached stat is edited, all cached data is deleted.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>Valid</emphasis>.  It is set "invalid" if a pre-configured stat is
+still being created or must not be used temporarily for certain
+reasons. Also the "Start" button in the bottom right of the block is no
+longer displayed. It is impossible to generate the stat.
+            </para>
+        </listitem>
     </itemizedlist>
     </para>
-
-    <para>
-    Durch Drücken der Schaltfläche "Weiter" gelangt man in die nächste
-    Oberfläche des Wizards.
-    </para>
 </listitem>
 <listitem>
     <para>
-    "X-Achse"
-    </para>
-
-    <para>
-    Nach dem Bearbeitungsschritt "Allgemeine Angaben" folgt das Formular
-    "X-Achse".
+        <emphasis>Definition of the element for the X-axis</emphasis>.  It is the
+configuration of the element used for the depiction of the X-axis or, if
+tables are used, of the column name chosen for the stat (see Figure 19.6).
     </para>
 
     <para>
     <screenshot>
-    <screeninfo>Festlegen des Elements für die X-Achse</screeninfo>
-    <graphic srccredit="stats-edit-xaxis - Screenshot" scale="40" fileref="screenshots/stats-edit-xaxis.png"></graphic>
-    </screenshot>
+<screeninfo>Definition of the element for the X-axis.</screeninfo> <graphic
+fileref="screenshots/stats-edit-xaxis.png" scale="40"
+srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     </para>
 
     <para>
-    Hier wird eingestellt welches Element für die Darstellung der X-Achse
-    verwendet wird, bzw. bei Tabellen, welche Spaltenbezeichnung die
-    Statistik bekommt.
+        <emphasis>Figure 19.6. Definition of the element for the X-axis.</emphasis>
     </para>
 
     <para>
-    Als erstes wählt man ein Element per Optionsfeld aus.
-    Anschließend müssen zwei oder mehr Attribute des Elements selektiert
-    werden. Werden keine Attribute des Elements ausgewählt, werden alle
-    Attribute verwendet, auch solche die nach der Konfiguration der
-    Statistik hinzukommen.
+    First of all, an element is selected using the option field. Then two or
+more attributes of the element must be selected. If no attributes are
+selected, all attributes are used including those added after the
+configuration of the stat.
     </para>
 
     <para>
-    Entfernt man den Haken "Fixiert" in der Checkbox, kann der Agent, der die
-    Statistik erstellt, die Attribute des entsprechenden Elements in der
-    "Ansehen"-Oberfläche verändern.
+    If the "Fixed" setting is disabled, the agent generating the stat can change
+the attributes of the respective element in the "View" user interface.
     </para>
 
     <para>
-    Eine Besonderheit stellen Zeitelemente dar, hier ist die Zeitspanne und
-    die Skalierung anzugeben.
+    Time elements are different as time period and scale have to be stated.
+Type and number of elements result from the used dynamic object and vary
+depending on it.
     </para>
 
     <para>
-    Die Art und Anzahl der Elemente ergibt sich durch das verwendete
-    dynamische Objekt und ist von Objekt zu Objekt verschieden.
-    </para>
-
-    <para>
-    Wurden alle Eingaben richtig getätigt, gelangt man nach der Auswahl des
-    "Weiter" Schalters zu dem Formular "Wertereihen". Ebenfalls gibt es die
-    Möglichkeit, einen Bearbeitungsschritt zurück zu gehen und
-    nochmals die Oberfläche "Allgemeine Angaben" zu bearbeiten.
+    If all input is correct, the "Next" button leads to the "Value series"
+form. It is also possible to go back to editing the "common statements"
+section again.
     </para>
 </listitem>
 <listitem>
     <para>
-    "Wertereihen"
+        <emphasis>Specification of the value series</emphasis>.
     </para>
 
     <para>
-    Im dritten Schritt der Vorkonfiguration einer Statistik werden die
-    Wertereihen der Statistik festgelegt. Sie bilden später die einzelnen
-    Grafen des Diagramms (grafische Darstellung) oder die einzelnen
-    Reihen (tabellarische Darstellung).
+    In the third step of the stat pre-configuration the value series are defined
+(see Figure 19.7 below). They will lateron form the individual graphs of a
+diagramm or the various series (tabular view).
     </para>
 
     <para>
     <screenshot>
-    <screeninfo>Festlegen der Wertereihen</screeninfo>
-    <graphic srccredit="stats-edit-valueseries - Screenshot" scale="40" fileref="screenshots/stats-edit-valueseries.png"></graphic>
-    </screenshot>
+<screeninfo>Definition of the value series</screeninfo> <graphic
+fileref="screenshots/stats-edit-valueseries.png" scale="40"
+srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
     </para>
 
     <para>
-    Wird ein Element selektiert, entspricht jedes ausgewählte Attribut
-    einer Wertereihe.
+        <emphasis>Figure 19.7. Definition of the value series.</emphasis>
     </para>
 
     <para>
-    <example id='stats-value-series-1'>
-    <title>Festlegen einer Wertereihe bei einem Element</title>
+    If an element is selected, each chosen attribute will correspond to a value
+series (see the Example 19-1 below).
+    </para>
+
+    <para>
+    <example id="stats-value-series-1">
+    <title>Definition of a value series - one element</title>
 
     <para>
     Element Queue:
@@ -1118,491 +839,455 @@ nächsten Eingabeoberfläche.
 
     <para>
     <itemizedlist>
-    <listitem>
-        <para>
-        Wertereihe 1 = Raw
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Wertereihe 2 = Junk
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        ....
-        </para>
-    </listitem>
+        <listitem>
+            <para>
+            Value series 1 = Raw
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            Value series 2 = Junk
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            ....
+            </para>
+        </listitem>
     </itemizedlist>
     </para>
     </example>
     </para>
 
     <para>
-    Werden zwei Elemente selektiert, wird jedes ausgewählte Attribut
-    des ersten Elements kombiniert mit einem Attribut des zweiten Elements
-    zu einer Wertereihe.
+    If two elements are selected, each selected attribute of the first element
+is combined with an attribute of the second element to form a value series
+(see the Example 19-2 below).
     </para>
 
     <para>
-    <example id='stats-value-series-2'>
-    <title>Festlegen einer Wertereihe bei zwei Elementen</title>
+    <example id="stats-value-series-2" >
+    <title>Definition of a value series - two elements </title>
+
     <para>
-    Element 1 Queue und Element 2 Status:
+    Element 1 queue and element 2 status:
     </para>
 
     <para>
     <itemizedlist>
-    <listitem>
-        <para>
-        Wertereihe 1 = Raw-offen
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Wertereihe 2 = Raw-erfolgreich geschlossen
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Wertereihe 3 = Junk-offen
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Wertereihe 4 = Junk-erfolgreich geschlossen
-        </para>
-    </listitem>
+        <listitem>
+            <para>
+            Value chain 1 = Raw - open
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            Value series 2 = Raw - successfully closed
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            Value series 3 = Junk - open
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            Value series 4 = Junk - successfully closed
+            </para>
+        </listitem>
     </itemizedlist>
     </para>
     </example>
     </para>
 
     <para>
-    Die Auswahl von drei oder mehr Elementen ist nicht sinnvoll und wird
-    deshalb durch eine Fehlermeldung verhindert.
+    Selection of three or more elements does not make sense and is, therefore,
+prevented by an error message.
     </para>
 
     <para>
-    Ferner gelten noch die gleichen Bedingungen zur Auswahl der
-    Attribute und zur "Fixiert" Checkbox wie bei der "X-Achsen" Auswahl.
+    Additionally the same conditions apply to the selection of the attributes
+and the "Fixed" checkbox as to the "X-axis" selection:
     </para>
 
     <para>
     <itemizedlist>
-    <listitem>
-        <para>
-        Werden keine Attribute des Elements ausgewählt, werden alle
-        Attribute verwendet, auch solche die nach der Konfiguration der
-        Statistik hinzukommen.
-        </para>
-    </listitem>
-    <listitem>
-        <para>
-        Entfernt man den Haken "Fixiert" in der Checkbox, kann der Agent
-        der die Statistik erstellt, die Attribute des entsprechenden
-        Elements verändern.
-        </para>
-    </listitem>
+        <listitem>
+            <para>
+            If no attributes of the element are selected, all attributes are used,
+including those added after the configuration of the stat.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            If the "Fixed" setting is disabled, the agent generating the stat can change
+the attributes of the respective element.
+            </para>
+        </listitem>
     </itemizedlist>
     </para>
 </listitem>
 <listitem>
     <para>
-    "Einschränkungen"
-    </para>
-
-    <para>
-    Vierter und letzter Schritt bei der Vorkonfiguration ist das Festlegen
-    der Einschränkungen. Hier ist es möglich die Ergebnisse
-    einer Statistik durch die Angabe von Bedingungen einzuschränken.
-    Vergleichbar ist dies mit Eingaben in eine Suchoberfläche.
+        <emphasis>Definition of the restrictions to characterize the
+stat</emphasis>.  It is the fourth and last step of the pre-configuration
+(see Figure 19.8 below).  The restrictions facilitate to limit the results
+and are comparable to entering data into a search window. In quite a few
+cases, no restrictions at all must be set up.
     </para>
 
     <para>
     <screenshot>
-    <screeninfo>Festlegen der Einschränkungen</screeninfo>
-    <graphic srccredit="stats-edit-restrictions - Screenshot" scale="40" fileref="screenshots/stats-edit-restrictions.png"></graphic>
-    </screenshot>
+<screeninfo>Definition of restrictions</screeninfo> <graphic
+fileref="screenshots/stats-edit-restrictions.png" scale="40"
+srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
     </para>
 
     <para>
-    Es kann durchaus vorkommen, dass keine Einschränkungen getätigt werden
-    müssen.
+        <emphasis>Figure 19.8. Definition of restrictions.</emphasis>
     </para>
 
     <para>
-    Nachdem man alle Einschränkungen getätigt hat, drückt man den Button
-    "Abschließen". Dadurch beendet man die Vorkonfiguration der Statistik
-    und gelangt in die "Ansehen" Oberfläche.
+    After all restrictions are set, the pre-configuration of the stat is
+finished with the "Finish" button and the "View" user interface is called
+up.
     </para>
 </listitem>
 </orderedlist>
 </para>
+</section>
 
-</sect2>
-
-<sect2 id='stats-import'>
-<title>Importieren</title>
+<section id="stats-import">
+<title>Import</title>
 
 <para>
-Durch die Auswahl des "Import"-Links bzw. -Icons in der Navigationsleiste
-gelangt man in die Importoberfläche (rw-Rechte erforderlich).
+The import user interface (see Figure 19.9 below) can be accessed by chosing
+"Import" in the navigation bar (rw rights required).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Die Import-Oberfläche</screeninfo>
-<graphic srccredit="stats-import - Screenshot" scale="40" fileref="screenshots/stats-import.png"></graphic>
-</screenshot>
+<screeninfo>The import user interface</screeninfo> <graphic
+fileref="screenshots/stats-import.png" scale="40" srccredit="stats-import -
+Screenshot" /></screenshot>
 </para>
 
 <para>
-Durch sie können Statistiken importiert werden. Dies ist im Zusammenhang
-mit der Exportfunktion des Moduls eine sehr hilfreiche Funktionalität.
-So können Statistiken bequem auf Testsystemen entworfen und getestet
-werden, um sie später auf dem Produktivsystem zu importieren.
+    <emphasis>Figure 19.9. The import user interface.</emphasis>
 </para>
 
 <para>
-Der Import geschieht dabei ganz einfach durch einen Dateiupload.
-Anschließend gelangt man automatisch in die Ansehenoberfläche der
-importierten Statistik.
-</para>
-
-</sect2>
-
-</sect1>
-
-<sect1 id='stats-managing-the-module'>
-<title>Verwaltung des Statistik-Moduls durch den OTRS-Administrator</title>
-
-<para>
-In diesem Abschnitt werden die Aufgaben und Möglichkeiten des
-OTRS-Administrators in Bezug auf das Statistikmodul angesprochen.
-</para>
-
-<sect2 id='stats-permissions'>
-<title>Rechte, Gruppen und Queues</title>
-
-<para>
-Durch die Installation des Statistikmoduls
-werden keine neuen Queues oder/und Gruppen angelegt.
+Facilitates the import of stats and is, combined with the export function of
+the module, a very handy functionality. Stats can be created and tested
+conveniently on test systems and then imported into the production system.
 </para>
 
 <para>
-Durch die Standardkonfiguration der Modulregistrierung haben alle
-Agenten, die Rechte in der "stats"-Gruppe haben, Zugriff auf das
-Statistikmodul.
+The import is effected by an easy file upload. The "view" user interface of
+the imported stat is opened automatically afterwards.
+</para>
+</section>
+
+</section>
+
+<section id="stats-managing-the-module">
+<title>Administration of the stat module by the OTRS administrator</title>
+
+<para>
+This section provides information about the tasks and possibilities of the
+OTRS administrator dealing with the statistics module.
+</para>
+
+<section id="stats-permissions" >
+<title>Permission settings, groups and queues</title>
+
+<para>
+No new queues and/or groups are created when the stat module is installed.
 </para>
 
 <para>
-Zugangsmöglichkeiten auf Grund der Rechte:
+The default configuration of the module registration gives all agents with
+"stats" group permissions access to the stats module.
+</para>
+
+<para>
+Access according to permission settings:
 </para>
 
 <para>
 <itemizedlist>
-<listitem>
-    <para>
-    "rw" -&gt; darf Statistiken konfigurieren
-    </para>
-</listitem>
-<listitem>
-    <para>
-    "ro" -&gt; darf vorkonfigurierte Statistiken generieren
-    </para>
-</listitem>
+    <listitem>
+        <para>
+            <emphasis>rw</emphasis>.  Allows configurating statistics.
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+            <emphasis>ro</emphasis>.  Permits generating pre-configured statistics.
+        </para>
+    </listitem>
 </itemizedlist>
 </para>
 
 <para>
-Ob nun dem jeweiligen Agenten, der später vorkonfigurierte Statistiken
-generieren darf, ro-Rechte in der "stats" Gruppe zugewiesen werden oder
-in der Modulregistrierung der SysConfig die dem Agent entsprechenden Gruppen
-ergänzt werden, bleibt dem OTRS-Administrator und dessen Anforderungen
-überlassen.
+The OTRS administrator decides whether agents with the permission to
+generate pre-configured stats are allocated ro rights in the "stats" group,
+or if their respective groups are added in the module registration in
+SysConfig.
 </para>
+</section>
 
-</sect2>
-
-<sect2 id='stats-sysconfig'>
+<section id="stats-sysconfig" >
 <title>SysConfig</title>
 
 <para>
-Die SysConfig-Gruppen
-
-<link linkend="Framework:Core::Stats">
-Framework:Core::Stats
-</link>
-
-,
-
-<link linkend="Framework:Core::Stats::Graph">
-Framework:Core::Stats::Graph
-</link>
-
-und
-
-<link linkend="Framework:Frontend::Agent::Stats">
-Framework:Frontend::Agent::Stats
-</link>
-
-enthalten alle Konfigurationsparameter zur grundlegenden Einstellung des
-Statistik-Moduls. Weiterhin regelt der Konfigurationsparameter
-
-<link linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentStats">
-$Self-&gt;{'Frontend::Module'}-&gt;{'AgentStats'}
-</link>
-
-die Anordnung und Registrierung der Module und Icons innerhalb des
-Statistik-Moduls selbst.
+SysConfig groups <link linkend="Framework:Core::Stats" >
+Framework:Core::Stats </link> , <link linkend="Framework:Core::Stats::Graph"
+> Framework:Core::Stats::Graph </link>and <link
+linkend="Framework:Frontend::Agent::Stats" >
+Framework:Frontend::Agent::Stats </link> contain all configuration
+parameters for the basic set-up of the statistics module.  Moreover, the
+configuration parameter <link
+linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentStats"
+> $Self-&gt;{'Frontend::Module'}-&gt;{'AgentStats'} </link> controls the
+arrangement and registration of the modules and icons within the statistics
+module.
 </para>
+</section>
 
-</sect2>
+</section>
 
-</sect1>
-
-<sect1 id='stats-managing-the-stats-module-by-the-sysadmin'>
-<title>Verwaltung des Statistik-Moduls durch den System-Administrator</title>
+<section id="stats-managing-the-stats-module-by-the-sysadmin" >
+<title>Administration of the stats module by the system administrator</title>
 
 <para>
-Grundsätzlich ist bei der Bedienung, Konfiguration und Wartung
-des Statistikmoduls kein System-Administrator notwendig. An dieser
-Stelle sollen nur einige Hintergrundinformationen für den System-
-Administrator gegeben werden.
+Generally, no system administrator is needed for the operation,
+configuration and maintenance of the statistics module. However, a little
+background information for the system administrator is given at this point.
 </para>
 
 <note>
 <para>
-Pfadangaben beziehen sich auf Unterverzeichnisse des
-OTRS-Homeverzeichnisses (meist <filename>/opt/otrs</filename>.
+File paths refer to subdirectories of the OTRS home directory (in most
+cases<filename>/opt/otrs</filename>).
 </para>
 </note>
 
-<sect2 id='stats-db-table'>
-<title>Datenbanktabelle</title>
+<section id="stats-db-table" >
+<title>Data base table</title>
 
 <para>
-Alle Statistikkonfigurationen werden in XML umgesetzt und verwaltet.
-Dies bedeutet unter anderem, dass alle Statistikkonfigurationen in der
-Datenbanktabelle "xml\_storage" gespeichert werden.
-Diese Tabelle wird auch von anderen Modulen benutzt, deren Inhalte im
-XML-Format dargestellt werden.
+All stat configurations are implemented and administrated in XML and,
+therefore, stored in the database table "xml_storage". Other modules whose
+content is presented in xml format use this table as well.
 </para>
-</sect2>
 
-<sect2 id='stats-filelist'>
-<title>Auflistung aller Dateien</title>
+</section>
+
+<section id="stats-filelist" >
+<title>List of all files</title>
 
 <para>
-Folgende Dateien sind für die fehlerfreie Funktion des Statistikmoduls
-notwendig.
+The following files are necessary for the stats module to work accurately:
 </para>
 
 <para>
 <itemizedlist>
-<listitem>
-<para>
-<filename>Kernel/System/Stats.pm</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Modules/AgentStats.pm</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/System/CSV.pm</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsOverview.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsDelete.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsEditSpecification.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsEditRestrictions.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsEditXaxis.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsEditValueSeries.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsImport.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsPrint.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/Output/HTML/Standard/AgentStatsView.dtl</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>Kernel/System/Stats/Dynamic/Ticket.pm</filename>
-</para>
-</listitem>
-<listitem>
-<para>
-<filename>bin/mkStats.pl</filename>
-</para>
-</listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/System/Stats.pm</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Modules/AgentStats.pm</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/System/CSV.pm</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsOverview.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsDelete.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsEditSpecification.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsEditRestrictions.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsEditXaxis.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsEditValueSeries.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsImport.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsPrint.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/Output/HTML/Standard/AgentStatsView.dtl</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>Kernel/System/Stats/Dynamic/Ticket.pm</filename>
+        </para>
+    </listitem>
+    <listitem>
+        <para>
+        <filename>bin/otrs.GenerateStats.pl</filename>
+        </para>
+    </listitem>
 </itemizedlist>
 </para>
+</section>
 
-</sect2>
-
-<sect2 id='stats-caching'>
+<section id="stats-caching" >
 <title>Caching</title>
 
 <para>
-Bei der Vorkonfiguration von Statistiken kann eingestellt
-werden, ob die Ergebnisse einer Statistik gecachet werden oder
-nicht. Gecachete Statistikergebnisse werden als Datei im
-Verzeichnis <filename>var/tmp</filename> der OTRS-Installation
-gespeichert (meist <filename>/opt/otrs/var/tmp</filename>).
+Whether the results of a statistic are to be cached or not can be defined in
+the pre-configuration. Cached statistic results are stored as files in the
+<filename>var/tmp</filename>directory of the OTRS installation (in most
+cases<filename>/opt/otrs/var/tmp</filename>).
 </para>
 
 <para>
-Alle gecacheten Statistiken sind dabei durch das Präfix "Stats" zu erkennen.
+Cached stats can be recognized by the "Stats" prefix.
 </para>
 
 <para>
-Sollten diese Dateien verloren gehen, ist dies nicht weiter
-schlimm. Beim nächsten Aufruf dieser Statistik
-kann das Statistikmodul diese Datei nicht mehr finden und
-muss deshalb die Statistik neu errechnen, was etwas Zeit
-beanspruchen kann.
+If the data is lost, no major damage is caused. The next time the stat is
+called up, the stats module will not find the file any more and thus, will
+generate a new stat, which will probably take a little longer.
 </para>
+</section>
 
-
-</sect2>
-
-<sect2 id='stats-mkstats'>
-<title>mkStats.pl</title>
+<section id="stats-mkstats" >
+<title>otrs.GenerateStats.pl</title>
 
 <para>
-Diese Datei befindet sich im Verzeichnis <filename>bin/</filename>.
-Durch sie ist es möglich Statistiken per Kommandozeile
-zu generieren.
+This file is saved in the <filename>bin/</filename>directory.  It
+facilitates the generation of stats in the command line.
 </para>
 
 <para>
-Exemplarisch soll hierzu folgender Kommandozeilenaufruf
-stehen:
+The command line call in the Script 19.1 is an exemplary.
 </para>
 
 <para>
 <programlisting>
-bin&gt; perl mkStats.pl -n 10004 -o /output/dir
+bin> perl otrs.GenerateStats.pl -n 10004 -o /output/dir
 </programlisting>
 </para>
 
 <para>
-Dabei wird eine Statistik aus der Statistikkonfiguration "Stat# 10004"
-generiert und als csv in das Verzeichnis <filename>/output/dir</filename>
-gespeichert.
+    <emphasis>Script 19.1. Generating a stat via command line.</emphasis>
 </para>
 
 <para>
-Ferner kann die generierte Statistik auch per Email versandt werden.
-Mehr Informationen erhält man durch den Aufruf
+A stat from the stat configuration "Stat# 10004" is generated and saved as
+csv in the <filename>/output/dir</filename>directory.
+</para>
+
+<para>
+The generated stat can also be sent as an e-mail.  More information can be
+called up with the command of the Script 19.2.
 </para>
 
 <para>
 <programlisting>
-bin&gt; perl mkStats.pl --help
+bin> perl otrs.GenerateStats.pl --help
 </programlisting>
 </para>
 
-</sect2>
+<para>
+    <emphasis>Script 19.2. Getting information about the otrs.GenerateStats.pl
+file.</emphasis>
+</para>
 
-<sect2 id='stats-cron'>
-<title>Automatisiertes Generieren von Statistiken - Cron</title>
+</section>
+
+<section id="stats-cron" >
+<title>Automated stat generation - Cronjob</title>
 
 <para>
-Sinnvoll ist das Generieren von Statistiken per Hand über
-die Kommandozeile natürlich nicht unbedingt, da das
-Statistikmodul eine geeignete grafische Oberfläche bietet.
-Interessant wird die Generierung von Statistiken per Kommandozeile
-aber in Kombination mit einem Cronjob.
+It obviously does not really make sense to generate stats manually in the
+command line, as the stat module has a convenient graphical user
+interface. However, generating stats manually does make sense when combined
+with a Cronjob.
 </para>
 
 <para>
-Folgendes Szenario ist denkbar: Ein Abteilungsleiter
-wünscht pünktlich zum ersten eines Monats eine Statistik
-zum abgelaufenen Monat. Durch die Kombination Cronjob
-und Kommandozeilenaufruf ist man in der Lage automatisiert
-zu Beginn eines Monats dem Abteilungsleiter die
-gewünschte Statistik per Email zukommen zu lassen.
+Imagine the following scenario: On every first day of the month the heads of
+department want to receive a stat for the past month. By combining a cronjob
+and command line call the stats can be sent to them automatically by e-mail.
 </para>
 
-</sect2>
+</section>
 
-<sect2 id='stats-static'>
-<title>Statische Statistiken</title>
+<section id="stats-static" >
+<title>Static stats</title>
 
 <para>
-Das Statistikmodul bietet die Möglichkeit statische Statistiken
-zu generieren. Für jede statische Statistik gibt es eine
-Datei in der die Inhalte der Statistik genau definiert sind.
+The stats module facilitates the generation of static statistics. For every
+static stat a file exists in which its content is precisely defined.
 </para>
 
 <para>
-Vorteil dieser Art von Statistik ist, dass dadurch sehr komplexe
-Statistiken erzeugt werden können. Der Nachteil ist wiederum
-die mangelnde Flexibilität dieser Statistiken.
+This way, very complex stats can be generated. The disadvantage is that they
+are not particularly flexible.
 </para>
 
 <para>
-Gespeichert werden diese Dateien unter folgendem Pfad
+The files are saved in the following directory
 <filename>Kernel/System/Stats/Static/</filename>.
 </para>
+</section>
 
-</sect2>
-
-<sect2 id='stats-using-old-stats'>
-<title>Wiederverwerten alter statischer Statistiken</title>
+<section id="stats-using-old-stats" >
+<title>Using old static stats</title>
 
 <para>
-Bereits das Standard OTRS Version 1.3 und 2.0 bietet die Möglichkeit
-Statistiken zu generieren. Eine Vielzahl der Statistiken, die für
-OTRS-Versionen 1.3 und 2.0 speziell auf Kundenwunsch entwickelt wurden,
-können wiederverwendet werden.
+Standard OTRS versions 1.3 and 2.0 already facilitated the generation of
+stats.  Various stats for OTRS versions 1.3 and 2.0 which have been
+specially developed to meet customers' requirements can be used in more
+recent versions too.
+</para>
+
+<para>The files must merely be moved from the
+<filename>Kernel/System/Stats/</filename> path to
+<filename>Kernel/System/Stats/Static/</filename>. Additionally the package
+name of the respective script must be amended by "::Static".
 </para>
 
 <para>
-Diese Dateien müssen hierzu lediglich aus dem Pfad <filename>Kernel/System/Stats/</filename> in
-den Pfad <filename>Kernel/System/Stats/Static/</filename> verschoben werden. Ferner muss
-die Paketangabe des jeweiligen Skripts um "::Static" ergänzt werden.
-</para>
-
-<para>
-Z. B. wird aus
+The following example shows how the first path is amended.
 </para>
 
 <para>
@@ -1616,26 +1301,23 @@ Z. B. wird aus
     package Kernel::System::Stats::Static::AccountedTime;
 </programlisting>
 </para>
+</section>
 
-</sect2>
+<section id="stats-default-stats" >
+<title>Default stats</title>
 
-<sect2 id='stats-default-stats'>
-<title>Defaultstatistiken</title>
-
-<para>
-"Man muss das Rad nicht immer neu erfinden."
+<para>"It is not always necessary to reinvent the wheel..."
 </para>
 
 <para>
-Deshalb liefert das Statistikmodul automatisch Defaultstatistiken mit.
-Statistiken, die für alle OTRS-Benutzer interessant sind, werden zukünftig
-als Defaultstatistik im Statistik-Modul-Paket ergänzt. Gespeichert werden
-die Defaultstatistiken im XML-Format des Statistikmoduls im Verzeichnis
-<filename>scripts/test/sample/</filename>.
+The stats module provides various default stats. Stats which are interesting
+for all OTRS users will in future be added to the default stats of the stats
+module package. Default stats are saved in the stats module xml format in
+the<filename>scripts/test/sample/</filename> directory.
 </para>
 
-</sect2>
+</section>
 
-</sect1>
+</section>
 
 </chapter>

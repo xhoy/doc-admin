@@ -1,35 +1,30 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.9 2009-01-21 13:18:30 ub Exp $ -->
 
+
+<!-- $Id: performance-tuning.xml,v 1.10 2010-12-01 11:02:21 mg Exp $ -->
 <chapter id="performance-tuning">
-<title>Leistungsverbesserung</title>
+<title>Performance Tuning</title>
 
 <abstract>
 <para>
-Eine erschöpfende Liste verschiedener Techniken, um das Maximum an Leistung aus Ihrem OTRS System herauszuholen: Konfiguration, Programmierung, Speichernutzung und mehr.
+An exhaustive list of various techniques you might want to use to get the
+most performance possible out of your OTRS system: configuration, coding,
+memory use and more.
 </para>
 </abstract>
 
-<sect1 id="performance-tuning-otrs">
+<section id="performance-tuning-otrs">
 <title>OTRS</title>
 <para>
-Im folgenden finden Sie Optionen, die Leistung des Systems via OTRS selbst zu verbessern.
+There are several options to improve the performance of OTRS.
 </para>
 
-<sect2 id="performance-tuning-otrs-index">
+<section id="performance-tuning-otrs-index">
 <title>TicketIndexModule</title>
 <para>
-Zur Verfügung stehen zwei Hintergrundmodule für den Ticket Index.
-</para>
-<para>
-Kernel/Config.pm
-<programlisting>
-[...]
-    $Self->{TicketIndexModule} = 'Kernel::System::Ticket::IndexAccelerator::RuntimeDB';
-[...]
-</programlisting>
+There are two backend modules for the ticket index:
 </para>
 
 <para>
@@ -37,34 +32,38 @@ Kernel/Config.pm
 
 <listitem>
 <para>
-Kernel::System::Ticket::IndexAccelerator::RuntimeDB (Standard), generiere jede Queue-Ansicht dynamisch aus der Ticket Tabelle. Sie werden keine Probleme mit der Leistung bekommen bis zu etwa 60.000 Tickets (oder 6000 offenen) in Ihrem System.
+Kernel::System::Ticket::IndexAccelerator::RuntimeDB (default), generate each
+queue view on the fly from the ticket table. You will not have performance
+trouble until you have about 60,000 tickets (with 6,000 open tickets) in
+your system.
 </para>
 </listitem>
 
 <listitem>
 <para>
-Kernel::System::Ticket::IndexAccelerator::StaticDB, das leistungsfähigste Modul. Es sollte ab 80.000 Tickets oder mehr als 6000 offenen eingesetzt werden. Benutzt eine extra ticket_index Tabelle, arbeitet wie eine Ansicht (View). Führen Sie bin/RebuildTicketIndex.pl zum erstmaligen Aufbau des Index aus.
+Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful
+module, it should be used when you have above 80,000 tickets (more than
+6,000 open tickets) - it use an extra ticket_index table, which works like a
+view. Use
+<file>bin/otrs.RebuildTicketIndex.pl</file>
+for generating an initial index build after switching backends.
 </para>
 </listitem>
 
 </itemizedlist>
-
 </para>
-</sect2>
+
+<para>
+You can change the IndexAccelerator via SysConfig.
+</para>
+
+</section>
 
 
-<sect2 id="performance-tuning-otrs-storage">
+<section id="performance-tuning-otrs-storage">
 <title>TicketStorageModule</title>
 <para>
-Es stehen zwei Module für das Speichern der Tickets und Artikel bereit.
-</para>
-<para>
-Kernel/Config.pm
-<programlisting>
-[...]
-    $Self->{Ticket::StorageModule} = 'Kernel::System::Ticket::ArticleStorageDB';
-[...]
-</programlisting>
+There are two different backend modules for the ticket/article storage:
 </para>
 
 <para>
@@ -72,26 +71,34 @@ Kernel/Config.pm
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageDB (Standard), speichere Anhänge &amp; Co. in der Datenbank. Merke: Benutzen Sie diese Option nicht für größere Systeme.
+Kernel::System::Ticket::ArticleStorageDB (default), store attachments, etc.
+in the database. Note: Don't use it for large set ups.
 </para>
 <para>
-Pro: Ist der Benutzer, unter dem der Webserver läuft, nicht der OTRS Benutzer, können Sie mit diesem Modul Dateiberechtigungsprobleme vermeiden.
+Pro: If your webserver user isn't the otrs user, use this module to avoid
+file permission problems.
 </para>
 <para>
-Contra: Es ist nicht wirklich nett, Anhänge in Ihrer Datenbank zu speichern. Achten Sie darauf, dass Ihre Datenbank das kann. Für MySQL setzen Sie in dessen Konfiguration bspw.
-"set-variable = max_allowed_packet=8M", um 8 MB große Objekte zu speichern (Standard ist 2M).
+Contra: It's not really advisable to store attachments in your
+database. Take care that your database is able to store large
+objects. E.g. MySQL (config)  "set-variable = max_allowed_packet=8M" to
+store 8 MB objects (default is 2M).
 </para>
 </listitem>
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageFS, speichere Anhänge &amp; Co. im lokalen Filesystem ab. Merke: Benutzen Sie dies für große Installationen.
+Kernel::System::Ticket::ArticleStorageFS, store attachments etc. on the
+local file system. Note: Recommended for large setups.
 </para>
 <para>
-Pro: Schneller!
+Pro: Fast!
 </para>
 <para>
-Contra: Der Benutzer, unter dem der Webserver läuft, sollte der OTRS Benutzer sein (Dateisystemberechtigungen!).
+Contra: Your web server user should be the otrs user (file system
+permissions!).  Also, if you have multiple front end servers, you should
+make sure the file system is shared between the servers. So place it on an
+NFS share or preferably a SAN or similar solution.
 </para>
 </listitem>
 
@@ -100,106 +107,170 @@ Contra: Der Benutzer, unter dem der Webserver läuft, sollte der OTRS Benutzer se
 </para>
 
 <para>
-Note: Ab OTRS 1.2 oder höher, kann man das TicketStorageModule im Betrieb ändern!
+Note: you can switch from one to the other back-end on the fly. You can
+switch the backend in the SysConfig, and then you can run the command line
+utility <filename>otrs.ArticleStorageSwitch.pl</filename> to put the
+articles from the database onto the filesystem or the other way around. You
+can use the <emphasis>-s</emphasis> and <emphasis>-d</emphasis> option to
+specify the source and destination back-ends. Please note that the whole
+process can take a lot of time, depending on the amount of articles you have
+and the available CPU power and/or network capacity.
 </para>
 
-</sect2>
-
-</sect1>
-
-
-<sect1 id="performance-tuning-database">
-<title>Datenbank</title>
 <para>
-Einstellungen sind immer spezifisch für die jeweils eingesetzte Datenbank. Bei Problemen lesen Sie die Dokumentation und fragen Sie Ihren Datenbankadministrator.
+<programlisting>
+shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
+</programlisting>
+</para>
+<para>
+    <emphasis>Script 21.1 Switching storage back-ends from database to
+filesystem.</emphasis>
+</para>
+</section>
+
+</section>
+
+
+<section id="performance-tuning-database">
+<title>Database</title>
+<para>
+This depends on the database you are using. If you're having trouble, read
+the documentation for your database or ask your database administrator.
 </para>
 
-<sect2 id="performance-tuning-database-mysql">
+<section id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-Wenn Sie den Tabellentyp MyISAM (Standard) benutzen, und einen großen Teil einer Tabelle gelöscht haben, oder wenn Sie sehr viele Änderungen an einer Tabelle mit Zeilen variabler Länge vorgenommen haben (Tabellen mit VARCHAR, BLOB oder TEXT Spalten), sollten Sie die Datendateien mit dem "optimize" Kommando behandeln.
+If you use MySQL table type MyISAM (which is the default), and have deleted
+a large part of a table or if you have made many changes to a table with
+variable-length rows (tables that have VARCHAR, BLOB or TEXT columns), you
+need to defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
-Dies bietet sich an, wenn MySQL viel CPU Zeit braucht. Optimieren Sie die Tabellen ticket, ticket_history und article.
+You should try this if mysqld needs a lot of your CPU time. Optimize tables
+ticket, ticket_history and article (see Script 21.2 below).
+</para>
+
+<para>
 <programlisting>
-shell$ mysql -u user -p datbase
+shell$ mysql -u user -p database
 mysql$ optimize table ticket;
 mysql$ optimize table ticket_history;
 mysql$ optimize table article;
 </programlisting>
 </para>
-</sect2>
 
-<sect2 id="performance-tuning-database-postgresql">
+<para>
+    <emphasis>Script 21.2. Optimizing data base tables.</emphasis>
+</para>
+
+</section>
+
+<section id="performance-tuning-database-postgresql">
 <title>PostgreSQL</title>
 <para>
-PostgreSQL konfigurieren Sie am besten in der postgresql.conf Datei in Ihrem PostgreSQL Datenverzeichnis. Hier gibt es Hilfe dazu:
-<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/perf.html</ulink>
-<ulink url="http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html">http://www.varlena.com/varlena/GeneralBits/Tidbits/annotated_conf_e.html</ulink>
-Ist die Leistung immer noch nicht genügend, empfehlen wir, Fragen auf der "PostgreSQL Performance Mailing Liste" zu stellen. Die Teilnehmer der PostgreSQL Liste sind sehr freundlich und können wahrscheinlich helfen.
-<ulink url="http://www.postgresql.org/lists.html">http://www.postgresql.org/lists.html</ulink>.
+PostgreSQL is best tuned by modifying the postgresql.conf file in your
+PostgreSQL data directory. For advice on how to do this, see these articles:
 </para>
-</sect2>
 
-</sect1>
+<para>
+    <itemizedlist>
+        <listitem>
+            <para>
+            <ulink url="http://www.revsys.com/writings/postgresql-performance.html">
+<citetitle>http://www.revsys.com/writings/postgresql-performance.html</citetitle>
+</ulink>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            <ulink url="http://varlena.com/GeneralBits/Tidbits/perf.html">
+<citetitle>http://varlena.com/GeneralBits/Tidbits/perf.html</citetitle>
+</ulink>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+            <ulink url="http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html">
+<citetitle>http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html</citetitle>
+</ulink>
+            </para>
+        </listitem>
+    </itemizedlist>
+</para>
+
+<para>
+If performance is still not satisfactory, we suggest that you join the
+PostgreSQL Performance mailing list ( <ulink
+url="http://www.postgresql.org/community/lists/">
+http://www.postgresql.org/community/lists/ </ulink> ) and ask questions
+there. The folks on the PostgreSQL list are very friendly and can probably
+help.
+</para>
+</section>
+
+</section>
 
 
-<sect1 id="performance-tuning-webserver">
+<section id="performance-tuning-webserver">
 <title>Webserver</title>
 <para>
-Natürlich empfehlen wir mod_perl 2.0 (
-<ulink url="http://perl.apache.org/">http://perl.apache.org/</ulink>).
-Es ist sehr viel schneller (etwa um den Faktor 100) als pures CGI, braucht aber auch mehr Speicher. Ihr httpd wird mit mod_perl also größer sein.
+Of course you should use mod_perl 2.0 ( <ulink
+url="http://perl.apache.org/">
+<citetitle>http://perl.apache.org/</citetitle> </ulink>).  It's much faster
+(~ * 100) than pure cgi. But it needs more RAM.
 </para>
 
-<sect2 id="performance-tuning-webserver-db">
-<title>Datenbank Verbindung</title>
+<section id="performance-tuning-webserver-db">
+<title>Pre-establish database connections</title>
 <para>
-Sie können die Datenbankverbindung bereits beim Start des httpd-Prozeß herstellen lassen - dies spart ebenso Zeit (siehe auch README.webserver).
+You can have the database connections pre-established on startup of the web
+server.  This saves time (see README.webserver).
 </para>
-</sect2>
+</section>
 
-<sect2 id="performance-tuning-webserver-startup">
-<title>Vorgeladene Module - startup.pl</title>
+<section id="performance-tuning-webserver-startup">
+<title>Preloaded modules - startup.pl</title>
 <para>
-Nutzen Sie das Start Skript scripts/apache-perl-startup.pl (mod_perl 1.0) bzw. scripts/apache2-perl-startup.pl (mod_perl 2.0), um die Perl Module vorzuladen (siehe README.webserver).
+Use the startup script <filename>scripts/apache2-perl-startup.pl</filename>
+for preloaded/precompiled Perl modules on your mod_perl webserver to be
+faster and smaller (see README.webserver).
 </para>
-</sect2>
-<sect2 id="performance-tuning-webserver-reload">
-<title>Perl Module bei Änderung neu laden</title>
+</section>
+<section id="performance-tuning-webserver-reload">
+<title>Reload Perl modules when updated on disk</title>
 <para>
-Standardmäßig wird Apache::Reload (mod_perl 1.0) bzw. Apache2::Reload (mod_perl 2.0) in scripts/apache2-httpd.include.conf eingesetzt. Deaktivieren Sie es und die Geschwindigkeit steigt um etwa 8%.
-Ab nun müssen Sie den Webserver neu starten, wenn Sie irgendetwas ändern!
-Wichtig, es hat dadurch zur Folge, dass der OTRS-Paket-Manager nicht mehr über das Web-Interface bedient werden kann (nur noch über CMD - bin/opm.pl).
+By default Apachee::Reload is used in
+scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
+speed. But remember to restart the web server if you install any modules via
+the OTRS Package Manager, any values in your SysConfig or in
+Kernel/Config.pm.  Important: this would also mean you can't use the OTRS
+Package Manager via the web interface, you need to use the command line
+variant - <filename>bin/otrs.PackageManager.pl</filename>.
 </para>
-</sect2>
+</section>
 
-<sect2 id="performance-tuning-webserver-strategy">
-<title>Die richtige Strategie wählen</title>
+<section id="performance-tuning-webserver-strategy">
+<title>Choosing the Right Strategy</title>
 <para>
-Bei wirklich großen Installationen (über 1000 neue Tickets am Tag, über 40 Agenten) ist es eine sehr gute Idee, den Artikel "Choosing the Right Strategy" (in englisch) zu lesen
-(<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">http://perl.apache.org/docs/1.0/guide/strategy.html</ulink>).
+If you have a really large installation (over 1,000 new tickets per day and
+over 40 agents) it is a good idea to read "Choosing the Right Strategy"
+(<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">
+<citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle>
+</ulink>).
 </para>
-</sect2>
+</section>
 
-<sect2 id="performance-tuning-webserver-gzip">
+<section id="performance-tuning-webserver-gzip">
 <title>mod_gzip/mod_deflate</title>
 <para>
-Falls Ihre Bandbreite ein wenig schmal sein sollte, benutzen Sie mod_gzip für Apache1
-(<ulink url="http://www.schroepl.net/projekte/mod_gzip/">http://www.schroepl.net/projekte/mod_gzip/</ulink>) bzw. mod_deflate für Apache2 (default Modul in Apache2).
-Eine HTML-Seite von 45k wird mod_gzip/mod_deflate auf etwa 7k zusammendrücken - nett.
+If your bandwidth is a little bit small, use mod_deflate for Apache2.  If
+you have an html page with 45k, mod_gzip/mod_deflate compresses it. The page
+will be about 7k. The drawback is that this increases load on the server
+side.
 </para>
-</sect2>
+</section>
 
-<sect2 id="performance-tuning-webserver-dos">
-<title>mod_dosevasive</title>
-<para>
-Um http DoS (Denial of Service) Angriffe zu blocken kann mod_dosevasive
-benutzt werden (leider nur für Apache1 verfügbar).
-(<ulink url="http://www.nuclearelephant.com/projects/dosevasive/">http://www.nuclearelephant.com/projects/dosevasive/</ulink>).
-</para>
-</sect2>
-
-</sect1>
+</section>
 
 </chapter>

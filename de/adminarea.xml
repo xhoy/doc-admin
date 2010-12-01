@@ -1,182 +1,147 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.22 2009-06-23 00:03:53 martin Exp $ -->
 
+
+<!-- $Id: adminarea.xml,v 1.23 2010-12-01 11:02:21 mg Exp $ -->
 <chapter id="adminarea">
-<title>Der Administrationsbereich von OTRS</title>
+<title>The admin area of OTRS</title>
 
-<sect1 id="adminarea-general">
-<title>Allgemeines zum Administrationsbereich</title>
-
-<para>
-Der Administrationsbereich von OTRS ist die zentrale Anlaufstelle für
-den Administrator des Ticket Systems. Innerhalb dieses Bereiches
-können alle wichtigen Einstellungen der Systemkonfiguration
-eingesehen bzw. geändert und das System auf die eigenen Bedürfnisse
-angepasst werden.
-</para>
+<section id="adminarea-general">
+<title>Basics</title>
 
 <para>
-Die Administrationsoberfläche kann über den Link "Admin"
-innerhalb der Navigationsleiste des Agent-Interfaces geladen werden. Damit
-dieser Link in der Navigationsleiste überhaupt sichtbar ist,
-müssen Sie als OTRS-Administrator am System angemeldet sein bzw.
-über Administrationsrechte im System verfügen. Nach einer
-Standardinstallation können Sie sich mit dem Benutzernamen
-"root@localhost" und dem Kennwort "root" als OTRS-Admin am System anmelden.
+This is the central place for OTRS administrators. Here you can alter your
+configuration, install additional packages, such as FAQ and ITSM; add queues
+and agents, and much more.</para>
+
+<para>
+Agents who are members of the <emphasis>admin</emphasis> group can access
+the administrators area, by clicking the <emphasis>Admin</emphasis> link, in
+the navigation bar (see Figure 5.1 below); the rest of the agents won't see
+this link. On a new installation you can log in with the user
+<emphasis>root@localhost</emphasis> and the password
+<emphasis>root</emphasis>.
 </para>
 
 <warning>
 <para>
-Bitte ändern Sie schnellstmöglich über die
-
-<link linkend="user-preferences">
-Benutzereinstellungen
-</link>
-
-das Kennwort für root@localhost, da es sich hierbei um ein
-standardmäßig vergebenes Kennwort handelt, das allgemein bekannt ist.
+Please change the password for this account as soon as possible via the
+<link linkend="user-preferences"> user preferences </link> page, because
+this is a default password on all OTRS systems.
 </para>
 </warning>
 
 <para>
 <screenshot>
-<screeninfo>Der Administrationsbereich von OTRS</screeninfo>
-<graphic srccredit="Adminarea - screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic>
-</screenshot>
-</para>
-</sect1>
-
-<sect1 id="adminarea-user-groups-and-roles">
-<title>Benutzer-, Gruppen- und Rollenverwaltung</title>
-
-<sect2 id="adminarea-user">
-<title>Benutzer</title>
-
-<para>
-Über den Link "Benutzer" gelangen Sie in die Benutzerverwaltung von
-OTRS. Hier können Sie Benutzer anlegen, bearbeiten und deaktivieren.
-Weiterhin lassen sich einige grundlegende Einstellungen für den Benutzer
-festlegen, z. B. die Oberflächensprache oder das Anzeigeschema.
+<screeninfo>The admin area of OTRS</screeninfo> <graphic srccredit="Adminarea -
+screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic></screenshot>
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Benutzerverwaltung in OTRS</screeninfo>
-<graphic srccredit="Adminarea user management - screenshot" scale="40" fileref="screenshots/admin-users.png"></graphic>
-</screenshot>
+    <emphasis>Figure 5.1. Administrator's area of the agent
+interface.</emphasis>
 </para>
 
-<note>
-<para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-können einmal im System angelegte Benutzer nicht entfernt werden. Um einen
-Benutzer-Account zu deaktivieren, setzen Sie in den Einstellungen den
-entsprechenden Benutzer mit Hilfe der Listbox für "Gültig" auf
-"ungültig" bzw. "ungültig-temporär".
-</para>
-</note>
+</section>
+
+
+<section id="adminarea-agents-groups-and-roles">
+<title>Agents, groups and roles</title>
+
+<section id="adminarea-agents">
+<title>Agents</title>
 
 <para>
-Nachdem Sie einen neuen Benutzer angelegt haben, muss dieser einer Gruppe
-bzw. einer Rolle zugewiesen werden. Sie werden nach dem Anlegen
-eines neuen Benutzers automatisch auf die Bildschirmmaske für die
-Zuweisung eines Benutzers in Gruppen weitergeleitet.
-</para>
-
-</sect2>
-
-<sect2 id="adminarea-groups">
-<title>Gruppen</title>
-
-<para>
-Jeder Mitarbeiter mit einem Account im OTRS, sollte mindestens einer
-Benutzergruppe angehören. Über den Link "Gruppen" gelangen Sie in
-die Gruppenverwaltung von OTRS.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Gruppenverwaltung in OTRS</screeninfo>
-<graphic srccredit="Adminarea group management - screenshot" scale="40" fileref="screenshots/admin-groups.png"></graphic>
-</screenshot>
+By clicking the link <emphasis>Agent</emphasis> you get access to the agent
+management of OTRS (see Figure 5.2 below). Administrators can add, change or
+deactivate agent's accounts.  Administrators can also manage agent's
+preferences, for instance, the language of their interface and notification
+settings.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-können einmal im System angelegte Gruppen nicht entfernt werden. Um
-eine Gruppe zu deaktivieren, setzen Sie in den Einstellungen der
-entsprechenden Gruppe in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" bzw. "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+any agent's account, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
-Nach einer Standard-Installation sind bereits vier Gruppen im System
-verfügbar.
+<screenshot>
+<screeninfo>Agent account management</screeninfo> <graphic srccredit="Adminarea agent
+management - screenshot" scale="40"
+fileref="screenshots/admin-agents.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.2. Agent's accounts management.</emphasis>
+</para>
+
+<para>
+To register an agent, click on the "Add agent" button, type all the needed
+data and press the Submit button at the bottom of the screen that is shown
+in the Figure 5.3.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding an agent</screeninfo> <graphic srccredit="Adminarea agent
+management - screenshot" scale="40"
+fileref="screenshots/add-agent.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.3. Adding a new agent.</emphasis>
+</para>
+
+<para>
+After the new account has been created, you should make the agent a member
+of one or more groups or roles. Therefore, you will be redirected
+automatically to the appropriate screen.  For further information about
+groups and roles, read the <link linkend="adminarea-groups">Groups</link>
+and <link linkend="adminarea-roles">Roles</link> sections of this chapter.
+</para>
+
+</section>
+
+<section id="adminarea-groups">
+<title>Groups</title>
+
+<para>
+Groups are very important in OTRS and every agent's account should at least
+belong to one group or role. In a brand new installation, there are three
+pre-defined groups available, as it is defined in the Table 5-1.
 </para>
 
 <para>
 <table id="table-of-groups-after-installation">
-<title>Standardmäßig vorhandene Gruppen in OTRS</title>
+<title>Default groups after OTRS has been installed</title>
   <tgroup cols="2">
     <thead>
       <row>
-        <entry>
-         Gruppe
-        </entry>
-        <entry>
-          Beschreibung
-        </entry>
+        <entry>Group</entry>
+        <entry>Description</entry>
       </row>
     </thead>
     <tbody>
       <row>
+        <entry>admin</entry>
+        <entry>Allowed to perform administrative tasks in the system.</entry>
+      </row>
+      <row>
+        <entry>stats</entry>
         <entry>
-            admin
-        </entry>
-        <entry>
-          Gruppe für die Benutzer mit Administrationsrechten. Nach
-          einer Installation ist in dieser Gruppe nur der Benutzer
-          "root@localhost".
+          Qualified to access the stats module of OTRS and generate statistics.
         </entry>
       </row>
       <row>
+        <entry>users</entry>
         <entry>
-          faq
-        </entry>
-        <entry>
-          Benutzer in dieser Gruppe dürfen lesend (ro) oder schreibend
-          (rw) auf das FAQ-System von OTRS zugreifen.
-          Standardmäßig befindet sich nach einer Installation kein
-          Benutzer in dieser Gruppe, auch nicht "root@localhost".
-        </entry>
-      </row>
-      <row>
-        <entry>
-          stats
-        </entry>
-        <entry>
-          Benutzer in dieser Gruppe dürfen lesend (ro) oder schreibend
-          (rw) auf das Statistikmodul von OTRS zugreifen, d.h. sie
-          können Statistiken einsehen oder auch erstellen. Nach einer
-          Installation befindet sich lediglich "root@localhost" in dieser
-          Gruppe.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          users
-        </entry>
-        <entry>
-          Dies ist die Gruppe, in die normale Mitarbeiter aufgenommen
-          und mit den kompletten Rechten ausgestattet werden sollten.
-          Dadurch wird für die Mitarbeiter das normale Arbeiten im
-          System ermöglicht, der Zugriff auf alle Funktionen rund um
-          Tickets ist gegeben. Nach einer Installation ist diese Gruppe
-          leer.
+          This is the group where your agents should belong to and have read and write
+permissions. If agents are in this group and have write rights, they can use
+all functions of the ticket system.
         </entry>
       </row>
     </tbody>
@@ -184,44 +149,102 @@ verfügbar.
 </table>
 </para>
 
+<note>
+    <para>
+        In a brand new OTRS installation, the group <emphasis>users</emphasis> is
+empty and the agent "root@localhost" belongs per default to the admin and
+stats groups.
+    </para>
+</note>
+
 <para>
-Um einen Benutzer einer Gruppe zuzuweisen bzw. die Gruppenmitgliedschaft
-eines Benutzers zu ändern, kann der Link "Benutzer &lt;-&gt;
-Gruppen" im Administrationsbereich genutzt werden.
+You can access to the group management (see Figure 5.4 below ) by clicking
+the <emphasis>Groups</emphasis> link in the admin area.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung von Benutzer und Gruppen</screeninfo>
-<graphic srccredit="Adminarea groups and users - screenshot" scale="40" fileref="screenshots/admin-users-and-groups.png"></graphic>
-</screenshot>
-</para>
-<para>
-Im unteren Bereich des Bildschirms wird eine Übersicht angezeigt, die
-alle Benutzer und Gruppen auflistet. Indem Sie auf einen Benutzernamen
-klicken, bekommen Sie dessen Gruppenzugehörigkeiten angezeigt und
-können diese ändern. Bei der Auswahl einer Gruppe werden alle
-Benutzer aufgelistet, die sich in dieser Gruppe befinden.
+<screeninfo>Group management in OTRS</screeninfo> <graphic srccredit="Adminarea group
+management - screenshot" scale="40"
+fileref="screenshots/admin-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-Um eine bessere Abstufung der Rechte im System sicher zu stellen,
-können einem Benutzer verschiedene Rechte pro Gruppe zugewiesen
-werden. Nach einer Standardinstallation sind in jede Gruppe die
-folgenden Rechte vorhanden.
+    <emphasis>Figure 5.4. Group management.</emphasis>
+</para>
+
+<note>
+<para>
+To keep the consistency of the data for OTRS it is not possible to delete
+groups, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
+</para>
+</note>
+
+<para>
+To add an agent to a group or to change the agents who belong to a group you
+can use the link <emphasis>Agents &lt;-&gt; Groups</emphasis> of the admin
+area (see Figure 5.5 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent group management</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/admin-agents-and-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.5. Group management.</emphasis>
+</para>
+
+<para>
+An overview of all groups and agents in the system is displayed, you can
+also use the filters to find a specific element. If you want to change the
+groups that an agent is member of, just click on the agent's name (see
+Figure 5.6 below). To change the agents that are part of a group just click
+on the group you want to edit (see Figure 5.7 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent group management</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/agent-group-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.6. Change the groups an agent belongs to.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent group management</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/agent-group-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.7. Change the agents that belong to a specific
+group.</emphasis>
+</para>
+
+<para>
+Agents can have different rights in a group, there is a list of the
+permission rights available in the Table 5-2.
 </para>
 
 <para>
 <table id="table-of-group-permissions-after-installation">
-<title>Berechtigungen in den Benutzergruppen von OTRS</title>
+<title>Rights in the groups of OTRS</title>
   <tgroup cols="2">
     <thead>
       <row>
         <entry>
-          Berechtigung
+          Right
         </entry>
         <entry>
-          Beschreibung
+          Description
         </entry>
       </row>
     </thead>
@@ -231,44 +254,42 @@ folgenden Rechte vorhanden.
           ro
         </entry>
         <entry>
-          Nur Lesezugriff auf die Tickets bzw. Beiträge dieser Gruppe
-          bzw. der Gruppe zugewiesenen Queues oder Bereiche.
+          Read only access to the tickets and entries or queues of this group.
         </entry>
       </row>
       <row>
         <entry>
-          Verschieben in (move into)
+          move into
         </entry>
         <entry>
-          Recht zum Verschieben von Tickets oder Beiträgen innerhalb
-          der Queues bzw. Bereiche dieser Gruppe.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Erstellen (create)
-        </entry>
-        <entry>
-          Recht zum Erstellen von Tickets oder Beiträgen in den Queues,
-          bzw. Bereichen dieser Gruppe.
+          Right to move tickets or entries between queues or areas that belong to this
+group.
         </entry>
       </row>
       <row>
         <entry>
-          Besitzer (owner)
+          create
         </entry>
         <entry>
-          Recht zum Ändern des Eigentümers von Tickets, bzw.
-          Beiträgen in den der Gruppe zugewiesenen Queues bzw. Bereiche.
+          Right to create tickets or entries in the queues or areas of this group.
         </entry>
       </row>
       <row>
         <entry>
-          Priorität (priority)
+          owner
         </entry>
         <entry>
-          Recht zum Ändern der Priorität von Tickets, bzw.
-          Beiträgen in den der Gruppe zugewiesenen Queues bzw. Bereiche.
+          Right to update the owner of tickets or entries in queues or areas that
+belong to this group.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          priority
+        </entry>
+        <entry>
+          Right to change the priority of tickets or entries in queues or areas that
+belong to this group.
         </entry>
       </row>
       <row>
@@ -276,8 +297,8 @@ folgenden Rechte vorhanden.
           rw
         </entry>
         <entry>
-          Voller Lese- und Schreibzugriff auf alle Inhalte der dieser
-          Gruppe zugewiesenen Queues, bzw. Bereiche.
+          Full read and write access on tickets or entries in the queues or areas that
+belong to this group.
         </entry>
       </row>
     </tbody>
@@ -285,585 +306,832 @@ folgenden Rechte vorhanden.
 </table>
 </para>
 
-</sect2>
+<note>
+    <para>
+        By default, the QueueView only lists tickets in queues that an agent has
+<emphasis>rw</emphasis> access to, i.e., the tickets the agent needs to work
+on. If you want to change this behaviour, you can set <link
+linkend="Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets">
+Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets </link> to
+<emphasis>Yes</emphasis>.
+    </para>
+</note>
+</section>
 
-<sect2 id="adminarea-roles">
-<title>Rollen</title>
+<section id="adminarea-roles">
+<title>Roles</title>
 
 <para>
-Rollen sind ein sehr nützliches und mächtiges Feature in OTRS, um schnell
-und einfach die Vergabe von Zugriffsrechten für viele Benutzer vorzunehmen.
-Vor allem bei großen und komplexen Installationen mit
-vielen Benutzern, Gruppen und Queues, zahlt sich dieses Feature schnell
-aus und erspart dem OTRS-Administrator viel Zeit und Arbeit.
+Roles are a very powerful and helpful feature to manage the access rights of
+many agents in a very simple and fast way. Therefore, it is ideal to save
+time on big and complex systems, that have a lot of agents, groups and
+queues.
 </para>
 
 <para>
-Um den Nutzen von Rollen zu verdeutlichen, stellen Sie sich die Situation
-vor, dass Sie ein OTRS-System mit 100 Benutzern verwalten. 90 Benutzer
-haben Zugriff auf eine Queue namens Support, die mehrere themenspezifische
-Unter-Queues enthält und in der die Support-Anfragen Ihrer Kunden landen.
-Die restlichen Queues des Systems sind für die 90 Supporter nicht
-zugänglich, dies wurde durch Gruppenzugriffsrechte so festgelegt. Die
-übrigen 10 Benutzer haben Zugriff auf alle Queues im System. Sie sortieren
-falsch einsortierte Mails aus, behalten die "Raw"-Queue im Auge und
-verschieben Spam-Mails in die "Junk"-Queue. Im Rahmen einer
-Unternehmensumstrukturierung wird eines Tages zusätzlich eine Abteilung
-eröffnet, die Produkte verkaufen soll. Es müssen Angebote,
-Auftragsbestätigungen und Rechnungen  erstellt, Anfragen bearbeitet,
-Bestellungen ans Lager weitergeleitet und Stornierungen entgegen genommen
-werden. Ein Teil der bisherigen Mitarbeiter soll in verschiedenen
-Bereichen der neuen Abteilung tätig werden und Sie als OTRS-Administrator
-haben nun die Aufgabe die neuen Queues anzulegen, die erweiterten
-Zugriffsrechte anzupassen und diese für die einzelnen Benutzer zu ändern.
-Da es mühsam und viel zu umständlich wäre, für einen Teil aller 100
-Benutzer einzeln die Zugriffsrechte zu ändern, richten Sie Rollen ein die
-mit Hilfe von Gruppenberechtigungen die verschiedenen Zugriffsrechte regeln.
-Anschließend ändern Sie für die entsprechenden Benutzer auf einmal die
-Zugriffsberechtigungen, indem Sie diese der entsprechenden Rolle zuweisen.
-Beim Anlegen neuer Benutzer müssen Sie nicht mehr einzeln die Gruppen und
-Zugriffsrechte einstellen, auch hier genügt die Verknüpfung des neuen
-Benutzers mit einer Rolle.
+To explain the advantages of the role feature, suppose that you have a
+system with 100 agents, 90 of them have access only to a queue called
+"support", where all support requests are handled. The "support" queue
+contains some sub queues. The other 10 agents have permission to access all
+queues of the system, they are not restricted only to the support
+queue. These 10 agents dispatch tickets, watch the raw queue and move spam
+messages into the "junk" queue.
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Rollenverwaltung in OTRS</screeninfo>
-<graphic srccredit="Adminarea roles - screenshot" scale="40" fileref="screenshots/admin-roles.png"></graphic>
-</screenshot>
+Some day, the company opens a new department that sells products. Offerings,
+confirmations of offerings, bills, etc. must be created and some of the
+agents in your system shall do this via OTRS. The different agents have to
+get access to the new queues that must be created.
+</para>
+
+<para>
+Because it would take a long time to change the access rights for the
+different agents manually, roles that define the different access levels can
+be created. Then the agents can be added to one or more roles, therefore,
+their rights will automatically get changed.  If a new agent account is
+created, it is also possible to add this account to one or more roles.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-können einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine
-Rolle zu deaktivieren, setzen Sie in den Einstellungen die
-entsprechende Rolle mit Hilfe der Listbox für "Gültig" auf
-"ungültig" oder "ungültig-temporär".
-</para>
+Roles are really useful when maintaining larger OTRS installations. You
+should not use both Agent to Group and Agent to Role mappings at the same
+time though, this would make maintenance really hard. Thence, if you decide
+to go with roles, we'd recommend you to to disable the Agents &lt;-&gt;
+Groups option in the Admin area, by modifying the <link
+linkend="Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup">
+Frontend::Module###AdminUserGroup </link> in the SysConfig. Be aware that
+this won't remove already existing Agents to Group assignments!</para>
 </note>
 
 <para>
-<screenshot>
-<screeninfo>Zuweisung von Benutzern zu Rollen</screeninfo>
-<graphic srccredit="Adminarea roles users - screenshot" scale="40"
-fileref="screenshots/admin-roles-users.png"></graphic>
-</screenshot>
+You can access to the role management (see Figure 5.8 below ) by clicking
+the <emphasis>Roless</emphasis> link in the admin area.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung von Gruppen zu Rollen</screeninfo>
-<graphic srccredit="Adminarea roles groups - screenshot" scale="40" fileref="screenshots/admin-roles-groups.png"></graphic>
-</screenshot>
+<screeninfo>Role management in OTRS</screeninfo> <graphic srccredit="Adminarea roles
+- screenshot" scale="40" fileref="screenshots/admin-roles.png"></graphic></screenshot>
 </para>
 
 <para>
-Um die Zugriffsrechtevergabe einer Rolle näher zu spezifizieren, können
-die Links "Rollen &lt;-&gt; Benutzer" bzw. "Rollen &lt;-&gt; Gruppen"
-genutzt werden. Mit Hilfe dieser beiden Links können Sie sich eine
-Übersicht über die 1:n und n:1 Beziehungen der Rolle zu den einzelnen im
-System vorhandenen Benutzer oder Gruppen anzeigen lassen und diese ändern.
-</para>
-
-</sect2>
-
-</sect1>
-
-<sect1 id="customer-user-and-groups">
-<title>Kundenbenutzer und -gruppen</title>
-
-<sect2 id="adminarea-customeruser">
-<title>Kunden Benutzer</title>
-
-<para>
-OTRS unterstützt, wie bereits erwähnt, verschiedene Arten von Benutzern.
-Über den Link "Kunden Benutzer", den Sie im Admin-Bereich von OTRS
-finden, können Sie die Benutzerdaten der im System angelegten Kunden
-verwalten. Ein Kunde kann sich mit Hilfe seines Accounts in das vom
-Ticket-System bereitgestellte Webinterface für Kunden einloggen, um dort
-die eigenen Tickets einzusehen, neue Tickets zu verfassen, usw. Weiterhin
-wird ein Kunden-Account vom System für die Historie von Tickets benötigt.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Kundenverwaltung in OTRS</screeninfo>
-<graphic srccredit="Adminarea customer - screenshot" scale="40"
-fileref="screenshots/admin-customer.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Neben der Möglichkeit in der Datenbank nach einem bestimmten Kunden zu
-suchen, kann das Backend umgestellt werden, über das auf die
-Kundendaten zugegriffen wird. In OTRS lassen sich mehrere Datenbanken mit
-Kundendaten einbinden, genauere Informationen hierzu finden Sie im
-Abschnitt
-
-<link linkend="external-backends">
-Einbinden externer Backends für Agents und Customer
-</link>.
-</para>
-
-<para>
-Mit Hilfe des Formulars an der rechten Bildschirmseite kann ein neuer
-Kunden-Account erstellt werden. Alle Eingabefelder, die mit einem Stern (*)
-markiert sind, müssen ausgefüllt werden. Neben den üblichen
-Daten wie Vor- und Nachname, Mailadresse, den Einstellungen für die
-Oberfläche, usw. muss ein Benutzername und ein Kennwort angegeben
-werden, wodurch die Anmeldung am System ermöglicht wird. Desweiteren
-ist eine Angabe für "Kunden#" erforderlich, die eine eindeutige
-Kennung darstellt, über die das System den Kunden ansprechen kann bzw.
-identifiziert. Für "Kunden#" kann also z. B. eine Kundennummer oder
-auch die Mailadresse des Kunden eingetragen werden.
+    <emphasis>Figure 5.8. Role management.</emphasis>
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann ein einmal im System angelegter Kunde nicht entfernt werden. Um
-einen Kunden-Account trotzdem zu deaktivieren, setzen Sie in den
-Einstellungen des entsprechenden Kunden-accounts in der Listbox
-für "Gültig" den Wert entweder auf "ungültig" bzw.
-"ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+roles, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
-</sect2>
-
-<sect2 id="adminarea-customer-user-groups">
-<title>Kundengruppen</title>
-
 <para>
-Genau wie Agenten, können in OTRS auch Kundenbenutzer verschiedenen Gruppen
-zugewiesen werden. Dieses Feature kann z. B. dann interessant sein, wenn Sie
-mehrere Kundenbenutzer einer Firma anlegen möchten, die alle über das
-Kundeninterface nur Tickets in eine oder mehrere bestimmte Queues senden
-sollen. Legen Sie hierzu zuerst über die
-
-<link linkend="adminarea-groups">
-Gruppenverwaltung
-</link>
-
-die Gruppe an, in der alle Kundenbenutzer der Firma aufgenommen werden
-sollen. Anschließend erstellen Sie im
-
-<link linkend="adminarea-queue">
-Verwaltungsbereich für queues
-</link>
-
-die Queues und ordnen diese der gerade angelegten Gruppe zu.
-</para>
-
-<para>
-Im nächsten Schritt aktivieren Sie mit Hilfe des Konfigurationsparameters
-
-<link linkend="Framework:Frontend::Customer:CustomerGroupSupport">
-CustomerGroupSupport
-</link>
-
-die Unterstützung für Kundengruppen. Mit Hilfe des Parameters
-
-<link linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">
-CustomerGroupAlwaysGroups
-</link>
-
-legen Sie fest, welchen Gruppen ein neu angelegter Kundenbenutzer
-automatisch zugeordnet werden soll.
+An overview of all roles in the system is displayed, to edit an entry, just
+click on the role's name to get its editable data. Please be aware that in a
+brand new OTRS installation, there are no roles defined by default. To
+register one, click on the "Add role" button and provide the needed data and
+submit it (see Figure 5.9 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Kundengruppen</screeninfo>
-<graphic srccredit=">Adminarea customer groups - screenshot" scale="40" fileref="screenshots/admin-customer-groups.png"></graphic>
-</screenshot>
+<screeninfo>Role management in OTRS</screeninfo> <graphic srccredit="Adminarea roles
+- screenshot" scale="40" fileref="screenshots/add-role.png"></graphic></screenshot>
 </para>
 
 <para>
-Über den Link "Kunden Benutzer &lt;-&gt; Gruppen" können Sie nun die
-Zuordnung der Kundenbenutzer in die gewünschten Gruppen vornehmen.
-Je nachdem, welche Queues zu welchen Gruppen gehören, werden später im
-Webinterface für Kunden auch nur die entsprechenden Queues zur Verfügung
-gestellt.
+    <emphasis>Figure 5.9. Adding a new role.</emphasis>
 </para>
 
-</sect2>
+<para>
+To get an overview of all roles and agents in the system, click on the link
+Roles &lt;-&gt; Agents in the admin area, you can also use the filters to
+find a specific element. If you want to change the roles that an agent has,
+just click on the agent's name (see Figure 5.10 below). To change the agents
+that have a role just click on the role you want to edit (see Figure 5.11
+below).
+</para>
 
-</sect1>
+<para>
+<screenshot>
+<screeninfo>Agent role management</screeninfo> <graphic srccredit="Adminarea roles
+and agents - screenshot" scale="40"
+fileref="screenshots/admin-roles-agents-relation.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.10. Change the roles an agent has.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Agent role management</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/admin-roles-agents-relation2.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.11. Change the agents that have a specific
+role.</emphasis>
+</para>
+
+<para>
+To get an overview of all roles and groups in the system, click on the link
+Roles &lt;-&gt; Groups in the admin area, you will see a similar screen as
+the one shown in the Figure 5.12. You can also use the filters to find a
+specific element.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Role group management</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/admin-roles-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.12. Manage role-groups relations.</emphasis>
+</para>
+
+<para>
+To define the different access rights for a role, click on the name of a
+role or a group (see below the Figures 5.13 and 5.14, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change group relations for a role</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/groups-roles-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.13. Change group relations for a role.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change role relations for a group</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/groups-roles-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.14. Change role relations for a group.</emphasis>
+</para>
+
+</section>
+
+</section>
 
 
-<sect1 id="adminarea-queue">
+<section id="customers-and-groups">
+<title>Customers and customer groups</title>
+
+<section id="adminarea-customers">
+<title>Customers</title>
+
+<para>
+OTRS supports different types of users. Using the link "Customers" (via the
+navigation bar or the admin area), you can manage the accounts of your
+customers (see Figure 5.14 below), who can can log into the system via the
+customer interface (customer.pl). Through this interface, your customers can
+create tickets and access to them. It is importan to know that a customer is
+needed for the ticket history in the system.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Customer management in OTRS</screeninfo> <graphic srccredit="Adminarea
+customer - screenshot" scale="40"
+fileref="screenshots/admin-customer.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.14. Customer management.</emphasis>
+</para>
+
+<para>
+You can search for a registered customer, edit his data by clicking on his
+name.  You also have the possibility to change the customer back-end, for
+further information please refer to the chapter about <link
+linkend="external-backends"> external back-ends </link>.
+</para>
+
+<para>
+To create a new customer account, click on the "Add customer" button (see
+Figure 5.15 below). Some of the fields are mandatory, i.e., they have to
+contain values, so if you leave one of those empty, it will be marked and a
+message will be displayed.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Customer management in OTRS</screeninfo> <graphic srccredit="Adminarea
+customer - screenshot" scale="40"
+fileref="screenshots/add-customer.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.14. Adding a customer.</emphasis>
+</para>
+
+<para>
+The customer can access to the system by providing his username and
+password. The CustomerID is needed by the system to identify the user and
+his tickets. Since the email address is a unique value, it can be used as
+ID.
+</para>
+
+<note>
+<para>
+To keep the consistency of the data for OTRS it is not possible to delete
+customers, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
+</para>
+</note>
+
+</section>
+
+
+<section id="adminarea-customers-groups">
+<title>Customer groups</title>
+
+<para>
+Customer users can also be added to a group, which can be useful if you want
+to add some customers of the same company that shall only have access to one
+or some queues, through the customer interface. First create the group which
+your customers will belong to, via the <link linkend="adminarea-groups">
+group management module </link> . Then add the <link
+linkend="adminarea-queue"> queues </link> and select the new group for this
+queues.
+</para>
+
+<para>
+The next step is to activate the customer group support. This can be done
+with the configuration parameter <link
+linkend="Framework:Frontend::Customer:CustomerGroupSupport">
+CustomerGroupSupport </link> , via the graphical configuration front-end of
+OTRS (SysConfig). Using the parameter <link
+linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">
+CustomerGroupAlwaysGroups </link> , you can specify the default groups for a
+new added customer, so that every new account will be automatically added to
+this groups.
+</para>
+
+<para>
+Through the link "Customers &lt;-&gt; Groups" you can manage which customer
+shall belong to the different groups (see Figure 5.15 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Customer group management</screeninfo> <graphic srccredit=">Adminarea
+customer groups - screenshot" scale="40"
+fileref="screenshots/admin-customer-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.15. Customer-Group relations management.</emphasis>
+</para>
+
+<para>
+To define the different groups a customer should be part of and viceversa,
+click on the corresponding customer username or group (see below the Figures
+5.16 and 5.17, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change group relations for a customer</screeninfo> <graphic srccredit="Adminarea
+customers and groups - screenshot" scale="40"
+fileref="screenshots/groups-customers-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.16. Change group relations for a customer.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change customer relations for a group</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/groups-customers-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.17. Change customer relations for a group.</emphasis>
+</para>
+
+</section>
+
+</section>
+
+<section id="adminarea-queue">
 <title>Queues</title>
 
 <para>
-Über den Link "Queue" innerhalb des Admin-Bereiches von OTRS können Sie
-die
-
-<link linkend="what-is-a-queue">
-Queues
-</link>
-
-Ihres Systems verwalten. Nach einer Standard-Installation sind bereits die
-Queues "Junk", "Misc", "Postmaster" und "Raw" im System angelegt. "Raw"
-ist die Default-Queue, in ihr landen alle neuen Tickets, so lange kein
-Filter definiert wurde. "Junk" kann z. B. zum Aussortieren von Spam-Mails
-genutzt werden.
+Through the link "Queue" of the admin area, you can manage the <link
+linkend="what-is-a-queue"> queues </link> of your system (see Figure 5.18
+below). In a new OTRS installation there are 4 default queues: Junk, Misc,
+Postmaster and Raw. All incoming messages will be stored in it the "Raw"
+queue if no filter rules are defined. The "Junk" queue can be used to store
+spam messages.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Queues in OTRS</screeninfo>
-<graphic srccredit="Adminarea queue - screenshot" scale="40" fileref="screenshots/admin-queue.png"></graphic>
-</screenshot>
+<screeninfo>Queue management in OTRS</screeninfo> <graphic srccredit="Adminarea queue
+- screenshot" scale="40" fileref="screenshots/admin-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-Über das Formular auf der rechten Bildschirmseite kann eine neue Queue
-angelegt werden. Zusätzlich zum Namen der neuen Queue kann angegeben
-werden, für welche Benutzergruppe die Queue bereitgestellt werden
-und ob die neue Queue eine Unter-Queue (sub queue) von einer bereits in
-Ihrem System vorhandenen Queue sein soll.
+    <emphasis>Figure 5.18. Queue management.</emphasis>
 </para>
 
 <para>
-Wurde ein Ticket von einem Agenten gesperrt, so können Sie mit Hilfe
-des Freigabezeit-Intervalls festlegen, wann ein Ticket wieder automatisch
-vom System freigegeben werden soll. So können auch die anderen
-Mitarbeiter wieder auf dieses Ticket zugreifen und es bearbeiten.
+Here you can add queues (see Figure 5.19 below) and modify them. You can
+specify the name and the group that should use the queue; it is also
+possible to determine if you want it to be a sub-queue of an existing one.
 </para>
 
 <para>
-Geben Sie für Eskalationszeit einen Wert an, so blockieren Tickets,
-die älter als die angegebene Zeit sind, die Bearbeitung neuerer
-Tickets. Diese Einstellung stellt also sicher, dass ältere Tickets ab
-einem bestimmten Alter bevorzugt bearbeitet werden müssen, neuere
-Tickets werden dann nicht mehr in der Queue angezeigt.
+<screenshot>
+<screeninfo>Queue management in OTRS</screeninfo> <graphic srccredit="Adminarea queue
+- screenshot" scale="40" fileref="screenshots/add-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-Weiterhin können Sie festlegen, dass bei einem Follow-Up auf ein Ticket
-wieder der Mitarbeiter Eigentümer dieses Tickets wird, der zuletzt als
-Eigentümer im System für dieses Ticket vermerkt war. Dies stellt
-sicher, dass die Nachfrage eines Kunden zuerst bei demselben
-Mitarbeiter landet, der sich zuletzt um dieses Ticket gekümmert
-hat.
+    <emphasis>Figure 5.19. Adding a new queue.</emphasis>
 </para>
 
 <para>
-Der Parameter für die Systemadresse legt fest, mit welcher
-Absenderadresse Mails aus dieser Queue versendet werden sollen. Mit Hilfe
-der Parameter für Anrede und Signatur kann eingestellt werden, welche
-Vorgaben hier standardmäßig bei Antworten auf Tickets in
-dieser Queue genutzt werden. In den Abschnitten
-
-<link linkend="adminarea-emailaddresses">
-E-Mailadressen
-</link>
-
-
-<link linkend="adminarea-salutations">
-Anreden
-</link>
-
-und
-
-<link linkend="adminarea-signatures">
-Signaturen
-</link>
-
-erfahren Sie mehr über die Einrichtung dieser Parameter.
+You can define an unlock timeout for a queue, i.e., if an agent locks a
+ticket and does not close it before the unlock timeout has passed, the
+ticket will be automatically unlocked and hence, available for other agents.
 </para>
 
 <para>
-Mit Hilfe der verschiedenen Kundeninfo-Parameter können Sie
-schließlich festlegen, bei welchen Ereignissen ein Kunde über die
-Änderungen bei einem Ticket in dieser Queue informiert werden soll.
+There are three escalation time settings that can be associated at queue
+level:
+</para>
+
+<itemizedlist>
+    <title>Escalation - First Response Time</title>
+    <listitem>
+        <para>
+If there is not customer interaction added, either email-external or phone,
+to a new ticket before the time defined here expires, the ticket is
+escalated.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Escalation - Update Time</title>
+    <listitem>
+        <para>
+If there is an article added, such as a follow-up, via e-mail or the
+customer portal, the escalation update time is reset. If there is no
+customer contact, either email-external or phone, added to a ticket before
+the time defined here expires, the ticket is escalated.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Escalation - Solution Time</title>
+    <listitem>
+        <para>
+If the ticket is not set to closed before the time defined here expires, the
+ticket is escalated.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<para>
+With 'Ticket lock after a follow-up' you can define if a ticket should be
+set to 'locked' to the old owner if a ticket that has been set to closed and
+later is re-opened. This ensures that a follow up for a ticket is processed
+by the agent that has previously handled that ticket.
+</para>
+
+<para>
+The parameter for the system address specifies the email address that will
+be used for the outgoing tickets of this queue. There is also possibility to
+associate a queue to a salutation and a signature, for the email
+answers. For more detailed information, please refer to the sections <link
+linkend="adminarea-emailaddresses"> email addresses </link> , <link
+linkend="adminarea-salutations"> salutations </link> and <link
+linkend="adminarea-signatures"> signatures </link> .
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Queue nicht entfernt werden. Um
-eine Queue trotzdem zu deaktivieren, setzen Sie in den Einstellungen
-der entsprechenden Queue in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" bzw. "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+queues, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
-<para>
-Alle gerade beschriebenen Konfigurationsmöglichkeiten für Queues,
-gelten auch für Unter-Queues. Somit lassen sich mit Hilfe der
-Queues in OTRS z. B. die einzelnen Abteilungen Ihres Betriebes oder die
-verschiedenen Phasen eines Geschäftsvorgangs (Anfrage, Angebot,
-Bestellung, usw.) abbilden. Dies sollten Sie sich bei der Strukturierung
-Ihres OTRS zu Nutze machen.
-</para>
+</section>
 
-</sect1>
 
-<sect1 id="adminarea-salutations-signatures-attachments-and-answers">
-<title>Anreden, Signaturen, Anlagen und Antwortvorlagen</title>
+<section id="adminarea-salutations-signatures-attachments-and-answers">
+<title>Salutations, signatures, attachments and responses</title>
+
+<section id="adminarea-salutations">
+<title>Salutations</title>
 
 <para>
-Um das Antworten auf Tickets zu beschleunigen und das Aussehen
-beantworteter Tickets zu vereinheitlichen, können in OTRS
-Antwortvorlagen erstellt werden. Jede Antwortvorlage kann einer oder
-mehreren Queues bzw. Unter-Queues zugeordnet werden, es können mehrere
-Antwortvorlagen für jede Queue definiert werden. In der Queue-Ansicht
-bzw. in "Meine Queues" erscheinen die verschiedenen Antwortvorlagen als
-Links unter jedem angezeigten Ticket, eine Antwort auf ein Ticket mit einer
-bestimmten Vorlage kann somit schnell durchgeführt werden.
-</para>
-
-<para>
-Nach einer Standardinstallation ist für jede Queue die Antwortvorlage
-"empty answer" vorhanden. Im Admin-Bereich kann über den Link
-"Antworten" auf die im System gespeicherten Antwortvorlagen zugegriffen und
-diese bearbeitet werden.
+A salutation is a text module for a response. Salutations can be linked to
+one or more queues, as described in the section about <link
+linkend="adminarea-queue"> queues </link> . A salutation is used only if a
+ticket from a queue the salutation is linked to, is answered. To manage the
+different salutations of your system, use the "Salutations" link of the
+admin area (see Figure 5.20 below).  different salutations of your system.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Antwortvorlagen</screeninfo>
-<graphic srccredit="Adminarea response - screenshot" scale="40" fileref="screenshots/admin-response.png"></graphic>
-</screenshot>
+<screeninfo>Salutation management</screeninfo> <graphic srccredit="Adminarea
+salutation - screenshot" scale="40"
+fileref="screenshots/admin-salutation.png"></graphic></screenshot>
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Zuweisung einer Antwortvorlage zu einer Queue</screeninfo>
-<graphic srccredit="Adminarea response queue - screenshot" scale="40" fileref="screenshots/admin-response-queue.png"></graphic>
-</screenshot>
+    <emphasis>Figure 5.20. Salutation management.</emphasis>
 </para>
 
 <para>
-Um eine Antwortvorlage einer oder mehreren Queues zuzuweisen, aktivieren
-Sie im Admin-Bereich den Link "Antworten &lt;-&gt; Queues". Es wird eine
-Tabelle geladen, die die Queues und die einzelnen Antwortvorlagen und deren
-Beziehung zueinander (1:n oder n:1) anzeigt. Hier können Sie nun die
-Queue oder die Antwortvorlage auswählen, um die Zuordnung zu
-bearbeiten.
-</para>
-
-<para>
-Wenn Sie zum Beantworten eines Tickets, z. B. in der Queue-Ansicht, auf den
-Link für eine Antwortvorlage klicken, können Sie feststellen,
-dass nicht nur der Text der Antwortvorlage sondern auch eine Anrede, der
-zitierte Ticketinhalt und eine Signatur geladen werden. Antwortvorlagen
-setzen sich also aus verschiedenen Textbausteinen zusammen. Dies sind die
-Anrede und Signatur der Queue, in der sich das zu beantwortende Ticket
-befindet, der Text des Tickets auf das geantwortet werden soll und ggf. der
-Text der Antwortvorlage selbst, der wie gerade beschrieben, festgelegt
-werden kann. Diese Elemente sind standardmäßig so angeordnet,
-dass beim Antworten zuerst die Anrede, danach der zitierte Text des zu
-beantwortende Ticket, anschließend ggf. der Text der Antwortvorlage
-und zum Schluss die Signatur ausgegeben wird.
-</para>
-
-<sect2 id="adminarea-salutations">
-<title>Anreden</title>
-
-<para>
-Ein Textbaustein für eine Antwortvorlage ist die Anrede. Anreden
-können einer Queue zugeordnet werden, wie im Abschnitt zu den
-
-<link linkend="adminarea-queue">
-Queues
-</link>
-
-beschrieben, nur so werden Sie bei Antworten für Tickets aus dieser
-Queue verwendet. Über den Link "Anreden" innerhalb des Admin-Bereiches,
-können Sie die verschiedenen Anreden Ihres Systems verwalten.
-</para>
-
-<para>
-<screenshot>
-<screeninfo>Verwaltung von Anreden</screeninfo>
-<graphic srccredit="Adminarea salutation - screenshot" scale="40" fileref="screenshots/admin-salutation.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Nach einer Standardinstallation von OTRS sind bereits zwei Anreden im
-System gespeichert, "system standard salutation (de/buiss)" und
+After a default installation there is already one salutation available,
 "system standard salutation (en)".
 </para>
 
 <para>
-Damit auch dynamische Inhalte in eine Anrede eingebaut werden
-können, also Inhalte, die sich bei jeder Anrede ändern, können
-verschiedene Variablen in den Anredentext eingebaut werden. Der in der
-Variable gespeicherte Text wird beim Antworten automatisch in den Text
-eingefügt. Ein variabler Textteil könnte z.b. der Name oder
-die Mailadresse der Person sein, auf deren Ticket sie antworten.
+To create a new salutation, press the button "Add salutation", provide the
+needed data and submit it (see Figure 5.21 below).
 </para>
 
 <para>
-Im unteren Teil der Bildschirmmaske zum Ändern oder Anlegen einer
-Anrede finden Sie die verschiedenen OTRS-Variablen, die Sie für die
-dynamische Aufbereitung eines Anredentextes verwenden können. OTRS-Variablen
-zeichnen sich dadurch aus, dass sie von spitzen Klammern (&lt;&gt;)
-eingeschlossen sind. Zwischen den spitzen Klammern steht der Name der
-Variable, der sich oft auf den in der Variable gespeicherten Inhalt
-bezieht. Bauen Sie z. B. in Ihrem Anredentext die Variable
-&lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
-Nachnamen der Person ersetzt, deren Ticket Sie beantworten. Sehen Sie
-sich auch die schon bereits im System gespeicherten Anreden an, dann wird
-die Verwendung der verschiedenen Variablen klarer.
+<screenshot>
+<screeninfo>Add a salutation</screeninfo> <graphic srccredit="Adminarea
+salutation - screenshot" scale="40"
+fileref="screenshots/add-salutation.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.21. Adding a new salutation.</emphasis>
+</para>
+
+<para>
+Because the content of a salutation can be created dynamically, for example,
+for things that change for every ticket (sender's name or email address), it
+is possible to use variables in salutations. Thus, if you reply a ticket,
+the variable names will be replaced for their real content, i.e., the text
+which is saved in the variables.
+</para>
+
+<para>
+The different variables you can use in responses are listed in the lower
+part of the salutation screen. If you use, for example, the variable
+&lt;OTRS_LAST_NAME&gt; the last name of the ticket's sender will be included
+in your reply.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Anrede nicht entfernt werden. Um
-eine Anrede trotzdem zu deaktivieren, setzen Sie in den Einstellungen
-der entsprechenden Anrede in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" bzw. "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+salutations, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
-</sect2>
+</section>
 
-<sect2 id="adminarea-signatures">
-<title>Signaturen</title>
+
+<section id="adminarea-signatures">
+<title>Signatures</title>
 
 <para>
-Ein weiterer Textbaustein für eine Antwortvorlage, ist die Signatur.
-Signaturen können einer Queue zugeordnet werden, wie im Abschnitt zu
-den
-
-<link linkend="adminarea-queue">
-Queues
-</link>
-
-beschrieben, nur so werden Sie bei Antworten für Tickets aus dieser
-Queue verwendet. Über den Link "Signaturen" innerhalb des
-Admin-Bereiches, können Sie die verschiedenen Signaturen Ihres
-Systems verwalten.
+Another text module for a response is the signature. Signatures can be
+linked to a queue, as described in the section about the <link
+linkend="adminarea-queue"> queues </link> . Only if a signature is linked to
+a queue it will be included into the response text. Through "Signatures"
+link of the admin area, you can manage the signatures in your system (see
+Figure 5.22 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Signaturen</screeninfo>
-<graphic srccredit="Adminarea signatures - screenshot" scale="40"
-fileref="screenshots/admin-signatures.png"></graphic>
-</screenshot>
+<screeninfo>Management of signatures</screeninfo> <graphic srccredit="Adminarea
+signatures - screenshot" scale="40"
+fileref="screenshots/admin-signatures.png"></graphic></screenshot>
 </para>
 
 <para>
-Nach einer Standardinstallation von OTRS sind bereits zwei Signaturen im
-System gespeichert, "system standard signature (de/buiss)" und
-"system standard signature (en)".
+    <emphasis>Figure 5.22. Signatures management.</emphasis>
 </para>
 
 <para>
-Auch in Signaturen können dynamische Inhalte eingebaut werden.
-Dies geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener
-OTRS-Variablen, die in den Text der Signatur integriert werden können.
-Ein variabler Textteil könnte z.b. der Name des
-Mitarbeiters sein, der das Ticket beantwortet hat.
+After a default installation of OTRS, there is one predefined signature
+stored in your system, "system standard signature (en)".
 </para>
 
 <para>
-Im unteren Teil der Bildschirmmaske zum Ändern oder Anlegen einer
-Signatur finden Sie die verschiedenen OTRS-Variablen, die Sie für die
-dynamische Aufbereitung eines Signaturentextes verwenden können.
-OTRS-Variablen zeichnen sich dadurch aus, dass sie von spitzen Klammern
-(&lt;&gt;) eingeschlossen sind. Zwischen den spitzen Klammern steht der
-Name der Variable, der sich oft auf den in der Variable gespeicherten
-Inhalt bezieht. Bauen Sie z. B. in Ihrem Anredentext die OTRS-Variable
-&lt;OTRS_LAST_NAME&gt; ein, so wird diese später durch den
-Nachnamen des Agents ersetzt, der das Ticket beantwortet hat. Sehen Sie
-sich auch die schon bereits im System gespeicherten Anreden an, dann wird
-die Verwendung der verschiedenen Variablen klarer.
+To create a new signature, press the button "Add signature", provide the
+needed data and submit it (see Figure 5.23 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Add a signature</screeninfo> <graphic srccredit="Adminarea
+signature - screenshot" scale="40"
+fileref="screenshots/add-signature.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.23. Adding a new signature.</emphasis>
+</para>
+
+<para>
+Like salutations, signatures can also contain dynamical content (e.g. the
+first and last name of the agent who answers the ticket), also variables
+replace the content of the signature text for every ticket. See the lower
+part of the signatures screen for the variables which can be used. If you
+include the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the
+last name of the agent who answers the ticket will replace the variable's
+name.
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Signatur nicht entfernt werden. Um
-eine Signatur trotzdem zu deaktivieren, setzen Sie in den Einstellungen
-der entsprechenden Signatur in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" oder auf "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+signatures, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
-</sect2>
+</section>
 
-<sect2 id="adminarea-attachments">
-<title>Anlagen</title>
+
+<section id="adminarea-attachments">
+<title>Attachments</title>
 
 <para>
-Ein weitere optionaler Teil einer Antwortvorlage kann eine Anlage sein.
-Diese wird bei der Benutzung einer Antwortvorlage als Anhang an das zu
-beantwortende Ticket angehängt, kann aber über eine Checkbox im
-Antworten-Bildschirm für Tickets leicht deaktiviert werden.
+Optionally, you can also create one or more attachments for a response. If
+the response is selected, the attachments will be attached to the message
+composition window. If necessary, the agent can remove the attachment from
+an individual response before sending it to the customer.
+</para>
+
+<para>
+Through the "Attachment" link of the admin area, you can load the
+attachments into the database of the system (see Figure 5.24 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Anlagen für Antwortvorlagen</screeninfo>
-<graphic srccredit="Adminarea attachment - screenshot" scale="40" fileref="screenshots/admin-attachment.png"></graphic>
-</screenshot>
+<screeninfo>Managing attachments for responses</screeninfo> <graphic srccredit="Adminarea
+attachment - screenshot" scale="40"
+fileref="screenshots/admin-attachment.png"></graphic></screenshot>
 </para>
 
 <para>
-Über den "Anlagen"-Link im Admin-Bereich können Sie neue Anlagen in das
-System integrieren. Nachdem eine Anlage im System gespeichert wurde, kann
-sie noch einer oder mehreren Antwortvorlagen zugeordnet werden. Die
-Zuordnung der Anlagen zu den einzelnen Antwortvorlagen kann über
-den Link "Anlagen &lt;-&gt; Antworten" im Admin-Bereich von OTRS erreicht
-werden.
+    <emphasis>Figure 5.24. Attachments management.</emphasis>
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Zuweisung einer Anlage zu einer Antwortvorlage</screeninfo>
-<graphic srccredit="Adminarea attachment response - screenshot" scale="40" fileref="screenshots/admin-attachment-response.png"></graphic>
-</screenshot>
-</para>
-
-<note>
-<para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System gespeicherte Anlage nicht mehr entfernt werden.
-Um eine Anlage trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Anlager in der Listbox für "Gültig" den Wert
-entweder auf "ungültig" oder "ungültig-temporär".
-</para>
-</note>
-
-</sect2>
-
-</sect1>
-
-<sect1 id="adminarea-auto-responses">
-<title>Automatische Antworten</title>
-
-<para>
-OTRS bietet die Möglichkeit, automatische Antworten an Kundenbenutzer zu
-verschicken. Automatische Antworten sind an bestimmte Ereignisse im System
-gebunden, z. B. an das Anlegen eines neuen Tickets in einer Queue, wenn ein
-Followup eines Tickets stattfindet, wenn ein Ticket geschlossen oder
-vom System zurückgewiesen wird. Über den Link "Auto Antworten" innerhalb
-des Admin-Bereiches erreichen Sie die Verwaltung der automatischen
-Antworten. Im Formular zum Ändern oder Anlegen einer automatischen
-Antwort stellen Sie über die Listbox für "Typ" das Ereignis ein, das
-mit der automatischen Antwort verknüpft werden soll. Nach einer
-Standardinstallation sind folgende Ereignistypen vorhanden.
+To create a new attachment, press the button "Add attachment", provide the
+needed data and submit it (see Figure 5.25 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von automatischen Antworten</screeninfo>
-<graphic srccredit="Adminarea auto response - screenshot" scale="40"
-fileref="screenshots/admin-autoresponse.png"></graphic>
-</screenshot>
+<screeninfo>Add an attachment</screeninfo> <graphic srccredit="Adminarea
+signature - screenshot" scale="40"
+fileref="screenshots/add-attachment.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.25. Adding a new attachment.</emphasis>
+</para>
+
+<para>
+If an attachment is stored it can be linked to one or more responses, just
+follow the "Attachment &lt;-&gt; Responses" link of the admin area (see
+Figure 5.26 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Linking attachments to responses</screeninfo> <graphic srccredit="Adminarea
+attachment response - screenshot" scale="40"
+fileref="screenshots/admin-attachment-response.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.26. Linking attachments to responses.</emphasis>
+</para>
+
+<para>
+To define the different attachments a response can have and viceversa, click
+on the corresponding response name or attachment (see below the Figures 5.27
+and 5.28, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change attachment relations for a response</screeninfo> <graphic srccredit="Adminarea
+responses and attachments - screenshot" scale="40"
+fileref="screenshots/response-attachment-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.27. Change attachment relations for a
+response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change response relations for an attachment</screeninfo> <graphic srccredit="Adminarea
+responses and attachments - screenshot" scale="40"
+fileref="screenshots/response-attachment-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.28. Change response relations for an
+attachment.</emphasis>
+</para>
+
+</section>
+
+
+<section id="adminarea-Responses">
+<title>Responses</title>
+
+<para>
+To accelerate answering tickets and to standardize the look of answers, you
+can define responses in OTRS. A response can be linked to one or more queues
+and vice versa. In order to be able to use a response quickly, the different
+responses are displayed below of every ticket in the QueueView or in "My
+Queues".
+</para>
+
+<para>
+After a a default installation of the system the "empty answer" response is
+defined for every queue. Through the "Responses" link in the admin area, it
+is possible to manage the different responses (see Figure 5.29 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Responses</screeninfo> <graphic srccredit="Adminarea
+response - screenshot" scale="40"
+fileref="screenshots/admin-response.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.29. Responses management.</emphasis>
+</para>
+
+<para>
+To store a new response, just click on the Add response button, provide the
+required data and submit it (see Figure 5.30 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Responses</screeninfo> <graphic srccredit="Adminarea
+response - screenshot" scale="40"
+fileref="screenshots/add-response.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.30. Adding a response.</emphasis>
+</para>
+
+<para>
+To add/remove responses to one or more queues, the "Responses &lt;-&gt;
+Queues" link of the admin area can be used (see Figure 5.31 below). You can
+also use the filters to look for a specific element.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Manage response-queue relations</screeninfo> <graphic srccredit="Adminarea
+response queue - screenshot" scale="40"
+fileref="screenshots/admin-response-queue.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.31. Response-Queue relations management.</emphasis>
+</para>
+
+<para>
+To define the different responses that will be available for a queue and
+vice versa, click on the corresponding response or queue (see below the
+Figures 5.32 and 5.33, respectively).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change queue relations for a response</screeninfo> <graphic srccredit="Adminarea
+response and queue - screenshot" scale="40"
+fileref="screenshots/responses-queues-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.32. Change queue relations for a response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change response relations for a queue</screeninfo> <graphic srccredit="Adminarea
+response and queue - screenshot" scale="40"
+fileref="screenshots/responses-queues-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.33. Change response relations for a queue.</emphasis>
+</para>
+
+<para>
+If you use a response, for example through the QueueView, you can see that
+not only the text of the response and the ticket text is displayed, but also
+a salutation and a signature. A response is assembled by different text
+modules. The signature and the salutation of the queue, where the ticket is
+stored, are two of the text modules of the response and also the original
+ticket text and, if defined, the text of the response is included. The
+different text modules are ordered in a way that first the salutation is
+displayed, then the quoted ticket text, after that, the text of the response
+comes, and finally, the signature is shown.
+</para>
+
+</section>
+
+</section>
+
+
+
+<section id="adminarea-auto-responses">
+<title>Auto responses</title>
+
+<para>
+With OTRS, you can send automatic responses to customers if special events
+happen, e.g. creation of a ticket in certain queue, reception of a follow-up
+for a ticket, closure or rejection of a ticket, etc. To manage this type of
+responses, just use "Auto responses" of the admin area (see Figure 5.34
+below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Auto response management</screeninfo> <graphic srccredit="Adminarea auto
+response - screenshot" scale="40"
+fileref="screenshots/admin-autoresponse.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.34. Auto response management.</emphasis>
+</para>
+
+<para>
+To create an automatic response, click on the button "Add auto response",
+provide the needed data and submit it (see Figure 5.35 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding an auto response</screeninfo> <graphic srccredit="Adminarea auto
+response - screenshot" scale="40"
+fileref="screenshots/add-autoresponse.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.35. Adding an auto response.</emphasis>
+</para>
+
+<para>
+The subject and text of auto responses can also be generated by variables,
+the same as in signatures and salutations. If you insert, for example, the
+variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; into the body of the auto answer,
+the first 5 lines of the customer mail text will be inserted into the auto
+answer. At the bottom of the screen, shown in the Figure 5.35, you will find
+more details about the valid variables that can be used.
+</para>
+
+<para>
+For every automatic answer, you can specify the event that should trigger
+it. The system events that are available after a default installation are
+described in the Table 5-3.
 </para>
 
 <table id="table-of-autoanswer-types">
-<title>Ereignistypen für automatische Antworten</title>
+<title>Events for auto answers</title>
   <tgroup cols="2">
     <thead>
       <row>
@@ -871,7 +1139,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           Name
         </entry>
         <entry>
-          Beschreibung
+          Description
         </entry>
       </row>
     </thead>
@@ -881,8 +1149,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto reply
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein neues Ticket in
-          einer Queue angelegt wird.
+          Creation of a ticket in a certain queue.
         </entry>
       </row>
       <row>
@@ -890,9 +1157,8 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto reply/new ticket
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein bereits geschlossenes Ticket,
-          z. B. durch die Antwort eines Kunden, mit einer neuen
-          Ticketnummer erneut geöffnet wird.
+          Reopening of an already closed ticket, e.g. if a customer replies to such
+ticket.
         </entry>
       </row>
       <row>
@@ -900,8 +1166,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto follow up
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Follow up für ein bereits
-          vorhandenes Ticket eintrifft.
+          Reception of a follow-up for a ticket.
         </entry>
       </row>
       <row>
@@ -909,8 +1174,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto reject
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Ticket vom System
-          zurückgewiesen wird.
+          Automatic rejection of a ticket, done by the system.
         </entry>
       </row>
       <row>
@@ -918,363 +1182,505 @@ fileref="screenshots/admin-autoresponse.png"></graphic>
           auto remove
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Ticket entfernt wird.
+          Deletion of a ticket, done by the system.
         </entry>
       </row>
     </tbody>
   </tgroup>
 </table>
 
-<para>
-Für die Betreffzeile und den Text von automatischen Antworten kann genauso
-wie bei Signaturen oder Anreden, der Inhalt mit Hilfe von OTRS-Variablen
-dynamisch erzeugt werden. So werden über die Variable
-&lt;OTRS_CUSTOMER_EMAIL[5]&gt; die ersten 5 Zeilen der an das System
-gesendeten E-Mail in die automatische Antwort eingefügt, oder durch
-&lt;OTRS_CUSTOMER_FROM&gt; die From-Zeile. Die Anmerkungen im unterem
-Bereich der Bildschirmmaske zur Verwaltung der automatischen Antworten
-listen alle OTRS-Variablen auf, die verwendet werden können.
-</para>
-
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Auto-Antwort nicht entfernt werden.
-Um eine Auto-Antwort trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Auto-Antwort in der Listbox für
-"Gültig" den Wert entweder auf "ungültig" oder "ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+auto responses, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <para>
-<screenshot>
-<screeninfo>Zuweisung einer automatischen Antwort zu einer Queue</screeninfo>
-<graphic srccredit="Adminarea auto response queue - screenshot" scale="40" fileref="screenshots/admin-autoresponse-queue.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Um eine automatische Antwort einer oder mehreren Queues zuzuweisen, folgen
-Sie im Admin-Bereich den Link "Auto Antworten &lt;-&gt; Queues". Dort sind
-für jede Queue die verschiedenen Ereignistypen aufgelistet und es kann eine
-Zuordnung einer Auto-Antwort vom gleichen Ereignistyp durchgeführt bzw.
-entfernt werden.
-</para>
-
-</sect1>
-
-<sect1 id="adminarea-emailaddresses">
-<title>E-Mailadressen</title>
-
-<para>
-Um aus OTRS heraus E-Mails verschicken zu können, benötigen Sie
-mindestens eine gültige Mailadresse. Da in vielen Fällen eine
-Mailadresse nicht ausreicht, ist OTRS auch in der Lage, mit mehreren
-Mailadressen zu arbeiten. Für jede Queue kann mindestens eine Mailadresse
-festgelegt werden, es ist aber auch möglich eine Adresse mehreren Queues
-zuzuordnen. D.h., dass von außen eine Queue über mehrere Mailadressen
-ereicht werden kann, für das Versenden von Nachrichten aus einer Queue muss
-jedoch eine Adresse festgelegt werden. Beim
-
-<link linkend="adminarea-queue">
-Anlegen oder Bearbeiten einer Queue
-</link>
-
-stellen Sie ein, welche im System gespeicherte Mailadresse für die
-ausgehenden Nachrichten der entsprechenden Queue benutzt werden soll.
-Die Verwaltung der Mailadressen des Systems erreichen Sie, indem sie im
-Admin-Bereich dem Link "E-Mail Adressen" folgen.
+To add an auto response to a queue, use the "Auto Response &lt;-&gt; Queues"
+link in the admin area (see Figure 5.36 below). All system events are listed
+for every queue and an auto answer with the same event can be selected or
+removed via a listbox.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Mailadressen</screeninfo>
-<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
-</screenshot>
+<screeninfo>Manage queue - auto response relations</screeninfo> <graphic srccredit="Adminarea queue
+- auto response - screenshot" scale="40"
+fileref="screenshots/admin-autoresponse-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-Im Formular zur Verwaltung der E-Mailadressen können Sie u.a. direkt
-auswählen, mit welcher Queue oder Unter-Queue die neue Mailadresse
-verknüpft werden soll. Diese Verknüpfung ist wichtig, da so eingehende
-Mails anhand der Adresse im To: Feld der entsprechenden Queue zugewiesen
-werden können.
+    <emphasis>Figure 5.36. Queue-Auto response relations management.</emphasis>
+</para>
+
+<para>
+To define the different auto responses that will be available for a queue,
+click on the corresponding queue name (see Figure 5.37 below). It is also
+possible to edit an existing auto response, to do so, click on the wished
+registry and change anything you need to, as if it was a new auto response.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Change auto response relations for a queue</screeninfo> <graphic srccredit="Adminarea auto
+response and queue - screenshot" scale="40"
+fileref="screenshots/autoresponses-queues-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.37. Change auto response relations for a
+queue.</emphasis>
+</para>
+
+</section>
+
+
+<section id="adminarea-emailaddresses">
+<title>Email addresses</title>
+
+<para>
+To enable OTRS to send emails, you need at least a valid email address to be
+used by the system. Due to a lot of setups need more than one email address,
+OTRS is able to simultaneously work with several of them. A queue can be
+linked to many email addresses, and vice versa. The address, that shall be
+used for outgoing messages from a queue, can be set when the queue is
+created. Use the "Email Addresses" link of the admin area, to manage all
+email addresses of the system (see Figure 5.38 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing the email addresses of the system</screeninfo> <graphic srccredit="Adminarea email
+- screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.38. System email addresses management.</emphasis>
+</para>
+
+<para>
+If you create a new mail address (see Figure 5.39 below) you can select the
+queue or sub queue that shall be linked with it. This link enables the
+system to sort incoming messages via the address in the To: field of the
+mail into the right queue.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding a system email address</screeninfo> <graphic srccredit="Adminarea email
+- screenshot" scale="40" fileref="screenshots/add-email.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.39. Adding a system email address.</emphasis>
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen,
-kann eine einmal im System angelegte Mailadresse nicht entfernt werden.
-Um eine Mailadresse trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Mailadresse in der Listbox für
-"Gültig" den Wert entweder auf "ungültig" oder
-"ungültig-temporär".
+To keep the consistency of the data for OTRS it is not possible to delete
+system email addresses, but only deactivate them. To do so, set them to
+<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
-</sect1>
+</section>
 
-<sect1 id="adminarea-notifications">
-<title>Benachrichtigungen</title>
+
+<section id="adminarea-notifications">
+<title>Notifications</title>
 
 <para>
-Kunden und Mitarbeiter können im
+OTRS allows sending notifications to agents and customer when a specific
+event happens.  Agents can select the system events for their own
+notifications in the <link linkend="user-preferences"> preferences </link> .
+</para>
 
-<link linkend="user-preferences">
-Einstellungs-Bereich
-</link>
-
-ihres Accounts festlegen, bei welchen Ereignissen Sie automatisch vom
-System per Mail benachrichtigt werden wollen.
+<para>
+Through the "Notification" link in the adminarea, you can manage the
+notifications of your system (see Figure 5.40 below). With the help of the
+filters, you can search for specific registries.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Benachrichtigungen</screeninfo>
-<graphic srccredit="Adminarea notifications - screenshot" scale="40" fileref="screenshots/admin-notification.png"></graphic>
-</screenshot>
+<screeninfo>Managing notifications</screeninfo> <graphic srccredit="Adminarea
+notifications - screenshot" scale="40"
+fileref="screenshots/admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-Über den "Benachrichtigungen"-Link im Admin-Bereich erreichen Sie die
-Verwaltung der Benachrichtigungen. Sie können die Betreffzeile
-und den Text einer Benachrichtigung anpassen, indem Sie die entsprechende
-Benachrichtigung aus der Listbox auswählen und deren Einstellung über den
-"Ändern"-Schalter laden. Am Namen einer Benachrichtigung erkennen Sie, bei
-welcher Oberflächensprache die Benachrichtigung verwendet wird, für welches
-Ereignis die Benachrichtigung steht und ob sie für einen Kunden oder
-Agenten bestimmt ist.
+    <emphasis>Figure 5.40. Notification management.</emphasis>
 </para>
 
 <para>
-Auch innerhalb der Benachrichtigungen können die Textinhalte mit Hilfe der
-OTRS-Variablen dynamisch aufbereitet werden. Innerhalb der Anmerkungen im
-unteren Bereich der Bildschirmmaske zur Benachrichtigungen-Verwaltung
-werden die verschiedenen zur Verfügung stehenden Variablen und deren
-Verwendung aufgelistet und näher erklärt.
+You can customize the subject and the text of the notifications. Just select
+the notification you want to change from the list and load its content by
+clicking on it (see Figure 5.41). Please note that there is a notification
+with the same name for each of the available languages.
 </para>
 
-</sect1>
+<para>
+<screenshot>
+<screeninfo>Managing notifications</screeninfo> <graphic srccredit="Adminarea
+notifications - screenshot" scale="40"
+fileref="screenshots/customize-notification.png"></graphic></screenshot>
+</para>
 
-<sect1 id="adminarea-smime">
+<para>
+    <emphasis>Figure 5.41. Customizing a notification.</emphasis>
+</para>
+
+<para>
+Like signatures and salutations, it is possible to dynamically create the
+content of a notification, by using special variables. At the bottom of the
+screen shown in the Figure 5.41 you can find a list of them.
+</para>
+
+<para>
+It is also possible to create notifications based in events. You can specify
+in detail when and to whom you want this notification to be sent, since you
+can choose from a wide diversity of parameters, such as: recipient group(s),
+agent(s), role(s), email address(es); type of event that will trigger the
+notification, ticket: type, state, priority, queue, lock, service, SLA, etc.
+</para>
+
+<para>
+In order to see a list of all the event based notifications, click on the
+link Notifications(Event)  in the admin area (see Figure 5.42).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing event based notifications</screeninfo> <graphic srccredit="Adminarea event
+based notifications - screenshot" scale="40"
+fileref="screenshots/admin-notification-eventbased.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.42. Event based notification management.</emphasis>
+</para>
+
+<para>
+In the screen shown in the Figure 5.42 you can create a new notification by
+clicking on the Add button (see Figure 5.43).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Managing event based notifications</screeninfo> <graphic srccredit="Adminarea event
+based notifications - screenshot" scale="40"
+fileref="screenshots/admin-notification-eventbased-new.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.43. Registering an event based notification
+management.</emphasis>
+</para>
+
+<para>
+Please note that the content of the event based notifications can also be
+dynamically created by using the special variables listed at the bottom of
+the screen shown in the Figure 5.43.
+</para>
+
+</section>
+
+
+<section id="adminarea-smime">
 <title>SMIME</title>
 
 <para>
-Mit OTRS ist es möglich, Tickets mit Hilfe von SMIME zu ent- und
-verschlüsseln bzw. Tickets zu signieren. Bevor SMIME allerdings
-systemweit genutzt werden kann, muss das Feature mit Hilfe einiger
+OTRS can process incoming S/MIME encoded messages and sign outgoing mails.
+Before this feature can be used, you need to activate it and change some
+<link linkend="Framework:Crypt::SMIME"> config parameters </link> in the
+SysConfig.
+</para>
 
-<link linkend="Framework:Crypt::SMIME">
-Konfigurationsparameter
-</link>
-
-z. B. über die
-
-<link linkend="adminarea-sysconfig">
-grafische Administrationsoberfläche
-</link>
-
-des Systems aktiviert und konfiguriert werden
+<para>
+The "S/MIME Certificates" link in the admin area of OTRS, allows you manage
+your S/MIME certificates (see Figure 5.44 below). You can add or remove
+certificates and search through the SMIME data.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von SMIME-Zertifikaten</screeninfo>
-<graphic srccredit="Adminarea smime - screenshot" scale="40" fileref="screenshots/admin-smime.png"></graphic>
-</screenshot>
+<screeninfo>SMIME</screeninfo> <graphic srccredit="Adminarea smime
+- screenshot" scale="40" fileref="screenshots/admin-smime.png"></graphic></screenshot>
 </para>
 
 <para>
-Über den "SMIME"-Link im Admin-Bereich von OTRS erreichen Sie die
-Verwaltung der SMIME-Zertifikate. Es können Zertifikate und private
-Fingerprints hinzugefügt und entfernt werden und eine Suche in den
-Zertifikaten ist möglich.
+    <emphasis>Figure 5.44. S/MIME management.</emphasis>
 </para>
 
-</sect1>
+</section>
 
-<sect1 id="adminarea-pgp">
+
+<section id="adminarea-pgp">
 <title>PGP</title>
 
 <para>
-Mit OTRS ist es möglich, Tickets mit Hilfe von PGP zu ent- und
-verschlüsseln bzw. zu signieren. Bevor PGP allerdings systemweit genutzt
-werden kann, muss das Feature mit Hilfe einiger
+OTRS handles PGP keys, which allows you to encrypt/decrypt messages and to
+sign outgoing messages. Before this feature can be used, you need to
+activate it and change some <link linkend="Framework:Crypt::PGP"> config
+parameters </link> in the SysConfig.
+</para>
 
-<link linkend="Framework:Crypt::PGP">
-Konfigurationsparameter
-</link>
-
-z. B. über die
-
-<link linkend="adminarea-sysconfig">
-grafische Administrationsoberfläche
-</link>
-
-des Systems aktiviert und konfiguriert werden
+<para>
+Through the "PGP Keys" link in the admin area of OTRS, it is possible to
+manage the key ring of the user who shall be used for PGP with OTRS (see
+Figure 5.45 below), e.g. the local OTRS user or the web server user. It is
+possible to add and remove keys and signatures, and you can search through
+all data in your key ring.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von PGP-Schlüsseln</screeninfo>
-<graphic srccredit="Adminarea pgp -  screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic>
-</screenshot>
+<screeninfo>PGP</screeninfo> <graphic srccredit="Adminarea pgp -
+screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic></screenshot>
 </para>
 
 <para>
-Über den "PGP"-Link im Admin-Bereich von OTRS erreichen Sie die
-Verwaltung des Schlüsselrings Ihres Systems. Es können Schlüssel und
-Signaturen hinzugefügt und entfernt werden und eine Suche innerhalb des
-Schlüsselrings ist möglich. Das Kapitel
-
-<link linkend="configure-pgp">
-Verschlüsselung mit PGP
-</link>
-
-beschreibt die einrichtung und Verwendung detaillierter.
+    <emphasis>Figure 5.45. PGP management.</emphasis>
 </para>
 
-</sect1>
+</section>
 
-<sect1 id="adminarea-status">
-<title>Status</title>
+
+<section id="adminarea-status">
+<title>States</title>
 
 <para>
-Über den Link "Status" können Sie die Status, die Sie in OTRS verwenden
-möchten, bearbbeiten.
+Through the "States" link, in the admin area of OTRS, you can manage the
+different ticket states you want to use in the system (see Figure 5.46
+below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Status</screeninfo>
-<graphic srccredit="Adminarea states - screenshot" scale="40" fileref="screenshots/admin-status.png"></graphic>
-</screenshot>
+<screeninfo>Managing ticket states</screeninfo> <graphic srccredit="Adminarea states
+- screenshot" scale="40" fileref="screenshots/admin-states.png"></graphic></screenshot>
 </para>
 
 <para>
-Nach einer Standardinstallation sind die Status "closed successful",
-"closed unsuccessful", "merged", "new", "open", "pending auto close+",
-"pending auto close-" "pending reminder" und "removed" vorhanden. Jeder
-Status ist einem Status-Typ zugeordnet, der auch beim Anlegen eines neuen
-Status vergeben werden muss. Es gibt standardmäßig die Status-Typen
-"geschlossen", "merged", "neu", "offen", "pending auto", "warten zur
-Erinnerung" und "entfernt".
+    <emphasis>Figure 5.46. State management.</emphasis>
 </para>
-</sect1>
-
-<sect1 id="adminarea-sysconfig">
-<title>Die Admin GUI (SysConfig)</title>
 
 <para>
-Seit OTRS 2.0 kann das System nahezu vollständig über das Webinterface
-konfiguriert werden und manuelle Anpassungen der Konfigurationsdateien
-gehören der Vergangenheit an. MÖglich wird dies durch das grafische
-Administrations-Frontend.
+After a default setup, there are some states defined:
+</para>
+
+<itemizedlist>
+  <listitem>
+    <para>
+        closed successful
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        closed unsuccessful
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        merged
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        new
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        open
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending auto close+
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending auto close-
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending reminder
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        removed
+    </para>
+  </listitem>
+</itemizedlist>
+
+<para>
+Every state is linked to a type, which needs to be specified if a new state
+is created. Per default the state types are:
+</para>
+
+<itemizedlist>
+  <listitem>
+    <para>
+        closed
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        merged
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        new
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        open
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending auto
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        pending reminder
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        removed
+    </para>
+  </listitem>
+</itemizedlist>
+
+</section>
+
+
+<section id="adminarea-sysconfig">
+<title>SysConfig</title>
+
+<para>
+The SysConfig is the place where many configuration options for OTRS are
+stored.
+</para>
+
+<para>
+The "SysConfig" link in the admin area of OTRS loads the graphical
+configuration front-end (see Figure 5.47 below). You can upload own config
+files for the system and backup all your current settings into a
+file. Almost all config parameters of the OTRS framework and the installed
+applications, can be viewed and changed through the web interface. Because
+all config parameters are sorted into groups and sub groups, it is possible
+to navigate quickly through the multitude of the parameters. Also it is
+possible to perform a full-text search through all the config parameters.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Das grafische Konfigurations-Frontend von OTRS</screeninfo>
-<graphic srccredit="Adminarea sysconfig - screenshot" scale="40" fileref="screenshots/admin-sysconfig.png"></graphic>
-</screenshot>
+<screeninfo>The graphical configuration front-end of OTRS (SysConfig)</screeninfo> <graphic srccredit="Adminarea
+sysconfig - screenshot" scale="40"
+fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
 </para>
 
 <para>
-Über den "SysConfig"-Link im Admin-Bereich von OTRS erreichen sie die
-grafische Administrationsoberfläche. Über diese können Sie eigene
-Konfigurationsdateien in das System integrieren bzw. Ihre
-persönlichen Änderungen an der Standardkonfiguration in eine Datei
-sichern. Nahezu alle Konfigurationsparameter des OTRS Frameworks und der
-zusätzlich installierten Module können eingesehen und geändert werden, die
-Navigation durch die Vielzahl der Konfigurationsparameter wurde durch die
-Einteilung in Module und Gruppen übersichtlich aufgeteilt. Weiterhin ist es
-möglich, eine Suche über alle Konfigurationsparameter hinweg
-durchzuführen, so dass einzelne Parameter schnell aufgefunden und
-bearbeitet werden können.
+    <emphasis>Figure 5.47. The graphical configuration front-end of OTRS
+(SysConfig).</emphasis>
 </para>
 
 <para>
-Das Kapitel
-
-<link linkend="sysconfig">
-Nähere Beschreibung der grafischen Administrationsoberfläche
-</link>
-
-geht ausführlicher auf das grafische Konfigurations-Frontend ein.
+The graphical configuration front-end is described in more detail in the
+chapter <link linkend="sysconfig"> "Configuring the system through the web
+interface" </link> .
 </para>
 
-</sect1>
+</section>
 
-<sect1 id="adminarea-postmasterpop3-account">
-<title>Einrichten von Mail-Konten</title>
+
+<section id="adminarea-postmasterpop3-account">
+<title>Using mail accounts</title>
 
 <para>
-Es gibt mehrere Möglichkeiten, Mails in OTRS einzuspeisen. Neben
-der Nutzung des PostMaster.pl-Skripts, welches die Mails direkt in das
-System piped, können auch Mail-Konten abgefragt werden, an die Mails
-für Ihr Ticket-System gehen. Über den Link "PostMaster Mail Account"
-innerhalb des Admin-Bereiches erreichen Sie die Verwaltung der
-Mail-Konten, die OTRS automatisch auf neue Nachrichten überprüfen
-soll. OTRS ünterstützt dabei die Mail-Protokolle POP3, POP3S, IMAP und IMAPS.
+There are several possibilities to transport new emails into the ticket
+system. One of them is the <link linkend="email-receiving-cmd">
+otrs.PostMaster.pl module </link> that pipes the mails directly into the
+system. Another possibility is the use of mail accounts, which can be
+administrated through the web interface. The "PostMaster Mail Accounts" link
+in the admin area of OTRS, loads the management console for the mail
+accounts (see Figure 5.48 below). OTRS supports the mail protocols: POP3,
+POP3S, IMAP and IMAPS.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Mail-Konten</screeninfo>
-<graphic srccredit="Adminarea postmasterpop3 - screenshot" scale="40" fileref="screenshots/admin-postmasterpop3.png"></graphic>
-</screenshot>
+<screeninfo>Mail account management</screeninfo> <graphic srccredit="Adminarea
+postmaster - screenshot" scale="40"
+fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-Im Kapitel über die
-
-<link linkend="email-receiving-pop3">
-Mailkonfiguration
-</link>
-
-für OTRS wird die Einrichtung der Mail-Konten näher erläutert.
+    <emphasis>Figure 5.48. Mail account management.</emphasis>
 </para>
 
-</sect1>
+<para>
+See the section about the <link linkend="email-receiving-pop3"> PostMaster
+mail accounts </link> for more details.
+</para>
 
-<sect1 id="adminarea-postmasterfilter">
-<title>Einrichten von Filterregeln</title>
+</section>
+
+
+
+<section id="adminarea-postmasterfilter">
+<title>Filtering incoming messages</title>
 
 <para>
-Damit Sie automatisch Mails vorsortieren können bzw. ungewünschte Mails gar
-nicht in die Queues des Ticket-Systems gelangen, können Filterregeln für
-eingehende Nachrichten festgelegt werden. Dabei spielt es keine Rolle, ob die
-Mails über Mail-Konten oder mit Hilfe des
-<filename>PostMaster.pl</filename> Skriptes ins System gelangen. Der Link
-"PostMaster Filter" innerhalb des Admin-Bereiches von OTRS ruft die
-Verwaltung für die Filterregeln auf.
+Because incoming messages can be sorted automatically into queues or spam
+mails can be moved into a specific queue, OTRS has the possibility to filter
+incoming messages. It does not matter, if <filename>PostMaster.pl</filename>
+or mail accounts are used to get messages into the ticket system. Filter
+rules can be created through the link "PostMaster Filter" in the admin area
+of OTRS (see Figure 5.49 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung von Filterregeln für eingehende E-Mails</screeninfo>
-<graphic srccredit="Adminarea postmasterfilter - screenshot" scale="40" fileref="screenshots/admin-postmasterfilter.png"></graphic>
-</screenshot>
+<screeninfo>Managing filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
+postmasterfilter - screenshot" scale="40"
+fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt
-werden müssen, damit die Filterregel greift, und aus einer oder mehreren
-Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt wurden.
-Sie können für die Kopfzeilen und den Body einer Nachricht Filterregeln
-festlegen, also z. B. nach bestimmten Headern suchen oder nach Zeichenketten
-bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen für eine
-Filterregel werden über sog. X-OTRS-Header gesteuert, die in die Mail
-eingefügt werden. Das Ticket-System wertet die X-OTRS-Header aus und nimmt
-die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z. B. die
-Priorität einer Nachricht geändert werden, die Mail in eine bestimmte
-Queue einsortiert oder die Mail komplett verworfen werden, usw. Die
-folgende Tabelle listet die verschiedenen X-OTRS-Header, deren zulässige
-Werte und die Bedeutung der einzelnen Header auf.
+    <emphasis>Figure 5.49. PostMaster filter management.</emphasis>
+</para>
+
+<para>
+A filter consists of one or more criteria that must match for the defined
+actions to be executed. You can define filter criteria for the headers or
+the body of an email, e.g. search for specific header entries or strings in
+the body, even regular expressions are allowed. All actions for a filter
+rule are triggered by X-OTRS headers, which are inserted if the filter
+criteria match. The ticket system evaluates the inserted X-OTRS headers and
+executes the specific actions.  X-OTRS headers can be used to sort an
+incoming message into a specific queue, change the priority of the message
+or ignore the message and deliver it not to the system. The Table 5-4 lists
+the different X-OTRS headers and their meaning.
+</para>
+
+<para>
+Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
 </para>
 
 <table id="table-of-x-otrs-headers">
-<title>Funktion der verschiedenen X-OTRS-Header</title>
+<title>Function of the different X-OTRS-headers</title>
   <tgroup cols="3">
     <thead>
       <row>
@@ -1282,10 +1688,10 @@ Werte und die Bedeutung der einzelnen Header auf.
           Name
         </entry>
         <entry>
-          Mögliche Werte
+          Possible values
         </entry>
         <entry>
-          Beschreibung
+          Description
         </entry>
       </row>
     </thead>
@@ -1298,7 +1704,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           1 very low, 2 low, 3 normal, 4 high, 5 very high
         </entry>
         <entry>
-          Legt die Priorität eines Tickets fest.
+          Sets the priority of a ticket.
         </entry>
       </row>
       <row>
@@ -1306,13 +1712,23 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-Queue:
         </entry>
         <entry>
-          Name einer Queue des Systems.
+          Name of a queue in the system.
         </entry>
         <entry>
-          Legt die Queue fest, in die das Ticket einsortiert werden soll.
-          Wird mit dem X-OTRS-Queue-Header eine Queue voreingestellt, so
-          hat diese Einstellung Vorrang vor allen anderen Filterregeln, die
-          sich auf Queues beziehen.
+          Sets the queue where the ticket shall be sorted in. Is a queue set by a
+X-OTRS header all other filter rules that try to sort a ticket into a
+specific queue are ignored.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Lock:
+        </entry>
+        <entry>
+            lock, unlock
+        </entry>
+        <entry>
+          Sets the lock state of a ticket.
         </entry>
       </row>
       <row>
@@ -1320,11 +1736,11 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-Ignore:
         </entry>
         <entry>
-          Yes oder True
+          Yes or True
         </entry>
         <entry>
-          Wird dieser Header gesetzt, wird die Mail komplett ignoriert und
-          gelangt somit nie als Ticket in das System.
+          Is this X-OTRS header set to "Yes", the incoming message will completely be
+ignored and never delivered to the system.
         </entry>
       </row>
       <row>
@@ -1335,7 +1751,52 @@ Werte und die Bedeutung der einzelnen Header auf.
           new, open, closed successful, closed unsuccessful, ...
         </entry>
         <entry>
-          Setzt den nächsten Status eines Tickets.
+          Sets the next state of the ticket.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-State-PendingTime:
+        </entry>
+        <entry>
+         e. g. 2010-11-20 00:00:00
+        </entry>
+        <entry>
+          Sets the pending time of a ticket (you also should sent a pending state via
+X-OTRS-State).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Type:
+        </entry>
+        <entry>
+         default (depends on your setup)
+        </entry>
+        <entry>
+          Sets the type of a ticket (if Ticket::Type support is active).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Service:
+        </entry>
+        <entry>
+         (depends on your setup)
+        </entry>
+        <entry>
+          Sets the service of a ticket (if Ticket::Service support is active).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-SLA:
+        </entry>
+        <entry>
+         (depends on your setup)
+        </entry>
+        <entry>
+          Sets the SLA of a ticket (if Ticket::Service support is active).
         </entry>
       </row>
       <row>
@@ -1346,8 +1807,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           CustomerUser
         </entry>
         <entry>
-          Legt den Kunden-Benutzer fest, dem das Ticket zugeordnet werden
-          soll.
+          Sets the customer user for the ticket.
         </entry>
       </row>
       <row>
@@ -1358,7 +1818,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           CustomerNo
         </entry>
         <entry>
-          Legt die Kunden-ID fest, die dem Ticket zugeordnet werden soll.
+          Sets the customer ID for this ticket.
         </entry>
       </row>
       <row>
@@ -1366,10 +1826,10 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-ArticleKey(1|2|3):
         </entry>
         <entry>
-          Zusätzlicher Info-Key für den Artikel.
+          Additional info key for the article.
         </entry>
         <entry>
-          Speichert einen zusätzlichen Info-Key für den Artikel.
+          Saves an additional info key for this article.
         </entry>
       </row>
       <row>
@@ -1377,10 +1837,10 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-ArticleValue(1|2|3):
         </entry>
         <entry>
-          Zusätzlicher Info-Value.
+          Additional info value for the article.
         </entry>
         <entry>
-          Speichert einen zusätzlichen Info-Value für den Artikel.
+          Saves an additional info value for the article.
         </entry>
       </row>
       <row>
@@ -1391,7 +1851,7 @@ Werte und die Bedeutung der einzelnen Header auf.
           agent, system, customer
         </entry>
         <entry>
-          Legt die Art des Ticket-Absenders fest.
+          Sets the type of the ticket sender.
         </entry>
       </row>
       <row>
@@ -1400,11 +1860,11 @@ Werte und die Bedeutung der einzelnen Header auf.
         </entry>
         <entry>
           email-external, email-internal, email-notification-ext,
-          email-notification-int, phone, fax, sms, webrequest,
-          note-internal, note-external, note-report
+email-notification-int, phone, fax, sms, webrequest, note-internal,
+note-external, note-report
         </entry>
         <entry>
-          Legt den Typ des Artikles für das eingehende Ticket fest.
+          Sets the article type for the incoming ticket.
         </entry>
       </row>
       <row>
@@ -1412,10 +1872,10 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-TicketKey(1|2|...|8):
         </entry>
         <entry>
-          Zusätzlicher Info-Key
+          Additional info key for the ticket.
         </entry>
         <entry>
-          Speichert einen zusätzlichen Info-Key für das Ticket.
+          Saves an additional info key for the ticket.
         </entry>
       </row>
       <row>
@@ -1423,10 +1883,10 @@ Werte und die Bedeutung der einzelnen Header auf.
           X-OTRS-TicketValue(1|2|...|8):
         </entry>
         <entry>
-          Zusätzlicher Info-Value
+          Additional info value for the ticket.
         </entry>
         <entry>
-          Speichert einen zusätzlichen Info-Value für das Ticket.
+          Saves an additional info value for the ticket.
         </entry>
       </row>
       <row>
@@ -1437,9 +1897,8 @@ Werte und die Bedeutung der einzelnen Header auf.
           True
         </entry>
         <entry>
-          Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort
-          an den Absender des neuen Tickets geschickt, z. B. um Mailschleifen
-          zu vermeiden.
+          If this X-OTRS header is set no auto answer is delivered to the sender of
+the message (mail loop protection).
         </entry>
       </row>
     </tbody>
@@ -1447,270 +1906,297 @@ Werte und die Bedeutung der einzelnen Header auf.
 </table>
 
 <para>
-Über das Formular auf der rechten Seite der Verwaltung für die
-Filterregeln können neue Filterregeln hinzugefügt werden. Sie müssen für
-jede Regel einen Namen vergeben. Darunter legen Sie in der Sektion für
-"Treffer" die verschiedenen Kriterien fest, nach denen gefiltert werden
-soll. Wählen Sie aus den Listboxen für "Header 1", "Header 2" usw. aus, an
-welcher Stelle in der eingehenden Nachricht Sie suchen möchten und tragen
-Sie rechts neben dem entsprechenden Header den Wert ein, nach dem gesucht
-werden soll. In der Sektion "Setzen" legen Sie die Aktionen fest,
-die ausgeführt werden sollen, wenn die Filterkriterien zutreffen. Hier
-können Sie für "Header1", "Header 2" usw. den entsprechenden X-OTRS-Header
-auswählen und rechts daneben den entsprechenden Wert eintragen.
+A name must be specified for every filter rule. In the section for "Match"
+the filter criteria can be specified. Choose via the listboxes for "Header
+1", "Header 2" and so on the parts of the messages where you would like to
+search and specify via the input files on the right sides the values. In the
+section for "Set" you can choose the actions that are triggered, if the
+filter rules match. You can select for "Header 1", "Header 2" and so on the
+X-OTRS-Header and set the values (see Figure 5.50 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Addin filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
+postmasterfilter - screenshot" scale="40"
+fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.50. Add a PostMaster filter.</emphasis>
 </para>
 
 <example id="sort-mails-into-junk">
-<title>Aussortierung von Spammails in eine bestimmte Queue</title>
+<title>Sort spam mails into a specific queue</title>
 
 <para>
-Eine nützliche Filterregel könnte sein, alle Mails, die von spamassassin
-als Spam markiert wurden, automatisch in die Queue "Junk" einsortieren zu
-lassen. Spamassassin fügt bei allen überprüften Mails die Kopfzeile
-"X-Spam-Flag" hinzu. Wird die Mail als Spam markiert, wird dieser Header
-auf "Yes" gesetzt. Das Filterkriterium lautet also "X-Spam-Flag: Yes". Um nun
-eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als
-Name für die Filterregel z. B. "spam-mails" ein und wählen in der Sektion
-"Treffer" für "Header 1" den Header "X-Spam-Flag:" aus der Listbox aus.
-Rechts daneben fügen Sie als Wert "Yes" hinzu. Das Filterkriterium wurde
-somit festgelegt. Um nun die Einsortierung der von spamassassin als Spam
-klassifizierten Mails  in die Queue "Junk" zu erzwingen, wählen Sie in
-der Sektion "Setzen" für "Header 1" den Eintrag "X-OTRS-Queue:" aus und
-tragen als Wert rechts daneben "Junk" ein. Abschließend wird mit Hilfe des
-"Hinzufügen"-Buttons die neue Regel gespeichert und aktiviert, beim nächsten
-Abruf der POP3-Konten bzw. für die nächste an das System gesendete
-Nachricht wird die Filterregel abgearbeitet.
+A useful filter rule could be to let OTRS automatically sort mails marked
+for spam with a spam detection tool, such as SpamAssassin, into the "Junk"
+queue.  SpamAssassin adds the "X-Spam-Flag" header to every checked mail.
+When the mail is marked as spam, the Header is set to "Yes". So the filter
+criteria would be "X-Spam-Flag: Yes". To create a filter rule with this
+criteria you can insert the name for example "spam-mails". Also choose in
+the section for "Match" for "Header 1" from the listbox
+"X-Spam-Flag:". Insert "Yes" as value for this header. Now the filter
+criteria is specified. To make sure, that all spam mails get sorted into the
+"Junk" queue choose in the section for "Set" for "Header 1" the
+"X-OTRS-Queue:" entry. Specify "Junk" as value for this header. Finally add
+the new filter rule to activate it for the next new messages in the system.
 </para>
 </example>
 
 <para>
-Es gibt weitere Module, die zum
-
-<link linkend="email-receiving-filter">
-Filtern eingehender E-Mails
-</link>
-
-genutzt werden und bei komplexeren Installationen nützlich sein können.
+There are additional modules, that can be used to <link
+linkend="email-receiving-filter"> filter incoming messages </link> more
+specifically. These modules might be useful on bigger and complex systems.
 </para>
 
-</sect1>
+</section>
 
-<sect1 id="adminarea-genericagent">
-<title>Ausführen von automatisierten Jobs mit Hilfe des GenericAgents</title>
+
+<section id="adminarea-genericagent">
+<title>Executing automated jobs with the GenericAgent</title>
 
 <para>
-Der GenericAgent ist ein Tool zum automatischen Ausführen von Aufgaben, die
-normalerweise ein richtiger Agent manuell durchführen müsste. Er kann z. B.
-bestimmte Tickets in einer Queue schließen oder Benachrichtigungen für
-eskalierte Tickets versenden.
+The GenericAgent is a tool to execute tasks automatically, that otherwise
+should be done by a human person, a real agent. The GenericAgent, for
+example, can close or move tickets, send notifications on escalated tickets,
+etc.
 </para>
 
 <para>
-<screenshot>
-<screeninfo>Jobliste des GenericAgents</screeninfo>
-<graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/admin-genericagent-new.png"></graphic>
-</screenshot>
-</para>
-
-<para>
-Um einen neuen Job für den GenericAgent zu definieren, folgen Sie dem Link
-"GenericAgent". Es wird eine Tabelle mit den bereits vorhandenen Jobs
-angezeigt, über die Jobs auch manuell ausgeführt oder gelöscht werden
-können. Zum Hinzufügen eines neuen Jobs geben Sie den Namen ein und klicken
-auf "Hinzufügen".
+To access to the GenericAgent, the link "GenericAgent" in the admin area of
+OTRS can be used (see Figure 5.51 below). A table with the already created
+jobs is displayed, where jobs can be executed manually or removed.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Anlegen eines Jobs für den GenericAgent</screeninfo>
-<graphic srccredit="Adminarea genericagent - screenshot" scale="40" fileref="screenshots/admin-genericagent.png"></graphic>
-</screenshot>
+<screeninfo>Job list for the GenericAgent</screeninfo> <graphic srccredit="Adminarea
+genericagent - screenshot" scale="40"
+fileref="screenshots/admin-genericagent.png"></graphic></screenshot>
 </para>
 
 <para>
-Über die Bildschirmmaske zum Erstellen eines neuen Jobs kann der Zeitplan
-für die Ausführung des Jobs eingestellt werden. Desweiteren kann über
-verschiedene Kriterien festgelegt werden, welche Tickets vom Job erfasst
-werden sollen. Schließlich ist es möglich, die neuen Eigenschaften der vom
-Job betroffenen Tickets einzustellen.
+    <emphasis>Figure 5.51. Job list for the GenericAgent.</emphasis>
 </para>
 
 <para>
-Nachdem der Job gespeichert wurde, werden alle Tickets aufgeführt, die
-durch den Job verändert werden. Diese Auflistung dient zur Übersicht, ob
-der Job richtig funktioniert, es werden noch keine Veränderungen
-vorgenommen. Erst nach der Übernahme des Jobs in die Job-Liste, wird der
-Job aktiviert.
-</para>
-
-</sect1>
-
-<sect1 id="adminarea-adminemail">
-<title>Administratoren E-Mail</title>
-
-<para>
-Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder
-Benutzergruppen im System zu versenden, folgen Sie dem
-Link "Admin Notification".
+To create a new job a name must be specified and the "Add job" button must
+be pressed. Via the screen for the creation of a new job for the
+GenericAgent you can specify the times when the job shall be executed,
+different criteria to select the tickets to work on and the new properties
+of those tickets (see Figure 5.52 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Administratoren E-Mail an Benutzer oder Gruppen</screeninfo>
-<graphic srccredit="Adminarea email - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic>
-</screenshot>
+<screeninfo>Creating a job for the GenericAgent</screeninfo> <graphic srccredit="Adminarea
+genericagent - screenshot" scale="40"
+fileref="screenshots/add-genericagent-job.png"></graphic></screenshot>
 </para>
 
 <para>
-Es wird ein Formular geladen, in das Sie die Absenderadresse, den Betreff
-und den Inhalt der Administratoren-Mitteilung eintragen können.
-Weiterhin können Sie aus der Tabelle auswählen, an welche
-Benutzer und / oder Benutzergruppen die Mitteilung gesendet werden soll.
+    <emphasis>Figure 5.52. Creating a job for the GenericAgent.</emphasis>
 </para>
 
-</sect1>
+<para>
+If the creation of the job is finished all affected tickets by the job are
+listed. This list helps you verify that the job is having the expected
+behavior, no changes are made to these tickets yet. The job will be really
+activated if it is saved into the job list.
+</para>
 
-<sect1 id="adminarea-session-management">
-<title>Sitzungsverwaltung</title>
+</section>
+
+
+<section id="adminarea-adminemail">
+<title>Admin email</title>
 
 <para>
-Um eine Übersicht über die gerade im System angemeldeten Benutzer und deren
-Sitzungseigenschaften zu erhalten, folgen Sie dem Link
-"Sitzungsverwaltung".
+OTRS administrators can send messages to specific users or groups.  The
+"Admin Notification" in the admin area, opens the screen where the agents
+and groups that should be notified can be selected (see Figure 5.53 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Sitzungsverwaltung</screeninfo>
-<graphic srccredit="Adminarea sessionmanagement - screenshot" scale="40" fileref="screenshots/admin-sessionmanagement.png"></graphic>
-</screenshot>
+<screeninfo>Admin notification</screeninfo> <graphic srccredit="Adminarea email
+- screenshot" scale="40"
+fileref="screenshots/send-admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-Innerhalb der Sitzungsverwaltung werden allgemeine Informationen
-zu allen Sitzungen im System ausgegeben, also z. B. wie viele Sitzungen
-gerade insgesamt aktiv sind oder wie viele Agenten- und Kunden-Sitzungen
-laufen, usw. Es besteht die Möglichkeit mit Hilfe des "Alle Sitzungen
-löschen"-Schalters die Sitzungen aller angemeldeten Benutzer zu
-beenden. Weiterhin können detaillierte Informationen für jede einzelne
-Sitzung abgerufen und einzelne Sitzungen gelöscht werden.
+    <emphasis>Figure 5.53. Admin notification.</emphasis>
 </para>
 
-</sect1>
+<para>
+It is possible to specify the sender, subject and body text of the
+notification.  You can also select the agents, groups and roles who should
+receive the message.
+</para>
 
-<sect1 id="adminarea-system-log">
+</section>
+
+<section id="adminarea-session-management">
+<title>Session management</title>
+
+<para>
+You can see all logged in users and their session details by clicking the
+"Session Management" link in the admin area (see Figure 5.54 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Session management</screeninfo> <graphic srccredit="Adminarea
+sessionmanagement - screenshot" scale="40"
+fileref="screenshots/admin-sessionmanagement.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.54. Session management.</emphasis>
+</para>
+
+<para>
+Some statistics about all active sessions are displayed, e.g. how many
+agents and customer users are logged in, number of active sessions.  Every
+individual session can be removed y clicking on the <emphasis>Kill this
+session</emphasis> in the right-hand side of the list.  You also have the
+option to <emphasis>Kill all sessions</emphasis>, which can be useful if
+you'd like to bring the system down.  Detailed information for every session
+is available, too (see Figure 5.55 below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Session details</screeninfo> <graphic srccredit="Adminarea
+session management - screenshot" scale="40"
+fileref="screenshots/admin-session-details.png"></graphic></screenshot>
+</para>
+
+<para>
+    <emphasis>Figure 5.55. Session details.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-system-log">
 <title>System Log</title>
 
 <para>
-Der Link "System Log" ermöglicht es, die
-letzten Logeinträge des Ticket-Systems über die Weboberfläche einzusehen.
+The "System Log" link in the admin area of OTRS, shows the last log entries
+of the system (see Figure 5.56 below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Systemlog</screeninfo>
-<graphic srccredit="Adminarea syslog - screenshot" scale="40" fileref="screenshots/admin-syslog.png"></graphic>
-</screenshot>
+<screeninfo>System Log</screeninfo> <graphic srccredit="Adminarea syslog
+- screenshot" scale="40" fileref="screenshots/admin-syslog.png"></graphic></screenshot>
 </para>
 
 <para>
-Ein Logeintrag setzt sich aus der Zeit, der Priorität, der betroffenen
-Systemkomponente und der eigentlichen Meldung zusammen.
+    <emphasis>Figure 5.56. System Log.</emphasis>
+</para>
+
+<para>
+Each line in the log contains: a time stamp, the log priority, the system
+component and the log entry itself.
 </para>
 
 <note>
 <para>
-Die System Logs können nur auf Unix- oder Linux-Systemen über das
-Web-Interface eingesehen werden, unter Windows-Betriebssystemen steht diese
-Funktion nicht zur Verfügung.
+The system logs are only available via the web interface on linux or unix
+systems. On Windows systems you can see the log by opening the file
+<filename>[install_dir]otrs\var\log\otrs.log</filename> with a text editor.
 </para>
 </note>
 
-</sect1>
+</section>
 
-<sect1 id="adminarea-selectbox">
-<title>SQL Abfragen mit Hilfe der SQL Box</title>
+
+<section id="adminarea-selectbox">
+<title>SQL queries via the SQL box</title>
 
 <para>
-Über den Link "SQL Box" kann eine Bildschirmmaske aufgerufen werden, die
-es ermöglicht direkt mit SQL-Statements den Inhalt von Tabellen der
-OTRS-Datenbank abzurufen. Es sind nur SELECT-Abfragen möglich, d.h. die
-Tabellen können auf diesem Weg nicht verändert werden.
+The "SQL Box" link in the admin area, opens a screen that lets you query the
+content of the tables in the OTRS database (see Figure 5.57 below). It is
+not possible to change the content of the tables, only queries are allowed.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>SQL-Abfragen über die Weboberfläche</screeninfo>
-<graphic srccredit="Adminarea selectbox - screenshot" scale="40" fileref="screenshots/admin-selectbox.png"></graphic>
-</screenshot>
+<screeninfo>SQL Box</screeninfo> <graphic srccredit="Adminarea
+selectbox - screenshot" scale="40"
+fileref="screenshots/admin-selectbox.png"></graphic></screenshot>
 </para>
 
-</sect1>
+<para>
+    <emphasis>Figure 5.57. SQL Box.</emphasis>
+</para>
 
-<sect1 id="adminarea-package-manager">
-<title>Paket Verwaltung</title>
+</section>
+
+
+<section id="adminarea-package-manager">
+<title>Package manager</title>
 
 <para>
-Seit Version 2.0 besteht OTRS aus einem zentralen Framework und mehreren
-Zusatzpaketen, um die das System wahlweise erweitert werden kann. An
-zusätzlichen Paketen stehen z. B. ein web-basierter Filemanager, ein
-Web-Mailer, ein Content-Manager oder ein Tool zur Überwachung von
-verschiedenen Betriebssystemparametern zur Verfügung. Um die Installation
-der verschiedenen Komponenten zu erleichtern, können diese mit Hilfe des
-Paket Managers bequem über das Web-Interface von OTRS installiert oder
-entfernt werden. Die Paket Verwaltung erreichen sie über den Link
-"Paket Verwaltung".
+Using the "Package Manager" in the admin area, you can install and manage
+packages that extend the functionality of OTRS (see Figure 5.58 below). See
+the <link linkend="application">Additional applications</link> section for a
+discussion on the extensions that are available from the OTRS repositories.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Paketmanager</screeninfo>
-<graphic srccredit="Adminarea packagemanager - sreenshot" scale="40" fileref="screenshots/admin-packagemanager.png"></graphic>
-</screenshot>
+<screeninfo>Package Manager</screeninfo> <graphic srccredit="Adminarea
+packagemanager - screenshot" scale="40"
+fileref="screenshots/admin-packagemanager.png"></graphic></screenshot>
 </para>
 
 <para>
-Die Pakete, die über die Paket Verwaltung hinzugefügt oder entfernt werden
-können, müssen im sog. opm-Format vorliegen, andere Formate werden nicht
-unterstützt. Es können mehrere Installations-Quellen angegeben werden, über
-die die opm-Pakete installiert werden können. Steht Ihnen ein Paket lokal
-zur Verfügung und kann darauf über das Filesystem der Maschine zugegriffen
-werden, auf der OTRS installiert ist, können Sie im Eingabefeld für "Paket"
-die genaue Lokation zu diesem Paket angeben, also den absoluten Pfad
-gefolgt vom Dateinamen des opm-Pakets. Mit Hilfe des Schalters
-"Installieren" unterhalb des Eingabefeldes, wird das Paket in die
-vorhandene OTRS-Installation integriert. D.h., es werden die benötigten
-Dateien kopiert, Icons und Ausgabevorlagen installiert und ggf. die Datenbank
-angepasst. Ist dieser Vorgang beendet, kann das neu installierte Modul
-genutzt werden.
+    <emphasis>Figure 5.58. Package Manager.</emphasis>
 </para>
 
 <para>
-Um immer Zugriff auf die aktuellen Versionen der zusätzlichen Module zu
-haben, empfielt es sich, die Pakete über ein Online-Repository
-einzuspielen. Die neueste Modulliste des Online-Repositorys erhalten Sie,
-indem Sie aus der Listbox für "Quelle" den Server auswählen, von dem die
-Daten des Repositorys heruntergeladen werden sollen. Verwenden Sie den
-"Aktualisieren"-Schalter, um die Daten auf den neuesten Stand zu bringen.
-Nach kurzer Zeit werden auf der rechten Seite im Abschnitt für das Online
-Repository die Module aufgelistet, die online für eine Installation zur
-Verfügung stehen. In der rechten Spalte dieser Tabelle können Sie den
-"Installieren"-Schalter verwenden, um das entsprechende Modul in Ihr System
-zu integrieren. Hängt das Modul von der Installation anderer Module ab, erhalten
-Sie einen entsprechenden Hinweis. War die Installation eines Moduls
-erfolgreich, wird das Modul in den Abschnitt für das lokale Repository
-übertragen und dort aufgeführt. Das lokale Repository listet also alle
-Module auf, die sie zusätzlich über die Paket Verwaltung Ihrer
-Installation hinzugefügt haben.
+In the package manager you can review the packages you currently have
+installed together with their version numbers.
+</para>
+
+<para>You can install packages from a remote host by selecting the repository in
+the <emphasis>Online Repository</emphasis> section and clicking the
+<emphasis>Update repository information</emphasis> button. The available
+packages are displayed in the corresponding table. The right side of the
+screen shows the available packages. To install one, click on
+<emphasis>Install</emphasis>.  After installation the package is displayed
+in the <emphasis>Local Repository</emphasis> section.
 </para>
 
 <para>
-Benötigen Sie einmal ein bestimmtes Modul nicht mehr und wollen es
-entfernen, so ist dies über den "deinstallieren"-Schalter rechts vom
-entsprechenden Modul innerhalb des lokalen Repositorys möglich. Auch bei
-diesem Vorgang werden eventuelle Abhängigkeiten beachtet.
+To upgrade an installed package, the list of available packages in the
+online repository will show <emphasis>Upgrade</emphasis> in the Action
+column for any package that has a higher version than the locally
+installed. Just click Upgrade and it will install the new package on your
+system.
 </para>
 
-</sect1>
+<para>
+In some cases, such as when your OTRS system is not connected to the
+Internet, you can also install packages you have downloaded to a local
+disk.  Click the <emphasis>Browse</emphasis> button on the Actions side bar
+and select the .opm file on your disk.  Click <emphasis>Open</emphasis> and
+then <emphasis>Install Package</emphasis>. After installation the package is
+displayed in the <emphasis>Local Repository</emphasis> section. You can use
+the same steps for updating a package that is already installed.
+</para>
+
+<para>
+In special cases, you might want to configure the package manager, e.g., to
+use a proxy or to use a local repository. Just take a look at the available
+options in SysConfig under <link
+linkend="Framework:Core::Package">Framework:Core::Package</link>.
+</para>
+
+</section>
 
 </chapter>

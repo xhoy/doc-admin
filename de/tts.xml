@@ -1,168 +1,129 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: tts.xml,v 1.7 2008-08-21 14:22:17 ub Exp $ -->
 
+
+<!-- $Id: tts.xml,v 1.8 2010-12-01 11:02:21 mg Exp $ -->
 <chapter id="tts">
-<title>Allgemeines zu Trouble Ticket Systemen</title>
+<title>Basics about trouble ticket systems</title>
 
 <abstract>
 <para>
-In diesem Abschnitt soll kurz die grundlegende Idee, die hinter
-Trouble Tickets im Allgemeinen und Trouble Ticket Systemen im Speziellen steht,
-erläutert werden. An einem kleinen Beispiel wird gezeigt,
-wofür Trouble Ticket Systeme in der Praxis verwendet werden
-können und wo die Vorteile dieser Systeme liegen.
+This chapter gives a short overview about the idea of trouble tickets in
+general and trouble ticket systems in specific. A short example shows the
+advantages of using a ticket system.
 </para>
 </abstract>
 
-<sect1 id="basic-tts-example">
-<title>Was ist ein Trouble Ticket System, wann wird es benötigt?</title>
+<section id="basic-tts-example">
+<title>What is a trouble ticket system and why do you need it?</title>
 
 <para>
-Das folgende Beispiel soll verdeutlichen, was ein Trouble Ticket System
-ist und wie damit in der Praxis Zeit und Geld eingespart werden können.
+The following example describes what a trouble ticket system is and how you
+can save time and money if you use such a system in your company.
 </para>
 
 <para>
-Nehmen wir an, dass Max Mustermann Fabrikant ist und Videorekorder
-produziert. Da die Programmierung der Videorekorder sehr
-unübersichtlich und kompliziert ist, wenden sich die Kunden von
-Herrn Mustermann gerne und häufig mit Supportanfragen per Mail an
-ihn. An manchen Tagen kann Herr Mustermann der Mailflut kaum Herr
-werden und so kommt es, dass seine Kunden sich einige Zeit gedulden
-müssen, bis die Antwort mit der rettenden Lösung bei ihnen
-eintrifft. Manchen Kunden dauert dies jedoch zu lange, eine weitere
-E-Mail mit dem gleichen Inhalt wird an Herrn Mustermann geschickt. Die
-E-Mails mit den Supportanfragen werden alle in eine INBOX
-weitergeleitet, wie sie von fast allen E-Mailprogrammen
-verwendet wird.
+Let's imagine that Max is a manufacturer who produces video recorders.
+Since programming video recorders is very complex, Max gets many mails from
+customers who need help with the devices. Some days, Max has not enough time
+to answer all mails so that his customers have to be patient until they get
+an answer. Some customers don't want to wait that long so they write a
+second mail with the same question. All mails containing support requests
+are stored in only one inbox file. The requests are not sorted and Max
+answers the mails with a regular email program.
 </para>
 
 <para>
-An manchen Tagen ist die Anfragewelle besonders groß und Herr
-Mustermann sieht sich außerstande, alle Mails noch in einem
-vertretbaren Zeitrahmen zu beantworten. Aus diesem Grund kommandiert er
-seine Entwickler Meier und Schulze zur Bearbeitung der Supportanfragen
-ab. Da von allen das gleiche System
-benutzt wird, greifen alle auf die gleiche INBOX und daher auch auf die
-gleichen Mails zu. Meier und Schulze haben jedoch keine Ahnung, dass
-manch ein Kunde in seiner Not gleich zwei E-Mails verfasst und an Herrn
-Mustermann geschickt hat. So kommt es vor, dass Meier die erste Mail
-mit einem anderen Ratschlag beantwortet als Schulze der sich im selben
-Moment der zweiten Nachricht des gleichen Kunden annimmt. Das Ergebnis
-ist, dass der Kunde unterschiedliche Antworten bekommt. Darüber
-hinaus hat Herr Mustermann keinen Einblick darüber, welcher
-Mitarbeiter wann was welchem Kunden gesagt hat, welche Probleme
-besonders häufig auftreten und wie groß sein gesamter
-Aufwand für den Kundensupport ist.
+Then the developers Joe and John have to help Max answer the mails because
+Max can't reply fast enough to all the messages. Since Max, Joe and John use
+the same system with the same inbox file, they all access the same
+inbox. Joe and John don't know that Max often got two identical requests
+from a desperate customer. So Joe answers the first and John answers the
+second mail of the customer, both with a helpful hint on how to solve the
+problem. The customer receives two different answers, and Max does not know
+what John and Joe wrote. Max neither has an overview about the replies of
+Joe and John nor does he know all the problems the customers have had with
+the video recorders nor which problems occur very often nor how much time
+and money he has to spend for customer support.
 </para>
 
 <para>
-Von einem Kollegen erfährt Herr Mustermann schließlich, dass
-es Trouble Ticket Systeme gibt, die genau die Probleme lösen, die
-Herr Mustermann mit dem Support für seine Kunden hat. Herr Mustermann
-entscheidet sich für das offene
-Trouble Ticket Request System OTRS und installiert dieses System auf
-einem Rechner, der über einen Webserver sowohl für seine Mitarbeiter als
-auch über das Internet erreichbar ist. Von nun an werden die Hilferufe der
-Kunden nicht mehr länger an seine private INBOX, sondern direkt an
-den Mail-Account für OTRS weitergeleitet. OTRS hat eine
-Schnittstelle zur INBOX für die Supportanfragen, so dass alle
-ankommenden E-Mails automatisch ins Trouble Ticket System eingespeist
-werden. Unabhängig ob Herr Mustermann nun gerade anwesend ist oder
-nicht, generiert OTRS eine automatische Antwort und teilt dem Kunden
-mit, dass seine E-Mail angekommen ist und so schnell wie möglich
-bearbeitet wird. Dabei wird eine eindeutige Trouble Ticket Nummer
-vergeben. Der Kunde ist glücklich, dass sein Flehen schnell
-erhört wurde und wartet gespannt auf eine Antwort. Sowohl Herr
-Mustermann als auch die Entwickler Meier und Schulze können nun
-über einen beliebigen Internetbrowser und die Weboberfläche
-von OTRS auf die Supportanfragen zugreifen und diese einzeln
-beantworten.
+At a meeting, a colleague tells Max about trouble ticket systems and that
+they can solve Max's problems with the customer support. After looking for
+information on the Internet, Max decides to install the Open Ticket Request
+System (OTRS) on a computer that is accessible from the web by both his
+customers and his employees. Now, the customer requests are no longer sent
+to Max's private inbox but to the mail account that is used for OTRS. The
+ticket system is connected to this mailbox and saves all requests in its
+database. For every new request, the system generates an auto-answer and
+sends it to the customer so that the customer knows that his request has
+arrived and will be answered soon. OTRS generates an explicit reference, the
+ticket number, for every single request. Now, the customers are happy
+because they receive a quick response to their requests and it is not
+necessary to send a second message with the same question. Max, John and Joe
+can now login into OTRS with a simple web browser and answer the
+requests. Since the system locks a ticket that is answered, no message is
+edited twice.
 </para>
 
 <para>
-Stellen wir uns vor, dass Herr Schmidt eine Anfrage ans System gestellt
-hat und Herr Meier diese kurz und knapp beantwortet. Herrn Schmidt
-reicht diese Antwort jedoch nicht aus und so antwortet er auf die
-Lösungsmail am folgenden Tag. Herr Meier ist jedoch gerade mit
-anderen Dingen beschäftigt, so dass sich Herr Mustermann der Sache
-annimmt. Über die History-Funktion von OTRS kann er jetzt auf alle
-vergangenen E-Mails von Herrn Schmidt und Herrn Meier zugreifen, deren
-Inhalt abfragen und eine ausführlichere Antwort versenden. Herr
-Schmidt erhält nun die Lösung für sein
-Problem, weiß aber nicht, dass diese von unterschiedlichen
-Personen stammt.
+Let's imagine that Mr Smith makes a request to Max's company and his message
+is processed by OTRS. John gives a brief reply to this request but Mr Smith
+has an additional question so he replies to John's mail. Since John has
+other things to do, Max answers Mr Smith's message. The history function of
+OTRS makes it easy for Max to read both Mr Smith's first message and John's
+response so that he is able to write a more detailed reply to Mr Smith. Mr
+Smith does not know that two different people were involved in the
+communication, he is happy about the solution for his problem that arrived
+with Max's last reply.
 </para>
 
 <para>
-Natürlich ist dies nur ein sehr kleiner Einblick in die
-Funktionalitäten von Trouble Ticket Systemen. Da Herr Mustermann eine
-kleine Firma führt, erhält er vielleicht nur wenige E-Mails mit
-Supportanfragen pro Tag, die er vielleicht noch ganz überschaulich
-mit seiner normalen Mailsoftware handhaben kann und somit kein
-Trouble Ticket System braucht. Wenn aber der neue DVD-Rekorder in die Regale
-kommt, werden es vielleicht schon 500 oder in ein paar Jahren schon 10.000
-Nachrichten pro Tag sein. Spätestens dann rechnet sich der Einsatz von
-Trouble Ticket Systemen wie OTRS.
+Of course, this is only a short overview about the possibilities and
+features of trouble ticket systems. But if many customer requests (mails and
+phone calls) must be handled by different people, a ticket system can help
+to save time and money. A ticket system helps you to structure your support
+or help desk environment and you can define work flow processes. The
+communication between customers and companies will become more transparent
+which results in more effectiveness for both customers and support staff.
+</para>
+
+</section>
+
+<section id="what-is-a-tt">
+<title>What is a trouble ticket?</title>
+
+<para>
+You can compare a trouble ticket with medical report for a hospital
+patient. A medical report is generated when the patient visits the hospital
+for the first time. All important data about the patient, such as personal
+data and facts about medical issues, are stored in the medical report.  Each
+doctor adds information on the illness and any medication to the medical
+report so that all doctors and the nursing staff can get a quick and
+detailed overview about the patient's situation. When the patient has
+recovered and leaves hospital, the medical report is closed and all
+information is archived.
 </para>
 
 <para>
-Der Einsatz von Trouble Ticket Systemen kann also für solche
-Umgebungen große Vorteile bringen, in denen viele Anfragen per E-Mail
-oder Telefon anfallen und wo die Anfragen von verschiedenen Mitarbeitern
-bearbeitet werden. Trouble Ticket Systeme helfen dabei, Supportaufgaben zu
-strukturieren und zu beschleunigen, ebenfalls können Arbeitsabläufe
-abgebildet werden. Durch Systeme wie OTRS lässt sich Arbeitszeit einsparen
-bzw. effektiver nutzen und die Kommunikation zwischen Kunden und
-Mitarbeitern wird transparenter. Sowohl das Unternehmen als auch die Kunden
-profitieren also vom Einsatz eines Trouble Ticket Systems.
+Trouble ticket systems such as OTRS handle trouble tickets like normal
+email.  The messages are saved in the system. When a customer sends a
+request, a new ticket is generated by the system which is comparable to a
+new medical report being opened. The answer to this new ticket can be
+compared to a doctor's entry in the medical report, a new answer to a change
+in the clinical picture of the patient. A ticket is finished if an answer is
+send back to the customer or if the ticket is closed by the system. If a
+customer sends an answer for a already closed ticket, the ticket will be
+reopened and the new information will be added. To keep the consistency of
+all data in the system, every ticket is stored and archived with all
+relevant information. Since tickets are handled like normal emails,
+attachments will be stored, too. Notes can be added as additional
+information to every email. All tickets are stored on the hard drive or in
+the database of the system. Also additional information like notes, dates,
+employees involved, working time needed for a ticket etc. are stored. All
+tickets can be sorted and it is possible to search through all data.
 </para>
-</sect1>
-
-<sect1 id="what-is-a-tt">
-<title>Was ist ein Trouble Ticket?</title>
-
-<para>
-Ein Trouble Ticket lässt sich im Wesentlichen mit einem
-Krankenblatt eines Krankenhauspatienten vergleichen. Bei der erstmaligen
-Einlieferung in das Krankenhaus wird das Krankenblatt im Zuge der
-Anamnese neu angelegt. Jeder Arzt trägt nun seine Diagnose sowie
-die verordnete Therapie und Medikation ein und dokumentiert deren
-Erfolg. Das Krankenblatt gibt nun einen schnellen Überblick,
-gewährleistet eine schnelle Einarbeitung und verhindert eine
-Mehrfachdosierung von Medikamenten. Ist die Krankheit besiegt und der
-Patient entlassen, wird das Krankenblatt archiviert.
-</para>
-
-<para>
-Im OTRS werden Trouble Tickets, also die Krankenblätter aus dem
-obigen Beispiel, als normale E-Mails behandelt und gespeichert. Schickt
-z. B. ein Kunde eine Anfrage an das Trouble Ticket System, wird das
-Krankenblatt eingerichtet, ein neues Ticket wird geöffnet. Die
-Antwort eines Mitarbeiters auf die Anfrage kann als Eintrag eines
-Arztes gesehen werden, eine erneute Antwort bzw.
-Anfrage des Kundens auf das selbe Ticket als Veränderung oder
-Erweiterung des Krankheitsbildes. Ein Ticket gilt als
-erledigt bzw. geschlossen, wenn eine Antwort auf die Anfrage an den
-Kunden zurückgesendet wurde oder das Ticket über das System als
-geschlossen markiert wird. Antwortet ein Kunde auf ein bereits
-geschlossenes Ticket, so wird es erneut geöffnet und die neuen
-Informationen ergänzt. Um die Konsistenz der Daten sicherzustellen,
-werden alle Tickets mit all ihren spezifischen Informationen archiviert
-und verbleiben im System. Durch die Speicherung der Tickets als ganz
-normale E-Mails ist es möglich, dass diese auch
-E-Mail-Anhänge enthalten können. Zusätzlich zu den normalen
-Informationen einer E-Mail lassen sich beliebige Notizen zu jedem
-Ticket hinzufügen. Die Tickets selbst werden auf der Festplatte
-bzw. in einer Datenbank archiviert, ebenso zusätzliche
-Meta-Informationen des Tickets wie Notizen, an der Beantwortung des
-Tickets beteiligte Mitarbeiter, Zeit und Datum der Bearbeitung,
-Bearbeitungsdauer usw. Eine Sortierung oder eine Suche über den
-Datenbestand wird mit Hilfe aller vorhandenen Informationen zu den
-Tickets realisiert.
-</para>
-</sect1>
+</section>
 
 </chapter>
