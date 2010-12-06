@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-12-06 12:27+0100\n"
+"POT-Creation-Date: 2010-12-06 14:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3263,7 +3263,7 @@ msgid ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.5 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.6 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -3641,24 +3641,23 @@ msgid ""
 "shell&gt; /etc/init.d/cron start\n"
 "shell&gt; /etc/init.d/postfix start\n"
 "shell&gt; /etc/init.d/apache start\n"
-"shell&gt; /etc/init.d/mysql start\n"
 "            "
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1610
+#: en/installation-and-basic-configuration.xml:1609
 msgid "Check for encoding issues"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1613
+#: en/installation-and-basic-configuration.xml:1612
 msgid ""
 "With OTRS 3.0, the default charset of OTRS was changed from \"iso-8859-1\" "
 "to \"utf-8\"."
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1616
+#: en/installation-and-basic-configuration.xml:1615
 msgid ""
 "This will only affect you if you did not specify a charset in "
 "Kernel/Config.pm (all installations that were made with the web installer "
@@ -3667,7 +3666,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1623
+#: en/installation-and-basic-configuration.xml:1622
 #, no-wrap
 msgid ""
 "    $Self->{'DefaultCharset'} = 'iso-8859-1';\n"
@@ -3675,33 +3674,33 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1621
+#: en/installation-and-basic-configuration.xml:1620
 msgid ""
 "If you experience problems with the new charset, add this line to "
 "Kernel/Config.pm: <placeholder type=\"screen\" id=\"0\"/>"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1627
+#: en/installation-and-basic-configuration.xml:1626
 msgid ""
 "In general, using \"utf-8\" is the recommended mode of running OTRS, and "
 "switching from \"iso-8859-1\" should work well."
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1631
+#: en/installation-and-basic-configuration.xml:1630
 msgid ""
 "Please note: We recommend to change existing non-UTF-8 installations of OTRS "
 "to UTF-8 with the upgrade to 3.0. All other encodings are now deprecated."
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1635
+#: en/installation-and-basic-configuration.xml:1634
 msgid "OTRS 3.1 will only allow UTF-8 as internal charset."
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1640
+#: en/installation-and-basic-configuration.xml:1639
 msgid ""
 "Starting with OTRS 3.0, application modules may have their own special CSS "
 "and/or JavaScript. This is part of the so-called frontend module "
@@ -3711,7 +3710,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1650
+#: en/installation-and-basic-configuration.xml:1649
 #, no-wrap
 msgid ""
 "    $Self->{'Frontend::Module'}->{'AgentStats'} = { ... };\n"
@@ -3719,7 +3718,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1647
+#: en/installation-and-basic-configuration.xml:1646
 msgid ""
 "To check if you are affected, please look at the file "
 "<filename>Kernel/Config/ZZZAuto.pm</filename> and look for entries like "
@@ -3727,7 +3726,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1654
+#: en/installation-and-basic-configuration.xml:1653
 msgid ""
 "These settings should be reset to their default value in Admin -> SysConfig "
 "(in this case: 'Frontend::Module###AgentStats') with the little \"Reset\" "
@@ -3738,7 +3737,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1662
+#: en/installation-and-basic-configuration.xml:1661
 msgid ""
 "The same procedure must be executed for the setting "
 "\"Frontend::ToolBarModule###1-Ticket::TicketSearchFulltext\", as this now "
@@ -3747,12 +3746,12 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1670
+#: en/installation-and-basic-configuration.xml:1669
 msgid "Customer Database Backend Field Renaming"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1673
+#: en/installation-and-basic-configuration.xml:1672
 msgid ""
 "The field 'salutation' in the built-in customer database has been renamed to "
 "the more appropriate 'title'. If you are using the built-in database data "
@@ -3763,7 +3762,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1683
+#: en/installation-and-basic-configuration.xml:1682
 #, no-wrap
 msgid ""
 "     [ 'UserSalutation', 'Salutation', 'salutation', 1, 0, 'var', '', 0 ],\n"
@@ -3771,7 +3770,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1689
+#: en/installation-and-basic-configuration.xml:1688
 #, no-wrap
 msgid ""
 "     [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],\n"
@@ -3779,19 +3778,19 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1680
+#: en/installation-and-basic-configuration.xml:1679
 msgid ""
 "Change this line: <placeholder type=\"screen\" id=\"0\"/> to: <placeholder "
 "type=\"screen\" id=\"1\"/>"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1695
+#: en/installation-and-basic-configuration.xml:1694
 msgid "Optional: Mark Tickets as Read"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1706
+#: en/installation-and-basic-configuration.xml:1705
 #, no-wrap
 msgid ""
 "shell> bin/otrs.MarkTicketAsSeen.pl\n"
@@ -3799,7 +3798,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1698
+#: en/installation-and-basic-configuration.xml:1697
 msgid ""
 "In OTRS 3.0 there is a new feature: new tickets and new articles which an "
 "Agent did not read yet are highlighted as 'unread'. For all tickets which "
@@ -3811,17 +3810,17 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1711
+#: en/installation-and-basic-configuration.xml:1710
 msgid "Well done!"
 msgstr ""
 
 #. type: Content of: <chapter><section><title>
-#: en/installation-and-basic-configuration.xml:1717
+#: en/installation-and-basic-configuration.xml:1716
 msgid "Upgrading Windows Installer"
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/installation-and-basic-configuration.xml:1719
+#: en/installation-and-basic-configuration.xml:1718
 msgid ""
 "There's currently no in-place upgrade available for OTRS installations that "
 "were done with the Windows Installer. The upgrade process basically consists "
@@ -3831,7 +3830,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/installation-and-basic-configuration.xml:1725
+#: en/installation-and-basic-configuration.xml:1724
 msgid ""
 "Upgrading is described in <ulink "
 "url=\"http://faq.otrs.org/otrs/public.pl?Action=PublicFAQ;ItemID=351\">FAQ# "
