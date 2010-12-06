@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-12-02 15:37+0100\n"
+"POT-Creation-Date: 2010-12-06 12:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1826,7 +1826,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/installation-and-basic-configuration.xml:87 en/installation-and-basic-configuration.xml:126 en/installation-and-basic-configuration.xml:161 en/installation-and-basic-configuration.xml:287 en/installation-and-basic-configuration.xml:310 en/installation-and-basic-configuration.xml:329 en/installation-and-basic-configuration.xml:550 en/installation-and-basic-configuration.xml:630 en/installation-and-basic-configuration.xml:682 en/installation-and-basic-configuration.xml:718 en/installation-and-basic-configuration.xml:893 en/installation-and-basic-configuration.xml:967 en/installation-and-basic-configuration.xml:1096 en/installation-and-basic-configuration.xml:1118 en/installation-and-basic-configuration.xml:1298 en/installation-and-basic-configuration.xml:1323 en/email.xml:181 en/external-backends.xml:171 en/external-backends.xml:241 en/external-backends.xml:1184 en/states.xml:143 en/pgp.xml:31 en/pgp.xml:164 en/smime.xml:31 en/smime.xml:67 en/smime.xml:117 en/smime.xml:166 en/smime.xml:219 en/backup-and-restore.xml:28 en/backup-and-restore.xml:47 en/backup-and-restore.xml:68 en/backup-and-restore.xml:97 en/backup-and-restore.xml:118
+#: en/installation-and-basic-configuration.xml:87 en/installation-and-basic-configuration.xml:126 en/installation-and-basic-configuration.xml:161 en/installation-and-basic-configuration.xml:287 en/installation-and-basic-configuration.xml:310 en/installation-and-basic-configuration.xml:329 en/installation-and-basic-configuration.xml:550 en/installation-and-basic-configuration.xml:630 en/installation-and-basic-configuration.xml:682 en/installation-and-basic-configuration.xml:718 en/installation-and-basic-configuration.xml:893 en/installation-and-basic-configuration.xml:967 en/installation-and-basic-configuration.xml:1096 en/installation-and-basic-configuration.xml:1118 en/installation-and-basic-configuration.xml:1298 en/installation-and-basic-configuration.xml:1323 en/installation-and-basic-configuration.xml:1493 en/installation-and-basic-configuration.xml:1548 en/installation-and-basic-configuration.xml:1575 en/installation-and-basic-configuration.xml:1588 en/email.xml:181 en/external-backends.xml:171 en/external-backends.xml:241 en/external-backends.xml:1184 en/states.xml:143 en/pgp.xml:31 en/pgp.xml:164 en/smime.xml:31 en/smime.xml:67 en/smime.xml:117 en/smime.xml:166 en/smime.xml:219 en/backup-and-restore.xml:28 en/backup-and-restore.xml:47 en/backup-and-restore.xml:68 en/backup-and-restore.xml:97 en/backup-and-restore.xml:118
 msgid "<placeholder type=\"screen\" id=\"0\"/>"
 msgstr ""
 
@@ -3263,7 +3263,7 @@ msgid ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.4 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.5 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -3402,280 +3402,263 @@ msgstr ""
 
 #. type: Content of: <chapter><section><title>
 #: en/installation-and-basic-configuration.xml:1437
-msgid "Upgrading the OTRS Frameworks"
+msgid "Upgrading the OTRS Framework from 2.4 to 3.0"
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
 #: en/installation-and-basic-configuration.xml:1439
-msgid "These instructions are for people upgrading OTRS from \"2.4\" to \"3.0\"."
+msgid ""
+"These instructions are for people upgrading OTRS from \"2.4\" to \"3.0\", "
+"and applies both for RPM and source code (tarball) upgrades."
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/installation-and-basic-configuration.xml:1442
+#: en/installation-and-basic-configuration.xml:1443
 msgid ""
-"If you are running a lower version of OTRS you need to follow the upgrade "
+"If you are running a lower version of OTRS you have to follow the upgrade "
 "path to 2.4 first "
-"(1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4 ...)."
+"(1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...)."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><title>
-#: en/installation-and-basic-configuration.xml:1447
-msgid "Upgrading .tar.gz or RPM"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1451
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1450
 msgid "Stop all relevant services"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1454 en/installation-and-basic-configuration.xml:1610
-msgid "e. g. (depends on used services):"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1457
-msgid "shell&gt; /etc/init.d/cron stop"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1460
-msgid "shell&gt; /etc/init.d/postfix stop"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1463
-msgid "shell&gt; /etc/init.d/apache stop"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1466
-msgid "shell&gt; /etc/init.d/mysql stop"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1471
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1455
+#, no-wrap
 msgid ""
-"Backup everything below $OTRS_HOME (default: "
-"OTRS_HOME=/opt/otrs). Kernel/Config.pm, Kernel/Config/GenericAgent.pm, "
-"Kernel/Config/Files/ZZZAuto.pm, var/*, as well as the database."
+"shell&gt; /etc/init.d/cron stop\n"
+"shell&gt; /etc/init.d/postfix stop\n"
+"shell&gt; /etc/init.d/apache stop\n"
+"            "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1476
-msgid "Make sure that you have backed up everything."
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1453 en/installation-and-basic-configuration.xml:1599
+msgid "e. g. (depends on used services): <placeholder type=\"screen\" id=\"0\"/>"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1481
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1463
+msgid "Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs):"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1465 en/installation-and-basic-configuration.xml:1502
+msgid "<filename>Kernel/Config.pm</filename>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1466 en/installation-and-basic-configuration.xml:1503
+msgid "<filename>Kernel/Config/GenericAgent.pm</filename>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1467 en/installation-and-basic-configuration.xml:1504
+msgid "<filename>Kernel/Config/Files/ZZZAuto.pm</filename>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1468
+msgid "<filename>var/*</filename>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1469
+msgid "<filename>as well as the database</filename>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1475
+msgid "Make sure that you have backed up everything. ;-)"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1480
 msgid ""
 "Setup new system (optional). If possible try this install on a separate "
 "machine for testing first."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1486
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1485
 msgid "Install the new release (tar or RPM)"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1491
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1490
 msgid "With the tarball:"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para><screen>
 #: en/installation-and-basic-configuration.xml:1494
-msgid "shell&gt; cd /opt"
+#, no-wrap
+msgid ""
+"shell&gt; cd /opt\n"
+"shell&gt; tar -xzf otrs-x.x.x.tar.gz\n"
+"shell&gt; ln -s otrs-x.x.x otrs\n"
+"                "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1497
-msgid "shell&gt; tar -xzf otrs-x.x.x.tar.gz"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1500
-msgid "shell&gt; ln -s otrs-x.x.x otrs"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1503
 msgid "Restore old config files."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1506
-msgid "o Kernel/Config.pm"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1509
-msgid "o Kernel/Config/GenericAgent.pm"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para><screen>
 #: en/installation-and-basic-configuration.xml:1512
-msgid "o Kernel/Config/Files/ZZZAuto.pm"
+#, no-wrap
+msgid ""
+"shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm\n"
+"                "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1517
-msgid "With the RPM:"
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1510
+msgid "With the RPM: <placeholder type=\"screen\" id=\"0\"/>"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1520
-msgid "shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1523
+#. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1516
 msgid "Restore old config files not needed, done by RPM."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1530
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1523
 msgid "Own themes"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1533
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1526
 msgid ""
 "Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible, so don't use "
-"your old themes)!"
+"your old themes)! Themes are located under "
+"$OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1536
-msgid ""
-"Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: "
-"OTRS_HOME=/opt/otrs)"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1541
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1532
 msgid "Set file permissions"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1544
-msgid "If you use the tarball, execute $OTRS_HOME/bin/otrs.SetPermissions.pl!"
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1537
+#, no-wrap
+msgid ""
+"shell> cd /opt/otrs/\n"
+"shell> bin/otrs.SetPermissions.pl\n"
+"            "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1549
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1535
+msgid ""
+"If the tarball is used, execute: <placeholder type=\"screen\" id=\"0\"/> "
+"with the permissions needed for your system setup."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1545
 msgid "Apply the database changes (part 1/2)"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1552
-msgid "shell&gt; cd /opt/otrs/"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1555 en/installation-and-basic-configuration.xml:1582
-msgid "MySQL:"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1558
-msgid "shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1561 en/installation-and-basic-configuration.xml:1588
-msgid "PostgreSQL:"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1564
-msgid "shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1569
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1549
+#, no-wrap
 msgid ""
-"Run the migration script (as OTRS user, _not_ as root): You must execute the "
-"migration script to migrate some data from the old database structure to the "
-"new one. Please run"
+"shell&gt; cd /opt/otrs/\n"
+"\n"
+"# MySQL:\n"
+"shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs\n"
+"# PostgreSQL:\n"
+"shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs\n"
+"            "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1574
-msgid "shell&gt; scripts/DBUpdate-to-3.0.pl"
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1560
+msgid "Run the migration script (as OTRS user, _not_ as root):"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1579
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1566
+#, no-wrap
+msgid ""
+"shell&gt; scripts/DBUpdate-to-3.0.pl\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1563
+msgid ""
+"You must execute the migration script to migrate some data from the old "
+"database structure to the new one. Please run <placeholder type=\"screen\" "
+"id=\"0\"/>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1572
 msgid "Apply the database changes (part 2/2):"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1585
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1576
+#, no-wrap
 msgid ""
+"# MySQL:\n"
 "shell&gt; cat scripts/DBUpdate-to-3.0-post.mysql.sql | mysql -p -f -u root "
-"otrs"
+"otrs\n"
+"# PostgreSQL:\n"
+"shell&gt; cat scripts/DBUpdate-to-3.0-post.postgresql.sql | psql otrs\n"
+"            "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1591
-msgid "shell&gt; cat scripts/DBUpdate-to-3.0-post.postgresql.sql | psql otrs"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1596
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1585
 msgid "Refresh the configuration and delete caches. Please run:"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1599
-msgid "shell&gt; bin/otrs.RebuildConfig.pl"
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1589
+#, no-wrap
+msgid ""
+"shell&gt; bin/otrs.RebuildConfig.pl\n"
+"shell&gt; bin/otrs.DeleteCache.pl\n"
+"            "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1602
-msgid "shell&gt; bin/otrs.DeleteCache.pl"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1607
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1596
 msgid "Restart your services"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1613
-msgid "shell&gt; /etc/init.d/cron start"
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1601
+#, no-wrap
+msgid ""
+"shell&gt; /etc/init.d/cron start\n"
+"shell&gt; /etc/init.d/postfix start\n"
+"shell&gt; /etc/init.d/apache start\n"
+"shell&gt; /etc/init.d/mysql start\n"
+"            "
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1616
-msgid "shell&gt; /etc/init.d/postfix start"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1619
-msgid "shell&gt; /etc/init.d/apache start"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1622
-msgid "shell&gt; /etc/init.d/mysql start"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1627
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1610
 msgid "Check for encoding issues"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1630
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1613
 msgid ""
 "With OTRS 3.0, the default charset of OTRS was changed from \"iso-8859-1\" "
 "to \"utf-8\"."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1633
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1616
 msgid ""
 "This will only affect you if you did not specify a charset in "
 "Kernel/Config.pm (all installations that were made with the web installer "
@@ -3683,32 +3666,162 @@ msgid ""
 "the AdminSysConfig."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1638
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1623
+#, no-wrap
+msgid ""
+"    $Self->{'DefaultCharset'} = 'iso-8859-1';\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1621
 msgid ""
 "If you experience problems with the new charset, add this line to "
-"Kernel/Config.pm:"
+"Kernel/Config.pm: <placeholder type=\"screen\" id=\"0\"/>"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1641
-msgid "$Self->{'DefaultCharset'} = 'iso-8859-1';"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1644
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1627
 msgid ""
 "In general, using \"utf-8\" is the recommended mode of running OTRS, and "
 "switching from \"iso-8859-1\" should work well."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><title>
-#: en/installation-and-basic-configuration.xml:1652
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1631
+msgid ""
+"Please note: We recommend to change existing non-UTF-8 installations of OTRS "
+"to UTF-8 with the upgrade to 3.0. All other encodings are now deprecated."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1635
+msgid "OTRS 3.1 will only allow UTF-8 as internal charset."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1640
+msgid ""
+"Starting with OTRS 3.0, application modules may have their own special CSS "
+"and/or JavaScript. This is part of the so-called frontend module "
+"registration of the modules in the SysConfig. This may cause problems during "
+"the upgrade, because locally modified frontend module configuration settings "
+"will not catch the updates of the new default configuration."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1650
+#, no-wrap
+msgid ""
+"    $Self->{'Frontend::Module'}->{'AgentStats'} = { ... };\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1647
+msgid ""
+"To check if you are affected, please look at the file "
+"<filename>Kernel/Config/ZZZAuto.pm</filename> and look for entries like "
+"<placeholder type=\"screen\" id=\"0\"/>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1654
+msgid ""
+"These settings should be reset to their default value in Admin -> SysConfig "
+"(in this case: 'Frontend::Module###AgentStats') with the little \"Reset\" "
+"button next to the \"Active\" checkbox. Then the settings will be reset with "
+"the new module-specific settings and no longer show up in "
+"<filename>Kernel/Config/Files/ZZZAuto.pm</filename>. After this procedure, "
+"you may customize these settings again, if needed."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1662
+msgid ""
+"The same procedure must be executed for the setting "
+"\"Frontend::ToolBarModule###1-Ticket::TicketSearchFulltext\", as this now "
+"also uses module specific CSS. If this setting is not activated on your "
+"system, you can safely omit this step."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1670
+msgid "Customer Database Backend Field Renaming"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1673
+msgid ""
+"The field 'salutation' in the built-in customer database has been renamed to "
+"the more appropriate 'title'. If you are using the built-in database data "
+"source for customers, and you have changed the configuration, for instance "
+"because you've added fields to the customer table, or because you've enabled "
+"Customer Company support, you should change the mapping in your "
+"<filename>Kernel/Config.pm</filename>:"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1683
+#, no-wrap
+msgid ""
+"     [ 'UserSalutation', 'Salutation', 'salutation', 1, 0, 'var', '', 0 ],\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1689
+#, no-wrap
+msgid ""
+"     [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1680
+msgid ""
+"Change this line: <placeholder type=\"screen\" id=\"0\"/> to: <placeholder "
+"type=\"screen\" id=\"1\"/>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1695
+msgid "Optional: Mark Tickets as Read"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1706
+#, no-wrap
+msgid ""
+"shell> bin/otrs.MarkTicketAsSeen.pl\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1698
+msgid ""
+"In OTRS 3.0 there is a new feature: new tickets and new articles which an "
+"Agent did not read yet are highlighted as 'unread'. For all tickets which "
+"were created before the upgrade to OTRS 3.0, the 'read' information is "
+"missing, and therefore these tickets will be marked as 'unread'. If this "
+"bothers you, you can use a script to set all tickets and articles as read "
+"for all agents which have read permissions for these tickets. Note that this "
+"script may run for a while! <placeholder type=\"screen\" id=\"0\"/>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1711
+msgid "Well done!"
+msgstr ""
+
+#. type: Content of: <chapter><section><title>
+#: en/installation-and-basic-configuration.xml:1717
 msgid "Upgrading Windows Installer"
 msgstr ""
 
-#. type: Content of: <chapter><section><section><para>
-#: en/installation-and-basic-configuration.xml:1654
+#. type: Content of: <chapter><section><para>
+#: en/installation-and-basic-configuration.xml:1719
 msgid ""
 "There's currently no in-place upgrade available for OTRS installations that "
 "were done with the Windows Installer. The upgrade process basically consists "
@@ -3717,8 +3830,8 @@ msgid ""
 "needed."
 msgstr ""
 
-#. type: Content of: <chapter><section><section><para>
-#: en/installation-and-basic-configuration.xml:1660
+#. type: Content of: <chapter><section><para>
+#: en/installation-and-basic-configuration.xml:1725
 msgid ""
 "Upgrading is described in <ulink "
 "url=\"http://faq.otrs.org/otrs/public.pl?Action=PublicFAQ;ItemID=351\">FAQ# "
