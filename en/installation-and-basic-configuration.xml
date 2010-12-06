@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.49 2010-12-03 15:33:52 reb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.50 2010-12-06 10:45:22 mg Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -1300,7 +1300,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.49 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.50 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1433,162 +1433,151 @@ linux:/opt/otrs/bin#
 
 </section>
 
-<section id="upgrade">
-<title>Upgrading the OTRS Frameworks</title>
+<section id="upgrade-2.4-to-3.0">
+<title>Upgrading the OTRS Framework from 2.4 to 3.0</title>
 <para>
-These instructions are for people upgrading OTRS from "2.4" to "3.0".
+These instructions are for people upgrading OTRS from "2.4" to "3.0",
+and applies both for RPM and source code (tarball) upgrades.
 </para>
 <para>
-If you are running a lower version of OTRS you need to follow the upgrade path
-to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4 ...).
+If you are running a lower version of OTRS you have to follow the upgrade path
+to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...).
 </para>
 
-<section id="upgrade-2.4-to-3.0">
-<title>Upgrading .tar.gz or RPM</title>
-  <itemizedlist>
+  <orderedlist>
       <listitem>
         <para>
-    Stop all relevant services
+            Stop all relevant services
         </para>
         <para>
-    e. g. (depends on used services):
-        </para>
-        <para>
-    shell&gt; /etc/init.d/cron stop
-        </para>
-        <para>
-    shell&gt; /etc/init.d/postfix stop
-        </para>
-        <para>
-    shell&gt; /etc/init.d/apache stop
-        </para>
-        <para>
-    shell&gt; /etc/init.d/mysql stop
+            e. g. (depends on used services):
+            <screen>
+shell&gt; /etc/init.d/cron stop
+shell&gt; /etc/init.d/postfix stop
+shell&gt; /etc/init.d/apache stop
+            </screen>
         </para>
       </listitem>
       <listitem>
         <para>
-    Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs). Kernel/Config.pm, Kernel/Config/GenericAgent.pm, Kernel/Config/Files/ZZZAuto.pm, var/*, as well as the database.
+            Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs):
+            <itemizedlist>
+                <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
+                <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
+                <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
+                <listitem><para><filename>var/*</filename></para></listitem>
+                <listitem><para><filename>as well as the database</filename></para></listitem>
+            </itemizedlist>
         </para>
       </listitem>
       <listitem>
         <para>
-    Make sure that you have backed up everything.
+            Make sure that you have backed up everything. ;-)
         </para>
       </listitem>
       <listitem>
         <para>
-    Setup new system (optional). If possible try this install on a separate machine for testing first.
+            Setup new system (optional). If possible try this install on a separate machine for testing first.
         </para>
       </listitem>
       <listitem>
         <para>
-    Install the new release (tar or RPM)
+            Install the new release (tar or RPM)
         </para>
          <itemizedlist>
           <listitem>
             <para>
-    With the tarball:
+                With the tarball:
             </para>
             <para>
-    shell&gt; cd /opt
+                <screen>
+shell&gt; cd /opt
+shell&gt; tar -xzf otrs-x.x.x.tar.gz
+shell&gt; ln -s otrs-x.x.x otrs
+                </screen>
             </para>
             <para>
-    shell&gt; tar -xzf otrs-x.x.x.tar.gz
-            </para>
-            <para>
-    shell&gt; ln -s otrs-x.x.x otrs
-            </para>
-            <para>
-    Restore old config files.
-            </para>
-            <para>
-    o Kernel/Config.pm
-            </para>
-            <para>
-    o Kernel/Config/GenericAgent.pm
-            </para>
-            <para>
-    o Kernel/Config/Files/ZZZAuto.pm
+                Restore old config files.
+                <itemizedlist>
+                    <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
+                    <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
+                    <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
+                </itemizedlist>
             </para>
           </listitem>
           <listitem>
             <para>
-    With the RPM:
+                With the RPM:
+                <screen>
+shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
+                </screen>
             </para>
             <para>
-    shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
-            </para>
-            <para>
-    Restore old config files not needed, done by RPM.
+                Restore old config files not needed, done by RPM.
             </para>
           </listitem>
          </itemizedlist>
       </listitem>
       <listitem>
         <para>
-    Own themes
+            Own themes
         </para>
         <para>
-    Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible, so don't use your old themes)!
-        </para>
-        <para>
-    Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)
+            Note: The OTRS themes between 2.4 and 3.0 are _not_ compatible, so don't use your old themes)!
+            Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)
         </para>
       </listitem>
       <listitem>
         <para>
-    Set file permissions
+            Set file permissions
         </para>
         <para>
-If you use the tarball, execute $OTRS_HOME/bin/otrs.SetPermissions.pl!
+            If the tarball is used, execute:
+            <screen>
+shell> cd /opt/otrs/
+shell> bin/otrs.SetPermissions.pl
+            </screen>
+            with the permissions needed for your system setup.
         </para>
       </listitem>
       <listitem>
         <para>
-Apply the database changes (part 1/2)
+            Apply the database changes (part 1/2)
         </para>
         <para>
-            shell&gt; cd /opt/otrs/
-        </para>
-        <para>
-MySQL:
-        </para>
-        <para>
+            <screen>
+shell&gt; cd /opt/otrs/
+
+# MySQL:
 shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs
-        </para>
-        <para>
-PostgreSQL:
-        </para>
-        <para>
+# PostgreSQL:
 shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs
+            </screen>
         </para>
       </listitem>
       <listitem>
         <para>
-Run the migration script (as OTRS user, _not_ as root):
-You must execute the migration script to migrate some data from the old database
-structure to the new one. Please run
+            Run the migration script (as OTRS user, _not_ as root):
         </para>
         <para>
+            You must execute the migration script to migrate some data from the old database
+            structure to the new one. Please run
+            <screen>
 shell&gt; scripts/DBUpdate-to-3.0.pl
+            </screen>
         </para>
       </listitem>
       <listitem>
         <para>
-Apply the database changes (part 2/2):
+            Apply the database changes (part 2/2):
         </para>
         <para>
-MySQL:
-        </para>
-        <para>
+            <screen>
+# MySQL:
 shell&gt; cat scripts/DBUpdate-to-3.0-post.mysql.sql | mysql -p -f -u root otrs
-        </para>
-        <para>
-PostgreSQL:
-        </para>
-        <para>
+# PostgreSQL:
 shell&gt; cat scripts/DBUpdate-to-3.0-post.postgresql.sql | psql otrs
+            </screen>
         </para>
       </listitem>
       <listitem>
@@ -1596,30 +1585,24 @@ shell&gt; cat scripts/DBUpdate-to-3.0-post.postgresql.sql | psql otrs
 Refresh the configuration and delete caches. Please run:
         </para>
         <para>
+            <screen>
 shell&gt; bin/otrs.RebuildConfig.pl
-        </para>
-        <para>
 shell&gt; bin/otrs.DeleteCache.pl
+            </screen>
         </para>
       </listitem>
       <listitem>
         <para>
-Restart your services
+            Restart your services
         </para>
         <para>
-    e. g. (depends on used services):
-        </para>
-        <para>
-    shell&gt; /etc/init.d/cron start
-        </para>
-        <para>
-    shell&gt; /etc/init.d/postfix start
-        </para>
-        <para>
-    shell&gt; /etc/init.d/apache start
-        </para>
-        <para>
-    shell&gt; /etc/init.d/mysql start
+            e. g. (depends on used services):
+            <screen>
+shell&gt; /etc/init.d/cron start
+shell&gt; /etc/init.d/postfix start
+shell&gt; /etc/init.d/apache start
+shell&gt; /etc/init.d/mysql start
+            </screen>
         </para>
       </listitem>
       <listitem>
@@ -1627,25 +1610,107 @@ Restart your services
     Check for encoding issues
         </para>
         <para>
-    With OTRS 3.0, the default charset of OTRS was changed from "iso-8859-1" to "utf-8".
+            With OTRS 3.0, the default charset of OTRS was changed from "iso-8859-1" to "utf-8".
         </para>
         <para>
-    This will only affect you if you did not specify a charset in Kernel/Config.pm (all
-    installations that were made with the web installer have a custom setting there) or
-    if you didn't change the default charset in the AdminSysConfig.
+            This will only affect you if you did not specify a charset in Kernel/Config.pm (all
+            installations that were made with the web installer have a custom setting there) or
+            if you didn't change the default charset in the AdminSysConfig.
         </para>
         <para>
-    If you experience problems with the new charset, add this line to Kernel/Config.pm:
-        </para>
-        <para>
+            If you experience problems with the new charset, add this line to Kernel/Config.pm:
+            <screen>
     $Self->{'DefaultCharset'} = 'iso-8859-1';
+            </screen>
         </para>
         <para>
-    In general, using "utf-8" is the recommended mode of running OTRS, and switching from
-    "iso-8859-1" should work well.
+            In general, using "utf-8" is the recommended mode of running OTRS, and switching from
+            "iso-8859-1" should work well.
+        </para>
+        <para>
+            Please note: We recommend to change existing non-UTF-8 installations of OTRS to UTF-8
+            with the upgrade to 3.0. All other encodings are now deprecated.
+        </para>
+        <para>
+            OTRS 3.1 will only allow UTF-8 as internal charset.
         </para>
       </listitem>
-  </itemizedlist>
+      <listitem>
+        <para>
+            Starting with OTRS 3.0, application modules may have their own special CSS and/or
+            JavaScript. This is part of the so-called frontend module registration of the
+            modules in the SysConfig. This may cause problems during the upgrade, because
+            locally modified frontend module configuration settings will not catch the updates
+            of the new default configuration.
+        </para>
+        <para>
+            To check if you are affected, please look at the file <filename>Kernel/Config/ZZZAuto.pm</filename> and
+            look for entries like
+            <screen>
+    $Self->{'Frontend::Module'}->{'AgentStats'} = { ... };
+            </screen>
+        </para>
+        <para>
+            These settings should be reset to their default value in Admin -> SysConfig
+            (in this case: 'Frontend::Module###AgentStats') with the little "Reset" button
+            next to the "Active" checkbox. Then the settings will be reset with the new
+            module-specific settings and no longer show up in
+            <filename>Kernel/Config/Files/ZZZAuto.pm</filename>. After this procedure, you may customize these
+            settings again, if needed.
+        </para>
+        <para>
+            The same procedure must be executed for the setting
+            "Frontend::ToolBarModule###1-Ticket::TicketSearchFulltext", as this now also uses
+            module specific CSS. If this setting is not activated on your system, you can
+            safely omit this step.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Customer Database Backend Field Renaming
+        </para>
+        <para>
+            The field 'salutation' in the built-in customer database has been renamed to
+            the more appropriate 'title'. If you are using the built-in database data
+            source for customers, and you have changed the configuration, for instance
+            because you've added fields to the customer table, or because you've enabled
+            Customer Company support, you should change the mapping in your <filename>Kernel/Config.pm</filename>:
+        </para>
+        <para>
+             Change this line:
+
+            <screen>
+     [ 'UserSalutation', 'Salutation', 'salutation', 1, 0, 'var', '', 0 ],
+            </screen>
+
+            to:
+
+            <screen>
+     [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Optional: Mark Tickets as Read
+        </para>
+        <para>
+            In OTRS 3.0 there is a new feature: new tickets and new articles which an Agent
+            did not read yet are highlighted as 'unread'. For all tickets which were created
+            before the upgrade to OTRS 3.0, the 'read' information is missing, and therefore
+            these tickets will be marked as 'unread'. If this bothers you, you can use a script
+            to set all tickets and articles as read for all agents which have read permissions
+            for these tickets. Note that this script may run for a while!
+
+            <screen>
+shell> bin/otrs.MarkTicketAsSeen.pl
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>Well done!</para>
+      </listitem>
+  </orderedlist>
 </section>
 
 <section id="upgrade-windows-installer">
@@ -1663,8 +1728,6 @@ there is also an informative
 <ulink url="http://www.youtube.com/watch?v=sf0R-reMTWc">YouTube video</ulink>
 available.
 </para>
-</section>
-
 </section>
 
 </chapter>
