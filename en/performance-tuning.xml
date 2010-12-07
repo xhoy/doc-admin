@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.12 2010-12-01 13:03:27 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.13 2010-12-07 08:11:15 mg Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -42,7 +42,7 @@ trouble until you have about 60,000 tickets (with 6,000 open tickets) in your sy
 Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful module, it
 should be used when you have above 80,000 tickets (more than 6,000 open tickets) -
 it use an extra ticket_index table, which works like a view. Use
-<file>bin/otrs.RebuildTicketIndex.pl</file>
+<filename>bin/otrs.RebuildTicketIndex.pl</filename>
 for generating an initial index build after switching backends.
 </para>
 </listitem>
