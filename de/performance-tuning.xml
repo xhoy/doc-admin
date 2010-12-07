@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.14 2010-12-06 13:47:48 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.15 2010-12-07 13:56:43 mg Exp $ -->
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
 
@@ -44,9 +44,8 @@ your system.
 Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful
 module, it should be used when you have above 80,000 tickets (more than
 6,000 open tickets) - it use an extra ticket_index table, which works like a
-view. Use
-<file>bin/otrs.RebuildTicketIndex.pl</file>
-for generating an initial index build after switching backends.
+view. Use <filename>bin/otrs.RebuildTicketIndex.pl</filename> for generating
+an initial index build after switching backends.
 </para>
 </listitem>
 

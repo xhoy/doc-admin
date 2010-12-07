@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
-"POT-Creation-Date: 2010-12-06 14:46+0100\n"
-"PO-Revision-Date: 2010-12-07 14:49+0100\n"
+"POT-Creation-Date: 2010-12-07 14:52+0100\n"
+"PO-Revision-Date: 2010-12-07 14:56+0100\n"
 "Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -2830,13 +2830,13 @@ msgstr "Bitte beachten Sie, dass durch die Verwendung von <filename>Cron.sh</fil
 
 #. type: Content of: <chapter><section><section><para><screen>
 #: en/installation-and-basic-configuration.xml:1299
-#, no-wrap
+#, fuzzy, no-wrap
 #| msgid ""
 #| "linux:/opt/otrs/var/cron# cd /opt/otrs/bin/\n"
 #| "linux:/opt/otrs/bin# su otrs\n"
 #| "linux:~/bin$ ./Cron.sh start\n"
 #| "/opt/otrs/bin\n"
-#| "Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.14 $&gt;\n"
+#| "Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;\n"
 #| "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 #| "(using /opt/otrs) done\n"
 #| "linux:~/bin$ exit\n"
@@ -2847,7 +2847,7 @@ msgid ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.14 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -2858,7 +2858,7 @@ msgstr ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.14 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -3090,23 +3090,16 @@ msgstr "<emphasis>Skript 3.19. Crontab-Datei.</emphasis>"
 
 #. type: Content of: <chapter><section><title>
 #: en/installation-and-basic-configuration.xml:1437
-#| msgid "Upgrading the OTRS Frameworks"
 msgid "Upgrading the OTRS Framework from 2.4 to 3.0"
 msgstr "Upgrade des OTRS Frameworks von 2.4 auf 3.0"
 
 #. type: Content of: <chapter><section><para>
 #: en/installation-and-basic-configuration.xml:1439
-#| msgid ""
-#| "These instructions are for people upgrading OTRS from \"2.4\" to \"3.0\"."
 msgid "These instructions are for people upgrading OTRS from \"2.4\" to \"3.0\", and applies both for RPM and source code (tarball) upgrades."
 msgstr "Diese Hinweise sind für Leute gedacht, die von OTRS 2.4 auf 3.0 upgraden, und gilt für RPM-basierte und manuelle Upgrades (tarball)."
 
 #. type: Content of: <chapter><section><para>
 #: en/installation-and-basic-configuration.xml:1443
-#| msgid ""
-#| "If you are running a lower version of OTRS you need to follow the upgrade "
-#| "path to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-"
-#| "&gt;2.4 ...)."
 msgid "If you are running a lower version of OTRS you have to follow the upgrade path to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...)."
 msgstr "Wenn Sie eine ältere Version von OTRS einsetzen, müssen sie zuerst dem Upgrade-Pfad zur 2.4 folgen (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4->&gt;3.0 ...)."
 
@@ -3132,7 +3125,6 @@ msgstr ""
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1453
 #: en/installation-and-basic-configuration.xml:1599
-#| msgid "<placeholder type=\"screen\" id=\"0\"/>"
 msgid "e. g. (depends on used services): <placeholder type=\"screen\" id=\"0\"/>"
 msgstr "z. B. (hängt von eingesetztn Diensten ab): <placeholder type=\"screen\" id=\"0\"/>"
 
@@ -3220,7 +3212,6 @@ msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><itemizedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1510
-#| msgid "<placeholder type=\"screen\" id=\"0\"/>"
 msgid "With the RPM: <placeholder type=\"screen\" id=\"0\"/>"
 msgstr "Per RPM: <placeholder type=\"screen\" id=\"0\"/>"
 
@@ -3352,11 +3343,6 @@ msgstr "Dienste neu starten"
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
 #: en/installation-and-basic-configuration.xml:1601
 #, no-wrap
-#| msgid ""
-#| "shell&gt; /etc/init.d/cron stop\n"
-#| "shell&gt; /etc/init.d/postfix stop\n"
-#| "shell&gt; /etc/init.d/apache stop\n"
-#| "            "
 msgid ""
 "shell&gt; /etc/init.d/cron start\n"
 "shell&gt; /etc/init.d/postfix start\n"
@@ -3635,7 +3621,7 @@ msgstr "Hier haben Sie die Möglichkeit, einen Benutzernamen und ein Kennwort an
 #. type: Content of: <chapter><section><warning><para>
 #: en/first-steps.xml:162
 msgid "This account data is valid on every new installed OTRS system. For that reason you should change the password for the OTRS administrator as soon as possible! This can be done via the <link linkend=\"user-preferences\"> preferences </link> for the OTRS administrator account."
-msgstr "Diese Zugangsdaten werden bei jeder OTRS-Installation standardmäßig vergeben. Da das Kennwort für den OTRS-Administrator somit öffentlich bekannt ist, sollten Sie es schnellstmöglich ändern! Sie können dies nach der Anmeldung als OTRS-Administrator über die <link linkend=\"user-preferences\">Benutzereinstellungen</linkend> vornehmen."
+msgstr "Diese Zugangsdaten werden bei jeder OTRS-Installation standardmäßig vergeben. Da das Kennwort für den OTRS-Administrator somit öffentlich bekannt ist, sollten Sie es schnellstmöglich ändern! Sie können dies nach der Anmeldung als OTRS-Administrator über die <link linkend=\"user-preferences\">Benutzereinstellungen</link> vornehmen."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:175
@@ -10201,17 +10187,7 @@ msgstr ""
 
 #. type: Content of: <chapter><section><section><para><itemizedlist><listitem><para>
 #: en/performance-tuning.xml:42
-msgid "Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful module, it should be used when you have above 80,000 tickets (more than 6,000 open tickets) - it use an extra ticket_index table, which works like a view. Use"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><para><itemizedlist><listitem><para><file>
-#: en/performance-tuning.xml:45
-msgid "bin/otrs.RebuildTicketIndex.pl"
-msgstr ""
-
-#. type: Content of: <chapter><section><section><para><itemizedlist><listitem><para>
-#: en/performance-tuning.xml:46
-msgid "for generating an initial index build after switching backends."
+msgid "Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful module, it should be used when you have above 80,000 tickets (more than 6,000 open tickets) - it use an extra ticket_index table, which works like a view. Use <filename>bin/otrs.RebuildTicketIndex.pl</filename> for generating an initial index build after switching backends."
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
@@ -11345,9 +11321,8 @@ msgstr ""
 #~ "shell&gt; /etc/init.d/apache start\n"
 #~ "shell&gt; /etc/init.d/mysql start\n"
 #~ "            "
-
 #~ msgid "Upgrading .tar.gz or RPM"
 #~ msgstr "Per .tar.gz oder RPM upgraden"
-
 #~ msgid "e. g. (depends on used services):"
 #~ msgstr "z. B. (kommt auf die konkret eingesetzten Dienste an):"
+

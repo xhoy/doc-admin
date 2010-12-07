@@ -3,461 +3,468 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: first-steps.xml,v 1.15 2010-12-06 13:47:47 mg Exp $ -->
+<!-- $Id: first-steps.xml,v 1.16 2010-12-07 13:56:43 mg Exp $ -->
 <chapter id="first-steps-in-otrs">
-<title>First steps in OTRS</title>
+<title>Die ersten Schritte in OTRS</title>
 
 <abstract>
 <para>
-This chapter 's goal is to give a quick overview about how OTRS is working
-and how the web interface is structured. The differences between agents,
-customers and administrators are explained , and the first login as OTRS
-admin will be accomplished to take a closer look at the user preferences
-which are available for every account.
+Dieser Abschnitt soll einen ersten Überblick über die Funktionsweise von
+OTRS und den Aufbau der Weboberfläche des Systems geben. Es werden die
+Unterschiede zwischen Mitarbeitern (Agents), Kunden (Customer) und
+Administratoren erklärt. Anschließend wird die erste Anmeldung als
+OTRS-Administrator durchgeführt und erläutert, was mit Hilfe der
+Benutzereinstellungen für jeden Account innerhalb des Systems festgelegt
+werden kann.
 </para>
 </abstract>
 
 <section id="agent-interface">
-<title>Agent web interface</title>
+<title>Agenten-Weboberfläche</title>
 
 <para>
-All agents use the agent web interface to work with OTRS. Agents answer the
-customer requests, create new tickets for customers or other agents, write
-tickets about telephone calls with customers, write FAQ entries or edit
-customer data, etc.
+Die Mitarbeiter bearbeiten über die Weboberfläche des Systems die Anfragen
+der Kunden, erstellen neue Tickets für andere Mitarbeiter oder Kunden, legen
+Tickets über Telefongespräche mit Kunden an, schreiben FAQ-Einträge,
+bearbeiten Kundendaten usw.
 </para>
 
 <para>
-Soposing that your OTRS host is reachable via the URL <ulink
-url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
-</ulink> , then the agents and also the OTRS administrator can reach the
-login screen by using the address <ulink
-url="http://www.example.com/otrs/index.pl">
-<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink> in a
-web browser (see Figure 4.1 below).
+Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain
+<citetitle>http://www.example.com</citetitle>  erreichbar, so kann der
+Login-Bildschirm für die Mitarbeiter und somit auch für den
+OTRS-Administrator über die URL
+<citetitle>http://www.example.com/otrs/index.pl</citetitle>  aufgerufen
+werden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>index.pl - Agent login screen</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>index.pl - Login-Bildschirm für Agenten</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.1. Login screen of the agent interface.</emphasis>
+    <emphasis>Abb. 4.1. Login-Bildschirm der Agenten-Weboberfläche.</emphasis>
 </para>
 
 </section>
 
 <section id="customer-interface">
-<title>Customer web interface</title>
+<title>Kunden-Weboberfläche</title>
 
 <para>
-Customers have a special web interface in OTRS. Through this web interface
-customers can create new accounts, get an overview on own tickets, create
-and edit tickets, change their account settings, etc.
+Kunden können über das speziell für sie vorhandene Webinterface von OTRS
+einen eigenen Kundenaccount anlegen, die eigenen Tickets einsehen, Tickets
+erstellen und bearbeiten, die Account-Einstellungen anpassen usw.
 </para>
 
 <para>
-Supposing that the host with the OTRS installation is reachable via the
-domain <ulink url="http://www.example.com/">
-<citetitle>http://www.example.com</citetitle> </ulink> then the login screen
-for customers can be reached by the URL <ulink
-url="http://www.example.com/otrs/customer.pl">
-<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink> with
-a web browser (see Figure 4.2 below).
+Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain
+<citetitle>http://www.example.com</citetitle> zu erreichen, so kann der
+Login-Bildschirm für die Kunden über die URL
+<citetitle>http://www.example.com/otrs/customer.pl</citetitle> geladen
+werden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>customer.pl - Customer login screen</screeninfo> <graphic srccredit="customer.pl -
+<screeninfo>customer-pl - Kunden-Weboberfläche</screeninfo> <graphic srccredit="customer.pl -
 screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.2. Login screen of the customer interface.</emphasis>
+    <emphasis>Abb. 4.2. Login-Bildschirm der Kunden-Weboberfläche.</emphasis>
 </para>
 
 </section>
 
 <section id="public-interface">
-<title>Public web interface</title>
+<title>Öffentliche Weboberfläche</title>
 
 <para>
-In addition to the web interfaces for agents and customers, OTRS has a
-public web interface (see Figure 4.3 below) that is available through the
-FAQ-Module (must be installed separately). It provides public access to the
-FAQ system, and lets visitors search through the FAQ entries without any
-authorization.
+Neben diesen beiden Bereichen der Weboberfläche verfügt OTRS weiterhin über
+ein Interface, welches vom FAQ-Modul bereit gestellt wird (muss separat
+installiert werden). Es ist öffentlich, also ohne Anmeldung, zugänglich und
+bietet Zugriff auf das FAQ-System.
 </para>
 
 
 <para>
-Supposing that the host with the OTRS installation is reachable via the
-domain <ulink url="http://www.example.com/">
-<citetitle>http://www.example.com</citetitle> </ulink> then the public web
-interface can be reached via the URL <ulink
-url="http://www.example.com/otrs/faq.pl">
-<citetitle>http://www.example.com/otrs/faq.pl</citetitle> </ulink> . Also
-the address <ulink url="http://www.example.com/otrs/public.pl">
-<citetitle>http://www.example.com/otrs/public.pl</citetitle> </ulink> makes
-it possible to access the FAQ system.
+Das öffentliche Web-Interface ist über die URL
+<citetitle>http://www.example.com/otrs/faq.pl</citetitle>
+erreichbar. Ebenfalls ist ein Zugriff auf die FAQ über die URL
+<citetitle>http://www.example.com/otrs/public.pl</citetitle>  möglich.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>public.pl - Public web interface</screeninfo> <graphic srccredit="public.pl -
+<screeninfo>public.pl - Öffentliche Weboberfläche</screeninfo> <graphic srccredit="public.pl -
 screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.3. Public web interface.</emphasis>
+    <emphasis>Abb. 4.3. Öffentliche Weboberfläche.</emphasis>
 </para>
 
 </section>
 
 <section id="first-login">
-<title>First login</title>
+<title>Die erste Anmeldung</title>
 
 <para>
-Access to the login screen, as described in the section about <link
-linkend="agent-interface"> the agent web interface </link>
+Wie im Abschnitt über die <link
+linkend="agent-interface">Agenten-Weboberfläche</link> beschrieben,
+erreichen Sie den Bildschirm für die Anmeldung am System über die URL
+<citetitle>http://www.example.com/otrs/index.pl</citetitle>.
 </para>
 
 <para>
-The login screen lets you enter a user name and a password. Because no users
-are created after a fresh installation of the system, you have to login as
-OTRS administrator first, using "root@localhost" for username and "root" for
-password.
+Hier haben Sie die Möglichkeit, einen Benutzernamen und ein Kennwort
+anzugeben. Um sich als OTRS-Administrator anzumelden, verwenden Sie als
+Benutzername "root@localhost" und als Kennwort "root".
 </para>
 
 <warning>
 <para>
-This account data is valid on every new installed OTRS system. For that
-reason you should change the password for the OTRS administrator as soon as
-possible! This can be done via the <link linkend="user-preferences">
-preferences </link> for the OTRS administrator account.
+Diese Zugangsdaten werden bei jeder OTRS-Installation standardmäßig
+vergeben. Da das Kennwort für den OTRS-Administrator somit öffentlich
+bekannt ist, sollten Sie es schnellstmöglich ändern! Sie können dies nach
+der Anmeldung als OTRS-Administrator über die <link
+linkend="user-preferences">Benutzereinstellungen</link> vornehmen.
 </para>
 </warning>
 
 <para>
-If you don't want to login as OTRS administrator just enter the user name
-and password for your normal agent account.
+Wollen Sie sich nicht als OTRS-Administrator anmelden, geben Sie einfach den
+Benutzernamen und das Kennwort Ihres normalen OTRS-Accounts in die dafür
+vorgesehenen Eingabefelder ein.
 </para>
 
 <para>
-If you have forgotten your password, you can get a new password through the
-system. Just press in the link below the login button and enter the mail
-address that is registered for you OTRS account into the input field and
-press the submit button (see Figure 4.4).
+Falls Sie einmal ihr Kennwort vergessen haben sollten, können Sie sich
+automatisch vom System ein neues Kennwort an die Mailadresse schicken
+lassen, die für Ihren OTRS-Account im System hinterlegt ist. Geben Sie dazu
+im unteren Bereich des Login-Bildschirms den Benutzernamen Ihres Accounts an
+und schicken Sie die Eingabe über den dafür vorgesehenen Schalter ab.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>login.pl - Request new password</screeninfo> <graphic srccredit="login.pl -
+<screeninfo>login.pl - Neues Passwort anfordern</screeninfo> <graphic srccredit="login.pl -
 screenshot" scale="40"
 fileref="screenshots/request-new-password.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.4. Request new password.</emphasis>
+    <emphasis>Abb. 4.4. Neues Passwort anfordern.</emphasis>
 </para>
 
 </section>
 
 <section id="gui-overview">
-<title>An overview to the web interface</title>
+<title>Die Benutzeroberfläche im Überblick</title>
 
 <para>
-After you have successfully logged into the system, the web interface is
-loaded.  Per default you are in the Dashboard after the login (see Figure
-4.5 below).  The Dashboard is completely customizable. At the beginnig it
-shows your locked tickets, allows direct access to the views: queue, status
-and escalation, and also to create new phone and e-mail tickets. Besides, it
-gives you a quick summary of the tickets which are: pending, escalated, new
-and open, among other things.
+Nachdem Sie sich erfolgreich am System angemeldet haben, wird die Oberfläche
+von OTRS geladen. Standardmäßig befinden Sie sich nach der Anmeldung im
+Dashboard. Dieses Dashboard ist frei anpassbar. Zu Beginn zeigt es Ihre
+gesperrten Tickets und bietet Übersichten über fällige, eskalierte, neue und
+offene Tickets, neben anderen Dingen.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Screen after first successfull login</screeninfo> <graphic srccredit="First screen -
+<screeninfo>Bildschirm nach erster erfolgreicher Anmeldung</screeninfo> <graphic srccredit="First screen -
 screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.5. Dashboard of the agent interface.</emphasis>
+    <emphasis>Abb. 4.5. Dashboard der Agenten-Weboberfläche.</emphasis>
 </para>
 
 <para>
-To improve the clarity, the web interface is separated into different
-areas.  At the very top of the windows, there is some general information,
-like the current username, the logout button, icons that show the amount of
-locked tickets and allow direct access to them, links to create a new
-phone/e-mail ticket. It also gives you the change to go to the queue, status
-and escalation views.
+Um die Übersichtlichkeit zu erhöhen, wurde die Oberfläche von OTRS in
+verschiedene Bereiche aufgeteilt. Oben finden sich einige allgemeine
+Informationen, wie der aktuelle Benutzername, der Abmelden-Knopf, und die
+Menge der gesperrten Tickets.
 </para>
 
 <para>
-Below the icons is the navigation bar. It shows buttons that enable you to
-navigate to different areas or modules of the system and let you execute
-some global actions. By pressing the Dashboard button, you can go to the
-dashboard (default start page, after login). If you click on the Ticket
-button, you will get a submenu with the different valid operations, like
-changing the ticket's view, create a new ticket (phone/e-mail) or search for
-a specific ticket.  The Statistics button is also a menu that allows
-choosing from having an overview of the registered statistics, create a new
-one or import an existing one. The Customers button leads you to the
-Customer Managment. By clicking the Admin button, you can access to all the
-administrator modules, where you can, e.g. create new agents, queues,
-etc. There is also a Search button to make ticket searches.
+Unter diesen Icons befindet sich die Navigationsleiste. Sie zeigt Knöpfe,
+mit denen Sie die verschiedenen Bereiche und Module des Systems ansteuern
+und globale Aktionen auslösen können. Der Dashboard-Knopf führt zum
+Dashboard. Wenn sie den Ticket-Knopf drücken, erhalten Sie ein Untermenü mit
+verschiedenen Operationen, wie den Ticketansichten, der Erstellung neuer
+Tickets oder der Ticketsuche. Der Statistik-Knopf ist auch ein Menü, in dem
+Sie zwischen einer Übersicht der verfügbaren Statistiken, der Neuerstellung
+oder dem Import von Statistiken auswählen können. Der Kunden-Knopf führt in
+die Kunden-Verwaltung. Duch Druck auf den Admin-Knopf haben Sie Zugriff auf
+alle Administrator-Module, wo Sie z. B. neue Agenten, Queues usw. erstellen
+können. Zudem gibt es einen Suchknopf, mit dem man Suchvorgänge ausführen
+kann.
 </para>
 
 <para>
-If some additional application are installed, e.g. the file manager or the
-web mailer, buttons to reach this applications are also displayed.
+Wenn Zusatzmodule installiert werden, dann können diese weitere Menüpunkte
+zur Navigation hinzufügen.
 </para>
 
 <para>
-The red bar below the navbar shows different system messages. If you are
-logged in as OTRS administrator you get a message, that you should not work
-as administrator.
+Die rote Leiste unterhalb des Navigationsbereiches zeigt verschiedene
+Systemnachrichten an. Wenn Sie als 'root'-Benutzer angemeldet sind, erhalten
+Sie hier den Hinweis, dass Sie mit diesem Benutzer nicht regulär arbeiten
+sollten.
 </para>
 
 <para>
-Below the title of the section you are currently in, there are several
-subsections (each of them in a separate box), which can be dragged and
-dropped to reallocate them, as long as they remain in the same column. In
-order to drag the single elements, you need to place the cursor in the
-header of the element.
+Unter dem Haupttitel des Dashboards befinden sich verschiedene
+Unterbereiche, jeweils in einer eigenen Box. Diese können per Drag'n'Drop
+mit der Maus gezogen und losgelassen werden, um sie innerhalb ihrer Spalte
+neu anzuordnen. Dazu müssen Sie den Mauszeiger in den Kopfbereich der Boxen
+bewegen.
 </para>
 
 <para>
-In the left column you can see the data about some tickets (if available),
-clasified in: reminder, escalated, new and open. In each of the categories,
-you are also able to see all tickets you are allowed to access or how many
-tickets you have locked and how many are located in "My Queues".
+In der linken Spalte sehen Sie daten über Tickets, unterteilt in:
+Erinnerung, eskaliert, neu und offen. In jeder Kategorie können Sie alle
+Tickets sehen, auf die Sie Rechte haben.
 </para>
 
 <para>
-"My Queues" are the queues, that you want to observe more attentive. You can
-select them in your <link linkend="user-preferences"> account preferences
-</link> .
+"Meine Queues" sind diejenigen Queues, die Sie aktiv überwachen
+wollen. Diese können Sie in Ihren <link linkend="user-preferences">
+Benutzereinstellungen </link> konfigurieren.
 </para>
 
 <para>
-In the right column you can find the current settings, which will be
-expanded/hidden by pressing in the Settings area, as shown in the Figure 4.6
-(this section is fixed, so you can not drag and drop it). Once you accessed
-to the settings, you can check/unchecked the items and save your changes.
+In der rechten Spalte finden Sie die aktuellen Einstellungen, die durch
+einen Klick auf den Bereich "Einstellungen" aus- oder eingeklappt werden
+können (diesen Bereich können Sie nicht per Drag'n'Drop verschieben. Nachdem
+Sie die Einstellungen geöffnet haben, können Sie die Einträge an- oder
+abwählen und Ihre Änderungen speichern.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Edit the dashboard's settings</screeninfo> <graphic srccredit="Dashboard's
+<screeninfo>Dashboard-Einstellungen bearbeiten</screeninfo> <graphic srccredit="Dashboard's
 settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.6. Settings of the dashboard.</emphasis>
+    <emphasis>Abb. 4.6. Einstellungen des Dashboards.</emphasis>
 </para>
 
 <para>
-Below the settings you can see a statistic of the last 7 days' tickets, as
-you might expect, this graphic will be empty in a brand new system. There is
-also a section for upcoming events and OTRS news.
+Unter den Einstellungen sehen Sie die Statistik der Tickets der letzten 7
+Tage. In einem neuen System ist diese Grafik natürlich leer. Zudem gibt es
+einen Abschnitt für anstehende Ereignisse und Neuigkeiten zu OTRS.
 </para>
 
 <para>
-On the bottom of the screen the site footer is displayed (see Figure 4.7
-below). It contains some links to directly access to the OTRS official
-website, get information about OTRS, ask for help or go to the top of the
-page.
+Im unteren Bildschirmbereich sehen sie die Fußzeile. Sie enthält u. A. Links
+auf die offizielle OTRS-Website und zum Seitenanfang.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Footer</screeninfo> <graphic srccredit="Footer"
+<screeninfo>Fußzeile</screeninfo> <graphic srccredit="Footer"
 scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.7. Footer.</emphasis>
+    <emphasis>Abb. 4.7. Fußzeile.</emphasis>
 </para>
 
 </section>
 
 <section id="what-is-a-queue">
-<title>What is a queue?</title>
+<title>Was verbirgt sich hinter dem Begriff Queue?</title>
 
 <para>
-Because queues are very important in OTRS, this section tries to explain
-more detailed their meaning.
+Da Queues in OTRS sehr wichtig sind und als Grundkonzept hinter allem stehen
+und der Begriff in den letzten Abschnitten schon mehrmals verwendet wurde,
+soll hier näher erklärt werden, was sich hinter dem Begriff Queue verbirgt.
 </para>
 
 <para>
-On common mail systems all messages are into an inbox file. An inbox is a
-big file where the messages are stored. New messages are appended at the end
-of the inbox file. The mail program, which is used to read and write mails,
-reads the inbox file and presents the content to the user.
+Normalerweise werden E-Mails in einer INBOX gespeichert und verwaltet. Eine
+INBOX ist eine große Datei, in der alle E-Mails aneinandergereiht
+werden. Neue E-Mails werden einfach an das Ende der INBOX angehängt. Das
+E-Mail-Programm, welches Sie zum Lesen und Bearbeiten Ihrer Nachrichten
+benutzen,  liest die INBOX-Datei aus, strukturiert den Inhalt dieser Datei
+neu (wenn z. B. eine E-Mail mitten aus der INBOX-Datei gelöscht wird) und
+bereitet den Inhalt für Sie als Nutzer auf.
 </para>
 
 <para>
-A queue in OTRS, is somehow comparable to an inbox file, but has some extra
-features. It also can store many messages, but the mails are saved in
-another way. You don't need to know any detail of queues if you only want to
-use OTRS, the only important thing to know is in which queue a ticket is
-stored. The users of OTRS, better called agents, can open and edit tickets
-in a queue and of course they can move tickets from one queue to another.
-But why should they move tickets?
+Eine Queue in OTRS ist ein Mechanismus, mit dessen Hilfe viele Tickets
+gespeichert und verwaltet werden können, also auch eine Art INBOX. Als
+Anwender ist es völlig unwichtig zu wissen, wo oder wie das Ticket gesichert
+ist. Wichtig ist nur, zu wissen, welcher Queue das Ticket zugeordnet
+wurde. Anwender, also die sog. Agents (z. B. die Mitarbeiter ihrer
+Supportabteilung), können nun Tickets zwischen den Queues verschieben! Warum
+aber sollten sie das tun?
 </para>
 
 <para>
-To explain it more practically, remember Max's company describe in the
-section about a <link linkend="basic-tts-example"> example of a ticket
-system </link> . Max installed OTRS to get rid of his support chaos. His
-agents and himself are using the system to manage the support requests for
-the video recorders.
+Gehen wir zur praktischeren Erklärung noch mal von Max Mustermanns
+Unternehmen aus dem Abschnitt ein Beispiel für ein Trouble Ticket System
+aus. Max Mustermann hat nach seinem anfänglichen Support-Chaos OTRS
+installiert, und er und seine Mitarbeiter nutzen das System zur Bearbeitung
+der Anfragen für die Videorekorder.
 </para>
 
 <para>
-One queue that contains all request is enough for this situation. However,
-after some time, Max decides to also sell DVD recorders.  Now, the customers
-not only have questions about the video recorder, but also about the new
-product. More and more emails get into the one queue of Max's OTRS and it's
-hard to keep the overview.
+Eine Queue, in die alle Anfragen einsortiert werden, reicht in dieser
+Situation aus. Nach einiger Zeit bringt Max Mustermann einen DVD-Player auf
+den Markt, der von den Kunden gut angenommen wird. Doch auch zu diesem Gerät
+laufen immer mehr Anfragen in das Ticket System und die Verwaltung der
+E-Mails mit einer Queue wird immer unübersichtlicher.
 </para>
 
 <para>
-One day, Max decides to optimize the structure of his support system and
-adds two new queues, thus now three queues are used. Into the old queue
-("raw") all mails are stored if they arrive at the ticket system. The two
-new queues are one for the video recorder ("video recorder") and the other
-one for the dvd recorder requests ("dvd recorder").
+Deshalb entschließt sich Max Mustermann nach einiger Zeit, sein
+Supportsystem weiter zu optimieren. Er richtet zwei neue Queues ein, so dass
+er nun insgesamt drei Queues in OTRS definiert hat. Die erste und schon
+länger vorhandene Queue wird zur Eingangsqueue, in die erst mal alle Mails
+wandern, umfunktioniert. Daneben gibt es jetzt noch die neuen Queues
+"Videorekorder" und "DVD-Player".
 </para>
 
 <para>
-Max asks Sandra to watch the "raw" queue and sort (dispatch) the mails
-either into "video recorder" or "dvd recorder", depending on what the
-customer is asking.  John only has access to the "video reorder" queue, Joe
-can only answer tickets in the "dvd recorder" queue. Max is able to edit
-tickets in all queues.
+Herr Mustermann beauftragt Frau Müller als sog. Dispatcherin tätig zu werden
+und mehrmals am Tag die Mails in der Eingangsqueue zu sichten und sie, je
+nach Inhalt, der Queue "Videorecorder" oder der Queue "DVD-Player"
+zuzuordnen. Herr Meier bearbeitet ab jetzt nur noch die Anfragen in der
+Videorekorder-Queue, Herr Schulze geht nur noch auf die Anfragen innerhalb
+der DVD-Player-Queue ein. Beide haben auf die jeweils anderen zwei Queues
+keinen Zugriff. Herr Mustermann kümmert sich weiter wie gewohnt um alle
+Arten von Anfragen und darf auf alle drei Queues zugreifen, die
+Möglichkeiten der Vergabe von Zugriffsrechten innerhalb von OTRS macht es
+möglich.
 </para>
 
 <para>
-Because OTRS supports access management for users, groups and roles, it is
-easy to setup queues that only are accessible for some specific
-accounts. Max could also use another way to get his requests into the
-different queues, with filter rules or if two different mail addresses are
-used Sandra only has to dispatch emails into the two other queues, that
-can't be dispatched automatically.
+Weil OTRS Zugriffskontrolle für Agenten, Gruppen und Rollen unterstützt, ist
+es denkbar einfach, Queues einzurichten, die nur von bestimmten Agenten
+benutzt werden können. Herr Mustermann könnte auch ein anderes Szenario
+umsetzen, um seine Tickets in die verschiedenen Queues zu bekommen, mit
+Hilfe von Filterregeln, oder falls zwei verschidenene E-Mail-Adressen
+verwendet werden, müsste Frau Müller nur die E-Mails in die Queues zuordnen,
+die nicht automatisch einsortiert werden konnten.
 </para>
 
 <para>
-Sorting your incoming messages into different queues helps you to keep the
-support system structured and tidy. Because your agents are arranged into
-different groups with different access rights onto queues, the system can be
-optimized even more. Queues can be used to define work flow processes or to
-create the structure of a company. Max could implement, for example, another
-queue called "sales", which could contain the sub queues "requests",
-"offers", "orders", "billing", etc. Such a queue structure could help Max to
-optimize his order transactions.
+Das Sortieren von Mails in verschiedene Queues schafft also Ordnung und mehr
+Übersicht in der täglichen Mailflut, deshalb sind Queues sehr wichtig für
+OTRS. Durch die Einteilung der Mitarbeiter (agents) in verschiedene
+Benutzergruppen mit differenzierten Zugriffsrechten auf die einzelnen
+Queues, kann die Abarbeitung der Anfragen weiter optimiert werden. Mit Hilfe
+von Queues können Sie die Struktur Ihres Unternehmens abbilden bzw. einzelne
+Geschäftsvorgänge abgrenzen. So könnte Max Mustermann neben seinem
+Support-Queues für die verschiedenen Geräte für Bestellungen eine Queue mit
+dem Namen "Sales" anlegen und als Unter-Queues "Anfragen", "Angebote",
+"Bestellungen" usw. definieren, um den Bestellvorgang zu optimieren.
 </para>
 
 <para>
-The better a system is structured, the less time is needed for the different
-tasks. That results in less working time, consequently less money. Queues
-can help to optimize the processes in your company.
+Je besser und strukturierter ein Support- system organisiert ist, desto
+weniger Zeit und letztlich auch finanzielle Mittel müssen dafür aufgebracht
+werden. Queues und Unter-Queues helfen bei der Strukturierung bzw. bei der
+Abbildung von Abläufen.
 </para>
 </section>
 
 <section id="user-preferences">
-<title>User preferences</title>
+<title>Benutzereinstellungen</title>
 
 <para>
-Many settings of a user account in OTRS can be customized to meet each one
-needs, via the user preferences. Customers, agents and the OTRS
-administrator have the possibility to adjust their own account
-preferences. In order to do so, agents have to click on their name at the
-right top corner of the web interface (see Figure 4.8 below), and customers
-must click on the "Preferences" link (see Figure 4.9 below).
+Die Einstellungen eines Accounts lassen sich mit Hilfe der
+Benutzereinstellungen den eigenen Wünschen entsprechend anpassen. Dabei
+spielt keine Rolle, ob man als Mitarbeiter, Kunde oder Administrator am
+System angemeldet ist. Die Benutzereinstellungen sind über den Link auf den
+Benutzernamen erreichbar, Kunden müssen den "Einstellungen"-Link verwenden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Account preference screen for agents</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Persönliche Account-Einstellungen für Agenten</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/agent-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.8. Agent's personal preferences.</emphasis>
+    <emphasis>Abb. 4.8. Benutzereinstellungen des Agenten.</emphasis>
 </para>
 
 <para>
-An agent can configure 3 different categories of preferences: user profile,
-email settings and other settings. The default posibilities are:
+Ein Agent kann 3 verschiedene Kategorien von Einstellungen vornehmen:
+Benutzerprofil, E-Mail-Einstellungen und andere Einstellungen. Folgende
+Einstellungen sind möglich:
 </para>
 
 <itemizedlist>
-    <title>User Profile</title>
+    <title>Benutzerprofil</title>
     <listitem>
-        <para>Change the current password.</para>
+        <para>Aktuelles Passwort ändern.</para>
     </listitem>
     <listitem>
-        <para>Adjust the interface language.</para>
+        <para>Sprache der Benutzeroberfläche wechseln.</para>
     </listitem>
     <listitem>
-        <para>Choose the default spelling dictionary.</para>
+        <para>Rechtschreib-Wörterbuch auswählen.</para>
     </listitem>
     <listitem>
-        <para>Switch the frontend skin to wear.</para>
+        <para>Oberflächen-Skin auswählen.</para>
     </listitem>
     <listitem>
-        <para>Shift the frontend theme.</para>
+        <para>Oberflächen-Theme auswählen.</para>
     </listitem>
     <listitem>
-        <para>Activate and configure the out of office time.</para>
+        <para>Abwesenheitszeit aktivieren und konfigurieren.</para>
     </listitem>
 </itemizedlist>
 
 <itemizedlist>
-    <title>Email Settings</title>
+    <title>E-Mail-Einstellungen</title>
     <listitem>
         <para>
-Select the events when the system shall send a notification to the email
-address.
+Ereignisse auswählen, bei denen eine E-Mail-Benachrichtigung durch das
+System erfolgen soll.
         </para>
     </listitem>
 </itemizedlist>
 
 <itemizedlist>
-    <title>Other Settings</title>
+    <title>Andere Einstellungen</title>
     <listitem>
-        <para>Select the queues you want to monitor in "My Queues".</para>
+        <para>Wählen Sie die Queues aus, die sie in "Meine Queues" überwachen wollen.</para>
     </listitem>
     <listitem>
-        <para>Set the refresh period for the queue view.</para>
+        <para>Aktualisierungszeit der Queue-Ansicht einstellen.</para>
     </listitem>
     <listitem>
-        <para>Choose the screen that should be displayed after a ticket is created.</para>
+        <para>Bildschirm auswählen, der nach Erstellung eines Tickets angezeigt wird.</para>
     </listitem>
 </itemizedlist>
 
 <para>
 <screenshot>
-<screeninfo>Account preferences screen for customers</screeninfo> <graphic srccredit="customer.pl -
+<screeninfo>Persönliche Benutzereinstellungen für Kunden</screeninfo> <graphic srccredit="customer.pl -
 screenshot" scale="40"
 fileref="screenshots/customer-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.8. Customer's personal preferences.</emphasis>
+    <emphasis>Abb. 4.8. Benutzereinstellungen des Kunden.</emphasis>
 </para>
 
 <para>
-A customer can select the web interface language, the refresh period for the
-ticket overview, manage the S/MIME certificates and choose the maximum
-amount of shown tickets. It is also possible to set a new password.
+Ein Kunde kann die Sprache der Benutzeroberfläche wechseln, die
+Aktualisierungszeit der Ticketübersichten verändern, S/MIME-Zertifikate
+verwalten und die max. Anzahl angezeigter Tickets pro Seite
+einstellen. Zusätzlich kann das Passwort geändert werden.
 </para>
 </section>
 

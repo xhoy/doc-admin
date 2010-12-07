@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.34 2010-12-06 13:47:48 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.35 2010-12-07 13:56:43 mg Exp $ -->
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrading des OTRS Frameworks</title>
 
@@ -1303,7 +1303,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.34 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.35 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1437,15 +1437,15 @@ linux:/opt/otrs/bin#
 </section>
 
 <section id="upgrade-2.4-to-3.0">
-<title>Upgrading the OTRS Framework from 2.4 to 3.0</title>
+<title>Upgrade des OTRS Frameworks von 2.4 auf 3.0</title>
 <para>
-These instructions are for people upgrading OTRS from "2.4" to "3.0", and
-applies both for RPM and source code (tarball) upgrades.
+Diese Hinweise sind für Leute gedacht, die von OTRS 2.4 auf 3.0 upgraden,
+und gilt für RPM-basierte und manuelle Upgrades (tarball).
 </para>
 <para>
-If you are running a lower version of OTRS you have to follow the upgrade
-path to 2.4 first
-(1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...).
+Wenn Sie eine ältere Version von OTRS einsetzen, müssen sie zuerst dem
+Upgrade-Pfad zur 2.4 folgen
+(1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4->&gt;3.0 ...).
 </para>
 
   <orderedlist>
@@ -1454,7 +1454,7 @@ path to 2.4 first
             Alle relevanten Dienste stoppen
         </para>
         <para>
-            e. g. (depends on used services): <screen>
+            z. B. (hängt von eingesetztn Diensten ab): <screen>
 shell&gt; /etc/init.d/cron stop
 shell&gt; /etc/init.d/postfix stop
 shell&gt; /etc/init.d/apache stop
@@ -1511,7 +1511,7 @@ shell&gt; ln -s otrs-x.x.x otrs
           </listitem>
           <listitem>
             <para>
-                With the RPM: <screen>
+                Per RPM: <screen>
 shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
                 </screen>
             </para>
@@ -1599,11 +1599,11 @@ shell&gt; bin/otrs.DeleteCache.pl
             Dienste neu starten
         </para>
         <para>
-            e. g. (depends on used services): <screen>
-shell&gt; /etc/init.d/cron start
-shell&gt; /etc/init.d/postfix start
-shell&gt; /etc/init.d/apache start
-            </screen>
+            z. B. (hängt von eingesetztn Diensten ab): <screen>
+shell&gt; /etc/init.d/cron stop
+shell&gt; /etc/init.d/postfix stop
+shell&gt; /etc/init.d/apache stop
+</screen>
         </para>
       </listitem>
       <listitem>
