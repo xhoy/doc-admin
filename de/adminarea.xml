@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.28 2010-12-07 13:56:43 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.29 2010-12-13 13:29:27 mg Exp $ -->
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
 
@@ -1621,73 +1621,76 @@ Status-Typen sind:
 
 
 <section id="adminarea-sysconfig">
-<title>SysConfig</title>
+<title>Die SysConfig (Verwaltung der Systemkonfiguration)</title>
 
 <para>
-The SysConfig is the place where many configuration options for OTRS are
-stored.
+In der SysConfig werden die meisten Konfigurationseinstellungen von OTRS
+vorgenommen.
 </para>
 
 <para>
-The "SysConfig" link in the admin area of OTRS loads the graphical
-configuration front-end (see Figure 5.47 below). You can upload own config
-files for the system and backup all your current settings into a
-file. Almost all config parameters of the OTRS framework and the installed
-applications, can be viewed and changed through the web interface. Because
-all config parameters are sorted into groups and sub groups, it is possible
-to navigate quickly through the multitude of the parameters. Also it is
-possible to perform a full-text search through all the config parameters.
+Über den "SysConfig"-Link im Admin-Bereich von OTRS erreichen sie die
+grafische Administrationsoberfläche. Über diese können Sie eigene
+Konfigurationsdateien in das System integrieren bzw. Ihre persönlichen
+Änderungen an der Standardkonfiguration in eine Datei sichern. Nahezu alle
+Konfigurationsparameter des OTRS Frameworks und der zusätzlich installierten
+Module können eingesehen und geändert werden, die Navigation durch die
+Vielzahl der Konfigurationsparameter wurde durch die Einteilung in Module
+und Gruppen übersichtlich aufgeteilt. Weiterhin ist es möglich, eine Suche
+über alle Konfigurationsparameter hinweg durchzuführen, so dass einzelne
+Parameter schnell aufgefunden und bearbeitet werden können.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>The graphical configuration front-end of OTRS (SysConfig)</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Das grafische Konfigurationsfrontend von OTRS (SysConfig)</screeninfo> <graphic srccredit="Adminarea
 sysconfig - screenshot" scale="40"
 fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.47. The graphical configuration front-end of OTRS
+    <emphasis>Abb. 5.47. Das grafische Konfigurationsfrontend von OTRS
 (SysConfig).</emphasis>
 </para>
 
 <para>
-The graphical configuration front-end is described in more detail in the
-chapter <link linkend="sysconfig"> "Configuring the system through the web
-interface" </link> .
+Das Kapitel <link linkend="sysconfig">Nähere Beschreibung der grafischen
+Administrationsoberfläche</link> geht ausführlicher auf das grafische
+Konfigurations-Frontend ein.
 </para>
 
 </section>
 
 
 <section id="adminarea-postmasterpop3-account">
-<title>Using mail accounts</title>
+<title>Einrichten von Mail-Konten</title>
 
 <para>
-There are several possibilities to transport new emails into the ticket
-system. One of them is the <link linkend="email-receiving-cmd">
-otrs.PostMaster.pl module </link> that pipes the mails directly into the
-system. Another possibility is the use of mail accounts, which can be
-administrated through the web interface. The "PostMaster Mail Accounts" link
-in the admin area of OTRS, loads the management console for the mail
-accounts (see Figure 5.48 below). OTRS supports the mail protocols: POP3,
-POP3S, IMAP and IMAPS.
+Es gibt mehrere Möglichkeiten, Mails in OTRS einzuspeisen. Neben der Nutzung
+des <link linkend="email-receiving-cmd">PostMaster.pl-Skripts</link>,
+welches die Mails direkt in das System piped, können auch Mail-Konten
+abgefragt werden, an die Mails für Ihr Ticket-System gehen. Über den Link
+"PostMaster Mail Account" innerhalb des Admin-Bereiches erreichen Sie die
+Verwaltung der Mail-Konten, die OTRS automatisch auf neue Nachrichten
+überprüfen soll. OTRS ünterstützt dabei die Mail-Protokolle POP3, POP3S,
+IMAP und IMAPS.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Mail account management</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Verwaltung von Mail-Konten</screeninfo> <graphic srccredit="Adminarea
 postmaster - screenshot" scale="40"
 fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.48. Mail account management.</emphasis>
+    <emphasis>Abb. 5.48. Verwaltung von Mail-Konten.</emphasis>
 </para>
 
 <para>
-See the section about the <link linkend="email-receiving-pop3"> PostMaster
-mail accounts </link> for more details.
+Im Kapitel über die <link
+linkend="email-receiving-pop3">Mailkonfiguration</link> für OTRS wird die
+Einrichtung der Mail-Konten näher erläutert.
 </para>
 
 </section>
@@ -1695,47 +1698,53 @@ mail accounts </link> for more details.
 
 
 <section id="adminarea-postmasterfilter">
-<title>Filtering incoming messages</title>
+<title>Einkommende Nachrichten filtern</title>
 
 <para>
-Because incoming messages can be sorted automatically into queues or spam
-mails can be moved into a specific queue, OTRS has the possibility to filter
-incoming messages. It does not matter, if <filename>PostMaster.pl</filename>
-or mail accounts are used to get messages into the ticket system. Filter
-rules can be created through the link "PostMaster Filter" in the admin area
-of OTRS (see Figure 5.49 below).
+Damit Sie automatisch Mails vorsortieren können bzw. ungewünschte Mails gar
+nicht in die Queues des Ticket-Systems gelangen, können Filterregeln für
+eingehende Nachrichten festgelegt werden. Dabei spielt es keine Rolle, ob
+die Mails über Mail-Konten oder mit Hilfe
+des<filename>PostMaster.pl</filename> Skriptes ins System gelangen. Der Link
+"PostMaster Filter" innerhalb des Admin-Bereiches von OTRS ruft die
+Verwaltung für die Filterregeln auf.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Managing filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Verwaltung von Filterregeln für eingehende E-Mails</screeninfo> <graphic srccredit="Adminarea
 postmasterfilter - screenshot" scale="40"
 fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.49. PostMaster filter management.</emphasis>
+    <emphasis>Abb 5.49. Verwaltung von Filterregeln für eingehende
+E-Mails.</emphasis>
 </para>
 
 <para>
-A filter consists of one or more criteria that must match for the defined
-actions to be executed. You can define filter criteria for the headers or
-the body of an email, e.g. search for specific header entries or strings in
-the body, even regular expressions are allowed. All actions for a filter
-rule are triggered by X-OTRS headers, which are inserted if the filter
-criteria match. The ticket system evaluates the inserted X-OTRS headers and
-executes the specific actions.  X-OTRS headers can be used to sort an
-incoming message into a specific queue, change the priority of the message
-or ignore the message and deliver it not to the system. The Table 5-4 lists
-the different X-OTRS headers and their meaning.
+Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt
+werden müssen, damit die Filterregel greift, und aus einer oder mehreren
+Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt
+wurden. Sie können für die Kopfzeilen und den Body einer Nachricht
+Filterregeln festlegen, also z. B. nach bestimmten Headern suchen oder nach
+Zeichenketten bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen
+für eine Filterregel werden über sog. X-OTRS-Header gesteuert, die in die
+Mail eingefügt werden. Das Ticket-System wertet die X-OTRS-Header aus und
+nimmt die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z. B. die
+Priorität einer Nachricht geändert werden, die Mail in eine bestimmte Queue
+einsortiert oder die Mail komplett verworfen werden, usw. Die folgende
+Tabelle listet die verschiedenen X-OTRS-Header, deren zulässige Werte und
+die Bedeutung der einzelnen Header auf.
 </para>
 
 <para>
-Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
+Hinweis: Sie können auch X-OTRS-FollowUp-* header für Follow-Up-E-Mails
+verwenden.
 </para>
 
 <table id="table-of-x-otrs-headers">
-<title>Function of the different X-OTRS-headers</title>
+<title>Funktion der verschiedenen X-OTRS-Header</title>
   <tgroup cols="3">
     <thead>
       <row>
@@ -1743,7 +1752,7 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
           Name
         </entry>
         <entry>
-          Possible values
+          Mögliche Werte
         </entry>
         <entry>
           Beschreibung
@@ -1759,7 +1768,7 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
           1 very low, 2 low, 3 normal, 4 high, 5 very high
         </entry>
         <entry>
-          Sets the priority of a ticket.
+          Legt die Priorität eines Tickets fest.
         </entry>
       </row>
       <row>
@@ -1767,12 +1776,12 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
           X-OTRS-Queue:
         </entry>
         <entry>
-          Name of a queue in the system.
+          Name einer Queue des Systems.
         </entry>
         <entry>
-          Sets the queue where the ticket shall be sorted in. Is a queue set by a
-X-OTRS header all other filter rules that try to sort a ticket into a
-specific queue are ignored.
+          Legt die Queue fest, in die das Ticket einsortiert werden soll. Wird mit dem
+X-OTRS-Queue-Header eine Queue voreingestellt, so hat diese Einstellung
+Vorrang vor allen anderen Filterregeln, die sich auf Queues beziehen.
         </entry>
       </row>
       <row>
@@ -1783,7 +1792,7 @@ specific queue are ignored.
             lock, unlock
         </entry>
         <entry>
-          Sets the lock state of a ticket.
+          Setzt den "gesperrt"-Status eines Tickets.
         </entry>
       </row>
       <row>
@@ -1791,11 +1800,11 @@ specific queue are ignored.
           X-OTRS-Ignore:
         </entry>
         <entry>
-          Yes or True
+          Yes oder True
         </entry>
         <entry>
-          Is this X-OTRS header set to "Yes", the incoming message will completely be
-ignored and never delivered to the system.
+          Wird dieser Header gesetzt, wird die Mail komplett ignoriert und gelangt
+somit nie als Ticket in das System.
         </entry>
       </row>
       <row>
@@ -1806,7 +1815,7 @@ ignored and never delivered to the system.
           new, open, closed successful, closed unsuccessful, ...
         </entry>
         <entry>
-          Sets the next state of the ticket.
+          Setzt den nächsten Status eines Tickets.
         </entry>
       </row>
       <row>
@@ -1814,11 +1823,11 @@ ignored and never delivered to the system.
           X-OTRS-State-PendingTime:
         </entry>
         <entry>
-         e. g. 2010-11-20 00:00:00
+         Z. B. 2010-11-20 00:00:00
         </entry>
         <entry>
-          Sets the pending time of a ticket (you also should sent a pending state via
-X-OTRS-State).
+          Setzt die Wartezeit eines Tickets (Sie sollten dann ebenfalls einen
+"Warten"-Status per X-OTRS-State setzen).
         </entry>
       </row>
       <row>
@@ -1826,10 +1835,10 @@ X-OTRS-State).
           X-OTRS-Type:
         </entry>
         <entry>
-         default (depends on your setup)
+         default (systemabhängig)
         </entry>
         <entry>
-          Sets the type of a ticket (if Ticket::Type support is active).
+          Setzt den Typ eines Tickets (wenn Ticket::Type aktiviert ist).
         </entry>
       </row>
       <row>
@@ -1837,10 +1846,10 @@ X-OTRS-State).
           X-OTRS-Service:
         </entry>
         <entry>
-         (depends on your setup)
+         (systemabhängig)
         </entry>
         <entry>
-          Sets the service of a ticket (if Ticket::Service support is active).
+          Setzt den Service eines Tickets (wenn Ticket::Service aktiv ist).
         </entry>
       </row>
       <row>
@@ -1848,10 +1857,11 @@ X-OTRS-State).
           X-OTRS-SLA:
         </entry>
         <entry>
-         (depends on your setup)
+         (systemabhängig)
         </entry>
         <entry>
-          Sets the SLA of a ticket (if Ticket::Service support is active).
+          Setzt das Service-Level-Abkommen eines Tickets (wenn Ticket::Service aktiv
+ist).
         </entry>
       </row>
       <row>
@@ -1862,7 +1872,7 @@ X-OTRS-State).
           CustomerUser
         </entry>
         <entry>
-          Sets the customer user for the ticket.
+          Legt den Kunden-Benutzer fest, dem das Ticket zugeordnet werden soll.
         </entry>
       </row>
       <row>
@@ -1873,7 +1883,7 @@ X-OTRS-State).
           CustomerNo
         </entry>
         <entry>
-          Sets the customer ID for this ticket.
+          Legt die Kunden-ID fest, die dem Ticket zugeordnet werden soll.
         </entry>
       </row>
       <row>
@@ -1881,10 +1891,10 @@ X-OTRS-State).
           X-OTRS-ArticleKey(1|2|3):
         </entry>
         <entry>
-          Additional info key for the article.
+          Zusätzlicher Info-Key für den Artikel.
         </entry>
         <entry>
-          Saves an additional info key for this article.
+          Speichert einen zusätzlichen Info-Key für den Artikel.
         </entry>
       </row>
       <row>
@@ -1892,10 +1902,10 @@ X-OTRS-State).
           X-OTRS-ArticleValue(1|2|3):
         </entry>
         <entry>
-          Additional info value for the article.
+          Zusätzlicher Info-Value.
         </entry>
         <entry>
-          Saves an additional info value for the article.
+          Speichert einen zusätzlichen Info-Value für den Artikel.
         </entry>
       </row>
       <row>
@@ -1906,7 +1916,7 @@ X-OTRS-State).
           agent, system, customer
         </entry>
         <entry>
-          Sets the type of the ticket sender.
+          Legt die Art des Ticket-Absenders fest.
         </entry>
       </row>
       <row>
@@ -1919,7 +1929,7 @@ email-notification-int, phone, fax, sms, webrequest, note-internal,
 note-external, note-report
         </entry>
         <entry>
-          Sets the article type for the incoming ticket.
+          Legt den Typ des Artikles für das eingehende Ticket fest.
         </entry>
       </row>
       <row>
@@ -1927,10 +1937,10 @@ note-external, note-report
           X-OTRS-TicketKey(1|2|...|8):
         </entry>
         <entry>
-          Additional info key for the ticket.
+          Zusätzlicher Info-Key
         </entry>
         <entry>
-          Saves an additional info key for the ticket.
+          Speichert einen zusätzlichen Info-Key für das Ticket.
         </entry>
       </row>
       <row>
@@ -1938,10 +1948,10 @@ note-external, note-report
           X-OTRS-TicketValue(1|2|...|8):
         </entry>
         <entry>
-          Additional info value for the ticket.
+          Zusätzlicher Info-Value
         </entry>
         <entry>
-          Saves an additional info value for the ticket.
+          Speichert einen zusätzlichen Info-Value für das Ticket.
         </entry>
       </row>
       <row>
@@ -1952,8 +1962,8 @@ note-external, note-report
           True
         </entry>
         <entry>
-          If this X-OTRS header is set no auto answer is delivered to the sender of
-the message (mail loop protection).
+          Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort an den
+Absender des neuen Tickets geschickt, z. B. um Mailschleifen zu vermeiden.
         </entry>
       </row>
     </tbody>
@@ -1961,176 +1971,186 @@ the message (mail loop protection).
 </table>
 
 <para>
-A name must be specified for every filter rule. In the section for "Match"
-the filter criteria can be specified. Choose via the listboxes for "Header
-1", "Header 2" and so on the parts of the messages where you would like to
-search and specify via the input files on the right sides the values. In the
-section for "Set" you can choose the actions that are triggered, if the
-filter rules match. You can select for "Header 1", "Header 2" and so on the
-X-OTRS-Header and set the values (see Figure 5.50 below).
+Sie müssen für jede Regel einen Namen vergeben. Darunter legen Sie in der
+Sektion für "Treffer" die verschiedenen Kriterien fest, nach denen gefiltert
+werden soll. Wählen Sie aus den Listboxen für "Header 1", "Header 2"
+usw. aus, an welcher Stelle in der eingehenden Nachricht Sie suchen möchten
+und tragen Sie rechts neben dem entsprechenden Header den Wert ein, nach dem
+gesucht werden soll. In der Sektion "Setzen" legen Sie die Aktionen fest,
+die ausgeführt werden sollen, wenn die Filterkriterien zutreffen. Hier
+können Sie für "Header1", "Header 2" usw. den entsprechenden X-OTRS-Header
+auswählen und rechts daneben den entsprechenden Wert eintragen.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Addin filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Filter-Regeln für eingehende Nachrichten anlegen</screeninfo> <graphic srccredit="Adminarea
 postmasterfilter - screenshot" scale="40"
 fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.50. Add a PostMaster filter.</emphasis>
+    <emphasis>Abb. 5.50. Filter-Regeln für eingehende Nachrichten
+anlegen.</emphasis>
 </para>
 
 <example id="sort-mails-into-junk">
-<title>Sort spam mails into a specific queue</title>
+<title>Aussortierung von Spammails in eine bestimmte Queue</title>
 
 <para>
-A useful filter rule could be to let OTRS automatically sort mails marked
-for spam with a spam detection tool, such as SpamAssassin, into the "Junk"
-queue.  SpamAssassin adds the "X-Spam-Flag" header to every checked mail.
-When the mail is marked as spam, the Header is set to "Yes". So the filter
-criteria would be "X-Spam-Flag: Yes". To create a filter rule with this
-criteria you can insert the name for example "spam-mails". Also choose in
-the section for "Match" for "Header 1" from the listbox
-"X-Spam-Flag:". Insert "Yes" as value for this header. Now the filter
-criteria is specified. To make sure, that all spam mails get sorted into the
-"Junk" queue choose in the section for "Set" for "Header 1" the
-"X-OTRS-Queue:" entry. Specify "Junk" as value for this header. Finally add
-the new filter rule to activate it for the next new messages in the system.
+Eine nützliche Filterregel könnte sein, alle Mails, die von SpamAssassin als
+Spam markiert wurden, automatisch in die Queue "Junk" einsortieren zu
+lassen. Spamassassin fügt bei allen überprüften Mails die Kopfzeile
+"X-Spam-Flag" hinzu. Wird die Mail als Spam markiert, wird dieser Header auf
+"Yes" gesetzt. Das Filterkriterium lautet also "X-Spam-Flag: Yes". Um nun
+eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als
+Name für die Filterregel z. B. "spam-mails" ein und wählen in der Sektion
+"Treffer" für "Header 1" den Header "X-Spam-Flag:" aus der Listbox
+aus. Rechts daneben fügen Sie als Wert "Yes" hinzu. Das Filterkriterium
+wurde somit festgelegt. Um nun die Einsortierung der von spamassassin als
+Spam klassifizierten Mails in die Queue "Junk" zu erzwingen, wählen Sie in
+der Sektion "Setzen" für "Header 1" den Eintrag "X-OTRS-Queue:" aus und
+tragen als Wert rechts daneben "Junk" ein. Abschließend wird mit Hilfe des
+"Hinzufügen"-Buttons die neue Regel gespeichert und aktiviert, beim nächsten
+Abruf der POP3-Konten bzw. für die nächste an das System gesendete Nachricht
+wird die Filterregel abgearbeitet.
 </para>
 </example>
 
 <para>
-There are additional modules, that can be used to <link
-linkend="email-receiving-filter"> filter incoming messages </link> more
-specifically. These modules might be useful on bigger and complex systems.
+Es gibt weitere Module, die zum <link
+linkend="email-receiving-filter">Filtern eingehender E-Mails</link>genutzt
+werden und bei komplexeren Installationen nützlich sein können.
 </para>
 
 </section>
 
 
 <section id="adminarea-genericagent">
-<title>Executing automated jobs with the GenericAgent</title>
+<title>Ausführen von automatisierten Jobs mit Hilfe des GenericAgents</title>
 
 <para>
-The GenericAgent is a tool to execute tasks automatically, that otherwise
-should be done by a human person, a real agent. The GenericAgent, for
-example, can close or move tickets, send notifications on escalated tickets,
-etc.
+Der GenericAgent ist ein Tool zum automatischen Ausführen von Aufgaben, die
+normalerweise ein richtiger Agent manuell durchführen müsste. Er kann
+z. B. bestimmte Tickets in einer Queue schließen oder Benachrichtigungen für
+eskalierte Tickets versenden.
 </para>
 
 <para>
-To access to the GenericAgent, the link "GenericAgent" in the admin area of
-OTRS can be used (see Figure 5.51 below). A table with the already created
-jobs is displayed, where jobs can be executed manually or removed.
+Um zum GenericAgent zu gelangen, verwenden Sie die Verknüpfung
+"GenericAgent" in der Administrationsoberfläche von OTRS. Eine Liste
+verfügbarer Jobs wird angezeigt, welche bearbeitet, ausgeführt oder gelöscht
+werden können.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Job list for the GenericAgent</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Jobliste des GenericAgent</screeninfo> <graphic srccredit="Adminarea
 genericagent - screenshot" scale="40"
 fileref="screenshots/admin-genericagent.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.51. Job list for the GenericAgent.</emphasis>
+    <emphasis>Abb. 5.51. Jobliste des GenericAgent.</emphasis>
 </para>
 
 <para>
-To create a new job a name must be specified and the "Add job" button must
-be pressed. Via the screen for the creation of a new job for the
-GenericAgent you can specify the times when the job shall be executed,
-different criteria to select the tickets to work on and the new properties
-of those tickets (see Figure 5.52 below).
+Über die Bildschirmmaske zum Erstellen eines neuen Jobs kann der Zeitplan
+für die Ausführung des Jobs eingestellt werden. Desweiteren kann über
+verschiedene Kriterien festgelegt werden, welche Tickets vom Job erfasst
+werden sollen. Schließlich ist es möglich, die neuen Eigenschaften der vom
+Job betroffenen Tickets einzustellen.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Creating a job for the GenericAgent</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Anlegen eines GenericAgent-Jobs</screeninfo> <graphic srccredit="Adminarea
 genericagent - screenshot" scale="40"
 fileref="screenshots/add-genericagent-job.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.52. Creating a job for the GenericAgent.</emphasis>
+    <emphasis>Abb. 5.52. Anlegen eines GenericAgent-Jobs.</emphasis>
 </para>
 
 <para>
-If the creation of the job is finished all affected tickets by the job are
-listed. This list helps you verify that the job is having the expected
-behavior, no changes are made to these tickets yet. The job will be really
-activated if it is saved into the job list.
+Nachdem der Job gespeichert wurde, werden alle Tickets aufgeführt, die durch
+den Job verändert werden. Diese Auflistung dient zur Übersicht, ob der Job
+richtig funktioniert, es werden noch keine Veränderungen vorgenommen. Erst
+nach der Übernahme des Jobs in die Job-Liste, wird der Job aktiviert.
 </para>
 
 </section>
 
 
 <section id="adminarea-adminemail">
-<title>Admin email</title>
+<title>Administrator-E-Mail</title>
 
 <para>
-OTRS administrators can send messages to specific users or groups.  The
-"Admin Notification" in the admin area, opens the screen where the agents
-and groups that should be notified can be selected (see Figure 5.53 below).
+Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder
+Benutzergruppen im System zu versenden, folgen Sie dem Link "Admin
+Notification".
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Admin notification</screeninfo> <graphic srccredit="Adminarea email
+<screeninfo>Administrator-Benachrichtigung</screeninfo> <graphic srccredit="Adminarea email
 - screenshot" scale="40"
 fileref="screenshots/send-admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.53. Admin notification.</emphasis>
+    <emphasis>Abb. 5.53. Administrator-Benachrichtigung.</emphasis>
 </para>
 
 <para>
-It is possible to specify the sender, subject and body text of the
-notification.  You can also select the agents, groups and roles who should
-receive the message.
+Es wird ein Formular geladen, in das Sie die Absenderadresse, den Betreff
+und den Inhalt der Administratoren-Mitteilung eintragen können. Weiterhin
+können Sie aus der Tabelle auswählen, an welche Benutzer und / oder
+Benutzergruppen die Mitteilung gesendet werden soll.
 </para>
 
 </section>
 
 <section id="adminarea-session-management">
-<title>Session management</title>
+<title>Sitzungsverwaltung</title>
 
 <para>
-You can see all logged in users and their session details by clicking the
-"Session Management" link in the admin area (see Figure 5.54 below).
+Um eine Übersicht über die gerade im System angemeldeten Benutzer und deren
+Sitzungseigenschaften zu erhalten, folgen Sie dem Link "Sitzungsverwaltung"
+der Administrationsoberfläche.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Session management</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Sitzungsverwaltung</screeninfo> <graphic srccredit="Adminarea
 sessionmanagement - screenshot" scale="40"
 fileref="screenshots/admin-sessionmanagement.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.54. Session management.</emphasis>
+    <emphasis>Abb. 5.54. Sitzungsverwaltung.</emphasis>
 </para>
 
 <para>
-Some statistics about all active sessions are displayed, e.g. how many
-agents and customer users are logged in, number of active sessions.  Every
-individual session can be removed y clicking on the <emphasis>Kill this
-session</emphasis> in the right-hand side of the list.  You also have the
-option to <emphasis>Kill all sessions</emphasis>, which can be useful if
-you'd like to bring the system down.  Detailed information for every session
-is available, too (see Figure 5.55 below).
+Innerhalb der Sitzungsverwaltung werden allgemeine Informationen zu allen
+Sitzungen im System ausgegeben, also z. B. wie viele Sitzungen gerade
+insgesamt aktiv sind oder wie viele Agenten- und Kunden-Sitzungen laufen,
+usw. Es besteht die Möglichkeit mit Hilfe des "Alle Sitzungen
+löschen"-Schalters die Sitzungen aller angemeldeten Benutzer zu
+beenden. Weiterhin können detaillierte Informationen für jede einzelne
+Sitzung abgerufen und einzelne Sitzungen gelöscht werden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Session details</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Sitzungsdetails</screeninfo> <graphic srccredit="Adminarea
 session management - screenshot" scale="40"
 fileref="screenshots/admin-session-details.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.55. Session details.</emphasis>
+    <emphasis>Abb. 5.55. Sitzungsdetails.</emphasis>
 </para>
 
 </section>
@@ -2139,8 +2159,8 @@ fileref="screenshots/admin-session-details.png"></graphic></screenshot>
 <title>System Log</title>
 
 <para>
-The "System Log" link in the admin area of OTRS, shows the last log entries
-of the system (see Figure 5.56 below).
+Der Link "System Log" ermöglicht es, die letzten Logeinträge des
+Ticket-Systems über die Weboberfläche einzusehen.
 </para>
 
 <para>
@@ -2150,19 +2170,21 @@ of the system (see Figure 5.56 below).
 </para>
 
 <para>
-    <emphasis>Figure 5.56. System Log.</emphasis>
+    <emphasis>Abb. 5.56. System Log.</emphasis>
 </para>
 
 <para>
-Each line in the log contains: a time stamp, the log priority, the system
-component and the log entry itself.
+Ein Logeintrag setzt sich aus der Zeit, der Priorität, der betroffenen
+Systemkomponente und der eigentlichen Meldung zusammen.
 </para>
 
 <note>
 <para>
-The system logs are only available via the web interface on linux or unix
-systems. On Windows systems you can see the log by opening the file
-<filename>[install_dir]otrs\var\log\otrs.log</filename> with a text editor.
+Die System Logs können nur auf Unix- oder Linux-Systemen über das
+Web-Interface eingesehen werden, unter Windows-Betriebssystemen können Sie
+stattdessen die Datei
+<filename>[install_dir]otrs\var\log\otrs.log</filename> mit einem
+Text-Editor öffnen.
 </para>
 </note>
 
@@ -2170,12 +2192,13 @@ systems. On Windows systems you can see the log by opening the file
 
 
 <section id="adminarea-selectbox">
-<title>SQL queries via the SQL box</title>
+<title>SQL-Abfragen mit Hilfe der SQL Box</title>
 
 <para>
-The "SQL Box" link in the admin area, opens a screen that lets you query the
-content of the tables in the OTRS database (see Figure 5.57 below). It is
-not possible to change the content of the tables, only queries are allowed.
+Über den Link "SQL Box" kann eine Bildschirmmaske aufgerufen werden, die es
+ermöglicht direkt mit SQL-Statements den Inhalt von Tabellen der
+OTRS-Datenbank abzurufen. Es sind nur SELECT-Abfragen möglich, d.h. die
+Tabellen können auf diesem Weg nicht verändert werden.
 </para>
 
 <para>
@@ -2186,69 +2209,70 @@ fileref="screenshots/admin-selectbox.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.57. SQL Box.</emphasis>
+    <emphasis>Abb. 5.57. SQL Box.</emphasis>
 </para>
 
 </section>
 
 
 <section id="adminarea-package-manager">
-<title>Package manager</title>
+<title>Paketverwaltung</title>
 
 <para>
-Using the "Package Manager" in the admin area, you can install and manage
-packages that extend the functionality of OTRS (see Figure 5.58 below). See
-the <link linkend="application">Additional applications</link> section for a
-discussion on the extensions that are available from the OTRS repositories.
+Mit der "Paketverwaltung" in der Administrationsoberfläche können Sie Pakete
+installieren und verwalten, die die Funktionalität von OTRS erweitern. Eine
+Liste von verfügbaren Erweiterungsmodulen von OTRS finden Sie unter <link
+linkend="application">Zusätzliche Applikationen</link>.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Package Manager</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Paketverwaltung</screeninfo> <graphic srccredit="Adminarea
 packagemanager - screenshot" scale="40"
 fileref="screenshots/admin-packagemanager.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 5.58. Package Manager.</emphasis>
+    <emphasis>Abb. 5.58. Paketverwaltung.</emphasis>
 </para>
 
 <para>
-In the package manager you can review the packages you currently have
-installed together with their version numbers.
+In der Paketverwaltung können Sie die bereits installierten Pakete mit ihrer
+Versionsinformation einsehen.
 </para>
 
-<para>You can install packages from a remote host by selecting the repository in
-the <emphasis>Online Repository</emphasis> section and clicking the
-<emphasis>Update repository information</emphasis> button. The available
-packages are displayed in the corresponding table. The right side of the
-screen shows the available packages. To install one, click on
-<emphasis>Install</emphasis>.  After installation the package is displayed
-in the <emphasis>Local Repository</emphasis> section.
-</para>
-
-<para>
-To upgrade an installed package, the list of available packages in the
-online repository will show <emphasis>Upgrade</emphasis> in the Action
-column for any package that has a higher version than the locally
-installed. Just click Upgrade and it will install the new package on your
-system.
+<para>Sie können Pakete von einem entfernten Server installieren, indem Sie das
+Paketverzeichnis im Abschnitt <emphasis>Online-Paketverzeichnis</emphasis>
+auswählen und auf <emphasis>Verzeichnisinformation aktualisieren</emphasis>
+klicken. Die verfügbaren Pakete werden rechts  tabellarisch dargestellt. Um
+eines zu installieren, klicken Sie auf "Installieren". Nach der Installation
+wird das Paket im Abschnitt <emphasis>Lokales Verzeichnis</emphasis>
+dargestellt.
 </para>
 
 <para>
-In some cases, such as when your OTRS system is not connected to the
-Internet, you can also install packages you have downloaded to a local
-disk.  Click the <emphasis>Browse</emphasis> button on the Actions side bar
-and select the .opm file on your disk.  Click <emphasis>Open</emphasis> and
-then <emphasis>Install Package</emphasis>. After installation the package is
-displayed in the <emphasis>Local Repository</emphasis> section. You can use
-the same steps for updating a package that is already installed.
+Um ein installiertes Paket zu aktualisieren, können Sie die Funktion
+"Aktualisieren" benutzen, die bei installierten Paketen angezeigt wird, von
+denen eine neuere Version verfügbar ist. Klicken Sie einfach auf
+"Aktualisieren", und die neue Version wird in Ihrem System installiert.
 </para>
 
 <para>
-In special cases, you might want to configure the package manager, e.g., to
-use a proxy or to use a local repository. Just take a look at the available
-options in SysConfig under <link
+In manchen Fällen, wenn beispielsweise ein OTRS-System nicht mit dem
+Internet verbunden ist, können Sie auch Pakete installieren, die lokal
+heruntergeladen wurden. Klicken Sie auf den <emphasis>Datei
+auswählen</emphasis>-Knopf in der "Aktionen"-Liste, und wählen Sie die
+.opm-Datei auf Ihrem Speichermedium aus. Verwenden Sie dann <emphasis>Paket
+installieren</emphasis>. Nach der Installation wird das Paket im Abschnitt
+<emphasis>Lokales Verzeichnis</emphasis> angezeigt. Auf dieselbe Weise
+können Sie ein bereits installiertes Paket aktualisieren.
+</para>
+
+<para>
+In besonderen Fällen ist es erforderlich, die Paketverwaltung zu
+konfigurieren, zum Beispiel für die Verwendung eines Proxy-Servers, oder um
+auf ein lokales Verzeichnis zuzugreifen. Verwenden Sie dazu die
+Einstellungen unter <link
 linkend="Framework:Core::Package">Framework:Core::Package</link>.
 </para>
 
