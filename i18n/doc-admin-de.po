@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
 "POT-Creation-Date: 2010-12-07 14:52+0100\n"
-"PO-Revision-Date: 2010-12-07 14:56+0100\n"
+"PO-Revision-Date: 2010-12-13 12:42+0100\n"
 "Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -2836,7 +2836,7 @@ msgstr "Bitte beachten Sie, dass durch die Verwendung von <filename>Cron.sh</fil
 #| "linux:/opt/otrs/bin# su otrs\n"
 #| "linux:~/bin$ ./Cron.sh start\n"
 #| "/opt/otrs/bin\n"
-#| "Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;\n"
+#| "Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.16 $&gt;\n"
 #| "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 #| "(using /opt/otrs) done\n"
 #| "linux:~/bin$ exit\n"
@@ -2847,7 +2847,7 @@ msgid ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.16 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -2858,7 +2858,7 @@ msgstr ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.15 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.16 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -5397,645 +5397,645 @@ msgstr "warten auto"
 #: en/adminarea.xml:1608
 #: en/stats.xml:1076
 msgid "SysConfig"
-msgstr ""
+msgstr "Die SysConfig (Verwaltung der Systemkonfiguration)"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1611
 msgid "The SysConfig is the place where many configuration options for OTRS are stored."
-msgstr ""
+msgstr "In der SysConfig werden die meisten Konfigurationseinstellungen von OTRS vorgenommen."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1615
 msgid "The \"SysConfig\" link in the admin area of OTRS loads the graphical configuration front-end (see Figure 5.47 below). You can upload own config files for the system and backup all your current settings into a file. Almost all config parameters of the OTRS framework and the installed applications, can be viewed and changed through the web interface. Because all config parameters are sorted into groups and sub groups, it is possible to navigate quickly through the multitude of the parameters. Also it is possible to perform a full-text search through all the config parameters."
-msgstr ""
+msgstr "Über den \"SysConfig\"-Link im Admin-Bereich von OTRS erreichen sie die grafische Administrationsoberfläche. Über diese können Sie eigene Konfigurationsdateien in das System integrieren bzw. Ihre persönlichen Änderungen an der Standardkonfiguration in eine Datei sichern. Nahezu alle Konfigurationsparameter des OTRS Frameworks und der zusätzlich installierten Module können eingesehen und geändert werden, die Navigation durch die Vielzahl der Konfigurationsparameter wurde durch die Einteilung in Module und Gruppen übersichtlich aufgeteilt. Weiterhin ist es möglich, eine Suche über alle Konfigurationsparameter hinweg durchzuführen, so dass einzelne Parameter schnell aufgefunden und bearbeitet werden können."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1627
 msgid "The graphical configuration front-end of OTRS (SysConfig)"
-msgstr ""
+msgstr "Das grafische Konfigurationsfrontend von OTRS (SysConfig)"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:1627
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea sysconfig - screenshot\" scale=\"40\" fileref=\"screenshots/admin-sysconfig.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea sysconfig - screenshot\" scale=\"40\" fileref=\"screenshots/admin-sysconfig.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1633
 msgid "<emphasis>Figure 5.47. The graphical configuration front-end of OTRS (SysConfig).</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.47. Das grafische Konfigurationsfrontend von OTRS (SysConfig).</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1637
 msgid "The graphical configuration front-end is described in more detail in the chapter <link linkend=\"sysconfig\"> \"Configuring the system through the web interface\" </link> ."
-msgstr ""
+msgstr "Das Kapitel <link linkend=\"sysconfig\">Nähere Beschreibung der grafischen Administrationsoberfläche</link> geht ausführlicher auf das grafische Konfigurations-Frontend ein."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:1650
 msgid "Using mail accounts"
-msgstr ""
+msgstr "Einrichten von Mail-Konten"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1653
 msgid "There are several possibilities to transport new emails into the ticket system. One of them is the <link linkend=\"email-receiving-cmd\"> otrs.PostMaster.pl module </link> that pipes the mails directly into the system. Another possibility is the use of mail accounts, which can be administrated through the web interface. The \"PostMaster Mail Accounts\" link in the admin area of OTRS, loads the management console for the mail accounts (see Figure 5.48 below). OTRS supports the mail protocols: POP3, POP3S, IMAP and IMAPS."
-msgstr ""
+msgstr "Es gibt mehrere Möglichkeiten, Mails in OTRS einzuspeisen. Neben der Nutzung des <link linkend=\"email-receiving-cmd\">PostMaster.pl-Skripts</link>, welches die Mails direkt in das System piped, können auch Mail-Konten abgefragt werden, an die Mails für Ihr Ticket-System gehen. Über den Link \"PostMaster Mail Account\" innerhalb des Admin-Bereiches erreichen Sie die Verwaltung der Mail-Konten, die OTRS automatisch auf neue Nachrichten überprüfen soll. OTRS ünterstützt dabei die Mail-Protokolle POP3, POP3S, IMAP und IMAPS."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1669
 msgid "Mail account management"
-msgstr ""
+msgstr "Verwaltung von Mail-Konten"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:1669
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmaster - screenshot\" scale=\"40\" fileref=\"screenshots/admin-mailaccount.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmaster - screenshot\" scale=\"40\" fileref=\"screenshots/admin-mailaccount.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1675
 msgid "<emphasis>Figure 5.48. Mail account management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.48. Verwaltung von Mail-Konten.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1679
 msgid "See the section about the <link linkend=\"email-receiving-pop3\"> PostMaster mail accounts </link> for more details."
-msgstr ""
+msgstr "Im Kapitel über die <link linkend=\"email-receiving-pop3\">Mailkonfiguration</link> für OTRS wird die Einrichtung der Mail-Konten näher erläutert."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:1693
 msgid "Filtering incoming messages"
-msgstr ""
+msgstr "Einkommende Nachrichten filtern"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1696
 msgid "Because incoming messages can be sorted automatically into queues or spam mails can be moved into a specific queue, OTRS has the possibility to filter incoming messages. It does not matter, if <filename>PostMaster.pl</filename> or mail accounts are used to get messages into the ticket system. Filter rules can be created through the link \"PostMaster Filter\" in the admin area of OTRS (see Figure 5.49 below)."
-msgstr ""
+msgstr "Damit Sie automatisch Mails vorsortieren können bzw. ungewünschte Mails gar nicht in die Queues des Ticket-Systems gelangen, können Filterregeln für eingehende Nachrichten festgelegt werden. Dabei spielt es keine Rolle, ob die Mails über Mail-Konten oder mit Hilfe des<filename>PostMaster.pl</filename> Skriptes ins System gelangen. Der Link \"PostMaster Filter\" innerhalb des Admin-Bereiches von OTRS ruft die Verwaltung für die Filterregeln auf."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1706
 msgid "Managing filter rules for incoming messages"
-msgstr ""
+msgstr "Verwaltung von Filterregeln für eingehende E-Mails"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:1706
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmasterfilter - screenshot\" scale=\"40\" fileref=\"screenshots/admin-postmasterfilter.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmasterfilter - screenshot\" scale=\"40\" fileref=\"screenshots/admin-postmasterfilter.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1712
 msgid "<emphasis>Figure 5.49. PostMaster filter management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb 5.49. Verwaltung von Filterregeln für eingehende E-Mails.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1716
 msgid "A filter consists of one or more criteria that must match for the defined actions to be executed. You can define filter criteria for the headers or the body of an email, e.g. search for specific header entries or strings in the body, even regular expressions are allowed. All actions for a filter rule are triggered by X-OTRS headers, which are inserted if the filter criteria match. The ticket system evaluates the inserted X-OTRS headers and executes the specific actions.  X-OTRS headers can be used to sort an incoming message into a specific queue, change the priority of the message or ignore the message and deliver it not to the system. The Table 5-4 lists the different X-OTRS headers and their meaning."
-msgstr ""
+msgstr "Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt werden müssen, damit die Filterregel greift, und aus einer oder mehreren Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt wurden. Sie können für die Kopfzeilen und den Body einer Nachricht Filterregeln festlegen, also z. B. nach bestimmten Headern suchen oder nach Zeichenketten bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen für eine Filterregel werden über sog. X-OTRS-Header gesteuert, die in die Mail eingefügt werden. Das Ticket-System wertet die X-OTRS-Header aus und nimmt die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z. B. die Priorität einer Nachricht geändert werden, die Mail in eine bestimmte Queue einsortiert oder die Mail komplett verworfen werden, usw. Die folgende Tabelle listet die verschiedenen X-OTRS-Header, deren zulässige Werte und die Bedeutung der einzelnen Header auf."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1730
 msgid "Note: You also can use X-OTRS-FollowUp-* headers for follow up emails."
-msgstr ""
+msgstr "Hinweis: Sie können auch X-OTRS-FollowUp-* header für Follow-Up-E-Mails verwenden."
 
 #. type: Content of: <chapter><section><table><title>
 #: en/adminarea.xml:1734
 msgid "Function of the different X-OTRS-headers"
-msgstr ""
+msgstr "Funktion der verschiedenen X-OTRS-Header"
 
 #. type: Content of: <chapter><section><table><tgroup><thead><row><entry>
 #: en/adminarea.xml:1742
 msgid "Possible values"
-msgstr ""
+msgstr "Mögliche Werte"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1752
 msgid "X-OTRS-Priority:"
-msgstr ""
+msgstr "X-OTRS-Priority:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1755
 msgid "1 very low, 2 low, 3 normal, 4 high, 5 very high"
-msgstr ""
+msgstr "1 very low, 2 low, 3 normal, 4 high, 5 very high"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1758
 msgid "Sets the priority of a ticket."
-msgstr ""
+msgstr "Legt die Priorität eines Tickets fest."
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1763
 msgid "X-OTRS-Queue:"
-msgstr ""
+msgstr "X-OTRS-Queue:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1766
 msgid "Name of a queue in the system."
-msgstr ""
+msgstr "Name einer Queue des Systems. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1769
 msgid "Sets the queue where the ticket shall be sorted in. Is a queue set by a X-OTRS header all other filter rules that try to sort a ticket into a specific queue are ignored."
-msgstr ""
+msgstr "Legt die Queue fest, in die das Ticket einsortiert werden soll. Wird mit dem X-OTRS-Queue-Header eine Queue voreingestellt, so hat diese Einstellung Vorrang vor allen anderen Filterregeln, die sich auf Queues beziehen. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1776
 msgid "X-OTRS-Lock:"
-msgstr ""
+msgstr "X-OTRS-Lock:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1779
 msgid "lock, unlock"
-msgstr ""
+msgstr "lock, unlock"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1782
 msgid "Sets the lock state of a ticket."
-msgstr ""
+msgstr "Setzt den \"gesperrt\"-Status eines Tickets."
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1787
 msgid "X-OTRS-Ignore:"
-msgstr ""
+msgstr "X-OTRS-Ignore:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1790
 msgid "Yes or True"
-msgstr ""
+msgstr "Yes oder True"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1793
 msgid "Is this X-OTRS header set to \"Yes\", the incoming message will completely be ignored and never delivered to the system."
-msgstr ""
+msgstr "Wird dieser Header gesetzt, wird die Mail komplett ignoriert und gelangt somit nie als Ticket in das System. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1799
 msgid "X-OTRS-State:"
-msgstr ""
+msgstr "X-OTRS-State:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1802
 msgid "new, open, closed successful, closed unsuccessful, ..."
-msgstr ""
+msgstr "new, open, closed successful, closed unsuccessful, ... "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1805
 msgid "Sets the next state of the ticket."
-msgstr ""
+msgstr "Setzt den nächsten Status eines Tickets. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1810
 msgid "X-OTRS-State-PendingTime:"
-msgstr ""
+msgstr "X-OTRS-State-PendingTime:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1813
 msgid "e. g. 2010-11-20 00:00:00"
-msgstr ""
+msgstr "Z. B. 2010-11-20 00:00:00"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1816
 msgid "Sets the pending time of a ticket (you also should sent a pending state via X-OTRS-State)."
-msgstr ""
+msgstr "Setzt die Wartezeit eines Tickets (Sie sollten dann ebenfalls einen \"Warten\"-Status per X-OTRS-State setzen)."
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1821
 msgid "X-OTRS-Type:"
-msgstr ""
+msgstr "X-OTRS-Type:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1824
 msgid "default (depends on your setup)"
-msgstr ""
+msgstr "default (systemabhängig)"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1827
 msgid "Sets the type of a ticket (if Ticket::Type support is active)."
-msgstr ""
+msgstr "Setzt den Typ eines Tickets (wenn Ticket::Type aktiviert ist)."
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1832
 msgid "X-OTRS-Service:"
-msgstr ""
+msgstr "X-OTRS-Service:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1835
 #: en/adminarea.xml:1846
 msgid "(depends on your setup)"
-msgstr ""
+msgstr "(systemabhängig)"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1838
 msgid "Sets the service of a ticket (if Ticket::Service support is active)."
-msgstr ""
+msgstr "Setzt den Service eines Tickets (wenn Ticket::Service aktiv ist)."
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1843
 msgid "X-OTRS-SLA:"
-msgstr ""
+msgstr "X-OTRS-SLA:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1849
 msgid "Sets the SLA of a ticket (if Ticket::Service support is active)."
-msgstr ""
+msgstr "Setzt das Service-Level-Abkommen eines Tickets (wenn Ticket::Service aktiv ist)."
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1854
 msgid "X-OTRS-CustomerUser:"
-msgstr ""
+msgstr "X-OTRS-CustomerUser:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1857
 msgid "CustomerUser"
-msgstr ""
+msgstr "CustomerUser"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1860
 msgid "Sets the customer user for the ticket."
-msgstr ""
+msgstr "Legt den Kunden-Benutzer fest, dem das Ticket zugeordnet werden soll. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1865
 msgid "X-OTRS-CustomerNo:"
-msgstr ""
+msgstr "X-OTRS-CustomerNo:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1868
 msgid "CustomerNo"
-msgstr ""
+msgstr "CustomerNo"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1871
 msgid "Sets the customer ID for this ticket."
-msgstr ""
+msgstr "Legt die Kunden-ID fest, die dem Ticket zugeordnet werden soll. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1876
 msgid "X-OTRS-ArticleKey(1|2|3):"
-msgstr ""
+msgstr "X-OTRS-ArticleKey(1|2|3):"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1879
 msgid "Additional info key for the article."
-msgstr ""
+msgstr "Zusätzlicher Info-Key für den Artikel. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1882
 msgid "Saves an additional info key for this article."
-msgstr ""
+msgstr "Speichert einen zusätzlichen Info-Key für den Artikel. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1887
 msgid "X-OTRS-ArticleValue(1|2|3):"
-msgstr ""
+msgstr "X-OTRS-ArticleValue(1|2|3):"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1890
 msgid "Additional info value for the article."
-msgstr ""
+msgstr "Zusätzlicher Info-Value. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1893
 msgid "Saves an additional info value for the article."
-msgstr ""
+msgstr "Speichert einen zusätzlichen Info-Value für den Artikel. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1898
 msgid "X-OTRS-SenderType:"
-msgstr ""
+msgstr "X-OTRS-SenderType:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1901
 msgid "agent, system, customer"
-msgstr ""
+msgstr "agent, system, customer"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1904
 msgid "Sets the type of the ticket sender."
-msgstr ""
+msgstr "Legt die Art des Ticket-Absenders fest. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1909
 msgid "X-OTRS-ArticleType:"
-msgstr ""
+msgstr "X-OTRS-ArticleType:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1912
 msgid "email-external, email-internal, email-notification-ext, email-notification-int, phone, fax, sms, webrequest, note-internal, note-external, note-report"
-msgstr ""
+msgstr "email-external, email-internal, email-notification-ext, email-notification-int, phone, fax, sms, webrequest, note-internal, note-external, note-report"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1917
 msgid "Sets the article type for the incoming ticket."
-msgstr ""
+msgstr "Legt den Typ des Artikles für das eingehende Ticket fest. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1922
 msgid "X-OTRS-TicketKey(1|2|...|8):"
-msgstr ""
+msgstr "X-OTRS-TicketKey(1|2|...|8):"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1925
 msgid "Additional info key for the ticket."
-msgstr ""
+msgstr "Zusätzlicher Info-Key "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1928
 msgid "Saves an additional info key for the ticket."
-msgstr ""
+msgstr "Speichert einen zusätzlichen Info-Key für das Ticket. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1933
 msgid "X-OTRS-TicketValue(1|2|...|8):"
-msgstr ""
+msgstr "X-OTRS-TicketValue(1|2|...|8):"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1936
 msgid "Additional info value for the ticket."
-msgstr ""
+msgstr "Zusätzlicher Info-Value "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1939
 msgid "Saves an additional info value for the ticket."
-msgstr ""
+msgstr "Speichert einen zusätzlichen Info-Value für das Ticket. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1944
 msgid "X-OTRS-Loop:"
-msgstr ""
+msgstr "X-OTRS-Loop:"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1947
 msgid "True"
-msgstr ""
+msgstr "True"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1950
 msgid "If this X-OTRS header is set no auto answer is delivered to the sender of the message (mail loop protection)."
-msgstr ""
+msgstr "Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort an den Absender des neuen Tickets geschickt, z. B. um Mailschleifen zu vermeiden. "
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1959
 msgid "A name must be specified for every filter rule. In the section for \"Match\" the filter criteria can be specified. Choose via the listboxes for \"Header 1\", \"Header 2\" and so on the parts of the messages where you would like to search and specify via the input files on the right sides the values. In the section for \"Set\" you can choose the actions that are triggered, if the filter rules match. You can select for \"Header 1\", \"Header 2\" and so on the X-OTRS-Header and set the values (see Figure 5.50 below)."
-msgstr ""
+msgstr "Sie müssen für jede Regel einen Namen vergeben. Darunter legen Sie in der Sektion für \"Treffer\" die verschiedenen Kriterien fest, nach denen gefiltert werden soll. Wählen Sie aus den Listboxen für \"Header 1\", \"Header 2\" usw. aus, an welcher Stelle in der eingehenden Nachricht Sie suchen möchten und tragen Sie rechts neben dem entsprechenden Header den Wert ein, nach dem gesucht werden soll. In der Sektion \"Setzen\" legen Sie die Aktionen fest, die ausgeführt werden sollen, wenn die Filterkriterien zutreffen. Hier können Sie für \"Header1\", \"Header 2\" usw. den entsprechenden X-OTRS-Header auswählen und rechts daneben den entsprechenden Wert eintragen."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1970
 msgid "Addin filter rules for incoming messages"
-msgstr ""
+msgstr "Filter-Regeln für eingehende Nachrichten anlegen"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:1970
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmasterfilter - screenshot\" scale=\"40\" fileref=\"screenshots/add-postmasterfilter.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmasterfilter - screenshot\" scale=\"40\" fileref=\"screenshots/add-postmasterfilter.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1976
 msgid "<emphasis>Figure 5.50. Add a PostMaster filter.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.50. Filter-Regeln für eingehende Nachrichten anlegen.</emphasis>"
 
 #. type: Content of: <chapter><section><example><title>
 #: en/adminarea.xml:1980
 msgid "Sort spam mails into a specific queue"
-msgstr ""
+msgstr "Aussortierung von Spammails in eine bestimmte Queue"
 
 #. type: Content of: <chapter><section><example><para>
 #: en/adminarea.xml:1983
 msgid "A useful filter rule could be to let OTRS automatically sort mails marked for spam with a spam detection tool, such as SpamAssassin, into the \"Junk\" queue.  SpamAssassin adds the \"X-Spam-Flag\" header to every checked mail.  When the mail is marked as spam, the Header is set to \"Yes\". So the filter criteria would be \"X-Spam-Flag: Yes\". To create a filter rule with this criteria you can insert the name for example \"spam-mails\". Also choose in the section for \"Match\" for \"Header 1\" from the listbox \"X-Spam-Flag:\". Insert \"Yes\" as value for this header. Now the filter criteria is specified. To make sure, that all spam mails get sorted into the \"Junk\" queue choose in the section for \"Set\" for \"Header 1\" the \"X-OTRS-Queue:\" entry. Specify \"Junk\" as value for this header. Finally add the new filter rule to activate it for the next new messages in the system."
-msgstr ""
+msgstr "Eine nützliche Filterregel könnte sein, alle Mails, die von SpamAssassin als Spam markiert wurden, automatisch in die Queue \"Junk\" einsortieren zu lassen. Spamassassin fügt bei allen überprüften Mails die Kopfzeile \"X-Spam-Flag\" hinzu. Wird die Mail als Spam markiert, wird dieser Header auf \"Yes\" gesetzt. Das Filterkriterium lautet also \"X-Spam-Flag: Yes\". Um nun eine Filterregel mit diesem Kriterium zu erzeugen, tragen Sie hierzu als Name für die Filterregel z. B. \"spam-mails\" ein und wählen in der Sektion \"Treffer\" für \"Header 1\" den Header \"X-Spam-Flag:\" aus der Listbox aus. Rechts daneben fügen Sie als Wert \"Yes\" hinzu. Das Filterkriterium wurde somit festgelegt. Um nun die Einsortierung der von spamassassin als Spam klassifizierten Mails in die Queue \"Junk\" zu erzwingen, wählen Sie in der Sektion \"Setzen\" für \"Header 1\" den Eintrag \"X-OTRS-Queue:\" aus und tragen als Wert rechts daneben \"Junk\" ein. Abschließend wird mit Hilfe des \"Hinzufügen\"-Buttons die neue Regel gespeichert und aktiviert, beim nächsten Abruf der POP3-Konten bzw. für die nächste an das System gesendete Nachricht wird die Filterregel abgearbeitet."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1999
 msgid "There are additional modules, that can be used to <link linkend=\"email-receiving-filter\"> filter incoming messages </link> more specifically. These modules might be useful on bigger and complex systems."
-msgstr ""
+msgstr "Es gibt weitere Module, die zum <link linkend=\"email-receiving-filter\">Filtern eingehender E-Mails</link>genutzt werden und bei komplexeren Installationen nützlich sein können."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:2013
 msgid "Executing automated jobs with the GenericAgent"
-msgstr ""
+msgstr "Ausführen von automatisierten Jobs mit Hilfe des GenericAgents"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2016
 msgid "The GenericAgent is a tool to execute tasks automatically, that otherwise should be done by a human person, a real agent. The GenericAgent, for example, can close or move tickets, send notifications on escalated tickets, etc."
-msgstr ""
+msgstr "Der GenericAgent ist ein Tool zum automatischen Ausführen von Aufgaben, die normalerweise ein richtiger Agent manuell durchführen müsste. Er kann z. B. bestimmte Tickets in einer Queue schließen oder Benachrichtigungen für eskalierte Tickets versenden."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2022
 msgid "To access to the GenericAgent, the link \"GenericAgent\" in the admin area of OTRS can be used (see Figure 5.51 below). A table with the already created jobs is displayed, where jobs can be executed manually or removed."
-msgstr ""
+msgstr "Um zum GenericAgent zu gelangen, verwenden Sie die Verknüpfung \"GenericAgent\" in der Administrationsoberfläche von OTRS. Eine Liste verfügbarer Jobs wird angezeigt, welche bearbeitet, ausgeführt oder gelöscht werden können."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2029
 msgid "Job list for the GenericAgent"
-msgstr ""
+msgstr "Jobliste des GenericAgent"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2029
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea genericagent - screenshot\" scale=\"40\" fileref=\"screenshots/admin-genericagent.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea genericagent - screenshot\" scale=\"40\" fileref=\"screenshots/admin-genericagent.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2035
 msgid "<emphasis>Figure 5.51. Job list for the GenericAgent.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.51. Jobliste des GenericAgent.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2039
 msgid "To create a new job a name must be specified and the \"Add job\" button must be pressed. Via the screen for the creation of a new job for the GenericAgent you can specify the times when the job shall be executed, different criteria to select the tickets to work on and the new properties of those tickets (see Figure 5.52 below)."
-msgstr ""
+msgstr "Über die Bildschirmmaske zum Erstellen eines neuen Jobs kann der Zeitplan für die Ausführung des Jobs eingestellt werden. Desweiteren kann über verschiedene Kriterien festgelegt werden, welche Tickets vom Job erfasst werden sollen. Schließlich ist es möglich, die neuen Eigenschaften der vom Job betroffenen Tickets einzustellen."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2047
 msgid "Creating a job for the GenericAgent"
-msgstr ""
+msgstr "Anlegen eines GenericAgent-Jobs"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2047
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea genericagent - screenshot\" scale=\"40\" fileref=\"screenshots/add-genericagent-job.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea genericagent - screenshot\" scale=\"40\" fileref=\"screenshots/add-genericagent-job.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2053
 msgid "<emphasis>Figure 5.52. Creating a job for the GenericAgent.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.52. Anlegen eines GenericAgent-Jobs.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2057
 msgid "If the creation of the job is finished all affected tickets by the job are listed. This list helps you verify that the job is having the expected behavior, no changes are made to these tickets yet. The job will be really activated if it is saved into the job list."
-msgstr ""
+msgstr "Nachdem der Job gespeichert wurde, werden alle Tickets aufgeführt, die durch den Job verändert werden. Diese Auflistung dient zur Übersicht, ob der Job richtig funktioniert, es werden noch keine Veränderungen vorgenommen. Erst nach der Übernahme des Jobs in die Job-Liste, wird der Job aktiviert."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:2067
 msgid "Admin email"
-msgstr ""
+msgstr "Administrator-E-Mail"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2070
 msgid "OTRS administrators can send messages to specific users or groups.  The \"Admin Notification\" in the admin area, opens the screen where the agents and groups that should be notified can be selected (see Figure 5.53 below)."
-msgstr ""
+msgstr "Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder Benutzergruppen im System zu versenden, folgen Sie dem Link \"Admin Notification\"."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2077
 msgid "Admin notification"
-msgstr ""
+msgstr "Administrator-Benachrichtigung"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2077
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea email - screenshot\" scale=\"40\" fileref=\"screenshots/send-admin-notification.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea email - screenshot\" scale=\"40\" fileref=\"screenshots/send-admin-notification.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2083
 msgid "<emphasis>Figure 5.53. Admin notification.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.53. Administrator-Benachrichtigung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2087
 msgid "It is possible to specify the sender, subject and body text of the notification.  You can also select the agents, groups and roles who should receive the message."
-msgstr ""
+msgstr "Es wird ein Formular geladen, in das Sie die Absenderadresse, den Betreff und den Inhalt der Administratoren-Mitteilung eintragen können. Weiterhin können Sie aus der Tabelle auswählen, an welche Benutzer und / oder Benutzergruppen die Mitteilung gesendet werden soll."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2094
 #: en/adminarea.xml:2103
 msgid "Session management"
-msgstr ""
+msgstr "Sitzungsverwaltung"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2097
 msgid "You can see all logged in users and their session details by clicking the \"Session Management\" link in the admin area (see Figure 5.54 below)."
-msgstr ""
+msgstr "Um eine Übersicht über die gerade im System angemeldeten Benutzer und deren Sitzungseigenschaften zu erhalten, folgen Sie dem Link \"Sitzungsverwaltung\" der Administrationsoberfläche."
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2103
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea sessionmanagement - screenshot\" scale=\"40\" fileref=\"screenshots/admin-sessionmanagement.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea sessionmanagement - screenshot\" scale=\"40\" fileref=\"screenshots/admin-sessionmanagement.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2109
 msgid "<emphasis>Figure 5.54. Session management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.54. Sitzungsverwaltung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2113
 msgid "Some statistics about all active sessions are displayed, e.g. how many agents and customer users are logged in, number of active sessions.  Every individual session can be removed y clicking on the <emphasis>Kill this session</emphasis> in the right-hand side of the list.  You also have the option to <emphasis>Kill all sessions</emphasis>, which can be useful if you'd like to bring the system down.  Detailed information for every session is available, too (see Figure 5.55 below)."
-msgstr ""
+msgstr "Innerhalb der Sitzungsverwaltung werden allgemeine Informationen zu allen Sitzungen im System ausgegeben, also z. B. wie viele Sitzungen gerade insgesamt aktiv sind oder wie viele Agenten- und Kunden-Sitzungen laufen, usw. Es besteht die Möglichkeit mit Hilfe des \"Alle Sitzungen löschen\"-Schalters die Sitzungen aller angemeldeten Benutzer zu beenden. Weiterhin können detaillierte Informationen für jede einzelne Sitzung abgerufen und einzelne Sitzungen gelöscht werden."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2124
 msgid "Session details"
-msgstr ""
+msgstr "Sitzungsdetails"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2124
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea session management - screenshot\" scale=\"40\" fileref=\"screenshots/admin-session-details.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea session management - screenshot\" scale=\"40\" fileref=\"screenshots/admin-session-details.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2130
 msgid "<emphasis>Figure 5.55. Session details.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.55. Sitzungsdetails.</emphasis>"
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2136
 #: en/adminarea.xml:2145
 msgid "System Log"
-msgstr ""
+msgstr "System Log"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2139
 msgid "The \"System Log\" link in the admin area of OTRS, shows the last log entries of the system (see Figure 5.56 below)."
-msgstr ""
+msgstr "Der Link \"System Log\" ermöglicht es, die letzten Logeinträge des Ticket-Systems über die Weboberfläche einzusehen."
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2145
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea syslog - screenshot\" scale=\"40\" fileref=\"screenshots/admin-syslog.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea syslog - screenshot\" scale=\"40\" fileref=\"screenshots/admin-syslog.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2151
 msgid "<emphasis>Figure 5.56. System Log.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.56. System Log.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2155
 msgid "Each line in the log contains: a time stamp, the log priority, the system component and the log entry itself."
-msgstr ""
+msgstr "Ein Logeintrag setzt sich aus der Zeit, der Priorität, der betroffenen Systemkomponente und der eigentlichen Meldung zusammen."
 
 #. type: Content of: <chapter><section><note><para>
 #: en/adminarea.xml:2161
 msgid "The system logs are only available via the web interface on linux or unix systems. On Windows systems you can see the log by opening the file <filename>[install_dir]otrs\\var\\log\\otrs.log</filename> with a text editor."
-msgstr ""
+msgstr "Die System Logs können nur auf Unix- oder Linux-Systemen über das Web-Interface eingesehen werden, unter Windows-Betriebssystemen können Sie stattdessen die Datei <filename>[install_dir]otrs\\var\\log\\otrs.log</filename> mit einem Text-Editor öffnen."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:2171
 msgid "SQL queries via the SQL box"
-msgstr ""
+msgstr "SQL-Abfragen mit Hilfe der SQL Box"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2174
 msgid "The \"SQL Box\" link in the admin area, opens a screen that lets you query the content of the tables in the OTRS database (see Figure 5.57 below). It is not possible to change the content of the tables, only queries are allowed."
-msgstr ""
+msgstr "Über den Link \"SQL Box\" kann eine Bildschirmmaske aufgerufen werden, die es ermöglicht direkt mit SQL-Statements den Inhalt von Tabellen der OTRS-Datenbank abzurufen. Es sind nur SELECT-Abfragen möglich, d.h. die Tabellen können auf diesem Weg nicht verändert werden."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2181
 msgid "SQL Box"
-msgstr ""
+msgstr "SQL Box"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2181
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea selectbox - screenshot\" scale=\"40\" fileref=\"screenshots/admin-selectbox.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea selectbox - screenshot\" scale=\"40\" fileref=\"screenshots/admin-selectbox.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2187
 msgid "<emphasis>Figure 5.57. SQL Box.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.57. SQL Box.</emphasis>"
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:2194
 msgid "Package manager"
-msgstr ""
+msgstr "Paketverwaltung"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2197
 msgid "Using the \"Package Manager\" in the admin area, you can install and manage packages that extend the functionality of OTRS (see Figure 5.58 below). See the <link linkend=\"application\">Additional applications</link> section for a discussion on the extensions that are available from the OTRS repositories."
-msgstr ""
+msgstr "Mit der \"Paketverwaltung\" in der Administrationsoberfläche können Sie Pakete installieren und verwalten, die die Funktionalität von OTRS erweitern. Eine Liste von verfügbaren Erweiterungsmodulen von OTRS finden Sie unter <link linkend=\"application\">Zusätzliche Applikationen</link>."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:2206
 msgid "Package Manager"
-msgstr ""
+msgstr "Paketverwaltung"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:2206
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea packagemanager - screenshot\" scale=\"40\" fileref=\"screenshots/admin-packagemanager.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea packagemanager - screenshot\" scale=\"40\" fileref=\"screenshots/admin-packagemanager.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2212
 msgid "<emphasis>Figure 5.58. Package Manager.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Abb. 5.58. Paketverwaltung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2216
 msgid "In the package manager you can review the packages you currently have installed together with their version numbers."
-msgstr ""
+msgstr "In der Paketverwaltung können Sie die bereits installierten Pakete mit ihrer Versionsinformation einsehen."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2220
 msgid "You can install packages from a remote host by selecting the repository in the <emphasis>Online Repository</emphasis> section and clicking the <emphasis>Update repository information</emphasis> button. The available packages are displayed in the corresponding table. The right side of the screen shows the available packages. To install one, click on <emphasis>Install</emphasis>.  After installation the package is displayed in the <emphasis>Local Repository</emphasis> section."
-msgstr ""
+msgstr "Sie können Pakete von einem entfernten Server installieren, indem Sie das Paketverzeichnis im Abschnitt <emphasis>Online-Paketverzeichnis</emphasis> auswählen und auf <emphasis>Verzeichnisinformation aktualisieren</emphasis> klicken. Die verfügbaren Pakete werden rechts  tabellarisch dargestellt. Um eines zu installieren, klicken Sie auf \"Installieren\". Nach der Installation wird das Paket im Abschnitt <emphasis>Lokales Verzeichnis</emphasis> dargestellt."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2230
 msgid "To upgrade an installed package, the list of available packages in the online repository will show <emphasis>Upgrade</emphasis> in the Action column for any package that has a higher version than the locally installed. Just click Upgrade and it will install the new package on your system."
-msgstr ""
+msgstr "Um ein installiertes Paket zu aktualisieren, können Sie die Funktion \"Aktualisieren\" benutzen, die bei installierten Paketen angezeigt wird, von denen eine neuere Version verfügbar ist. Klicken Sie einfach auf \"Aktualisieren\", und die neue Version wird in Ihrem System installiert."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2237
 msgid "In some cases, such as when your OTRS system is not connected to the Internet, you can also install packages you have downloaded to a local disk.  Click the <emphasis>Browse</emphasis> button on the Actions side bar and select the .opm file on your disk.  Click <emphasis>Open</emphasis> and then <emphasis>Install Package</emphasis>. After installation the package is displayed in the <emphasis>Local Repository</emphasis> section. You can use the same steps for updating a package that is already installed."
-msgstr ""
+msgstr "In manchen Fällen, wenn beispielsweise ein OTRS-System nicht mit dem Internet verbunden ist, können Sie auch Pakete installieren, die lokal heruntergeladen wurden. Klicken Sie auf den <emphasis>Datei auswählen</emphasis>-Knopf in der \"Aktionen\"-Liste, und wählen Sie die .opm-Datei auf Ihrem Speichermedium aus. Verwenden Sie dann <emphasis>Paket installieren</emphasis>. Nach der Installation wird das Paket im Abschnitt <emphasis>Lokales Verzeichnis</emphasis> angezeigt. Auf dieselbe Weise können Sie ein bereits installiertes Paket aktualisieren."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:2248
 msgid "In special cases, you might want to configure the package manager, e.g., to use a proxy or to use a local repository. Just take a look at the available options in SysConfig under <link linkend=\"Framework:Core::Package\">Framework:Core::Package</link>."
-msgstr ""
+msgstr "In besonderen Fällen ist es erforderlich, die Paketverwaltung zu konfigurieren, zum Beispiel für die Verwendung eines Proxy-Servers, oder um auf ein lokales Verzeichnis zuzugreifen. Verwenden Sie dazu die Einstellungen unter <link linkend=\"Framework:Core::Package\">Framework:Core::Package</link>."
 
 #. type: Content of: <chapter><title>
 #: en/configuration.xml:7
@@ -11321,8 +11321,9 @@ msgstr ""
 #~ "shell&gt; /etc/init.d/apache start\n"
 #~ "shell&gt; /etc/init.d/mysql start\n"
 #~ "            "
+
 #~ msgid "Upgrading .tar.gz or RPM"
 #~ msgstr "Per .tar.gz oder RPM upgraden"
+
 #~ msgid "e. g. (depends on used services):"
 #~ msgstr "z. B. (kommt auf die konkret eingesetzten Dienste an):"
-
