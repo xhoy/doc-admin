@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
 "POT-Creation-Date: 2010-12-07 14:52+0100\n"
-"PO-Revision-Date: 2010-12-14 12:15+0100\n"
+"PO-Revision-Date: 2010-12-14 14:11+0100\n"
 "Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -2836,7 +2836,7 @@ msgstr "Bitte beachten Sie, dass durch die Verwendung von <filename>Cron.sh</fil
 #| "linux:/opt/otrs/bin# su otrs\n"
 #| "linux:~/bin$ ./Cron.sh start\n"
 #| "/opt/otrs/bin\n"
-#| "Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.18 $&gt;\n"
+#| "Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.19 $&gt;\n"
 #| "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 #| "(using /opt/otrs) done\n"
 #| "linux:~/bin$ exit\n"
@@ -2847,7 +2847,7 @@ msgid ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.18 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.19 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -2858,7 +2858,7 @@ msgstr ""
 "linux:/opt/otrs/bin# su otrs\n"
 "linux:~/bin$ ./Cron.sh start\n"
 "/opt/otrs/bin\n"
-"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.18 $&gt;\n"
+"Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.19 $&gt;\n"
 "Copyright (C) 2001-2009 OTRS AG, http://otrs.org/\n"
 "(using /opt/otrs) done\n"
 "linux:~/bin$ exit\n"
@@ -8775,122 +8775,122 @@ msgstr "<link linkend=\"Ticket:Core::Ticket:Ticket::StateAfterPending\"> Ticket 
 #. type: Content of: <chapter><title>
 #: en/priorities.xml:7
 msgid "Modifying ticket priorities"
-msgstr ""
+msgstr "Anpassen der Ticket-Prioritäten"
 
 #. type: Content of: <chapter><para>
 #: en/priorities.xml:10
 msgid "OTRS comes with five default priority levels, which can be modified via the \"Priority\" option in the Admin console.  When creating a customized list of priorities, please keep in mind that they are sorted alphabetically in the priority selection box, in the user interface. Also, OTRS orders tickets by internal database IDs in the QueueView."
-msgstr ""
+msgstr "OTRS enthält 5 vordefinierte Ticketprioritäten, die mit dem \"Prioritäten\"-Modul im Administrationsbereich verwaltet werden können. Wenn Sie eine angepasste Prioritätenliste erstellen, bedenken Sie bitte, dass diese in der Prioritätsauswahl-Liste alphabetisch sortiert dargestellt werden. In der Queue-Ansicht ordnet OTRS die Prioritäten nach internen Datenbank-IDs."
 
 #. type: Content of: <chapter><note><para>
 #: en/priorities.xml:19
 msgid "To keep the consistency of the data for OTRS it is not possible to delete priorities, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Um die Konsistenz der OTRS-Datenbank sicherzustellen, können Prioritäten nicht gelöscht, sondern nur deaktiviert werden. Um das zu tun, können Sie diese auf \"ungültig\" oder \"ungültig-temporär\" setzen."
 
 #. type: Content of: <chapter><important><para>
 #: en/priorities.xml:27
 msgid "If a new priority was added or if a one was changed, you might also want to modify some values in SysConfig:"
-msgstr ""
+msgstr "Wenn eine Priorität hinzugefügt oder geändert wurde, müssen Sie ggf. einige Werte in der SysConfig anpassen:"
 
 #. type: Content of: <chapter><important><itemizedlist><listitem><para>
 #: en/priorities.xml:32
 msgid "<link linkend=\"Ticket:Core::PostMaster:PostmasterDefaultPriority\"> Ticket:Core::Postmaster::PostmasterDefaultPriority</link> - defines the default priority for all incoming emails."
-msgstr ""
+msgstr "<link linkend=\"Ticket:Core::PostMaster:PostmasterDefaultPriority\"> Ticket:Core::Postmaster::PostmasterDefaultPriority</link> - definiert die Standardpriorität für einkommende E-Mails."
 
 #. type: Content of: <chapter><important><itemizedlist><listitem><para>
 #: en/priorities.xml:36
 msgid "<link linkend=\"Ticket:Frontend::Agent::Ticket::ViewPhoneNew:Ticket::Frontend::AgentTicketPhone_Priority\"> Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority</link> - defines the default priority in the New Phone Ticket screen for the agents."
-msgstr ""
+msgstr "<link linkend=\"Ticket:Frontend::Agent::Ticket::ViewPhoneNew:Ticket::Frontend::AgentTicketPhone_Priority\"> Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority</link> - definiert die Standardpriorität für neue Telefontickets im Agentenbereich."
 
 #. type: Content of: <chapter><important><itemizedlist><listitem><para>
 #: en/priorities.xml:40
 msgid "<link linkend=\"Ticket:Frontend::Agent::Ticket::ViewEmailNew:Ticket::Frontend::AgentTicketEmail_Priority\"> Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority</link> - defines the default priority in the New Email Ticket screen for the agents."
-msgstr ""
+msgstr "<link linkend=\"Ticket:Frontend::Agent::Ticket::ViewEmailNew:Ticket::Frontend::AgentTicketEmail_Priority\"> Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority</link> - definiert die Standardpriorität für neue E-Mail-Tickets im Agentenbereich."
 
 #. type: Content of: <chapter><important><itemizedlist><listitem><para>
 #: en/priorities.xml:44
 msgid "<link linkend=\"Ticket:Frontend::Customer::Ticket::ViewNew:Ticket::Frontend::CustomerTicketMessage_PriorityDefault\"> Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault</link> - defines the default priority in the New Ticket screen in the Customer frontend."
-msgstr ""
+msgstr "<link linkend=\"Ticket:Frontend::Customer::Ticket::ViewNew:Ticket::Frontend::CustomerTicketMessage_PriorityDefault\"> Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault</link> -  definiert die Standardpriorität für neue Tickets im Kundenbereich."
 
 #. type: Content of: <chapter><title>
 #: en/themes.xml:7
 msgid "Creating your own themes"
-msgstr ""
+msgstr "Erstellung eigener Themes"
 
 #. type: Content of: <chapter><para>
 #: en/themes.xml:10
 msgid "You can create your own themes for OTRS to use the layout you like in the web frontend. To create own themes you should customize the output templates to your needs."
-msgstr ""
+msgstr "Für OTRS können verschiedene Themes angelegt werden, also verschiedene Layouts zur Gestaltung der Web-Oberfläche. Dazu müssen Sie die vorhandenen Templates ändern und Ihren Wünschen entsprechend anpassen."
 
 #. type: Content of: <chapter><para>
 #: en/themes.xml:16
 msgid "More information about the syntax and structure of output templates can be found in the Developer Manual on <ulink url=\"http://doc.otrs.org\"> <citetitle>http://doc.otrs.org</citetitle> </ulink> , especialy in the chapter about <ulink url=\"http://doc.otrs.org/developer/2.4/en/html/c629.html\"> <citetitle>templates</citetitle> </ulink> ."
-msgstr ""
+msgstr "Mehr Informationen über die Syntax und den Aufbau von Templates finden Sie im Entwickler-Handbuch auf <ulink url=\"http://doc.otrs.org\"><citetitle>http://doc.otrs.org</citetitle></ulink> innerhalb des Kapitels zu den <ulink url=\"http://doc.otrs.org/developer/2.0/en/html/c494.html\"><citetitle>Templates</citetitle></ulink>."
 
 #. type: Content of: <chapter><para>
 #: en/themes.xml:31
 msgid "To create a new theme called \"Company\" perform the following steps:"
-msgstr ""
+msgstr "Um ein neues Theme namens \"Company\" anzulegen, gehen sie bitte nach folgendem Schema vor:"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/themes.xml:38
 msgid "Create a directory called <filename>Kernel/Output/HTML/Company</filename> and copy all files, that you like to change, from <filename>Kernel/Output/HTML/Standard</filename> into the new folder."
-msgstr ""
+msgstr "Erstellen Sie das Verzeichnis <filename>Kernel/Output/HTML/Company</filename> und kopieren Sie die Dateien, die Sie für das Company-Theme anpassen möchten, aus <filename>Kernel/Output/HTML/Standard</filename> in das neu erstellte Verzeichnis.     "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><important><para>
 #: en/themes.xml:44
 msgid "Only copy over the files you actually change. OTRS will automatically get the missing files from the Standard theme.  This will make upgrading in a later stage much easier."
-msgstr ""
+msgstr "Kopieren Sie nur diejenigen Dateien, die Sie verändern möchten. Fehlende Dateien wird OTRS automatisch vom Standard-Theme laden. Dadurch werden Systemaktualisierungen vereinfacht."
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/themes.xml:50
 msgid "Customize the files in the directory <filename>Kernel/Output/HTML/Company</filename> and change the layout to your needs"
-msgstr ""
+msgstr "Passen Sie die Dateien im Verzeichnis <filename>Kernel/Output/HTML/Company</filename> Ihren Wünschen entsprechend an. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/themes.xml:57
 msgid "To activate the new theme in OTRS, add them in the SysConfig under <link linkend=\"Framework:Core::Web:Frontend::Themes\"> Frontend::Themes </link>."
-msgstr ""
+msgstr "Um das neue Theme OTRS bekannt zu machen, fügen Sie es unter <link linkend=\"Framework:Core::Web:Frontend::Themes\"> Frontend::Themes </link> zur SysConfig hinzu."
 
 #. type: Content of: <chapter><para>
 #: en/themes.xml:67
 msgid "Now the new theme should be useable in OTRS. You can select it via your <link linkend=\"user-preferences\"> personal preferences </link> page."
-msgstr ""
+msgstr "Ab nun sollten sie das neue Theme nutzen und über Ihre <link linkend=\"user-preferences\">persönlichen Einstellungen</link> aktivieren können."
 
 #. type: Content of: <chapter><warning><para>
 #: en/themes.xml:79
 msgid "Do not change the theme files shipped with OTRS, since these changes will be lost after an update. Create your own themes only by performing the steps described above."
-msgstr ""
+msgstr "Nehmen Sie keine Änderungen an den Theme-Dateien vor, die mit OTRS installiert wurden, da diese bei einem Update verloren gehen können. Erstellen Sie eigene Themes ausschließlich nach dem oben beschriebenen Verfahren."
 
 #. type: Content of: <chapter><title>
 #: en/language-translation.xml:7
 msgid "Localization of the OTRS frontend"
-msgstr ""
+msgstr "Übersetzung des OTRS-Frontends"
 
 #. type: Content of: <chapter><para>
 #: en/language-translation.xml:10
 msgid "The frontend of OTRS supports different languages."
-msgstr ""
+msgstr "Das OTRS Webfrontend unterstützt verschiedene Sprachen."
 
 #. type: Content of: <chapter><para>
 #: en/language-translation.xml:14
 msgid "How localization for the OTRS framework is done, and what steps you have to perform to create a translation for a new language, or how you can create customizations to translations can be found in the <ulink url=\"http://doc.otrs.org/developer/2.4/en/html/c772.html\"> \"Language Translations\" </ulink> chapter from the developer manual on <ulink url=\"http://doc.otrs.org\"> http://doc.otrs.org </ulink> ."
-msgstr ""
+msgstr "Wie der Lokalisationsmechanismus des OTRS Frameworks arbeitet und welche Möglichkeiten er bietet, entnehmen Siie bitte dem Kapitel <ulink url=\"http://doc.otrs.org/developer/2.0/en/html/c630.html\">Language Translations</ulink> aus dem Developer Handbuch auf <ulink url=\"http://doc.otrs.org\">http://doc.otrs.org</ulink>. Dieses Kapitel beschreibt, wie eigene Übersetzungen eingepflegt und komplett neue Sprachen hinzugefügt werden können."
 
 #. type: Content of: <chapter><para>
 #: en/pgp.xml:10
 msgid "OTRS is able to sign or encrypt outgoing messages with PGP. Also encrypted incoming messages can be decrypted. Encryption and decryption is done with the GPL tool GnuPG. To setup GnuPG for OTRS, the following steps have to be performed:"
-msgstr ""
+msgstr "In OTRS können ausgehende E-Mails mit Hilfe von PGP signiert oder verschlüsselt werden. Ebenfalls ist es möglich verschlüsselte Nachrichten zu entschlüsseln. Die Ver- und Entschlüsselung mit PGP wird mit Hilfe des GPL-Werkzeugs <application>GnuPG</application> vorgenommen. Zur Einrichtung sind die folgenden Schritte notwendig:"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:20
 msgid "Install GnuPG, via the package manager of your operating system."
-msgstr ""
+msgstr "Erste Aufgabe ist es, das entsprechende GnuPG-Software-Paket zu installieren, welches bei den meisten Linux-Distributionen mitgeliefert wird. Dies sollte mit Hilfe des jeweiligen Paketmanagers leicht durchgeführt werden können. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:25
 msgid "Configure GnuPG for the usage with OTRS.  The needed directories for GnuPG and a private key have to be created.  The command shown in the Sript 16.1 has to be executed as OTRS user, from a shell."
-msgstr ""
+msgstr "Im zweiten Schritt muss das soeben installierte GnuPG zur Benutzung für OTRS konfiguriert werden. Dies geschieht auf der Kommandozeilenebene durch einen Aufruf von GnuPG, der die notwendigen Verzeichnisse anlegt und den privaten Schlüssel erzeugt. Der Aufruf muss als otrs-Benutzer (bzw. als der Benutzer, mit dessen Rechten das Ticket-System läuft) durchgeführt werden. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para><screen>
 #: en/pgp.xml:32
@@ -8980,41 +8980,124 @@ msgid ""
 "    linux:~$\n"
 "    "
 msgstr ""
+"    linux:~# su otrs\n"
+"    linux:/root$ cd\n"
+"    linux:~$ pwd\n"
+"    /opt/otrs\n"
+"    linux:~$ gpg --gen-key\n"
+"    gpg (GnuPG) 1.4.2; Copyright (C) 2005 Free Software Foundation, Inc.\n"
+"    This program comes with ABSOLUTELY NO WARRANTY.\n"
+"    This is free software, and you are welcome to redistribute it\n"
+"    under certain conditions. See the file COPYING for details.\n"
+"\n"
+"    gpg: directory `/opt/otrs/.gnupg' created\n"
+"    gpg: new configuration file `/opt/otrs/.gnupg/gpg.conf' created\n"
+"    gpg: WARNING: options in `/opt/otrs/.gnupg/gpg.conf' are not yet active during t\n"
+"    his run\n"
+"    gpg: keyring `/opt/otrs/.gnupg/secring.gpg' created\n"
+"    gpg: keyring `/opt/otrs/.gnupg/pubring.gpg' created\n"
+"    Please select what kind of key you want:\n"
+"       (1) DSA and Elgamal (default)\n"
+"       (2) DSA (sign only)\n"
+"       (5) RSA (sign only)\n"
+"    Your selection? 1\n"
+"    DSA keypair will have 1024 bits.\n"
+"    ELG-E keys may be between 1024 and 4096 bits long.\n"
+"    What keysize do you want? (2048)\n"
+"    Requested keysize is 2048 bits\n"
+"    Please specify how long the key should be valid.\n"
+"         0 = key does not expire\n"
+"      &lt;n&gt;  = key expires in n days\n"
+"      &lt;n&gt;w = key expires in n weeks\n"
+"      &lt;n&gt;m = key expires in n months\n"
+"      &lt;n&gt;y = key expires in n years\n"
+"    Key is valid for? (0)\n"
+"    Key does not expire at all\n"
+"    Is this correct? (y/N) y\n"
+"\n"
+"    You need a user ID to identify your key; the software constructs the user ID\n"
+"    from the Real Name, Comment and Email Address in this form:\n"
+"        \"Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;\"\n"
+"\n"
+"    Real name: Ticket System\n"
+"    Email address: support@example.com\n"
+"    Comment: Private PGP Key for the ticket system with address support@example.com\n"
+"    You selected this USER-ID:\n"
+"    \"Ticket System (Private PGP Key for the ticket system with address support@examp\n"
+"    le.com) &lt;support@example.com&gt;\"\n"
+"\n"
+"    Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O\n"
+"    You need a Passphrase to protect your secret key.\n"
+"\n"
+"    Passphrase: secret\n"
+"    Repeat passphrase: secret\n"
+"\n"
+"    We need to generate a lot of random bytes. It is a good idea to perform\n"
+"    some other action (type on the keyboard, move the mouse, utilize the\n"
+"    disks) during the prime generation; this gives the random number\n"
+"    generator a better chance to gain enough entropy.\n"
+"    ++++++++++.+++++++++++++++++++++++++....+++++.+++++...+++++++++++++++++++++++++.\n"
+"    +++++++++++++++++++++++++.+++++.+++++.+++++++++++++++++++++++++&gt;++++++++++&gt;+++++\n"
+"    .......&gt;+++++&lt;+++++................................+++++\n"
+"\n"
+"    Not enough random bytes available.  Please do some other work to give\n"
+"    the OS a chance to collect more entropy! (Need 280 more bytes)\n"
+"\n"
+"    ++++++++++.+++++..++++++++++..+++++....++++++++++++++++++++.+++++++++++++++.++++\n"
+"    ++++++++++++++++++++++++++.++++++++++.+++++++++++++++.++++++++++.+++++++++++++++\n"
+"    ..+++++&gt;.+++++....&gt;+++++........................................................\n"
+"    ...........................................................&gt;+++++&lt;+++++.........\n"
+"    .............+++++^^^\n"
+"    gpg: /opt/otrs/.gnupg/trustdb.gpg: trustdb created\n"
+"    gpg: key 7245A970 marked as ultimately trusted\n"
+"    public and secret key created and signed.\n"
+"\n"
+"    gpg: checking the trustdb\n"
+"    gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model\n"
+"    gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u\n"
+"    pub   1024D/7245A970 2006-02-03\n"
+"          Key fingerprint = 2ED5 BC36 D2B6 B055 7EE1  5833 1D7B F967 7245 A970\n"
+"     uid                  Ticket System (Private pgp key for ticket system with addre\n"
+"    ss support@example.com) &lt;support@example.com&gt;\n"
+"    sub   2048g/52B97069 2006-02-03\n"
+"\n"
+"    linux:~$\n"
+"    "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:118
 msgid "<emphasis>Script 16.1. Configuring GnuPG.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 16.1. Konfiguration von GnuPG.</emphasis>"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:122
 msgid "As shown in the Script 16.1, for most of the settings the default is OK.  Only the values for the key owner have to be entered correctly and a propper password for the key has to be specified."
-msgstr ""
+msgstr "Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit &lt;EINGABE&gt; zu bestätigen. Lediglich die Angabe zur Person des Schlüsselbesitzers ist zu vervollständigen bzw. zum Ende hin ist an der mit (passphrase) gekennzeichneten Stelle die Passphrase für den zu generierenden Schlüssel einzugeben."
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:129
 msgid "Now OTRS has to be prepared to use PGP. Open the SysConfig interface, via the admin panel and search for \"PGP\". Select the sub group Crypt::PGP from the search results."
-msgstr ""
+msgstr "Im nächsten Schritt muss OTRS auf die Verwendung von PGP vorbereitet werden. Suchen Sie in SysConfig nach \"PGP\" und wähen Sie danach dan die Untergruppe Crypt::PGP aus. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:135
 msgid "In the screen for the PGP settings, PGP should be activated for OTRS (first option). Also the path to the gpg program should be checked."
-msgstr ""
+msgstr "In der nun angezeigten Maske sollte zum einen <link linkend=\"Framework:Crypt::PGP:PGP\">\" PGP aktiviert </link> werden (die erste Option). Danach sollte überprüft werden, ob der voreingestellte <link linkend=\"Framework:Crypt::PGP:PGP::Bin\"> Pfad zum Programm gpg </link> der tatsächlichen Installation entspricht. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:140
 msgid "The next config setting (PGP::Options) might to be changed. Via this config setting, the parameters that are used for every execution of gpg, by the OTRS user, can be specified. Especially the directory of the config files for GnuPG of the OTRS user is important. In the example <filename>/opt/otrs/.gnupg</filename> is used. This directory was created in the first step of the PGP configuration."
-msgstr ""
+msgstr "Die nächste Einstellung (<link linkend=\"Framework:Crypt::PGP:PGP::Options\">PGP::Options</link>) muss ggf. modifiziert werden. Es handelt sich um die Parameter, mit denen OTRS das Programm gpg aufruft. Hier ist insbesondere die Option für die Lage des GnuPG-Konfigurationsverzeichnisses des OTRS-Benutzers otrs wichtig. Im Beispiel ist dies: /opt/otrs/.gnupg). Dieses Verzeichnis wurde im Schritt 1 automatisch von GnuPG angelegt. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:149
 msgid "Via the last config option it is possible to specify the pairs of key IDs and their passwords for the own private keys. Because communication partners from outside write to the ticket system and their messages are encrypted with their public key, OTRS can decrypt these messages with the ID/passwords specified here."
-msgstr ""
+msgstr "Über die letzte Option können die <link linkend=\"Framework:Crypt::PGP:PGP::Key::Password\">Schlüssel-Werte-Paare für die ID(s) und Passphrase(n)</link> der eigenen PGP-Schlüssel dem Ticket System bekannt gemacht werden. Noch einmal genauer: da andere Kommunikationspartner an das Ticket-System (oder besser: an den Mail-Eingang des Systems) E-Mails mit dessen öffentlichen Schlüssel verschlüsselt schicken, kann OTRSmit dem/n in dieser Option angegebenen privaten Schlüssel(n) solchermaßen verschlüsselte Mails entschlüsseln. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:157
 msgid "How to get the id of your own private key? The ID of your own private key is already shown during the key generation (see step 1 from above). It is also possible to get the ID if the command specified in the Script 16.2 is executed as OTRS user:"
-msgstr ""
+msgstr "Woher bekommt man die ID des eigenen Schlüssels? Die ID steckt schon in der Ausgabe der Schlüsselgenerierung (siehe Schritt 1). Man kann die ID aber auch als Benutzer otrs jederzeit über die Kommandozeile ermitteln: "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para><screen>
 #: en/pgp.xml:165
@@ -9035,56 +9118,70 @@ msgid ""
 "    linux:~$\n"
 "    "
 msgstr ""
+"    linux:~# su otrs\n"
+"    linux:/root$ cd\n"
+"    linux:~$ pwd\n"
+"    /opt/otrs\n"
+"    linux:~$ gpg --list-keys\n"
+"    /opt/otrs/.gnupg/pubring.gpg\n"
+"    ----------------------------\n"
+"    pub   1024D/7245A970 2006-02-03\n"
+"    uid                  Ticket System (Private pgp key for ticket system with\n"
+"    address support@example.com) &lt;support@example.com&gt;\n"
+"    sub   2048g/52B97069 2006-02-03\n"
+"\n"
+"    linux:~$\n"
+"    "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:182
 msgid "<emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 16.2. Die ID des eigenen privaten Schlüssels ermitteln.</emphasis>"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:186
 msgid "The ID of the private key can be found in the line that starts with \"sub\". It is a hexadecimal string that is eight characters long, in the example above it is \"52B97069\". The password you have to specify for this key in the ticket system is the same like given during key generation."
-msgstr ""
+msgstr "Die ID des Schlüssels befindet sich in der Zeile, die mit sub beginnt und ist eine 8-stellige hexadezimale Kennung (im Beispiel lautet sie \"52B97069\". Die für die Option geforderte Passphrase ist dieselbe, die beim Schlüsselgenerieren in Schritt 1 verwendet wurde. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:194
 msgid "After these data have been inserted, the \"Update\" button can be used to store the settings. OTRS is ready to receive and decrypt encoded messages now."
-msgstr ""
+msgstr "Nach Eingabe all dieser Angaben können sie mit dem Aktualisieren-Button gespeichert werden. OTRS ist jetzt für das Empfangen mit PGP verschlüsselter E-Mails konfiguriert. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:201
 msgid "Finally, import a customer's public key. This ensures that also encrypted messages can be sent out to this customer. There are two ways to import a public key of a customer."
-msgstr ""
+msgstr "Der letzte Schritt ist der Import des öffentlichen PGP-Schlüssels eines Kunden. Dadurch wird sicher gestellt, dass aus OTRS heraus verschlüsselte Mails an den jeweiligen Kunden gesendet werden können. Es bestehen zwei Möglichkeiten für den Import. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:207
 msgid "The first possibility is to specify the public key of a customer in the interface for the customer management. A public can be given if a customer is created or modified."
-msgstr ""
+msgstr "Zum einem können über das <link linkend=\"adminarea-customeruser\">Modul zur Verwaltung der Kunden</link> die öffentlichen PGP-Schlüssel beim anlegen/bearbeiten des jeweiligen Kunden im System hinterlegt werden. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:213
 msgid "The second possibility is to specify the key via the PGP settings, reachable from the admin area of OTRS. On the right site of this screen all already imported public keys of customers are displayed. After PGP has been activated and configured for OTRS your own public key should be listed there also. In the left area of the PGP setting screen it is possible to search for keys. Also a new public key can be uploaded into the system from a file."
-msgstr ""
+msgstr "Die zweite Möglichkeit bietet das System in den <link linkend=\"adminarea-pgp\">PGP-Einstellungen</link> innerhalb des Admin-Bereiches. In dieser Konfigurationsmaske ist im rechten Teil eine Liste der bereits dem System zur Verfügung stehenden öffentlichen Schlüssel zu sehen. Im Regelfall sollte nach der obigen Einrichtung hier schon der öffentliche Schlüssel des Ticket-Systems selbst zu sehen sein. Im linken Teil besteht neben der Suche die Möglichkeit, neue Schlüssel als Schlüsseldatei ins System zu laden. Nach dem Laden eines neuen Schlüssels wird dieser in der Liste auf der rechten Seite angezeigt, und gleichzeitig erhält man oberhalb der Maske eine Statusmeldung, die über das Laden des Schlüssels informiert. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/pgp.xml:223
 msgid "The files with the public key that need to be imported into OTRS have to be GnuPGP conform key files. In most cases, the key stored in a file is an \"ASCII armored key\". OTRS can deal with this format."
-msgstr ""
+msgstr "Sowohl für das Hinzufügen eines Schlüssels über die Kunden- als auch über die PGP-Verwaltung gilt, dass die Dateien mit den Schlüsseln PGP/GnuPG-konforme Schlüssel sein müssen. Normalerweise wird der Schlüssel als \"ASCII armored key\"-Datei vorliegen, welches problemlos von OTRS verarbeitet werden kann. "
 
 #. type: Content of: <chapter><title>
 #: en/smime.xml:7
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:10
 msgid "At first sight, encryption with S/MIME seems to be a little bit more complicated than with PGP. First of all, you have to establish a Certification Authority (CA) for the OTRS system. Then, the following procedures are very much like those you have to perform using PGP: configure OTRS, install your own certificate, import other public certificates (if needed), etc."
-msgstr ""
+msgstr "Die Einrichtung der Verschlüsselung mit S/MIME scheint auf den ersten Blick ein bisschen komplizierter als die PGP-Einrichtung zu sein, da für das OTRS-System erst einmal eine Certification Authority (CA) eingerichtet werden muss. Ansonsten ist das Vorgehen ähnlich wie bei PGP, OTRS konfigurieren, eigenes Zertifikat einrichten, ggf. fremde Public-Zertifikate importieren, usw."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:19
 msgid "The S/MIME configuration is conducted outside the OTRS web interface for the most part, and should be carried out in a shell by the OTRS user, i.e.  with his/her user rights. The MIME configuration under Linux is based on SSL (OpenSSL). Therefore, check first of all whether the OpenSSL package is installed on your system. The OpenSSL package includes a script called CA.pl, with which the most important steps of certificate creation can be performed. To simplify the procedure, find out where in the file system the CA.pl script is stored and enter the location temporarily into the path variable of the shell (see Script 17.1 below)."
-msgstr ""
+msgstr "Die S/MIME-Konfiguration geschieht zu einem großen Teil außerhalb der OTRS-Web-Oberfläche und sollte als otrs-Benutzer (bzw. als der Benutzer mit dessen Rechten OTRS läuft) in einer Shell durchgeführt werden. Da die MIME-Konfiguration unter Linux im wesentlichen auf SSL (<application>openssl</application> basiert, sollte zuerst sichergestellt werden, dass das <application>openssl</application>-Paket installiert ist. Mit dem <application>openssl</application>-Paket kommt ein Skript, <filename>CA.pl</filename>, mit welchem die wichtigsten Schritte zur Zertifikatserstellung bewältigt werden können. Damit dieser Vorgang einfacher wird, sollte zuerst herausgefunden werden, wo sich das Skript <filename>CA.pl</filename> im Dateisystem befindet. Danach sollte diese Stelle der Einfachheit halber temporär in den Suchpfad der Shell übernommen werden."
 
 #. type: Content of: <chapter><para><screen>
 #: en/smime.xml:32
@@ -9098,26 +9195,33 @@ msgid ""
 "otrs@linux:~&gt; mkdir tmp; cd tmp\n"
 "otrs@linux:~/tmp&gt;\n"
 msgstr ""
+"otrs@linux:~&gt; rpm -ql openssl | grep CA\n"
+"/usr/share/ssl/misc/CA.pl\n"
+"otrs@linux:~&gt; export PATH=$PATH:/usr/share/ssl/misc\n"
+"otrs@linux:~&gt; which CA.pl\n"
+"/usr/share/ssl/misc/CA.pl\n"
+"otrs@linux:~&gt; mkdir tmp; cd tmp\n"
+"otrs@linux:~/tmp&gt;\n"
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:43
 msgid "<emphasis>Script 17.1. Configuring S/MIME.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 17.1. Konfiguration von S/MIME.</emphasis>"
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:47
 msgid "The Script 17.1 shows that a new temporary directory ~/tmp has been created, in which the certificate is generated."
-msgstr ""
+msgstr "Im Beispiel sieht man auch, dass ein temporäres Verzeichnis <filename>~/tmp</filename> angelegt wurde, in welchem die Zertifikatsgenerierung durchgeführt wird."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:52
 msgid "To create a certificate, perform the following operations in the command line (we assume that the OTRS administrator has to create a SSL certificate for test and learning purposes. In case you already have a certified SSL certificate for the encryption, use it and skip these steps):"
-msgstr ""
+msgstr "Im einzelnen sind zur Zertifikatserzeugung folgende Schritte durchzuführen, die einzelnen Schritte sind in der Kommandozeile auszuführen. Sollte ein beglaubigtes SSL-Zertifikat für die Verschlüsselung bereits vorhanden sein, so sollte natürlich dieses verwendet werden. Dann können die nun folgenden Schritte übersprungen werden. Der beschriebene Ablauf geht davon aus, dass der OTRS-Administrator sich das SSL-Zertifikat zu Test- und Lernzwecken selbst anlegen muss."
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:62
 msgid "Establish your own Certification Authority for SSL. You need it to certify the request for your own SSL certificate (see Script 17.2 below)."
-msgstr ""
+msgstr "Anlegen einer eigenen Certification Authority für SSL. Diese wird benötigt, um die Anfrage für ein eigenes SSL-Zertifikat zu beglaubigen. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para><screen>
 #: en/smime.xml:68
@@ -9160,16 +9264,52 @@ msgid ""
 "otrs@linux:~/tmp&gt;\n"
 "    "
 msgstr ""
+"otrs@linux:~/tmp&gt; CA.pl -newca\n"
+"CA certificate filename (or enter to create)\n"
+"\n"
+"Making CA certificate ...\n"
+"Generating a 1024 bit RSA private key\n"
+"...++++++\n"
+"......++++++\n"
+"writing new private key to './demoCA/private/cakey.pem'\n"
+"Enter PEM pass phrase:\n"
+"Verifying - Enter PEM pass phrase:\n"
+"-----\n"
+"You are about to be asked to enter information that will be incorporated\n"
+"into your certificate request.\n"
+"What you are about to enter is what is called a Distinguished Name or a DN.\n"
+"There are quite a few fields but you can leave some blank\n"
+"For some fields there will be a default value,\n"
+"If you enter '.', the field will be left blank.\n"
+"-----\n"
+"Country Name (2 letter code) [AU]:DE\n"
+"State or Province Name (full name) [Some-State]:OTRS-state\n"
+"Locality Name (eg, city) []:OTRS-town\n"
+"Organization Name (eg, company) [Internet Widgits Pty Ltd]:Your company\n"
+"Organizational Unit Name (eg, section) []:\n"
+"Common Name (eg, YOUR name) []:OTRS Admin\n"
+"Email Address []:otrs@your-domain.tld\n"
+"otrs@linux:~/tmp&gt; ls -la demoCA/\n"
+"total 8\n"
+"-rw-r--r--  1 otrs otrs 1330 2006-01-08 17:54 cacert.pem\n"
+"drwxr-xr-x  2 otrs otrs   48 2006-01-08 17:53 certs\n"
+"drwxr-xr-x  2 otrs otrs   48 2006-01-08 17:53 crl\n"
+"-rw-r--r--  1 otrs otrs    0 2006-01-08 17:53 index.txt\n"
+"drwxr-xr-x  2 otrs otrs   48 2006-01-08 17:53 newcerts\n"
+"drwxr-xr-x  2 otrs otrs   80 2006-01-08 17:54 private\n"
+"-rw-r--r--  1 otrs otrs   17 2006-01-08 17:54 serial\n"
+"otrs@linux:~/tmp&gt;\n"
+"    "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:107
 msgid "<emphasis>Script 17.2. Establishing a Certification Authority for SSL.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 17.2. Anlegen einer Certification Authority für SSL.</emphasis>"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:113
 msgid "Generate a certificate request (see Script 17.3 below)."
-msgstr ""
+msgstr "Erzeugen der Zertifikatsanfrage. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para><screen>
 #: en/smime.xml:118
@@ -9210,16 +9350,50 @@ msgid ""
 "otrs@linux:~/tmp&gt;\n"
 "    "
 msgstr ""
+"otrs@linux:~/tmp&gt; CA.pl -newreq\n"
+"Generating a 1024 bit RSA private key\n"
+"..........................................++++++\n"
+"....++++++\n"
+"writing new private key to 'newreq.pem'\n"
+"Enter PEM pass phrase:\n"
+"Verifying - Enter PEM pass phrase:\n"
+"-----\n"
+"You are about to be asked to enter information that will be incorporated\n"
+"into your certificate request.\n"
+"What you are about to enter is what is called a Distinguished Name or a DN.\n"
+"There are quite a few fields but you can leave some blank\n"
+"For some fields there will be a default value,\n"
+"If you enter '.', the field will be left blank.\n"
+"-----\n"
+"Country Name (2 letter code) [AU]:DE\\keyreturn\n"
+"State or Province Name (full name) [Some-State]:OTRS-state\n"
+"Locality Name (eg, city) []:OTRS-town\n"
+"Organization Name (eg, company) [Internet Widgits Pty Ltd]:Your company\n"
+"Organizational Unit Name (eg, section) []:\n"
+"Common Name (eg, YOUR name) []:OTRS admin\n"
+"Email Address []:otrs@your-domain.tld\n"
+"\n"
+"Please enter the following 'extra' attributes\n"
+"to be sent with your certificate request\n"
+"A challenge password []:\n"
+"An optional company name []:\n"
+"Request (and private key) is in newreq.pem\n"
+"otrs@linux:~/tmp&gt; ls -la\n"
+"total 4\n"
+"drwxr-xr-x  6 otrs otrs  232 2006-01-08 17:54 demoCA\n"
+"-rw-r--r--  1 otrs otrs 1708 2006-01-08 18:04 newreq.pem\n"
+"otrs@linux:~/tmp&gt;\n"
+"    "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:155
 msgid "<emphasis>Script 17.3. Creating a certificate request.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 17.3. Erstellen einer Zertifikatsanfrage.</emphasis>"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:160
 msgid "Signing of the certificate request. The certificate request can either be signed, and thereby certified, by your own CA or, which is more respectable, by another extern certified CA (see Script 17.4 below)."
-msgstr ""
+msgstr "Die Zertifikatsanfrage durch die CA signieren lassen. Die Zertifikatsanfrage kann entweder durch die selbst angelegte CA signiert (= beglaubigt) werden. Allerdings ist es natürlich seriöser, wenn das eigene SSL-Zertifikat von einer fremden, externen und ihrerseits beglaubigten CA beglaubigt wird. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para><screen>
 #: en/smime.xml:167
@@ -9266,16 +9440,56 @@ msgid ""
 "otrs@linux:~/tmp&gt;\n"
 "    "
 msgstr ""
+"otrs@linux:~/tmp&gt; CA.pl -signreq\n"
+"Using configuration from /etc/ssl/openssl.cnf\n"
+"Enter pass phrase for ./demoCA/private/cakey.pem:\n"
+"Check that the request matches the signature\n"
+"Signature ok\n"
+"Certificate Details:\n"
+"        Serial Number:\n"
+"            fd:85:f6:9f:14:07:16:c8\n"
+"        Validity\n"
+"            Not Before: Jan  8 17:04:37 2006 GMT\n"
+"            Not After : Jan  8 17:04:37 2007 GMT\n"
+"        Subject:\n"
+"            countryName               = DE\n"
+"            stateOrProvinceName       = OTRS-state\n"
+"            localityName              = OTRS-town\n"
+"            organizationName          = Your Company\n"
+"            commonName                = OTRS administrator\n"
+"            emailAddress              = otrs@your-domain.tld\n"
+"        X509v3 extensions:\n"
+"            X509v3 Basic Constraints:\n"
+"                CA:FALSE\n"
+"            Netscape Comment:\n"
+"                OpenSSL Generated Certificate\n"
+"            X509v3 Subject Key Identifier:\n"
+"                01:D9:1E:58:C0:6D:BF:27:ED:37:34:14:D6:04:AC:C4:64:98:7A:22\n"
+"            X509v3 Authority Key Identifier:\n"
+"                keyid:10:4D:8D:4C:93:FD:2C:AA:9A:B3:26:80:6B:F5:D5:31:E2:8E:DB:A8\n"
+"                DirName:/C=DE/ST=OTRS-state/L=OTRS-town/O=Your Company/\n"
+"                CN=OTRS admin/emailAddress=otrs@your-domain.tld\n"
+"                serial:FD:85:F6:9F:14:07:16:C7\n"
+"\n"
+"Certificate is to be certified until Jan  8 17:04:37 2007 GMT (365 days)\n"
+"Sign the certificate? [y/n]:y\n"
+"\n"
+"1 out of 1 certificate requests certified, commit? [y/n]y\n"
+"Write out database with 1 new entries\n"
+"Data Base Updated\n"
+"Signed certificate is in newcert.pem\n"
+"otrs@linux:~/tmp&gt;\n"
+"    "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:209
 msgid "<emphasis>Script 17.4. Signing of the certificate request.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 17.4. Signieren der Zertifikatsanfrage.</emphasis>"
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:214
 msgid "Generate your own certificate, and all data going with it, using the signed certificate request (see Script 17.5 below)."
-msgstr ""
+msgstr "Mit der signierten Zertifikatsanfrage das eigene Zertifikat und alle dazugehörigen Dateien erzeugen. "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para><screen>
 #: en/smime.xml:220
@@ -9294,61 +9508,73 @@ msgid ""
 "otrs@linux:~/tmp&gt;\n"
 "    "
 msgstr ""
+"otrs@linux:~/tmp&gt; CA.pl -pkcs12 \"OTRS Certificate\"\n"
+"Enter pass phrase for newreq.pem:\n"
+"Enter Export Password:\n"
+"Verifying - Enter Export Password:\n"
+"otrs@linux:~/tmp&gt; ls -la\n"
+"total 12\n"
+"drwxr-xr-x  6 otrs otrs  328 2006-01-08 18:04 demoCA\n"
+"-rw-r--r--  1 otrs otrs 3090 2006-01-08 18:13 newcert.p12\n"
+"-rw-r--r--  1 otrs otrs 3791 2006-01-08 18:04 newcert.pem\n"
+"-rw-r--r--  1 otrs otrs 1708 2006-01-08 18:04 newreq.pem\n"
+"otrs@linux:~/tmp&gt;\n"
+"    "
 
 #. type: Content of: <chapter><para><orderedlist><listitem><para>
 #: en/smime.xml:234
 msgid "<emphasis>Script 17.5. Generating a new certificate.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 17.5. Neues Zertifikat erstellen.</emphasis>"
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:241
 msgid "Now that these operations have been performed, the S/MIME setup must be complete in OTRS."
-msgstr ""
+msgstr "Nach der Durchführung dieser Schritte ist es notwendig die Einrichtung von S/MIME in OTRS abzuschließen."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:246
 msgid "This part of the setup is carried out in the admin area, block system, choosing the menu item <link linkend=\"adminarea-smime\"> \"SMIME\" </link> . In case the general S/MIME support in OTRS has not yet been enabled, the mask points this out to the administrator and provides a comfortable link for that purpose."
-msgstr ""
+msgstr "Die OTRS-seitige Einrichtung erfolgt aus dem Admin-Bereich, Block System über den Punkt <link linkend=\"adminarea-smime\">SMIME</link>. Falls die generelle S/MIME-Unterstützung in OTRS noch nicht aktiviert wurde, weist die Maske den OTRS-Administrator beim Aufruf darauf hin und bietet einen bequemen Link zur Einrichtung."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:259
 msgid "With the SysConfig group <link linkend=\"Framework:Crypt::SMIME\"> \"Crypt::SMIME\" </link> , you can also enable and configure the general S/MIME support."
-msgstr ""
+msgstr "Über die SysConfig kann die generelle S/MIME-Unterstützung eingeschaltet und konfiguriert werden. Diese Einrichtung findet man unter der SysConfig-Gruppe <link linkend=\"Framework:Crypt::SMIME\">Crypt::SMIME</link>."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:268
 msgid "Here you can activate the S/MIME support, define the paths for the OpenSSL command and the directory for the certificates. The key file created above must be stored in the directory indicated here. Otherwise OpenSSL cannot use it."
-msgstr ""
+msgstr "Neben einem <link linkend=\"Framework:Crypt::SMIME:SMIME\">Ein-Schalter für die S/MIME-Unterstützung</link> können hier die <link linkend=\"Framework:Crypt::SMIME:SMIME::Bin\">Pfade zum <application>openssl</application>-Befehl</link>, als auch das <link linkend=\"Framework:Crypt::SMIME:SMIME::CertPath\">Verzeichnis mit den Zertifikaten</link> eingestellt werden. Dies bedeutet insbesondere, dass die zu Beginn dieses Abschnitts erzeugten Schlüsseldatei in den hier angegebenen Verzeichnissen liegen müssen, um von<application>OpenSSL</application> verwendet werden zu können."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:275
 msgid "The next step is performed in the <link linkend=\"adminarea-smime\"> S/MIME configuration in the OTRS admin area </link> (again). Here, you can import the private key(s) of the OTRS system and the public keys of other communication partners. Enter the public key that has been created in the beginning of this section and has been added in OTRS."
-msgstr ""
+msgstr "Im nächsten Schritt geht es (zurück) zur <link linkend=\"adminarea-smime\">S/MIME-Konfiguration</link> im Administrationsbereich. Dort können nun sowohl der private Schlüssel(Key) bzw. die privaten Schlüssel des OTRS-Systems, als auch die öffentlichen Schlüssel anderer Kommunikationspartner ins System importiert werden. Tragen Sie hier den öffentlichen Schlüssel ein, der zu Beginn dieses Abschnitts erzeugt und dann in OTRS hinzugefügt wurde."
 
 #. type: Content of: <chapter><para>
 #: en/smime.xml:288
 msgid "Obviously, all public S/MIME keys of communication partners can be imported using the <link linkend=\"adminarea-customers\"> customer administration tool </link> as well, when creating a new entry or modifying an existing one."
-msgstr ""
+msgstr "Selbstverständlich können aber auch alle öffentlichen S/MIME-Schlüssel der Kommunikationspartner über das <link linkend=\"adminarea-customeruser\">Modul zur Kundenverwaltung</link> beim Anlegen/Bearbeiten des jeweiligen Kunden in das System importiert werden."
 
 #. type: Content of: <chapter><title>
 #: en/acl.xml:4
 msgid "Access Control Lists (ACLs)"
-msgstr ""
+msgstr "Access Control Lists (ACLs)"
 
 #. type: Content of: <chapter><para>
 #: en/acl.xml:7
 msgid "From OTRS 2.0 on, Access Control Lists (ACLs) can be used to control access to tickets, modules, queues, etc. or to influence actions on tickets (closing, moving, etc.)  in certain situations. ACLs can be used supplementary to the existing permission system of <link linkend=\"adminarea-roles\"> roles </link> and <link linkend=\"adminarea-groups\"> groups </link> Using ACLs, rudimental workflows within the system can be mapped, based on ticket attributes."
-msgstr ""
+msgstr "Seit OTRS 2.0 können Access Control Lists (ACLs) verwendet werden, um den Zugriff auf Tickets, Module, Queues, usw. zu steuern bzw. um in bestimmten Situationen Aktionen auf Tickets (schließen, verschieben, usw.) zu beeinflussen. ACLs können als Ergänzung zum bestehenden Berechtigungssystem der <link linkend=\"adminarea-roles\">Rollen</link> und <link linkend=\"adminarea-groups\">Gruppen</link> verwendet werden. Mit ACLs lassen sich, basierend auf Ticket-Attributen, rudimentäre Workflows innerhalb des Systems abbilden."
 
 #. type: Content of: <chapter><para>
 #: en/acl.xml:27
 msgid "So far, ACLs cannot be created using the <link linkend=\"adminarea-sysconfig\" > SysConfig interface </link> but must be directly entered into the <filename>Kernel/Config.pm</filename> file. Find some examples below (Example 18-1, 18-2 and 18-3):"
-msgstr ""
+msgstr "ACLs können noch nicht über das <link linkend=\"adminarea-sysconfig\">SysConfig-Interface</link> erstellt werden, sie müssen direkt in die Datei <filename>Kernel/Config.pm</filename> eingetragen werden. Im folgenden einige Beispiele:"
 
 #. type: Content of: <chapter><para><example><title>
 #: en/acl.xml:39
 msgid "ACL which only allows to move tickets with ticket priority 5 into a queue."
-msgstr ""
+msgstr "ACL, die das Verschieben von Tickets in eine Queue nur bei einer Ticket-Priorität von 5 erlaubt."
 
 #. type: Content of: <chapter><para><example><programlisting>
 #: en/acl.xml:43
@@ -9373,6 +9599,24 @@ msgid ""
 "        },\n"
 "    };\n"
 msgstr ""
+"    # ticket acl\n"
+"    $Self->{TicketAcl}->{'ACL-Name-2'} = {\n"
+"        # match properties\n"
+"        Properties => {\n"
+"            # current ticket match properties\n"
+"            Ticket => {\n"
+"                Queue => ['Raw'],\n"
+"                Priority => ['5 very high'],\n"
+"            }\n"
+"        },\n"
+"        # return possible options (white list)\n"
+"        Possible => {\n"
+"            # possible ticket options (white list)\n"
+"            Ticket => {\n"
+"                Queue => ['Alert'],\n"
+"            },\n"
+"        },\n"
+"    };\n"
 
 #. type: Content of: <chapter><section><section><para><orderedlist><listitem><para>
 #: en/acl.xml:38
@@ -9381,12 +9625,12 @@ msgstr ""
 #: en/stats.xml:867
 #: en/stats.xml:903
 msgid "<placeholder type=\"example\" id=\"0\"/>"
-msgstr ""
+msgstr "<placeholder type=\"example\" id=\"0\"/>"
 
 #. type: Content of: <chapter><para><example><title>
 #: en/acl.xml:67
 msgid "ACL which disables the closing of tickets in the raw queue and hides the close button."
-msgstr ""
+msgstr "ACL, die das Schließen von Tickets in der raw-Queue verbietet und den Schließen-Schalter ausblendet."
 
 #. type: Content of: <chapter><para><example><programlisting>
 #: en/acl.xml:71
@@ -9430,11 +9674,48 @@ msgid ""
 "        },\n"
 "    };\n"
 msgstr ""
+"    $Self->{TicketAcl}->{'ACL-Name-1'} = {\n"
+"        # match properties\n"
+"        Properties => {\n"
+"            # current ticket match properties\n"
+"            Ticket => {\n"
+"                Queue => ['Raw'],\n"
+"            }\n"
+"        },\n"
+"        # return possible options (white list)\n"
+"        Possible => {\n"
+"            # possible ticket options (white list)\n"
+"            Ticket => {\n"
+"                State => ['new', 'open', 'pending reminder'],\n"
+"            },\n"
+"            # possible action options\n"
+"            Action => {\n"
+"                AgentTicketLock => 1,\n"
+"                AgentTicketZoom => 1,\n"
+"                AgentTicketClose => 0,\n"
+"                AgentTicketPending => 1,\n"
+"                AgentTicketNote => 1,\n"
+"                AgentTicketHistory => 1,\n"
+"                AgentTicketPriority => 1,\n"
+"                AgentTicketFreeText => 1,\n"
+"                AgentTicketHistory => 1,\n"
+"                AgentTicketCompose => 1,\n"
+"                AgentTicketBounce => 1,\n"
+"                AgentTicketTicketPrint => 1,\n"
+"                AgentTicketForward => 1,\n"
+"                AgentTicketTicketLink => 1,\n"
+"                AgentTicketPrint => 1,\n"
+"                AgentTicketPhone => 1,\n"
+"                AgentTicketCustomer => 1,\n"
+"                AgentTicketOwner => 1,\n"
+"            },\n"
+"        },\n"
+"    };\n"
 
 #. type: Content of: <chapter><para><example><title>
 #: en/acl.xml:114
 msgid "ACL which removes the status for all agents and only provides it for a group."
-msgstr ""
+msgstr "ACL, die den Status für alle Agenten entfernt und Ihn nur noch für eine Gruppe zur Verfügung stellt."
 
 #. type: Content of: <chapter><para><example><programlisting>
 #: en/acl.xml:118
@@ -9454,11 +9735,24 @@ msgid ""
 "        },\n"
 "    };\n"
 msgstr ""
+"    $Self->{TicketAcl}->{'ACL-Name-5'} = {\n"
+"        # match properties\n"
+"        Properties => {\n"
+"            # current ticket match properties (match always)\n"
+"        },\n"
+"        # return possible options\n"
+"        PossibleNot => {\n"
+"            # possible ticket options\n"
+"            Ticket => {\n"
+"                State => ['closed successful'],\n"
+"            },\n"
+"        },\n"
+"    };\n"
 
 #. type: Content of: <chapter><para>
 #: en/acl.xml:136
 msgid "In the Script 18.1 there is a list of all parameters which can be used for ACLs."
-msgstr ""
+msgstr "In Skritp 18.1 finden Sie eine Liste aller Parameter, die für ACLs verwendet werden können."
 
 #. type: Content of: <chapter><para><programlisting>
 #: en/acl.xml:141
@@ -9544,11 +9838,90 @@ msgid ""
 "        },\n"
 "    };\n"
 msgstr ""
+"    # ticket acl\n"
+"    $Self->{TicketAcl}->{'ACL-Name-Test'} = {\n"
+"        # match properties\n"
+"        Properties => {\n"
+"            # current action match properties\n"
+"            Frontend => {\n"
+"                Action => ['AgentTicketPhone', 'AgentTicketEmail'],\n"
+"            },\n"
+"            # current user match properties\n"
+"            User => {\n"
+"                Group_rw => [\n"
+"                    'hotline',\n"
+"                ],\n"
+"            },\n"
+"            # current user match properties\n"
+"            Ticket => {\n"
+"                Queue => ['Raw'],\n"
+"                State => ['new', 'open'],\n"
+"                Priority => ['some priority'],\n"
+"                Lock => ['lock'],\n"
+"                CustomerID => ['some id'],\n"
+"                CustomerUserID => ['some id'],\n"
+"                TicketFreeKey1 => ['some key'],\n"
+"                TicketFreeKey2 => ['some key'],\n"
+"                # ...\n"
+"                TicketFreeKey8 => ['some key'],\n"
+"                TicketFreeText1 => ['some value'],\n"
+"                TicketFreeText2 => ['some value'],\n"
+"                # ...\n"
+"                TicketFreeText8 => ['some value'],\n"
+"            }\n"
+"        },\n"
+"        # return possible options (white list)\n"
+"        Possible => {\n"
+"            # possible ticket options (white list)\n"
+"            Ticket => {\n"
+"                Queue => ['Hotline', 'Koordination'],\n"
+"                State => => ['some state'],\n"
+"                Priority => ['5 very high'],\n"
+"                TicketFreeKey1 => ['some key'],\n"
+"                TicketFreeKey2 => ['some key'],\n"
+"                # ...\n"
+"                TicketFreeKey8 => ['some key'],\n"
+"                TicketFreeText1 => ['some value'],\n"
+"                TicketFreeText2 => ['some value'],\n"
+"                # ...\n"
+"                TicketFreeText8 => ['some value'],\n"
+"            },\n"
+"            # possible action options (white list)\n"
+"            Action => {\n"
+"                AgentTicketLock => 1,\n"
+"                AgentTicketZoom => 1,\n"
+"                AgentTicketClose => 1,\n"
+"                AgentTicketPending => 0,\n"
+"                AgentTicketNote => 1,\n"
+"                AgentTicketHistory => 0,\n"
+"                AgentTicketPriority => 1,\n"
+"                AgentTicketFreeText => 0,\n"
+"                AgentTicketHistory => 1,\n"
+"                AgentTicketCompose => 1,\n"
+"                AgentTicketBounce => 1,\n"
+"                AgentTicketTicketPrint => 0,\n"
+"                AgentTicketForward => 1,\n"
+"                AgentTicketTicketLink => 1,\n"
+"                AgentTicketPrint => 1,\n"
+"                AgentTicketPhone => 1,\n"
+"                AgentTicketCustomer => 1,\n"
+"                AgentTicketOwner => 0,\n"
+"            },\n"
+"        },\n"
+"        # remove options (black list)\n"
+"        PossibleNot => {\n"
+"            # possible ticket options (black list)\n"
+"            Ticket => {\n"
+"                Queue => ['Hotline', 'Koordination'],\n"
+"                State => ['closed', 'removed'],\n"
+"            },\n"
+"        },\n"
+"    };\n"
 
 #. type: Content of: <chapter><para>
 #: en/acl.xml:224
 msgid "<emphasis>Script 18.1. Valid parameters for ACLs.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Skript 18.1. Verwendbare Parameter für ACLs.</emphasis>"
 
 #. type: Content of: <chapter><title>
 #: en/stats.xml:7
