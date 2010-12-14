@@ -1,150 +1,149 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-<!-- $Id: monitoring-tickets.xml,v 1.14 2010-12-13 13:29:27 mg Exp $ -->
+<!-- $Id: monitoring-tickets.xml,v 1.15 2010-12-14 13:49:05 mg Exp $ -->
 <chapter id="monitoring-tickets" >
-<title>Ticket responsibility and ticket watching</title>
+<title>Ticket-Verantwortlicher und Beobachten von Tickets</title>
 
 <para>
-From OTRS 2.1 on, it is possible to define a person responsible for a
-ticket, additionally to its owner. Moreover, all activities connected with
-the ticket can be watched. These two functionalities are implemented with
-the TicketResponsible and TicketWatcher features, and facilitate the
-assignment of tasks and working within hierarchic team structures.
+Seit OTRS 2.1 kann zusätzlich zum Besitzer ein Verantwortlicher für das
+Ticket festgelegt werden. Zudem können alle Aktivitäten rund um das Ticket
+beobachtet werden. Diese beiden Funktionalitäten sind mit den
+TicketResponsible- und dem TicketWatcher-Funktionen implementiert, und
+erleichtern das Zuweisen von Aufgaben und die Arbeit in hierarchischen
+Teamstrukturen.
 </para>
 
 
 <section id="ticket-responsible" >
-<title>Ticket responsibility</title>
+<title>Ticket-Verantwortlicher</title>
 
 <para>
-The ticket responsible feature facilitates the complete processing of a
-ticket by an agent, other then the ticket owner. Thus an agent who has
-locked a ticket can pass it on to another agent, who is not the ticket
-owner, in order for the second to respond to a customer request. After the
-request has been dealt with, the first agent can withdraw the ticket
-responsibility from the second agent.
+Die Funktion "Verantwortlicher" eines Tickets macht es möglich, das Ticket
+einem anderen als dem aktuellen Besitzer zur Bearbeitung zu übergeben. Ein
+Benutzer, der ein Ticket gesperrt hat, kann es einem anderen Agenten, der
+nicht der Ticketbesitzer ist, zur Beantwortung übergeben. Nach der
+Bearbeitung kann der erste Benutzer die Ticketverantwortung vom zweiten
+wieder entfernen.
 </para>
 
 <para>
-With the configuration parameter <link
+Mit dem Konfigurationsparameter <link
 linkend="Ticket:Core::Ticket:Ticket::Responsible" > Ticket::Responsible
-</link> , the ticket responsible feature can be activated. This will cause
-that 3 new icons appear in your toolbar.
+</link> kann die Funktion TicketResponsible aktiviert werden. Dadurch werden
+drei neue Icons in ihrer Toolbar erscheinen.
 </para>
 
 <para>
-Ticket responsibility can be assigned by calling up the ticket content and
-clicking on the "Responsible" link in the actions bar of a zoomed ticket in
-the agent interface (see the Figure 9.1 below).
+Die Ticketverantwortung kann übergeben werden, indem das Ticket aufgerufen
+und die Funktion "Verantwortlicher" in der Aktionsleiste genutzt wird.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Zoom with Responsible Menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Ticketansicht mit Menü "Verantwortlicher"</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-zoom-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.1. Changing the responsible of a ticket in its zoomed
-view.</emphasis>
+    <emphasis>Abb. 9.1. Verantwortlichen eines Tickets ändern.</emphasis>
 </para>
 
 <para>
-After clicking on "Responsible", a pop-up to change the responsible of that
-ticket will open (see Figure 9.2 below). This template can also be used to
-send a message to the new responsible agent.
+Nach dem Klick auf "Verantwortlicher" öffnet sich ein Popup-Fenster, in dem
+die Änderung durchgeführt werden kann. Damit kann auch dem neuen
+verantwortlichen Benutzer eine Nachricht geschickt werden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Responsible Menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Menü Ticket-Verantwortlicher</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.2. Change a ticket's responsible pop-up.</emphasis>
+    <emphasis>Abb. 9.2. Popup-Fenster zum Ändern des
+Ticket-Verantwortlichen.</emphasis>
 </para>
 
 <para>
-The list of all tickets for which an agent is responsible from, can be
-accessed through the Responsible View, which is shown as 3 icons in the
-toolbar of the OTRS agent interface, as soon as the ticket responsible
-feature gets activated.
+Die Liste aller Tickets, für die ein Benutzer verantwortlich ist, kann durch
+die Ansicht "Verantwortliche Tickets" eingesehen werden. Diese kann über 3
+Icons in der Toolbar aufgerufen werden, sobald das TicketResponsible-Feature
+aktiviert wird.
 </para>
 
 </section>
 
 
 <section id="ticket-watcher">
-<title>Ticket watching</title>
+<title>Tickets beobachten</title>
 
 <para>
-From OTRS 2.1 on, agents (e.g. heads of department) can watch certain
-tickets within the system without processing them, by using the
-TicketWatcher feature.
+Sollen innerhalb des Ticket-Systems lediglich bestimmte Tickets z. B. von
+einem Abteilungsleiter beobachtet und nicht selbst bearbeitet werden, so
+kann dies seit OTRS 2.1 mit Hilfe des TicketWatcher-Features realisiert
+werden.
 </para>
 
 <para>
-The TicketWatcher feature can be activated with the configuration parameter
-<link linkend="Ticket:Core::TicketWatcher:Ticket::Watcher"> Ticket::Watcher
-</link> , which will add 3 new icons to your toolbar. Using <link
-linkend="Ticket:Core::TicketWatcher:Ticket::WatcherGroup">
-Ticket::WatcherGroup </link> one or more user groups with permission to
-watch tickets can be defined.
+Das TicketWatcher-Feature kann mit Hilfe des Konfigurations-Parameters <link
+linkend="Ticket:Core::TicketWatcher:Ticket::Watcher">Ticket::Watcher</link>
+aktiviert werden. Weiterhin können über <link
+linkend="Ticket:Core::TicketWatcher:Ticket::WatcherGroup">Ticket::WatcherGroup</link>
+eine oder mehrere Benutzergruppen festgelegt werden, die die Erlaubnis haben
+sollen Tickets zu beobachten.
 </para>
 
 <para>
-In order to watch a ticket, go to its zoomed view and click on the
-"Subscribe" link in the ticket activities menu (see Figure 9.3 below).
+Um ein Ticket zu beobachten, muss der Inhalt des Tickets aufgerufen und im
+Menü für die verschiedenen Aktionen für das Ticket der "Beobachten"-Schalter
+betätigt werden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Zoom with subscribe menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Ticketansicht mit Menüpunkt "Beobachten"</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40" fileref="screenshots/ticket-subscribe.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.3. Subscribing to a ticket in its zomed view.</emphasis>
+    <emphasis>Abb. 9.3. Ticket beobachten.</emphasis>
 </para>
 
 <para>
-If you no longer want to watch a specific ticket, go to its zoomed view and
-click on the "Unsubscribe" link in the ticket activities menu (see Figure
-9.4 below).
+Die Beobachtung eines Tickets wird aufgehoben, indem in der Inhaltsanzeige
+eines Tickets im Menü für die möglichen Aktionen der "Nicht
+beobachten"-Schalter gedrückt wird.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Zoom with unsubscribe menu</screeninfo> <graphic srccredit="index.pl -
-screenshot" scale="40"
-fileref="screenshots/ticket-unsubscribe.png"></graphic></screenshot>
+c</screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.4. Unsubscribing from a ticket in its zomed
-view.</emphasis>
+    <emphasis>Abb. 9.4. Ticket nicht mehr beobachten.</emphasis>
 </para>
 
 <para>
-The list of all watched tickets can be accessed through the Watched View
-(see Figure 9.5 below), which is shown as 3 icons in the toolbar of the OTRS
-agent interface, as soon as the ticket watcher feature gets activated.
+Die Liste aller zur Beobachtung ausgewählten Tickets wird über die Ansicht
+"Beobachtete Tickets" erreicht. Diese kann über 3 Icons in der Toolbar
+aufgerufen werden, sobald das TicketWatcher-Feature aktiviert wird.
 </para>
 
 
 <para>
 <screenshot>
-<screeninfo>Mailbox: Watched tickets</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Mailbox: Beobachtete Tickets</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-subscribe-mailbox.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.5. Watched tickets view.</emphasis>
+    <emphasis>Abb. 9.5. Ansicht "Beobachtete Tickets".</emphasis>
 </para>
 </section>
 

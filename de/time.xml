@@ -3,72 +3,73 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: time.xml,v 1.33 2010-12-13 13:29:27 mg Exp $ -->
+<!-- $Id: time.xml,v 1.34 2010-12-14 13:49:05 mg Exp $ -->
 <chapter id="time">
-<title>Time related functions</title>
+<title>Zeitabhängige Funktionen in OTRS</title>
 
 <section id="time-settings">
-<title>Setting up business hours, holidays and time zones</title>
+<title>Arbeitszeiten, Feiertage und Zeitzonen für das System festlegen</title>
 
 <para>
-Some functions in OTRS, like escalations and <link
-linkend="unlock-tickets">automatic unlocking of tickets</link>, depend on a
-proper configuration of business hours, time zones and holidays.  You can
-define these via the <link linkend="sysconfig"> SysConfig interface </link>
-, in <link linkend="Framework:Core::Time">Framework &gt; Core::Time</link>.
-You can also specify different sets of business hours, holidays and time
-zones as separate 'Calendars' in <link
+Einige Funktionen in OTRS, wie <link linkend="unlock-tickets">das
+automatische Entsperren von Tickets</link>, setzen eine korrekte
+Konfiguration von Arbeitszeiten, Zeitzonen und Feiertagen voraus.  Sie
+können diese in der <link linkend="sysconfig"> SysConfig </link> definieren,
+in <link linkend="Framework:Core::Time">Framework &gt; Core::Time</link>.
+Ebenso können Sie verschiedene Typen von Arbeitszeiten, Feiertagen und
+Zeitzonen als separate "Kalender" in <link
 linkend="Framework:Core::Time::Calendar1">Framework >
-Core::Time::Calendar1</link>, until <link
+Core::Time::Calendar1</link> bis <link
 linkend="Framework:Core::Time::Calendar9">Framework >
-Core::Time::Calendar9</link>.  Calendars can be defined on <link
-linkend="adminarea-queue">queue</link> or on SLA levels. This means that,
-for example, you can specify a calendar with 5 x 8 business hours for your
-'standard' SLA, but create a separate calendar with 7 x 24 support for your
-'gold' SLA; and to have a calendar for your 'Support-USA' queue with a
-different time window than your 'Support-Japan' queue.  OTRS can handle up
-to 99 different calendars.
+Core::Time::Calendar9</link> definieren.  Kalender können auf <link
+linkend="adminarea-queue">Queue</link>- oder SLA-Ebene definiert werden. Das
+heißt, dass Sie z. B. einen Kalender mit 5x8 Arbeitsstunden pro Woche für
+Ihren "Standard"-SLA definieren können, zusätzlich jedoch auch einen mit
+7x24 für Ihren "Gold"-SLA. Ebenso kann der Kalender für Ihre Queue
+"Support-USA" ein anderes Arbeitszeitfenster haben als ihre Queue
+"Support-Japan". OTRS kann bis zu 99 verschiedene Kalender verwalten.
 </para>
 
 
 <section id="TimeWorkingHours">
-<title>Business Hours</title>
+<title>Arbeitszeiten</title>
 
 <para>
-Set up the working hours for your system in SysConfig <link
+Setzen Sie die Arbeitszeiten für Ihr System in der SysConfig fest, in <link
 linkend="Framework:Core::Time:TimeWorkingHours"> Framework>
-Core::Time::TimeWorkingHours </link> or for your specific calendar, in the
-calendar's configuration.  OTRS can handle a granularity of one
-hour. Checking the marks in the boxes 8, 9, 10 ... 17 corresponds with
-business hours of 8 AM - 6 PM.
+Core::Time::TimeWorkingHours </link> oder in der Konfiguration Ihrer
+Kalender.  OTRS unterstützt eine Granularität von einer Stunde. Um
+z. B. 8:00 bis 18:00 als Arbeitszeit festzulegen, müssen die Auswahlkästchen
+8, 9, 10 .. 17 aktiviert werden.
 </para>
 
 <para>
-Only during the business hours: tickets can escalate, notifications for
-escalated and pending tickets will be send and tickets will be unlocked.
+Nur während dieser Stunden können Tickets eskalieren, Benachrichtigungen zu
+Erinnerungs-Tickets versendet oder Tickets automatisch freigegeben
+werden. Weiterhin werden auch nur diese Stunden in die Berechnung der
+Eskalationszeit und der Zeit für die automatische Freigabe mit einbezogen.
 </para>
 </section>
 
 
 <section id="TimeVacationDays">
-<title>Fixed date holidays</title>
+<title>Feiertage mit festem Datum</title>
 
 <para>
-Holidays that are on a fixed date every year, such as New Year's Day and
-Fourth of July, can be specified in <link
-linkend="Framework:Core::Time:TimeVacationDays"> TimeVacationDays </link> or
-in the corresponding section for the calendars 1-9.
+Feiertage deren Datum jedes Jahr gleich ist, können dem System in <link
+linkend="Framework:Core::Time:TimeVacationDays"> TimeVacationDays </link>
+oder im entsprechenden Abschnitt in den Kalendern 1-9 bekannt gemacht
+werden.
 </para>
 
 <para>
-Tickets will not escalate nor get unlocked on dates defined in
-TimeVacationDays.
+Während der hier festgelegten Tage werden keine zeitabhängigen Aktionen oder
+Berechnungen auf Tickets im system ausgeführt.
 </para>
 
 <note>
 <para>
-By default, OTRS ships with the <emphasis>German</emphasis> holidays
-installed.
+In OTRS sind die <emphasis>deutschen</emphasis> Feiertage voreingestellt.
 </para>
 </note>
 
@@ -79,21 +80,20 @@ installed.
 <title>TimeVacationDaysOneTime</title>
 
 <para>
-Holidays that do not have a yearly fixed date, such as Easter, can be
-specified in <link linkend="Framework:Core::Time:TimeVacationDaysOneTime">
-TimeVacationDaysOneTime </link> .
+Freie oder Feiertage, für die sich jährlich das Datum ändert, können in
+<link linkend="Framework:Core::Time:TimeVacationDaysOneTime">
+TimeVacationDaysOneTime </link> angegeben werden.
 </para>
 
 <para>
-Tickets will not escalate and will not be unlocked on dates defined in
-TimeVacationDaysOneTime.
+Während der hier festgelegten Tage werden keine zeitabhängigen Aktionen oder
+Berechnungen auf Tickets im system ausgeführt.
 </para>
 
 <note>
 <para>
-OTRS does not ship with any One-Time holidays pre-installed.  This means
-that you need to add holidays, such as Eastern or Thanksgiving, to the
-system when configuring OTRS.
+OTRS hat für diese Feiertage keine Voreinstellung. Sie müssen diese, wie
+z. B. Ostern, dem System also selbst bekannt machen.
 </para>
 </note>
 
@@ -103,71 +103,74 @@ system when configuring OTRS.
 
 
 <section id="unlock-tickets">
-<title>Automated Unlocking</title>
+<title>Automatische Ticket-"Freigabe" (unlock)</title>
 
 <para>
-Locked tickets can be automatically unlocked by the system. This feature
-might be useful if, for example, an agent has locked tickets that need to be
-processed, but he can't work on them for some reason, like being on
-vacation.  The automated unlock feature unlocks tickets after a given time,
-to ensure that no locked tickets will be forgotten and other agents can
-process them.
+Gesperrte Tickets können automatisch vom System freigegeben werden. Diese
+Funktion kann z. B. dann nützlich sein, wenn sich ein Agent im Urlaub
+befindet und noch Tickets gesperrt hat, die bearbeitet werden sollen /
+müssen. Dieses Feature entsperrt Tickets nach einer bestimmten Zeit, um
+sicherzustellen, dass gesperrte Tickets nicht vergessen werden und andere
+Agenten darauf zugreifen können.
 </para>
 
 <para>
-The amount of time before a ticket is unlocked can be specified in the <link
-linkend="adminarea-queue"> settings </link> for every queue. The module
-<filename>bin/otrs.UnlockTickets.pl</filename>, which is executed
-periodically as a cron job, performs the automated unlocking of tickets.
+Die Zeit, nach der gesperrte Tickets automatisch freigegeben werden, kann in
+den <link linkend="adminarea-queue">Einstellungen jeder Queue</link>
+festgelegt werden. Mit Hilfe des Moduls
+<filename>bin/otrs.UnlockTickets.pl</filename>, das als cron-Job regelmäßig
+ausgeführt werden sollte, wird die automatische Freigabe von Tickets
+umgesetzt.
 </para>
 
 <para>
-Notifications on unlocked tickets are send out only to those agents that
-have the queue with the unlocked tickets set in "My queues" and that have
-activated the notification on unlocked tickets in their personal <link
-linkend="user-preferences"> preferences </link> .
+Benachrichtigungen für entsperrte Tickets werden nur zu den Benutzern
+versendet, die die jeweilige Queue in "Meine Queues" eingetragen und die
+Benachrichtigung für entsperrte Tickets in ihren <link
+linkend="user-preferences"> persönlichen Einstellungen </link> aktiviert
+haben.
 </para>
 
 <para>
-Tickets will be unlocked if all of the following conditions are met:
+Tickets werden entsperrt wenn folgende Bedingungen zutreffen:
 </para>
 
 <itemizedlist>
 <listitem>
 <para>
-There is an <emphasis>unlock timeout</emphasis> defined at the queue the
-ticket is in.
+In der Queue des Tickets ist ein <emphasis>Freigabe-Zeitintervall</emphasis>
+definiert.
 </para>
 </listitem>
 <listitem>
 <para>
-The ticket is set to <emphasis>locked</emphasis>
+Das Ticket ist <emphasis>gesperrt</emphasis>.
 </para>
 </listitem>
 <listitem>
 <para>
-The ticket state is <emphasis>open</emphasis>.
+Der Status des Tickets is <emphasis>offen"</emphasis>.
 </para>
 </listitem>
 </itemizedlist>
 
 <para>
-The unlock timer will be reset if an agent adds a new external article to
-the ticket, It can be of any of the following types:
-<emphasis>email-external</emphasis>, <emphasis>phone</emphasis>,
+Die Freigabezeit wird zurückgesetzt, wenn ein Agent einen neuen externen
+Artikel zum Ticket hinzufügt. Das kann einer der folgenden Artikeltypen
+sein: <emphasis>email-external</emphasis>, <emphasis>phone</emphasis>,
 <emphasis>fax</emphasis>, <emphasis>sms</emphasis>, or
 <emphasis>note-external</emphasis>.
 </para>
 
 <para>
-Also, if the last article in the ticket is created by an agent, and a
-customer adds another one, either via web or email response, the unlock
-timer will be reset.
+Die Freigabezeit wird auch zurückgesetzt, wenn der letzte Artikel von einem
+Agent stammt und dann der Kunde einen hinzufügt, per E-Mail oder
+Weboberfläche.
 </para>
 
 <para>
-The last event that will reset the unlock timer is when the ticket is
-assigned to another agent.
+Zuletzt wird die Freigabezeit auch dann zurückgesetzt, wenn das Ticket einem
+anderen Agenten zugewiesen wird.
 </para>
 
 </section>

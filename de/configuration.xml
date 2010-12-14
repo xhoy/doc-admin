@@ -3,133 +3,136 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: configuration.xml,v 1.18 2010-12-13 13:29:27 mg Exp $ -->
+<!-- $Id: configuration.xml,v 1.19 2010-12-14 13:49:05 mg Exp $ -->
 <chapter id="configuration">
-<title>Configuration of the system</title>
+<title>Konfiguration des Systems</title>
 
 <section id="directories-and-configfiles">
-<title>The config files of OTRS</title>
+<title>Die Konfigurationsdateien von OTRS</title>
 
 <para>
-All configuration files of OTRS are stored in the directory
-<filename>Kernel</filename> and in its sub directories. There is no need to
-manually change any other file than <filename>Kernel/Config.pm</filename>,
-because the rest of the files will be changed when the system gets
-upgraded. Just copy the configuration parameters from the other files into
-<filename>Kernel/Config.pm</filename> and change them to your needs. This
-file will never be touched during the upgrade process, so your manual
-settings are safe.
+Alle Konfigurationsdateien des OTRS-Frameworks befinden sich innerhalb des
+Verzeichnisses <filename>Kernel</filename> bzw. in Unterverzeichnissen
+dieses Directorys. Bis auf die Datei <filename>Kernel/Config.pm</filename>
+sollten Sie keine Konfigurationsdatei manuell verändern, da alle anderen
+Dateien beim Updaten des Systems überschrieben werden und so Ihre eigenen
+Einstellungen verloren gehen. Übertragen Sie lediglich die Parameter aus den
+anderen Dateien nach <filename>Kernel/Config.pm</filename> und passen Sie
+die Parameter Ihren Wünschen entsprechend an.
 </para>
 
 <para>
-The file <filename>Kernel/Config/Defaults.pm</filename> contains the
-parameters of the central OTRS framework. It defines all basic system
-settings, like the mail configuration, database connection, default charset
-and standard language. The file
-<filename>Kernel/Config/Files/Ticket.pm</filename> contains all
-configuration parameters for the trouble ticket system.
+Die Datei <filename>Kernel/Config/Defaults.pm</filename> enthält die
+Konfigurationsparameter für den OTRS-Framework. In ihr finden Sie
+grundlegende Einstellungen wie die Mailkonfiguration, die
+Datenbankanbindung, Standardsprache o.ä. In der
+Datei<filename>Kernel/Config/Files/Ticket.pm</filename> sind alle
+Konfigurationsparameter für das Ticketsystem aufgeführt.
 </para>
 
 <para>
-In the directory <filename>Kernel/Config/Files</filename> there are some
-other files that are parsed when the OTRS login page is accessed. If
-additional applications like the FAQ or the file manager are installed, the
-configuration files for those can also be found in the mentioned path.
+Das Verzeichnis <filename>Kernel/Config/Files</filename> enthält weitere
+Konfigurationsdateien, die beim Starten von OTRS eingelesen werden. Sind
+zusätzliche Module wie der Filemanager oder der Webmailer installiert,
+liegen die Konfigurationsdateien dieser Applikationen ebenfalls in
+<filename>Kernel/Config/Files</filename>.
 </para>
 
 <para>
-To keep compatibility with older OTRS versions, there is always a .pm- and a
-.xml file for every application and for the central framework. The .pm files
-are needed to parse all default and customized settings. The XML files are
-used by the graphical configuration frontend, which is available with OTRS
-2.0 onwards, and which lets you set most of the configuration parameters of
-the system through your web browser. In future versions of OTRS the .pm
-files will be removed and the system will be configurable only via the .xml
-files. All parameters in <filename>Kernel/Config/Defaults.pm</filename> will
-be moved to <filename>Kernel/Config/Files/Framework.xml</filename> and all
-parameters for the trouble ticket system will be no longer stored in
-<filename>Kernel/Config/Files/Ticket.pm</filename> but in
-<filename>Kernel/Config/Files/Ticket.xml</filename>. The format of the
-configuration parameters will completely change to xml.
+Im Moment sind immer eine .pm- und eine .xml-Datei für jedes Modul
+vorhanden, da aus Kompatibilitätsgründen zu älteren OTRS-Versionen noch die
+Einstellungen in den .pm-Dateien benötigt werden. Die .xml-Dateien werden
+von der grafischen Administrationsoberfläche ausgewertet, die seit OTRS 2.0
+verfügbar ist und die es Ihnen ermöglicht, das System nahezu vollständig
+über die Web-Oberfläche zu konfigurieren. In zukünftigen Versionen von OTRS
+wird auf die .pm-Dateien vollständig verzichtet und alle Einstellungen aus
+<filename>Kernel/Config/Defaults.pm</filename> werden nur noch in
+<filename>Kernel/Config/Files/Framework.xml</filename> zu finden sein
+bzw. alle Einstellungen für das Ticketsystem befinden sich dann nur noch in
+der Datei <filename>Kernel/Config/Files/Ticket.xml</filename>. Die
+Konfigurationsparameter werden also in zukünftigen Versionen komplett in das
+xml-Format übertragen.
 </para>
 
 <para>
-If the web frontend of OTRS is accessed, all .xml files in the
-<filename>Kernel/Config/Files</filename> directory are parsed in
-alphabetical order and the settings for the central framework and additional
-applications will be loaded. Afterwards, the settings in the two files
-<filename>Kernel/Config/Files/ZZZAAuto.pm</filename> and
-<filename>Kernel/Config/Files/ZZZAuto.pm</filename> will be evaluated. Both
-files are used by the graphical configuration frontend and should never be
-changed manually. Lastly, the file <filename>Kernel/Config.pm</filename>
-that contains your individual settings and manually changed configuration
-parameters, will be parsed. Reading the configuration files in this order
-makes sure that your specific configuration settings are used by the system.
+Wird die Web-Oberfläche von OTRS aufgerufen, werden die xml-Dateien in
+<filename>Kernel/Config/Files</filename> in alphabetischer Reihenfolge
+ausgelesen und die Einstellungen des Frameworks und der evtl. zusätzlich
+installierten Applikationen geladen. Anschließend werden die Einstellungen
+in den Dateien <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> und
+<filename>Kernel/Config/Files/ZZZAuto.pm</filename> ausgewertet. Beide
+Dateien werden vom grafischen Konfigurations-Frontend angelegt und sollten
+auf keinem Fall manuell geändert werden. Zuletzt wird die Datei
+<filename>Kernel/Config.pm</filename> mit den von Ihnen individuell
+angepassten Konfigurationsparametern ausgewertet, so dass auf jeden Fall
+Ihre eigenen Einstellungen geladen werden.
 </para>
 
 </section>
 
 
 <section id="sysconfig">
-<title>Configuring the system through the web interface</title>
+<title>Konfiguration des Systems mit Hilfe des grafischen Konfigurations-Frontends</title>
 
 <para>
-With OTRS 2.0 and subsequent versions, nearly all configuration parameters
-of the central framework or additional installed applications, can be
-changed easily with the graphical configuration frontend. Log in as OTRS
-administrator and follow the "SysConfig" link in the adminarea to execute
-the new configuration tool (see Figure 6.1 below).
+Seit OTRS 2.0 können nahezu alle Konfigurationsparameter des Frameworks oder
+der ggf. zusätzlich installierten Applikationen bequem über ein grafisches
+Frontend angepasst werden. Melden Sie sich als OTRS-Administrator an und
+folgen Sie im Administrationsbereich den Link "SysConfig", um das grafische
+Konfigurations-Frontend zu laden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>The graphical configuration frontend</screeninfo> <graphic srccredit="sysconfig -
+<screeninfo>Die grafische Konfigurationsoberfläche</screeninfo> <graphic srccredit="sysconfig -
 screenshot" scale="40" fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 6.1. The graphical configuration frontend.</emphasis>
+    <emphasis>Abb. 6.1. Die grafische Konfigurationsoberfläche.</emphasis>
 </para>
 
 <para>
-Because OTRS currently has over 600 configuration parameters, there are
-different ways to access quickly to a specific one.  With the full text
-search, all configuration parameters can be scanned for one or more
-keywords. The full text search not only searches through the names of the
-configuration parameters, but also the descriptions of the parameters are
-scanned. This allows to find an element, even if its name is unknown.
+Da OTRS mittlerweile über mehr als 600 verschiedene Konfigurationsparameter
+verfügt, bietet das Konfigurations-Frontend mehrere Möglichkeiten zur
+schnellen Auffindung der gewünschten Einstellung. Es kann über alle
+Konfigurationsparameter hinweg nach einem bestimmten Stichwort gesucht
+werden. Bei der Suche werden neben dem Namen des Konfigurationsparameters
+auch die Beschreibungen ausgewertet, eine Einstellung kann also auch
+gefunden werden, wenn ihr Name nicht bekannt ist.
 </para>
 
 <para>
-Furthermore, all configuration parameters are sorted in main groups and sub
-groups. The main group represents the application that the configuration
-parameter belongs to, e.g. "Framework" for the central OTRS framework,
-"Ticket" for the ticket system, "FAQ" for the FAQ system, and so on. The sub
-groups can be accessed if the application is selected from the groups
-listbox and the "Select group" button is pressed.
+Weiterhin wurden die verschiedenen Konfigurationsparameter in Haupt- und
+Untergruppen unterteilt. Die Hauptgruppe stellt die Applikation dar, für die
+der Konfigurationsparameter zuständig ist, also z. B. "Framework" für das
+OTRS-Framework oder "Ticket" für das Ticketsystem. Die Untergruppen einer
+Hauptgruppe können eingesehen werden, indem die Gruppe bzw. Applikation aus
+der dazu vorgesehenen Listbox ausgewählt und der "Zeigen"-Knopf gedrückt
+wird.
 </para>
 
 <para>
-Every configuration parameter can be turned on or off via a checkbox. If the
-parameter is turned off, the system will ignore this parameter or the
-default is used. It is possible to switch a changed configuration parameter
-back to the system default using the reset link.  The "Update" button,
-submits all changes for the the system to use the new settings.
+Für jeden einzelnen Konfigurationsparameter kann über eine Checkbox
+festgelegt werden, ob er vom System beachtet werden soll oder nicht. Wird
+eine Einstellung verändert, kann die Änderung mit Hilfe des
+"Aktualisieren"-Buttons übernommen werden. Eine Einstellung kann mit Hilfe
+des "Rücksetzen"-Schalters auf ihren Default-Wert zurückgesetzt werden.
 </para>
 
 <para>
-If you want to save all the changes you made to the configuration of your
-system, for example, to setup a new installed system quickly, you can use
-the "Export settings" button, which will create a .pm file. To restore your
-own settings, just press the "Import settings" and select the .pm created
-before.
+Für die Sicherung aller von Ihnen vorgenommenen Änderungen, kann eine
+.pm-Datei heruntergeladen werden, die alle vom Standard abweichenden
+Konfigurationsparameter Ihres Systems enthält. Die selbe Datei können Sie
+ebenfalls über die Konfigurationsoberfläche eines frisch installierten
+Systems zurück spielen und so alle Einstellungen wiederherstellen.
 </para>
 
 <note>
 <para>
-For security reasons, the configuration parameters for the database
-connection cannot be changed in the SysConfig. They have to be set manually
-in <filename>Kernel/Config.pm</filename>.
+Die Einstellungen für die Datenbankanbindung können aus Sicherheitsgründen
+nicht über das grafische Konfigurations-Frontend geändert werden und müssen
+manuell in die Datei <filename>Kernel/Config.pm</filename> eingefügt werden.
 </para>
 </note>
 

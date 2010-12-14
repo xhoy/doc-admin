@@ -3,29 +3,35 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: pgp.xml,v 1.11 2010-12-13 13:29:27 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.12 2010-12-14 13:49:05 mg Exp $ -->
 <chapter id='configure-pgp'>
 <title> PGP</title>
 
 <para>
-OTRS is able to sign or encrypt outgoing messages with PGP. Also encrypted
-incoming messages can be decrypted. Encryption and decryption is done with
-the GPL tool GnuPG. To setup GnuPG for OTRS, the following steps have to be
-performed:
+In OTRS können ausgehende E-Mails mit Hilfe von PGP signiert oder
+verschlüsselt werden. Ebenfalls ist es möglich verschlüsselte Nachrichten zu
+entschlüsseln. Die Ver- und Entschlüsselung mit PGP wird mit Hilfe des
+GPL-Werkzeugs <application>GnuPG</application> vorgenommen. Zur Einrichtung
+sind die folgenden Schritte notwendig:
 </para>
 
 <para>
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    Install GnuPG, via the package manager of your operating system.
+    Erste Aufgabe ist es, das entsprechende GnuPG-Software-Paket zu
+installieren, welches bei den meisten Linux-Distributionen mitgeliefert
+wird. Dies sollte mit Hilfe des jeweiligen Paketmanagers leicht durchgeführt
+werden können.
     </para>
     </listitem>
     <listitem>
     <para>
-    Configure GnuPG for the usage with OTRS.  The needed directories for GnuPG
-and a private key have to be created.  The command shown in the Sript 16.1
-has to be executed as OTRS user, from a shell.
+    Im zweiten Schritt muss das soeben installierte GnuPG zur Benutzung für OTRS
+konfiguriert werden. Dies geschieht auf der Kommandozeilenebene durch einen
+Aufruf von GnuPG, der die notwendigen Verzeichnisse anlegt und den privaten
+Schlüssel erzeugt. Der Aufruf muss als otrs-Benutzer (bzw. als der Benutzer,
+mit dessen Rechten das Ticket-System läuft) durchgeführt werden.
     </para>
 
     <para>
@@ -116,49 +122,57 @@ has to be executed as OTRS user, from a shell.
     </para>
 
     <para>
-        <emphasis>Script 16.1. Configuring GnuPG.</emphasis>
+        <emphasis>Skript 16.1. Konfiguration von GnuPG.</emphasis>
     </para>
 
     <para>
-    As shown in the Script 16.1, for most of the settings the default is OK.
-Only the values for the key owner have to be entered correctly and a propper
-password for the key has to be specified.
+    Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit
+&lt;EINGABE&gt; zu bestätigen. Lediglich die Angabe zur Person des
+Schlüsselbesitzers ist zu vervollständigen bzw. zum Ende hin ist an der mit
+(passphrase) gekennzeichneten Stelle die Passphrase für den zu generierenden
+Schlüssel einzugeben.
     </para>
     </listitem>
     <listitem>
     <para>
-    Now OTRS has to be prepared to use PGP. Open the SysConfig interface, via
-the admin panel and search for "PGP". Select the sub group Crypt::PGP from
-the search results.
+    Im nächsten Schritt muss OTRS auf die Verwendung von PGP vorbereitet
+werden. Suchen Sie in SysConfig nach "PGP" und wähen Sie danach dan die
+Untergruppe Crypt::PGP aus.
     </para>
 
     <para>
-    In the screen for the PGP settings, PGP should be activated for OTRS (first
-option). Also the path to the gpg program should be checked.
+    In der nun angezeigten Maske sollte zum einen <link
+linkend="Framework:Crypt::PGP:PGP">" PGP aktiviert </link> werden (die erste
+Option). Danach sollte überprüft werden, ob der voreingestellte <link
+linkend="Framework:Crypt::PGP:PGP::Bin"> Pfad zum Programm gpg </link> der
+tatsächlichen Installation entspricht.
     </para>
 
     <para>
-    The next config setting (PGP::Options) might to be changed. Via this config
-setting, the parameters that are used for every execution of gpg, by the
-OTRS user, can be specified. Especially the directory of the config files
-for GnuPG of the OTRS user is important. In the example
-<filename>/opt/otrs/.gnupg</filename> is used. This directory was created in
-the first step of the PGP configuration.
+    Die nächste Einstellung (<link
+linkend="Framework:Crypt::PGP:PGP::Options">PGP::Options</link>) muss
+ggf. modifiziert werden. Es handelt sich um die Parameter, mit denen OTRS
+das Programm gpg aufruft. Hier ist insbesondere die Option für die Lage des
+GnuPG-Konfigurationsverzeichnisses des OTRS-Benutzers otrs wichtig. Im
+Beispiel ist dies: /opt/otrs/.gnupg). Dieses Verzeichnis wurde im Schritt 1
+automatisch von GnuPG angelegt.
     </para>
 
     <para>
-    Via the last config option it is possible to specify the pairs of key IDs
-and their passwords for the own private keys. Because communication partners
-from outside write to the ticket system and their messages are encrypted
-with their public key, OTRS can decrypt these messages with the ID/passwords
-specified here.
+    Über die letzte Option können die <link
+linkend="Framework:Crypt::PGP:PGP::Key::Password">Schlüssel-Werte-Paare für
+die ID(s) und Passphrase(n)</link> der eigenen PGP-Schlüssel dem Ticket
+System bekannt gemacht werden. Noch einmal genauer: da andere
+Kommunikationspartner an das Ticket-System (oder besser: an den Mail-Eingang
+des Systems) E-Mails mit dessen öffentlichen Schlüssel verschlüsselt
+schicken, kann OTRSmit dem/n in dieser Option angegebenen privaten
+Schlüssel(n) solchermaßen verschlüsselte Mails entschlüsseln.
     </para>
 
     <para>
-    How to get the id of your own private key? The ID of your own private key is
-already shown during the key generation (see step 1 from above). It is also
-possible to get the ID if the command specified in the Script 16.2 is
-executed as OTRS user:
+    Woher bekommt man die ID des eigenen Schlüssels? Die ID steckt schon in der
+Ausgabe der Schlüsselgenerierung (siehe Schritt 1). Man kann die ID aber
+auch als Benutzer otrs jederzeit über die Kommandozeile ermitteln:
     </para>
 
     <para>
@@ -180,48 +194,57 @@ executed as OTRS user:
     </para>
 
     <para>
-        <emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>
+        <emphasis>Skript 16.2. Die ID des eigenen privaten Schlüssels
+ermitteln.</emphasis>
     </para>
 
     <para>
-    The ID of the private key can be found in the line that starts with
-"sub". It is a hexadecimal string that is eight characters long, in the
-example above it is "52B97069". The password you have to specify for this
-key in the ticket system is the same like given during key generation.
+    Die ID des Schlüssels befindet sich in der Zeile, die mit sub beginnt und
+ist eine 8-stellige hexadezimale Kennung (im Beispiel lautet sie
+"52B97069". Die für die Option geforderte Passphrase ist dieselbe, die beim
+Schlüsselgenerieren in Schritt 1 verwendet wurde.
     </para>
 
     <para>
-    After these data have been inserted, the "Update" button can be used to
-store the settings. OTRS is ready to receive and decrypt encoded messages
-now.
+    Nach Eingabe all dieser Angaben können sie mit dem Aktualisieren-Button
+gespeichert werden. OTRS ist jetzt für das Empfangen mit PGP verschlüsselter
+E-Mails konfiguriert.
     </para>
     </listitem>
     <listitem>
     <para>
-    Finally, import a customer's public key. This ensures that also encrypted
-messages can be sent out to this customer. There are two ways to import a
-public key of a customer.
+    Der letzte Schritt ist der Import des öffentlichen PGP-Schlüssels eines
+Kunden. Dadurch wird sicher gestellt, dass aus OTRS heraus verschlüsselte
+Mails an den jeweiligen Kunden gesendet werden können. Es bestehen zwei
+Möglichkeiten für den Import.
     </para>
 
     <para>
-    The first possibility is to specify the public key of a customer in the
-interface for the customer management. A public can be given if a customer
-is created or modified.
+    Zum einem können über das <link linkend="adminarea-customeruser">Modul zur
+Verwaltung der Kunden</link> die öffentlichen PGP-Schlüssel beim
+anlegen/bearbeiten des jeweiligen Kunden im System hinterlegt werden.
     </para>
 
     <para>
-    The second possibility is to specify the key via the PGP settings, reachable
-from the admin area of OTRS. On the right site of this screen all already
-imported public keys of customers are displayed. After PGP has been
-activated and configured for OTRS your own public key should be listed there
-also. In the left area of the PGP setting screen it is possible to search
-for keys. Also a new public key can be uploaded into the system from a file.
+    Die zweite Möglichkeit bietet das System in den <link
+linkend="adminarea-pgp">PGP-Einstellungen</link> innerhalb des
+Admin-Bereiches. In dieser Konfigurationsmaske ist im rechten Teil eine
+Liste der bereits dem System zur Verfügung stehenden öffentlichen Schlüssel
+zu sehen. Im Regelfall sollte nach der obigen Einrichtung hier schon der
+öffentliche Schlüssel des Ticket-Systems selbst zu sehen sein. Im linken
+Teil besteht neben der Suche die Möglichkeit, neue Schlüssel als
+Schlüsseldatei ins System zu laden. Nach dem Laden eines neuen Schlüssels
+wird dieser in der Liste auf der rechten Seite angezeigt, und gleichzeitig
+erhält man oberhalb der Maske eine Statusmeldung, die über das Laden des
+Schlüssels informiert.
     </para>
 
     <para>
-    The files with the public key that need to be imported into OTRS have to be
-GnuPGP conform key files. In most cases, the key stored in a file is an
-"ASCII armored key". OTRS can deal with this format.
+    Sowohl für das Hinzufügen eines Schlüssels über die Kunden- als auch über
+die PGP-Verwaltung gilt, dass die Dateien mit den Schlüsseln
+PGP/GnuPG-konforme Schlüssel sein müssen. Normalerweise wird der Schlüssel
+als "ASCII armored key"-Datei vorliegen, welches problemlos von OTRS
+verarbeitet werden kann.
     </para>
     </listitem>
 </orderedlist>

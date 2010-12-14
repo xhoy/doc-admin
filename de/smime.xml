@@ -3,29 +3,33 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: smime.xml,v 1.10 2010-12-13 13:29:27 mg Exp $ -->
+<!-- $Id: smime.xml,v 1.11 2010-12-14 13:49:05 mg Exp $ -->
 <chapter id="smime">
 <title>S/MIME</title>
 
 <para>
-At first sight, encryption with S/MIME seems to be a little bit more
-complicated than with PGP. First of all, you have to establish a
-Certification Authority (CA) for the OTRS system. Then, the following
-procedures are very much like those you have to perform using PGP: configure
-OTRS, install your own certificate, import other public certificates (if
-needed), etc.
+Die Einrichtung der Verschlüsselung mit S/MIME scheint auf den ersten Blick
+ein bisschen komplizierter als die PGP-Einrichtung zu sein, da für das
+OTRS-System erst einmal eine Certification Authority (CA) eingerichtet
+werden muss. Ansonsten ist das Vorgehen ähnlich wie bei PGP, OTRS
+konfigurieren, eigenes Zertifikat einrichten, ggf. fremde Public-Zertifikate
+importieren, usw.
 </para>
 
 <para>
-The S/MIME configuration is conducted outside the OTRS web interface for the
-most part, and should be carried out in a shell by the OTRS user, i.e.  with
-his/her user rights. The MIME configuration under Linux is based on SSL
-(OpenSSL). Therefore, check first of all whether the OpenSSL package is
-installed on your system. The OpenSSL package includes a script called
-CA.pl, with which the most important steps of certificate creation can be
-performed. To simplify the procedure, find out where in the file system the
-CA.pl script is stored and enter the location temporarily into the path
-variable of the shell (see Script 17.1 below).
+Die S/MIME-Konfiguration geschieht zu einem großen Teil außerhalb der
+OTRS-Web-Oberfläche und sollte als otrs-Benutzer (bzw. als der Benutzer mit
+dessen Rechten OTRS läuft) in einer Shell durchgeführt werden. Da die
+MIME-Konfiguration unter Linux im wesentlichen auf SSL
+(<application>openssl</application> basiert, sollte zuerst sichergestellt
+werden, dass das <application>openssl</application>-Paket installiert
+ist. Mit dem <application>openssl</application>-Paket kommt ein Skript,
+<filename>CA.pl</filename>, mit welchem die wichtigsten Schritte zur
+Zertifikatserstellung bewältigt werden können. Damit dieser Vorgang
+einfacher wird, sollte zuerst herausgefunden werden, wo sich das Skript
+<filename>CA.pl</filename> im Dateisystem befindet. Danach sollte diese
+Stelle der Einfachheit halber temporär in den Suchpfad der Shell übernommen
+werden.
 </para>
 
 <para>
@@ -41,27 +45,31 @@ otrs@linux:~/tmp&gt;
 </para>
 
 <para>
-    <emphasis>Script 17.1. Configuring S/MIME.</emphasis>
+    <emphasis>Skript 17.1. Konfiguration von S/MIME.</emphasis>
 </para>
 
 <para>
-The Script 17.1 shows that a new temporary directory ~/tmp has been created,
-in which the certificate is generated.
+Im Beispiel sieht man auch, dass ein temporäres Verzeichnis
+<filename>~/tmp</filename> angelegt wurde, in welchem die
+Zertifikatsgenerierung durchgeführt wird.
 </para>
 
 <para>
-To create a certificate, perform the following operations in the command
-line (we assume that the OTRS administrator has to create a SSL certificate
-for test and learning purposes. In case you already have a certified SSL
-certificate for the encryption, use it and skip these steps):
+Im einzelnen sind zur Zertifikatserzeugung folgende Schritte durchzuführen,
+die einzelnen Schritte sind in der Kommandozeile auszuführen. Sollte ein
+beglaubigtes SSL-Zertifikat für die Verschlüsselung bereits vorhanden sein,
+so sollte natürlich dieses verwendet werden. Dann können die nun folgenden
+Schritte übersprungen werden. Der beschriebene Ablauf geht davon aus, dass
+der OTRS-Administrator sich das SSL-Zertifikat zu Test- und Lernzwecken
+selbst anlegen muss.
 </para>
 
 <para>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    Establish your own Certification Authority for SSL. You need it to certify
-the request for your own SSL certificate (see Script 17.2 below).
+    Anlegen einer eigenen Certification Authority für SSL. Diese wird benötigt,
+um die Anfrage für ein eigenes SSL-Zertifikat zu beglaubigen.
     </para>
 
     <para>
@@ -105,14 +113,14 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-        <emphasis>Script 17.2. Establishing a Certification Authority for
+        <emphasis>Skript 17.2. Anlegen einer Certification Authority für
 SSL.</emphasis>
     </para>
 
 </listitem>
 <listitem>
     <para>
-    Generate a certificate request (see Script 17.3 below).
+    Erzeugen der Zertifikatsanfrage.
     </para>
 
     <para>
@@ -154,14 +162,15 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-        <emphasis>Script 17.3. Creating a certificate request.</emphasis>
+        <emphasis>Skript 17.3. Erstellen einer Zertifikatsanfrage.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Signing of the certificate request. The certificate request can either be
-signed, and thereby certified, by your own CA or, which is more respectable,
-by another extern certified CA (see Script 17.4 below).
+    Die Zertifikatsanfrage durch die CA signieren lassen. Die Zertifikatsanfrage
+kann entweder durch die selbst angelegte CA signiert (= beglaubigt)
+werden. Allerdings ist es natürlich seriöser, wenn das eigene SSL-Zertifikat
+von einer fremden, externen und ihrerseits beglaubigten CA beglaubigt wird.
     </para>
 
     <para>
@@ -208,13 +217,13 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-        <emphasis>Script 17.4. Signing of the certificate request.</emphasis>
+        <emphasis>Skript 17.4. Signieren der Zertifikatsanfrage.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Generate your own certificate, and all data going with it, using the signed
-certificate request (see Script 17.5 below).
+    Mit der signierten Zertifikatsanfrage das eigene Zertifikat und alle
+dazugehörigen Dateien erzeugen.
     </para>
 
     <para>
@@ -233,50 +242,58 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-        <emphasis>Script 17.5. Generating a new certificate.</emphasis>
+        <emphasis>Skript 17.5. Neues Zertifikat erstellen.</emphasis>
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Now that these operations have been performed, the S/MIME setup must be
-complete in OTRS.
+Nach der Durchführung dieser Schritte ist es notwendig die Einrichtung von
+S/MIME in OTRS abzuschließen.
 </para>
 
 <para>
-This part of the setup is carried out in the admin area, block system,
-choosing the menu item <link linkend="adminarea-smime"> "SMIME" </link> . In
-case the general S/MIME support in OTRS has not yet been enabled, the mask
-points this out to the administrator and provides a comfortable link for
-that purpose.
+Die OTRS-seitige Einrichtung erfolgt aus dem Admin-Bereich, Block System
+über den Punkt <link linkend="adminarea-smime">SMIME</link>. Falls die
+generelle S/MIME-Unterstützung in OTRS noch nicht aktiviert wurde, weist die
+Maske den OTRS-Administrator beim Aufruf darauf hin und bietet einen
+bequemen Link zur Einrichtung.
 </para>
 
 <para>
-With the SysConfig group <link linkend="Framework:Crypt::SMIME">
-"Crypt::SMIME" </link> , you can also enable and configure the general
-S/MIME support.
+Über die SysConfig kann die generelle S/MIME-Unterstützung eingeschaltet und
+konfiguriert werden. Diese Einrichtung findet man unter der SysConfig-Gruppe
+<link linkend="Framework:Crypt::SMIME">Crypt::SMIME</link>.
 </para>
 
 <para>
-Here you can activate the S/MIME support, define the paths for the OpenSSL
-command and the directory for the certificates. The key file created above
-must be stored in the directory indicated here. Otherwise OpenSSL cannot use
-it.
+Neben einem <link linkend="Framework:Crypt::SMIME:SMIME">Ein-Schalter für
+die S/MIME-Unterstützung</link> können hier die <link
+linkend="Framework:Crypt::SMIME:SMIME::Bin">Pfade zum
+<application>openssl</application>-Befehl</link>, als auch das <link
+linkend="Framework:Crypt::SMIME:SMIME::CertPath">Verzeichnis mit den
+Zertifikaten</link> eingestellt werden. Dies bedeutet insbesondere, dass die
+zu Beginn dieses Abschnitts erzeugten Schlüsseldatei in den hier angegebenen
+Verzeichnissen liegen müssen, um von<application>OpenSSL</application>
+verwendet werden zu können.
 </para>
 
 <para>
-The next step is performed in the <link linkend="adminarea-smime"> S/MIME
-configuration in the OTRS admin area </link> (again). Here, you can import
-the private key(s) of the OTRS system and the public keys of other
-communication partners. Enter the public key that has been created in the
-beginning of this section and has been added in OTRS.
+Im nächsten Schritt geht es (zurück) zur <link
+linkend="adminarea-smime">S/MIME-Konfiguration</link> im
+Administrationsbereich. Dort können nun sowohl der private Schlüssel(Key)
+bzw. die privaten Schlüssel des OTRS-Systems, als auch die öffentlichen
+Schlüssel anderer Kommunikationspartner ins System importiert werden. Tragen
+Sie hier den öffentlichen Schlüssel ein, der zu Beginn dieses Abschnitts
+erzeugt und dann in OTRS hinzugefügt wurde.
 </para>
 
 <para>
-Obviously, all public S/MIME keys of communication partners can be imported
-using the <link linkend="adminarea-customers"> customer administration tool
-</link> as well, when creating a new entry or modifying an existing one.
+Selbstverständlich können aber auch alle öffentlichen S/MIME-Schlüssel der
+Kommunikationspartner über das <link linkend="adminarea-customeruser">Modul
+zur Kundenverwaltung</link> beim Anlegen/Bearbeiten des jeweiligen Kunden in
+das System importiert werden.
 </para>
 
 </chapter>
