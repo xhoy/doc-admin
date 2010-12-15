@@ -3,26 +3,26 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: backup-and-restore.xml,v 1.17 2010-12-14 13:49:05 mg Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.18 2010-12-15 14:42:42 mg Exp $ -->
 <chapter id="backup-and-restore">
-<title>Backing up the system</title>
+<title>Datensicherung</title>
 
 <para>
-This chapter describes the backup and restore of the OTRS data.
+In diesem Kapitel wird beschrieben, wie alle relevanten Daten der
+OTRS-Installation gesichert und wieder hergestellt werden können.
 </para>
 
 <section id="backup">
-<title>Back up</title>
+<title>Datensicherung</title>
 
 <para>
-There are two types of data to back up: the application (e.g. the files in
-<filename>/opt/otrs</filename>) and the data stored in the database.
+Bei einem Backup gibt es zwei Arten von Datensicherung, die Applikation
+(z. B. <filename>/opt/otrs/</filename>) und die Datenbank.
 </para>
 
 <para>
-To simplify back ups, the script <filename>scripts/backup.pl</filename> is
-included in every OTRS installation, which backs up all important data (see
-Script 22.1 below).
+Um Backups zu vereinfachen, wird ein <filename>scripts/backup.pl</filename>
+mitgeliefert, das alle benötigten Komponenten sichert.
 </para>
 
 <para>
@@ -37,11 +37,11 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.1. Getting help about the back up mechanism.</emphasis>
+    <emphasis>Skript 22.1. Aufruf der Hilfe des Backup-Mechanismus.</emphasis>
 </para>
 
 <para>
-Execute command specified in the Script 22.2 to create a back up:
+Ein Backup kann also z. B. mit folgendem Befehl erstellt werden:
 </para>
 
 <para>
@@ -56,13 +56,13 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.2. Creating a back up.</emphasis>
+    <emphasis>Abb. 22.2. Erstellen einer Datensicherung.</emphasis>
 </para>
 
 <para>
-All data was stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename> (see Script 22.3 below).
-Additionally the data was saved into a .tar.gz file.
+Alle Daten wurden in das Verzeichnis
+<filename>/backup/2005-09-12_14-28/</filename> gesichert und dort, getrennt
+nach Art der Daten, in einzelne .tar.gz-Dateien gespeichert.
 </para>
 
 <para>
@@ -74,24 +74,24 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.3. Checking the back up files.</emphasis>
+    <emphasis>Skript 22.3. Prüfung der gesicherten Dateien.</emphasis>
 </para>
 
 </section>
 
 <section id="restore">
-<title>Restore</title>
+<title>Wiederherstellung der Daten</title>
 
 <para>
-To restore a back up, the saved data of the application has to be written
-back into the installation directory, e.g. <filename>/opt/otrs</filename>.
-Also the database has to be restored.
+Um ein Backup wieder einzuspielen, müssen die Applikation (z. B. nach
+<filename>/opt/otrs/</filename>) und die Datenbank wieder hergestellt
+werden.
 </para>
 
 <para>
-A script <filename>scripts/restore.pl</filename> (see Script 22.4 below) to
-simplify the restore process is shipped with every OTRS installation. It
-supports MySQL and PostgreSQL.
+Um Backups einspielen zu können, wird ein
+<filename>scripts/restore.pl</filename> mitgeliefert, das die benötigten
+Komponenten wieder zurück sichert. Es unterstützt MySQL und PostgreSQL.
 </para>
 
 <para>
@@ -105,14 +105,13 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.4. Getting help about the restore mechanism.</emphasis>
+    <emphasis>Skript 22.4. Aufruf der Hilfe des Restore-Mechanismus.</emphasis>
 </para>
 
 <para>
-Data, that is stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename>, can be restored with the
-command specified in the Script 22.5 and an OTRS installation in
-<filename>/opt/otrs</filename>.
+Daten, die im Verzeichnis <filename>/backup/2005-09-12_14-28/</filename>
+gesichert wurden, können bei einer OTRS-Installation in
+<filename>/opt/otrs</filename> folgendermaßen zurückgespielt werden.
 </para>
 
 <para>
@@ -129,7 +128,7 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.5. Restoring the system.</emphasis>
+    <emphasis>Skript 22.5. Wiederherstellung des Systems.</emphasis>
 </para>
 
 </section>

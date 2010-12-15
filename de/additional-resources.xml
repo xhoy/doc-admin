@@ -3,44 +3,46 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: additional-resources.xml,v 1.14 2010-12-14 13:49:05 mg Exp $ -->
+<!-- $Id: additional-resources.xml,v 1.15 2010-12-15 14:42:42 mg Exp $ -->
 <appendix id="additional-resources">
-<title>Additional Resources</title>
+<title>Weitere Quellen</title>
 
 <para>
-We try to support you with the very latest information about OTRS and give
-you a good way to provide us with your feedback.
+Wir unterstützen Sie mit den aktuellsten Informationen über OTRS und geben
+Ihnen die Möglichkeit, uns mit Feedback zu versorgen.
 </para>
 
 <section id="additional-resources-homepage">
 <title>Homepage OTRS.org</title>
 
 <para>
-You can find our project homepage at <ulink url="http://www.otrs.org/">
-<citetitle>http://www.otrs.org/</citetitle> </ulink> (see Figure A-1 below).
+Die OTRS Community finden Sie unter <ulink
+url="http://www.otrs.org/"><citetitle>http://www.otrs.org/</citetitle></ulink>.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>OTRS Homepage</screeninfo> <graphic srccredit="OTRS Homepage"
+<screeninfo>OTRS-Homepage</screeninfo> <graphic srccredit="OTRS Homepage"
 scale="40" fileref="screenshots/homepage-otrs.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis> Figure A-1. OTRS Homepage.  </emphasis>
+    <emphasis>Abb. A-1. OTRS-Homepage.</emphasis>
 </para>
 </section>
 
 <section id="additional-resources-mailinglists">
-<title>Mailing lists</title>
+<title>Mailinglisten</title>
 
 <para>
-The Table A-1 shows you our different community mailing lists.
+Die folgende Tabelle gibt einen Überblick darüber, welche
+Community-Mailinglisten es derzeit für OTRS gibt und wie diese zu erreichen
+sind:
 </para>
 
 <para>
 <table id="additional-resources-mailinglists-table">
-<title>Mailinglists</title>
+<title>Mailinglisten</title>
   <tgroup cols="3">
     <thead>
       <row>
@@ -61,8 +63,7 @@ The Table A-1 shows you our different community mailing lists.
           announce@otrs.org
         </entry>
         <entry>
-          Low traffic list, in English, for announcements of new OTRS releases and
-security issues.
+          Ankündigungen zu OTRS (neue Versionen, Updates, ...) mit wenig Verkehr.
         </entry>
         <entry>
           <ulink url="http://lists.otrs.org/cgi-bin/listinfo/announce">
@@ -75,8 +76,8 @@ security issues.
           otrs@otrs.org
         </entry>
         <entry>
-          Medium to high traffic list, in English, where you can find all sorts of
-questions on, and support for the product.
+          Benutzer-Fragen und -Diskussionen rund um OTRS (englischsprachig) mit mittel
+bis viel Verkehr.
         </entry>
         <entry>
           <ulink url="http://lists.otrs.org/cgi-bin/listinfo/otrs">
@@ -85,11 +86,11 @@ questions on, and support for the product.
       </row>
       <row>
         <entry>
-          otrs-de@otrs.org
+          ç
         </entry>
         <entry>
-          Medium to high traffic list, in German, where you can find all sorts of
-questions on, and support for, the product.
+          Benutzer-Fragen und -Diskussionen rund um OTRS (deutschsprachig) mit mittel
+bis viel Verkehr.
         </entry>
         <entry>
           <ulink url="http://lists.otrs.org/cgi-bin/listinfo/otrs-de">
@@ -102,8 +103,7 @@ questions on, and support for, the product.
           dev@otrs.org
         </entry>
         <entry>
-          Medium traffic list, in English, where the OTRS developers discuss various
-design and implementation issues here.
+          Mailingliste für die Entwickler von OTRS mit wenig Verkehr.
         </entry>
         <entry>
           <ulink url="http://lists.otrs.org/cgi-bin/listinfo/dev">
@@ -115,8 +115,7 @@ design and implementation issues here.
           doc-de@otrs.org
         </entry>
         <entry>
-          Low traffic list, in German, with all sorts of questions on the
-documentation of the product.
+          Deutsche Diskussion über die OTRS-Dokumentation mit wenig Verkehr.
         </entry>
         <entry>
               <ulink url="http://lists.otrs.org/cgi-bin/listinfo/doc-de">
@@ -144,7 +143,8 @@ environment, this is the right place.
           cvs-log@otrs.org
         </entry>
         <entry>
-          Very high traffic list of CVS commit notifications.
+          Benachrichtigungen über geänderte CVS-Dateien im Quellcode von OTRS mit sehr
+viel Verkehr.
         </entry>
         <entry>
           <ulink url="http://lists.otrs.org/cgi-bin/listinfo/cvs-log">
@@ -158,59 +158,59 @@ environment, this is the right place.
 </para>
 
 <para>
-To subscribe to any of this lists visit the following link: <ulink
-url="http://lists.otrs.org/"> <citetitle>http://lists.otrs.org/</citetitle>
-</ulink>.
+Um eine Liste zu abonnieren besuchen Sie folgenden Link: <ulink
+url="http://lists.otrs.org/"><citetitle>http://lists.otrs.org/</citetitle></ulink>.
 </para>
 </section>
 
 <section id="additional-resources-bugtracking">
-<title>Bug tracking</title>
+<title>Fehler berichten</title>
 
 <para>
-To submit bugs visit <ulink url="http://bugs.otrs.org/">
-<citetitle>http://bugs.otrs.org/</citetitle> </ulink> (see Figure A-2
-below). Please take note of the difference between a bug and a configuration
-issue.  Configuration issues are problems that you encounter when setting up
-a system, or general questions on the use of OTRS. Bug reports should only
-be used for issues with the source code of OTRS itself, or to file
-enhancements for OTRS.  All your bug reports and enhancement requests are
-very welcome in the bug tracker.
+Um uns Fehler in OTRS mitzuteilen, besuchen Sie uns unter: <ulink
+url="http://bugs.otrs.org/"><citetitle>http://bugs.otrs.org/</citetitle></ulink>.
+Bitte unterscheiden Sie zwischen Fehlermeldungen und
+Konfigurationsproblemen. Letztere sind Probleme, die beim Einrichten eines
+Systems auftreten können, oder allgemeinde Fragen zur Verwendung von
+OTRS. Fehlerberichte im Bugtracker sollten nur für Probleme im Quellcode von
+OTRS eingestellt werden, oder um Verbesserungsvorschläge zu
+unterbreiten. Alle Ihre Fehlerberichte und Verbesserungsvorschläge sind im
+Bugtracker herzlich willkommen.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Bugtracking Tool</screeninfo> <graphic srccredit="bugtracking
+<screeninfo>Fehlerverfolgungssystem</screeninfo> <graphic srccredit="bugtracking
 tool" scale="40" fileref="screenshots/bugs-otrs-org.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure A-2. Bug tracker.</emphasis>
+    <emphasis>Abb. A-2. Fehlerverfolgungssystem.</emphasis>
 </para>
 
 <para>
-For configuration issues you should either use the <ulink
-url="http://www.otrs.com/en/support/"><citetitle>commercial support,
-available from OTRS.com</citetitle></ulink>, or the public mailing lists.
+Für Konfigurationsprobleme sollten Sie entweder den <ulink
+url="http://www.otrs.com/en/support/"><citetitle>kommerziellen Support von
+OTRS.com</citetitle></ulink> oder die öffentlichen Mailinglisten verwenden.
 </para>
 
 <para>
-You help us improving the product if you report bugs. We appreciate your
-input!
+Wenn Sie uns Fehler berichten, tragen Sie zur Verbesserung des Produkts
+bei. Wir freuen uns auf Ihre Mitwirkung!
 </para>
 </section>
 
 <section id="additional-resources-commercial">
-<title>Commercial Support</title>
+<title>Kommerzieller Support</title>
 
 <para>
-For services (support, consulting, development, and training) you can
-contact the company behind OTRS, OTRS AG. They have offices in the Germany,
-US, Mexico and the Netherlands. Look at their website for contact
-information: <ulink
-url="http://www.otrs.com/en/corporate-navigation/contact/">
-<citetitle>http://www.otrs.com/en/corporate-navigation/contact/</citetitle>
-</ulink>
+Für Dienstleistungen (Support, Consulting, Entwicklung und Schulungen)
+können Sie die Firma hinter OTRS kontaktieren, die OTRS AG. Sie hat
+Niederlassungen in Deutschland, USA, Mexiko und Holland. Schauen Sie sich
+die Website an, um Kontaktinformationen zu erhalten: <ulink
+url="http://www.otrs.com/de/corporate-navigation/contact/">
+<citetitle>http://www.otrs.com/de/corporate-navigation/contact/</citetitle>
+</ulink>.
 </para>
 </section>
 
