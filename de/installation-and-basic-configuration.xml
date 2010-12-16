@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.38 2010-12-15 14:44:46 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.39 2010-12-16 13:15:22 mg Exp $ -->
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrading des OTRS Frameworks</title>
 
@@ -1303,7 +1303,7 @@ linux:/opt/otrs/var/cron# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# su otrs
 linux:~/bin$ ./Cron.sh start
 /opt/otrs/bin
-Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.38 $&gt;
+Cron.sh - start/stop OTRS cronjobs - &lt;$Revision: 1.39 $&gt;
 Copyright (C) 2001-2009 OTRS AG, http://otrs.org/
 (using /opt/otrs) done
 linux:~/bin$ exit
@@ -1649,11 +1649,11 @@ verursachen, weil lokal geänderte Frontend-Modulregistrierungen die Updates
 der neuen Standardkonfiguration nicht erhalten.
         </para>
         <para>
-            To check if you are affected, please look at the file
-<filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries
-like <screen>
+            Ob Sie betroffen sind, können sie herausfinden, indem Sie sich
+<filename>Kernel/Config/Files/ZZZAuto.pm</filename> ansehen und nach
+Einträgen wie <screen>
     $Self->{'Frontend::Module'}->{'AgentStats'} = { ... };
-            </screen>
+            </screen> suchen
         </para>
         <para>
             Diese Einträge sollten auf ihren Standardwert zurückgesetzt werden, in Admin
