@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.13 2010-12-07 08:11:15 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.14 2010-12-20 10:07:40 mg Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -121,6 +121,97 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 <para>
     <emphasis>Script 21.1 Switching storage back-ends from database to filesystem.</emphasis>
 </para>
+</section>
+
+<section>
+    <title>Archiving Tickets</title>
+
+    <para>
+        As OTRS can be used as an audit proof system, deleting closed tickets may not be a good idea.
+        Therefore we implemented a feature that allows you to archive tickets.
+    </para>
+    <para>
+        This means that tickets that match certain criteria are marked as "archived",
+        and these tickets are not touched if you do a regular ticket search or run a Generic Agent job.
+        The system itself has not to deal with a huge amount of tickets any longer as only the
+        "latest" tickets are taken into consideration when using OTRS. This can mean a huge performance gain
+        on large systems.
+    </para>
+    <para>
+        To use the archive feature simply follow these steps:
+    </para>
+    <orderedlist>
+        <listitem>
+            <para>
+                Activate the archive system in SysConfig
+            </para>
+            <para>
+                In the Admin panel of OTRS go to SysConfig and select the group <literal>Ticket</literal>.
+                In <literal>Core::Ticket</literal> you find the option <literal>Ticket::ArchiveSystem</literal>
+                which is set to "no" per default. Change this setting to "yes" and save this change.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                Define a GenericAgent job
+            </para>
+            <para>
+                In the Admin panel select GenericAgent and add a new job there.
+                <orderedlist>
+                    <listitem>
+                        <para>
+                            Job Settings
+                        </para>
+                        <para>
+                            Provide a name for the archiving job and select proper options to schedule this job.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Ticket Filter
+                        </para>
+                        <para>
+                            The ticket filter is basically a ticket search that is looking for tickets that match the selected criteria.
+                            It might be a good idea to only archive tickets in a close state that have been closed a few month before.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Ticket Action
+                        </para>
+                        <para>
+                            In the section Ticket Action you will find an action called "Archive selected tickets" and chose "archive tickets".
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Save the job
+                        </para>
+                        <para>
+                            At the end of the page you will find an option to save the job.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Affected tickets
+                        </para>
+                        <para>
+                            The system will display all tickets which will be archived when executing the Generic Agent job
+                        </para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                Ticket Search
+            </para>
+            <para>
+                When you search for tickets, the system default is only searching tickets which are not archived.
+                If you want to search through archived tickets also, simply add "archive search" while defining search criteria.
+            </para>
+        </listitem>
+    </orderedlist>
 </section>
 
 </section>
