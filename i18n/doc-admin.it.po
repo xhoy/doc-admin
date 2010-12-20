@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-12-16 16:08+0100\n"
+"POT-Creation-Date: 2010-12-20 11:30+0100\n"
 "PO-Revision-Date: 2010-12-16 16:08+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. type: Attribute 'lang' of: <book>
@@ -1550,7 +1550,7 @@ msgid "Perl 5.8.8 or higher"
 msgstr ""
 
 #. type: Content of: <chapter><section><title>
-#: en/otrs.xml:1171 en/performance-tuning.xml:214
+#: en/otrs.xml:1171 en/performance-tuning.xml:306
 msgid "Webserver"
 msgstr ""
 
@@ -3066,7 +3066,7 @@ msgstr ""
 #: en/external-backends.xml:1095 en/states.xml:119 en/acl.xml:42 en/acl.xml:70
 #: en/acl.xml:117 en/acl.xml:140 en/stats.xml:1255 en/stats.xml:1275
 #: en/stats.xml:1345 en/stats.xml:1351 en/performance-tuning.xml:117
-#: en/performance-tuning.xml:150
+#: en/performance-tuning.xml:242
 msgid "<placeholder type=\"programlisting\" id=\"0\"/>"
 msgstr ""
 
@@ -12709,25 +12709,152 @@ msgid ""
 "filesystem.</emphasis>"
 msgstr ""
 
-#. type: Content of: <chapter><section><title>
+#. type: Content of: <chapter><section><section><title>
+#: en/performance-tuning.xml:127
+msgid "Archiving Tickets"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><para>
 #: en/performance-tuning.xml:130
+msgid ""
+"As OTRS can be used as an audit proof system, deleting closed tickets may "
+"not be a good idea.  Therefore we implemented a feature that allows you to "
+"archive tickets."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><para>
+#: en/performance-tuning.xml:134
+msgid ""
+"This means that tickets that match certain criteria are marked as \"archived"
+"\", and these tickets are not touched if you do a regular ticket search or "
+"run a Generic Agent job.  The system itself has not to deal with a huge "
+"amount of tickets any longer as only the \"latest\" tickets are taken into "
+"consideration when using OTRS. This can mean a huge performance gain on "
+"large systems."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><para>
+#: en/performance-tuning.xml:141
+msgid "To use the archive feature simply follow these steps:"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para>
+#: en/performance-tuning.xml:146
+msgid "Activate the archive system in SysConfig"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para>
+#: en/performance-tuning.xml:149
+msgid ""
+"In the Admin panel of OTRS go to SysConfig and select the group "
+"<literal>Ticket</literal>.  In <literal>Core::Ticket</literal> you find the "
+"option <literal>Ticket::ArchiveSystem</literal> which is set to \"no\" per "
+"default. Change this setting to \"yes\" and save this change."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para>
+#: en/performance-tuning.xml:156
+msgid "Define a GenericAgent job"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:163
+msgid "Job Settings"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:166
+msgid ""
+"Provide a name for the archiving job and select proper options to schedule "
+"this job."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:171
+msgid "Ticket Filter"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:174
+msgid ""
+"The ticket filter is basically a ticket search that is looking for tickets "
+"that match the selected criteria.  It might be a good idea to only archive "
+"tickets in a close state that have been closed a few months before."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:180
+msgid "Ticket Action"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:183
+msgid ""
+"In the section Ticket Action you will find an action called \"Archive "
+"selected tickets\".  Set this to \"archive tickets\"."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:189
+msgid "Save the job"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:192
+msgid "At the end of the page you will find an option to save the job."
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:197
+msgid "Affected tickets"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para><orderedlist><listitem><para>
+#: en/performance-tuning.xml:200
+msgid ""
+"The system will display all tickets which will be archived when executing "
+"the Generic Agent job"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para>
+#: en/performance-tuning.xml:159
+msgid ""
+"In the Admin panel select GenericAgent and add a new job there.  "
+"<placeholder type=\"orderedlist\" id=\"0\"/>"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para>
+#: en/performance-tuning.xml:208
+msgid "Ticket Search"
+msgstr ""
+
+#. type: Content of: <chapter><section><section><orderedlist><listitem><para>
+#: en/performance-tuning.xml:211
+msgid ""
+"When you search for tickets, the system default is only searching tickets "
+"which are not archived.  If you want to search through archived tickets "
+"also, simply add \"archive search\" while defining search criteria."
+msgstr ""
+
+#. type: Content of: <chapter><section><title>
+#: en/performance-tuning.xml:222
 msgid "Database"
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/performance-tuning.xml:132
+#: en/performance-tuning.xml:224
 msgid ""
 "This depends on the database you are using. If you're having trouble, read "
 "the documentation for your database or ask your database administrator."
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:137
+#: en/performance-tuning.xml:229
 msgid "MySQL"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:139
+#: en/performance-tuning.xml:231
 msgid ""
 "If you use MySQL table type MyISAM (which is the default), and have deleted "
 "a large part of a table or if you have made many changes to a table with "
@@ -12736,14 +12863,14 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:145
+#: en/performance-tuning.xml:237
 msgid ""
 "You should try this if mysqld needs a lot of your CPU time. Optimize tables "
 "ticket, ticket_history and article (see Script 21.2 below)."
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para><programlisting>
-#: en/performance-tuning.xml:151
+#: en/performance-tuning.xml:243
 #, no-wrap
 msgid ""
 "shell$ mysql -u user -p database\n"
@@ -12753,24 +12880,24 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:159
+#: en/performance-tuning.xml:251
 msgid "<emphasis>Script 21.2. Optimizing data base tables.</emphasis>"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:165
+#: en/performance-tuning.xml:257
 msgid "PostgreSQL"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:167
+#: en/performance-tuning.xml:259
 msgid ""
 "PostgreSQL is best tuned by modifying the postgresql.conf file in your "
 "PostgreSQL data directory. For advice on how to do this, see these articles:"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para><itemizedlist><listitem><para>
-#: en/performance-tuning.xml:176
+#: en/performance-tuning.xml:268
 msgid ""
 "<ulink url=\"http://www.revsys.com/writings/postgresql-performance.html\"> "
 "<citetitle>http://www.revsys.com/writings/postgresql-performance.html</"
@@ -12778,7 +12905,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para><itemizedlist><listitem><para>
-#: en/performance-tuning.xml:183
+#: en/performance-tuning.xml:275
 msgid ""
 "<ulink url=\"http://varlena.com/GeneralBits/Tidbits/perf.html\"> "
 "<citetitle>http://varlena.com/GeneralBits/Tidbits/perf.html</citetitle> </"
@@ -12786,7 +12913,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para><itemizedlist><listitem><para>
-#: en/performance-tuning.xml:190
+#: en/performance-tuning.xml:282
 msgid ""
 "<ulink url=\"http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html\"> "
 "<citetitle>http://varlena.com/GeneralBits/Tidbits/annotated_conf_e.html</"
@@ -12794,7 +12921,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:199
+#: en/performance-tuning.xml:291
 msgid ""
 "If performance is still not satisfactory, we suggest that you join the "
 "PostgreSQL Performance mailing list ( <ulink url=\"http://www.postgresql.org/"
@@ -12804,7 +12931,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/performance-tuning.xml:216
+#: en/performance-tuning.xml:308
 msgid ""
 "Of course you should use mod_perl 2.0 ( <ulink url=\"http://perl.apache.org/"
 "\"> <citetitle>http://perl.apache.org/</citetitle> </ulink>).  It's much "
@@ -12812,24 +12939,24 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:224
+#: en/performance-tuning.xml:316
 msgid "Pre-establish database connections"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:226
+#: en/performance-tuning.xml:318
 msgid ""
 "You can have the database connections pre-established on startup of the web "
 "server.  This saves time (see README.webserver)."
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:232
+#: en/performance-tuning.xml:324
 msgid "Preloaded modules - startup.pl"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:234
+#: en/performance-tuning.xml:326
 msgid ""
 "Use the startup script <filename>scripts/apache2-perl-startup.pl</filename> "
 "for preloaded/precompiled Perl modules on your mod_perl webserver to be "
@@ -12837,12 +12964,12 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:239
+#: en/performance-tuning.xml:331
 msgid "Reload Perl modules when updated on disk"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:241
+#: en/performance-tuning.xml:333
 msgid ""
 "By default Apachee::Reload is used in scripts/apache2-httpd.include.conf. "
 "Disable it and you will get 8% more speed. But remember to restart the web "
@@ -12854,12 +12981,12 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:251
+#: en/performance-tuning.xml:343
 msgid "Choosing the Right Strategy"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:253
+#: en/performance-tuning.xml:345
 msgid ""
 "If you have a really large installation (over 1,000 new tickets per day and "
 "over 40 agents) it is a good idea to read \"Choosing the Right Strategy"
@@ -12869,12 +12996,12 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><section><title>
-#: en/performance-tuning.xml:262
+#: en/performance-tuning.xml:354
 msgid "mod_gzip/mod_deflate"
 msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
-#: en/performance-tuning.xml:264
+#: en/performance-tuning.xml:356
 msgid ""
 "If your bandwidth is a little bit small, use mod_deflate for Apache2.  If "
 "you have an html page with 45k, mod_gzip/mod_deflate compresses it. The page "

@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.22 2010-12-16 15:16:23 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.23 2010-12-20 10:36:08 mg Exp $ -->
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
 
@@ -127,6 +127,104 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
     <emphasis>Skript 21.1 Wechsel des TicketStorage-Backends von Datenbank zu
 Dateisystem.</emphasis>
 </para>
+</section>
+
+<section>
+    <title>Tickets archivieren</title>
+
+    <para>
+        Da OTRS als revisionssicheres System betrieben werden kann, ist das Löschen
+von geschlossenen Tickets möglicherweise nicht empfehlenswert. Daher haben
+wir eine Funktion implementiert, mit der Sie Tickets archivieren können.
+    </para>
+    <para>
+        Kokret ist darunter zu verstehen, dass Tickets, die bestimmte Kriterien
+erfüllen, als "archiviert" markiert werden. Diese Tickets werden dann bei
+regulären Suchabfragen oder von GenericAgent-Jobs nicht mehr erfasst. Somit
+muss sich das System mit einer großen Ticketmenge nicht mehr befassen, weil
+dann nur noch die "aktuellsten" Tickets betrachtet werden. Das kann auf
+großen Systemen eine signifikante Performanceverbesserung bewirken.
+    </para>
+    <para>
+        Befolgen Sie folgende Schritte, um die Archivierungsfunktion zu nutzen:
+    </para>
+    <orderedlist>
+        <listitem>
+            <para>
+                Archivsystem in der SysConfig aktivieren
+            </para>
+            <para>
+                Wählen Sie in der SysConfig die Gruppe <literal>Ticket</literal> aus.  In
+<literal>Core::Ticket</literal> finden Sie die Option
+<literal>Ticket::ArchiveSystem</literal>, die standardmäßig auf "Nein"
+steht. Ändern Sie diese auf "Ja" und speichern Sie die Änderung ab.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                Anlegen eines GenericAgent-Jobs
+            </para>
+            <para>
+                Wählen Sie im Administrationsbereich den "GenericAgent" aus und legen Sie
+dort einen neuen Job an. <orderedlist>
+                    <listitem>
+                        <para>
+                            Job-Einstellungen
+                        </para>
+                        <para>
+                            Geben Sie dem Job einen geeigneten Namen und angemessene Optionen.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Ticket-Filter
+                        </para>
+                        <para>
+                            Der Ticketfilter ist eine Ticketsuche, die Tickets nach bestimmten Kriterien
+auswählt. Es könnte empfehlenswert sein, nur Tickets zu archivieren, die
+seit einigen Monaten im Status "geschlossen" sind.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Ticket-Aktion
+                        </para>
+                        <para>
+                            Im Abschnitt "Ticket-Aktion" werden Sie eine Aktion "Ausgewählte Tickets
+archivieren" finden. Wählen Sie dort "Tickets archivieren" aus.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Job speichern
+                        </para>
+                        <para>
+                            Am Ende der Seite finden Sie einen Knopf zum Speichern des Jobs.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Betroffene Tickets
+                        </para>
+                        <para>
+                            Das System wird dann alle Tickets anzeigen, die beim Ausführen des
+GenericAgent-Jobs archiviert werden.
+                        </para>
+                    </listitem>
+                </orderedlist>
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                Ticketsuche
+            </para>
+            <para>
+                Wenn Sie nun nach Tickets suchen, werden standardmäßig nur Tickets gefunden,
+die nicht archiviert sind. Wenn Sie auch in archivierten Tickets suchen
+wollen, fügen Sie "Archivsuche" zu Ihren Suchkriterien hinzu.
+            </para>
+        </listitem>
+    </orderedlist>
 </section>
 
 </section>
