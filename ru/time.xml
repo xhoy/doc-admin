@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: time.xml,v 1.1 2010-12-21 09:13:39 mg Exp $ -->
+<chapter id="time">
+<title>Time related functions</title>
+
+<section id="time-settings">
+<title>Setting up business hours, holidays and time zones</title>
+
+<para>
+Some functions in OTRS, like escalations and <link
+linkend="unlock-tickets">automatic unlocking of tickets</link>, depend on a
+proper configuration of business hours, time zones and holidays.  You can
+define these via the <link linkend="sysconfig"> SysConfig interface </link>
+, in <link linkend="Framework:Core::Time">Framework &gt; Core::Time</link>.
+You can also specify different sets of business hours, holidays and time
+zones as separate 'Calendars' in <link
+linkend="Framework:Core::Time::Calendar1">Framework >
+Core::Time::Calendar1</link>, until <link
+linkend="Framework:Core::Time::Calendar9">Framework >
+Core::Time::Calendar9</link>.  Calendars can be defined on <link
+linkend="adminarea-queue">queue</link> or on SLA levels. This means that,
+for example, you can specify a calendar with 5 x 8 business hours for your
+'standard' SLA, but create a separate calendar with 7 x 24 support for your
+'gold' SLA; and to have a calendar for your 'Support-USA' queue with a
+different time window than your 'Support-Japan' queue.  OTRS can handle up
+to 99 different calendars.
+</para>
+
+
+<section id="TimeWorkingHours">
+<title>Business Hours</title>
+
+<para>
+Set up the working hours for your system in SysConfig <link
+linkend="Framework:Core::Time:TimeWorkingHours"> Framework>
+Core::Time::TimeWorkingHours </link> or for your specific calendar, in the
+calendar's configuration.  OTRS can handle a granularity of one
+hour. Checking the marks in the boxes 8, 9, 10 ... 17 corresponds with
+business hours of 8 AM - 6 PM.
+</para>
+
+<para>
+Only during the business hours: tickets can escalate, notifications for
+escalated and pending tickets will be send and tickets will be unlocked.
+</para>
+</section>
+
+
+<section id="TimeVacationDays">
+<title>Fixed date holidays</title>
+
+<para>
+Holidays that are on a fixed date every year, such as New Year's Day and
+Fourth of July, can be specified in <link
+linkend="Framework:Core::Time:TimeVacationDays"> TimeVacationDays </link> or
+in the corresponding section for the calendars 1-9.
+</para>
+
+<para>
+Tickets will not escalate nor get unlocked on dates defined in
+TimeVacationDays.
+</para>
+
+<note>
+<para>
+By default, OTRS ships with the <emphasis>German</emphasis> holidays
+installed.
+</para>
+</note>
+
+</section>
+
+
+<section id="TimeVacationDaysOneTime">
+<title>TimeVacationDaysOneTime</title>
+
+<para>
+Holidays that do not have a yearly fixed date, such as Easter, can be
+specified in <link linkend="Framework:Core::Time:TimeVacationDaysOneTime">
+TimeVacationDaysOneTime </link> .
+</para>
+
+<para>
+Tickets will not escalate and will not be unlocked on dates defined in
+TimeVacationDaysOneTime.
+</para>
+
+<note>
+<para>
+OTRS does not ship with any One-Time holidays pre-installed.  This means
+that you need to add holidays, such as Eastern or Thanksgiving, to the
+system when configuring OTRS.
+</para>
+</note>
+
+</section>
+
+</section>
+
+
+<section id="unlock-tickets">
+<title>Automated Unlocking</title>
+
+<para>
+Locked tickets can be automatically unlocked by the system. This feature
+might be useful if, for example, an agent has locked tickets that need to be
+processed, but he can't work on them for some reason, like being on
+vacation.  The automated unlock feature unlocks tickets after a given time,
+to ensure that no locked tickets will be forgotten and other agents can
+process them.
+</para>
+
+<para>
+The amount of time before a ticket is unlocked can be specified in the <link
+linkend="adminarea-queue"> settings </link> for every queue. The module
+<filename>bin/otrs.UnlockTickets.pl</filename>, which is executed
+periodically as a cron job, performs the automated unlocking of tickets.
+</para>
+
+<para>
+Notifications on unlocked tickets are send out only to those agents that
+have the queue with the unlocked tickets set in "My queues" and that have
+activated the notification on unlocked tickets in their personal <link
+linkend="user-preferences"> preferences </link> .
+</para>
+
+<para>
+Tickets will be unlocked if all of the following conditions are met:
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+There is an <emphasis>unlock timeout</emphasis> defined at the queue the
+ticket is in.
+</para>
+</listitem>
+<listitem>
+<para>
+The ticket is set to <emphasis>locked</emphasis>
+</para>
+</listitem>
+<listitem>
+<para>
+The ticket state is <emphasis>open</emphasis>.
+</para>
+</listitem>
+</itemizedlist>
+
+<para>
+The unlock timer will be reset if an agent adds a new external article to
+the ticket, It can be of any of the following types:
+<emphasis>email-external</emphasis>, <emphasis>phone</emphasis>,
+<emphasis>fax</emphasis>, <emphasis>sms</emphasis>, or
+<emphasis>note-external</emphasis>.
+</para>
+
+<para>
+Also, if the last article in the ticket is created by an agent, and a
+customer adds another one, either via web or email response, the unlock
+timer will be reset.
+</para>
+
+<para>
+The last event that will reset the unlock timer is when the ticket is
+assigned to another agent.
+</para>
+
+</section>
+
+</chapter>

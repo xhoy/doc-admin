@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: acl.xml,v 1.1 2010-12-21 09:13:39 mg Exp $ -->
+<chapter id="acl" >
+<title>Access Control Lists (ACLs)</title>
+
+<para>
+From OTRS 2.0 on, Access Control Lists (ACLs) can be used to control access
+to tickets, modules, queues, etc. or to influence actions on tickets
+(closing, moving, etc.)  in certain situations. ACLs can be used
+supplementary to the existing permission system of <link
+linkend="adminarea-roles"> roles </link> and <link
+linkend="adminarea-groups"> groups </link> Using ACLs, rudimental workflows
+within the system can be mapped, based on ticket attributes.
+</para>
+
+<para>
+So far, ACLs cannot be created using the <link linkend="adminarea-sysconfig"
+> SysConfig interface </link> but must be directly entered into the
+<filename>Kernel/Config.pm</filename> file. Find some examples below
+(Example 18-1, 18-2 and 18-3):
+</para>
+
+<para>
+<example id="acl-move">
+<title>ACL which only allows to move tickets with ticket priority 5 into a queue.</title>
+
+<programlisting>
+    # ticket acl
+    $Self->{TicketAcl}->{'ACL-Name-2'} = {
+        # match properties
+        Properties => {
+            # current ticket match properties
+            Ticket => {
+                Queue => ['Raw'],
+                Priority => ['5 very high'],
+            }
+        },
+        # return possible options (white list)
+        Possible => {
+            # possible ticket options (white list)
+            Ticket => {
+                Queue => ['Alert'],
+            },
+        },
+    };
+</programlisting></example>
+</para>
+
+<para>
+<example id="acl-close" >
+<title>ACL which disables the closing of tickets in the raw queue and hides the
+close button.</title>
+
+<programlisting>
+    $Self->{TicketAcl}->{'ACL-Name-1'} = {
+        # match properties
+        Properties => {
+            # current ticket match properties
+            Ticket => {
+                Queue => ['Raw'],
+            }
+        },
+        # return possible options (white list)
+        Possible => {
+            # possible ticket options (white list)
+            Ticket => {
+                State => ['new', 'open', 'pending reminder'],
+            },
+            # possible action options
+            Action => {
+                AgentTicketLock => 1,
+                AgentTicketZoom => 1,
+                AgentTicketClose => 0,
+                AgentTicketPending => 1,
+                AgentTicketNote => 1,
+                AgentTicketHistory => 1,
+                AgentTicketPriority => 1,
+                AgentTicketFreeText => 1,
+                AgentTicketHistory => 1,
+                AgentTicketCompose => 1,
+                AgentTicketBounce => 1,
+                AgentTicketTicketPrint => 1,
+                AgentTicketForward => 1,
+                AgentTicketTicketLink => 1,
+                AgentTicketPrint => 1,
+                AgentTicketPhone => 1,
+                AgentTicketCustomer => 1,
+                AgentTicketOwner => 1,
+            },
+        },
+    };
+</programlisting></example>
+</para>
+
+<para>
+<example id="acl-state" >
+<title>ACL which removes the status for all agents and only provides it for a
+group.</title>
+
+<programlisting>
+    $Self->{TicketAcl}->{'ACL-Name-5'} = {
+        # match properties
+        Properties => {
+            # current ticket match properties (match always)
+        },
+        # return possible options
+        PossibleNot => {
+            # possible ticket options
+            Ticket => {
+                State => ['closed successful'],
+            },
+        },
+    };
+</programlisting></example>
+</para>
+
+<para>
+In the Script 18.1 there is a list of all parameters which can be used for
+ACLs.
+</para>
+
+<para>
+<programlisting>
+    # ticket acl
+    $Self->{TicketAcl}->{'ACL-Name-Test'} = {
+        # match properties
+        Properties => {
+            # current action match properties
+            Frontend => {
+                Action => ['AgentTicketPhone', 'AgentTicketEmail'],
+            },
+            # current user match properties
+            User => {
+                Group_rw => [
+                    'hotline',
+                ],
+            },
+            # current user match properties
+            Ticket => {
+                Queue => ['Raw'],
+                State => ['new', 'open'],
+                Priority => ['some priority'],
+                Lock => ['lock'],
+                CustomerID => ['some id'],
+                CustomerUserID => ['some id'],
+                TicketFreeKey1 => ['some key'],
+                TicketFreeKey2 => ['some key'],
+                # ...
+                TicketFreeKey8 => ['some key'],
+                TicketFreeText1 => ['some value'],
+                TicketFreeText2 => ['some value'],
+                # ...
+                TicketFreeText8 => ['some value'],
+            }
+        },
+        # return possible options (white list)
+        Possible => {
+            # possible ticket options (white list)
+            Ticket => {
+                Queue => ['Hotline', 'Koordination'],
+                State => => ['some state'],
+                Priority => ['5 very high'],
+                TicketFreeKey1 => ['some key'],
+                TicketFreeKey2 => ['some key'],
+                # ...
+                TicketFreeKey8 => ['some key'],
+                TicketFreeText1 => ['some value'],
+                TicketFreeText2 => ['some value'],
+                # ...
+                TicketFreeText8 => ['some value'],
+            },
+            # possible action options (white list)
+            Action => {
+                AgentTicketLock => 1,
+                AgentTicketZoom => 1,
+                AgentTicketClose => 1,
+                AgentTicketPending => 0,
+                AgentTicketNote => 1,
+                AgentTicketHistory => 0,
+                AgentTicketPriority => 1,
+                AgentTicketFreeText => 0,
+                AgentTicketHistory => 1,
+                AgentTicketCompose => 1,
+                AgentTicketBounce => 1,
+                AgentTicketTicketPrint => 0,
+                AgentTicketForward => 1,
+                AgentTicketTicketLink => 1,
+                AgentTicketPrint => 1,
+                AgentTicketPhone => 1,
+                AgentTicketCustomer => 1,
+                AgentTicketOwner => 0,
+            },
+        },
+        # remove options (black list)
+        PossibleNot => {
+            # possible ticket options (black list)
+            Ticket => {
+                Queue => ['Hotline', 'Koordination'],
+                State => ['closed', 'removed'],
+            },
+        },
+    };
+</programlisting>
+</para>
+
+<para>
+    <emphasis>Script 18.1. Valid parameters for ACLs.</emphasis>
+</para>
+
+</chapter>
