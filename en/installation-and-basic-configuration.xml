@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.54 2010-12-24 10:03:56 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.55 2011-01-04 09:29:01 mg Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -1324,7 +1324,7 @@ entries are right (see Script 3.19 below).
 linux:/opt/otrs/bin# crontab -l -u otrs
 # --
 # cron/aaa_base - base crontab package
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1333,7 +1333,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/cache - delete expired cache
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete expired cache weekly (Sunday mornings)
@@ -1342,7 +1342,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/fetchmail - fetchmail cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1351,7 +1351,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/generic_agent - otrs.GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
@@ -1363,7 +1363,7 @@ MAILTO="root@localhost"
 #0 23 * * * $HOME/bin/otrs.GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1371,7 +1371,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1379,7 +1379,7 @@ MAILTO="root@localhost"
 45 */2 * * * $HOME/bin/otrs.PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1388,7 +1388,7 @@ MAILTO="root@localhost"
 10 0 * * * $HOME/bin/otrs.CleanUp.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster_mailbox - postmaster_mailbox cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1396,7 +1396,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.PostMasterMailbox.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1405,7 +1405,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/session - delete old session ids of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1414,7 +1414,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1687,6 +1687,12 @@ shell&gt; /etc/init.d/apache start
             <screen>
      [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],
             </screen>
+        </para>
+        <para>
+            Please note that this can also affect any salutations or other templates
+            where you've used the string <literal>&lt;OTRS_*_UserSalutation&gt;</literal>.
+            If you have used this string AND you use the built-in customer table, please replace
+            it with <literal>&lt;OTRS_CURRENT_UserTitle&gt;</literal> instead.
         </para>
       </listitem>
       <listitem>
