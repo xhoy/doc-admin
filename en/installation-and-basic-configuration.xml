@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.55 2011-01-04 09:29:01 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.56 2011-01-04 16:03:02 mb Exp $ -->
 
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrade of the OTRS framework</title>
@@ -1433,15 +1433,19 @@ linux:/opt/otrs/bin#
 
 </section>
 
-<section id="upgrade-2.4-to-3.0">
-<title>Upgrading the OTRS Framework from 2.4 to 3.0</title>
+<section id="upgrading">
+<title>Upgrading the OTRS Framework</title>
 <para>
-These instructions are for people upgrading OTRS from "2.4" to "3.0",
-and applies both for RPM and source code (tarball) upgrades.
+These instructions are for people upgrading OTRS from <emphasis>2.4</emphasis>
+to <emphasis>3.0</emphasis>, and applies both for RPM and source code (tarball)
+upgrades.
 </para>
 <para>
 If you are running a lower version of OTRS you have to follow the upgrade path
 to 2.4 first (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...).
+</para>
+<para>If you need to do a "patch level upgrade", which is an upgrade for instance
+from OTRS version 3.0.3 to 3.0.4, you should skip steps 8, 9, 10, and 13 - 16.
 </para>
 
   <orderedlist>
@@ -1497,7 +1501,7 @@ shell&gt; ln -s otrs-x.x.x otrs
                 </screen>
             </para>
             <para>
-                Restore old config files.
+                Restore old configuration files.
                 <itemizedlist>
                     <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
                     <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
@@ -1513,7 +1517,7 @@ shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
                 </screen>
             </para>
             <para>
-                Restore old config files not needed, done by RPM.
+                Restore old configuration files is not needed, done by RPM.
             </para>
           </listitem>
          </itemizedlist>
