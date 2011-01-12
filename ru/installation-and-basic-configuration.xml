@@ -3,78 +3,86 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.1 2010-12-21 09:13:39 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.2 2011-01-12 15:25:24 mg Exp $ -->
 <chapter id="installation-and-basic-configuration">
-<title>Installation / Upgrade of the OTRS framework</title>
+<title>Установка/Обновление OTRS-фреймворка</title>
 
 <abstract>
 <para>
-This chapter describes the installation and the basic configuration of the
-central OTRS framework. You'll find information about installing OTRS from
-source or with a binary package, for example an RPM or with the Windows
-Installer.
+В этой главе описывается установка и базовая конфигурация главного
+OTRS-фреймворка. Здесь вы найдете информацию об установке OTRS из исходных
+кодов или из бинарных пакетов, таких как, например, RPM или с помощью
+Windows-инсталлятора.
 </para>
 
 <para>
-The configuration of the web and database servers, the interface between
-OTRS and the database, the installation of additional Perl modules, setting
-proper access rights for OTRS, setting up the cron jobs for OTRS and some
-basic settings in the configuration files of OTRS are covered in this
-chapter.
+В этой главе рассматриваются такие вопросы как: конфигурация веб-сервера,
+сервера базы данных, интефейса между OTRS и базой данных, установка
+дополнительных модулей языка Perl, установка соответствующих прав доступа в
+системе OTRS, настройка планировщика задач cron job и основных параметров в
+конфигурационных файлах.
 </para>
 
 <para>
-When you follow the steps in this chapter, you will have a running OTRS
-system installed on your computer, where you can login and administrate the
-system via the web interface.
+Если вы выполнили все шаги, описанные в этом разделе, то в конце должны
+получить готовую к использованию систему OTRS, установленную на вашем
+компьютере. Теперь можно войти в OTRS и проводить дальнейшую настройку
+системы.
 </para>
 </abstract>
 
 <section id="installation-of-prepared-packages">
-<title>The simple way - Installation of pre-built packages</title>
+<title>Самый простой способ - установка из готовых бинарных пакетов</title>
 
 <para>
-The simplest and most comfortable way to install OTRS is to use pre-built
-packages. You can find them in the download area on <ulink
-url="http://www.otrs.org"> <citetitle>http://www.otrs.org</citetitle>
-</ulink> . The following sections describe the installation of OTRS with a
-pre-built or binary package on SUSE, Debian and Microsoft Windows
-systems. Use pre-built packages to install OTRS and only setup OTRS
-manually, if you have no other possibility.
+Самый простой и удобный способ установки OTRS - использование готовых
+пакетов, собраных специально под вашу операционную систему, которые можно
+загрузить по адресу <ulink url="http://www.otrs.org">
+<citetitle>http://www.otrs.org</citetitle> </ulink> . В следующих разделах
+описывается установка OTRS из готовых или бинарных пакетов, собраных для
+операционных систем SUSE, Debian а тажке для Microsoft Windows. Для
+установки OTRS старайтесь всегда использовать готовые пакеты, собраные
+специально под вашу операционну систему. Если же готовых пакетов нету, -
+установку придется производить вручную.
 </para>
 
 <section id="installation-on-suse">
-<title>Installing the rpm on a SUSE Linux server</title>
+<title>Установка системы из rpm-пакетов на сервер под управлением Suse Linux</title>
 
 <para>
 This section describes the installation of a pre-built rpm package on a SUSE
 Linux distro. We tested all recent SLES and OpenSUSE versions. Before you
 start the installation please have a look on <ulink
-url="http://www.otrs.org/download">
-<citetitle>http://www.otrs.org/download</citetitle> </ulink> and check, if a
-newer OTRS rpm package is available. Please use the newer rpm package, if
+url="http://www.otrs.org/downloads">
+<citetitle>http://www.otrs.org/downloads</citetitle> </ulink> and check, if
+a newer OTRS rpm package is available. Please use the newer rpm package, if
 available.
 </para>
 
 <para>
-Please install OTRS with <application>yast</application> (yast2) or via the
-command line and <command>rpm</command>. Because OTRS needs some Perl
-modules which are not installed on a SUSE system by default, we recommend to
-use <application>yast</application>, because it solves the package
-dependencies automatically.
+Для установки OTRS используйте конфигурационную утилиту
+<application>yast</application> (yast2) , командную строку или
+rpm-пакеты. Так как для работы OTRS необходимы Perl-модули, которые по
+умолчанию не устанавливаются в системе SUSE, мы всегда рекомендуем
+использовать менеджер пакетов <application>yast</application>, поскольку он
+позволяет автоматически разрешать конфлиткы и зависимости между пакетами.
 </para>
 
 <para>
-If you decide to install OTRS via the command line and
-<application>rpm</application>, first you have to manually install the
-needed Perl modules. Assuming you saved the file
-<filename>otrs.rpm</filename> into the directory <filename>/tmp</filename>,
-you can execute the command specified in the Script 3.1 to install OTRS.
+Если вы все же решили устанавливать OTRS из командной строки или с помощью
+<application>rpm</application> (rpm-пакетов), первое, что нужно сделать -
+это вручную установить все необходимые Perl-модули. Предположим, что вы
+загрузили файл <filename>otrs.rpm</filename> и скопировали его в директорию
+<filename>/tmp</filename>. Чтобы начать установку системы OTRS необходимо
+выполнить команду, которая приведена в сценарии 3.1.
 </para>
 
 <para>
-Note: If you install it on SLES9 or OES, follow this description to install
-the missing perl-GD packages. http://faq.otrs.org/otrs/public.pl?FAQID=49
+Примечание: Если вы проводите установку на SLES9 (SUSE Linux Enterprise
+Server By Novell) или OES (Open Enterprise Server), прочтите пожалуйста
+инструкции, находящиеся по адресу
+http://faq.otrs.org/otrs/public.pl?FAQID=49 , они помогут в установке
+отсутсвтующих perl-GD пакетов.
 </para>
 
 <para>
@@ -108,7 +116,7 @@ linux:~ #
 </para>
 
 <para>
-    <emphasis>Script 3.1. Command to install OTRS.</emphasis>
+    <emphasis>Сценарий 3.1. Команда для установки OTRS.</emphasis>
 </para>
 
 <para>
@@ -215,8 +223,8 @@ http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)
 
 <para>
 Installing OTRS on a Microsoft Windows system is very easy. Download the
-latest installer for Win32 from <ulink url="http://www.otrs.org/download/">
-<citetitle>http://www.otrs.org/download/</citetitle> </ulink> and save the
+latest installer for Win32 from <ulink url="http://www.otrs.org/downloads/">
+<citetitle>http://www.otrs.org/downloads/</citetitle> </ulink> and save the
 file to your local file system. Then simply click on the file to execute the
 installer, follow the few installation steps to setup the system. After that
 you will be able to login as OTRS administrator and configure the system
@@ -257,8 +265,8 @@ have <application>apache2</application> or another web server and
 <para>
 If you want to install OTRS from source, first download the source archive
 as .tar.gz, .tar.bz2, or .zip file from <ulink
-url="http://www.otrs.org/download/">
-<citetitle>http://www.otrs.org/download/</citetitle> </ulink>
+url="http://www.otrs.org/downloads/">
+<citetitle>http://www.otrs.org/downloads/</citetitle> </ulink>
 </para>
 
 <para>
@@ -1288,7 +1296,7 @@ entries are right (see Script 3.19 below).
 linux:/opt/otrs/bin# crontab -l -u otrs
 # --
 # cron/aaa_base - base crontab package
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1297,7 +1305,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/cache - delete expired cache
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete expired cache weekly (Sunday mornings)
@@ -1306,7 +1314,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/fetchmail - fetchmail cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1315,7 +1323,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/generic_agent - otrs.GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
@@ -1327,7 +1335,7 @@ MAILTO="root@localhost"
 #0 23 * * * $HOME/bin/otrs.GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1335,7 +1343,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1343,7 +1351,7 @@ MAILTO="root@localhost"
 45 */2 * * * $HOME/bin/otrs.PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1352,7 +1360,7 @@ MAILTO="root@localhost"
 10 0 * * * $HOME/bin/otrs.CleanUp.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster_mailbox - postmaster_mailbox cron of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1360,7 +1368,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.PostMasterMailbox.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1369,7 +1377,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/session - delete old session ids of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1378,7 +1386,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
-# Copyright (C) 2001-2010 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1397,16 +1405,21 @@ linux:/opt/otrs/bin#
 
 </section>
 
-<section id="upgrade-2.4-to-3.0">
-<title>Upgrading the OTRS Framework from 2.4 to 3.0</title>
+<section id="upgrading">
+<title>Upgrading the OTRS Framework</title>
 <para>
-These instructions are for people upgrading OTRS from "2.4" to "3.0", and
-applies both for RPM and source code (tarball) upgrades.
+These instructions are for people upgrading OTRS from
+<emphasis>2.4</emphasis> to <emphasis>3.0</emphasis>, and applies both for
+RPM and source code (tarball)  upgrades.
 </para>
 <para>
 If you are running a lower version of OTRS you have to follow the upgrade
 path to 2.4 first
 (1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...).
+</para>
+<para>If you need to do a "patch level upgrade", which is an upgrade for instance
+from OTRS version 3.0.3 to 3.0.4, you should skip steps 8, 9, 10, and 13 -
+16.
 </para>
 
   <orderedlist>
@@ -1462,7 +1475,7 @@ shell&gt; ln -s otrs-x.x.x otrs
                 </screen>
             </para>
             <para>
-                Restore old config files.
+                Restore old configuration files.
                 <itemizedlist>
                     <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
                     <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
@@ -1477,7 +1490,7 @@ shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
                 </screen>
             </para>
             <para>
-                Restore old config files not needed, done by RPM.
+                Restore old configuration files is not needed, done by RPM.
             </para>
           </listitem>
          </itemizedlist>
@@ -1646,6 +1659,13 @@ Customer Company support, you should change the mapping in your
             </screen> to: <screen>
      [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],
             </screen>
+        </para>
+        <para>
+            Please note that this can also affect any salutations or other templates
+where you've used the string
+<literal>&lt;OTRS_*_UserSalutation&gt;</literal>.  If you have used this
+string AND you use the built-in customer table, please replace it with
+<literal>&lt;OTRS_CURRENT_UserTitle&gt;</literal> instead.
         </para>
       </listitem>
       <listitem>
