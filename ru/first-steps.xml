@@ -3,9 +3,9 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: first-steps.xml,v 1.2 2011-01-12 15:25:24 mg Exp $ -->
+<!-- $Id: first-steps.xml,v 1.3 2011-01-20 16:03:37 mg Exp $ -->
 <chapter id="first-steps-in-otrs">
-<title>First steps in OTRS</title>
+<title>Первые шаги в OTRS</title>
 
 <abstract>
 <para>
@@ -18,280 +18,288 @@ which are available for every account.
 </abstract>
 
 <section id="agent-interface">
-<title>Agent web interface</title>
+<title>Веб-интерфейс для агентов</title>
 
 <para>
-All agents use the agent web interface to work with OTRS. Agents answer the
-customer requests, create new tickets for customers or other agents, write
-tickets about telephone calls with customers, write FAQ entries or edit
-customer data, etc.
+Все агенты (сотрудники) используют агентский веб-интерфейс для работы с
+OTRS. Агенты отвечают на запросы пользователей, создают новые заявки для
+клиентов и других агентов, создают заявки на основе телефонных звонков
+клиентов, пишут и редактируют записи для FAQ-модуля, редактируют данные
+клиентов.
 </para>
 
 <para>
-Soposing that your OTRS host is reachable via the URL <ulink
+Предположим, что OTRS доступен по ссылке <ulink
 url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
-</ulink> , then the agents and also the OTRS administrator can reach the
-login screen by using the address <ulink
+</ulink>, таким образом, агенты и OTRS-администраторы могут войти в OTRS
+набрав в строке браузера следующий URL-адрес: <ulink
 url="http://www.example.com/otrs/index.pl">
-<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink> in a
-web browser (see Figure 4.1 below).
+<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink>
 </para>
 
 <para>
 <screenshot>
-<screeninfo>index.pl - Agent login screen</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>index.pl - Экран для входа Агентов.</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.1. Login screen of the agent interface.</emphasis>
+    <emphasis>Рисунок 4.1. Агентский интерфейс, экран входа.</emphasis>
 </para>
 
 </section>
 
 <section id="customer-interface">
-<title>Customer web interface</title>
+<title>Пользовательский веб-интерфейс</title>
 
 <para>
-Customers have a special web interface in OTRS. Through this web interface
-customers can create new accounts, get an overview on own tickets, create
-and edit tickets, change their account settings, etc.
+Клиенты имеют в OTRS специальный веб-интерфейс. С помощью этого
+веб-интерфейса пользователи могут создавать новые учетные записи,
+просматривать собственные заявки, создавать и редактировать заявки, изменять
+настройки своей учетной записи и т.д.
 </para>
 
 <para>
-Supposing that the host with the OTRS installation is reachable via the
-domain <ulink url="http://www.example.com/">
-<citetitle>http://www.example.com</citetitle> </ulink> then the login screen
-for customers can be reached by the URL <ulink
-url="http://www.example.com/otrs/customer.pl">
-<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink> with
-a web browser (see Figure 4.2 below).
+Предположим, что хост с установленным OTRS доступен на домене <ulink
+url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
+</ulink>, таким образом страница для входа пользователей будет находится по
+URL-адресу <ulink url="http://www.example.com/otrs/customer.pl">
+<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink>
+(см. ниже Рисунок 4.2 ).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>customer.pl - Customer login screen</screeninfo> <graphic srccredit="customer.pl -
+<screeninfo>customer.pl - Пользовательский веб-интерфейс</screeninfo> <graphic srccredit="customer.pl -
 screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.2. Login screen of the customer interface.</emphasis>
+    <emphasis>Рисунок 4.2. Пользовательский веб-интерфейс, страница
+входа.</emphasis>
 </para>
 
 </section>
 
 <section id="public-interface">
-<title>Public web interface</title>
+<title>Общедоступный веб-интерфейс</title>
 
 <para>
-In addition to the web interfaces for agents and customers, OTRS has a
-public web interface (see Figure 4.3 below) that is available through the
-FAQ-Module (must be installed separately). It provides public access to the
-FAQ system, and lets visitors search through the FAQ entries without any
-authorization.
+В дополнение к веб-интерфейсу для агентов и пользователей, OTRS имеет
+открытый веб-интерфейс (см. ниже Рисунок 4.3), доступ к которому возможен
+посредством FAQ-модуля (который устанавливается отдельно). Он предоставляет
+открытый доступ к FAQ-системе и позволяет пользователям без авторизации
+искать информацию.
 </para>
 
 
 <para>
-Supposing that the host with the OTRS installation is reachable via the
-domain <ulink url="http://www.example.com/">
-<citetitle>http://www.example.com</citetitle> </ulink> then the public web
-interface can be reached via the URL <ulink
+Если предположить что хост с установленным OTRS доступен по адресу <ulink
+url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
+</ulink>, то общий веб-интерфейс может быть доступен по URL-адресу <ulink
 url="http://www.example.com/otrs/faq.pl">
-<citetitle>http://www.example.com/otrs/faq.pl</citetitle> </ulink> . Also
-the address <ulink url="http://www.example.com/otrs/public.pl">
-<citetitle>http://www.example.com/otrs/public.pl</citetitle> </ulink> makes
-it possible to access the FAQ system.
+<citetitle>http://www.example.com/otrs/faq.pl</citetitle> </ulink>. Также,
+получить доступ к FAQ-системе можно воспользовавшись ссылкой <ulink
+url="http://www.example.com/otrs/public.pl">
+<citetitle>http://www.example.com/otrs/public.pl</citetitle> </ulink> .
 </para>
 
 <para>
 <screenshot>
-<screeninfo>public.pl - Public web interface</screeninfo> <graphic srccredit="public.pl -
+<screeninfo>public.pl - Общедоступный веб-интерфейс</screeninfo> <graphic srccredit="public.pl -
 screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.3. Public web interface.</emphasis>
+    <emphasis>Рисунок 4.3. Общий веб-интерфейс.</emphasis>
 </para>
 
 </section>
 
 <section id="first-login">
-<title>First login</title>
+<title>Первое применение</title>
 
 <para>
-Access to the login screen, as described in the section about <link
-linkend="agent-interface"> the agent web interface </link>
+Доступ к старице входа в систему можно получить перейдя по ссылке <link
+linkend="agent-interface"> веб-интерфейс для агентов </link>
 </para>
 
 <para>
-The login screen lets you enter a user name and a password. Because no users
-are created after a fresh installation of the system, you have to login as
-OTRS administrator first, using "root@localhost" for username and "root" for
-password.
+Страница входа позволяет ввести имя пользователя и пароль. Ввиду того, что
+после установки в системе нету ни одного пользователя, вы должны войти как
+OTRS-администратор, используя логин "root@localhost" и пароль "root".
 </para>
 
 <warning>
 <para>
-This account data is valid on every new installed OTRS system. For that
-reason you should change the password for the OTRS administrator as soon as
-possible! This can be done via the <link linkend="user-preferences">
-preferences </link> for the OTRS administrator account.
+Данные доступа этого аккаунта действительны для каждой копии установленной
+системы OTRS. Именно по этой причине пароль OTRS-администратора необходимо
+изменить как можно быстрее. Это можно сделать после входа в систему с
+правами администратора используя ссылку <link linkend="user-preferences">
+предпочтения </link>.
 </para>
 </warning>
 
 <para>
-If you don't want to login as OTRS administrator just enter the user name
-and password for your normal agent account.
+Введите логин и пароль вашей учетной записи обычного агента, если не хотите
+входить в систему с правами OTRS-администратора.
 </para>
 
 <para>
-If you have forgotten your password, you can get a new password through the
-system. Just press in the link below the login button and enter the mail
-address that is registered for you OTRS account into the input field and
-press the submit button (see Figure 4.4).
+Если вы забыли свой пароль, то вы можете позволить системе автоматически
+отпарвить новый пароль на адрес электронной почты, указаный в настройках
+вашего аккаунта в системе OTRS. Для этого просто нажмите на ссылку, котораня
+находится под кнопкой "Вход" и введите адрес электронной почты, который вы
+указали в настройках вашего аккаунта и нажмите кнопку "Отправить".
 </para>
 
 <para>
 <screenshot>
-<screeninfo>login.pl - Request new password</screeninfo> <graphic srccredit="login.pl -
+<screeninfo>login.pl - Забыли пароль?</screeninfo> <graphic srccredit="login.pl -
 screenshot" scale="40"
 fileref="screenshots/request-new-password.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.4. Request new password.</emphasis>
+    <emphasis>Рисунок 4.4. Запрос на восстановление пароля.</emphasis>
 </para>
 
 </section>
 
 <section id="gui-overview">
-<title>An overview to the web interface</title>
+<title>Обзор пользовательского веб-интерфейса</title>
 
 <para>
-After you have successfully logged into the system, the web interface is
-loaded.  Per default you are in the Dashboard after the login (see Figure
-4.5 below).  The Dashboard is completely customizable. At the beginnig it
-shows your locked tickets, allows direct access to the views: queue, status
-and escalation, and also to create new phone and e-mail tickets. Besides, it
-gives you a quick summary of the tickets which are: pending, escalated, new
-and open, among other things.
+После того, как вы успешно вошли в систему, загружается веб-интервейс. После
+входа вы, по умолчанию, будете перенаправлены на панель управления (см. ниже
+Рисунок 4.5). Панель управления полностью настраиваемая. В начале она
+отображает заблокированные заявки а предоставляет возможность просматривать:
+очереди, статусы и эскалации, создавать новые заявки на основе телефонных
+звонков и електронных писем. Кроме этого у вас есть краткая сводка по
+заявкам: заявки в ожидании, эскалации, новые и открытые.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Screen after first successfull login</screeninfo> <graphic srccredit="First screen -
+<screeninfo>Страница, которая отображается после входа в систему</screeninfo> <graphic srccredit="First screen -
 screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.5. Dashboard of the agent interface.</emphasis>
+    <emphasis>Рисунок 4.5. Панель управления веб-интерфейса агентов </emphasis>
 </para>
 
 <para>
-To improve the clarity, the web interface is separated into different
-areas.  At the very top of the windows, there is some general information,
-like the current username, the logout button, icons that show the amount of
-locked tickets and allow direct access to them, links to create a new
-phone/e-mail ticket. It also gives you the change to go to the queue, status
-and escalation views.
+Для увеличения ясности (четкости) веб-интерфейс разделен на несколько частей
+(областей). В верхней части окна отображается некоторая общаяя информация,
+такая как: имя зарегистрированного пользователя, кнопка выхода, иконки,
+отображающие количество заблокированных заявок (и позволяют прямой доступ к
+ним), ссылки для создания новой заявке на основе телефонного звонка или
+сообщения электронной почты. Также есть страницы для просмотра очередей,
+информации о статусах и эскалациях.
 </para>
 
 <para>
-Below the icons is the navigation bar. It shows buttons that enable you to
-navigate to different areas or modules of the system and let you execute
-some global actions. By pressing the Dashboard button, you can go to the
-dashboard (default start page, after login). If you click on the Ticket
-button, you will get a submenu with the different valid operations, like
-changing the ticket's view, create a new ticket (phone/e-mail) or search for
-a specific ticket.  The Statistics button is also a menu that allows
-choosing from having an overview of the registered statistics, create a new
-one or import an existing one. The Customers button leads you to the
-Customer Managment. By clicking the Admin button, you can access to all the
-administrator modules, where you can, e.g. create new agents, queues,
-etc. There is also a Search button to make ticket searches.
+Под иконками находится панель навигации. Она показывает кнопки, которые
+позволяют переходить к разным модулям системы, а также позволяют выполнять
+некоторые глобальные действия. При нажатии на кнопку "Панель управления" вы
+перейдете на страницу панели инструментов (страница, которая по умолчанию
+отображается после входа в сисетму). Если нажать кнопку "Заявки", вы
+получите меню, предлагающее различные допустимые над заявками действия,
+такие как: изменение шаблона просмотра заявок, создание новой заявки (на
+основе телефонного звонка или сообщения электронной почты), поиск конкретных
+заявок. Кнопка "Статистика" также является частью меню и позволяет
+просматривать существующую статистическую информацию, создать новую а также
+производить импорт существующей статистики в другие форматы. Кнопка
+"Клиенты" позволяет перейти на страницу управления пользователями. Для
+администрирования системы нажмите кнопку "Администрирование". На этой
+странице вы можете создавать аккаунты для других агентов, очереди и т.д. Для
+поиска заявок используйте кнопку "Поиск".
 </para>
 
 <para>
-If some additional application are installed, e.g. the file manager or the
-web mailer, buttons to reach this applications are also displayed.
+Если установлены дополнительные приложения, такие как например, файловый
+менеджер или менеджер емейл-рассылки, кнопки для вызова этих приложений
+также будут отображатся.
 </para>
 
 <para>
-The red bar below the navbar shows different system messages. If you are
-logged in as OTRS administrator you get a message, that you should not work
-as administrator.
+Красная полоса которая находится под панелью навигации предназначена для
+отображения различных системных сообщений. Если вы войдете в систему как
+OTRS-администратор, то получите сообщение о том, что не следует работать в
+системе с правами администратора.
 </para>
 
 <para>
-Below the title of the section you are currently in, there are several
-subsections (each of them in a separate box), which can be dragged and
-dropped to reallocate them, as long as they remain in the same column. In
-order to drag the single elements, you need to place the cursor in the
-header of the element.
+Под названием раздела в котором вы находитесь в данный момент есть несколько
+подразделов (каждый из них находится в отдельном блоке), которые можно
+перетаскивать и перемещать до тех пор, пока они остаются в том же
+столбце. Для того чтобы перетащить отдельные елементы, вам необходимо
+поместить курсор в заголовок элемента.
 </para>
 
 <para>
-In the left column you can see the data about some tickets (if available),
-clasified in: reminder, escalated, new and open. In each of the categories,
-you are also able to see all tickets you are allowed to access or how many
-tickets you have locked and how many are located in "My Queues".
+В левой колонке находится некоторая информация о заявке (конечно, если она
+доступна): напоминание, эскалация, новая или открытая. В каждой из
+категорий, вы также можете видеть все заявки, к которым у вас есть доступ,
+сколько заявок заблокировано и сколько находится в "Мои Очереди".
 </para>
 
 <para>
-"My Queues" are the queues, that you want to observe more attentive. You can
-select them in your <link linkend="user-preferences"> account preferences
-</link> .
+" Мои очереди" - это те очереди, которые вы хотите отслеживать более
+внимательно чем другие. Эти очереди могут быть настроены в меню <link
+linkend="user-preferences"> Настройки аккаунта </link>.
 </para>
 
 <para>
-In the right column you can find the current settings, which will be
-expanded/hidden by pressing in the Settings area, as shown in the Figure 4.6
-(this section is fixed, so you can not drag and drop it). Once you accessed
-to the settings, you can check/unchecked the items and save your changes.
+В правой колонке можно найти текущие настройки, которые можно
+отобразить/скрыть кликнув на ссылку "Настройки", как это показано на Рисунке
+4.6 (этот блок является фиксированным, так что вы не сможете его
+перетащить). Как только вы получили доступ к настройкам, вы можете
+выбрать/не выбрать некоторые позиции и сохранить результаты.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Edit the dashboard's settings</screeninfo> <graphic srccredit="Dashboard's
+<screeninfo>Изменение настроек панели управления</screeninfo> <graphic srccredit="Dashboard's
 settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.6. Settings of the dashboard.</emphasis>
+    <emphasis>Рисунок 4.6. Настройки панели инструментов.</emphasis>
 </para>
 
 <para>
-Below the settings you can see a statistic of the last 7 days' tickets, as
-you might expect, this graphic will be empty in a brand new system. There is
-also a section for upcoming events and OTRS news.
+Ниже, под настройками вы можете увидеь статистик по заявкам за последние 7
+дней. Естественно, в только что установленной системе не будет никаких
+данных. Существует также раздел для запланированных событий и новостей OTRS.
 </para>
 
 <para>
-On the bottom of the screen the site footer is displayed (see Figure 4.7
-below). It contains some links to directly access to the OTRS official
-website, get information about OTRS, ask for help or go to the top of the
-page.
+В нижней части экрана отображается футер сайта (см. ниже Рисунок 4.7). Он
+содержит праямые ссылки на оффициальный сайт OTRS, разделы с общей
+информацией об OTRS, а также ссылки, по которым можно обратится за помощью
+по системе.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Footer</screeninfo> <graphic srccredit="Footer"
+<screeninfo>Нижний колонтитул</screeninfo> <graphic srccredit="Footer"
 scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 4.7. Footer.</emphasis>
+    <emphasis>Figure 4.7. Нижний колонтитул.</emphasis>
 </para>
 
 </section>
 
 <section id="what-is-a-queue">
-<title>What is a queue?</title>
+<title>Что такое очередь?</title>
 
 <para>
-Because queues are very important in OTRS, this section tries to explain
-more detailed their meaning.
+Поскольку очереди являются очень важными в OTRS, в этом разделе дается более
+подробная информация самой концепции применения очередей.
 </para>
 
 <para>
