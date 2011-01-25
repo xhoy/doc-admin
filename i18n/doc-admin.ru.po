@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
 "POT-Creation-Date: 2011-01-12 15:55+0100\n"
-"PO-Revision-Date: 2011-01-17 15:33+0200\n"
+"PO-Revision-Date: 2011-01-25 13:54+0200\n"
 "Last-Translator: Oleg Zadorozhnyi <ipfound@gmail.com>\n"
 "Language-Team: none\n"
 "Language: \n"
@@ -3926,1034 +3926,1051 @@ msgstr "Поскольку очереди являются очень важны
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:328
 msgid "On common mail systems all messages are into an inbox file. An inbox is a big file where the messages are stored. New messages are appended at the end of the inbox file. The mail program, which is used to read and write mails, reads the inbox file and presents the content to the user."
-msgstr ""
+msgstr "Обычно, сообщения электронной почты хранятся в почтовом ящике. На физическом уровне для почтового ящика создается специальный файл (его еще называют почтовый спул), в который помещаются и хранятся все сообщения. Новые сообщения электронной почты просто добавляются в конец этого файла. Почтовая программа, которая используется для чтения и написания писем (такие программы еще называются пользовательскими почтовыми агентами - MUA (Mail User Agent) читает этот файл и отображает его содержимое."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:335
 msgid "A queue in OTRS, is somehow comparable to an inbox file, but has some extra features. It also can store many messages, but the mails are saved in another way. You don't need to know any detail of queues if you only want to use OTRS, the only important thing to know is in which queue a ticket is stored. The users of OTRS, better called agents, can open and edit tickets in a queue and of course they can move tickets from one queue to another.  But why should they move tickets?"
-msgstr ""
+msgstr "Очереди в OTRS можно сравнить с файлом, который хранит входящие сообщения электронной почты, за исключением некоторых дополнительных особенностей. Очередь также может хранить сообщения электронной почты, но емейлы сохраняются по-другому. Вам не нужно вникать во все подробности работы очередей в OTRS, единственно важная вещь - это знать в какой очереди хранится заявка. Пользователи системы OTRS, их лучше называть агенты, могут открывать и редактировать заявки размещенные в очереди, а также, они могут перемещать заявки из одной очереди в другую. Но зачем перемещать заявки?"
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:345
 msgid "To explain it more practically, remember Max's company describe in the section about a <link linkend=\"basic-tts-example\"> example of a ticket system </link> . Max installed OTRS to get rid of his support chaos. His agents and himself are using the system to manage the support requests for the video recorders."
-msgstr ""
+msgstr "Чтобы обьяснить это с более практичной точки зрения давайте вспомним компанию Максима, которая была описана в разделе <link linkend=\"basic-tts-example\"> пример системы обработки заявок </link>. Максим установил OTRS чтобы избавится от существующего хаоса в системе поддержки. Его агенты, да и сам Максим используют систему обработки заявок для обработки заявок, касающихся работы видеомагнитовофонов, которые он реализует."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:358
 msgid "One queue that contains all request is enough for this situation. However, after some time, Max decides to also sell DVD recorders.  Now, the customers not only have questions about the video recorder, but also about the new product. More and more emails get into the one queue of Max's OTRS and it's hard to keep the overview."
-msgstr ""
+msgstr "На данный момент достаточно одной очереди, чтобы хранить в ней все запросы клиетов. Однако, через некоторое время, Максим решает начать продажи DVD-рекордеров. Теперь у клиентов есть вопросы касающиеся не только видео-рекордеров, но и о новом продукте. С течением времени в очередь, ранее созданую Максимом начинает приходить все больше и больше писем и, управлятся с ними становится все труднее и труднее."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:366
 msgid "One day, Max decides to optimize the structure of his support system and adds two new queues, thus now three queues are used. Into the old queue (\"raw\") all mails are stored if they arrive at the ticket system. The two new queues are one for the video recorder (\"video recorder\") and the other one for the dvd recorder requests (\"dvd recorder\")."
-msgstr ""
+msgstr "Однажды, Максим принимает решение немного оптимизировать структуру системы поддержки и добавляет две новых очереди, таким образом в системе используется уже три очереди. В очереди \"raw\" хранятся все заявки, которые поступают в систему обработки заявок. Две новых очереди: одна для хранения заявок касающихся видео-рекордеров (\"video-recorders\") и другая - для dvd-рекордеров (\"dvd-recorders\")."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:374
 msgid "Max asks Sandra to watch the \"raw\" queue and sort (dispatch) the mails either into \"video recorder\" or \"dvd recorder\", depending on what the customer is asking.  John only has access to the \"video reorder\" queue, Joe can only answer tickets in the \"dvd recorder\" queue. Max is able to edit tickets in all queues."
-msgstr ""
+msgstr "Максим просит Маргариту просматривать очередь \"raw\" и сортировать емейлы либо в очередь \"video recorder\" или в \"dvd recorder\", в зависимости от того, что запросил клиент. Андрей имееть доступ только к очереди \"video reorder\", а Сергей может отвечать на заявки из очереди \"dvd recorder\". Маким имеет возможность редактировать заявки, находящиеся во всех очередях."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:382
 msgid "Because OTRS supports access management for users, groups and roles, it is easy to setup queues that only are accessible for some specific accounts. Max could also use another way to get his requests into the different queues, with filter rules or if two different mail addresses are used Sandra only has to dispatch emails into the two other queues, that can't be dispatched automatically."
-msgstr ""
+msgstr "Так как OTRS поддерживает управление доступом для пользователей, групп и ролей, - то очень просто настроить механизм доступа к очередям для определенного аккаунта. Максим также может использовать еще один способ, чтобы все запросы приходили в различные очереди. Для этого можно использовать либо правила фильтрации или же два почтовых адреса, таким образом Маргарита будет сортировать и направлять в другие очереди только те заявки, которые не были отсортированы автоматически."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:391
 msgid "Sorting your incoming messages into different queues helps you to keep the support system structured and tidy. Because your agents are arranged into different groups with different access rights onto queues, the system can be optimized even more. Queues can be used to define work flow processes or to create the structure of a company. Max could implement, for example, another queue called \"sales\", which could contain the sub queues \"requests\", \"offers\", \"orders\", \"billing\", etc. Such a queue structure could help Max to optimize his order transactions."
-msgstr ""
+msgstr "Сортировка входящих сообщений в различные очереди позволяет сохранять систему поддержки в структурированном и аккуратном виде. Поскольку ваши агенты находятся в разных группах и имеют различные права доступа к очередям, система может быть оптимизирована еще больше. Очереди могут быть использованы для определения структуры всей компании а также для определения рабочего потока процессов. Максим может к примеру создать еще одну очередь и назвать ее \"продажи\", которая будет содержать подочереди \"запросы\", \"предложения\", \"заказы\", \"оплата\" и т.д. Такой подход поможет Максиму структурировать и оптимизировать процесс работы с транзакциями."
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:402
 msgid "The better a system is structured, the less time is needed for the different tasks. That results in less working time, consequently less money. Queues can help to optimize the processes in your company."
-msgstr ""
+msgstr "Чем лучше структурированна система поддержки, тем меньше времени требуется для различных задач. Это приводит к уменьшению рабочего времени, соответственно и к уменьшению денежных затрат. Очереди могут помочь оптимизировать бизнес-процесы в вашей компании."
 
 #. type: Content of: <chapter><section><title>
 #: en/first-steps.xml:409
 msgid "User preferences"
-msgstr ""
+msgstr "Пользовательские настройки"
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:412
 msgid "Many settings of a user account in OTRS can be customized to meet each one needs, via the user preferences. Customers, agents and the OTRS administrator have the possibility to adjust their own account preferences. In order to do so, agents have to click on their name at the right top corner of the web interface (see Figure 4.8 below), and customers must click on the \"Preferences\" link (see Figure 4.9 below)."
-msgstr ""
+msgstr "Настройки учетной записи пользователя OTRS могут быть оптимизированы в соответствии с потребностями каждого из пользователей, через пользовательские настройки. Пользователи, агенты и OTRS-администраторы имеют возможность настроить и использовать свои собственные настройки. Для того, чтобы сделать это, агентам нужно нажать на свое имя и в правом верхнем углу веб-интерфейса (см. ниже Рисунок 4.8), а пользователи должны нажать кнопку \"Предпочтения\" (см. ниже Рисунок 4.9)."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/first-steps.xml:421
 msgid "Account preference screen for agents"
-msgstr ""
+msgstr "Страница пользовательских настроек для агентов"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/first-steps.xml:421
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/agent-preferences.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/agent-preferences.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:427
 msgid "<emphasis>Figure 4.8. Agent's personal preferences.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 4.8. Пользовательские настройки агентов.</emphasis>"
 
+# ошибка в оригинале:
+# possibilities
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:431
 msgid "An agent can configure 3 different categories of preferences: user profile, email settings and other settings. The default posibilities are:"
-msgstr ""
+msgstr "Агент можен настраивать три различных категории настроек: профиль пользователя, настройки электронной почты и другие параметры. Возможности по умолчанию:"
 
 #. type: Content of: <chapter><section><itemizedlist><title>
 #: en/first-steps.xml:436
 msgid "User Profile"
-msgstr ""
+msgstr "Профиль пользователя"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:438
 msgid "Change the current password."
-msgstr ""
+msgstr "Изменение текущего пароля."
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:441
 msgid "Adjust the interface language."
-msgstr ""
+msgstr "Выбор языка интерфейса."
 
+# Выбор словаря проверки правописания, который будет использоватся по умолчанию.
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:444
 msgid "Choose the default spelling dictionary."
-msgstr ""
+msgstr "Выбор орфографического словаря, который будет использоватся по умолчанию"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:447
 msgid "Switch the frontend skin to wear."
-msgstr ""
+msgstr "Переключение между темами."
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:450
 msgid "Shift the frontend theme."
-msgstr ""
+msgstr "Изменение темы веб-интерфейса."
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:453
 msgid "Activate and configure the out of office time."
-msgstr ""
+msgstr "Активация и настройка параметра \"время вне оффиса\"."
 
 #. type: Content of: <chapter><section><itemizedlist><title>
 #: en/first-steps.xml:458
 msgid "Email Settings"
-msgstr ""
+msgstr "Настройки электронной почты"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:461
 msgid "Select the events when the system shall send a notification to the email address."
-msgstr ""
+msgstr "Выберите события, при которых система должна отсылать уведомления на адреса электронной почты."
 
 #. type: Content of: <chapter><section><itemizedlist><title>
 #: en/first-steps.xml:468
 msgid "Other Settings"
-msgstr ""
+msgstr "Другие настройки"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:470
 msgid "Select the queues you want to monitor in \"My Queues\"."
-msgstr ""
+msgstr "В меню \"Мои Очереди\" выберите те очедеди, которые хотите отслеживать более внимательно."
 
+# не очень мне этот перевод
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:473
 msgid "Set the refresh period for the queue view."
-msgstr ""
+msgstr "Установите время обновления страницы для шаблона отображения очередей."
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/first-steps.xml:476
 msgid "Choose the screen that should be displayed after a ticket is created."
-msgstr ""
+msgstr "Выберите страницу, которая должна отображатся после создания заявки."
 
+# Настройки аккаунта клиентов.
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/first-steps.xml:482
 msgid "Account preferences screen for customers"
-msgstr ""
+msgstr "Личные настройки пользовательского аккаунта клиентов."
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/first-steps.xml:482
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"customer.pl - screenshot\" scale=\"40\" fileref=\"screenshots/customer-preferences.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"customer.pl - screenshot\" scale=\"40\" fileref=\"screenshots/customer-preferences.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:488
 msgid "<emphasis>Figure 4.8. Customer's personal preferences.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 4.8. Пользовательские предпочтения клиентов. </emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/first-steps.xml:492
 msgid "A customer can select the web interface language, the refresh period for the ticket overview, manage the S/MIME certificates and choose the maximum amount of shown tickets. It is also possible to set a new password."
-msgstr ""
+msgstr "Клиент может менять язык интерфейса системы, изменять время обновления страницы для шаблона просмотра очередей, управлять S/MIME-сертификатами, выбирать максимальное количество отображаемых заявок. Кроме этого можно также установить новый пароль."
 
+# мне не нравится слово админка
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:7
 #: en/adminarea.xml:40
 msgid "The admin area of OTRS"
-msgstr ""
+msgstr "Админка OTRS"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:13
 msgid "This is the central place for OTRS administrators. Here you can alter your configuration, install additional packages, such as FAQ and ITSM; add queues and agents, and much more."
-msgstr ""
+msgstr "Это главное место для OTRS-администраторов. Здесь вы можете изменить конфигурацию, установить дополнительные модули, такие как FAQs-система (ЧАВО - Часто Задаваемые Вопросы) и ITSM, добавить очереди и агентов и многое другое."
 
+# не нравится слово
+# залогинится
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:18
 msgid "Agents who are members of the <emphasis>admin</emphasis> group can access the administrators area, by clicking the <emphasis>Admin</emphasis> link, in the navigation bar (see Figure 5.1 below); the rest of the agents won't see this link. On a new installation you can log in with the user <emphasis>root@localhost</emphasis> and the password <emphasis>root</emphasis>."
-msgstr ""
+msgstr "Агенты, которые являются членами группы <emphasis>admin</emphasis> могут иметь доступ к админке, нажав на кнопку <emphasis>Администрирование</emphasis> на панели навигации (см. ниже Рисунок 5.1); остальные агенты не будут видеть эту ссылку. В новой, только что установленной системе вы можеле залогинится используя логин <emphasis>root@localhost</emphasis> и пароль <emphasis>root</emphasis>."
 
+# неправильная компоновка предложения, нужно будет сделать два предложения
 #. type: Content of: <chapter><section><warning><para>
 #: en/adminarea.xml:28
 msgid "Please change the password for this account as soon as possible via the <link linkend=\"user-preferences\"> user preferences </link> page, because this is a default password on all OTRS systems."
-msgstr ""
+msgstr "Пожалуйста измените пароль для этой учетной записи как можно быстрее. Для этого перейдите по ссылке <link linkend=\"user-preferences\"> пользовательские предпочтения </link>. поскольку это пароль, который используется в системе OTRS по умолчанию."
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:40
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea - screenshot\" scale=\"40\" fileref=\"screenshots/adminarea.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea - screenshot\" scale=\"40\" fileref=\"screenshots/adminarea.png\"></graphic>"
 
+# слово
+# админка
+# не нравится
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:46
 msgid "<emphasis>Figure 5.1. Administrator's area of the agent interface.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.1. Админка агентского веб-интерфейса. </emphasis>"
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:53
 msgid "Agents, groups and roles"
-msgstr ""
+msgstr "Агенты, группы и роли"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:56
 msgid "Agents"
-msgstr ""
+msgstr "Агенты"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:59
 msgid "By clicking the link <emphasis>Agent</emphasis> you get access to the agent management of OTRS (see Figure 5.2 below). Administrators can add, change or deactivate agent's accounts.  Administrators can also manage agent's preferences, for instance, the language of their interface and notification settings."
-msgstr ""
+msgstr "Нажав на ссылку <emphasis>Агент</emphasis> вы получите доступ для управления пользователями OTRS (см. ниже Рисунок 5.2). Администраторы могут добавлять, изменять или деактивировать аккаунты агентов. Администраторы также могут управлять пользовательскими настройками агентов, например изменять язык их веб-интерфейса, настройки уведомлений."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:67
 msgid "To keep the consistency of the data for OTRS it is not possible to delete any agent's account, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Чтобы сохранить связаность данных, в OTRS нету возможности удалять учетные записи любого агента, можно только деактивировать аккаунты. Чтобы сделать это, установите значения <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:75
 msgid "Agent account management"
-msgstr ""
+msgstr "Управление учетной записью агента"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:75
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea agent management - screenshot\" scale=\"40\" fileref=\"screenshots/admin-agents.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea agent management - screenshot\" scale=\"40\" fileref=\"screenshots/admin-agents.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:81
 msgid "<emphasis>Figure 5.2. Agent's accounts management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.2. Управление учетной записью агента.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:85
 msgid "To register an agent, click on the \"Add agent\" button, type all the needed data and press the Submit button at the bottom of the screen that is shown in the Figure 5.3."
-msgstr ""
+msgstr "Чтобы создать агента, нажмите на кнопку \"Добавить агента\", введите все необходимые данные и нажмите кнопку \"Отправить\" в нижней части экрана, как это показано на Рисунке 5.3."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:91
 msgid "Adding an agent"
-msgstr ""
+msgstr "Добавление агента"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:91
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea agent management - screenshot\" scale=\"40\" fileref=\"screenshots/add-agent.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea agent management - screenshot\" scale=\"40\" fileref=\"screenshots/add-agent.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:97
 msgid "<emphasis>Figure 5.3. Adding a new agent.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.3. Добавление нового агента.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:101
 msgid "After the new account has been created, you should make the agent a member of one or more groups or roles. Therefore, you will be redirected automatically to the appropriate screen.  For further information about groups and roles, read the <link linkend=\"adminarea-groups\">Groups</link> and <link linkend=\"adminarea-roles\">Roles</link> sections of this chapter."
-msgstr ""
+msgstr "После того, как новая учетная запись создана, вы должны сделать агента членом одной или нескольких груп или ролей. Таким образом вы будете автоматически перенаправлены на соответсвтующую страницу. За дополнительной информацией о группах и ролях обращайтесь к разделу <link linkend=\"adminarea-groups\">Группы</link> и <link linkend=\"adminarea-roles\">Роли</link> данной главы."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:111
 msgid "Groups"
-msgstr ""
+msgstr "Группы"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:114
 msgid "Groups are very important in OTRS and every agent's account should at least belong to one group or role. In a brand new installation, there are three pre-defined groups available, as it is defined in the Table 5-1."
-msgstr ""
+msgstr "Группы очень важны в OTRS и каждая учетная запись агента должна принадлежать по крайней мере к одной группе или роли. После установки системы есть три предопределенных групы, которые приведены в Таблице 5-1."
 
 #. type: Content of: <chapter><section><section><para><table><title>
 #: en/adminarea.xml:121
 msgid "Default groups after OTRS has been installed"
-msgstr ""
+msgstr "Предопределенные групы для новой установленной  системы OTRS "
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><thead><row><entry>
 #: en/adminarea.xml:125
 msgid "Group"
-msgstr ""
+msgstr "Группа"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:131
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:132
 msgid "Allowed to perform administrative tasks in the system."
-msgstr ""
+msgstr "Допускается для выполнения административных задач в системе."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:135
 msgid "stats"
-msgstr ""
+msgstr "stats"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:137
 msgid "Qualified to access the stats module of OTRS and generate statistics."
-msgstr ""
+msgstr "Компетентные для генерации статистики и доступа к модулю статистики OTRS."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:142
 msgid "users"
-msgstr ""
+msgstr "users"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:144
 msgid "This is the group where your agents should belong to and have read and write permissions. If agents are in this group and have write rights, they can use all functions of the ticket system."
-msgstr ""
+msgstr "Это группа, к которой должны принадлежать ваши агенты и иметь права для чтения и записи. Если агенты находятся в этой группе и имеют права на записть, то они могут использовать все функции системы для обработки заявок."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:156
 msgid "In a brand new OTRS installation, the group <emphasis>users</emphasis> is empty and the agent \"root@localhost\" belongs per default to the admin and stats groups."
-msgstr ""
+msgstr "В новой установленной системе OTRS, группа <emphasis>users</emphasis> пуста и агент \"root@localhost\" по умолчанию принадлежит к группе admin и stats."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:162
 msgid "You can access to the group management (see Figure 5.4 below ) by clicking the <emphasis>Groups</emphasis> link in the admin area."
-msgstr ""
+msgstr "Для управления группами нажмите на ссылку <emphasis>Группы</emphasis> в админке (см. ниже Рисунок 5.4)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:168
 msgid "Group management in OTRS"
-msgstr ""
+msgstr "Управление группами в OTRS"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:168
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea group management - screenshot\" scale=\"40\" fileref=\"screenshots/admin-groups.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea group management - screenshot\" scale=\"40\" fileref=\"screenshots/admin-groups.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:174
 msgid "<emphasis>Figure 5.4. Group management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.4. Управление групами.</emphasis>"
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:179
 msgid "To keep the consistency of the data for OTRS it is not possible to delete groups, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Для сохранения целосности и связаности данных, в OTRS нету возможности удалять группы, а только деактивировать их. Что бы это сделать, установите их значения в <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:186
 msgid "To add an agent to a group or to change the agents who belong to a group you can use the link <emphasis>Agents &lt;-&gt; Groups</emphasis> of the admin area (see Figure 5.5 below)."
-msgstr ""
+msgstr "Чтобы сделать агента учасником гурппы или изменить данные агентов, которые принадлежат группе используйте ссылку <emphasis>Агенты &lt;-&gt; Группы</emphasis> в панели управления (см. ниже Рисунок 5.5)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:192
 #: en/adminarea.xml:210
 #: en/adminarea.xml:221
 msgid "Agent group management"
-msgstr ""
+msgstr "Управление группами агентов"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:192
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/admin-agents-and-groups.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/admin-agents-and-groups.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:198
 msgid "<emphasis>Figure 5.5. Group management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.5. Управление группами.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:202
 msgid "An overview of all groups and agents in the system is displayed, you can also use the filters to find a specific element. If you want to change the groups that an agent is member of, just click on the agent's name (see Figure 5.6 below). To change the agents that are part of a group just click on the group you want to edit (see Figure 5.7 below)."
-msgstr ""
+msgstr "В системе отображается приводится обзор всех групп и агентов, но вы также можете использовать фильтры для поиска конкретного элемента. Если вы хотите изменить группу, членом которой является агент, просто нажмите на имя агента (см. ниже Рисунок 5.6). Для изменения агентов, которые являются частью группы просто нажмите на нужную группу (см. ниже Рисунок 5.7)."
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:210
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/agent-group-relations.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/agent-group-relations.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:216
 msgid "<emphasis>Figure 5.6. Change the groups an agent belongs to.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.6. Изменение группы, к которой принадлежит агент.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:221
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/agent-group-relations2.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/agent-group-relations2.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:227
 msgid "<emphasis>Figure 5.7. Change the agents that belong to a specific group.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.7. Изменение агентов, входящих в определенную группу.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:231
 msgid "Agents can have different rights in a group, there is a list of the permission rights available in the Table 5-2."
-msgstr ""
+msgstr "Агенты могут иметь различные права в группе, в Таблице 5-2 приводится полный список возможных прав доступа."
 
 #. type: Content of: <chapter><section><section><para><table><title>
 #: en/adminarea.xml:237
 msgid "Rights in the groups of OTRS"
-msgstr ""
+msgstr "Права в группах OTRS"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><thead><row><entry>
 #: en/adminarea.xml:242
 msgid "Right"
-msgstr ""
+msgstr "Права"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:252
 msgid "ro"
-msgstr ""
+msgstr "ro"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:255
 msgid "Read only access to the tickets and entries or queues of this group."
-msgstr ""
+msgstr "Права только на чтение заявок и записей или очередей группы."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:260
 msgid "move into"
-msgstr ""
+msgstr "move into"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:263
 msgid "Right to move tickets or entries between queues or areas that belong to this group."
-msgstr ""
+msgstr "Права для перемещения заявок или записей между очередями или для области, принадлежащей группе."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:269
 msgid "create"
-msgstr ""
+msgstr "create"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:272
 msgid "Right to create tickets or entries in the queues or areas of this group."
-msgstr ""
+msgstr "Права для создания заявок или записей в очередях или области группы."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:278
 msgid "owner"
-msgstr ""
+msgstr "owner"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:281
 msgid "Right to update the owner of tickets or entries in queues or areas that belong to this group."
-msgstr ""
+msgstr "Права для изменения владельца заявок или записей в очередях принадлежащих этой группе."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:287
 msgid "priority"
-msgstr ""
+msgstr "priority"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:290
 msgid "Right to change the priority of tickets or entries in queues or areas that belong to this group."
-msgstr ""
+msgstr "Права для изменения приоритета заявок или записей в очереди или области, принадлежащей этой группе."
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:296
 msgid "rw"
-msgstr ""
+msgstr "rw"
 
 #. type: Content of: <chapter><section><section><para><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:299
 msgid "Full read and write access on tickets or entries in the queues or areas that belong to this group."
-msgstr ""
+msgstr "Полный доступ к заявкам или записям в очереди или области, принадлежащей к этой группе."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:310
 msgid "By default, the QueueView only lists tickets in queues that an agent has <emphasis>rw</emphasis> access to, i.e., the tickets the agent needs to work on. If you want to change this behaviour, you can set <link linkend=\"Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets\"> Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets </link> to <emphasis>Yes</emphasis>."
-msgstr ""
+msgstr "По умолчанию, СписокОчередей (QueueView) отображает только заявки в очередях, к которым агент имеет права <emphasis>rw</emphasis>, т.е к заявкам, с которыми он должен работать. Если вы хотите изменить это поведение, вы можете установить параметр <link linkend=\"Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets\"> Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets </link> в значение <emphasis>Да</emphasis>."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:322
 msgid "Roles"
-msgstr ""
+msgstr "Роли"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:325
 msgid "Roles are a very powerful and helpful feature to manage the access rights of many agents in a very simple and fast way. Therefore, it is ideal to save time on big and complex systems, that have a lot of agents, groups and queues."
-msgstr ""
+msgstr "Роли очень мощный и полезный инструмент для управления правами доступа многих агентов простым и быстрым способом. Таким образом механизм ролей позволяет сохранить много времени и идеально подходит для больших и сложных систем, с большим количеством агентов, групп и очередей."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:331
 msgid "To explain the advantages of the role feature, suppose that you have a system with 100 agents, 90 of them have access only to a queue called \"support\", where all support requests are handled. The \"support\" queue contains some sub queues. The other 10 agents have permission to access all queues of the system, they are not restricted only to the support queue. These 10 agents dispatch tickets, watch the raw queue and move spam messages into the \"junk\" queue."
-msgstr ""
+msgstr "Чтобы обьяснить преимущества, получаемые от использования ролей, давайте представим, что у нас есть система, в которой зарегистрированно 100 агентов, 90 из них имеют доступ только к очереди \"поддержка\", в которой хранятся все запросы о поддержке. Очередь \"поддержка\" содержит несколько под очередей. Остальные 10 агентов имеют права доступа ко всем очередям, существующим в системе, их доступ не ограничивается очередью \"поддержка\". Эти 10 агентов работают с заявками, просматривают \"raw\"-очередь и перемещают сообщения в очередь \"junk\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:340
 msgid "Some day, the company opens a new department that sells products. Offerings, confirmations of offerings, bills, etc. must be created and some of the agents in your system shall do this via OTRS. The different agents have to get access to the new queues that must be created."
-msgstr ""
+msgstr "В один день, компания открывает новый отдел, которые продает товары. В таком случае нужно создать новые очереди: \"предложения\", \"подтверждения предложений\", \"оплаты\" и некоторые из агентов вашей системы должны сделать это через OTRS. Разным агентам нужно предоставить доступ к очередям, которые планируется создать."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:347
 msgid "Because it would take a long time to change the access rights for the different agents manually, roles that define the different access levels can be created. Then the agents can be added to one or more roles, therefore, their rights will automatically get changed.  If a new agent account is created, it is also possible to add this account to one or more roles."
-msgstr ""
+msgstr "Поскольку изменять права доступа для разных агентов вручную займет много времени, то для определения различных уровней доступа можно создать роли. Затем, агенты могут быть добавлены к одной или нескольким ролям, таким образом их права будут изменены автоматически. Если будет создана новая учетная запись агента, ее также можно с легкостью добавить в одну или несколько ролей."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:355
 msgid "Roles are really useful when maintaining larger OTRS installations. You should not use both Agent to Group and Agent to Role mappings at the same time though, this would make maintenance really hard. Thence, if you decide to go with roles, we'd recommend you to to disable the Agents &lt;-&gt; Groups option in the Admin area, by modifying the <link linkend=\"Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup\"> Frontend::Module###AdminUserGroup </link> in the SysConfig. Be aware that this won't remove already existing Agents to Group assignments!"
-msgstr ""
+msgstr "Роли действительно полезны для управления большимы системами OTRS. Однако не следует использовать оба способа: \"Агенты и Группы\" и \"Агенты и Роли\" в одно и тоже время, это может сделать обслуживание довольно сложным. Таким образом, если вы решили использовать роли, мы бы вам рекомендовали отключить настройку \"Агенты &lt;-&gt; Группы\" в панели управления, путем изменения параметра <link linkend=\"Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup\"> Frontend::Module###AdminUserGroup </link> в SysConfig. Помните, это не удалит существующих агентов из их групп."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:368
 msgid "You can access to the role management (see Figure 5.8 below ) by clicking the <emphasis>Roless</emphasis> link in the admin area."
-msgstr ""
+msgstr "Для управления ролями перейдите по ссылке <emphasis>Роли</emphasis> в панели управления (см. ниже Рисунок 5.8)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:374
 #: en/adminarea.xml:400
 msgid "Role management in OTRS"
-msgstr ""
+msgstr "Управление ро лями в OTRS"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:374
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:380
 msgid "<emphasis>Figure 5.8. Role management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.8. Управление Ролями.</emphasis>"
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:385
 msgid "To keep the consistency of the data for OTRS it is not possible to delete roles, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Для сохранения связанности данных, в OTRS нету возможности удалять роли, их можно только деактивировать. Чтобы это сделать, установите параметр в значение <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:392
 msgid "An overview of all roles in the system is displayed, to edit an entry, just click on the role's name to get its editable data. Please be aware that in a brand new OTRS installation, there are no roles defined by default. To register one, click on the \"Add role\" button and provide the needed data and submit it (see Figure 5.9 below)."
-msgstr ""
+msgstr "В системе отображается список всех ролей, чтобы отредактировать запись, просто нажмите на имя ролию Помните, что в новой, только что установленной системе OTRS нету предопределенных ролей. Чтобы создать новую роль, нажмите на кнопку \"Добавить Роль\", введите необходимые данные и нажмите кнопку \"Отправить\" (см. ниже Рисунок 5.9)."
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:400
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles - screenshot\" scale=\"40\" fileref=\"screenshots/add-role.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles - screenshot\" scale=\"40\" fileref=\"screenshots/add-role.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:406
 msgid "<emphasis>Figure 5.9. Adding a new role.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.9. Добавление новой роли.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:410
 msgid "To get an overview of all roles and agents in the system, click on the link Roles &lt;-&gt; Agents in the admin area, you can also use the filters to find a specific element. If you want to change the roles that an agent has, just click on the agent's name (see Figure 5.10 below). To change the agents that have a role just click on the role you want to edit (see Figure 5.11 below)."
-msgstr ""
+msgstr "Чтобы получить список всех ролей и агентов в системе, перейдите по ссылке Роли &lt;-&gt; Агенты в панели управления, также можно использовать фильтры, для поиска конкретного элемента. Если вы хотите изменить Роли Агента, просто кликните на имя агента (см. ниже Рисунок 5.10). Чтобы изменить права доступа сразу для всех агентов, которые находятся в роли, нажмите на имя роли, которую хотите редактировать (см. ниже Рисунок 5.11)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:419
 #: en/adminarea.xml:430
 msgid "Agent role management"
-msgstr ""
+msgstr "Управления ролями агентов"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:419
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and agents - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles-agents-relation.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and agents - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles-agents-relation.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:425
 msgid "<emphasis>Figure 5.10. Change the roles an agent has.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.10. Изменение ролей агента.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:430
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles-agents-relation2.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea groups and agents - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles-agents-relation2.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:436
 msgid "<emphasis>Figure 5.11. Change the agents that have a specific role.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.11. Изменение прав доступа для всех агентов принадлежащих определенной роли.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:440
 msgid "To get an overview of all roles and groups in the system, click on the link Roles &lt;-&gt; Groups in the admin area, you will see a similar screen as the one shown in the Figure 5.12. You can also use the filters to find a specific element."
-msgstr ""
+msgstr "Чтобы получить список всех Ролей и Групп системы, перейдите по ссылке Роли &lt;-&gt; Группы в панели управления, вы увидите страницу, которая приведена ниже на Рисунке 5.12. Для поиска конкретного элемента также можно использовать фильтры."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:447
 msgid "Role group management"
-msgstr ""
+msgstr "Управление \"Роль-Группа\""
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:447
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles-groups.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/admin-roles-groups.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:453
 msgid "<emphasis>Figure 5.12. Manage role-groups relations.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.12. Управление отношениями Роль-Группа.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:457
 msgid "To define the different access rights for a role, click on the name of a role or a group (see below the Figures 5.13 and 5.14, respectively)."
-msgstr ""
+msgstr "Чтобы определить различные права доступа для роли, нажмите на имя роли или группы (см. ниже Рисунок 5.13 и 5.14, соответственно)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:463
 msgid "Change group relations for a role"
-msgstr ""
+msgstr "Изменение связей между группами и ролями"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:463
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-roles-relations.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-roles-relations.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:469
 msgid "<emphasis>Figure 5.13. Change group relations for a role.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.13. Изменение соотношения между группами и ролями.</emphasis>"
 
+# неточный перевод
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:474
 msgid "Change role relations for a group"
-msgstr ""
+msgstr "Изменение отношения роли к группе"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:474
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-roles-relations2.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-roles-relations2.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:480
 msgid "<emphasis>Figure 5.14. Change role relations for a group.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.14. Изменение отношения роли к группе.</emphasis>"
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:489
 msgid "Customers and customer groups"
-msgstr ""
+msgstr "Клиенты и группы клиентов"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:492
 msgid "Customers"
-msgstr ""
+msgstr "Клиенты"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:495
 msgid "OTRS supports different types of users. Using the link \"Customers\" (via the navigation bar or the admin area), you can manage the accounts of your customers (see Figure 5.14 below), who can can log into the system via the customer interface (customer.pl). Through this interface, your customers can create tickets and access to them. It is importan to know that a customer is needed for the ticket history in the system."
-msgstr ""
+msgstr "OTRS поддерживает различные типы пользователей. Используя ссылку \"Пользователи\" (в панели навигации панели управления), вы можете управлять учетными записями пользователей (см. ниже Рисунок 5.14), которые могут войти в систему используя пользовательский веб-интерфейс (customer.pl). Используя этот интерфейс ваши клиенты могут создавать заявки, просматривать их. Помните, клиенты необходимы в системе для истории заявок."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:504
 #: en/adminarea.xml:530
 msgid "Customer management in OTRS"
-msgstr ""
+msgstr "Управление клиентами в OTRS"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:504
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea customer - screenshot\" scale=\"40\" fileref=\"screenshots/admin-customer.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea customer - screenshot\" scale=\"40\" fileref=\"screenshots/admin-customer.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:510
 msgid "<emphasis>Figure 5.14. Customer management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.14. Управление клиентами.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:514
 msgid "You can search for a registered customer, edit his data by clicking on his name.  You also have the possibility to change the customer back-end, for further information please refer to the chapter about <link linkend=\"external-backends\"> external back-ends </link>."
-msgstr ""
+msgstr "Вы можете производить поиск по зарегистрированным клиентам, редактировать их данные, нажав на имя клиента. У вас также есть возможность изменить клиентский back-end, за более подробной информацией обращайтесь к главе <link linkend=\"external-backends\"> внешние хранилища данных </link>."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:523
 msgid "To create a new customer account, click on the \"Add customer\" button (see Figure 5.15 below). Some of the fields are mandatory, i.e., they have to contain values, so if you leave one of those empty, it will be marked and a message will be displayed."
-msgstr ""
+msgstr "Чтобы создать новую учетную запись клиента, нажмите кнопку \"Добавить клиента\" (см. ниже Рисунок 5.15). Некоторые поля являются обязательными, т.е они должи содержать данные, поэтому если вы оставите их пустыми, будет выведено соответствующее сообщение."
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:530
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea customer - screenshot\" scale=\"40\" fileref=\"screenshots/add-customer.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea customer - screenshot\" scale=\"40\" fileref=\"screenshots/add-customer.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:536
 msgid "<emphasis>Figure 5.14. Adding a customer.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.14. Добавление клиента.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:540
 msgid "The customer can access to the system by providing his username and password. The CustomerID is needed by the system to identify the user and his tickets. Since the email address is a unique value, it can be used as ID."
-msgstr ""
+msgstr "Клиент может получить доступ к системе путем ввода логина и пароля. CustomerID нужен для идентификации пользователя и его заявок. Поскольку адресс электронной почты является уникальным, его можно использовать в качестве уникального идетнтификатора."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:547
 msgid "To keep the consistency of the data for OTRS it is not possible to delete customers, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Для сохранения связанности данных, OTRS не позволяет удалять клиентов, их можно только деактивировать. Что бы это сделать, установите значения соответствующих параметров в <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>. "
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:557
 msgid "Customer groups"
-msgstr ""
+msgstr "Группы клиентов"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:560
 msgid "Customer users can also be added to a group, which can be useful if you want to add some customers of the same company that shall only have access to one or some queues, through the customer interface. First create the group which your customers will belong to, via the <link linkend=\"adminarea-groups\"> group management module </link> . Then add the <link linkend=\"adminarea-queue\"> queues </link> and select the new group for this queues."
-msgstr ""
+msgstr "Клиенты также могут быть добавлены в группу, это может быть полезно в том случае, если вы хотите обьеденить нескольких клиентов той же компании, которые должны иметь доступ к одной или нескольким очередям, через пользовательский интерфейс. Сначала создайте группу, в которую будут входить ваши пользователи, для этого перейдите по ссылке <link linkend=\"adminarea-groups\"> Модуль Управления Группами </link> . Затем добавить <link linkend=\"adminarea-queue\">очереди</link>  и выбрать новую группу для этих очередей."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:579
 msgid "The next step is to activate the customer group support. This can be done with the configuration parameter <link linkend=\"Framework:Frontend::Customer:CustomerGroupSupport\"> CustomerGroupSupport </link> , via the graphical configuration front-end of OTRS (SysConfig). Using the parameter <link linkend=\"Framework:Frontend::Customer:CustomerGroupAlwaysGroups\"> CustomerGroupAlwaysGroups </link> , you can specify the default groups for a new added customer, so that every new account will be automatically added to this groups."
-msgstr ""
+msgstr "Следующим шагом будет включение поддержки клиентов группы. Это можно сделать используя параметр конфигурации <link linkend=\"Framework:Frontend::Customer:CustomerGroupSupport\"> CustomerGroupSupport </link> с помощью графического конфигуратора OTRS (SysConfig). Используя параметр <link linkend=\"Framework:Frontend::Customer:CustomerGroupAlwaysGroups\"> CustomerGroupAlwaysGroups </link> вы можете указать группы по умолчанию, к которым будет принадлежать новый пользователь, таким образом каждая новая учетная запись будет добавлятся в эту группу."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:597
 msgid "Through the link \"Customers &lt;-&gt; Groups\" you can manage which customer shall belong to the different groups (see Figure 5.15 below)."
-msgstr ""
+msgstr "Перейдя по ссылке \"Клиенты &lt;-&gt; Группы\"  вы можете управлять отношениями конкретного пользователя к разным группам (см. ниже Рисунок 5.15)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:603
 msgid "Customer group management"
-msgstr ""
+msgstr "Управления группами клиентов"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:603
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\">Adminarea customer groups - screenshot\" scale=\"40\" fileref=\"screenshots/admin-customer-groups.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\">Adminarea customer groups - screenshot\" scale=\"40\" fileref=\"screenshots/admin-customer-groups.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:609
 msgid "<emphasis>Figure 5.15. Customer-Group relations management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.15. Управление отношениями Клиент-Группа.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:613
 msgid "To define the different groups a customer should be part of and viceversa, click on the corresponding customer username or group (see below the Figures 5.16 and 5.17, respectively)."
-msgstr ""
+msgstr "Для определения различных групп, в которые должен входить клиент, и наоборот, нажмите на соответствующее имя пользователя иги группы (см. ниже Рисунок 5.16 и 5.17, соответственно)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:619
 msgid "Change group relations for a customer"
-msgstr ""
+msgstr "Изменение соответствий между группой и пользователем"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:619
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea customers and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-customers-relations.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea customers and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-customers-relations.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:625
 msgid "<emphasis>Figure 5.16. Change group relations for a customer.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.16. Изменение соответствия группы и клиента.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:630
 msgid "Change customer relations for a group"
-msgstr ""
+msgstr "Изменение связей между пользователем и группой"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:630
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-customers-relations2.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea roles and groups - screenshot\" scale=\"40\" fileref=\"screenshots/groups-customers-relations2.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:636
 msgid "<emphasis>Figure 5.17. Change customer relations for a group.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.17. Изменение соответствий пользователя и группы.</emphasis>"
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:644
 msgid "Queues"
-msgstr ""
+msgstr "Очереди"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:647
 msgid "Through the link \"Queue\" of the admin area, you can manage the <link linkend=\"what-is-a-queue\"> queues </link> of your system (see Figure 5.18 below). In a new OTRS installation there are 4 default queues: Junk, Misc, Postmaster and Raw. All incoming messages will be stored in it the \"Raw\" queue if no filter rules are defined. The \"Junk\" queue can be used to store spam messages."
-msgstr ""
+msgstr "Используя ссылку \"Очередь\" которая находится в панели управления, вы можете управлять <link linkend=\"what-is-a-queue\"> queues </link> вашей системы (см. ниже Рисунок 5.18). В новой, установленной системе OTRS существует четире предопределенных очереди: Junk, Misc, Postmaster and Raw. Все входящие сообщения сохраняются в очереди \"Raw\", если не используются фильтры и правила, определенные ранее. В очереди \"Junk\" сохраняются спам-сообщения."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:661
 #: en/adminarea.xml:678
 msgid "Queue management in OTRS"
-msgstr ""
+msgstr "Управления очередями в OTRS"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:661
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea queue - screenshot\" scale=\"40\" fileref=\"screenshots/admin-queue.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea queue - screenshot\" scale=\"40\" fileref=\"screenshots/admin-queue.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:667
 msgid "<emphasis>Figure 5.18. Queue management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.18. Управление очередями.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:671
 msgid "Here you can add queues (see Figure 5.19 below) and modify them. You can specify the name and the group that should use the queue; it is also possible to determine if you want it to be a sub-queue of an existing one."
-msgstr ""
+msgstr "Здесь вы можете добавлять очереди (см. ниже Рисунок 5.19) и модифицировать их. Вы можете указать имя и группу для которой создатеся эта очередь; также, если вы хотите, есть возможность определить под-очереди для существующей группы."
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:678
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea queue - screenshot\" scale=\"40\" fileref=\"screenshots/add-queue.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea queue - screenshot\" scale=\"40\" fileref=\"screenshots/add-queue.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:684
 msgid "<emphasis>Figure 5.19. Adding a new queue.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.19. Добавление новой очереди.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:688
 msgid "You can define an unlock timeout for a queue, i.e., if an agent locks a ticket and does not close it before the unlock timeout has passed, the ticket will be automatically unlocked and hence, available for other agents."
-msgstr ""
+msgstr "Вы можете определить время блокировки для очереди, т. е. если агент заблокировал заявку и не закрыл ее до истечения времени блокировки, заявка будет автоматически разблокирована и, следовательно, доступна для других агентов."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:694
 msgid "There are three escalation time settings that can be associated at queue level:"
-msgstr ""
+msgstr "Есть три типа настроек эскалации времени, которые могут быть связаны на уровне очередей:"
 
 #. type: Content of: <chapter><section><itemizedlist><title>
 #: en/adminarea.xml:698
 msgid "Escalation - First Response Time"
-msgstr ""
+msgstr "Эскалация - Время Первого Отклика"
 
+# вообще неточный перевод
+# ---
+# Если нет взаимодействия с клиентами добавил, либо электронной почте внешнего или телефон, чтобы новый билет до времени определяется здесь истекает, билет обострилась.
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/adminarea.xml:701
 msgid "If there is not customer interaction added, either email-external or phone, to a new ticket before the time defined here expires, the ticket is escalated."
-msgstr ""
+msgstr "Если нету взаимодействия с клиетном, по эмейлу или телефону для новой заявки до времени эскалации"
 
 #. type: Content of: <chapter><section><itemizedlist><title>
 #: en/adminarea.xml:708
 msgid "Escalation - Update Time"
-msgstr ""
+msgstr "Эскалация - Время обновления"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/adminarea.xml:711
 msgid "If there is an article added, such as a follow-up, via e-mail or the customer portal, the escalation update time is reset. If there is no customer contact, either email-external or phone, added to a ticket before the time defined here expires, the ticket is escalated."
-msgstr ""
+msgstr "Если есть статья добавил, таких, как последующие, по электронной почте или клиента портала, время эскалации обновление сбрасывается. Если нет контакта с клиентом, либо электронной почте или внешнего телефона, добавлены билета до времени определяется здесь истекает, билет обострилась."
 
 #. type: Content of: <chapter><section><itemizedlist><title>
 #: en/adminarea.xml:719
 msgid "Escalation - Solution Time"
-msgstr ""
+msgstr "Эскалация - Время решения"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/adminarea.xml:722
 msgid "If the ticket is not set to closed before the time defined here expires, the ticket is escalated."
-msgstr ""
+msgstr "Если заявка не закрыта до времени определяется здесь истекает, билет считается эскалированным."
 
+# неточный перевод
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:728
 msgid "With 'Ticket lock after a follow-up' you can define if a ticket should be set to 'locked' to the old owner if a ticket that has been set to closed and later is re-opened. This ensures that a follow up for a ticket is processed by the agent that has previously handled that ticket."
-msgstr ""
+msgstr "С \"Билет блокировку после последующей\" можно определить, если билет должен быть установлен на \"заблокирован\" на старого владельца, если билет, который был установлен в закрытом, а затем повторно открыто. Это гарантирует, что последующие за билет обрабатывается агентом, который ранее выполнялись, что билет."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:734
 msgid "The parameter for the system address specifies the email address that will be used for the outgoing tickets of this queue. There is also possibility to associate a queue to a salutation and a signature, for the email answers. For more detailed information, please refer to the sections <link linkend=\"adminarea-emailaddresses\"> email addresses </link> , <link linkend=\"adminarea-salutations\"> salutations </link> and <link linkend=\"adminarea-signatures\"> signatures </link> ."
-msgstr ""
+msgstr "Параметр для системного адреса определяет адресс электронной почты, который будет использоватся для исходящих заявко в очереди. Также есть возможность связать очереди с приветствиями и подписями для ответов по электронной почте.  За более подробной информацией перейдите по ссылке <link linkend=\"adminarea-emailaddresses\"> адреса электронной почты </link> , <link linkend=\"adminarea-salutations\"> приветствия </link> и <link linkend=\"adminarea-signatures\"> подписи </link> ."
 
 #. type: Content of: <chapter><section><note><para>
 #: en/adminarea.xml:760
 msgid "To keep the consistency of the data for OTRS it is not possible to delete queues, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Для сохранения связанности данных, OTRS не позволяет удалять очереди, а только деактивировать их. Чтобы это сделать установите соответствующие параметры в значения <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:770
 msgid "Salutations, signatures, attachments and responses"
-msgstr ""
+msgstr "Приветствия, подписи, вложения и ответы"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:773
 msgid "Salutations"
-msgstr ""
+msgstr "Приветсвтия"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:776
 msgid "A salutation is a text module for a response. Salutations can be linked to one or more queues, as described in the section about <link linkend=\"adminarea-queue\"> queues </link> . A salutation is used only if a ticket from a queue the salutation is linked to, is answered. To manage the different salutations of your system, use the \"Salutations\" link of the admin area (see Figure 5.20 below).  different salutations of your system."
-msgstr ""
+msgstr "Приветствие это текстовый модуль для ответа. Приветствия могут быть связаны с одной или многими очередями, как это описанов в разделе <link linkend=\"adminarea-queue\"> очереди </link>. Приветствия используются только в том случае, когда заявка из определенной очереди связан с ней. Для управления различными приветствиями в системе используйте ссылку \"Приветствия\" в панели управления (см. ниже Рисунок 5.20) (различные приветсвия в вашей системе )"
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:791
 msgid "Salutation management"
-msgstr ""
+msgstr "Управления приветствиями"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:791
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea salutation - screenshot\" scale=\"40\" fileref=\"screenshots/admin-salutation.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea salutation - screenshot\" scale=\"40\" fileref=\"screenshots/admin-salutation.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:797
 msgid "<emphasis>Figure 5.20. Salutation management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.20. Управление приветсвиями.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:801
 msgid "After a default installation there is already one salutation available, \"system standard salutation (en)\"."
-msgstr ""
+msgstr "После установки в системе есть одно предопределенное приветствие: \"system standard salutation (en)\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:806
 msgid "To create a new salutation, press the button \"Add salutation\", provide the needed data and submit it (see Figure 5.21 below)."
-msgstr ""
+msgstr "Чтобы создать новое приветствие, нажмите на кнопку \"Добавить приветсвие\", введите необходимые данные и нажмите кнопку \"Отправить\" (см. ниже Рисунок 5.21)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:812
 msgid "Add a salutation"
-msgstr ""
+msgstr "Добавление приветствия"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:812
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea salutation - screenshot\" scale=\"40\" fileref=\"screenshots/add-salutation.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea salutation - screenshot\" scale=\"40\" fileref=\"screenshots/add-salutation.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:818
 msgid "<emphasis>Figure 5.21. Adding a new salutation.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.21. Добавление нового приветствия.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:822
 msgid "Because the content of a salutation can be created dynamically, for example, for things that change for every ticket (sender's name or email address), it is possible to use variables in salutations. Thus, if you reply a ticket, the variable names will be replaced for their real content, i.e., the text which is saved in the variables."
-msgstr ""
+msgstr "Поскольку содержание приветствия может быть создано динамически, например, для вещей, которые изменяются для каждой заявки (имя отправителя или адрес электронной почты), в приветствиях можно использовать переменные. Таким образом, если вы отвечаете на заявку, имена переменных будут заменены на их реальное содержание, т.е. текст, который сохраняется в переменных."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:830
 msgid "The different variables you can use in responses are listed in the lower part of the salutation screen. If you use, for example, the variable &lt;OTRS_LAST_NAME&gt; the last name of the ticket's sender will be included in your reply."
-msgstr ""
+msgstr "Различные переменные, которые можно использовать в ответах приведены в нижней части экрана приветствия. Если вы используете, например, переменную &lt;OTRS_LAST_NAME&gt; то в ответ будет включена фамилия отправителя заявки."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:838
 msgid "To keep the consistency of the data for OTRS it is not possible to delete salutations, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Для сохранения связанности данных, OTRS не позволяет удалять приветствия, а только деактивировть их. Чтобы это сделать, уснатовите значения соответствующих параметров в значения <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:848
 msgid "Signatures"
-msgstr ""
+msgstr "Подписи"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:851
 msgid "Another text module for a response is the signature. Signatures can be linked to a queue, as described in the section about the <link linkend=\"adminarea-queue\"> queues </link> . Only if a signature is linked to a queue it will be included into the response text. Through \"Signatures\" link of the admin area, you can manage the signatures in your system (see Figure 5.22 below)."
-msgstr ""
+msgstr "Другим текстовым модулем является модуль подписей. Подписи могут быть связаны с очередями, как это описано в разделе <link linkend=\"adminarea-queue\"> очереди </link>. Если подпись связана с очередью она будет включена в текст ответа каждой заявки, входящей в эту очередь. Перейдя по ссылке \"Подписи\" в панели управления, вы можете упарвлять подписями вашей системы (см. ниже Рисунок 5.22)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:865
 msgid "Management of signatures"
-msgstr ""
+msgstr "Управление подписями"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:865
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signatures - screenshot\" scale=\"40\" fileref=\"screenshots/admin-signatures.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signatures - screenshot\" scale=\"40\" fileref=\"screenshots/admin-signatures.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:871
 msgid "<emphasis>Figure 5.22. Signatures management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.22. Управление подписями.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:875
 msgid "After a default installation of OTRS, there is one predefined signature stored in your system, \"system standard signature (en)\"."
-msgstr ""
+msgstr "В новой, установленной системе OTRS есть одна предустановленная подпись:  \"system standard signature (en)\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:880
 msgid "To create a new signature, press the button \"Add signature\", provide the needed data and submit it (see Figure 5.23 below)."
-msgstr ""
+msgstr "Чтобы создать новую подпись, нажмите кнопку \"Добавить подпись\", введите все необходимы данные и нажмите кнопку \"Отправить\" (см. ниже Рисунок 5.23)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:886
 msgid "Add a signature"
-msgstr ""
+msgstr "Добавление подписи"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:886
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signature - screenshot\" scale=\"40\" fileref=\"screenshots/add-signature.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signature - screenshot\" scale=\"40\" fileref=\"screenshots/add-signature.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:892
 msgid "<emphasis>Figure 5.23. Adding a new signature.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.23. Добавление новой подписи.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:896
 msgid "Like salutations, signatures can also contain dynamical content (e.g. the first and last name of the agent who answers the ticket), also variables replace the content of the signature text for every ticket. See the lower part of the signatures screen for the variables which can be used. If you include the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the last name of the agent who answers the ticket will replace the variable's name."
-msgstr ""
+msgstr "Как и приветствия, подписи также могут содержать динамическое содержания (например, имя и фамилиюагента, который отвечает на заявку), а также переменные заменить содержание текста подписи для каждой заявки. См. в нижней части экрана подписи для переменных, которые могут быть использованы. Если вы включите переменной &lt;OTRS_LAST_NAME&gt; в подписи, например, фамилию агента, который отвечает на заявку заменит имя переменной."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:906
 msgid "To keep the consistency of the data for OTRS it is not possible to delete signatures, but only deactivate them. To do so, set them to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr ""
+msgstr "Для сохранения связанности данных, OTRS не позволяет удалять подписи, а толко деактивировать их. Чтобы это сделать, установите соответствющие параметры в значения <emphasis>invalid</emphasis> или <emphasis>invalid-temporarily</emphasis>."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:916
 msgid "Attachments"
-msgstr ""
+msgstr "Вложения"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:919
 msgid "Optionally, you can also create one or more attachments for a response. If the response is selected, the attachments will be attached to the message composition window. If necessary, the agent can remove the attachment from an individual response before sending it to the customer."
-msgstr ""
+msgstr "По желанию, вы также можете создать одно или несколько вложений для ответа. Если ответ выбран, вложения будут прикреплены к окну состав сообщения. При необходимости агент может удалить вложения из отдельных ответ перед отправкой его клиенту."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:926
 msgid "Through the \"Attachment\" link of the admin area, you can load the attachments into the database of the system (see Figure 5.24 below)."
-msgstr ""
+msgstr "Используя ссылку \"Вложения\" на панели управления, вы можете загрузить вложения в базу данных приложения (см. ниже  Рисунок 5.24)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:932
 msgid "Managing attachments for responses"
-msgstr ""
+msgstr "Управления вложениями для ответов"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:932
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea attachment - screenshot\" scale=\"40\" fileref=\"screenshots/admin-attachment.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea attachment - screenshot\" scale=\"40\" fileref=\"screenshots/admin-attachment.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:938
 msgid "<emphasis>Figure 5.24. Attachments management.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.24. Управление вложениями.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:942
 msgid "To create a new attachment, press the button \"Add attachment\", provide the needed data and submit it (see Figure 5.25 below)."
-msgstr ""
+msgstr "Чтобы создать новое вложение, нажмите кнопку \"Добавить вложение\", введите всю необходимую информацию и нажмите кнопку \"Отправить\" (см. Рисунок 5.25 ниже)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:948
 msgid "Add an attachment"
-msgstr ""
+msgstr "Добавить вложение"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:948
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signature - screenshot\" scale=\"40\" fileref=\"screenshots/add-attachment.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signature - screenshot\" scale=\"40\" fileref=\"screenshots/add-attachment.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:954
 msgid "<emphasis>Figure 5.25. Adding a new attachment.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 5.25. Добавление нового вложения.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:958
 msgid "If an attachment is stored it can be linked to one or more responses, just follow the \"Attachment &lt;-&gt; Responses\" link of the admin area (see Figure 5.26 below)."
-msgstr ""
+msgstr "Когда вложение сохранено, оно может быть связанно с одним и несколькими ответами, перейдите по ссылке \"Вложения &lt;-&gt; Ответы\"  в панели управления (см. ниже Рисунок 5.26)."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:965
 msgid "Linking attachments to responses"
-msgstr ""
+msgstr "Связывание вложений с ответами"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:965
