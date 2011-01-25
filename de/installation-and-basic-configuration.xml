@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.45 2011-01-12 15:25:24 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.46 2011-01-25 15:36:16 mg Exp $ -->
 <chapter id="installation-and-basic-configuration">
 <title>Installation / Upgrading des OTRS Frameworks</title>
 
@@ -1457,7 +1457,7 @@ auf 3.0.4, dann sollten Sie die Schritte 8, 9, 10 und 13 - 16 auslassen.
             Alle relevanten Dienste stoppen
         </para>
         <para>
-            z. B. (hängt von eingesetztn Diensten ab): <screen>
+            z. B. (hängt von eingesetzten Diensten ab): <screen>
 shell&gt; /etc/init.d/cron stop
 shell&gt; /etc/init.d/postfix stop
 shell&gt; /etc/init.d/apache stop
@@ -1549,7 +1549,7 @@ werden.
       </listitem>
       <listitem>
         <para>
-            Datenbankänderungen anwenden (Teil 1/2)
+            Datenbankänderungen anwenden (Teil 1/2):
         </para>
         <para>
             <screen>
@@ -1599,10 +1599,10 @@ shell&gt; bin/otrs.DeleteCache.pl
       </listitem>
       <listitem>
         <para>
-            Dienste neu starten
+            Dienste neu starten:
         </para>
         <para>
-            z. B. (hängt von eingesetztn Diensten ab): <screen>
+            z. B. (hängt von eingesetzten Diensten ab): <screen>
 shell&gt; /etc/init.d/cron stop
 shell&gt; /etc/init.d/postfix stop
 shell&gt; /etc/init.d/apache stop
@@ -1720,7 +1720,7 @@ shell> bin/otrs.MarkTicketAsSeen.pl
         </para>
       </listitem>
       <listitem>
-        <para>Well done!</para>
+        <para>Gut gemacht!</para>
       </listitem>
   </orderedlist>
 </section>
