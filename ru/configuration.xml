@@ -3,38 +3,39 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: configuration.xml,v 1.4 2011-01-25 15:36:16 mg Exp $ -->
+<!-- $Id: configuration.xml,v 1.5 2011-01-31 12:46:48 mg Exp $ -->
 <chapter id="configuration">
-<title>Configuration of the system</title>
+<title>Конфигурация системы</title>
 
 <section id="directories-and-configfiles">
-<title>The config files of OTRS</title>
+<title>Конфигурационные файлы OTRS</title>
 
 <para>
-All configuration files of OTRS are stored in the directory
-<filename>Kernel</filename> and in its sub directories. There is no need to
-manually change any other file than <filename>Kernel/Config.pm</filename>,
-because the rest of the files will be changed when the system gets
-upgraded. Just copy the configuration parameters from the other files into
-<filename>Kernel/Config.pm</filename> and change them to your needs. This
-file will never be touched during the upgrade process, so your manual
-settings are safe.
+Все конфигурационные файлы OTRS хранятся в директории
+<filename>Kernel</filename> и ее поддиректориях. Нет необходимости изменять
+другие файлы кроме <filename>Kernel/Config.pm</filename>, потому что
+остальные файлы будут изменены, когда система получит обновления. Просто
+скопируйте конфигурационные параметры из других файлов в
+<filename>Kernel/Config.pm</filename> и измените их в соответствии с вашими
+потребностями. Этот файл никогда не будет затронут во время обновления, так
+что настройки, которые вы произвели вручную будут сохранены.
 </para>
 
 <para>
-The file <filename>Kernel/Config/Defaults.pm</filename> contains the
-parameters of the central OTRS framework. It defines all basic system
-settings, like the mail configuration, database connection, default charset
-and standard language. The file
-<filename>Kernel/Config/Files/Ticket.pm</filename> contains all
-configuration parameters for the trouble ticket system.
+Файл <filename>Kernel/Config/Defaults.pm</filename> содержит параметры
+конфигурации главного OTRS-фреймворка. Он определяет все основные параметры
+системы, конфигурация электронной почты, подключения к базе данных,
+кодировка по умолчанию, язык интерфейса. Файл
+<filename>Kernel/Config/Files/Ticket.pm</filename> содержит все
+конфигурационные параметры для системы обработки заявок.
 </para>
 
 <para>
-In the directory <filename>Kernel/Config/Files</filename> there are some
-other files that are parsed when the OTRS login page is accessed. If
-additional applications like the FAQ or the file manager are installed, the
-configuration files for those can also be found in the mentioned path.
+В каталоге <filename>Kernel/Config/Files</filename> есть некоторые другие
+файлы, которые передаются, когда запускается страница входа в OTRS. Если
+установлены дополнительные приложения, такие как FAQ (ЧАВО) или менеджер
+файлов, то конфигурационные файлы для них также могут быть найдеты в
+указанном пути.
 </para>
 
 <para>
