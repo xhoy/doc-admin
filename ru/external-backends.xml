@@ -3,50 +3,50 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.5 2011-01-31 12:46:48 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
 <chapter id="external-backends">
-<title>Using external backends</title>
+<title>Использование внешних хранилищ данных</title>
 
 <section id='customer-data'>
-<title>Customer data</title>
+<title>Данные клиентов</title>
 
 <para>
-OTRS is able to handle different customer data attributes, like username,
-email address, phone number, etc. This information will be displayed in
-both, the agent and the customer frontends. These attributes are also used
-for the authentication of customers.
+OTRS способен обрабатывать различные атрибуты данных клиента, такие как имя
+пользователя, адрес электронной почты, номер телефона и т.д. Эта информация
+будет отображаться для обоих оболочек, агентов и клиентов. Эти атрибуты
+используются также для проверки подлинности клиентов.
 </para>
 
 <para>
-The used / displayed customer data are completely customizable, but without
-the following data OTRS won't work, because this information is always
-needed for the authentication of customers:
+Использование/Отображение данных клиента полностью настраивается, но без
+следующих данных OTRS не будет работать, потому что эта информация всегда
+необходима для проверки подлиности клиентов:
 </para>
 
 <para>
 <itemizedlist>
   <listitem>
     <para>
-      User login
+      Вход пользователей
     </para>
   </listitem>
   <listitem>
     <para>
-      Email address
+      Адресс электронной почты
     </para>
   </listitem>
   <listitem>
     <para>
-      Customer ID
+      ID Клиента
     </para>
   </listitem>
 </itemizedlist>
 </para>
 
 <para>
-Use configuration parameters of the Script 11.1 in your
-<filename>Kernel/Config.pm</filename> file, if you want to display customer
-information in your agent interface.
+Используйте параметры конфигурации приведенные в Сценарии 11.1 в вашем файле
+<filename>Kernel/Config.pm</filename> если вы хотите отображать информацию о
+клиентах в вашем веб-интерфейсе.
 </para>
 
 <para>
@@ -61,31 +61,33 @@ information in your agent interface.
 </para>
 
 <para>
-    <emphasis>Script 11.1. Kernel/Config.pm configuration parameters.</emphasis>
+    <emphasis>Сценарий 11.1. Конфигурационные параметры
+Kernel/Config.pm.</emphasis>
 </para>
 
 </section>
 
 
 <section id="customer-user-backend">
-<title>Customer user backend</title>
+<title>Пользовательский бэк-енд</title>
 
 <para>
-You can use two types of customer backends, DB and LDAP. If you already have
-another customer backend (e.g. SAP), it is of course possible to write a
-module that uses it.
+Вы можете использоваь два типа хранилища информации клиентов: Базу Данных DB
+и LDAP. Если у вас уже есть другой бэк-енд для хранения пользовательской
+информации (например SAP), также есть возможность написать модуль для
+использования этой функции.
 </para>
 
 <section id='customer-backend-db'>
-<title>Database (Default)</title>
+<title>База Данных (По умолчанию)</title>
 
 <para>
-The Example 11-1 shows the configuration of a DB customer backend, which
-uses customer data stored in the OTRS database.
+В Примере 11-1 отображает конфигурацию Базы Данных для хранения
+пользовательской информации в базе данных OTRS.
 </para>
 
 <example id='db-customer-backend'>
-<title>Configuring a DB customer backend</title>
+<title>Настройка клиентского хранилища базы данных (DB)</title>
 
 <para>
 <programlisting>
@@ -163,9 +165,9 @@ CustomerValid => 'valid_id',
 </example>
 
 <para>
-If you want to customize the customer data, change the column's headers or
-add new ones to the customer_user table in the OTRS database. The Script
-11.2 shows how to add a new field for room number.
+Если вы хотите настроить данные клиентов, измените заголовки столбцов или
+добавьте новые, к таблице _user table в базе данных OTRS. Сценарий 11.2
+отображает как добавлять новые поля для номера комнаты.
 </para>
 
 <para>
@@ -193,13 +195,13 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Script 11.2. Adding a room field to the customer_user
-table.</emphasis>
+    <emphasis>Сценарий 11.2. Добавление поля "комната" в таблицу customer_user
+table. </emphasis>
 </para>
 
 <para>
-Now add the new column to the MAP array in
-<filename>Kernel/Config.pm</filename>, as shown in the Script 11.3.
+Теперь добавьте новый столбец в MAP-масив в файле
+<filename>Kernel/Config.pm</filename>, как это показано в Сценарии 11.3.
 </para>
 
 <para>
@@ -211,32 +213,33 @@ Now add the new column to the MAP array in
 </para>
 
 <para>
-    <emphasis>Script 11.3. Adding a room field to the Kernel/Config.pm
-file.</emphasis>
+    <emphasis>Сценарий 11.3. Добавление поля "комната" в файл
+Kernel/Config.pm.</emphasis>
 </para>
 
 <para>
-Of course it is possible to edit all these customer information via the
-customer area in the agent interface.
+Конечно, можно редактировать всю эту информации о клиенте с помощью
+клиентского веб-интерфейса.
 </para>
 
 
 <section id='multi-customer-ids-db'>
-<title>Customer with multiple IDs (Company tickets)</title>
+<title>Клиент с несколькими идентификаторами (Заявки Компании)</title>
 
 <para>
-It is possible to assign more than one customer ID to a customer. This can
-be useful if a customer must access tickets of other customers, e.g. a
-supervisor wants to watch the tickets of his assistants. If a customer can
-access the tickets of another customer, the company ticket feature of OTRS
-is used. Company tickets can be accessed via the "Company Ticket" link in
-the customer panel.
+Одному клиенту можно назначить более одного идентификатоар. Это может быть
+полезно, если клиенту необходимо получить доступ к заявкам других  клиентов,
+например, руководитель хочет посмотреть заявки его помощников. Если клиент
+может получить доступ к заявкам другого клиента, то используется особенность
+заявок компании OTRS. Заявки компании могут быть доступны через ссылку
+"Заявки Компании" в панели управления.
 </para>
 
 <para>
-should be accessible for a customer.  To use company tickets, a new column,
-with the IDs that should be accessible for a customer, has to be added to
-the customer_user table in the OTRS database (see Script 11.4 below).
+должны быть доступны для клиентов. Для использованя заявок компании, новый
+столбец с идентификатором (IDs), который должен быть доступен для клиентов,
+должен быть добавлен в таблицу customer_user базы данных OTRS (см. ниже
+Сценарий 11.4).
 </para>
 
 <para>
@@ -264,13 +267,13 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Script 11.4. Adding a customer id field to the customer_user
-table.</emphasis>
+    <emphasis>Сценарий 11.4. Добавление поля айди клиента в таблицу
+customer_user table.</emphasis>
 </para>
 
 <para>
-Now the new column has to be added to the MAP array in
-<filename>Kernel/Config.pm</filename>, as shown in the Script 11.5.
+Теперь новый столбец должен быть добавлен в MAP-массив в
+<filename>Kernel/Config.pm</filename>, как это показано в Сценарии 11.5.
 </para>
 
 <para>
@@ -282,36 +285,37 @@ Now the new column has to be added to the MAP array in
 </para>
 
 <para>
-    <emphasis>Script 11.5. Adding a customer id field to the Kernel/Config.pm
-file.</emphasis>
+    <emphasis>Сценарий 11.5. Добавление поля клиент айди в файле
+Kernel/Config.pm.</emphasis>
 </para>
 
 <para>
-Now, the new column for the multi customer IDs can be edited via the agent
-interface, in the section for the customer management.
+Теперь, новый столбец для мульти-идентификатора клиента можно редактировать
+с помощью веб-интерфейса агента, в разделе для управления клиентами.
 </para>
 
 <para>
-To ensure that one customer can access the tickets of other customers, add
-the IDs of this other users into the new field for the multiple customer
-IDs. Each ID has to be separated by a semicolon (see Example 11-2 below).
+Для того, чтобы один клиент получил доступ к заявкам других клиентов, нужно
+добавить идентификаторы этих пользователей в новое поле для нескольких
+идентификаторов клиента. Каждый идентификатор должен быть отделен точкой с
+запятой (см. Пример 11-2 ниже).
 </para>
 
 <example id='company-tickets-db'>
-<title>Using company tickets with a DB backend</title>
+<title>Хранение Заявок Компании в базе данных DB</title>
 
 <para>
-The customers A, B and C exist in your system and A wants to have access to
-the tickets of B and C via the customer panel. B and C should have no access
-to the tickets of other users.
+Клиенты А, Б и С созданы в вашей системе и А хочет иметь доступ к заявкам Б
+и Ц через панель управления . Б и Ц должны иметь доступ к заявкам других
+пользователей.
 </para>
 
 <para>
-To realize this setup change the customer_user table and the mapping in
-<filename>Kernel/Config.pm</filename> like described above. Then load the
-settings for customer A via the customer area in the agent interface or via
-the admin area. If the settings are displayed add into the field for
-CustomerIDs the values "B;C;".
+Для реализации подобной настройки измените данные о клиенте в таблице
+customer_user и в <filename>Kernel/Config.pm</filename> как это показано
+ниже. Потом загрузите настройки для пользователя А через пользовательский
+веб-интерфейс или через панель управления. Если настройки отображаются в
+поле для CustomerIDs значениями "Б и Ц".
 </para>
 
 </example>
@@ -325,12 +329,13 @@ CustomerIDs the values "B;C;".
 <title>LDAP</title>
 
 <para>
-If you have a LDAP directory with your customer data, you can use it as
-customer backend with OTRS, as shown in the Example 11-3.
+Если у вас есть каталог LDAP с данными о клиентах, вы можете использовать
+его в качестве хранилища данных о клиентах в OTRS, как это показано в
+Примере 11-3.
 </para>
 
 <example id='ldap-customer-backend'>
-<title>Configuring a LDAP customer backend</title>
+<title>Настройка LDAP в качестве хранилища информации о клиентах</title>
 
 <para>
 <programlisting>
@@ -408,11 +413,11 @@ $Self->{CustomerUser} = {
 </example>
 
 <para>
-If additional customer attributes are stored in your LDAP directory, such as
-a manager's name, a mobile phone number, or a department, and if you want to
-display this information in OTRS, just expand the MAP array in
-<filename>Kernel/Config.pm</filename> with the entries for these attributes,
-as shown in the Script 11.6.
+.Если дополнительные атрибуты клиента хранятся в LDAP-каталоге, например,
+имя руководителя, номер мобильного телефона, или отдела, и если вы хотите,
+чтобы отобразить эту информацию в OTRS, просто расширить MAP-массив в
+<filename>Kernel/Config.pm</filename> записями для этих атрибутов, как
+показано в Сценарии 11.6.
 </para>
 
 <para>
@@ -424,32 +429,33 @@ as shown in the Script 11.6.
 </para>
 
 <para>
-    <emphasis>Script 11.6. Adding new fields to the Kernel/Config.pm
-file.</emphasis>
+    <emphasis>Сценарий 11.6. Добавление нового поля в файл
+Kernel/Config.pm.</emphasis>
 </para>
 
 
 <section id='multi-customer-ids-ldap'>
-<title>Customer with multiple IDs (Company tickets)</title>
+<title>Клиент с несколькими идентификаторами (Заявки Компании)</title>
 
 <para>
-It is possible to assign more than one customer ID to a customer. This can
-be useful if a customer must access tickets of other customers, e.g. a
-supervisor wants to watch the tickets of his assistants. If a customer can
-access the tickets of another customer, the company ticket feature of OTRS
-is used. Company tickets can be accessed via the "Company Ticket" link in
-the customer panel.
+Одному клиенту можно назначить более одного идентификатоар. Это может быть
+полезно, если клиенту необходимо получить доступ к заявкам других  клиентов,
+например, руководитель хочет посмотреть заявки его помощников. Если клиент
+может получить доступ к заявкам другого клиента, то используется особенность
+заявок компании OTRS. Заявки компании могут быть доступны через ссылку
+"Заявки Компании" в панели управления.
 </para>
 
 <para>
-To use company tickets a new field has to be added to the LDAP directory
-that contains the IDs that should be accessible for a customer.
+Для использования опции "заявки компании" новое поле должно быть добавлено в
+каталог LDAP, который содержит идентификаторы, которые должны быть доступны
+для клиентов.
 </para>
 
 <para>
-If the new field in the LDAP directory has been created the new entry has to
-be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown
-in the Script 11.7.
+Если новое поле в каталоге LDAP был создан новый элемент должен быть
+добавлен в MAP-массив в <filename>Kernel/Config.pm</filename>, как этл
+показано в Сценарии 11.7.
 </para>
 
 <para>
@@ -461,36 +467,36 @@ in the Script 11.7.
 </para>
 
 <para>
-    <emphasis>Script 11.7. Maping new fields to the Kernel/Config.pm
+    <emphasis>Сценарий 11.7. Подстановка новых полей в Kernel/Config.pm
 file.</emphasis>
 </para>
 
 <para>
-The field for the multiple customer IDs has to be edited directly in the
-LDAP directory, OTRS can only read from LDAP, not write to it.
+Поле мульти ID клиента может быть отредактировано напрямую в директории
+LDAP, OTRS может только читать информацию из LDAP, но не записывать ее.
 </para>
 
 <para>
-To ensure the access for a customer to the tickets of other customers, add
-the customer IDs of the customers that tickets should be accessed to the new
-field in your LDAP directory. Each ID has to be separated by a semicolon
-(see the Example 11-4 below).
+Чтобы убедтися что клиент имеет доступ к заявкам других клиентов, добавьте
+ID клиента заявки которого должны простамтриватся к новому полю в вашей
+LDAP-директории. Каждый идентификатор должен быть отделен точнкой с запятой
+(см. ниже Рисунок 11-4).
 </para>
 
 <example id='company-tickets-ldap'>
-<title>Using Company tickets with a LDAP backend</title>
+<title>Хранение "Заявок Компании" в LDAP.</title>
 
 <para>
-The customers A, B and C exist in your system and A wants to have access to
-the tickets of B and C via the customer panel. B and C should have no access
-to tickets of other users.
+Клиенты А, Б и Ц созданны в вашей системе и А хочет иметь доступ к заявкам Б
+и Ц через панель клиента. Б и Ц не должны иметь доступа к другим
+пользователям.
 </para>
 
 <para>
-To realize this setup change the LDAP directory and the mapping in
-<filename>Kernel/Config.pm</filename>, like described above. Then add into
-the field for CustomerIDs the values "B;C;" for customer A in your LDAP
-directory.
+Для обеспечения этой установки измените LDAP-директорию и маппинг в
+<filename>Kernel/Config.pm</filename>, как это показано ниже. Потом добавьте
+информацию в поле для CustomerIDs, значения "Б;Ц;" для клиента "А" в вашей
+LDAP-директории.
 </para>
 
 </example>
@@ -501,21 +507,21 @@ directory.
 
 
 <section id='multiple-customer-backends'>
-<title>Use more than one customer backend with OTRS</title>
+<title>Использование больше чем одного хранилища информации с OTRS</title>
 
 <para>
-If you want to utilize more than one customer data source used with OTRS
-(e.g. an LDAP and a database backend), the CustomerUser config parameter
-should be expanded with a number, e.g. "CustomerUser1", "CustomerUser2" (see
-the Example 11-5 below).
+Если вы хотите использовать больше одного клиентского хранилища информации в
+OTRS (например LDAP и базу данных), конфигурационный параметр CustomerUser
+должен быть расширен с числом, например "CustomerUser1", "CustomerUser2"
+(см. ниже Пример 11-5).
 </para>
 
 <example id='multiple-customer-backend-example'>
-<title>Using more than one customer backend with OTRS</title>
+<title>Использование больше чем одного пользовательского хранилища данных с OTRS</title>
 
 <para>
-The following configuration example shows usage of both an LDAP and a
-database customer backend with OTRS.
+В следующем примере показано применение конфигурации как для LDAP так и для
+базы данных клиентского бэкэнда с OTRS.
 </para>
 
 <para>
@@ -661,9 +667,9 @@ $Self->{CustomerUser2} = {
 </example>
 
 <para>
-It is possible to integrate up to 10 different customer backends. Via the
-customer management interface in OTRS all customer data can be viewed or
-edited (if write access is enabled).
+Есть возможность интегрировать до 10 различных пользовательских хранилищ
+информации. Через интерфейс управления клиентами в OTRS все данные о
+клиентах можно посмотреть и отредактировать (если есть доступ на запись).
 </para>
 
 </section>
@@ -671,7 +677,7 @@ edited (if write access is enabled).
 </section>
 
 <section id="auth-backends">
-<title>Backends to authenticate agents and customers</title>
+<title>Хранилища для аутентификации агентов и клиентов</title>
 
 <para>
 OTRS offers the option to authenticate agents and customers against
@@ -874,7 +880,7 @@ $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
 <title>Authentication backends for customers</title>
 
 <section id='customer-auth-backend-db'>
-<title>Database (Default)</title>
+<title>База Данных (По умолчанию)</title>
 
 <para>
 The default used authentication backend for customers in OTRS is the OTRS
@@ -883,7 +889,7 @@ interface of OTRS (see the Example 11-10 below).
 </para>
 
 <example id='configuration-customer-auth-backend-db'>
-<title>Customer user authentication against a DB backend</title>
+<title>Аутентификация Клиента в Базе Данных</title>
 
 <para>
 <programlisting>
@@ -907,14 +913,14 @@ $Self->{'Customer::AuthModule::DB::CustomerPassword'} = 'pw';
 <title>LDAP</title>
 
 <para>
-If you have a LDAP directory with all your customer data, you can use the
-LDAP module to authenticate your customers to OTRS (see Example 11-11
-below).  Because this module has only read-access to the LDAP backend, it is
-not possible to edit the customer data via the web interface of OTRS.
+Если у вас есть каталог LDAP со всеми данными о клиентах, можно использовать
+модуль LDAP для аутентификации клиентов в OTRS (см. Пример 11-11
+ниже). Поскольку этот модуль имеет права только для чтения для данных из
+LDAP-бэкенда, то нету возможности изменить данные клиента через веб.
 </para>
 
 <example id='configuration-customer-auth-backend-ldap'>
-<title>Customer user authentication against a LDAP backend</title>
+<title>Аутентификация клиентов в LDAP</title>
 
 <para>
 <programlisting>
@@ -964,17 +970,17 @@ $Self->{'Customer::AuthModule::LDAP::Params'} = {
 
 
 <section id='customer-auth-backend-httpbasic'>
-<title>HTTPBasicAuth for customers</title>
+<title>HTTPBasicAuth аутентификация для клиентов</title>
 
 <para>
-If you want to implement a "single sign on" solution for all your customer
-users, you can use HTTPBasic authentication (for all your systems) and use
-the HTTPBasicAuth module with OTRS (no login is needed with OTRS any
-more). See the Example 11-12 below.
+Если вы хотите внедрить "single sign on"-решение для ваших пользователей, вы
+можете использовать базовую, HTTPBasic аутентификацию (для всех ваших
+систем) и использовать модуль HTTPBasicAuth с OTRS (больше не нужно
+логинится в OTRS). См. ниже Пример 11-12.
 </para>
 
 <example id='configuration-customer-auth-backend-htbasic'>
-<title>Customer user authentication with HTTPBasic</title>
+<title>Аутентификация клиентов с помощью HTTPBasic</title>
 
 <para>
 <programlisting>
@@ -1001,12 +1007,12 @@ $Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs
 <title>Radius</title>
 
 <para>
-The settings shown in the Example 11-13 can be used to authenticate your
-customers against a radius server.
+Настройки приведенные в примере 11-13 могут быть использованы для
+аутентификации ваших клиентов с radius-сервером.
 </para>
 
 <example id='configuration-customer-auth-backend-radius'>
-<title>Customer user authentication against a radius backend</title>
+<title>Аутентификация клиентов с использованием radius </title>
 
 <para>
 <programlisting>
@@ -1027,28 +1033,28 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 
 
 <section id="customer-self-registration">
-<title>Customize the customer self registration</title>
+<title>Дополнительная настройка самостоятельной регистрации клиентов</title>
 
 <para>
-It is possible to customize the self registration for new customers, which
-is reachable via the customer.pl panel. New optional or required fields,
-like room number, address or state can be added.
+Можно настроить самостоятельную регистрацию для новых клиентов, которые
+доступны через панель customer.pl. Новые дополнительные или обязательные
+поля, такие как номер комнаты, адрес или состояние могут быть добавлены.
 </para>
 
 <para>
-The following example shows how you can specify a required field in the
-customer database, in this case, to store the room number of a customer.
+В следующем примере показано, как можно указать обязательные для заполнения
+поля в базе данных клиентов, в данном случае, для хранения номера клиента.
 </para>
 
 <section id='customer-self-registration-dtl'>
-<title>Customizing the web interface</title>
+<title>Настройка веб-интерфейса</title>
 
 <para>
-To display the new field for the room number in the customer.pl web
-interface, the .dtl file, which is responsible for the layout in this
-interface, has to be modified. Edit the
-<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file and
-add the new field around line 80 (see Script 11.9 below).
+Для отображения новых полей для номера комнаты в веб-интерфейсе пользователя
+customer.pl, .dtl-файл, который отвечает за шаблон этого интерфейса, должен
+быть изменен. Редактируйте файл
+<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> и
+добавьте новые поля после строки 80 (см. ниже Сценарий 11.9).
 </para>
 
 <para>
@@ -1063,15 +1069,15 @@ add the new field around line 80 (see Script 11.9 below).
 </para>
 
 <para>
-    <emphasis>Script 11.9. Displaying a new field in the web
-interface.</emphasis>
+    <emphasis>Сценарий 11.9. Отображение новых полей в
+веб-интерфейсе.</emphasis>
 </para>
 
 </section>
 
 
 <section id="customer-self-registration-mapping">
-<title>Customer mapping</title>
+<title>Отображения клиентов</title>
 
 <para>
 In the next step, the customer mapping has to be expanded with the new entry

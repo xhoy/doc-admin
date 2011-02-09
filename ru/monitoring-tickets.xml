@@ -1,150 +1,155 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-<!-- $Id: monitoring-tickets.xml,v 1.5 2011-01-31 12:46:48 mg Exp $ -->
+<!-- $Id: monitoring-tickets.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
 <chapter id="monitoring-tickets" >
-<title>Ticket responsibility and ticket watching</title>
+<title>Ответственный за заявку и просмотр заявки</title>
 
 <para>
-From OTRS 2.1 on, it is possible to define a person responsible for a
-ticket, additionally to its owner. Moreover, all activities connected with
-the ticket can be watched. These two functionalities are implemented with
-the TicketResponsible and TicketWatcher features, and facilitate the
-assignment of tasks and working within hierarchic team structures.
+Из OTRS 2.1 и выше, моожно определить лицо, ответственное за заявку, в
+дополнение к ее владельцу. Кроме того, все мероприятия, связанные с заявкой
+могут просматриваться. Ети две возможности системы реализваны с помощью
+функций TicketResponsible и TicketWatcher а также позволяют рабатать в
+рамках иерархической структуры команды.
 </para>
 
 
 <section id="ticket-responsible" >
-<title>Ticket responsibility</title>
+<title>Ответственность за заявку</title>
 
 <para>
-The ticket responsible feature facilitates the complete processing of a
-ticket by an agent, other then the ticket owner. Thus an agent who has
-locked a ticket can pass it on to another agent, who is not the ticket
-owner, in order for the second to respond to a customer request. After the
-request has been dealt with, the first agent can withdraw the ticket
-responsibility from the second agent.
+Функция ответственный за заявку обеспечивает полную обработку заявки
+агентом, хотя владельцем заявки может быть совсем другой человек. Таким
+образом агент, который заблокировал заявку может передать ее другому агенту,
+который не является владельцем заявки, для того, чтобы второй просто дал
+ответ на вопрос. После того как запрос был рассмотрен, первый агент может
+снять ответственность за заявку с второго агента.
 </para>
 
 <para>
-With the configuration parameter <link
+С помощью параметров конфигурации <link
 linkend="Ticket:Core::Ticket:Ticket::Responsible" > Ticket::Responsible
-</link> , the ticket responsible feature can be activated. This will cause
-that 3 new icons appear in your toolbar.
+</link>, может быть активированна функция ответственность за заявку. Это
+приведет к появлению на экране трех дополнительных иконок/значков.
 </para>
 
 <para>
-Ticket responsibility can be assigned by calling up the ticket content and
-clicking on the "Responsible" link in the actions bar of a zoomed ticket in
-the agent interface (see the Figure 9.1 below).
+Ответственность за заявку может быть назначена путем вызова содержания
+заявки нажав на ссылку "Ответственность" в строке действия в шаблоне
+просмотра подробной информации о заявке (см. ниже Рисунок 9.1).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Zoom with Responsible Menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Шаблон просмотра информации о заявке с меню Ответственность</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-zoom-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.1. Changing the responsible of a ticket in its zoomed
-view.</emphasis>
+    <emphasis>Рисунок 9.1. Изменение ответственности за заявку в шаблоне
+просмотра подробной инф. о заявке.</emphasis>
 </para>
 
 <para>
-After clicking on "Responsible", a pop-up to change the responsible of that
-ticket will open (see Figure 9.2 below). This template can also be used to
-send a message to the new responsible agent.
+После нажатия на кнопку "Ответственность", откроется всплывающее окно для
+изменения ответственности этой заявки (см. ниже Рисунок 9.2). Этот шаблон
+также может быть использован для отправки сообщения для нового
+ответственного агента.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Responsible Menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Меню Ответственного за Заявку</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.2. Change a ticket's responsible pop-up.</emphasis>
+    <emphasis>Рисунок 9.2. Всплывающее окно изменения ответственного за
+заявку.</emphasis>
 </para>
 
 <para>
-The list of all tickets for which an agent is responsible from, can be
-accessed through the Responsible View, which is shown as 3 icons in the
-toolbar of the OTRS agent interface, as soon as the ticket responsible
-feature gets activated.
+Список всех заявок, за которые агент несет ответственность, могут быть
+доступны через шаблон "Responsible View", в котором есть 3 иконки на панели
+инструментов графического веб-интерфейса администратора OTRS, как только
+активирована функция ответственности за заявку.
 </para>
 
 </section>
 
 
 <section id="ticket-watcher">
-<title>Ticket watching</title>
+<title>Просмотр Заявок</title>
 
 <para>
-From OTRS 2.1 on, agents (e.g. heads of department) can watch certain
-tickets within the system without processing them, by using the
-TicketWatcher feature.
+Начиная с OTRS 2.1, агенты (например, руководители отделов) могут
+просматривать определенные заявки без их обработки с помощью функции
+TicketWatcher.
 </para>
 
 <para>
-The TicketWatcher feature can be activated with the configuration parameter
-<link linkend="Ticket:Core::TicketWatcher:Ticket::Watcher"> Ticket::Watcher
-</link> , which will add 3 new icons to your toolbar. Using <link
+Функция TicketWatcher может быть активирована с помощью параметра
+конфигурации <link linkend="Ticket:Core::TicketWatcher:Ticket::Watcher">
+Ticket::Watcher </link> , которій добавит 3 новых иконки в вашу панель
+инструментов. Использование <link
 linkend="Ticket:Core::TicketWatcher:Ticket::WatcherGroup">
-Ticket::WatcherGroup </link> one or more user groups with permission to
-watch tickets can be defined.
+Ticket::WatcherGroup </link> одну или несколько групп пользователей, имеющих
+права для чтения могут тыть определены.
 </para>
 
 <para>
-In order to watch a ticket, go to its zoomed view and click on the
-"Subscribe" link in the ticket activities menu (see Figure 9.3 below).
+Для того чтобы смотреть заявку, перейдите к шаблону просмотра подробной
+информации о заявке и нажмите ссылку "Подписатся" в меню заявки (см. ниже
+Рисунок 9.3).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Zoom with subscribe menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Подробная информация для просмотра заявки</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40" fileref="screenshots/ticket-subscribe.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.3. Subscribing to a ticket in its zomed view.</emphasis>
+    <emphasis>Рисунок 9.3. Шаблон просмотра подробностей заявки с меню
+подписи.</emphasis>
 </para>
 
 <para>
-If you no longer want to watch a specific ticket, go to its zoomed view and
-click on the "Unsubscribe" link in the ticket activities menu (see Figure
-9.4 below).
+Если вы больше не хотите просматривать определенную заявку, перейдите к
+шаблону просмотра подробной информации заявки и нажмите кнопку "Отменить
+подписку" в меню заявки (см. ниже Рисунок 9.4).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Ticket-Zoom with unsubscribe menu</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Шаблон просмотра подробной информации о заявке с меню отмены подписи</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-unsubscribe.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.4. Unsubscribing from a ticket in its zomed
-view.</emphasis>
+    <emphasis>Рисунок 9.4. Отмена подписи на заявку в шаблоне просмотра
+подробной информации о заявке.</emphasis>
 </para>
 
 <para>
-The list of all watched tickets can be accessed through the Watched View
-(see Figure 9.5 below), which is shown as 3 icons in the toolbar of the OTRS
-agent interface, as soon as the ticket watcher feature gets activated.
+Список всех просматриваемых заявок может быть доступен через Watched View
+(см. ниже Рисунок 9.5), который отображает 3 иконки в панели инструментов
+интерфейса агента OTRS, как только функция "просмотр заявок" активирована.
 </para>
 
 
 <para>
 <screenshot>
-<screeninfo>Mailbox: Watched tickets</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Почтовый ящик: Просматриваемые заявки</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/ticket-subscribe-mailbox.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 9.5. Watched tickets view.</emphasis>
+    <emphasis>Рисунок 9.5. Шаблон для просматриваемых заявок.</emphasis>
 </para>
 </section>
 
