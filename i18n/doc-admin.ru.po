@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
 "POT-Creation-Date: 2011-01-12 15:55+0100\n"
-"PO-Revision-Date: 2011-01-31 13:43+0100\n"
-"Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
+"PO-Revision-Date: 2011-02-08 17:13+0200\n"
+"Last-Translator: Oleg Zadorozhnyi <ipfound@gmail.com>\n"
 "Language-Team: none\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -6245,182 +6245,182 @@ msgstr "В каталоге <filename>Kernel/Config/Files</filename> есть н
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:38
 msgid "To keep compatibility with older OTRS versions, there is always a .pm- and a .xml file for every application and for the central framework. The .pm files are needed to parse all default and customized settings. The XML files are used by the graphical configuration frontend, which is available with OTRS 2.0 onwards, and which lets you set most of the configuration parameters of the system through your web browser. In future versions of OTRS the .pm files will be removed and the system will be configurable only via the .xml files. All parameters in <filename>Kernel/Config/Defaults.pm</filename> will be moved to <filename>Kernel/Config/Files/Framework.xml</filename> and all parameters for the trouble ticket system will be no longer stored in <filename>Kernel/Config/Files/Ticket.pm</filename> but in <filename>Kernel/Config/Files/Ticket.xml</filename>. The format of the configuration parameters will completely change to xml."
-msgstr ""
+msgstr "Для сохранения совместимости со старыми версиями OTRS, всегда доступен .pm- и a .xml файл для каждого приложения и центрального фреймворка. pm файлы необходимы для разбора пользовательских настроек а также настроек по умолчанию. xml-файлы используются графическим пользовательским интерфейсом, который доступен начиная с OTRS 2.0 и выше и который позволяет устанавливать большинство конфигурационных параметров непосредственно в браузере. В будущих версиях OTRS конфигурационные .pm файлы больше не будут использоватся и система будет конфигурироватся только из .xml-файлов. Все параметры в <filename>Kernel/Config/Defaults.pm</filename> будут перенесены в <filename>Kernel/Config/Files/Framework.xml</filename> и все конфигурационные параметры системы обработки заявок больше не будут хранится в файле <filename>Kernel/Config/Files/Ticket.pm</filename> а в <filename>Kernel/Config/Files/Ticket.xml</filename>. Формат параметров конфигурации будет полностью изменен на XML."
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:55
 msgid "If the web frontend of OTRS is accessed, all .xml files in the <filename>Kernel/Config/Files</filename> directory are parsed in alphabetical order and the settings for the central framework and additional applications will be loaded. Afterwards, the settings in the two files <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> and <filename>Kernel/Config/Files/ZZZAuto.pm</filename> will be evaluated. Both files are used by the graphical configuration frontend and should never be changed manually. Lastly, the file <filename>Kernel/Config.pm</filename> that contains your individual settings and manually changed configuration parameters, will be parsed. Reading the configuration files in this order makes sure that your specific configuration settings are used by the system."
-msgstr ""
+msgstr "Если веб-интерфейс OTRS доступен, все .xml-файлы в директории <filename>Kernel/Config/Files</filename> разбираются в алфавитном порядке и настройки для главного фреймворка и дополнительных приложений подгружаются. В последствии, настройки в двух файлах <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> и <filename>Kernel/Config/Files/ZZZAuto.pm</filename> будут вычислены.  Оба файла используются графическим веб-интерфейсом конфигурации и никогда не должен изменятся вручную. И наконец, разбирается файл <filename>Kernel/Config.pm</filename>, который содержит индивидуальные настройки и параметры конфигурации изменяемые вручную. Чтение конфигурционных файлов в таком порядке гарантирует, что вашы параметры конфигурации будут использованы системой."
 
 #. type: Content of: <chapter><section><title>
 #: en/configuration.xml:73
 msgid "Configuring the system through the web interface"
-msgstr ""
+msgstr "Настройка системы через графический веб-интерфейс"
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:76
 msgid "With OTRS 2.0 and subsequent versions, nearly all configuration parameters of the central framework or additional installed applications, can be changed easily with the graphical configuration frontend. Log in as OTRS administrator and follow the \"SysConfig\" link in the adminarea to execute the new configuration tool (see Figure 6.1 below)."
-msgstr ""
+msgstr "В OTRS 2.0 и последующих версиях, почти все конфигурационные параметры центального фреймворка и дополнительно проинсталлированых модулей можно легко изменить с помощью графического конфигурационного веб-интерфейса. Войдите в систему как OTRS-администратор и перейдите по ссылке \"SysConfig\" в панели управления, чтобы запустить новый конфигурационный инструмент (см. ниже Рисунок 6.1)."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/configuration.xml:84
 msgid "The graphical configuration frontend"
-msgstr ""
+msgstr "Графический интерфейс для конфигурации"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/configuration.xml:84
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"sysconfig - screenshot\" scale=\"40\" fileref=\"screenshots/admin-sysconfig.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"sysconfig - screenshot\" scale=\"40\" fileref=\"screenshots/admin-sysconfig.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:90
 msgid "<emphasis>Figure 6.1. The graphical configuration frontend.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 6.1. Графический интерфейс для конфигурации.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:94
 msgid "Because OTRS currently has over 600 configuration parameters, there are different ways to access quickly to a specific one.  With the full text search, all configuration parameters can be scanned for one or more keywords. The full text search not only searches through the names of the configuration parameters, but also the descriptions of the parameters are scanned. This allows to find an element, even if its name is unknown."
-msgstr ""
+msgstr "Поскольку в настоящее время в OTRS имеется больше 600 параметров конфигурации, существует несколько различных способов быстрого доступа к специфическим настройкам. Используя полнотекстовый поиск можно просмотреть все конфигурационные параметры на предмет совпадения с определенным ключевым словом. Полнотекстовый поиск ищет совпадения не только в названиях конфигурационных параметров, но также и в их описаниях. Это позволяет найти тот или инной элемент даже в том случае если его название неизвесно."
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:104
 msgid "Furthermore, all configuration parameters are sorted in main groups and sub groups. The main group represents the application that the configuration parameter belongs to, e.g. \"Framework\" for the central OTRS framework, \"Ticket\" for the ticket system, \"FAQ\" for the FAQ system, and so on. The sub groups can be accessed if the application is selected from the groups listbox and the \"Select group\" button is pressed."
-msgstr ""
+msgstr "Кроме этого, все параметры конфигурации отсортированы по основным группам и подгруппам. Главная группа представляет собой приложение соостоящие из подгрупп \"Framework\" для главного OTRS-фреймворка, \"Ticket\" для системы обработки заявок, \"FAQ\" - для системы ответов и вопросов и так далее. Подгруппы могут быть доступны если приложение выбирается из списка групп \"Выборор групп\" кнопка нажата."
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:113
 msgid "Every configuration parameter can be turned on or off via a checkbox. If the parameter is turned off, the system will ignore this parameter or the default is used. It is possible to switch a changed configuration parameter back to the system default using the reset link.  The \"Update\" button, submits all changes for the the system to use the new settings."
-msgstr ""
+msgstr "Каждый параметр конфигурации может быть \"включен\" или \"выключен\" с помощью флажка.  Если параметр \"выключен\" (флажок не выбран) система будет игнорировать этот параметр или использовать настройки по умолчанию. Также есть возможность переключится между измененным параметром конфигурации и его значением по умолчанию используя кнопку \"Обновить\", которая позволяет применить все изменения в системе."
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:121
 msgid "If you want to save all the changes you made to the configuration of your system, for example, to setup a new installed system quickly, you can use the \"Export settings\" button, which will create a .pm file. To restore your own settings, just press the \"Import settings\" and select the .pm created before."
-msgstr ""
+msgstr "Если вы хотите сохранить все изменения, внесенные в конфигурацию системы, например, для быстрой настройки новой установленной системы, вы можете использовать кнопку \"Экспортировать настройки\", которая создаст .pm-файлы. Чтобы восстановиь свои собственные настройки, нажмите кнопку \"Импортировать настройки\" и выберите .pm-файл с настройками созданными ранее."
 
 #. type: Content of: <chapter><section><note><para>
 #: en/configuration.xml:129
 msgid "For security reasons, the configuration parameters for the database connection cannot be changed in the SysConfig. They have to be set manually in <filename>Kernel/Config.pm</filename>."
-msgstr ""
+msgstr "Из за соображений безопасности, параметры конфигурации для соединения с базой даных не могут быть изменены в SysConfig. Они должны быть установлены вручную в файле <filename>Kernel/Config.pm</filename>."
 
 #. type: Content of: <chapter><title>
 #: en/email.xml:7
 msgid "Sending/Receiving emails"
-msgstr ""
+msgstr "Отправка / получение электронной почты"
 
 #. type: Content of: <chapter><section><title>
 #: en/email.xml:10
 msgid "Sending emails"
-msgstr ""
+msgstr "Отправка почты"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:13
 msgid "Via Sendmail (default)"
-msgstr ""
+msgstr "через Sendmail (по умолчанию)"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:16
 msgid "OTRS can send out emails via Sendmail (e.g.  <ulink url=\"http://www.sendmail.org/\">Sendmail</ulink>, <ulink url=\"http://www.postfix.org/\">Postfix</ulink>, <ulink url=\"http://www.qmail.org\">Qmail</ulink> or <ulink url=\"http://www.exim.org\">Exim</ulink>).  The default configuration is to use Sendmail and should work out of the box."
-msgstr ""
+msgstr "OTRS может отправлять сообщения электронной почты через Sendmail (e.g.  <ulink url=\"http://www.sendmail.org/\">Sendmail</ulink>, <ulink url=\"http://www.postfix.org/\">Postfix</ulink>, <ulink url=\"http://www.qmail.org\">Qmail</ulink> or <ulink url=\"http://www.exim.org\">Exim</ulink>).  Конфигурация по умолчанию позволяет использовать Sendmail и должны работать при установки системы \"из коробки\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:25
 msgid "You can configure the sendmail settings via the graphical configuration frontend (Framework::Core::Sendmail)"
-msgstr ""
+msgstr "Параметры sendmail можно настроить через графический веб-интерфейс для конфигурации (Framework::Core::Sendmail)"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:32
 msgid "Via SMTP server or smarthost"
-msgstr ""
+msgstr "Через SMTP-сервер или smarthost"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:35
 msgid "OTRS can send emails via SMTP ( <ulink url=\"http://www.ietf.org/rfc/rfc821.txt\">Simple Mail Transfer Protocol / RFC 821</ulink>) or Secure SMTP. You will want to use this on non-UNIX platforms (e.g. Windows)."
-msgstr ""
+msgstr "OTRS может отсылать сообщения электронной почты через SMTP ( <ulink url=\"http://www.ietf.org/rfc/rfc821.txt\">Simple Mail Transfer Protocol / RFC 821</ulink>) или Secure SMTP. Возможно вы захотите использовать эту опцию на не-unix-системах (например на Windows)."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:42
 msgid "The SMTP server settings can be configured via the SysConfig (Framework::Core::Sendmail). If you don't see SMTPS available as an option, you miss the required Perl modules. In that case, please refer to <link linkend=\"installation-of-perl-modules\"> \"Installation of Perl modules required for OTRS\" </link> for instructions."
-msgstr ""
+msgstr "Параметры настройки SMTP-сервера могут быть отконфигурированны через SysConfig (Framework::Core::Sendmail). Если вы не видите SMTPS в качестве опции, значит вы пропустили установку соответствующих Perl-модулей. В таком случае, обратитесь пожалуйста к этой <link linkend=\"installation-of-perl-modules\">\"Установка Perl-модулей необходимых для работы OTRS\"</link> инструкции."
 
 #. type: Content of: <chapter><section><title>
 #: en/email.xml:55
 msgid "Receiving emails"
-msgstr ""
+msgstr "Получение сообщений электронной почты"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:58
 msgid "Mail accounts configured via the OTRS GUI"
-msgstr ""
+msgstr "Учетные записи электронной почты настраиваемые через графический пользовательский интерфейс OTRS"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:61
 msgid "OTRS is able to receive emails from POP3, POP3S, IMAP, and IMAPS mail accounts."
-msgstr ""
+msgstr "OTRS позволяет получать сообщения электронной почты через почтовые аккаунты POP3, POP3S, IMAP, и IMAPS."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:65
 msgid "Configure your mail accounts via the PostMaster Mail Accounts link in the admin interface."
-msgstr ""
+msgstr "Настройка ваших почтовых аккаунтов по ссылке \"Почтовые Аккаунты PostMaster\" в панели управления администратора."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:69
 msgid "If a new mail account is created (see Figure 7.1 below), then its mail server name, login name and password must be specified. Also, you need to select the mail server type, which can be POP3, POP3S, IMAP or IMAPS. If you don't see server type you'd want to use available as an option, you miss the required Perl modules. In that case, please refer to <link linkend=\"installation-of-perl-modules\"> \"Installation of Perl modules required for OTRS\" </link> for instructions."
-msgstr ""
+msgstr "Если создан новый почтовый аккаунт/ящик (см. ниже Рисунок 7.1), то еще нужно указать имя его почтового сервера, логин и пароль. Также, вам необходимо выбрать тип почтового сервера POP3, POP3S, IMAP или IMAPS. Если вы не видите типа сервера, который хотели бы использовать, значит вы не установили один из Perl-модулей. В таком случае обратитесь к инструкции <link linkend=\"installation-of-perl-modules\"> \"Installation of Perl modules required for OTRS\" </link> за более подробной информацией."
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/email.xml:80
 msgid "Adding a mail account"
-msgstr ""
+msgstr "Добавление учетной записи электронной почты"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/email.xml:80
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmaster - screenshot\" scale=\"40\" fileref=\"screenshots/add-mailaccount.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea postmaster - screenshot\" scale=\"40\" fileref=\"screenshots/add-mailaccount.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:86
 msgid "<emphasis>Figure 7.1. Adding a mail account.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 7.1. Добавление учетной записи электронной почты.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:89
 msgid "If you select \"Yes\" for \"Trusted\", any X-OTRS headers attached to an incoming message are evaluated and executed. Because the X-OTRS header can execute some actions in the ticket system you should only set \"Trusted\" to \"Yes\" for known senders. X-OTRS-Headers are used by the <link linkend=\"adminarea-postmasterfilter\"> filter module </link> in OTRS. The X-OTRS headers are explained <link linkend=\"table-of-x-otrs-headers\"> in this table </link> in more detail. Any postmaster filter rules you'd have created are executed even if \"Trusted\" is set to \"Yes\"."
-msgstr ""
+msgstr "Если вы выбрали \"Да\" для \"Trusted\", любые X-OTRS-заголовки присоединенные к входящему сообщению будут оцениватся и выполнятся. Поскольку X-OTRS-заголовок может выполнять некоторые действия в системе обработки заявок, вы должны установить \"Trusted\" только в \"Да\" для извесных отправителей. X-OTRS-заголовки которые используюся <link linkend=\"adminarea-postmasterfilter\"> модуль фильтрации </link> в OTRS. Заголовки X-OTRS более подробно рассматриваются в <link linkend=\"table-of-x-otrs-headers\"> этой таблице </link>. Любые правила фильтрации которые вы создали и выполнили даже если параметр \"Trusted\" установлен в \"Да\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:109
 msgid "The distribution of incoming messages can be controlled if they need to be sorted by queue or by the content of the To: field. If \"Dispatching by selected queue\" is selected for \"Dispatching\", all incoming messages will be sorted into the specified queue. The address where the mail was sent to is disregarded in this case.  If \"Dispatching by email To: field\" was selected for \"Dispatching\", the system checks if a queue is linked with the address in the To: field of the incoming mail. You can link an address in the <link linkend=\"adminarea-emailaddresses\"> E-mail address management </link> section of the admin area. If the address in the To field is linked with a queue, the new message will be sorted into the linked queue. If no link is found between the address in the To: field and queue then the message is sorted into the \"Raw\" queue in the system, which is the <link linkend=\"Ticket:Core::PostMaster:PostmasterDefaultQueue\"> PostmasterDefaultQueue </link> after a default installation."
-msgstr ""
+msgstr "Распределение входящих сообщений может контролироватся в случае если они должны сортироватся по очередях или содержимому поля \"Кому\". Если \"Координация по выбраной очереди\" выбранная для \"Координации\", все входящие сообщения будут отсортированы в указаной очереди. Адрес, по которому письмо было отправлено не учитывается в данном случае. Если выбрана опция \"Координация по емейлу\"  в поле \"Кому\": система проверяет связана ли очередь с адресом эллектронной почты в поле \"Кому\" для входящих сообщений. Вы можете связать определенный адрес в <link linkend=\"adminarea-emailaddresses\"> Управление E-mail-адресами</link> в панели управления. Если адрес в поле \"Кому\" связан с очередью то новые входящие сообщения будут сохранятся в этой связанной очереди. Если не найдено никакой связи между адресом в поле \"Кому\" то сообщение будет сохранятся в \"Raw\" очереди в системе, которые есть <link linkend=\"Ticket:Core::PostMaster:PostmasterDefaultQueue\"> PostmasterDefaultQueue </link> после установки по умолчанию."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:136
 msgid "All data for the mail accounts are saved in the OTRS database. The <filename>otrs.PostMasterMailbox.pl</filename> script, which is located in the <filename>bin</filename> directory of your OTRS installation, uses the settings in the database and fetches the mail. You can execute <filename>./bin/otrs.PostMasterMailbox.pl</filename> manually to check if all your mail settings are working properly."
-msgstr ""
+msgstr "Все данные для учетных записей электронной почты сохраняются в базе данных OTRS. Скрипт <filename>otrs.PostMasterMailbox.pl</filename>, который находится в директории <filename>bin</filename> вашей системы OTRS, использует настройки в базе данных и получает почту. Вы можете выполнить файл <filename>./bin/otrs.PostMasterMailbox.pl</filename> вручную чтобы проверить что все ваши настройки почты работают правильно."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:145
 msgid "On a normal installation, the mail will be fetched every 10 minutes by the <filename>postmaster_mailbox</filename> cron job. For further information about modifying cron jobs, please refer to the <link linkend=\"cronjobs\"> cron jobs </link> chapter."
-msgstr ""
+msgstr "Для обычной установки, выборка будет выполнятся каждые 10 минут с помощью файла заданий <filename>postmaster_mailbox</filename>. Для получения дополнительной информации об изменении заданий планировщика задач, обратитесь к главе <link linkend=\"cronjobs\"> cron jobs </link>r."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/email.xml:155
 msgid "When fetching mail OTRS deletes the mail from the POP or IMAP server. There's no option to also keep a copy on the server. If you'd want to achieve this, you'd probably best create forwarding rules on your mail server. Please consult your mail server documentation for details."
-msgstr ""
+msgstr "При получении почты OTRS удаляет почту с POP или IMAP сервера. Там нет опции также сохранить копию на сервере. Если вы хотите, достичь этого, вы, вероятно, лучше всего создавать правила переадресации на почтовый сервер. Пожалуйста, обратитесь к почтовому серверу документации."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:165
 msgid "Via command line program and e.g. procmail (otrs.PostMaster.pl)"
-msgstr ""
+msgstr "Через командную строку программы и например, procmail (otrs.PostMaster.pl)"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:168
 msgid "If you can't use mail accounts to get the email into OTRS, the command line program <filename>bin/otrs.PostMaster.pl</filename> might be a solution. It takes the mails via STDIN and pipes them directly into OTRS. That means email will be available in your OTRS system if the MDA (mail delivery agent, e.g. procmail) executes this program."
-msgstr ""
+msgstr "Если вы не можете использовать учетные записи для получения электронной почты в OTRS, программа командной строки <filename>bin/otrs.PostMaster.pl</filename> это может быть решено. Он принимает сообщения электронной почты через STDIN и направляет их непосредственно в OTRS. Это значит что емейлы будут доступны в вашей системе OTRS если MDA (Mail Delivery Agent - Агент доставки почты) выполняет эту программу."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:176
 msgid "To test <filename>bin/otrs.PostMaster.pl</filename> without MDA, execute the command of the Script 7.1."
-msgstr ""
+msgstr "Для тестирования <filename>bin/otrs.PostMaster.pl</filename> без MDA, выполните команду приведенную в листинге Сценария 7.1."
 
 #. type: Content of: <chapter><section><section><para><screen>
 #: en/email.xml:182
@@ -6430,26 +6430,29 @@ msgid ""
 "linux:/opt/otrs/bin# cat ../doc/sample_mails/test-email-1.box | ./otrs.PostMaster.pl\n"
 "linux:/opt/otrs/bin#\n"
 msgstr ""
+"linux:/opt/otrs# cd bin\n"
+"linux:/opt/otrs/bin# cat ../doc/sample_mails/test-email-1.box | ./otrs.PostMaster.pl\n"
+"linux:/opt/otrs/bin#\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:189
 msgid "<emphasis>Script 7.1. Testing PostMaster withouth MDA.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 7.1. Тестирование PostMaster без MDA.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:193
 msgid "If the email is shown in the QueueView, then your setup is working."
-msgstr ""
+msgstr "Если сообщения электронной почты отображаются в QueueView, значит вашы настройки работают."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:197
 msgid "Procmail is a very common e-mail filter in Linux environments. It will be installed on most systems. If not, have a look at the <ulink url=\"http://www.procmail.org/\"><citetitle>procmail homepage</citetitle></ulink>."
-msgstr ""
+msgstr "Procmail - это очень распостраненный фильтр электронной почты в среде Linux.  Он устанавливается на большинстве систем. Если нет, то перейдите по ссылке <ulink url=\"http://www.procmail.org/\"><citetitle>procmail homepage</citetitle></ulink>."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:203
 msgid "To configure procmail for OTRS (requires a procmail configured MTA, e.g.  sendmail, postfix, exim or qmail), use the <filename>~otrs/.procmailrc.dist</filename> file and copy it to <filename>.procmailrc</filename> and add the lines of the Script 7.2."
-msgstr ""
+msgstr "Для конфигурации procmail для OTRS (требуется сконфигурированный транспортный агент MTA, например sendmail, postfix, exim or qmail), используйте файл <filename>~otrs/.procmailrc.dist</filename> и скопируйте его в <filename>.procmailrc</filename> а затем добавьте строки приведенные в Сценарии 7.2."
 
 #. type: Content of: <chapter><section><section><para><programlisting>
 #: en/email.xml:211
@@ -6463,41 +6466,48 @@ msgid ""
 ":0 :\n"
 "| $SYS_HOME/bin/otrs.PostMaster.pl\n"
 msgstr ""
+"SYS_HOME=$HOME\n"
+"PATH=/bin:/usr/bin:/usr/local/bin\n"
+"# --\n"
+"# Pipe all email into the PostMaster process.\n"
+"# --\n"
+":0 :\n"
+"| $SYS_HOME/bin/otrs.PostMaster.pl\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:222
 msgid "<emphasis>Script 7.2. Configuring procmail for OTRS.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 7.2. Настройка procmail для OTRS.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:226
 msgid "All email sent to the local OTRS user will be piped into <filename>bin/otrs.PostMaster.pl</filename> and then shown in your QueueView."
-msgstr ""
+msgstr "Все емейлы отсылаемые локальному OTRS-пользователю будут обрабатываться <filename>bin/otrs.PostMaster.pl</filename> и потом отображаться в QueueView."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:234
 msgid "Fetching emails via POP3 or IMAP and fetchmail for otrs.PostMaster.pl"
-msgstr ""
+msgstr "Получение электронной почты по протоколу POP3 или IMAP и обработка для otrs.PostMaster.pl"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:237
 msgid "In order to get email from your mail server, via a POP3 or IMAP mailbox, to the OTRS machine/local OTRS account and to procmail, use <ulink url=\"http://fetchmail.berlios.de/\">fetchmail</ulink>."
-msgstr ""
+msgstr "Для того чтобы получить электронную почту с вашего почтового сервера через POP3 или IMAP и сохранить ее на компьютере на котором установлен OTRS, для локального аккаунта или в procmail, перейдите по ссылке <ulink url=\"http://fetchmail.berlios.de/\">fetchmail</ulink>."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/email.xml:244
 msgid "A working SMTP configuration on the OTRS machine is required."
-msgstr ""
+msgstr "Работающий и сконфигурированный SMTP необходим для работы OTRS."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:249
 msgid "You can use the <filename>.fetchmailrc.dist</filename> in the home directory of OTRS and copy it to <filename>.fetchmailrc</filename>.  Modfiy/change it for your needs (see the Example 7-1 below)."
-msgstr ""
+msgstr "Вы можете использовать файл <filename>.fetchmailrc.dist</filename> в домашней директории OTRS и скопировать его в <filename>.fetchmailrc</filename>. Изменить его в соответствии с вашими требованиями (см. ниже Пример 7-1). "
 
 #. type: Content of: <chapter><section><section><example><title>
 #: en/email.xml:255
 msgid ".fetchmailrc"
-msgstr ""
+msgstr ".fetchmailrc"
 
 #. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/email.xml:259
@@ -6506,46 +6516,48 @@ msgid ""
 "#poll (mailserver) protocol POP3 user (user) password (password) is (localuser)\n"
 "poll mail.example.com protocol POP3 user joe password mama is otrs\n"
 msgstr ""
+"#poll (mailserver) protocol POP3 user (user) password (password) is (localuser)\n"
+"poll mail.example.com protocol POP3 user joe password mama is otrs\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:267
 msgid "Don't forget to set the .fetchmailrc to 710 (\"chmod 710 .fetchmailrc\")!"
-msgstr ""
+msgstr "Не забудьте установить.fetchmailrc to 710 (\"chmod 710 .fetchmailrc\")!"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:271
 msgid "With the <filename>.fetchmailrc</filename> from the Example 7-1 above, all email will be forwarded to the local OTRS account, if the command <command>fetchmail -a</command> is executed. Set up a cronjob with this command if you want to fetch the mails regularly."
-msgstr ""
+msgstr "Из Листинга 7-1 выше, <filename>.fetchmailrc</filename> , все емейлы будут перенаправлены в локальный OTRS-аккаунт, если выполнена команда <command>fetchmail -a</command>. Установите эту команду в планировщике задач cronjob если хотите извлекать емейлы постоянно."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:280
 msgid "Filtering/dispatching by OTRS/PostMaster modules (for more complex dispatching)"
-msgstr ""
+msgstr "Фильтрация/рассылка модулями OTRS/PostMaster (для более сложной диспетчеризации)"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:284
 msgid "If you use the bin/otrs.PostMaster.pl or bin/otrs.PostMasterMailbox.pl method, you can insert or modify X-OTRS header entries with the PostMaster filter modules.  With the X-OTRS headers, the ticket system can execute some actions on incoming mails, sort them into a specific queue, change the priority or change the customer ID, for example. More information about the X-OTRS headers are available in the chapter about <link linkend=\"adminarea-postmasterpop3-account\"> adding mail accounts </link> in the admin area of OTRS."
-msgstr ""
+msgstr "Если вы используете метод bin/otrs.PostMaster.pl или bin/otrs.PostMasterMailbox.pl, вы можете вставить или модифицировать X-OTRS заголовок с модулем фильтрации PostMaster. С помощью X-OTRS-заголовков, система обработки заявок может вызывать некоторые действия для входящих сообщений, сортировать их в определенные очереди, изменять приоритет или ID-клиента, например. Более подробную информацию о X-OTRS-заголовках можно найти в главе <link linkend=\"adminarea-postmasterpop3-account\"> добавление почтовых аккаунтов электронной почты </link> в панели управления OTRS."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:299
 msgid "There are some default filter modules:"
-msgstr ""
+msgstr "Есть некоторые предустановленные модули фильтрации:"
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/email.xml:304
 msgid "The job name (e.g.  $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) needs to be unique!"
-msgstr ""
+msgstr "Название задания (e.g.  $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) должно быть уникальным!"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:310
 msgid "Kernel::System::PostMaster::Filter::Match is a default module to match on some email header (e.g. From, To, Subject, ...). It can set new email headers (e.g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam) if a filter rule matches. The jobs of the Example 7-2 can be inserted in <filename>Kernel/Config.pm</filename>"
-msgstr ""
+msgstr "Kernel::System::PostMaster::Filter::Match модуль по умолчанию для проверки совпадения заголовков определенных емейлов (например \"От\", \"Кому\", \"Тема\", ...). Он может устанавливать новые заголовки email (например X-OTRS-Ignore: да или X-OTRS-Queue: spam) если совпадают правила совпадения. Задания из Примера 7-2 могут быть прописаны в <filename>Kernel/Config.pm</filename>"
 
 #. type: Content of: <chapter><section><section><example><title>
 #: en/email.xml:318
 msgid "Example jobs for the filter module Kernel::System::PostMaster::Filter::Match"
-msgstr ""
+msgstr "Пример задания для модуля фильтрации Kernel::System::PostMaster::Filter::Match"
 
 #. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/email.xml:322
@@ -6576,16 +6588,40 @@ msgid ""
 "        },\n"
 "    };\n"
 msgstr ""
+"    # Job Name: 1-Match\n"
+"    # (block/ignore all spam email with From: noreply@)\n"
+"    $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'1-Match'} = {\n"
+"        Module =&gt; 'Kernel::System::PostMaster::Filter::Match',\n"
+"        Match =&gt; {\n"
+"            From =&gt; 'noreply@',\n"
+"        },\n"
+"        Set =&gt; {\n"
+"            'X-OTRS-Ignore' =&gt; 'yes',\n"
+"        },\n"
+"    };\n"
+"    # Job Name: 2-Match\n"
+"    # (sort emails with From: sales@example.com and Subject: **ORDER**\n"
+"    # into queue 'Order')\n"
+"    $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'2-Match'} = {\n"
+"        Module =&gt; 'Kernel::System::PostMaster::Filter::Match',\n"
+"        Match =&gt; {\n"
+"            To =&gt; 'sales@example.com',\n"
+"            Subject =&gt; '**ORDER**',\n"
+"        },\n"
+"        Set =&gt; {\n"
+"            'X-OTRS-Queue' =&gt; 'Order',\n"
+"        },\n"
+"    };\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:352
 msgid "Kernel::System::PostMaster::Filter::CMD is a default module to pipe the email into an external command. The output is given to STDOUT and if the result is true, then set new email header (e.g. X-OTRS-Ignore: yes or X-OTRS-Queue: spam). The Example 7-3 can be used in <filename>Kernel/Config.pm</filename>"
-msgstr ""
+msgstr "Kernel::System::PostMaster::Filter::CMD модуль по умолчанию для получения емейлов для внешних команд. Вывод передается в STDOUT и если результат истинна, то устанавливается новый заголовок (например X-OTRS-Ignore: да или X-OTRS-Queue: spam). Пример 7-3 может быть использован в <filename>Kernel/Config.pm</filename>"
 
 #. type: Content of: <chapter><section><section><example><title>
 #: en/email.xml:360
 msgid "Example job for the filter module Kernel::System::PostMaster::Filter::CMD"
-msgstr ""
+msgstr "Пример задания для модуля фильтрации Kernel::System::PostMaster::Filter::CMD"
 
 #. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/email.xml:364
@@ -6601,346 +6637,356 @@ msgid ""
 "        },\n"
 "    };\n"
 msgstr ""
+"    # Job Name: 5-SpamAssassin\n"
+"    # (SpamAssassin example setup, ignore spam emails)\n"
+"    $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'5-SpamAssassin'} = {\n"
+"        Module =&gt; 'Kernel::System::PostMaster::Filter::CMD',\n"
+"        CMD =&gt; '/usr/bin/spamassassin | grep -i \"X-Spam-Status: yes\"',\n"
+"        Set =&gt; {\n"
+"            'X-OTRS-Ignore' =&gt; 'yes',\n"
+"        },\n"
+"    };\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:379
 msgid "Of course it's also possible to develop your own PostMaster filter modules."
-msgstr ""
+msgstr "Конечно, также есть возможность разработки своих собственных PostMaster-модулей фильтрации."
 
 #. type: Content of: <chapter><title>
 #: en/time.xml:7
 msgid "Time related functions"
-msgstr ""
+msgstr "Функции связанные с временем"
 
 #. type: Content of: <chapter><section><title>
 #: en/time.xml:10
 msgid "Setting up business hours, holidays and time zones"
-msgstr ""
+msgstr "Настройка периода рабочего времени, празников и часовых поясов"
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:13
 msgid "Some functions in OTRS, like escalations and <link linkend=\"unlock-tickets\">automatic unlocking of tickets</link>, depend on a proper configuration of business hours, time zones and holidays.  You can define these via the <link linkend=\"sysconfig\"> SysConfig interface </link> , in <link linkend=\"Framework:Core::Time\">Framework &gt; Core::Time</link>.  You can also specify different sets of business hours, holidays and time zones as separate 'Calendars' in <link linkend=\"Framework:Core::Time::Calendar1\">Framework > Core::Time::Calendar1</link>, until <link linkend=\"Framework:Core::Time::Calendar9\">Framework > Core::Time::Calendar9</link>.  Calendars can be defined on <link linkend=\"adminarea-queue\">queue</link> or on SLA levels. This means that, for example, you can specify a calendar with 5 x 8 business hours for your 'standard' SLA, but create a separate calendar with 7 x 24 support for your 'gold' SLA; and to have a calendar for your 'Support-USA' queue with a different time window than your 'Support-Japan' queue.  OTRS can handle up to 99 different calendars."
-msgstr ""
+msgstr "Некоторые функции в OTRS, такие как например эскалация и <link linkend=\"unlock-tickets\">автоматическая разблокировка заявок</link> зависят от правильно настройки параметра \"рабочее время\", часовых поясов, празников. Вы можете определить это с помощью ссылки <link linkend=\"sysconfig\"> SysConfig-интерфейс</link>, в <link linkend=\"Framework:Core::Time\">Framework &gt; Core::Time</link>. Также вы можете указать различные наборы рабочего времени, празников и часовых поясов как разделенные \"Календари\" перейдя по ссылке <link linkend=\"Framework:Core::Time::Calendar1\">Framework > Core::Time::Calendar1</link>, под <link linkend=\"Framework:Core::Time::Calendar9\">Framework > Core::Time::Calendar9</link>. Календари могут быть определены в <link linkend=\"adminarea-queue\">очередь</link> или в SLA-уровнях. Это означает, например, что вы можете указать календарь з 5 x 8 рабочих часов для вашего стандартного SLA, но также и создать другой календарь с 7 x 24 поддержка для вашего \"золотого\" SLA; а также иметь календарь для очереди \"Поддержка для США\" с различными часовыми окнами для вашей очереди \"Поддержка для Японии\". В OTRS можно создавать до 99 различных календарей."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/time.xml:36
 msgid "Business Hours"
-msgstr ""
+msgstr "Бизнес Время"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:39
 msgid "Set up the working hours for your system in SysConfig <link linkend=\"Framework:Core::Time:TimeWorkingHours\"> Framework> Core::Time::TimeWorkingHours </link> or for your specific calendar, in the calendar's configuration.  OTRS can handle a granularity of one hour. Checking the marks in the boxes 8, 9, 10 ... 17 corresponds with business hours of 8 AM - 6 PM."
-msgstr ""
+msgstr "Настройка рабочего времени для вашей системы в SysConfig <link linkend=\"Framework:Core::Time:TimeWorkingHours\"> Framework> Core::Time::TimeWorkingHours </link> или для определенного календаря в конфигурации календаря. OTRS может обрабатывать детализацию одного часа. Проверьте обозначения для пунктов 8, 9, 10 ... 17 соответствующих часам от 8 AM - 6 PM."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:48
 msgid "Only during the business hours: tickets can escalate, notifications for escalated and pending tickets will be send and tickets will be unlocked."
-msgstr ""
+msgstr "Только в течение рабочего дня: заявки могут эскалироваться, уведомления для эскалированных и ожидающих заявок будет отправлено и заявки будут разблокированы."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/time.xml:55
+#, fuzzy
 msgid "Fixed date holidays"
-msgstr ""
+msgstr "Даты и празники"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:58
 msgid "Holidays that are on a fixed date every year, such as New Year's Day and Fourth of July, can be specified in <link linkend=\"Framework:Core::Time:TimeVacationDays\"> TimeVacationDays </link> or in the corresponding section for the calendars 1-9."
-msgstr ""
+msgstr "Празники, которые приходятся на фиксированную дату каждый год, такие как Новый год и четвертое Июля могут быть указаны в <link linkend=\"Framework:Core::Time:TimeVacationDays\"> Специальные дни </link> или в соответсвтующем разделе для календаря 1-9."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:67
 msgid "Tickets will not escalate nor get unlocked on dates defined in TimeVacationDays."
-msgstr ""
+msgstr "Заявки не будт эскалироваться, ни разблокироваться в сроки, определенные как \"Специально зарезервированные дни\"."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/time.xml:72
 msgid "By default, OTRS ships with the <emphasis>German</emphasis> holidays installed."
-msgstr ""
+msgstr "По умолчанию, OTRS работает по <emphasis>Немецким</emphasis> выходным."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/time.xml:80
 msgid "TimeVacationDaysOneTime"
-msgstr ""
+msgstr "TimeVacationDaysOneTime"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:83
 msgid "Holidays that do not have a yearly fixed date, such as Easter, can be specified in <link linkend=\"Framework:Core::Time:TimeVacationDaysOneTime\"> TimeVacationDaysOneTime </link> ."
-msgstr ""
+msgstr "Празники, которые не имеют годовой фиксированной даты, такие как Пасха, могут быть указаны в <link linkend=\"Framework:Core::Time:TimeVacationDaysOneTime\"> TimeVacationDaysOneTime </link> ."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:91
 msgid "Tickets will not escalate and will not be unlocked on dates defined in TimeVacationDaysOneTime."
-msgstr ""
+msgstr "Заявки не будут эскалироваться и не будут разблокироваться в период времени определенный как TimeVacationDaysOneTime."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/time.xml:97
 msgid "OTRS does not ship with any One-Time holidays pre-installed.  This means that you need to add holidays, such as Eastern or Thanksgiving, to the system when configuring OTRS."
-msgstr ""
+msgstr "OTRS не поставляется ни с одним предустановленым празником которые \"не попадает в число\". Это означает что вам нужно самостоятельно добавить празники, такие как Пасха, День Благодарения во время конфигурации системы OTRS."
 
 #. type: Content of: <chapter><section><title>
 #: en/time.xml:109
 msgid "Automated Unlocking"
-msgstr ""
+msgstr "Автоматические Разблокировки"
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:112
 msgid "Locked tickets can be automatically unlocked by the system. This feature might be useful if, for example, an agent has locked tickets that need to be processed, but he can't work on them for some reason, like being on vacation.  The automated unlock feature unlocks tickets after a given time, to ensure that no locked tickets will be forgotten and other agents can process them."
-msgstr ""
+msgstr "Заблокированные заявки могут быть автоматически разблокированы системой. Эта опция может быть полезной, если, например, агент заблокировал заявки, которые нужно обработать, но он не работал с ними по определенной причине, например был в отпуске. Автоматическая разблокировка разблокирует заблокированные заявки после истечения времени, чтобы убедится в том, что заблокированные заявки не будут забыты и их обработают другие агенты."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:120
 msgid "The amount of time before a ticket is unlocked can be specified in the <link linkend=\"adminarea-queue\"> settings </link> for every queue. The module <filename>bin/otrs.UnlockTickets.pl</filename>, which is executed periodically as a cron job, performs the automated unlocking of tickets."
-msgstr ""
+msgstr "Время, при истечении которого заявка будет разблокирована может быть указано перейдя по ссылке <link linkend=\"adminarea-queue\"> настройки </link> для каждой очереди. Модуль <filename>bin/otrs.UnlockTickets.pl</filename>, который запускается периодически как задание планировщика задач cron job, выполняет автоматическую разблокировку заявок."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:132
 msgid "Notifications on unlocked tickets are send out only to those agents that have the queue with the unlocked tickets set in \"My queues\" and that have activated the notification on unlocked tickets in their personal <link linkend=\"user-preferences\"> preferences </link> ."
-msgstr ""
+msgstr "Уведомления о том что заявки разблокированы отсылаются только тем агентам, которые работают с очередью с разблокированными заявками, установленной в \"Мои очереди\" и имеют активированное уведомление для разблокированных заявок в своих собственных <link linkend=\"user-preferences\"> настройках </link>."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:143
 msgid "Tickets will be unlocked if all of the following conditions are met:"
-msgstr ""
+msgstr "Заявки будут заблокированы в том случае, если выполнятся следующие условия:"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/time.xml:149
 msgid "There is an <emphasis>unlock timeout</emphasis> defined at the queue the ticket is in."
-msgstr ""
+msgstr "Вышло <emphasis>время блокировки</emphasis> заявки определенное в очереди, в которой эта заявка находится."
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/time.xml:155
 msgid "The ticket is set to <emphasis>locked</emphasis>"
-msgstr ""
+msgstr "Заявка установлена в статус <emphasis>заблокированная</emphasis>"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/time.xml:160
 msgid "The ticket state is <emphasis>open</emphasis>."
-msgstr ""
+msgstr "Заявке присвоен статус <emphasis>открыатая</emphasis>."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:166
 msgid "The unlock timer will be reset if an agent adds a new external article to the ticket, It can be of any of the following types: <emphasis>email-external</emphasis>, <emphasis>phone</emphasis>, <emphasis>fax</emphasis>, <emphasis>sms</emphasis>, or <emphasis>note-external</emphasis>."
-msgstr ""
+msgstr "Таймер разблокировки будет сброшен, если агент добавляет новые внешние статьи в заявку, он может быть любым из таких типов: <emphasis>внешний-email</emphasis>, <emphasis>телефон</emphasis>, <emphasis>факс</emphasis>, <emphasis>смс</emphasis>, или <emphasis>внешнее примечание</emphasis>."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:173
 msgid "Also, if the last article in the ticket is created by an agent, and a customer adds another one, either via web or email response, the unlock timer will be reset."
-msgstr ""
+msgstr "Кроме этого, если последняя статья в заявке создана агентом, и клиент добавляет еще одну, либо через веб-интерфейс либо по электронной почте, таймер разблокировки также будет сброшен."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:178
 msgid "The last event that will reset the unlock timer is when the ticket is assigned to another agent."
-msgstr ""
+msgstr "Последнее событие, которое будет сбрасывать таймер разблокировки, когда заявка передается другому агенту."
 
 #. type: Content of: <chapter><title>
 #: en/monitoring-tickets.xml:5
 msgid "Ticket responsibility and ticket watching"
-msgstr ""
+msgstr "Ответственный за заявку и просмотр заявки"
 
 #. type: Content of: <chapter><para>
 #: en/monitoring-tickets.xml:8
 msgid "From OTRS 2.1 on, it is possible to define a person responsible for a ticket, additionally to its owner. Moreover, all activities connected with the ticket can be watched. These two functionalities are implemented with the TicketResponsible and TicketWatcher features, and facilitate the assignment of tasks and working within hierarchic team structures."
-msgstr ""
+msgstr "Из OTRS 2.1 и выше, моожно определить лицо, ответственное за заявку, в дополнение к ее владельцу. Кроме того, все мероприятия, связанные с заявкой могут просматриваться. Ети две возможности системы реализваны с помощью функций TicketResponsible и TicketWatcher а также позволяют рабатать в рамках иерархической структуры команды."
 
 #. type: Content of: <chapter><section><title>
 #: en/monitoring-tickets.xml:17
 msgid "Ticket responsibility"
-msgstr ""
+msgstr "Ответственность за заявку"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:20
 msgid "The ticket responsible feature facilitates the complete processing of a ticket by an agent, other then the ticket owner. Thus an agent who has locked a ticket can pass it on to another agent, who is not the ticket owner, in order for the second to respond to a customer request. After the request has been dealt with, the first agent can withdraw the ticket responsibility from the second agent."
-msgstr ""
+msgstr "Функция ответственный за заявку обеспечивает полную обработку заявки агентом, хотя владельцем заявки может быть совсем другой человек. Таким образом агент, который заблокировал заявку может передать ее другому агенту, который не является владельцем заявки, для того, чтобы второй просто дал ответ на вопрос. После того как запрос был рассмотрен, первый агент может снять ответственность за заявку с второго агента."
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:29
 msgid "With the configuration parameter <link linkend=\"Ticket:Core::Ticket:Ticket::Responsible\" > Ticket::Responsible </link> , the ticket responsible feature can be activated. This will cause that 3 new icons appear in your toolbar."
-msgstr ""
+msgstr "С помощью параметров конфигурации <link linkend=\"Ticket:Core::Ticket:Ticket::Responsible\" > Ticket::Responsible </link>, может быть активированна функция ответственность за заявку. Это приведет к появлению на экране трех дополнительных иконок/значков."
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:40
 msgid "Ticket responsibility can be assigned by calling up the ticket content and clicking on the \"Responsible\" link in the actions bar of a zoomed ticket in the agent interface (see the Figure 9.1 below)."
-msgstr ""
+msgstr "Ответственность за заявку может быть назначена путем вызова содержания заявки нажав на ссылку \"Ответственность\" в строке действия в шаблоне просмотра подробной информации о заявке (см. ниже Рисунок 9.1)."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/monitoring-tickets.xml:47
 msgid "Ticket-Zoom with Responsible Menu"
-msgstr ""
+msgstr "Шаблон просмотра информации о заявке с меню Ответственность"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/monitoring-tickets.xml:47
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-zoom-responsible.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-zoom-responsible.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:53
 msgid "<emphasis>Figure 9.1. Changing the responsible of a ticket in its zoomed view.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 9.1. Изменение ответственности за заявку в шаблоне просмотра подробной инф. о заявке.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:57
 msgid "After clicking on \"Responsible\", a pop-up to change the responsible of that ticket will open (see Figure 9.2 below). This template can also be used to send a message to the new responsible agent."
-msgstr ""
+msgstr "После нажатия на кнопку \"Ответственность\", откроется всплывающее окно для изменения ответственности этой заявки (см. ниже Рисунок 9.2). Этот шаблон также может быть использован для отправки сообщения для нового ответственного агента."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/monitoring-tickets.xml:64
 msgid "Ticket-Responsible Menu"
-msgstr ""
+msgstr "Меню Ответственного за Заявку"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/monitoring-tickets.xml:64
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-responsible.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-responsible.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:70
 msgid "<emphasis>Figure 9.2. Change a ticket's responsible pop-up.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 9.2. Всплывающее окно изменения ответственного за заявку.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:74
 msgid "The list of all tickets for which an agent is responsible from, can be accessed through the Responsible View, which is shown as 3 icons in the toolbar of the OTRS agent interface, as soon as the ticket responsible feature gets activated."
-msgstr ""
+msgstr "Список всех заявок, за которые агент несет ответственность, могут быть доступны через шаблон \"Responsible View\", в котором есть 3 иконки на панели инструментов графического веб-интерфейса администратора OTRS, как только активирована функция ответственности за заявку."
 
 #. type: Content of: <chapter><section><title>
 #: en/monitoring-tickets.xml:84
 msgid "Ticket watching"
-msgstr ""
+msgstr "Просмотр Заявок"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:87
 msgid "From OTRS 2.1 on, agents (e.g. heads of department) can watch certain tickets within the system without processing them, by using the TicketWatcher feature."
-msgstr ""
+msgstr "Начиная с OTRS 2.1, агенты (например, руководители отделов) могут просматривать определенные заявки без их обработки с помощью функции TicketWatcher."
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:93
 msgid "The TicketWatcher feature can be activated with the configuration parameter <link linkend=\"Ticket:Core::TicketWatcher:Ticket::Watcher\"> Ticket::Watcher </link> , which will add 3 new icons to your toolbar. Using <link linkend=\"Ticket:Core::TicketWatcher:Ticket::WatcherGroup\"> Ticket::WatcherGroup </link> one or more user groups with permission to watch tickets can be defined."
-msgstr ""
+msgstr "Функция TicketWatcher может быть активирована с помощью параметра конфигурации <link linkend=\"Ticket:Core::TicketWatcher:Ticket::Watcher\"> Ticket::Watcher </link> , которій добавит 3 новых иконки в вашу панель инструментов. Использование <link linkend=\"Ticket:Core::TicketWatcher:Ticket::WatcherGroup\"> Ticket::WatcherGroup </link> одну или несколько групп пользователей, имеющих права для чтения могут тыть определены."
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:110
 msgid "In order to watch a ticket, go to its zoomed view and click on the \"Subscribe\" link in the ticket activities menu (see Figure 9.3 below)."
-msgstr ""
+msgstr "Для того чтобы смотреть заявку, перейдите к шаблону просмотра подробной информации о заявке и нажмите ссылку \"Подписатся\" в меню заявки (см. ниже Рисунок 9.3)."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/monitoring-tickets.xml:116
 msgid "Ticket-Zoom with subscribe menu"
-msgstr ""
+msgstr "Подробная информация для просмотра заявки"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/monitoring-tickets.xml:116
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-subscribe.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-subscribe.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:122
 msgid "<emphasis>Figure 9.3. Subscribing to a ticket in its zomed view.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 9.3. Шаблон просмотра подробностей заявки с меню подписи.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:126
 msgid "If you no longer want to watch a specific ticket, go to its zoomed view and click on the \"Unsubscribe\" link in the ticket activities menu (see Figure 9.4 below)."
-msgstr ""
+msgstr "Если вы больше не хотите просматривать определенную заявку, перейдите к шаблону просмотра подробной информации заявки и нажмите кнопку \"Отменить подписку\" в меню заявки (см. ниже Рисунок 9.4)."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/monitoring-tickets.xml:132
 msgid "Ticket-Zoom with unsubscribe menu"
-msgstr ""
+msgstr "Шаблон просмотра подробной информации о заявке с меню отмены подписи"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/monitoring-tickets.xml:132
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-unsubscribe.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-unsubscribe.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:138
 msgid "<emphasis>Figure 9.4. Unsubscribing from a ticket in its zomed view.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 9.4. Отмена подписи на заявку в шаблоне просмотра подробной информации о заявке.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:142
 msgid "The list of all watched tickets can be accessed through the Watched View (see Figure 9.5 below), which is shown as 3 icons in the toolbar of the OTRS agent interface, as soon as the ticket watcher feature gets activated."
-msgstr ""
+msgstr "Список всех просматриваемых заявок может быть доступен через Watched View (см. ниже Рисунок 9.5), который отображает 3 иконки в панели инструментов интерфейса агента OTRS, как только функция \"просмотр заявок\" активирована."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/monitoring-tickets.xml:150
 msgid "Mailbox: Watched tickets"
-msgstr ""
+msgstr "Почтовый ящик: Просматриваемые заявки"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/monitoring-tickets.xml:150
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-subscribe-mailbox.png\"></graphic>"
-msgstr ""
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"index.pl - screenshot\" scale=\"40\" fileref=\"screenshots/ticket-subscribe-mailbox.png\"></graphic>"
 
 #. type: Content of: <chapter><section><para>
 #: en/monitoring-tickets.xml:156
 msgid "<emphasis>Figure 9.5. Watched tickets view.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Рисунок 9.5. Шаблон для просматриваемых заявок.</emphasis>"
 
 #. type: Content of: <chapter><title>
 #: en/pdf-output.xml:5
 msgid "Customize the PDF output"
-msgstr ""
+msgstr "Настройка экспорта в PDF"
 
 #. type: Content of: <chapter><para>
 #: en/pdf-output.xml:8
 msgid "This section handles the configurable options for PDF output in OTRS."
-msgstr ""
+msgstr "В этом разделе приводится настройка опций для экспорта данных из OTRS в PDF."
 
 #. type: Content of: <chapter><para>
 #: en/pdf-output.xml:12
 msgid "If you would use the Print action from anywhere within the OTRS interface, this would generate a formatted PDF file. You can deactivate this by modifying the configuration parameter <link linkend=\"Framework:Core::PDF:PDF\"> PDF </link> . In that case, HTML output will be used instead."
-msgstr ""
+msgstr "Если вы буде распечатывать информацию из любой точки интерфейса OTRS, то есть возможность сгенерировать данные в PDF-формат. Вы можете отключить эту возможность изменив соответствующий конфигурационный параметр <link linkend=\"Framework:Core::PDF:PDF\"> PDF </link> . В этом случае будет использоватся HTML-вывод."
 
 #. type: Content of: <chapter><para>
 #: en/pdf-output.xml:22
 msgid "You can adjust the look of the files generated by OTRS by creating your own logo and add it to <link linkend=\"Framework:Core::PDF:PDF::LogoFile\"> PDF::LogoFile </link>.  You can use <link linkend=\"Framework:Core::PDF:PDF::PageSize\"> PDF::PageSize </link> to define the standard page size of the generated pdf file (DIN-A4 or Letter) and <link linkend=\"Framework:Core::PDF:PDF::MaxPages\"> PDF::MaxPages </link> specifies the maximum number of pages for a pdf file, which is useful if a user tries to generate a very big output file by accident."
-msgstr ""
+msgstr "Вы можете настроить внешний вид файлов, созданых в OTRS путем создания своего собственного логотипа и добавить его в <link linkend=\"Framework:Core::PDF:PDF::LogoFile\"> PDF::LogoFile </link>. Вы можете использовать <link linkend=\"Framework:Core::PDF:PDF::PageSize\"> PDF::PageSize </link> чтобы определить стандартный размер  сгенерированных страниц PDF-файла (DIN-A4 или Letter) и <link linkend=\"Framework:Core::PDF:PDF::MaxPages\"> PDF::MaxPages </link> определяет максимальное количество страниц pdf-файла, что полезно, если пользователь пытается создать очень большой выходной файл."
 
 #. type: Content of: <chapter><para>
 #: en/pdf-output.xml:42
 msgid "The Perl CPAN modules PDF::API2 and Compress::Zlib, must be installed for the generation of pdf files. In many distributions they are available as packages and can be easily installed, using the respective package manager. In case this is not possible, they have to be installed with CPAN. For further information about installing Perl modules, please refer to the <link linkend=\"installation-of-perl-modules\"> \"Installation of Perl modules\" </link> chapter."
-msgstr ""
+msgstr "Perl-модули CPAN PDF::API2 и Compress::Zlib должны быть проинсталированы для генерации PDF файлов. В большинстве дистрибутивов они доступны в виде пакетов и могут быть легко установлены с помощью соответсвтующего менедежера пакетов.  В случае, если это не возможно, они должны быть установлены с CPAN. За дополнительной информацией об установке Perl-модулей, пожалуйста, обратитесь к главе <link linkend=\"installation-of-perl-modules\">\"Установка Perl-модулей\"</link>."
 
 #. type: Content of: <chapter><title>
 #: en/external-backends.xml:7
 msgid "Using external backends"
-msgstr ""
+msgstr "Использование внешних хранилищ данных"
 
 #. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:10
 msgid "Customer data"
-msgstr ""
+msgstr "Данные клиентов"
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:13
 msgid "OTRS is able to handle different customer data attributes, like username, email address, phone number, etc. This information will be displayed in both, the agent and the customer frontends. These attributes are also used for the authentication of customers."
-msgstr ""
+msgstr "OTRS способен обрабатывать различные атрибуты данных клиента, такие как имя пользователя, адрес электронной почты, номер телефона и т.д. Эта информация будет отображаться для обоих оболочек, агентов и клиентов. Эти атрибуты используются также для проверки подлинности клиентов."
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:20
 msgid "The used / displayed customer data are completely customizable, but without the following data OTRS won't work, because this information is always needed for the authentication of customers:"
-msgstr ""
+msgstr "Использование/Отображение данных клиента полностью настраивается, но без следующих данных OTRS не будет работать, потому что эта информация всегда необходима для проверки подлиности клиентов:"
 
 #. type: Content of: <chapter><section><para><itemizedlist><listitem><para>
 #: en/external-backends.xml:29
 msgid "User login"
-msgstr ""
+msgstr "Вход пользователей"
 
 #. type: Content of: <chapter><section><para><itemizedlist><listitem><para>
 #: en/external-backends.xml:34
 msgid "Email address"
-msgstr ""
+msgstr "Адресс электронной почты"
 
 #. type: Content of: <chapter><section><para><itemizedlist><listitem><para>
 #: en/external-backends.xml:39
 msgid "Customer ID"
-msgstr ""
+msgstr "ID Клиента"
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:46
 msgid "Use configuration parameters of the Script 11.1 in your <filename>Kernel/Config.pm</filename> file, if you want to display customer information in your agent interface."
-msgstr ""
+msgstr "Используйте параметры конфигурации приведенные в Сценарии 11.1 в вашем файле <filename>Kernel/Config.pm</filename> если вы хотите отображать информацию о клиентах в вашем веб-интерфейсе."
 
 #. type: Content of: <chapter><section><para><programlisting>
 #: en/external-backends.xml:53
@@ -6953,37 +6999,43 @@ msgid ""
 "    $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;\n"
 "    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;\n"
 msgstr ""
+"    # Ticket::Frontend::CustomerInfo*\n"
+"    # (show customer info on Compose (Phone and Email), Zoom and\n"
+"    # Queue view)\n"
+"    $Self->{'Ticket::Frontend::CustomerInfoCompose'} = 1;\n"
+"    $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;\n"
+"    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;\n"
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:63
 msgid "<emphasis>Script 11.1. Kernel/Config.pm configuration parameters.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.1. Конфигурационные параметры Kernel/Config.pm.</emphasis>"
 
 #. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:70
 msgid "Customer user backend"
-msgstr ""
+msgstr "Пользовательский бэк-енд"
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:73
 msgid "You can use two types of customer backends, DB and LDAP. If you already have another customer backend (e.g. SAP), it is of course possible to write a module that uses it."
-msgstr ""
+msgstr "Вы можете использоваь два типа хранилища информации клиентов: Базу Данных DB и LDAP. Если у вас уже есть другой бэк-енд для хранения пользовательской информации (например SAP), также есть возможность написать модуль для использования этой функции.  "
 
 #. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:79
 #: en/external-backends.xml:887
 msgid "Database (Default)"
-msgstr ""
+msgstr "База Данных (По умолчанию)"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:82
 msgid "The Example 11-1 shows the configuration of a DB customer backend, which uses customer data stored in the OTRS database."
-msgstr ""
+msgstr "В Примере 11-1 отображает конфигурацию Базы Данных для хранения пользовательской информации в базе данных OTRS."
 
 #. type: Content of: <chapter><section><section><example><title>
 #: en/external-backends.xml:87
 msgid "Configuring a DB customer backend"
-msgstr ""
+msgstr "Настройка клиентского хранилища базы данных (DB)"
 
 #. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/external-backends.xml:91
@@ -7058,11 +7110,79 @@ msgid ""
 "    },\n"
 "};\n"
 msgstr ""
+"# CustomerUser (customer database backend and settings)\n"
+"$Self->{CustomerUser} = {\n"
+"    Name => 'Database Datasource',\n"
+"    Module => 'Kernel::System::CustomerUser::DB',\n"
+"    Params => {\n"
+"        # if you want to use an external database, add the required settings\n"
+"#        DSN => 'DBI:odbc:yourdsn',\n"
+"#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',\n"
+"#        User => '',\n"
+"#        Password => '',\n"
+"        Table => 'customer_user',\n"
+"    },\n"
+"# customer unique id\n"
+"CustomerKey => 'login',\n"
+"# customer #\n"
+"CustomerID => 'customer_id',\n"
+"CustomerValid => 'valid_id',\n"
+"    CustomerUserListFields => ['first_name', 'last_name', 'email'],\n"
+"    CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],\n"
+"    CustomerUserSearchPrefix => '',\n"
+"    CustomerUserSearchSuffix => '*',\n"
+"    CustomerUserSearchListLimit => 250,\n"
+"    CustomerUserPostMasterSearchFields => ['email'],\n"
+"    CustomerUserNameFields => ['salutation','first_name','last_name'],\n"
+"    CustomerUserEmailUniqCheck => 1,\n"
+"#    # show not own tickets in customer panel, CompanyTickets\n"
+"#    CustomerUserExcludePrimaryCustomerID => 0,\n"
+"#    # generate auto logins\n"
+"#    AutoLoginCreation => 0,\n"
+"#    AutoLoginCreationPrefix => 'auto',\n"
+"#    # admin can change customer preferences\n"
+"#    AdminSetPreferences => 1,\n"
+"#    # cache time to live in sec. - cache any database queries\n"
+"#    CacheTTL => 0,\n"
+"#    # just a read only source\n"
+"#    ReadOnly => 1,\n"
+"    Map => [\n"
+"        # note: Login, Email and CustomerID needed!\n"
+"        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target\n"
+"        [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],\n"
+"        [ 'UserFirstname',  'Firstname',  'first_name', 1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLastname',   'Lastname',   'last_name',  1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLogin',      'Username',   'login',      1, 1, 'var', '', 0 ],\n"
+"        [ 'UserPassword',   'Password',   'pw',         0, 0, 'var', '', 0 ],\n"
+"        [ 'UserEmail',      'Email',      'email',      1, 1, 'var', '', 0 ],\n"
+"\n"
+"#        [ 'UserEmail',      'Email', 'email',           1, 1, 'var', '$Env{\"CGIHandle\"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{\"TicketID\"}&amp;ArticleID=$Data{\"ArticleID\"}', 0 ],\n"
+"        [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],\n"
+"\n"
+"#        [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],\n"
+"        [ 'UserPhone',        'Phone',       'phone',        1, 0, 'var', '', 0 ],\n"
+"        [ 'UserFax',          'Fax',         'fax',          1, 0, 'var', '', 0 ],\n"
+"        [ 'UserMobile',       'Mobile',      'mobile',       1, 0, 'var', '', 0 ],\n"
+"        [ 'UserStreet',       'Street',      'street',       1, 0, 'var', '', 0 ],\n"
+"        [ 'UserZip',          'Zip',         'zip',          1, 0, 'var', '', 0 ],\n"
+"        [ 'UserCity',         'City',        'city',         1, 0, 'var', '', 0 ],\n"
+"        [ 'UserCountry',      'Country',     'country',      1, 0, 'var', '', 0 ],\n"
+"        [ 'UserComment',      'Comment',     'comments',     1, 0, 'var', '', 0 ],\n"
+"        [ 'ValidID',          'Valid',       'valid_id',     0, 1, 'int', '', 0 ],\n"
+"    ],\n"
+"    # default selections\n"
+"    Selections => {\n"
+"        UserTitle => {\n"
+"            'Mr.' => 'Mr.',\n"
+"            'Mrs.' => 'Mrs.',\n"
+"        },\n"
+"    },\n"
+"};\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:165
 msgid "If you want to customize the customer data, change the column's headers or add new ones to the customer_user table in the OTRS database. The Script 11.2 shows how to add a new field for room number."
-msgstr ""
+msgstr "Если вы хотите настроить данные клиентов, измените заголовки столбцов или добавьте новые, к таблице _user table в базе данных OTRS. Сценарий 11.2 отображает как добавлять новые поля для номера комнаты."
 
 #. type: Content of: <chapter><section><section><para><screen>
 #: en/external-backends.xml:172
@@ -7088,16 +7208,35 @@ msgid ""
 "Bye\n"
 "linux:~#\n"
 msgstr ""
+"linux:~# mysql -p\n"
+"Enter password:\n"
+"Welcome to the MySQL monitor.  Commands end with ; or \\g.\n"
+"Your MySQL connection id is 116 to server version: 5.0.18-Debian_7-log\n"
+"\n"
+"Type 'help;' or '\\h' for help. Type '\\c' to clear the buffer.\n"
+"\n"
+"mysql&gt; use otrs;\n"
+"Reading table information for completion of table and column names\n"
+"You can turn off this feature to get a quicker startup with -A\n"
+"\n"
+"Database changed\n"
+"mysql&gt; ALTER TABLE customer_user ADD room VARCHAR (250);\n"
+"Query OK, 1 rows affected (0.01 sec)\n"
+"Records: 1  Duplicates: 0  Warnings: 0\n"
+"\n"
+"mysql&gt; quit\n"
+"Bye\n"
+"linux:~#\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:195
 msgid "<emphasis>Script 11.2. Adding a room field to the customer_user table.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.2. Добавление поля \"комната\" в таблицу customer_user table. </emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:199
 msgid "Now add the new column to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in the Script 11.3."
-msgstr ""
+msgstr "Теперь добавьте новый столбец в MAP-масив в файле <filename>Kernel/Config.pm</filename>, как это показано в Сценарии 11.3."
 
 #. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:205
@@ -7107,33 +7246,36 @@ msgid ""
 "    [...]\n"
 "    [ 'UserRoom',      'Room',      'room',       0, 1, 'var', '', 0 ],\n"
 msgstr ""
+"    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly\n"
+"    [...]\n"
+"    [ 'UserRoom',      'Room',      'room',       0, 1, 'var', '', 0 ],\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:212
 msgid "<emphasis>Script 11.3. Adding a room field to the Kernel/Config.pm file.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.3. Добавление поля \"комната\" в файл Kernel/Config.pm.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:216
 msgid "Of course it is possible to edit all these customer information via the customer area in the agent interface."
-msgstr ""
+msgstr "Конечно, можно редактировать всю эту информации о клиенте с помощью клиентского веб-интерфейса."
 
 #. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:222
 #: en/external-backends.xml:428
 msgid "Customer with multiple IDs (Company tickets)"
-msgstr ""
+msgstr "Клиент с несколькими идентификаторами (Заявки Компании)"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:225
 #: en/external-backends.xml:431
 msgid "It is possible to assign more than one customer ID to a customer. This can be useful if a customer must access tickets of other customers, e.g. a supervisor wants to watch the tickets of his assistants. If a customer can access the tickets of another customer, the company ticket feature of OTRS is used. Company tickets can be accessed via the \"Company Ticket\" link in the customer panel."
-msgstr ""
+msgstr "Одному клиенту можно назначить более одного идентификатоар. Это может быть полезно, если клиенту необходимо получить доступ к заявкам других  клиентов, например, руководитель хочет посмотреть заявки его помощников. Если клиент может получить доступ к заявкам другого клиента, то используется особенность заявок компании OTRS. Заявки компании могут быть доступны через ссылку \"Заявки Компании\" в панели управления."
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:234
 msgid "should be accessible for a customer.  To use company tickets, a new column, with the IDs that should be accessible for a customer, has to be added to the customer_user table in the OTRS database (see Script 11.4 below)."
-msgstr ""
+msgstr "должны быть доступны для клиентов. Для использованя заявок компании, новый столбец с идентификатором (IDs), который должен быть доступен для клиентов, должен быть добавлен в таблицу customer_user базы данных OTRS (см. ниже Сценарий 11.4)."
 
 #. type: Content of: <chapter><section><section><section><para><screen>
 #: en/external-backends.xml:242
@@ -7159,16 +7301,35 @@ msgid ""
 "Bye\n"
 "linux:~#\n"
 msgstr ""
+"linux:~# mysql -p\n"
+"Enter password:\n"
+"Welcome to the MySQL monitor.  Commands end with ; or \\g.\n"
+"Your MySQL connection id is 124 to server version: 5.0.18-Debian_7-log\n"
+"\n"
+"Type 'help;' or '\\h' for help. Type '\\c' to clear the buffer.\n"
+"\n"
+"mysql&gt; use otrs;\n"
+"Reading table information for completion of table and column names\n"
+"You can turn off this feature to get a quicker startup with -A\n"
+"\n"
+"Database changed\n"
+"mysql&gt; ALTER TABLE customer_user ADD customer_ids VARCHAR (250);\n"
+"Query OK, 1 rows affected (0.02 sec)\n"
+"Records: 1  Duplicates: 0  Warnings: 0\n"
+"\n"
+"mysql&gt; quit\n"
+"Bye\n"
+"linux:~#\n"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:265
 msgid "<emphasis>Script 11.4. Adding a customer id field to the customer_user table.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.4. Добавление поля айди клиента в таблицу customer_user table.</emphasis>"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:269
 msgid "Now the new column has to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in the Script 11.5."
-msgstr ""
+msgstr "Теперь новый столбец должен быть добавлен в MAP-массив в <filename>Kernel/Config.pm</filename>, как это показано в Сценарии 11.5."
 
 #. type: Content of: <chapter><section><section><section><para><programlisting>
 #: en/external-backends.xml:275
@@ -7179,53 +7340,56 @@ msgid ""
 "    [...]\n"
 "    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],\n"
 msgstr ""
+"    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly\n"
+"    [...]\n"
+"    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],\n"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:282
 msgid "<emphasis>Script 11.5. Adding a customer id field to the Kernel/Config.pm file.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.5. Добавление поля клиент айди в файле Kernel/Config.pm.</emphasis>"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:286
 msgid "Now, the new column for the multi customer IDs can be edited via the agent interface, in the section for the customer management."
-msgstr ""
+msgstr "Теперь, новый столбец для мульти-идентификатора клиента можно редактировать с помощью веб-интерфейса агента, в разделе для управления клиентами."
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:291
 msgid "To ensure that one customer can access the tickets of other customers, add the IDs of this other users into the new field for the multiple customer IDs. Each ID has to be separated by a semicolon (see Example 11-2 below)."
-msgstr ""
+msgstr "Для того, чтобы один клиент получил доступ к заявкам других клиентов, нужно добавить идентификаторы этих пользователей в новое поле для нескольких идентификаторов клиента. Каждый идентификатор должен быть отделен точкой с запятой (см. Пример 11-2 ниже)."
 
 #. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:297
 msgid "Using company tickets with a DB backend"
-msgstr ""
+msgstr "Хранение Заявок Компании в базе данных DB"
 
 #. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:300
 msgid "The customers A, B and C exist in your system and A wants to have access to the tickets of B and C via the customer panel. B and C should have no access to the tickets of other users."
-msgstr ""
+msgstr "Клиенты А, Б и С созданы в вашей системе и А хочет иметь доступ к заявкам Б и Ц через панель управления . Б и Ц должны иметь доступ к заявкам других пользователей."
 
 #. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:306
 msgid "To realize this setup change the customer_user table and the mapping in <filename>Kernel/Config.pm</filename> like described above. Then load the settings for customer A via the customer area in the agent interface or via the admin area. If the settings are displayed add into the field for CustomerIDs the values \"B;C;\"."
-msgstr ""
+msgstr "Для реализации подобной настройки измените данные о клиенте в таблице customer_user и в <filename>Kernel/Config.pm</filename> как это показано ниже. Потом загрузите настройки для пользователя А через пользовательский веб-интерфейс или через панель управления. Если настройки отображаются в поле для CustomerIDs значениями \"Б и Ц\"."
 
 #. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:321
 #: en/external-backends.xml:713
 #: en/external-backends.xml:917
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:324
 msgid "If you have a LDAP directory with your customer data, you can use it as customer backend with OTRS, as shown in the Example 11-3."
-msgstr ""
+msgstr "Если у вас есть каталог LDAP с данными о клиентах, вы можете использовать его в качестве хранилища данных о клиентах в OTRS, как это показано в Примере 11-3."
 
 #. type: Content of: <chapter><section><section><example><title>
 #: en/external-backends.xml:329
 msgid "Configuring a LDAP customer backend"
-msgstr ""
+msgstr "Настройка LDAP в качестве хранилища информации о клиентах"
 
 #. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/external-backends.xml:333
@@ -7300,11 +7464,79 @@ msgid ""
 "    ],\n"
 "};\n"
 msgstr ""
+"# CustomerUser\n"
+"# (customer ldap backend and settings)\n"
+"$Self->{CustomerUser} = {\n"
+"    Name => 'LDAP Data Source',\n"
+"    Module => 'Kernel::System::CustomerUser::LDAP',\n"
+"    Params => {\n"
+"        # ldap host\n"
+"        Host => 'bay.csuhayward.edu',\n"
+"        # ldap base dn\n"
+"        BaseDN => 'ou=seas,o=csuh',\n"
+"        # search scope (one|sub)\n"
+"        SSCOPE => 'sub',\n"
+"        # The following is valid but would only be necessary if the\n"
+"        # anonymous user does NOT have permission to read from the LDAP tree\n"
+"        UserDN => '',\n"
+"        UserPw => '',\n"
+"        # in case you want to add always one filter to each ldap query, use\n"
+"        # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'\n"
+"        AlwaysFilter => '',\n"
+"        # if your frontend is e. g. iso-8859-1 and the charset of your\n"
+"        # ldap server is utf-8, use these options.\n"
+"#            SourceCharset => 'utf-8',\n"
+"#            DestCharset => 'iso-8859-1',\n"
+"            # if both your frontend and your LDAP are unicode, use this:\n"
+"#            SourceCharset => 'utf-8',\n"
+"#            DestCharset   => 'utf-8',\n"
+"            # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)\n"
+"            Params => {\n"
+"                port => 389,\n"
+"                timeout => 120,\n"
+"                async => 0,\n"
+"                version => 3,\n"
+"            },\n"
+"    },\n"
+"    # customer unique id\n"
+"    CustomerKey => 'uid',\n"
+"    # customer #\n"
+"    CustomerID => 'mail',\n"
+"    CustomerUserListFields => ['cn', 'mail'],\n"
+"    CustomerUserSearchFields => ['uid', 'cn', 'mail'],\n"
+"    CustomerUserSearchPrefix => '',\n"
+"    CustomerUserSearchSuffix => '*',\n"
+"    CustomerUserSearchListLimit => 250,\n"
+"    CustomerUserPostMasterSearchFields => ['mail'],\n"
+"    CustomerUserNameFields => ['givenname', 'sn'],\n"
+"    # show not own tickets in customer panel, CompanyTickets\n"
+"    CustomerUserExcludePrimaryCustomerID => 0,\n"
+"    # add an ldap filter for valid users (expert setting)\n"
+"#    CustomerUserValidFilter => '(!(description=locked))',\n"
+"    # administrator can't change customer preferences\n"
+"    AdminSetPreferences => 0,\n"
+"#    # cache time to live in sec. - cache any database queries\n"
+"#    CacheTTL => 0,\n"
+"    Map => [\n"
+"        # note: Login, Email and CustomerID are mandatory!\n"
+"        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly\n"
+"        [ 'UserTitle',      'Title',      'title',           1, 0, 'var', '', 0 ],\n"
+"        [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLastname',   'Lastname',   'sn',              1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLogin',      'Username',   'uid',             1, 1, 'var', '', 0 ],\n"
+"        [ 'UserEmail',      'Email',      'mail',            1, 1, 'var', '', 0 ],\n"
+"        [ 'UserCustomerID', 'CustomerID', 'mail',            0, 1, 'var', '', 0 ],\n"
+"#        [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],\n"
+"        [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],\n"
+"        [ 'UserAddress',    'Address',    'postaladdress',   1, 0, 'var', '', 0 ],\n"
+"        [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],\n"
+"    ],\n"
+"};\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:407
 msgid "If additional customer attributes are stored in your LDAP directory, such as a manager's name, a mobile phone number, or a department, and if you want to display this information in OTRS, just expand the MAP array in <filename>Kernel/Config.pm</filename> with the entries for these attributes, as shown in the Script 11.6."
-msgstr ""
+msgstr ".Если дополнительные атрибуты клиента хранятся в LDAP-каталоге, например, имя руководителя, номер мобильного телефона, или отдела, и если вы хотите, чтобы отобразить эту информацию в OTRS, просто расширить MAP-массив в <filename>Kernel/Config.pm</filename> записями для этих атрибутов, как показано в Сценарии 11.6."
 
 #. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:416
@@ -7314,71 +7546,74 @@ msgid ""
 "    [...]\n"
 "    [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],\n"
 msgstr ""
+"    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly\n"
+"    [...]\n"
+"    [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:423
 msgid "<emphasis>Script 11.6. Adding new fields to the Kernel/Config.pm file.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.6. Добавление нового поля в файл Kernel/Config.pm.</emphasis>"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:440
 msgid "To use company tickets a new field has to be added to the LDAP directory that contains the IDs that should be accessible for a customer."
-msgstr ""
+msgstr "Для использования опции \"заявки компании\" новое поле должно быть добавлено в каталог LDAP, который содержит идентификаторы, которые должны быть доступны для клиентов."
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:446
 msgid "If the new field in the LDAP directory has been created the new entry has to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in the Script 11.7."
-msgstr ""
+msgstr "Если новое поле в каталоге LDAP был создан новый элемент должен быть добавлен в MAP-массив в <filename>Kernel/Config.pm</filename>, как этл показано в Сценарии 11.7."
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:460
 msgid "<emphasis>Script 11.7. Maping new fields to the Kernel/Config.pm file.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.7. Подстановка новых полей в Kernel/Config.pm file.</emphasis>"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:464
 msgid "The field for the multiple customer IDs has to be edited directly in the LDAP directory, OTRS can only read from LDAP, not write to it."
-msgstr ""
+msgstr "Поле мульти ID клиента может быть отредактировано напрямую в директории LDAP, OTRS может только читать информацию из LDAP, но не записывать ее."
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:469
 msgid "To ensure the access for a customer to the tickets of other customers, add the customer IDs of the customers that tickets should be accessed to the new field in your LDAP directory. Each ID has to be separated by a semicolon (see the Example 11-4 below)."
-msgstr ""
+msgstr "Чтобы убедтися что клиент имеет доступ к заявкам других клиентов, добавьте ID клиента заявки которого должны простамтриватся к новому полю в вашей LDAP-директории. Каждый идентификатор должен быть отделен точнкой с запятой (см. ниже Рисунок 11-4)."
 
 #. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:476
 msgid "Using Company tickets with a LDAP backend"
-msgstr ""
+msgstr "Хранение \"Заявок Компании\" в LDAP."
 
 #. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:479
 msgid "The customers A, B and C exist in your system and A wants to have access to the tickets of B and C via the customer panel. B and C should have no access to tickets of other users."
-msgstr ""
+msgstr "Клиенты А, Б и Ц созданны в вашей системе и А хочет иметь доступ к заявкам Б и Ц через панель клиента. Б и Ц не должны иметь доступа к другим пользователям."
 
 #. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:485
 msgid "To realize this setup change the LDAP directory and the mapping in <filename>Kernel/Config.pm</filename>, like described above. Then add into the field for CustomerIDs the values \"B;C;\" for customer A in your LDAP directory."
-msgstr ""
+msgstr "Для обеспечения этой установки измените LDAP-директорию и маппинг в <filename>Kernel/Config.pm</filename>, как это показано ниже. Потом добавьте информацию в поле для CustomerIDs, значения \"Б;Ц;\" для клиента \"А\" в вашей LDAP-директории."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:499
 msgid "Use more than one customer backend with OTRS"
-msgstr ""
+msgstr "Использование больше чем одного хранилища информации с OTRS"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:502
 msgid "If you want to utilize more than one customer data source used with OTRS (e.g. an LDAP and a database backend), the CustomerUser config parameter should be expanded with a number, e.g. \"CustomerUser1\", \"CustomerUser2\" (see the Example 11-5 below)."
-msgstr ""
+msgstr "Если вы хотите использовать больше одного клиентского хранилища информации в OTRS (например LDAP и базу данных), конфигурационный параметр CustomerUser должен быть расширен с числом, например \"CustomerUser1\", \"CustomerUser2\" (см. ниже Пример 11-5)."
 
 #. type: Content of: <chapter><section><section><example><title>
 #: en/external-backends.xml:509
 msgid "Using more than one customer backend with OTRS"
-msgstr ""
+msgstr "Использование больше чем одного пользовательского хранилища данных с OTRS"
 
 #. type: Content of: <chapter><section><section><example><para>
 #: en/external-backends.xml:512
 msgid "The following configuration example shows usage of both an LDAP and a database customer backend with OTRS."
-msgstr ""
+msgstr "В следующем примере показано применение конфигурации как для LDAP так и для базы данных клиентского бэкэнда с OTRS."
 
 #. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/external-backends.xml:518
@@ -7520,16 +7755,151 @@ msgid ""
 "    ],\n"
 "};\n"
 msgstr ""
+"# 1. Customer user backend: DB\n"
+"# (customer database backend and settings)\n"
+"$Self->{CustomerUser1} = {\n"
+"    Name => 'Customer Database',\n"
+"    Module => 'Kernel::System::CustomerUser::DB',\n"
+"    Params => {\n"
+"        # if you want to use an external database, add the\n"
+"        # required settings\n"
+"#        DSN => 'DBI:odbc:yourdsn',\n"
+"#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',\n"
+"#        User => '',\n"
+"#        Password => '',\n"
+"        Table => 'customer_user',\n"
+"    },\n"
+"    # customer unique id\n"
+"    CustomerKey = 'login',\n"
+"    # customer #\n"
+"    CustomerID = 'customer_id',\n"
+"    CustomerValid = 'valid_id',\n"
+"    CustomerUserListFields => ['first_name', 'last_name', 'email'],\n"
+"    CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],\n"
+"    CustomerUserSearchPrefix => '',\n"
+"    CustomerUserSearchSuffix => '*',\n"
+"    CustomerUserSearchListLimit => 250,\n"
+"    CustomerUserPostMasterSearchFields => ['email'],\n"
+"    CustomerUserNameFields => ['salutation','first_name','last_name'],\n"
+"    CustomerUserEmailUniqCheck => 1,\n"
+"#    # show not own tickets in customer panel, CompanyTickets\n"
+"#    CustomerUserExcludePrimaryCustomerID => 0,\n"
+"#    # generate auto logins\n"
+"#    AutoLoginCreation => 0,\n"
+"#    AutoLoginCreationPrefix => 'auto',\n"
+"#    # admin can change customer preferences\n"
+"#    AdminSetPreferences => 1,\n"
+"#    # cache time to live in sec. - cache any database queries\n"
+"#    CacheTTL => 0,\n"
+"#    # just a read only source\n"
+"#    ReadOnly => 1,\n"
+"    Map => [\n"
+"\n"
+"        # note: Login, Email and CustomerID needed!\n"
+"        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target\n"
+"        [ 'UserTitle',      'Title',      'title',        1, 0, 'var', '', 0 ],\n"
+"        [ 'UserFirstname',  'Firstname',  'first_name',   1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLastname',   'Lastname',   'last_name',    1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLogin',      'Username',   'login',        1, 1, 'var', '', 0 ],\n"
+"        [ 'UserPassword',   'Password',   'pw',           0, 0, 'var', '', 0 ],\n"
+"        [ 'UserEmail',      'Email',      'email',        1, 1, 'var', '', 0 ],\n"
+"        [ 'UserCustomerID', 'CustomerID', 'customer_id',  0, 1, 'var', '', 0 ],\n"
+"        [ 'UserPhone',      'Phone',      'phone',        1, 0, 'var', '', 0 ],\n"
+"        [ 'UserFax',        'Fax',        'fax',          1, 0, 'var', '', 0 ],\n"
+"        [ 'UserMobile',     'Mobile',     'mobile',       1, 0, 'var', '', 0 ],\n"
+"        [ 'UserStreet',     'Street',     'street',       1, 0, 'var', '', 0 ],\n"
+"        [ 'UserZip',        'Zip',        'zip',          1, 0, 'var', '', 0 ],\n"
+"        [ 'UserCity',       'City',       'city',         1, 0, 'var', '', 0 ],\n"
+"        [ 'UserCountry',    'Country',    'country',      1, 0, 'var', '', 0 ],\n"
+"        [ 'UserComment',    'Comment',    'comments',     1, 0, 'var', '', 0 ],\n"
+"        [ 'ValidID',        'Valid',      'valid_id',     0, 1, 'int', '', 0 ],\n"
+"    ],\n"
+"    # default selections\n"
+"    Selections => {\n"
+"        UserTitle => {\n"
+"            'Mr.' => 'Mr.',\n"
+"            'Mrs.' => 'Mrs.',\n"
+"        },\n"
+"    },\n"
+"};\n"
+"\n"
+"# 2. Customer user backend: LDAP\n"
+"# (customer ldap backend and settings)\n"
+"$Self->{CustomerUser2} = {\n"
+"    Name => 'LDAP Datasource',\n"
+"    Module => 'Kernel::System::CustomerUser::LDAP',\n"
+"    Params => {\n"
+"        # ldap host\n"
+"        Host => 'bay.csuhayward.edu',\n"
+"        # ldap base dn\n"
+"        BaseDN => 'ou=seas,o=csuh',\n"
+"        # search scope (one|sub)\n"
+"        SSCOPE => 'sub',\n"
+"#        # The following is valid but would only be necessary if the\n"
+"#        # anonymous user does NOT have permission to read from the LDAP tree\n"
+"        UserDN => '',\n"
+"        UserPw => '',\n"
+"        # in case you want to add always one filter to each ldap query, use\n"
+"        # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'\n"
+"        AlwaysFilter => '',\n"
+"        # if both your frontend and your LDAP are unicode, use this:\n"
+"#        SourceCharset => 'utf-8',\n"
+"#        DestCharset   => 'utf-8',\n"
+"        # if your frontend is e. g. iso-8859-1 and the character set of your\n"
+"        # ldap server is utf-8, use these options:\n"
+"#        SourceCharset => 'utf-8',\n"
+"#        DestCharset => 'iso-8859-1',\n"
+"\n"
+"        # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)\n"
+"        Params => {\n"
+"            port => 389,\n"
+"            timeout => 120,\n"
+"            async => 0,\n"
+"            version => 3,\n"
+"        },\n"
+"    },\n"
+"    # customer unique id\n"
+"    CustomerKey => 'uid',\n"
+"    # customer #\n"
+"    CustomerID => 'mail',\n"
+"    CustomerUserListFields => ['cn', 'mail'],\n"
+"    CustomerUserSearchFields => ['uid', 'cn', 'mail'],\n"
+"    CustomerUserSearchPrefix => '',\n"
+"    CustomerUserSearchSuffix => '*',\n"
+"    CustomerUserSearchListLimit => 250,\n"
+"    CustomerUserPostMasterSearchFields => ['mail'],\n"
+"    CustomerUserNameFields => ['givenname', 'sn'],\n"
+"    # show not own tickets in customer panel, CompanyTickets\n"
+"    CustomerUserExcludePrimaryCustomerID => 0,\n"
+"    # add a ldap filter for valid users (expert setting)\n"
+"#    CustomerUserValidFilter => '(!(description=locked))',\n"
+"    # admin can't change customer preferences\n"
+"    AdminSetPreferences => 0,\n"
+"    Map => [\n"
+"        # note: Login, Email and CustomerID needed!\n"
+"        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly\n"
+"        [ 'UserTitle',      'Title',      'title',           1, 0, 'var', '', 0 ],\n"
+"        [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLastname',   'Lastname',   'sn',              1, 1, 'var', '', 0 ],\n"
+"        [ 'UserLogin',      'Username',   'uid',             1, 1, 'var', '', 0 ],\n"
+"        [ 'UserEmail',      'Email',      'mail',            1, 1, 'var', '', 0 ],\n"
+"        [ 'UserCustomerID', 'CustomerID', 'mail',            0, 1, 'var', '', 0 ],\n"
+"#        [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],\n"
+"        [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],\n"
+"        [ 'UserAddress',    'Address',    'postaladdress',   1, 0, 'var', '', 0 ],\n"
+"        [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],\n"
+"    ],\n"
+"};\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:659
 msgid "It is possible to integrate up to 10 different customer backends. Via the customer management interface in OTRS all customer data can be viewed or edited (if write access is enabled)."
-msgstr ""
+msgstr "Есть возможность интегрировать до 10 различных пользовательских хранилищ информации. Через интерфейс управления клиентами в OTRS все данные о клиентах можно посмотреть и отредактировать (если есть доступ на запись)."
 
 #. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:669
 msgid "Backends to authenticate agents and customers"
-msgstr ""
+msgstr "Хранилища для аутентификации агентов и клиентов"
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:672
@@ -7724,7 +8094,7 @@ msgstr ""
 #. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:896
 msgid "Customer user authentication against a DB backend"
-msgstr ""
+msgstr "Аутентификация Клиента в Базе Данных"
 
 #. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:900
@@ -7739,16 +8109,24 @@ msgid ""
 "#$Self->{'Customer::AuthModule::DB::User'} = \"some_user\";\n"
 "#$Self->{'Customer::AuthModule::DB::Password'} = \"some_password\";\n"
 msgstr ""
+"# This is the auth. module againt the otrs db\n"
+"$Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::DB';\n"
+"$Self->{'Customer::AuthModule::DB::Table'} = 'customer_user';\n"
+"$Self->{'Customer::AuthModule::DB::CustomerKey'} = 'login';\n"
+"$Self->{'Customer::AuthModule::DB::CustomerPassword'} = 'pw';\n"
+"#$Self->{'Customer::AuthModule::DB::DSN'} = \"DBI:mysql:database=customerdb;host=customerdbhost\";\n"
+"#$Self->{'Customer::AuthModule::DB::User'} = \"some_user\";\n"
+"#$Self->{'Customer::AuthModule::DB::Password'} = \"some_password\";\n"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:920
 msgid "If you have a LDAP directory with all your customer data, you can use the LDAP module to authenticate your customers to OTRS (see Example 11-11 below).  Because this module has only read-access to the LDAP backend, it is not possible to edit the customer data via the web interface of OTRS."
-msgstr ""
+msgstr "Если у вас есть каталог LDAP со всеми данными о клиентах, можно использовать модуль LDAP для аутентификации клиентов в OTRS (см. Пример 11-11 ниже). Поскольку этот модуль имеет права только для чтения для данных из LDAP-бэкенда, то нету возможности изменить данные клиента через веб."
 
 #. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:927
 msgid "Customer user authentication against a LDAP backend"
-msgstr ""
+msgstr "Аутентификация клиентов в LDAP"
 
 #. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:931
@@ -7792,21 +8170,58 @@ msgid ""
 "    version => 3,\n"
 "};\n"
 msgstr ""
+"# This is an example configuration for an LDAP auth. backend.\n"
+"# (make sure Net::LDAP is installed!)\n"
+"$Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::LDAP';\n"
+"$Self->{'Customer::AuthModule::LDAP::Host'} = 'ldap.example.com';\n"
+"$Self->{'Customer::AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';\n"
+"$Self->{'Customer::AuthModule::LDAP::UID'} = 'uid';\n"
+"\n"
+"# Check if the user is allowed to auth in a posixGroup\n"
+"# (e. g. user needs to be in a group xyz to use otrs)\n"
+"$Self->{'Customer::AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';\n"
+"$Self->{'Customer::AuthModule::LDAP::AccessAttr'} = 'memberUid';\n"
+"# for ldap posixGroups objectclass (just uid)\n"
+"$Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'UID';\n"
+"# for non ldap posixGroups objectclass (full user dn)\n"
+"#$Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'DN';\n"
+"\n"
+"# The following is valid but would only be necessary if the\n"
+"# anonymous user does NOT have permission to read from the LDAP tree\n"
+"$Self->{'Customer::AuthModule::LDAP::SearchUserDN'} = '';\n"
+"$Self->{'Customer::AuthModule::LDAP::SearchUserPw'} = '';\n"
+"\n"
+"# in case you want to add always one filter to each ldap query, use\n"
+"# this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'\n"
+"$Self->{'Customer::AuthModule::LDAP::AlwaysFilter'} = '';\n"
+"\n"
+"# in case you want to add a suffix to each customer login name, then\n"
+"# you can use this option. e. g. user just want to use user but\n"
+"# in your ldap directory exists user@domain.\n"
+"#$Self->{'Customer::AuthModule::LDAP::UserSuffix'} = '@domain.com';\n"
+"\n"
+"# Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)\n"
+"$Self->{'Customer::AuthModule::LDAP::Params'} = {\n"
+"    port => 389,\n"
+"    timeout => 120,\n"
+"    async => 0,\n"
+"    version => 3,\n"
+"};\n"
 
 #. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:977
 msgid "HTTPBasicAuth for customers"
-msgstr ""
+msgstr "HTTPBasicAuth аутентификация для клиентов"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:980
 msgid "If you want to implement a \"single sign on\" solution for all your customer users, you can use HTTPBasic authentication (for all your systems) and use the HTTPBasicAuth module with OTRS (no login is needed with OTRS any more). See the Example 11-12 below."
-msgstr ""
+msgstr "Если вы хотите внедрить \"single sign on\"-решение для ваших пользователей, вы можете использовать базовую, HTTPBasic аутентификацию (для всех ваших систем) и использовать модуль HTTPBasicAuth с OTRS (больше не нужно логинится в OTRS). См. ниже Пример 11-12."
 
 #. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:987
 msgid "Customer user authentication with HTTPBasic"
-msgstr ""
+msgstr "Аутентификация клиентов с помощью HTTPBasic"
 
 #. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:991
@@ -7824,16 +8239,27 @@ msgid ""
 "$Self->{CustomerPanelLoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';\n"
 "$Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';\n"
 msgstr ""
+"# This is an example configuration for an apache ($ENV{REMOTE_USER})\n"
+"# auth. backend. Use it if you want to have a singe login through\n"
+"# apache http-basic-auth\n"
+"$Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::HTTPBasicAuth';\n"
+"\n"
+"# Note:\n"
+"# If you use this module, you should use the following\n"
+"# config settings as fallback, if user isn't login through\n"
+"# apache ($ENV{REMOTE_USER})\n"
+"$Self->{CustomerPanelLoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';\n"
+"$Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';\n"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:1014
 msgid "The settings shown in the Example 11-13 can be used to authenticate your customers against a radius server."
-msgstr ""
+msgstr "Настройки приведенные в примере 11-13 могут быть использованы для аутентификации ваших клиентов с radius-сервером."
 
 #. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:1019
 msgid "Customer user authentication against a radius backend"
-msgstr ""
+msgstr "Аутентификация клиентов с использованием radius "
 
 #. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:1023
@@ -7844,31 +8270,35 @@ msgid ""
 "$Self->{'Customer::AuthModule::Radius::Host'} = 'radiushost';\n"
 "$Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';\n"
 msgstr ""
+"# This is a example configuration to auth. customer against a radius server\n"
+"$Self->{'Customer::AuthModule'} = 'Kernel::System::Auth::Radius';\n"
+"$Self->{'Customer::AuthModule::Radius::Host'} = 'radiushost';\n"
+"$Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';\n"
 
 #. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:1040
 msgid "Customize the customer self registration"
-msgstr ""
+msgstr "Дополнительная настройка самостоятельной регистрации клиентов"
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:1043
 msgid "It is possible to customize the self registration for new customers, which is reachable via the customer.pl panel. New optional or required fields, like room number, address or state can be added."
-msgstr ""
+msgstr "Можно настроить самостоятельную регистрацию для новых клиентов, которые доступны через панель customer.pl. Новые дополнительные или обязательные поля, такие как номер комнаты, адрес или состояние могут быть добавлены."
 
 #. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:1049
 msgid "The following example shows how you can specify a required field in the customer database, in this case, to store the room number of a customer."
-msgstr ""
+msgstr "В следующем примере показано, как можно указать обязательные для заполнения поля в базе данных клиентов, в данном случае, для хранения номера клиента."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:1054
 msgid "Customizing the web interface"
-msgstr ""
+msgstr "Настройка веб-интерфейса"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1057
 msgid "To display the new field for the room number in the customer.pl web interface, the .dtl file, which is responsible for the layout in this interface, has to be modified. Edit the <filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file and add the new field around line 80 (see Script 11.9 below)."
-msgstr ""
+msgstr "Для отображения новых полей для номера комнаты в веб-интерфейсе пользователя customer.pl, .dtl-файл, который отвечает за шаблон этого интерфейса, должен быть изменен. Редактируйте файл <filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> и добавьте новые поля после строки 80 (см. ниже Сценарий 11.9)."
 
 #. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:1066
@@ -7881,16 +8311,22 @@ msgid ""
 "&lt;/div&gt;\n"
 "[...]\n"
 msgstr ""
+"[...]\n"
+"&lt;div class=\"NewLine\"&gt;\n"
+"    &lt;label for=\"Room\"&gt;$Text{\"Room{CustomerUser}\"}&lt;/label&gt;\n"
+"    &lt;input title=\"$Text{\"Room Number\"}\" name=\"Room\" type=\"text\" id=\"UserRoom\" maxlength=\"50\" /&gt;\n"
+"&lt;/div&gt;\n"
+"[...]\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1076
 msgid "<emphasis>Script 11.9. Displaying a new field in the web interface.</emphasis>"
-msgstr ""
+msgstr "<emphasis>Сценарий 11.9. Отображение новых полей в веб-интерфейсе.</emphasis>"
 
 #. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:1083
 msgid "Customer mapping"
-msgstr ""
+msgstr "Отображения клиентов"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1086
