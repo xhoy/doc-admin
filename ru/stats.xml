@@ -3,270 +3,272 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.7 2011-02-16 08:56:01 mg Exp $ -->
 <chapter id="statistic-module">
-<title>Stats module</title>
+<title>Stats-модуль</title>
 
 <para>
-Stats and reports are essential for companies.  On the basis of stats,
-information can be evaluated and rated, and eventually informed decisions
-can be made.
+Статистика и отчеты необходимы компаниям. На основе статистики, информация
+может быть оценена что может дать толчек для обоснованых решений в будущем.
 </para>
 
 <para>
-A stats module should meet a multitude of requirements:
+Модуль статистики должен удовлетворять множество требований:
 </para>
 
 <para>
 <itemizedlist>
     <listitem>
         <para>
-        Various OTRS modules are to be evaluated.
+        Должны быть определены и взяты во внимание различные модули OTRS.
         </para>
     </listitem>
     <listitem>
         <para>
-        Consideration of the user permission settings of the respective
-installation.
+        Взяты во внимание права доступа пользователей для соответствующей установки.
         </para>
     </listitem>
     <listitem>
         <para>
-        Generation of complex statistics.
+        Создание сложной статистики.
         </para>
     </listitem>
     <listitem>
         <para>
-        Easy and fast configuration of stats.
+        Простая и быстрая настройка статистики.
         </para>
     </listitem>
     <listitem>
         <para>
-        High performance.
+        Высокая производительность.
         </para>
     </listitem>
     <listitem>
         <para>
-        Support of a large number of output variants.
+        Поддержка большого числа способов вывода.
         </para>
     </listitem>
 </itemizedlist>
 </para>
 
 <para>
-The OTRS stats module tries to satisfy all these requirements. The core
-feature is a GUI, which allows to configure stats with the click of a mouse.
+Модуль статистики OTRS старается удовлетворить всем этим
+требованиям. Основной особеностью является графический интерфейс, который
+позволяет настроить статистику несколькими щелчками мыши.
 </para>
 
 <para>
-Statistical elements, i.e. files which supplement the functionalities of the
-stats module for specific requirements, can be integrated to model complex
-stats.
+Статистические элементы, такие как например файлы, которые дополняют
+функциональные возможности модуля статистики для конкретых требований, могут
+быть интегрированы для моделирования сложной статистики.
 </para>
 
 <para>
-All requirements concerning the evaluation of personal data have been
-considered. It is, for instance, not possible to directly evaluate the
-activities of individual agents in the standard configuration.
+Все требования, касающиеся оценки личных данных были рассмотрены. Это,
+например, нету возмжности напрямую вычислить активность отдельных агентов в
+стандартной конфигурации.
 </para>
 
 <para>
-The stats module enables OTRS users to make a quick and easy evaluation of
-the activities on their system.
+Модуль статистики OTRS позволяет пользователям быстро и легко сделать оценку
+активности их системы.
 </para>
 
 <section id="stats-usage" >
-<title>Handling of the module by the agent</title>
+<title>Обработка модуля агентом</title>
 
 <para>
-As soon as the stats module has been installed and configured successfully
-by the OTRS admin, the navigation bar of every agent with read and/or write
-rights displays the additional module link "Statistics", which has various
-action links, as shown in the Figure 19.1.
+Как только модуль статистики установлен и успешно настроен
+OTRS-администратором, то для каждого агента, который имеет права для чтения
+и/или записи, в навигационной панели отображается дополнительнаяя ссылка на
+модуль "Статистика", который имеет ссылки на различные действия, как
+показано на Рисунке 19.1.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>The stats module</screeninfo> <graphic
+<screeninfo>Модуль статистики</screeninfo> <graphic
 fileref="screenshots/stats-menu.png" scale="40" srccredit="stats-menu -
 Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 19.1. Action lists of the statistics.</emphasis>
+    <emphasis>Рисунок 19.1. Список действий для статистики. </emphasis>
 </para>
 
 <para>
-The different options provided in the statistics menu are:
+Различные варианты представленные в меню статистики:
 </para>
 
 <para>
 <itemizedlist>
     <listitem>
         <para>
-            <emphasis>Overview</emphasis>.  Automatically shown if the module link
-"Statistics" is chosen.
+            <emphasis>Обзор</emphasis>. Автоматически отображается если ссылка на модуль
+"Статистика" закрыта.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>New</emphasis>. Requires rw rights.
+            <emphasis>Новая</emphasis>. Требуются права rw.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>Import</emphasis>. Requires rw rights.
+            <emphasis>Импорт</emphasis>. Требуются rw-права.
         </para>
     </listitem>
 </itemizedlist>
 </para>
 
 <section id="stats-overview" >
-<title>Overview</title>
+<title>Обзор</title>
 
 <para>
-A list of all pre-configured stats the agent can use (see Figure 19.2
-below).
+Список всех предварительных настроек, которые может использовать агент
+(см. ниже Рисунок 19.2).
 </para>
 
 <para>
-The easiest way to access the overview is to select the "Statistics" link
-and then the action link "Overview" in the navigation bar. The stats
-overview is called up automatically when the module link "Statistics" in the
-navigation bar is chosen.
+Самый простой способ доступа к просмотру - это выбрать ссылку "Статистика",
+а затем ссылку "Обзор" в панели навигации. Обзор статистики вызывается
+автоматически, когда модуль "Статисткика" закрыт в навигационной панели.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Overview of the standard statistics</screeninfo> <graphic
+<screeninfo>Обзор стандартной статистики</screeninfo> <graphic
 fileref="screenshots/stats-overview.png" scale="40"
 srccredit="stats-overview - Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 19.2. Overview of the standard statistics.</emphasis>
+    <emphasis>Рисунок 19.2. Обзор стандартной статистики.</emphasis>
 </para>
 
 <para>
-The following information is provided about the stats listed in the
-overview:
+В обзоре приведена следующая информация о статистике:
 </para>
 
 <para>
 <itemizedlist>
     <listitem>
         <para>
-            <emphasis>Stat#</emphasis>. Unique statistic number.
+            <emphasis>Stat#</emphasis>. Уникальный номер.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>Title</emphasis>. Title of the statistic.
+            <emphasis>Заголовок</emphasis>. Заголовок статистики.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>Object</emphasis>. Object used for generating the statistic.  In
-the case of a static statistic, no object is displayed as no dynamic object
-is used for its generation.
+            <emphasis>Объект</emphasis>. Объект использующийся для генерации
+статистики. В случае статической статистики, не отображается ниодин обьект,
+поскольку динамические обьекты не используются для создания статистики.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>Description</emphasis>. Excerpt of the statistic's description.
+            <emphasis>Описание</emphasis>. Выдержка из описания статистики.
         </para>
     </listitem>
 </itemizedlist>
 </para>
 
 <para>
-Below the list of statistics, there is a results display, which provides
-information about the number of accessible stats. If the overview covers
-more than one page, the agent can browse through the different pages.
+Ниже под списком статистики отображаются результаты, которые предоставляют
+информацию о количестве доступной статистики. Если их количество превышает
+одну страницу, то агнент может перемещатся между разными страницами.
 </para>
 
 <para>
-The agents can sort the stats ascending or descending, according to their
-needs, just by clicking the desired sorting key field of the headline.
+Агенты не имеют возможности сотрировать статистику по возрастанию или
+убыванию в соответствии с их потребностями, просто нажав на соответствующие
+ключевые слова в заголовке.
 </para>
 
 <para>
-To generate a statistic, the right one is chosen by clicking the link with
-the stat number, which leads to the "View" user interface.
+Для генерации статистики, правильно выбрать один нажав ссылку с номером
+статистики, что приведет к переходу на страницу "Просмотр" пользовательского
+интерфейса.
 </para>
 
 <para>
-A few sample stats are imported when the stats module is used for the first
-time.
+Несколько образцов статистики импортируется когда модуль статистики
+используется впервые.
 </para>
 
 </section>
 
 <section id="stats-viewing-generating">
-<title>Generate and view stats</title>
+<title>Создание и просмотрт статистики</title>
 
 <para>
-The view user interface is supposed to provide the agent with an overview of
-the stat's pre-configuration (see Figure 19.3 below).
+Интерфейс просмотра пользователей должен предоставлять агенту обзор
+предварительной конфигурации (см. ниже Рисунок 19.3).
 </para>
 
 <para>
 <screenshot id="stats-view-screenshot" >
-<screeninfo>Stat view</screeninfo> <graphic
+<screeninfo>Просмотр статистики</screeninfo> <graphic
 fileref="screenshots/stats-view.png" scale="40" srccredit="stats-view -
 Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 19.3. Viewing a specific statistic.</emphasis>
+    <emphasis>Рисунок 19.3. Просмотр конкретной статистики.</emphasis>
 </para>
 
 <para>
-The agents can perform configurations within the range of the
-pre-configuration. The originator of a stat configuration can determine the
-degree to which the stat generation can be influenced. The most extreme
-examples of this would be agents who can't effect any changes or can change
-all attributes, respectively.
+Агенты могут выполнять настройку в диапазоне предварительной
+конфигурации. Создатель конфигурации статистики может определить степень, в
+которой можножно влиять на статистику. Самым экстремальным примером этого
+могут быть агенты, которые не могут повлиять на любые изменения или могут
+изменить все атрибуты, соответственно.
 </para>
 
 <para>
-The page shows the following:
+На странице отображается следующее:
 </para>
 
 <para>
 <itemizedlist>
     <listitem>
         <para>
-        Possible actions:
+        Возможные действия:
         </para>
 
         <para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis>Go to overview</emphasis>.  Link back to the starting point.
+                    <emphasis>Перейти к обзору</emphasis>. Ссылка обратно, в начальную точку.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Edit</emphasis>.  Edit the current stat (rw rights required).
+                    <emphasis>Редактировать</emphasis>. Редактировать текущую статистику
+(требуются права для чтения и записи, RW).
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Delete</emphasis>.  Delete the current stat (rw rights required).
+                    <emphasis>Удалить</emphasis>.  Удалить текущую статистику(требуются права
+для чтения/записи, rw).
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Export config</emphasis>.  Export a stat configuration, via file
-download (rw rights required).
+                    <emphasis>Экспортировать настройки</emphasis>.  Экспортировать настройки
+конфигурации, скачать их (требуются права для чтения и записи, rw).
                 </para>
 
                 <para>
-                    Usage: export and import functions allow for the convenient creation and
-testing of stats on test systems and subsequent easy integration into the
-production system.
+                    Использование: экспорт и импорт функций позволяют с легкостью создавать и
+тестировать статистику та тестовых системах и их последующую интеграцию в
+производственную систему.
                 </para>
             </listitem>
         </itemizedlist>
@@ -274,35 +276,35 @@ production system.
     </listitem>
     <listitem>
         <para>
-        The stat details:
+        Подробные данные о статистике:
         </para>
         <para>
         <itemizedlist>
             <listitem>
                 <para>
-                    <emphasis>Stat#</emphasis>.  The number of the statistic.
+                    <emphasis>Stat#</emphasis>.  Номер статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Title</emphasis>.  The title of the statistic.
+                    <emphasis>Заголовок</emphasis>. Заголовок статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Object</emphasis>.  Object used for generating the stat.
+                    <emphasis>Объект</emphasis>. Объект, используемый для создания статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Description</emphasis>.  Provides more detailed information about
-the intention of the stat.
+                    <emphasis>Описание</emphasis>. Обеспечивает более подробную информацию о
+назначении статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Format</emphasis>.  Stat output format. Depending on the
-configuration, any of the following output formats can be chosen:
+                    <emphasis>Формат</emphasis>. Выходной формат статистики. В зависимости от
+конфигурации, может быть выбран любой из следующих форматов:
                 </para>
                 <para>
                 <itemizedlist>
@@ -313,42 +315,42 @@ configuration, any of the following output formats can be chosen:
                     </listitem>
                     <listitem>
                         <para>
-                        Print.
+                        Печать.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-lines.
+                        Графические линии.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-bars.
+                        Столбцовая диаграмма.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-hbars.
+                        Диаграмма.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-points.
+                        Точечная диаграмма.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-lines-points.
+                        Точечно-линейная диаграмма.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-area.
+                        Диаграмма
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                        Graph-pie.
+                        Круговая "пирожок"-диаграмма.
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -356,17 +358,18 @@ configuration, any of the following output formats can be chosen:
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Graphsize</emphasis>.  Size (in pixels) which the graphic / chart
-may have.  This option is only given when the stat pre-configuration allows
-it for a chart. All generally usable graphic sizes are configured by the
-OTRS admin in the SysConfig. The agent can then pre-select all relevant
-formats, while configuring the stats.
+                    <emphasis>Размер в пикселях</emphasis>. Размер (в пикселях) который может
+иметь график/диаграмма. Эта опция доступна только в том случае, если
+доступна предварительная настройка для графиков. Все основные и часто
+используемые графические размеры настраиваются в панели управления OTRS в
+SysConfig. Агент может выбрать все предварительно доступные форматы во время
+настройки статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Sum rows</emphasis>.  Indicates whether the stat is amended by a
-column, whose cells state the sums of the respective rows.
+                    <emphasis>Сумма строк</emphasis>. Указывает когда статистика не помещается в
+выделенную колонку, ячейки которой содержат соответствующие строки.
                 </para>
             </listitem>
             <listitem>
@@ -377,86 +380,90 @@ a row, whose cells state the sum of the respective columns.
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Cache</emphasis>.  Indicates whether the generated stats are
-cached in the file system.
+                    <emphasis>Кэш</emphasis>. Указывается когда созданная статистика кэшируется
+в файловой системе.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Valid</emphasis>.  This is set to "invalid" if a pre-configured
-statistic is still being created or must not be used temporarily for certain
-reasons. Also the "Start" button in the bottom right of the block is then no
-longer displayed. The stat can no longer be generated.
+                    <emphasis>Правильный</emphasis>. Устанавливается в значение "invalid" если
+предварительно настроенная статистика по прежнему остается или не может быть
+использована временно по определенным причинам. Также кнопка "Статистика"  в
+правом нижнем углу блока не отображатеся. Статистика не может больше
+отображатся.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Created</emphasis>.  Creation time of the stat.
+                    <emphasis>Создана</emphasis>.  Время создания статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Created by</emphasis>.  Agent who created the stat.
+                    <emphasis>Создана (кем)</emphasis>. Агент, который создал эту статистику.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Changed</emphasis>.  Time of the last stat's modification.
+                    <emphasis>Изменена</emphasis>. Время последней модификации статистики.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>Changed by</emphasis>.  Agent who altered the stat.
+                    <emphasis>Изменена кем</emphasis>. Агент, который внес изменения в
+статистику.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <emphasis>X-axis</emphasis>.  Using this function, the agent can exchange
-the x and y axes (only when activated by the OTRS administrator).
+                    <emphasis>X-axis</emphasis>. Используя эту функцию, агент может
+обмениватсься x и y axes (только если эта функциональность активирована
+OTRS-администратором).
                 </para>
             </listitem>
             <listitem>
                 <para>
-                The general information is followed by information about the stat
-itself. There are two different stat views:
+                Общая информация сопровождается информацией о самой статистике. Доступны два
+различных шаблона просмотра:
                 </para>
                 <para>
                 <itemizedlist>
                     <listitem>
                         <para>
-                            <emphasis>Static stat view</emphasis>.  Complex stats cannot be generated
-dynamically, that is the reason why static stat generators can be integrated
-into the stat module (see Figure 19.4 below).  They were developed
-specifically for the particular evaluation.  The various job definitions
-result in different views.
+                            <emphasis>Статический шаблон для просмотра статистики</emphasis>.  Сложная
+статистика не может быть сгенерирована динамически, "на-лету", это и
+является главной причиной, почему статистические генераторы не могут быть
+интегрированы в модуль статистики (см. ниже Рисунок 19.4). Они были
+разработаны специально для конкретной оценки. Различные задания для
+различных шаблонов.
                         </para>
                         <para>
                         <screenshot>
-<screeninfo>Static stat view</screeninfo> <graphic
+<screeninfo>Статические шаблоны для просмотра статистики</screeninfo> <graphic
 fileref="screenshots/stats-view-static.png" scale="40"
 srccredit="stats-view-static - Screenshot" /></screenshot>
                         </para>
                         <para>
-                            <emphasis>Figure 19.4. Viewing a static statistic.</emphasis>
+                            <emphasis>Рисунок 19.4. Просмотр статической статистики.</emphasis>
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            <emphasis>Dinamic stat view</emphasis> (see Figure 19.3 above).  They can be
-displayed in two different ways:
+                            <emphasis>Шаблон для просмотра динамической статистики</emphasis> (см. ниже
+Рисунок 19.3 ).  Они не могут отображатся двумя различными способами:
                         </para>
                         <para>
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    <emphasis>Unchangeable settings</emphasis>.  The originator of the stat has
-no permission for modifying this fields.
+                                    <emphasis>Неизменяемые настройки</emphasis>. Создатель статистики не имеет
+разрешения на изменения этого поля.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    <emphasis>Changeable settings</emphasis>.  The pre-configuration of such
-stats can be changed by the agent.
+                                    <emphasis>Изменяемые настройки</emphasis>. Предварительная конфигурация
+такой статистики может быть изменена агентом.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -472,42 +479,43 @@ stats can be changed by the agent.
 </para>
 
 <para>
-Pressing the "Start" button (at the bottom of the screen) is the last simple
-step to generate a stat. There are two possible reasons for this button to
-not be displayed:
+При нажатии кнопки "Пуск" (в нижней части экрана) является последним, самым
+простым шагом для создания статистики. Есть две возможные причины, что эта
+кнопка не отображается:
 </para>
 
 <para>
 <orderedlist numeration="arabic" >
     <listitem>
         <para>
-        The stat was set to invalid and thus, deactivated.
+        Статистика была установлена как недействительная и отключена.
         </para>
     </listitem>
     <listitem>
         <para>
-        The stat was not configured neatly and is, therefore, not yet executable. In
-this case, the necessary information can be found in the OTRS notification
-section (below the navigation bar).
+        Статистика была настроена не аккуратно и, следовательно, не может
+выполнятся. В этом случае необходимую информацию можно найти в разделе
+уведомления системы OTRS (под навигационной панелью).
         </para>
     </listitem>
 </orderedlist>
 </para>
 
 <para>
-If the settings on the view page are incorrect, this page is shown again
-after the "Start" button was pushed, and information about which input was
-incorrect is provided in the notification section.
+Если настройки страницы просмотра неверны, эта страница отображается опять,
+после нажатия кнопки "Пуск", и информация о том что шаблон настроен не
+правильно будет отображатся в разделе уведомлений.
 </para>
 </section>
 
 <section id="stats-modify-new">
-<title>Edit - New</title>
+<title>Редактировать - Новая</title>
 
 <para>
-Agents, who have write rights, can edit an existing stat configuration by
-calling up the edit user interface of the stat module. There are two
-possibilites for that:
+Агенты, которые имеют права на запись могут редактировать существующую
+конфигурацию статистики, вызвав пользовательский веб-интерфейс для
+редактирования модуля статистики. Для этого есть два возможных варианта
+действий:
 </para>
 
 <para>
@@ -669,7 +677,7 @@ configuration, one or more of the following formats can be chosen:
                 </listitem>
                 <listitem>
                     <para>
-                        Print.
+                        Печать.
                     </para>
                 </listitem>
                 <listitem>

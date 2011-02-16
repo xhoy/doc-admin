@@ -3,29 +3,29 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: pgp.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.7 2011-02-16 08:56:00 mg Exp $ -->
 <chapter id='configure-pgp'>
 <title> PGP</title>
 
 <para>
-OTRS is able to sign or encrypt outgoing messages with PGP. Also encrypted
-incoming messages can be decrypted. Encryption and decryption is done with
-the GPL tool GnuPG. To setup GnuPG for OTRS, the following steps have to be
-performed:
+OTRS может подписывать или шифровать исходящие сообщения с помощью
+PGP. Также зашифрованные вохдящие сообщения могут быть расшифрованы.
+Шифрование и дешифрование осуществляется с помощью GPL-инструмента
+GnuPG. Чтобы установить GnuPG для OTRS, нужно проделать следующие действия.
 </para>
 
 <para>
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    Install GnuPG, via the package manager of your operating system.
+    Установка GnuPG с помощью менеджера пакетов вашей операционной системы.
     </para>
     </listitem>
     <listitem>
     <para>
-    Configure GnuPG for the usage with OTRS.  The needed directories for GnuPG
-and a private key have to be created.  The command shown in the Sript 16.1
-has to be executed as OTRS user, from a shell.
+    Настройка GnuPG для использования с OTRS. Необходимые каталоги для GnuPG и
+должен быть создан личный закрытй ключ. Команда приведенная в Сценарии 16.1
+должна быть выполнена от имени OTRS-пользователя в командной строке.
     </para>
 
     <para>
@@ -116,49 +116,49 @@ has to be executed as OTRS user, from a shell.
     </para>
 
     <para>
-        <emphasis>Script 16.1. Configuring GnuPG.</emphasis>
+        <emphasis>Сценарий 16.1. Настройка GnuPG.</emphasis>
     </para>
 
     <para>
-    As shown in the Script 16.1, for most of the settings the default is OK.
-Only the values for the key owner have to be entered correctly and a propper
-password for the key has to be specified.
+    Как показано в Сценарии 16.1 для большинства настроек значением по умолчанию
+есть OK. Только значения для владельца ключа должны быть введены правильно а
+также пароль должен быть указан правильно.
     </para>
     </listitem>
     <listitem>
     <para>
-    Now OTRS has to be prepared to use PGP. Open the SysConfig interface, via
-the admin panel and search for "PGP". Select the sub group Crypt::PGP from
-the search results.
+    Теперь OTRS готов для использования PGP. Откройте SysConfig-интерфейс через
+панель управления администратора и найдите "PGP". Выберите подгруппу
+Crypt::PGP из результатов поиска.
     </para>
 
     <para>
-    In the screen for the PGP settings, PGP should be activated for OTRS (first
-option). Also the path to the gpg program should be checked.
+    На странице с PGP-настройками, PGP должен быть активирован для OTRS (первая
+опция). Также нужно проверить путь к gpg-программе.
     </para>
 
     <para>
-    The next config setting (PGP::Options) might to be changed. Via this config
-setting, the parameters that are used for every execution of gpg, by the
-OTRS user, can be specified. Especially the directory of the config files
-for GnuPG of the OTRS user is important. In the example
-<filename>/opt/otrs/.gnupg</filename> is used. This directory was created in
-the first step of the PGP configuration.
+    Следующим должен быть изменен параметр конфигурации (PGP::Options). С
+помощью этих настроек конфигурации, которые используются для каждого вызова
+gpg пользователем OTRS, могут быть указаны. Особенно каталог для
+конфигурационных файлов GnuPG для OTRS пользователя есть очень важными. В
+примере <filename>/opt/otrs/.gnupg</filename> используется. Эта директоиря
+была создана на первом шаге конфигурации PGP.
     </para>
 
     <para>
-    Via the last config option it is possible to specify the pairs of key IDs
-and their passwords for the own private keys. Because communication partners
-from outside write to the ticket system and their messages are encrypted
-with their public key, OTRS can decrypt these messages with the ID/passwords
-specified here.
+    Используя последний параметр конфигурации можно указать пары для ключей ID и
+их пароли для собственных закрытых ключей. Поскольку общающиеся люди из за
+пределов системы пишут в систему обработки заявок и их сообщиния шифруются с
+открытым ключем, OTRS может расшифровать эти сообщения с помощью OTRS
+ID/пароль указаных здесь.
     </para>
 
     <para>
-    How to get the id of your own private key? The ID of your own private key is
-already shown during the key generation (see step 1 from above). It is also
-possible to get the ID if the command specified in the Script 16.2 is
-executed as OTRS user:
+    Как получить идентификатор вашего собственного закрытого ключа? ID вашего
+собственного закрытого идентификатора отображается во время генерации
+(см. ниже шаг 1). Также есть возможность получить ID, указав команду из
+Сценария 16.2 вызванную с правами OTRS-пользователя:
     </para>
 
     <para>
@@ -180,48 +180,51 @@ executed as OTRS user:
     </para>
 
     <para>
-        <emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>
+        <emphasis>Сценарий 16.2. Получение ID вашего собственного приватного
+ключа.</emphasis>
     </para>
 
     <para>
-    The ID of the private key can be found in the line that starts with
-"sub". It is a hexadecimal string that is eight characters long, in the
-example above it is "52B97069". The password you have to specify for this
-key in the ticket system is the same like given during key generation.
+    Идентификатор (ID) закрытого ключа можно найти в строке, которая начинается
+с "sub". Это шестнадцатеричные строки из восьми символов длиной, например
+"52B97069".  Пароль, который нужно указать для этого ключа в системе
+обработки заявок такой же как данные при генерации ключей.
     </para>
 
     <para>
-    After these data have been inserted, the "Update" button can be used to
-store the settings. OTRS is ready to receive and decrypt encoded messages
-now.
+    После того, как эти данные были введены, нажмите кнопку "Обновить" чтобы
+сохранить настройки. Теперь OTRS готов принимать и расшифровывать
+кодированные сообщения.
     </para>
     </listitem>
     <listitem>
     <para>
-    Finally, import a customer's public key. This ensures that also encrypted
-messages can be sent out to this customer. There are two ways to import a
-public key of a customer.
+    И наконец, нужно импортировать открытый ключ клиента. Это гарантирует, что
+зашифрованные сообщение также могут быть отправлены для этого клиента. Есть
+два способа импортировать открытый ключ клиента.
     </para>
 
     <para>
-    The first possibility is to specify the public key of a customer in the
-interface for the customer management. A public can be given if a customer
-is created or modified.
+    Первый способ указать открытый ключ клиента в веб-интерфейсе управления
+клиентами. Доступ можуте быть дан если клиент создан или изменены его
+данные.
     </para>
 
     <para>
-    The second possibility is to specify the key via the PGP settings, reachable
-from the admin area of OTRS. On the right site of this screen all already
-imported public keys of customers are displayed. After PGP has been
-activated and configured for OTRS your own public key should be listed there
-also. In the left area of the PGP setting screen it is possible to search
-for keys. Also a new public key can be uploaded into the system from a file.
+    Вторая возможность заключается в определении ключей используя настройки PGP,
+куда можно зайти через панель управления OTRS. В правой стороне этой
+страницы отображаются все импортированные открытые ключи для клиентов. После
+того как PGP была активирована и сконфигурирована для работы с OTRS, ваш
+собственный открытый ключ должен также отображатся. В левой части страницы
+настроек PGP возможно производить поиск по ключам. Также новый открытый ключ
+может быть загружен из файла.
     </para>
 
     <para>
-    The files with the public key that need to be imported into OTRS have to be
-GnuPGP conform key files. In most cases, the key stored in a file is an
-"ASCII armored key". OTRS can deal with this format.
+    Файлы с открытым ключем, которые нужно импортировать в OTRS должны
+соответствовать ключевым файлам GnuPGP. В большинстве случаев, ключ
+сохраняется в файле как "ASCII armored key". OTRS может работать с этим
+форматом.
     </para>
     </listitem>
 </orderedlist>

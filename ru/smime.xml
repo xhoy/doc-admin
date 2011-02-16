@@ -3,29 +3,29 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: smime.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
+<!-- $Id: smime.xml,v 1.7 2011-02-16 08:56:00 mg Exp $ -->
 <chapter id="smime">
 <title>S/MIME</title>
 
 <para>
-At first sight, encryption with S/MIME seems to be a little bit more
-complicated than with PGP. First of all, you have to establish a
-Certification Authority (CA) for the OTRS system. Then, the following
-procedures are very much like those you have to perform using PGP: configure
-OTRS, install your own certificate, import other public certificates (if
-needed), etc.
+После первого входа, S/MIME-шифрование кажется немного сложнее чем
+PGP. Прежде всего, вы должны создать Центр Сертификации - Certification
+Authority (CA) для OTRS-системы. Затем, последующие процедуры очень похожи
+на те, которые вы выполняли для PGP: настроить OTRS, установить собственные
+сертификаты, импортировать другие открытые сертификаты (если необходимо), и
+т.д.
 </para>
 
 <para>
-The S/MIME configuration is conducted outside the OTRS web interface for the
-most part, and should be carried out in a shell by the OTRS user, i.e.  with
-his/her user rights. The MIME configuration under Linux is based on SSL
-(OpenSSL). Therefore, check first of all whether the OpenSSL package is
-installed on your system. The OpenSSL package includes a script called
-CA.pl, with which the most important steps of certificate creation can be
-performed. To simplify the procedure, find out where in the file system the
-CA.pl script is stored and enter the location temporarily into the path
-variable of the shell (see Script 17.1 below).
+S/MIME-конфигурация производится за пределами веб-интерфейса OTRS в
+большинстве случаев, и должана осуществлятся в оболочке операционной системы
+с правами OTRS-пользователя. MIME конфигурация под Linux основана га SSL
+(OpenSSL). Поэтому, сначала проверьте установлен ли OpenSSL-пакет в вашей
+системе. OpenSSL-пакет содержит скрипт, который называется CA.pl, с которым
+нужно проделать все наиболее важные шаги для создания сертификата. Для
+упрощения процедуры узнайте, где в файловой системе находится сценарий CA.pl
+и введите путь к его местоположению в переменную путей оболочки (см. ниже
+Сценарий 17.1).
 </para>
 
 <para>
@@ -41,27 +41,28 @@ otrs@linux:~/tmp&gt;
 </para>
 
 <para>
-    <emphasis>Script 17.1. Configuring S/MIME.</emphasis>
+    <emphasis>Сценарий 17.1. Настройка S/MIME.</emphasis>
 </para>
 
 <para>
-The Script 17.1 shows that a new temporary directory ~/tmp has been created,
-in which the certificate is generated.
+Сценарий 17.1 показывает что была создана нова директория ~/tmp, в которой
+генерируются сертификаты.
 </para>
 
 <para>
-To create a certificate, perform the following operations in the command
-line (we assume that the OTRS administrator has to create a SSL certificate
-for test and learning purposes. In case you already have a certified SSL
-certificate for the encryption, use it and skip these steps):
+Для создания сертификата, проделайте следующие операции в командной строке
+(предположим, что OTRS-администратор  должен создать SSL-сертификат с целью
+тестирования и обучения. В случае, если у вас уже есть SSL-сертификат для
+шифрования, используйте его и пропустите следующие шаги):
 </para>
 
 <para>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    Establish your own Certification Authority for SSL. You need it to certify
-the request for your own SSL certificate (see Script 17.2 below).
+    Создание собственного Центра Сертификации (Certification Authority) для
+SSL. Вы должны подтвердить запрос на собственный SSL-сертификат (см. ниже
+Рисунок 17.2).
     </para>
 
     <para>
@@ -105,14 +106,14 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-        <emphasis>Script 17.2. Establishing a Certification Authority for
-SSL.</emphasis>
+        <emphasis>Сценарий  17.2. Создание Центра Сертификации (Certification
+Authority) для SSL.</emphasis>
     </para>
 
 </listitem>
 <listitem>
     <para>
-    Generate a certificate request (see Script 17.3 below).
+    Создание запроса сертификата (см. ниже Сценарий 17.3).
     </para>
 
     <para>
@@ -154,14 +155,15 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-        <emphasis>Script 17.3. Creating a certificate request.</emphasis>
+        <emphasis>Сценарий 17.3. Создание запроса сертификаата.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Signing of the certificate request. The certificate request can either be
-signed, and thereby certified, by your own CA or, which is more respectable,
-by another extern certified CA (see Script 17.4 below).
+    Подпись запроса сертификата. Запрос сертификата может быть подписан, и таким
+образом сертифицирован вашим собственным центром сертификации (CA), что
+более респектабельно, чем использование других, внешних CA (см. ниже
+Сценарий 17.4).
     </para>
 
     <para>
@@ -208,13 +210,13 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-        <emphasis>Script 17.4. Signing of the certificate request.</emphasis>
+        <emphasis>Сценарий 17.4. Подпись запроса сертификата.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Generate your own certificate, and all data going with it, using the signed
-certificate request (see Script 17.5 below).
+    Создание своего собственного сертификата, и все данные собираются с ним,
+используя запрос сертификата (см. ниже Сценарий 17.5).
     </para>
 
     <para>
@@ -233,50 +235,49 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-        <emphasis>Script 17.5. Generating a new certificate.</emphasis>
+        <emphasis>Сценарий 17.5. Создание нового сертификата.</emphasis>
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Now that these operations have been performed, the S/MIME setup must be
-complete in OTRS.
+Теперь эти операции были выполнены, S/MIME должен быть установлен в OTRS.
 </para>
 
 <para>
-This part of the setup is carried out in the admin area, block system,
-choosing the menu item <link linkend="adminarea-smime"> "SMIME" </link> . In
-case the general S/MIME support in OTRS has not yet been enabled, the mask
-points this out to the administrator and provides a comfortable link for
-that purpose.
+Эта часть установки осуществляется непосредственно в панели управления
+перейдя в меню <link linkend="adminarea-smime"> "SMIME" </link>. В случае
+общей поддержки S/MIME в  OTRS не поддерживается, маска предоставляет
+удобные ссылки для этой цели.
 </para>
 
 <para>
-With the SysConfig group <link linkend="Framework:Crypt::SMIME">
-"Crypt::SMIME" </link> , you can also enable and configure the general
-S/MIME support.
+Используя SysConfig группу <link linkend="Framework:Crypt::SMIME">
+"Crypt::SMIME" </link> , вы также можете сделать доступной и
+сконфигурировать общую поддержку S/MIME.
 </para>
 
 <para>
-Here you can activate the S/MIME support, define the paths for the OpenSSL
-command and the directory for the certificates. The key file created above
-must be stored in the directory indicated here. Otherwise OpenSSL cannot use
-it.
+Здесь вы можете активировать S/MIME-поддержку, определить пути для OpenSSL
+команд, и директории для сертификатов. Файлы созданых ключей должны хранится
+в каталоге, указаном здесь. В противном случае OpenSSL не будет их
+использовать.
 </para>
 
 <para>
-The next step is performed in the <link linkend="adminarea-smime"> S/MIME
-configuration in the OTRS admin area </link> (again). Here, you can import
-the private key(s) of the OTRS system and the public keys of other
-communication partners. Enter the public key that has been created in the
-beginning of this section and has been added in OTRS.
+Следующим шагом, который следует выполнить это перейти по ссылке <link
+linkend="adminarea-smime"> Настройка S/MIME в панели управления OTRS</link>
+(опять). Здесь вы можете импортировать закрытые ключи OTRS-системы и
+открытые ключи других партнеров по общению, которые были созданы в начале
+этого раздела и добавлены в OTRS.
 </para>
 
 <para>
-Obviously, all public S/MIME keys of communication partners can be imported
-using the <link linkend="adminarea-customers"> customer administration tool
-</link> as well, when creating a new entry or modifying an existing one.
+Очевидно, что все открытые S/MIME ключи партнеров по общению могут быть
+импортированы перейдя по ссылке <link linkend="adminarea-customers">
+инструменты администрирования клиентов </link>, а также, при создании новой
+учетной записи или изменении существующей.
 </para>
 
 </chapter>

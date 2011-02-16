@@ -3,51 +3,55 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: priorities.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
+<!-- $Id: priorities.xml,v 1.7 2011-02-16 08:56:01 mg Exp $ -->
 <chapter id="priorities">
-<title>Modifying ticket priorities</title>
+<title>Изменение приоритетов заявки</title>
 
 <para>
-OTRS comes with five default priority levels, which can be modified via the
-"Priority" option in the Admin console.  When creating a customized list of
-priorities, please keep in mind that they are sorted alphabetically in the
-priority selection box, in the user interface. Also, OTRS orders tickets by
-internal database IDs in the QueueView.
+OTRS поставляется с пятью уровнями предустановленых приоритетов, которые
+можно изменять перейдя по ссылке "Priority" в панели управления. При
+создании пользовательского списка приоритетов, пожалуйста, имейте в виду,
+что они сортируются в алфавитном порядке. Также OTRS сортирует заявки по их
+внутреннему номеру (ID) в QueueView.
 </para>
 
 <note>
 <para>
-To keep the consistency of the data for OTRS it is not possible to delete
-priorities, but only deactivate them. To do so, set them to
-<emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>.
+Чтобы сохранить согласованость данных OTRS не позволяет удалять приоритеты,
+а только деактивировать их. Чтобы это сделать, установите соответствующие
+параметры в значения <emphasis>invalid</emphasis> или
+<emphasis>invalid-temporarily</emphasis>.
 </para>
 </note>
 
 <important>
 <para>
-If a new priority was added or if a one was changed, you might also want to
-modify some values in SysConfig:
+Если новый приоритет был добавлен или изменен, вы можете также изменить
+некоторые значения в SysConfig:
 </para>
 
 <itemizedlist>
 <listitem><para><link linkend="Ticket:Core::PostMaster:PostmasterDefaultPriority">
-Ticket:Core::Postmaster::PostmasterDefaultPriority</link> - defines the
-default priority for all incoming emails.</para></listitem>
+Ticket:Core::Postmaster::PostmasterDefaultPriority</link> - определяет
+предустановленный приоритет для всех входящих сообщений электронной почты.</para></listitem>
 
 <listitem><para><link
 linkend="Ticket:Frontend::Agent::Ticket::ViewPhoneNew:Ticket::Frontend::AgentTicketPhone_Priority">
-Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority</link> - defines the
-default priority in the New Phone Ticket screen for the agents.</para></listitem>
+Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority</link> - определяет
+предустановленный приоритет для новых заявок созданных на основе телефонных
+звонков.</para></listitem>
 
 <listitem><para><link
 linkend="Ticket:Frontend::Agent::Ticket::ViewEmailNew:Ticket::Frontend::AgentTicketEmail_Priority">
-Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority</link> - defines the
-default priority in the New Email Ticket screen for the agents.</para></listitem>
+Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority</link> - определяет
+предустановленные приоритеты для страницы с новыми заявками созданными на
+основе емейлов.</para></listitem>
 
 <listitem><para><link
 linkend="Ticket:Frontend::Customer::Ticket::ViewNew:Ticket::Frontend::CustomerTicketMessage_PriorityDefault">
-Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault</link> - defines
-the default priority in the New Ticket screen in the Customer frontend.
+Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault</link> -
+определяет предустановленные приоритеты для страцицы Новые Заявки в
+пользовательском веб-интерфейсе.
 </para></listitem>
 </itemizedlist>
 

@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.6 2011-02-09 17:24:50 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.7 2011-02-16 08:56:01 mg Exp $ -->
 <chapter id="external-backends">
 <title>Использование внешних хранилищ данных</title>
 
@@ -680,25 +680,27 @@ $Self->{CustomerUser2} = {
 <title>Хранилища для аутентификации агентов и клиентов</title>
 
 <para>
-OTRS offers the option to authenticate agents and customers against
-different backends.
+OTRS предлагает опцию для проверки подлинности агентов и клиентов с
+использованием различных хранилищ данных (бэкендов).
 </para>
 
 <section id='agent-auth-backends'>
-<title>Authentication backends for agents</title>
+<title>Хранилища данных (бэкенды) для аутентификации агентов</title>
 
 <section id='agent-auth-backend-db'>
-<title>DB (Default)</title>
+<title>База Данных (DB, по умаолчанию)</title>
 
 <para>
-The backend to authenticate agents which is used per default is the OTRS
-database. Agents can be added and edited via the <link
-linkend="adminarea-agents"> user management interface </link> in the <link
-linkend="adminarea"> admin area </link> (see Example 11-6 below).
+База Данных - хранилище данных (бэкенд) который используется в OTRS по
+умолчанию. Агентов можно добавлять и редактировать  перейдя по ссылке <link
+linkend="adminarea-agents"> веб-интерфейс для управления пользователями
+</link> в <link linkend="adminarea"> панели управления </link> (см. ниже
+Рисунок 11-6).
 </para>
 
 <example id='configuration-agent-auth-backend-db'>
-<title>Authenticate agents against a DB backend</title>
+<title>Проверка подлинности агентов путем использования Базы Данных (DB) в качестве
+хранилища информации.</title>
 
 <para>
 <programlisting>
@@ -714,15 +716,17 @@ linkend="adminarea"> admin area </link> (see Example 11-6 below).
 <title>LDAP</title>
 
 <para>
-If a LDAP directory has all your agent data stored, you can use the LDAP
-module to authenticate your users in OTRS (see Example 11-7 below).  This
-module has only read access to the LDAP tree, that means you can't edit your
-users via the <link linkend='adminarea-agents'> user management interface
-</link> .
+Если данные всех ваших агентов хранятся в LDAP-директории, вы можете
+использовать LDAP-модуль для аутентификации пользователей в OTRS (см. ниже
+Пример 11-7). Этот модуль имеет права только на чтение дерева
+LDAP-каталогов, что означает что вы не можете редактировать данные ваших
+пользователей используя ссылку <link linkend='adminarea-agents'>
+веб-интерфейс для управления пользователями </link> .
 </para>
 
 <example id='configuration-agent-auth-backend-ldap'>
-<title>Authenticate agents against a LDAP backend</title>
+<title>Проверка подлинности агентов путем использования LDAP в качестве хранилища
+данных</title>
 
 <para>
 <programlisting>
@@ -769,16 +773,18 @@ $Self->{'AuthModule::LDAP::Params'} = {
 </example>
 
 <para>
-The configuration parameters shown in the Script 11.8 can be used to
-synchronize the user data from your LDAP directory into your local OTRS
-database. This reduces the number of requests to your LDAP server and speeds
-up the authentication with OTRS. The data sync is done when the agent
-authenticates the first time. Although the data can be synced into the local
-OTRS database, the LDAP directory is the last instance for the
-authentication, so an inactive user in the LDAP tree can't authenticate to
-OTRS, even when the account data is already stored in the OTRS database. The
-agent data in the LDAP directory can't be edited via the web interface of
-OTRS, so the data has to be managed directly in the LDAP tree.
+Параметры конфигурации приведенные в Сценарии 11.8 могут быть использованы
+для синхронизации пользовательских данных из LDAP-каталога в вашу локальную
+базу данных OTRS. Это уменьшает количество запросов к LDAP-серверу и
+ускоряет проверку подлинности с OTRS. Синхронизация данных осуществляется
+когда агент аутентифицируется в первые. Несмотря на то, что данные могут
+быть синхронизированны в локальной базе данных OTRS, каталог LDAP является
+последней инстанцией для  проверки подлинности пользователей, таким образом
+пользователи не активные для дерева каталогов LDAP не могут пройти
+аутентификацию в OTRS, дате в том случае, когда данные о пользователе уже
+хранятся в базе данных OTRS. Данные агентов в LDAP-директории не могут быть
+отредактированы с помощью веб-интерфейса OTRS, так что управление данными
+должно осуществлятся непосредственно в дереве каталогов LDAP.
 </para>
 
 <para>
@@ -808,24 +814,24 @@ $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
 </para>
 
 <para>
-    <emphasis>Script 11.8. Synchronizing the user data from the LDAP directory
-into the OTRS database.</emphasis>
+    <emphasis>Сценарий 11.8. Синхронизация пользовательских данных из
+LDAP-директориив базу данных OTRS.</emphasis>
 </para>
 
 </section>
 
 
 <section id='agent-auth-backend-httpbasic'>
-<title>HTTPBasicAuth for agents</title>
+<title>HTTPBasicAuth-аутентификация для агентов</title>
 
 <para>
-If you want to implement a "single sign on" solution for all your agents,
-you can use HTTP basic authentication (for all your systems) and the
-HTTPBasicAuth module for OTRS (see Example 11-8 below).
+Если вы хотите реализовать решение "single sign on" для всех агентов, вы
+можете использовать базовую аунентификацию (для всех систем) и
+HTTPBasicAuth-модуль для OTRS (см. ниже Пример 11-8).
 </para>
 
 <example id='configuration-agent-auth-backend-htbasic'>
-<title>Authenticate agents using HTTPBasic</title>
+<title>Аутентификация агентов с помощью HTTPBasic</title>
 
 <para>
 <programlisting>
@@ -853,12 +859,13 @@ $Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
 <title>Radius</title>
 
 <para>
-The configuration parameters shown in the Example 11-9 can be used to
-authenticate agents against a radius server.
+Параметры конфигурации приведенные в Примере 11-9 могут быть использованы
+для аутентификации агентов с использованием radius-сервера.
 </para>
 
 <example id='configuration-agent-auth-backend-radius'>
-<title>Authenticate agents against a radius backend</title>
+<title>Аутентификация агентов с использованием radius-сервера в качестве хранилища
+информации</title>
 
 <para>
 <programlisting>
@@ -877,15 +884,15 @@ $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
 
 
 <section id="customer-auth-backends">
-<title>Authentication backends for customers</title>
+<title>Хранилища информации для аутентификации клиентов</title>
 
 <section id='customer-auth-backend-db'>
 <title>База Данных (По умолчанию)</title>
 
 <para>
-The default used authentication backend for customers in OTRS is the OTRS
-database. With this backend, all customer data can be edited via the web
-interface of OTRS (see the Example 11-10 below).
+Для аутентификации клиентов в OTRS по умолчанию используется база данных
+OTRS. Используя базу данных в качестве хранилища данных, все данные клиентов
+можно редактировать через веб-интерфейс OTRS (см. ниже Пример 11-10).
 </para>
 
 <example id='configuration-customer-auth-backend-db'>
@@ -1080,12 +1087,12 @@ customer.pl, .dtl-файл, который отвечает за шаблон э
 <title>Отображения клиентов</title>
 
 <para>
-In the next step, the customer mapping has to be expanded with the new entry
-for the room number. To ensure that the changes are not lost after an
-update, put the "CustomerUser" settings from the
-<filename>Kernel/Config/Defaults.pm</filename> into the
-<filename>Kernel/Config.pm</filename>. Now change the MAP array and add the
-new room number field, as shown in the Script 11.10.
+На следующем этапе, отображение клиента должно быть расширено путем
+добавление новой позиции для номера комнаты. Для того, чтобы изменения не
+потерялись после обновления, введите настройку "CustomerUser" из файла
+<filename>Kernel/Config/Defaults.pm</filename> в файл
+<filename>Kernel/Config.pm</filename>. Теперь измените MAP-массив, добавив
+новое поля номер комнаты, как это показано ниже в Сценарии 11.10.
 </para>
 
 <para>
@@ -1163,18 +1170,18 @@ $Self->{CustomerUser} = {
 </para>
 
 <para>
-    <emphasis>Script 11.10. Changing the map array.</emphasis>
+    <emphasis>Сценарий 11.10. Внесение изменений в map-массив.</emphasis>
 </para>
 
 </section>
 
 <section id="customer-self-registration-customer-table">
-<title>Customize the customer_user table in the OTRS DB</title>
+<title>Настройка таблицы customer_user в Базе Данных OTRS (DB)</title>
 
 <para>
-The last step is to add the new room number column to the customer_user
-table in the OTRS database (see Script 11.11 below). In this column, the
-entries for the room numbers will be stored.
+Последним шагом является добавление нового столбца с номером комнаты в
+таблицу customer_user базы данных OTRS (см. ниже Сценарий 11.11). В этой
+колонке будет хранится информация для номера комнаты.
 </para>
 
 <para>
@@ -1202,16 +1209,16 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Script 11.11. Adding a new column to the customer_user
-table.</emphasis>
+    <emphasis>Сценарий 11.11. Добавление новой колонки в таблицу
+customer_user.</emphasis>
 </para>
 
 <para>
-Now you took all the steps involved, and the new field for the room should
-be displayed in the customer.pl panel. New customers should have to insert
-their room number if they register a new account. If you use apache and use
-mod_perl for OTRS, you should restart the web server to activate the
-changes.
+Теперь вы проделали все шаги, и новое поля для номера комнаты должно
+отображатся в customer.pl-панели. Новые клиенты должны вставлять номер
+комнаты, когда они регистрируют новый аккаунт. Если вы для работы OTRS
+используете apache и его модуль mod_perl, вам нужно перезапустить веб-сервер
+чтобы новые изменения вступили в силу.
 </para>
 </section>
 
