@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.7 2011-02-16 08:56:01 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.8 2011-02-24 10:04:44 mg Exp $ -->
 <chapter id="statistic-module">
 <title>Stats-модуль</title>
 
@@ -522,150 +522,150 @@ srccredit="stats-view-static - Screenshot" /></screenshot>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    Via the "Edit" button in the stat view.
+    Используя кнопку "Редактировать" в шаблоне просмотра статистики.
     </para>
 </listitem>
 <listitem>
     <para>
-    Via the "New" link in the menu of the Statistics module in the navigation
-bar.
+    Используя ссылку "Новая" в меню модуля Статистика в навигационной панели.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-The stats are edited with a wizard in four steps:
+Статистика редактируется с помощью мастера в четыре этапа:
 </para>
 
 <para>
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    General specifications.
+    Общие технические условия.
     </para>
 </listitem>
 <listitem>
     <para>
-    Definition of the element for the X-axis.
+    Определение элементов для X-axis.
     </para>
 </listitem>
 <listitem>
     <para>
-    Specification of the value series.
+    Спецификация значений ряда.
     </para>
 </listitem>
 <listitem>
     <para>
-    Definition of the restrictions to characterize the stat.
+    Определение для ограничений характеристики статистики.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Points 2 to 4 are only needed for the generation of dynamic stats. For a
-static stat, only the general information (point 1) is required.
+Пункты 2-4 требуются только для создания динамической статистики. Для
+статической статистики, нужна только общая информация (пункт 1).
 </para>
 
 <para>
-Information about how to handle the page is provided below the input forms,
-on all input user interfaces of the stats module.
+Информация о том, как обрабатывать страницы приводится ниже формы ввода, на
+всех интерфейсах пользователя модуля статистики.
 </para>
 
 <para>
-If incorrect data is entered nevertheless, the previously processed user
-interface is displayed again and amended by information about the incorrect
-input.  This information can be found in the OTRS notification section. The
-next input user interface is only displayed after the form has been filled
-out correctly.
+Если введены неправильные данные, ранее обработанный пользовательский
+интерфейс отображатеся снова, на этот раз уже с информацией о неправильных
+входных данных. Эта информация может быть найдена в разделе уведомлений
+OTRS. Следующий пользовательский веб-интерфейс для ввода отображатеся только
+в том случае, если все поля формы заполнены правильно.
 </para>
 
 <para>
 <orderedlist numeration="arabic" >
 <listitem>
     <para>
-        <emphasis>General specifications</emphasis>.  It is the first page of the
-wizard (see Figure 19.5 below).
+        <emphasis>Общие технические условия</emphasis>.  Это первая страница мастера
+(см. ниже Рисунок 19.5).
     </para>
 
     <para>
     <screenshot>
-<screeninfo>General specifications of the stat</screeninfo> <graphic
+<screeninfo>Общие характеристики статистики</screeninfo> <graphic
 fileref="screenshots/stats-edit-general.png" scale="40"
 srccredit="stats-edit-general - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure 19.5. Editing the general specifications of a
-stat.</emphasis>
+        <emphasis>Рисунок 19.5. Редактирование общей информации о
+статистике</emphasis>
     </para>
 
 
     <para>
-        In the screen showed in the Figure 19.5 there is a great number of common
-specifications and settings can be edited:
+        На странице приведенной на Рисунке 19.5 есть большое количество общих
+спецификаций и настроек, которые можно изменить:
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-                <emphasis>Title</emphasis>.  Should reflect the stat's purpose in a concise
-manner.
+                <emphasis>Заголовок</emphasis>. Должны отражать назначение (цель) статистики
+в сжатой форме.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Description</emphasis>.  More detailed information about the job
-definition, type of configuration parameters, etc.
+                <emphasis>Описание</emphasis>. Более подробная информация о работе, типы
+конфигурационных параметров и т.д.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Dynamic object</emphasis>.  If the OTRS installation provides
-various dynamic objects, one of them can be chosen.  The objects meet the
-requirements of the particular modules.
+                <emphasis>Динамический объект</emphasis>.  Если установка OTRS предоставляет
+различные динамические объекты, один из них может быть выбран. Объекты
+отвечают требованиям отдельных модулей.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Static file</emphasis>.  Usually this selection is not shown, as
-only static files which are not yet assigned to any stats are displayed. If
-"Static file" is displayed, however, it is important to tick the option
-field and select a generation mode (dynamic with a dynamic object or static
-with a file).  If a static file is selected, the input user interfaces 2-4
-are not shown as the static file contains all required configurations.
+                <emphasis>Статический файл</emphasis>. Обычно эта возможность не
+отображается, как только статические файлы, которые не назначены любой
+статистике отображаются. Если "Статический файл" отображается, позже, очень
+важно поставить галочку в поле и выбрать режим генерации (динамический с
+динамический объектом или статический с файлом). Если выбран статический
+файл, пользовательский веб-интерфейс 2-4 не отображается как статический
+файл и содержит все необходимые настройки.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Permission settings</emphasis>.  Facilitate a restriction of the
-groups (and therefore, agents) who can later view and generate the
-preconfigured stats. Thus the various stats can be allocated to the
-different departments and work groups who need them. It is possible to
-allocate one stat to various groups.
+                <emphasis>Настройки доступа</emphasis>. Содействие ограничению групп (и,
+следовательно, агентов), которые можно позже просматривать и генерировать
+предварительную статистику. Таким образом, различная статистика может быть
+выделена для различных отделов и рабочих групп, которые в них
+нуждаются. Можно выделить одину статистику для различных групп.
             </para>
 
             <para>
-                Example 1: The "stats" group was selected. The stat is viewable for all
-users having at least ro rights for the "stats" group. As the base
-requirement for accessing the view mode of the stat module in the default
-configuration is to have ro rights in the "stats" group, all users with
-permission to create statistics can view it in this configuration.
+                Пример 1: группа "статистика" выбрана. Статистика доступна для просмотра для
+всех пользователей, имеющие права, по крайней мере, для группы
+"статистика". В качестве основного требования для доступа в режиме просмотра
+к модулю статистики с настройками по умолчанию, все пользователи, с правами
+для создания статистики могут просматривать эту конфигурацию.
             </para>
 
             <para>
-                Example 2: A group named "sales" was selected. All users with ro rights for
-the "sales" group can see the stat in the view mode and generate
-it. However, the stat will not be shown to other users with permission to
-generate stats.
+                Пример 2: Была выбрана группа под названием "продажи". Все пользователи,
+имеющие права ro (read only) могут выдеть статистику в режиме просмотра э
+генерировать ее. Однако, статистика не будет показываться другим
+пользователям, имеющим права для создания статистики.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Format</emphasis>.  Output format of the stat.  Depending on the
-configuration, one or more of the following formats can be chosen:
+                <emphasis>Формат</emphasis>. Формат отображения для статистики. В
+зависимости от конфигурации, могут быть выбраны один или несколько форматов:
             </para>
 
             <para>
@@ -720,49 +720,51 @@ configuration, one or more of the following formats can be chosen:
         </listitem>
         <listitem>
             <para>
-                <emphasis>Graphsize</emphasis>.  Select the size (in pixels) the charts
-should have. This selection is only necessary if a graphical output format
-has been chosen under "Format".  All graphic sizes that can generally be
-used are defined by the OTRS admin in SysConfig. When configuring the stat,
-the agent can pre-select all relevant formats.
+                <emphasis>Размер графика</emphasis>. Выберите размер (в пикселях)
+диаграммы. Этот выбор необходим только в том случае, если графический формат
+вывода был выбран в поле "Формат". Все графические размеры, которые могут
+быть использованы определяются в OTRS в SysConfig. При настройке статистики,
+агент может предварительно выбрать все соответствующие форматы.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Sum rows</emphasis>.  Indicates whether the stat is amended by a
-column, whose cells contain the sum of the respective row.
+                <emphasis>Количество </emphasis>. Указывает когда статистика будет разбита
+на колонки, когда колонки содержат сумму соответствующих строк.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Sum columns</emphasis>.  Indicates whether the stat is amended by
-a row, whose cells contain the sum of the respective column.
+                <emphasis>Сумма столбцов</emphasis>.  Указывает когда ячейки содержат
+соответствующее количество строк в соответсвтующей колонке.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Cache</emphasis>.  Specifies if the generated stats should be
-cached in the file system.  This saves computing power and time if the stat
-is called up again, but it only should be used if the stat's content is no
-longer changing.
+                <emphasis>Кэш</emphasis>. Указывает если созданная статистика должна
+сохранятся в файловой системе. Это позволяет существенно экономить
+вычислительные мощности и время, но это должно быть использовано только в
+том случае если содержание статистики не будет больше изменятся.
             </para>
 
             <para>
-                Caching is automatically prevented if the stat contains no time designation
-values (new data is added continuously) or if a time designation value
-points to the future.
+                Кэширование автоматически предотвращается, если статистика не содержит
+значение времени (новые данные постоянно добавляются), или если указывается
+время из будущего.
             </para>
 
             <para>
-                If a cached stat is edited, all cached data is deleted.
+                Если закэшированная статистика редактируется, все кэшированные данные будут
+удалены.
             </para>
         </listitem>
         <listitem>
             <para>
-                <emphasis>Valid</emphasis>.  It is set "invalid" if a pre-configured stat is
-still being created or must not be used temporarily for certain
-reasons. Also the "Start" button in the bottom right of the block is no
-longer displayed. It is impossible to generate the stat.
+                <emphasis>Действительный</emphasis>.  Это установлено в "недействительно"
+если предварительно сконфигурированная статистика создана и не должна
+использоватся времено с тех или иных причин. Также кнопка "Старт" в правом
+нижнем углу блока больше не отображается. Теперь невозможно создать
+статистику.
             </para>
         </listitem>
     </itemizedlist>
@@ -770,91 +772,93 @@ longer displayed. It is impossible to generate the stat.
 </listitem>
 <listitem>
     <para>
-        <emphasis>Definition of the element for the X-axis</emphasis>.  It is the
-configuration of the element used for the depiction of the X-axis or, if
-tables are used, of the column name chosen for the stat (see Figure 19.6).
+        <emphasis>Определение элементов для X-axis</emphasis>. Этот элемент
+конфигурации используется для изображения X-axis-осей, или, если
+используются таблицы, в столбце имя, выбранное для статистики (см. ниже
+Рисунок 19.6).
     </para>
 
     <para>
     <screenshot>
-<screeninfo>Definition of the element for the X-axis.</screeninfo> <graphic
+<screeninfo>Определение элементов для X-axis.</screeninfo> <graphic
 fileref="screenshots/stats-edit-xaxis.png" scale="40"
 srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure 19.6. Definition of the element for the X-axis.</emphasis>
+        <emphasis>Рисунок 19.6. Определение элементов для X-axis.</emphasis>
     </para>
 
     <para>
-    First of all, an element is selected using the option field. Then two or
-more attributes of the element must be selected. If no attributes are
-selected, all attributes are used including those added after the
-configuration of the stat.
+    Во-первых, элемент выбирается с помощью опционального поля. Потом два или
+более атрибутов элемента должно быть выбрано. Если нет выбраных атрибутов,
+используются все атрибуты, в том числе и те, которые были добавлены после
+конфигурации статистики.
     </para>
 
     <para>
-    If the "Fixed" setting is disabled, the agent generating the stat can change
-the attributes of the respective element in the "View" user interface.
+    Если "Основные" настройки отключены, агент, генерирующий статистику может
+изменить атрибуты соответствующих элементов в меню "Вид" пользовательского
+веб-интерфейса.
     </para>
 
     <para>
-    Time elements are different as time period and scale have to be stated.
-Type and number of elements result from the used dynamic object and vary
-depending on it.
+    Элементы времени которые отличаются как периоды времени  должны быть
+указаны. Тип и количество элементов результата от используемого
+динамического объекта зависит от него.
     </para>
 
     <para>
-    If all input is correct, the "Next" button leads to the "Value series"
-form. It is also possible to go back to editing the "common statements"
-section again.
+    Если все входные данные введены правильно, нажатие кнопки "Следующий шакг"
+приводит к форме "Соотношение серии". Кроме этого, можно снова вернуться к
+редактированию  раздела "общие заявления".
     </para>
 </listitem>
 <listitem>
     <para>
-        <emphasis>Specification of the value series</emphasis>.
+        <emphasis>Спецификация серии значений</emphasis>.
     </para>
 
     <para>
-    In the third step of the stat pre-configuration the value series are defined
-(see Figure 19.7 below). They will lateron form the individual graphs of a
-diagramm or the various series (tabular view).
+    На третьем шаге предварительной конфигурации статистики серия значений
+определена (см. ниже Рисунок 19.7). Они будут позже в форме на отдельном
+графике диаграммы для различных серий (в табличном виде).
     </para>
 
     <para>
     <screenshot>
-<screeninfo>Definition of the value series</screeninfo> <graphic
+<screeninfo>Определение значений серии</screeninfo> <graphic
 fileref="screenshots/stats-edit-valueseries.png" scale="40"
 srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure 19.7. Definition of the value series.</emphasis>
+        <emphasis>Рисунок 19.7. Определение значений серии.</emphasis>
     </para>
 
     <para>
-    If an element is selected, each chosen attribute will correspond to a value
-series (see the Example 19-1 below).
+    Если выбран определенный элемент, каждый выбранный атрибут будет
+соответствовать значеню серии (см. ниже Пример 19-1).
     </para>
 
     <para>
     <example id="stats-value-series-1">
-    <title>Definition of a value series - one element</title>
+    <title>Определение значения серии - один из элементов</title>
 
     <para>
-    Element Queue:
+    Элемент Очередь:
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-            Value series 1 = Raw
+            Серия значений 1 = Raw
             </para>
         </listitem>
         <listitem>
             <para>
-            Value series 2 = Junk
+            Значение серии 2 = Junk
             </para>
         </listitem>
         <listitem>
@@ -868,39 +872,39 @@ series (see the Example 19-1 below).
     </para>
 
     <para>
-    If two elements are selected, each selected attribute of the first element
-is combined with an attribute of the second element to form a value series
-(see the Example 19-2 below).
+    Если выбрано два элемента, каждый выбраный атрибут первого элемента в
+сочетании с атрибутом второго элемента в форме значения ряда (см. ниже
+Рисунок 19-2).
     </para>
 
     <para>
     <example id="stats-value-series-2" >
-    <title>Definition of a value series - two elements </title>
+    <title>Определение значения серии - один из элементов </title>
 
     <para>
-    Element 1 queue and element 2 status:
+    Элемент 1 очередь и элемент 2 статус:
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-            Value chain 1 = Raw - open
+            Значение создания 1 = Raw - открыть
             </para>
         </listitem>
         <listitem>
             <para>
-            Value series 2 = Raw - successfully closed
+            Серия значений 2 = Raw - успешно закрыта
             </para>
         </listitem>
         <listitem>
             <para>
-            Value series 3 = Junk - open
+            Серия значений 3 = Junk - открыто
             </para>
         </listitem>
         <listitem>
             <para>
-            Value series 4 = Junk - successfully closed
+            Серия значений 4 = Junk - успешно закрыто
             </para>
         </listitem>
     </itemizedlist>
@@ -909,27 +913,27 @@ is combined with an attribute of the second element to form a value series
     </para>
 
     <para>
-    Selection of three or more elements does not make sense and is, therefore,
-prevented by an error message.
+    Выбор из трех или более элементов не имеет смысла и, следовательно,
+предотвращает появление сообщения об ошибке.
     </para>
 
     <para>
-    Additionally the same conditions apply to the selection of the attributes
-and the "Fixed" checkbox as to the "X-axis" selection:
+    Кроме этого эти условия распостраняются и на выбор атрибутов и флажок
+"Основные" как для "X-axis":
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-            If no attributes of the element are selected, all attributes are used,
-including those added after the configuration of the stat.
+            Если не выбрано никаких элементов атрибутов и используются все атрибуты, в
+том числе и те, которые добавлены после конфигурации статистики.
             </para>
         </listitem>
         <listitem>
             <para>
-            If the "Fixed" setting is disabled, the agent generating the stat can change
-the attributes of the respective element.
+            Если отключен параметр "Основные", агент генерирующий статистику может
+изменять атрибуты соответствующих элементов.
             </para>
         </listitem>
     </itemizedlist>
@@ -937,28 +941,28 @@ the attributes of the respective element.
 </listitem>
 <listitem>
     <para>
-        <emphasis>Definition of the restrictions to characterize the
-stat</emphasis>.  It is the fourth and last step of the pre-configuration
-(see Figure 19.8 below).  The restrictions facilitate to limit the results
-and are comparable to entering data into a search window. In quite a few
-cases, no restrictions at all must be set up.
+        <emphasis>Определение ограничений  для характеристики
+статистики</emphasis>. Это четвертый и последний этап предварительной
+конфигурации (см. ниже Рисунок 19.8). Ограничения способствуют тому, чтобы
+ограничить результаты и сопоставить их с выводом данных в окне поиска. В
+целом ряде случаев, без ограничений должны быть созданы для всех.
     </para>
 
     <para>
     <screenshot>
-<screeninfo>Definition of restrictions</screeninfo> <graphic
+<screeninfo>Определение ограничений</screeninfo> <graphic
 fileref="screenshots/stats-edit-restrictions.png" scale="40"
 srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure 19.8. Definition of restrictions.</emphasis>
+        <emphasis>Рисунок 19.8. Определение ограничений.</emphasis>
     </para>
 
     <para>
-    After all restrictions are set, the pre-configuration of the stat is
-finished with the "Finish" button and the "View" user interface is called
-up.
+    После того, как все ограничения установлены, предварительная конфигурация
+считается законченной, можно нажать кнопку "Готово" и "Вид" чтобы перейти в
+пользовательский веб-интерфейс.
     </para>
 </listitem>
 </orderedlist>
@@ -966,82 +970,84 @@ up.
 </section>
 
 <section id="stats-import">
-<title>Import</title>
+<title>Импорт</title>
 
 <para>
-The import user interface (see Figure 19.9 below) can be accessed by chosing
-"Import" in the navigation bar (rw rights required).
+Пользовательский веб-интерфейс импорта (см. ниже Рисунок 19.9) может быть
+вызван, выбрав "Импорт" в навигационной панели (требуются права RW).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>The import user interface</screeninfo> <graphic
+<screeninfo>Интерфейс импорта пользователей</screeninfo> <graphic
 fileref="screenshots/stats-import.png" scale="40" srccredit="stats-import -
 Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure 19.9. The import user interface.</emphasis>
+    <emphasis>Рисунок 19.9. Интерфейс импорта пользователей.</emphasis>
 </para>
 
 <para>
-Facilitates the import of stats and is, combined with the export function of
-the module, a very handy functionality. Stats can be created and tested
-conveniently on test systems and then imported into the production system.
+Облегчает импорт статистики, в сочетании с функцией модуля экспорта, очень
+удобная функция. Статистика может быть создана и протестирована на тестовых
+системах, а затем импортирована в реальную систему.
 </para>
 
 <para>
-The import is effected by an easy file upload. The "view" user interface of
-the imported stat is opened automatically afterwards.
+Импорт осуществляется легко с помощью загрузки файла. После этого
+автоматически открывается пользовательский интерфейс для импорта статистики.
 </para>
 </section>
 
 </section>
 
 <section id="stats-managing-the-module">
-<title>Administration of the stat module by the OTRS administrator</title>
+<title>Администрирование модуля статистики OTRS-администратором.</title>
 
 <para>
-This section provides information about the tasks and possibilities of the
-OTRS administrator dealing with the statistics module.
+В этом разделе содержится информация о задачах и возможностях доступных
+OTRS-администратору, который работает с модулем статистики.
 </para>
 
 <section id="stats-permissions" >
-<title>Permission settings, groups and queues</title>
+<title>Настройки доступов, групп и ролей</title>
 
 <para>
-No new queues and/or groups are created when the stat module is installed.
+Нет новых очередей и/или групп, которые создаются при установке модуля
+статистики.
 </para>
 
 <para>
-The default configuration of the module registration gives all agents with
-"stats" group permissions access to the stats module.
+В конфигурации по умолчанию модуль регистрации дает всем агентам группы
+"статистика" права доступа к модулю статистики.
 </para>
 
 <para>
-Access according to permission settings:
+Доступ в соответствии с разрешенными настройками:
 </para>
 
 <para>
 <itemizedlist>
     <listitem>
         <para>
-            <emphasis>rw</emphasis>.  Allows configurating statistics.
+            <emphasis>rw</emphasis>.  Разрешает конфигурацию статистики.
         </para>
     </listitem>
     <listitem>
         <para>
-            <emphasis>ro</emphasis>.  Permits generating pre-configured statistics.
+            <emphasis>ro</emphasis>.  Разрешение для генерации предварительно настроеной
+статистики.
         </para>
     </listitem>
 </itemizedlist>
 </para>
 
 <para>
-The OTRS administrator decides whether agents with the permission to
-generate pre-configured stats are allocated ro rights in the "stats" group,
-or if their respective groups are added in the module registration in
-SysConfig.
+OTRS-администратор определяте когда агенты с правами для генерации
+предварительно настроеной статистики выделяются в ro-права для группы
+"статистика", или если их соответствующие группы добавляются в модуль
+регистрации в SysConfig.
 </para>
 </section>
 
@@ -1049,54 +1055,53 @@ SysConfig.
 <title>SysConfig</title>
 
 <para>
-SysConfig groups <link linkend="Framework:Core::Stats" >
+SysConfig группы <link linkend="Framework:Core::Stats" >
 Framework:Core::Stats </link> , <link linkend="Framework:Core::Stats::Graph"
 > Framework:Core::Stats::Graph </link>and <link
 linkend="Framework:Frontend::Agent::Stats" >
-Framework:Frontend::Agent::Stats </link> contain all configuration
-parameters for the basic set-up of the statistics module.  Moreover, the
-configuration parameter <link
+Framework:Frontend::Agent::Stats </link> содержат все параметры конфигурации
+для базового набота из модуля статистики.  Больше того, параметры
+конфигурации <link
 linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentStats"
-> $Self-&gt;{'Frontend::Module'}-&gt;{'AgentStats'} </link> controls the
-arrangement and registration of the modules and icons within the statistics
-module.
+> $Self-&gt;{'Frontend::Module'}-&gt;{'AgentStats'} </link> управляют
+организацией и регистрацией модулеи и иконкой в модуле статистики.
 </para>
 </section>
 
 </section>
 
 <section id="stats-managing-the-stats-module-by-the-sysadmin" >
-<title>Administration of the stats module by the system administrator</title>
+<title>Администрирование модуля статистики системным администратором</title>
 
 <para>
-Generally, no system administrator is needed for the operation,
-configuration and maintenance of the statistics module. However, a little
-background information for the system administrator is given at this point.
+Как правило, системного администратора не требуется для эксплуатации,
+настройки и обслуживания модуля статистики. Однако, немного справочной
+информации дано для системного администартора в этой точке.
 </para>
 
 <note>
 <para>
-File paths refer to subdirectories of the OTRS home directory (in most
-cases<filename>/opt/otrs</filename>).
+Пути к файлам см. в подкаталогах домашнего каталога OTRS (в большинстве
+случаев <filename>/opt/otrs</filename>).
 </para>
 </note>
 
 <section id="stats-db-table" >
-<title>Data base table</title>
+<title>Таблица базы данных</title>
 
 <para>
-All stat configurations are implemented and administrated in XML and,
-therefore, stored in the database table "xml_storage". Other modules whose
-content is presented in xml format use this table as well.
+Все параметры конфигурации статистики включены и управляются в XML и,
+следовательно, хранятся в таблице базы данных "xml_storage". Другие модули,
+содержание которых представлено в формате xml используют эту таблицу.
 </para>
 
 </section>
 
 <section id="stats-filelist" >
-<title>List of all files</title>
+<title>Список файлов</title>
 
 <para>
-The following files are necessary for the stats module to work accurately:
+Следующие файлы необходимы для коректной работы модуля статистики:
 </para>
 
 <para>
@@ -1176,7 +1181,7 @@ The following files are necessary for the stats module to work accurately:
 </section>
 
 <section id="stats-caching" >
-<title>Caching</title>
+<title>Кэширование</title>
 
 <para>
 Whether the results of a statistic are to be cached or not can be defined in
