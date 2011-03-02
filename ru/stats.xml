@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.8 2011-02-24 10:04:44 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.9 2011-03-02 13:51:33 mg Exp $ -->
 <chapter id="statistic-module">
 <title>Stats-модуль</title>
 
@@ -1184,20 +1184,22 @@ linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentSta
 <title>Кэширование</title>
 
 <para>
-Whether the results of a statistic are to be cached or not can be defined in
-the pre-configuration. Cached statistic results are stored as files in the
-<filename>var/tmp</filename>directory of the OTRS installation (in most
-cases<filename>/opt/otrs/var/tmp</filename>).
+В случае, если рерультаты статистики должны быть кэшированы или не могут
+быть определены в предварительной конфигурации. Кэшированые результаты
+статистики хранятся в файлах <filename>var/tmp</filename> в директории
+установленной системы OTRS (в большинстве случаев
+<filename>/opt/otrs/var/tmp</filename>).
 </para>
 
 <para>
-Cached stats can be recognized by the "Stats" prefix.
+Кэшированная статистика может быть распознана с помощью префикса "Stats".
 </para>
 
 <para>
-If the data is lost, no major damage is caused. The next time the stat is
-called up, the stats module will not find the file any more and thus, will
-generate a new stat, which will probably take a little longer.
+Если данные будут потеряны, то серьезный ущерб не будет причинен всей
+системе. В следующий раз, когда вызовется модуль статистики и не обнаружит
+файла с статистикой, он будет генерировать новый отчет, который, возможно,
+займет чуть больше времени.
 </para>
 </section>
 
@@ -1205,12 +1207,12 @@ generate a new stat, which will probably take a little longer.
 <title>otrs.GenerateStats.pl</title>
 
 <para>
-This file is saved in the <filename>bin/</filename>directory.  It
-facilitates the generation of stats in the command line.
+Этот файл хранится в директории<filename>bin/</filename>.  Он позволяет
+генерировать статистику прямо из командрной строки.
 </para>
 
 <para>
-The command line call in the Script 19.1 is an exemplary.
+Командная строка вызывается в Сценарии 19.1 как пример.
 </para>
 
 <para>
@@ -1220,17 +1222,19 @@ bin> perl otrs.GenerateStats.pl -n 10004 -o /output/dir
 </para>
 
 <para>
-    <emphasis>Script 19.1. Generating a stat via command line.</emphasis>
+    <emphasis>Сценарий 19.1. Создание статистики через командную
+строку</emphasis>
 </para>
 
 <para>
-A stat from the stat configuration "Stat# 10004" is generated and saved as
-csv in the <filename>/output/dir</filename>directory.
+Статистика из конфигурации статистики "Stat# 10004" генерируется и хранится
+в csv-формате в директории <filename>/output/dir</filename>.
 </para>
 
 <para>
-The generated stat can also be sent as an e-mail.  More information can be
-called up with the command of the Script 19.2.
+Сгенерированная статистика может также быть передана по электронной
+почте. Более подробную информацию можно получить выполнив команду из
+Сценария 19.2.
 </para>
 
 <para>
@@ -1240,67 +1244,69 @@ bin> perl otrs.GenerateStats.pl --help
 </para>
 
 <para>
-    <emphasis>Script 19.2. Getting information about the otrs.GenerateStats.pl
-file.</emphasis>
+    <emphasis>Сценарий 19.2. Получение информации о файле
+otrs.GenerateStats.pl.</emphasis>
 </para>
 
 </section>
 
 <section id="stats-cron" >
-<title>Automated stat generation - Cronjob</title>
+<title>Автоматическое создание статистики с помощью планировщика заданий - Cronjob</title>
 
 <para>
-It obviously does not really make sense to generate stats manually in the
-command line, as the stat module has a convenient graphical user
-interface. However, generating stats manually does make sense when combined
-with a Cronjob.
+Очевидно, что действительно нету необходимости генерировать статистику
+вручную, из командной строки, так как модудь статистики имеет удобный
+графический веб-интерфейс пользователя. Однако, создание статистики вручную
+имеет смысл в сочетании с Cronjob.
 </para>
 
 <para>
-Imagine the following scenario: On every first day of the month the heads of
-department want to receive a stat for the past month. By combining a cronjob
-and command line call the stats can be sent to them automatically by e-mail.
+Представьте себе следующую ситуацию: На каждый первый день месяца,
+руководители отделов хотят получать статистику за последний месяц. Объединив
+Cronjob с командой в строке вызова, статистика может быть отправлена им
+автоматически по электронной почте.
 </para>
 
 </section>
 
 <section id="stats-static" >
-<title>Static stats</title>
+<title>Статическая статистика</title>
 
 <para>
-The stats module facilitates the generation of static statistics. For every
-static stat a file exists in which its content is precisely defined.
+Модуль статистики облегчает генерацию статической статистики. Для каждой
+статической статистики создается отдельный файл, в котором точто определено
+его содержание.
 </para>
 
 <para>
-This way, very complex stats can be generated. The disadvantage is that they
-are not particularly flexible.
+Таким образом может быть сгенерирована очень сложная статистика. Главным
+недостатком является то, что этот способ есть не очень гибким.
 </para>
 
 <para>
-The files are saved in the following directory
+Файлы хранятся в следующей директории
 <filename>Kernel/System/Stats/Static/</filename>.
 </para>
 </section>
 
 <section id="stats-using-old-stats" >
-<title>Using old static stats</title>
+<title>Использование устаревших данных статической статистики</title>
 
 <para>
-Standard OTRS versions 1.3 and 2.0 already facilitated the generation of
-stats.  Various stats for OTRS versions 1.3 and 2.0 which have been
-specially developed to meet customers' requirements can be used in more
-recent versions too.
+Стандартные версии OTRS 1.3 и 2.0 уже способствовали созданию
+статистки. Различные варианты статистики для OTRS версии 1.3 и 2.0 которые
+были специально разработаны для удовлетворения потребностей клиентов могут
+быть использованы в более позних версиях.
 </para>
 
-<para>The files must merely be moved from the
-<filename>Kernel/System/Stats/</filename> path to
-<filename>Kernel/System/Stats/Static/</filename>. Additionally the package
-name of the respective script must be amended by "::Static".
+<para>Файлы должны быть просто перемещены из
+<filename>Kernel/System/Stats/</filename> в
+<filename>Kernel/System/Stats/Static/</filename>. Кроме этого имя пакета
+соответствующего сценария должен быть заменен на "::Static".
 </para>
 
 <para>
-The following example shows how the first path is amended.
+В следующем примере показано как изменяется первый путь.
 </para>
 
 <para>
@@ -1317,16 +1323,17 @@ The following example shows how the first path is amended.
 </section>
 
 <section id="stats-default-stats" >
-<title>Default stats</title>
+<title>Статистика по умолчанию</title>
 
-<para>"It is not always necessary to reinvent the wheel..."
+<para>"Не всегда нужно изобретать велосипед..."
 </para>
 
 <para>
-The stats module provides various default stats. Stats which are interesting
-for all OTRS users will in future be added to the default stats of the stats
-module package. Default stats are saved in the stats module xml format in
-the<filename>scripts/test/sample/</filename> directory.
+Модуль статистики предоставляет различные варианты статистики. Статистика,
+которая может заинтересовать всех пользователей OTRS может быть добавлена в
+будущем к статистике по умолчанию модуля статистики. Статистика по умолчанию
+хранится в модуле статистики в xml-формате в директории
+<filename>scripts/test/sample/</filename>.
 </para>
 
 </section>

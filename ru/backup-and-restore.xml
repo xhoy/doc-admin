@@ -3,26 +3,27 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: backup-and-restore.xml,v 1.8 2011-02-24 10:04:44 mg Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.9 2011-03-02 13:51:33 mg Exp $ -->
 <chapter id="backup-and-restore">
-<title>Backing up the system</title>
+<title>Резервное копирование системы</title>
 
 <para>
-This chapter describes the backup and restore of the OTRS data.
+В этой главе описывается резервное копирование и восстановление данных OTRS.
 </para>
 
 <section id="backup">
-<title>Back up</title>
+<title>Архивирование</title>
 
 <para>
-There are two types of data to back up: the application (e.g. the files in
-<filename>/opt/otrs</filename>) and the data stored in the database.
+Есть два типа для резервного копирования данных: приложение (например, файлы
+в <filename>/opt/otrs</filename>) и данные, хранящиеся в базе данных.
 </para>
 
 <para>
-To simplify back ups, the script <filename>scripts/backup.pl</filename> is
-included in every OTRS installation, which backs up all important data (see
-Script 22.1 below).
+Для упрощения создния резервных копий, сценарий
+<filename>scripts/backup.pl</filename> включен в каждую инсталяцию OTRS, он
+позволяет создавать резервные копии всех важных данных (см. ниже Сценарий
+22.1 ).
 </para>
 
 <para>
@@ -37,11 +38,11 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.1. Getting help about the back up mechanism.</emphasis>
+    <emphasis>Сценарий 22.1. Получене помощи о механизме архивации.</emphasis>
 </para>
 
 <para>
-Execute command specified in the Script 22.2 to create a back up:
+Выполните команду приведенную в Сценарии 22.2 для создания архива:
 </para>
 
 <para>
@@ -56,13 +57,13 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.2. Creating a back up.</emphasis>
+    <emphasis>Сценарий 22.2.Создание архива.</emphasis>
 </para>
 
 <para>
-All data was stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename> (see Script 22.3 below).
-Additionally the data was saved into a .tar.gz file.
+Все данные хранятся в директории
+<filename>/backup/2010-09-07_14-28/</filename> (см. ниже Сценарий
+22.3). Кроме того данные были сохранены в файл с расширением .tar.gz.
 </para>
 
 <para>
@@ -74,24 +75,24 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.3. Checking the back up files.</emphasis>
+    <emphasis>Сценарий 22.3. Проверка резервных копий файлов.</emphasis>
 </para>
 
 </section>
 
 <section id="restore">
-<title>Restore</title>
+<title>Восстановление</title>
 
 <para>
-To restore a back up, the saved data of the application has to be written
-back into the installation directory, e.g. <filename>/opt/otrs</filename>.
-Also the database has to be restored.
+Для восстановления резервной копии, сохраненные данные приложения должны
+быть записаны обратно в каталого установки, например
+<filename>/opt/otrs</filename>. Также должна быть восстановлена база данных.
 </para>
 
 <para>
-A script <filename>scripts/restore.pl</filename> (see Script 22.4 below) to
-simplify the restore process is shipped with every OTRS installation. It
-supports MySQL and PostgreSQL.
+Сценарий <filename>scripts/restore.pl</filename> (см. ниже Рисунок 22.4)
+чтобы упростить процесс восстановления который поставляется с каждой
+установкой OTRS. Он поддерживает MySQL и PostgreSQL.
 </para>
 
 <para>
@@ -105,13 +106,14 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.4. Getting help about the restore mechanism.</emphasis>
+    <emphasis>Сценарий 22.4. Получение справки о механизме
+восстановления.</emphasis>
 </para>
 
 <para>
-Data, that is stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename>, can be restored with the
-command specified in the Script 22.5 and an OTRS installation in
+Данные, которые хранятся в директориии
+<filename>/backup/2010-09-07_14-28/</filename>, могут быть востановлены с
+помощью команды, указаной в Сценарии 22.5 в в установленном OTRS в
 <filename>/opt/otrs</filename>.
 </para>
 
@@ -129,7 +131,7 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.5. Restoring the system.</emphasis>
+    <emphasis>Сценарий 22.5. Восстановление системы.</emphasis>
 </para>
 
 </section>

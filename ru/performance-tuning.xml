@@ -3,28 +3,28 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.8 2011-02-24 10:04:44 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.9 2011-03-02 13:51:33 mg Exp $ -->
 <chapter id="performance-tuning">
-<title>Performance Tuning</title>
+<title>Настройка Производительности</title>
 
 <abstract>
 <para>
-An exhaustive list of various techniques you might want to use to get the
-most performance possible out of your OTRS system: configuration, coding,
-memory use and more.
+Исчерпывающий перечень различных методов, которые вы можете использовать,
+чтобы получить максимально возможную производительность вашей системы OTRS:
+конфигурации, код, использование памяти и многое другое.
 </para>
 </abstract>
 
 <section id="performance-tuning-otrs">
 <title>OTRS</title>
 <para>
-There are several options to improve the performance of OTRS.
+Есть несколько вариантов для улучшения производительности OTRS.
 </para>
 
 <section id="performance-tuning-otrs-index">
 <title>TicketIndexModule</title>
 <para>
-There are two backend modules for the ticket index:
+Есть два типа хранилища информации для хранения индексов заявок:
 </para>
 
 <para>
@@ -32,20 +32,21 @@ There are two backend modules for the ticket index:
 
 <listitem>
 <para>
-Kernel::System::Ticket::IndexAccelerator::RuntimeDB (default), generate each
-queue view on the fly from the ticket table. You will not have performance
-trouble until you have about 60,000 tickets (with 6,000 open tickets) in
-your system.
+Kernel::System::Ticket::IndexAccelerator::RuntimeDB (по умолчанию),
+генерирует шаблон просмотра для каждой очереди "на лету" из таблицы
+заявок. Вы не будете иметь проблем производительности, пока у вас есть
+только 60.000 (с 6000 открытых заявок) в вашей системы.
 </para>
 </listitem>
 
 <listitem>
 <para>
-Kernel::System::Ticket::IndexAccelerator::StaticDB, the most powerful
-module, it should be used when you have above 80,000 tickets (more than
-6,000 open tickets) - it use an extra ticket_index table, which works like a
-view. Use <filename>bin/otrs.RebuildTicketIndex.pl</filename> for generating
-an initial index build after switching backends.
+Kernel::System::Ticket::IndexAccelerator::StaticDB, самый мощный модуль, его
+следует использовать, когда у вас еть больше 80.000 заявок (более 6000
+открытых заявок) - для этого используется дополнительная таблица
+ticket_index, которая работает как обычный шаблон. Используйте
+<filename>bin/otrs.RebuildTicketIndex.pl</filename> для получения начального
+индекса после создания хранилища информации.
 </para>
 </listitem>
 
@@ -53,7 +54,7 @@ an initial index build after switching backends.
 </para>
 
 <para>
-You can change the IndexAccelerator via SysConfig.
+Вы можете изменить IndexAccelerator через SysConfig.
 </para>
 
 </section>
@@ -62,7 +63,7 @@ You can change the IndexAccelerator via SysConfig.
 <section id="performance-tuning-otrs-storage">
 <title>TicketStorageModule</title>
 <para>
-There are two different backend modules for the ticket/article storage:
+Существует два различных хранилица для хранения заявок/статей:
 </para>
 
 <para>
@@ -70,34 +71,36 @@ There are two different backend modules for the ticket/article storage:
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageDB (default), store attachments, etc.
-in the database. Note: Don't use it for large set ups.
+Kernel::System::Ticket::ArticleStorageDB (по умолчанию), сохраняет вложения,
+и т.д. в базе данных. Примечание: Не используйте его для больших наборов
+данных.
 </para>
 <para>
-Pro: If your webserver user isn't the otrs user, use this module to avoid
-file permission problems.
+Pro: Если пользователь вашего веб-сервера не OTRS-пользователь, используйте
+этот модуль, чтобы избежать проблем с правами доступа к файлу.
 </para>
 <para>
-Contra: It's not really advisable to store attachments in your
-database. Take care that your database is able to store large
-objects. E.g. MySQL (config)  "set-variable = max_allowed_packet=8M" to
-store 8 MB objects (default is 2M).
+Противопоказания: Это не совсем целесообразно хранить вложения в базе
+данных. Будьте осторожны, при храненении больших объектов. Например MySQL
+(параметр конфигурации) "set-variable=max_allowed_packet=8M"  для хранения
+объектов размером 8 MB (по умолчанию это 2M).
 </para>
 </listitem>
 
 <listitem>
 <para>
-Kernel::System::Ticket::ArticleStorageFS, store attachments etc. on the
-local file system. Note: Recommended for large setups.
+Kernel::System::Ticket::ArticleStorageFS, хранит вложения ит.д. в локальной
+файловой системе. Примечание: Рекомендуется для больших установок.
 </para>
 <para>
 Pro: Fast!
 </para>
 <para>
-Contra: Your web server user should be the otrs user (file system
-permissions!).  Also, if you have multiple front end servers, you should
-make sure the file system is shared between the servers. So place it on an
-NFS share or preferably a SAN or similar solution.
+Противопоказания: Ваш пользователь веб-сервера должен быть
+OTRS-пользователем (права доступа к файловой системе!). Кроме того, если у
+вас есть несколько интерфейсов и серверов, вы должны убедиться, что файловая
+система разделяется между серверами. Так что разместите  его на расшаренный
+NFS-ресурс или, предпочтительно, SAN или же аналогичные решения.
 </para>
 </listitem>
 
@@ -106,14 +109,15 @@ NFS share or preferably a SAN or similar solution.
 </para>
 
 <para>
-Note: you can switch from one to the other back-end on the fly. You can
-switch the backend in the SysConfig, and then you can run the command line
-utility <filename>otrs.ArticleStorageSwitch.pl</filename> to put the
-articles from the database onto the filesystem or the other way around. You
-can use the <emphasis>-s</emphasis> and <emphasis>-d</emphasis> option to
-specify the source and destination back-ends. Please note that the whole
-process can take a lot of time, depending on the amount of articles you have
-and the available CPU power and/or network capacity.
+Примечание: вы можете переключаться с одного фронт-енда на другой "на лету"
+Вы можете переключать бэк-энд в SysConfig и замем вы можете запустить
+утилиту в командной строке
+<filename>otrs.ArticleStorageSwitch.pl</filename>, чтобы внести статьи из
+базы данных в файловую систему и наоборот. Вы можете использовать опциии
+<emphasis>-s</emphasis> и <emphasis>-d</emphasis> для указания источника и
+конечный бэк-эенд. Обратите внимание, что весь процесс может занять много
+времени, в зависимости от количества статей, которые у вас есть и доступной
+мощности процессора и/или пропускной способности сети.
 </para>
 
 <para>
@@ -122,56 +126,58 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
 <para>
-    <emphasis>Script 21.1 Switching storage back-ends from database to
-filesystem.</emphasis>
+    <emphasis>Сценарий 21.1 Перемещение хранилища данных с базы данных на
+файловую систему.</emphasis>
 </para>
 </section>
 
 <section>
-    <title>Archiving Tickets</title>
+    <title>Архивирование Заявок</title>
 
     <para>
-        As OTRS can be used as an audit proof system, deleting closed tickets may
-not be a good idea.  Therefore we implemented a feature that allows you to
-archive tickets.
+        Как OTRS может быть использован в качестве доказательства системы аудита,
+удаление закрытых заявок не может быть хорошей идеей. Поэтому мы реализовали
+функцию, которая позволяет архивировать заявки.
     </para>
     <para>
-        This means that tickets that match certain criteria are marked as
-"archived", and these tickets are not touched if you do a regular ticket
-search or run a Generic Agent job.  The system itself has not to deal with a
-huge amount of tickets any longer as only the "latest" tickets are taken
-into consideration when using OTRS. This can mean a huge performance gain on
-large systems.
+        Это означает, что заявки, которые соответствуют определенным критериям,
+которые помечены как "архивированные", и к этим заявкам не притрагивались,
+если вы производите обычный поиск заявок или запускаете задание для Generic
+Agent. Система сама собой не имеет дела с огромным количеством заявок, как
+только "последняя" заявка не принимается во внимание при использовании
+OTRS. Это может означать огромный прирост производительности на больших
+системах.
     </para>
     <para>
-        To use the archive feature simply follow these steps:
+        Для использования функции архивации выполните следующие действия:
     </para>
     <orderedlist>
         <listitem>
             <para>
-                Activate the archive system in SysConfig
+                Включение архивирование системы в SysConfig
             </para>
             <para>
-                In the Admin panel of OTRS go to SysConfig and select the group
-<literal>Ticket</literal>.  In <literal>Core::Ticket</literal> you find the
-option <literal>Ticket::ArchiveSystem</literal> which is set to "no" per
-default. Change this setting to "yes" and save this change.
+                В панели управления администратора OTRS перейдите в SysConfig и выберите
+группу <literal>Заявка</literal>. В <literal>Core::Ticket</literal> вы
+можете найти опцию <literal>Ticket::ArchiveSystem</literal> которая
+установлена в "нет" по умолчанию. Измените эту настройку в "да" и сохраните
+изменения.
             </para>
         </listitem>
         <listitem>
             <para>
-                Define a GenericAgent job
+                Определение работы GenericAgent
             </para>
             <para>
-                In the Admin panel select GenericAgent and add a new job there.
-<orderedlist>
+                В панели администратора выберите GenericAgent и добавьте новое задание
+(работу). <orderedlist>
                     <listitem>
                         <para>
-                            Job Settings
+                            Настройки Задания
                         </para>
                         <para>
-                            Provide a name for the archiving job and select proper options to schedule
-this job.
+                            Введите имя для задания на архивирование и выберите правильный вариант
+графика этой работы.
                         </para>
                     </listitem>
                     <listitem>
@@ -179,35 +185,37 @@ this job.
                             Ticket Filter
                         </para>
                         <para>
-                            The ticket filter is basically a ticket search that is looking for tickets
-that match the selected criteria.  It might be a good idea to only archive
-tickets in a close state that have been closed a few months before.
+                            Фильтр заявок в основном, поиск заявок, который ищет заявки, которые
+соответствуют заданым критериям. Это может быть хорошей идеей, чтобы только
+архивировать заявки, которые закрыты или были закрыты несколько месяцев
+назад.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            Ticket Action
+                            Действия над заявками
                         </para>
                         <para>
-                            In the section Ticket Action you will find an action called "Archive
-selected tickets".  Set this to "archive tickets".
-                        </para>
-                    </listitem>
-                    <listitem>
-                        <para>
-                            Save the job
-                        </para>
-                        <para>
-                            At the end of the page you will find an option to save the job.
+                            В разделе Действия для Заявок вы можете найти действие, которое называется
+"Архивировать выбранные заявки". Установите его значение в "архивировать
+заявки".
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            Affected tickets
+                            Сохранить работу
                         </para>
                         <para>
-                            The system will display all tickets which will be archived when executing
-the Generic Agent job
+                            В конце страницы у вас будет возможность сохранить работу (задание).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Обработанные заявки
+                        </para>
+                        <para>
+                            Система отобразит все заявки, которые будут архивировться при вызове задания
+Generic Agent.
                         </para>
                     </listitem>
                 </orderedlist>
@@ -215,12 +223,13 @@ the Generic Agent job
         </listitem>
         <listitem>
             <para>
-                Ticket Search
+                Поиск Заявок
             </para>
             <para>
-                When you search for tickets, the system default is only searching tickets
-which are not archived.  If you want to search through archived tickets
-also, simply add "archive search" while defining search criteria.
+                Когда вы производите поиск заявок, система, по умолчанию ищет заявки,
+которые не архивировались. Если вы хотите, чтобы поиск производился также и
+по архивированным заявкам, просто дополнительно укажите критерий "поиск в
+архиве".
             </para>
         </listitem>
     </orderedlist>
@@ -230,23 +239,26 @@ also, simply add "archive search" while defining search criteria.
 
 
 <section id="performance-tuning-database">
-<title>Database</title>
+<title>База данных</title>
 <para>
-This depends on the database you are using. If you're having trouble, read
-the documentation for your database or ask your database administrator.
+Это зависит от используемой базы данных. Если у вас возникли проблемы,
+читайте документацию по вашей базе данных или же обратитесь к администартору
+базы данных.
 </para>
 
 <section id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-If you use MySQL table type MyISAM (which is the default), and have deleted
-a large part of a table or if you have made many changes to a table with
-variable-length rows (tables that have VARCHAR, BLOB or TEXT columns), you
-need to defragment the datafile (tables) with the "optimize" command.
+Если вы в MySQL используете тип таблиц MyISAM (значение по умолчанию), и
+удаляете большую часть таблицы, или если вы сделали много изменений в
+таблице с переменной длинной строки (таблицы которые содержат поля типов
+VARCHAR, BLOB или TEXT) вам нужно произвести дефрагментацию файла данных
+(таблиц) с помощью команды "optimize".
 </para>
 <para>
-You should try this if mysqld needs a lot of your CPU time. Optimize tables
-ticket, ticket_history and article (see Script 21.2 below).
+Вы должны попробовать это, если сервер mysqld требует много процессорного
+времени. Оптимизация таблиц ticket_history и article (см ниже Сценарий
+21.2).
 </para>
 
 <para>
@@ -259,7 +271,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-    <emphasis>Script 21.2. Optimizing data base tables.</emphasis>
+    <emphasis>Сценарий 21.2. Оптимизация таблиц базы данных.</emphasis>
 </para>
 
 </section>
@@ -267,8 +279,9 @@ mysql$ optimize table article;
 <section id="performance-tuning-database-postgresql">
 <title>PostgreSQL</title>
 <para>
-PostgreSQL is best tuned by modifying the postgresql.conf file in your
-PostgreSQL data directory. For advice on how to do this, see these articles:
+PostgreSQL лучше настраивается путем изменений в файле postgresql.conf
+который находится в директории с установленым PostgreSQL. За советом, как
+это сделать следите в следующих статьсях:
 </para>
 
 <para>
@@ -298,12 +311,12 @@ PostgreSQL data directory. For advice on how to do this, see these articles:
 </para>
 
 <para>
-If performance is still not satisfactory, we suggest that you join the
-PostgreSQL Performance mailing list ( <ulink
-url="http://www.postgresql.org/community/lists/">
-http://www.postgresql.org/community/lists/ </ulink> ) and ask questions
-there. The folks on the PostgreSQL list are very friendly and can probably
-help.
+Если производительность остается на неудовлетворительном уровне, мы
+предлагаем вам присоединится к спискам рассылки "PostgreSQL Performance" (
+<ulink url="http://www.postgresql.org/community/lists/">
+http://www.postgresql.org/community/lists/ </ulink> ) и задавать вопросы
+именно там. Люди в этом списке рассылке очень дружелюбны а всегада
+постараются вам помочь.
 </para>
 </section>
 
@@ -313,47 +326,50 @@ help.
 <section id="performance-tuning-webserver">
 <title>Веб-сервер</title>
 <para>
-Of course you should use mod_perl 2.0 ( <ulink
+Конечно же вы должны использовать mod_perl 2.0 ( <ulink
 url="http://perl.apache.org/">
-<citetitle>http://perl.apache.org/</citetitle> </ulink>).  It's much faster
-(~ * 100) than pure cgi. But it needs more RAM.
+<citetitle>http://perl.apache.org/</citetitle> </ulink>). Он более быстр (~
+* 100) чем "чистый" cgi. Но он требует больше оперативной памяти (RAM).
 </para>
 
 <section id="performance-tuning-webserver-db">
-<title>Pre-establish database connections</title>
+<title>Предварительно установленное соединение с базой данных</title>
 <para>
-You can have the database connections pre-established on startup of the web
-server.  This saves time (see README.webserver).
+Вы можете иметь соединение с базой данных заранее установленное при запуске
+веб-сервера. Это существенно сэкономит время (см. README.webserver).
 </para>
 </section>
 
 <section id="performance-tuning-webserver-startup">
-<title>Preloaded modules - startup.pl</title>
+<title>Предварительно загруженные модули  - startup.pl</title>
 <para>
-Use the startup script <filename>scripts/apache2-perl-startup.pl</filename>
-for preloaded/precompiled Perl modules on your mod_perl webserver to be
-faster and smaller (see README.webserver).
+Используйте сценарий запуска
+<filename>scripts/apache2-perl-startup.pl</filename> для предварительной
+загрузки/компиляции Perl модулей на вашем сервере с mod_perl чтобы все
+работало быстрее (см. README.webserver).
 </para>
 </section>
 <section id="performance-tuning-webserver-reload">
-<title>Reload Perl modules when updated on disk</title>
+<title>Перезагрузка Perl-модулей во время обновления с диска</title>
 <para>
-By default Apachee::Reload is used in
-scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
-speed. But remember to restart the web server if you install any modules via
-the OTRS Package Manager, any values in your SysConfig or in
-Kernel/Config.pm.  Important: this would also mean you can't use the OTRS
-Package Manager via the web interface, you need to use the command line
-variant - <filename>bin/otrs.PackageManager.pl</filename>.
+По умолчанию Apachee::Reload используется в
+scripts/apache2-httpd.include.conf. Отключите его, если у вас больше 8%
+скорости. Но помните чтобы перезапустить веб-сервер, если вы установите
+модули через OTRS Package Manager, любые значения в SysConfig или в
+Kernel/Config.pm. Важно: это также будет означать, что вы не можете
+использовать OTRS Package Manager через веб-интерфейс, вы должны будете
+использовать вариант с командной строкой -
+<filename>bin/otrs.PackageManager.pl</filename>.
 </para>
 </section>
 
 <section id="performance-tuning-webserver-strategy">
-<title>Choosing the Right Strategy</title>
+<title>Выбор Правильной Стратегии</title>
 <para>
-If you have a really large installation (over 1,000 new tickets per day and
-over 40 agents) it is a good idea to read "Choosing the Right Strategy"
-(<ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html">
+Если у вас действительно большая инсталяция (более 1, 000 новых заявок в
+день и болше 40 агентов) то у вас есть хорошая возможность прочитать статью
+"Выбор Правильной Стратегии"  (<ulink
+url="http://perl.apache.org/docs/1.0/guide/strategy.html">
 <citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle>
 </ulink>).
 </para>
@@ -362,10 +378,11 @@ over 40 agents) it is a good idea to read "Choosing the Right Strategy"
 <section id="performance-tuning-webserver-gzip">
 <title>mod_gzip/mod_deflate</title>
 <para>
-If your bandwidth is a little bit small, use mod_deflate for Apache2.  If
-you have an html page with 45k, mod_gzip/mod_deflate compresses it. The page
-will be about 7k. The drawback is that this increases load on the server
-side.
+Если ваша скорость будет немного мала, используйте mod_deflate для
+Apache2. Если вы загружаете html-страницу размером в 45к,
+mod_gzip/mod_deflate сожмет ее. И Страница будет иметь размер около
+7к. Недостатком такого подхода является дополнительная нагрузка на
+сервер. Это нужно помнить.
 </para>
 </section>
 
