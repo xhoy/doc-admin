@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.9 2011-03-02 13:51:33 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.10 2011-04-04 08:03:19 mg Exp $ -->
 <chapter id="adminarea">
 <title>Админка OTRS</title>
 
@@ -1973,18 +1973,20 @@ fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
 <title>Сортирование спама в определенную очередь </title>
 
 <para>
-A useful filter rule could be to let OTRS automatically sort mails marked
-for spam with a spam detection tool, such as SpamAssassin, into the "Junk"
-queue.  SpamAssassin adds the "X-Spam-Flag" header to every checked mail.
-When the mail is marked as spam, the Header is set to "Yes". So the filter
-criteria would be "X-Spam-Flag: Yes". To create a filter rule with this
-criteria you can insert the name for example "spam-mails". Also choose in
-the section for "Match" for "Header 1" from the listbox
-"X-Spam-Flag:". Insert "Yes" as value for this header. Now the filter
-criteria is specified. To make sure, that all spam mails get sorted into the
-"Junk" queue choose in the section for "Set" for "Header 1" the
-"X-OTRS-Queue:" entry. Specify "Junk" as value for this header. Finally add
-the new filter rule to activate it for the next new messages in the system.
+Полезные правила фильтрации могут быть, чтобы OTRS автоматически сортировал
+почту помеченую как спам с инструментом обнаружения спама, таких как
+SpamAssassin, в "Нежелательная" очередь. SpamAssassin добавляет
+"X-Spam-Flag" заголовок для каждого проверить почту. Если письмо помечено
+как спам, заголовков установлена в "да". Так критерии фильтра будет
+"X-Spam-Flag: Yes". Чтобы создать правило фильтрации с этим критериям можно
+вставить имя, например "спам-почты". Также выбрать в разделе "Матч" для
+"Заголовок 1" из списка "X-Spam-Flag:". Вставить "Да" в качестве значения
+для этого заголовка. Теперь критерии фильтра указан. Чтобы убедиться, что
+все спам-письма встанет в "Нежелательная" очереди выбрать в разделе
+"Установить" для  "Заголовок 1"  "X-OTRS-очереди:" запись. Укажите
+"Нежелательная" в качестве значения для этого заголовка. Наконец добавить
+новые правила фильтрации, чтобы активировать его на следующий новых
+сообщениях в системе.
 </para>
 </example>
 

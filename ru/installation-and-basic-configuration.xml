@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.9 2011-03-02 13:51:33 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.10 2011-04-04 08:03:20 mg Exp $ -->
 <chapter id="installation-and-basic-configuration">
 <title>Установка/Обновление OTRS-фреймворка</title>
 
@@ -50,13 +50,13 @@ Windows-инсталлятора.
 <title>Установка системы из rpm-пакетов на сервер под управлением Suse Linux</title>
 
 <para>
-This section describes the installation of a pre-built rpm package on a SUSE
-Linux distro. We tested all recent SLES and OpenSUSE versions. Before you
-start the installation please have a look on <ulink
-url="http://www.otrs.org/downloads">
-<citetitle>http://www.otrs.org/downloads</citetitle> </ulink> and check, if
-a newer OTRS rpm package is available. Please use the newer rpm package, if
-available.
+В этом разделе описывается установка системы OTRS из rpm-пакетов, встроеных
+в дистрибутив SUSE Linux. Мы протестировали все SLES и OpenSUSE релизы,
+доступные на данный момент. Перед началом установки перейдите по адресу
+<ulink url="http://www.otrs.org/downloads">
+<citetitle>http://www.otrs.org/downloads</citetitle> </ulink> и убедитесь
+нету ли новых rpm-пакетов, доступных для скачивания. Всегда старайтесь
+использовать только самые новые rpm-пакеты.
 </para>
 
 <para>
@@ -1447,7 +1447,7 @@ linux:/opt/otrs/bin#
 </section>
 
 <section id="upgrading">
-<title>Upgrading the OTRS Framework</title>
+<title>Обновление OTRS-фреймворка</title>
 <para>
 Эти инструкции предназначены для тех, кто обновляет OTRS
 <emphasis>2.4</emphasis> до версии <emphasis>3.0</emphasis> используя для
