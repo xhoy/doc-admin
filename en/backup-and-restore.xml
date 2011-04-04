@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: backup-and-restore.xml,v 1.10 2010-12-01 13:03:28 mg Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.11 2011-04-04 11:09:10 mg Exp $ -->
 
 <chapter id="backup-and-restore">
 <title>Backing up the system</title>
@@ -11,17 +11,14 @@ This chapter describes the backup and restore of the OTRS data.
 </para>
 
 <section id="backup">
-<title>Back up</title>
+<title>Backup</title>
 
 <para>
-There are two types of data to back up: the application (e.g. the files in
-<filename>/opt/otrs</filename>) and the data stored in the database.
+There are two types of data to backup: application files (e.g. the files in <filename>/opt/otrs</filename>), and the data stored in the database.
 </para>
 
 <para>
-To simplify back ups, the script <filename>scripts/backup.pl</filename> is
-included in every OTRS installation, which backs up all important data
-(see Script 22.1 below).
+To simplify backups, the script <filename>scripts/backup.pl</filename> is included with every OTRS installation. It can be run to backup all important data (see Script 22.1 below).
 </para>
 
 <para>
@@ -36,11 +33,11 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.1. Getting help about the back up mechanism.</emphasis>
+<emphasis>Script 22.1. Getting help about the OTRS backup mechanism.</emphasis>
 </para>
 
 <para>
-Execute command specified in the Script 22.2 to create a back up:
+Execute the command specified in Script 22.2 to create a backup:
 </para>
 
 <para>
@@ -55,13 +52,11 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.2. Creating a back up.</emphasis>
+<emphasis>Script 22.2. Creating a backup.</emphasis>
 </para>
 
 <para>
-All data was stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename> (see Script 22.3 below).
-Additionally the  data was saved into a .tar.gz file.
+All data was stored in the directory <filename>/backup/2010-09-07_14-28/</filename> (see Script 22.3 below). Additionally, the  data was saved into a .tar.gz file.
 </para>
 
 <para>
@@ -73,7 +68,7 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.3. Checking the back up files.</emphasis>
+<emphasis>Script 22.3. Checking the backup files.</emphasis>
 </para>
 
 </section>
@@ -82,15 +77,11 @@ linux:/opt/otrs/scripts#
 <title>Restore</title>
 
 <para>
-To restore a back up, the saved data of the application has to be written
-back into the installation directory, e.g. <filename>/opt/otrs</filename>.
-Also the database has to be restored.
+To restore a backup, the saved application data has to be written back into the installation directory, e.g. <filename>/opt/otrs</filename>. Also the database has to be restored.
 </para>
 
 <para>
-A script <filename>scripts/restore.pl</filename> (see Script 22.4 below) to simplify
-the restore process is shipped with every
-OTRS installation. It supports MySQL and PostgreSQL.
+A script <filename>scripts/restore.pl</filename> (see Script 22.4 below), which simplifies the restore process, is shipped with every OTRS installation. It supports MySQL and PostgreSQL.
 </para>
 
 <para>
@@ -104,14 +95,11 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.4. Getting help about the restore mechanism.</emphasis>
+<emphasis>Script 22.4. Getting help about the restore mechanism.</emphasis>
 </para>
 
 <para>
-Data, that is stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename>, can be restored with the
-command specified in the Script 22.5 and an OTRS installation in
-<filename>/opt/otrs</filename>.
+Data that is stored, for example, in the directory <filename>/backup/2010-09-07_14-28/</filename>, can be restored with the command specified in Script 22.5, assuming the OTRS installation is at <filename>/opt/otrs</filename>.
 </para>
 
 <para>
@@ -128,7 +116,7 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-    <emphasis>Script 22.5. Restoring the system.</emphasis>
+<emphasis>Script 22.5. Restoring OTRS data.</emphasis>
 </para>
 
 </section>

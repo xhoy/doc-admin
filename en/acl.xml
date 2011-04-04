@@ -1,43 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.5 2010-12-01 13:03:27 mg Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.6 2011-04-04 11:09:09 mg Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <para>
-From OTRS 2.0 on, Access Control Lists (ACLs) can be used to control access to tickets,
-modules, queues, etc. or to influence actions on tickets (closing, moving, etc.)
-in certain situations. ACLs can be used supplementary to the existing
-permission system of
-
-<link linkend="adminarea-roles">
-roles
-</link>
-
-and
-
-<link linkend="adminarea-groups">
-groups
-</link>
-
-Using ACLs, rudimental workflows within the system can
-be mapped, based on ticket attributes.
+From OTRS 2.0 on, Access Control Lists (ACLs) can be used to control access to tickets, modules, queues, etc., or to influence actions on tickets (closing, moving, etc.) in certain situations. ACLs can be used to supplement the existing permission system of <link linkend="adminarea-roles">roles</link> and <link linkend="adminarea-groups">groups
+</link>. Using ACLs, rudimental workflows within the system can be mapped, based on ticket attributes.
 </para>
 
 <para>
-So far, ACLs cannot be created using the
-
-<link linkend="adminarea-sysconfig" >
-SysConfig interface
-</link>
-
-but must be directly entered into the <filename>Kernel/Config.pm</filename>
-file. Find some examples below (Example 18-1, 18-2 and 18-3):
+As yet, ACLs cannot be created using the <link linkend="adminarea-sysconfig">SysConfig interface</link>. They must be directly entered into the <filename>Kernel/Config.pm</filename> file. Some ACL examples are listed below (Example 18-1, 18-2 and 18-3):
 </para>
 
 <para>
 <example id="acl-move">
-<title>ACL which only allows to move tickets with ticket priority 5 into
-a queue.</title>
+<title>ACL allowing movement into a queue of only those tickets with ticket priority 5.</title>
 
 <programlisting>
     # ticket acl
@@ -64,8 +41,7 @@ a queue.</title>
 
 <para>
 <example id="acl-close" >
-<title>ACL which disables the closing of tickets in the raw queue and hides
-the close button.</title>
+<title>ACL disabling the closing of tickets in the raw queue, and hiding the close button.</title>
 
 <programlisting>
     $Self->{TicketAcl}->{'ACL-Name-1'} = {
@@ -111,8 +87,7 @@ the close button.</title>
 
 <para>
 <example id="acl-state" >
-<title>ACL which removes the status for all agents and only provides it for
-a group.</title>
+<title>ACL removing the status for all agents, only providing it for a group.</title>
 
 <programlisting>
     $Self->{TicketAcl}->{'ACL-Name-5'} = {
@@ -133,7 +108,7 @@ a group.</title>
 </para>
 
 <para>
-In the Script 18.1 there is a list of all parameters which can be used for ACLs.
+In Script 18.1 there is a list of all parameters which can be used for ACLs.
 </para>
 
 <para>
@@ -221,7 +196,7 @@ In the Script 18.1 there is a list of all parameters which can be used for ACLs.
 </para>
 
 <para>
-    <emphasis>Script 18.1. Valid parameters for ACLs.</emphasis>
+<emphasis>Script 18.1. Valid parameters for ACLs.</emphasis>
 </para>
 
 </chapter>

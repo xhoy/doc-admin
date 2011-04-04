@@ -1,84 +1,54 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: themes.xml,v 1.6 2010-12-01 13:03:28 mg Exp $ -->
+<!-- $Id: themes.xml,v 1.7 2011-04-04 11:09:10 mg Exp $ -->
 
 <chapter id="themes">
 <title>Creating your own themes</title>
 
 <para>
-You can create your own themes for OTRS to use the layout you like in the
-web frontend. To create own themes you should customize the output templates
-to your needs.
+You can create your own themes so as to use the layout you like in the OTRS web frontend. To create own themes, you should customize the output templates to your needs.
 </para>
 
 <para>
-More information about the syntax and structure of output templates can
-be found in the Developer Manual on
-
-<ulink url="http://doc.otrs.org">
-<citetitle>http://doc.otrs.org</citetitle>
-</ulink>
-, especialy in the chapter about
-
-<ulink url="http://doc.otrs.org/developer/2.4/en/html/c629.html">
-<citetitle>templates</citetitle>
-</ulink>
-.
+More information on the syntax and structure of output templates can be found in the Developer Manual at <ulink url="http://doc.otrs.org"><citetitle>http://doc.otrs.org</citetitle></ulink>, especialy in the chapter on
+<ulink url="http://doc.otrs.org/developer/2.4/en/html/c629.html"><citetitle>templates</citetitle></ulink>.
 </para>
 
 <para>
-To create a new theme called "Company" perform the following steps:
+As an example, perform the following steps to create a new theme called "Company":
 </para>
 
 <para>
 <orderedlist numeration="arabic">
     <listitem>
     <para>
-    Create a directory called
-    <filename>Kernel/Output/HTML/Company</filename>
-    and copy all files, that you like to change, from
-    <filename>Kernel/Output/HTML/Standard</filename>
-    into the new folder.
+    Create a directory called <filename>Kernel/Output/HTML/Company</filename> and copy all files that you like to change, from <filename>Kernel/Output/HTML/Standard</filename> into the new folder.
     </para>
-    <important><para>Only copy over the files you actually change. OTRS
-    will automatically get the missing files from the Standard theme.
-    This will make upgrading in a later stage much easier.</para></important>
+    <important><para>
+		Only copy over the files you actually change. OTRS will automatically get the missing files from the Standard theme.
+    This will make upgrading at a later stage much easier.</para></important>
 </listitem>
 <listitem>
     <para>
-    Customize the files in the directory
-    <filename>Kernel/Output/HTML/Company</filename> and change the layout
-    to your needs
+    Customize the files in the directory <filename>Kernel/Output/HTML/Company</filename>, and change the layout to your needs.
     </para>
 </listitem>
 <listitem>
     <para>
-    To activate the new theme in OTRS, add them in the SysConfig under
-    <link linkend="Framework:Core::Web:Frontend::Themes">
-    Frontend::Themes
-    </link>.
+    To activate the new theme, add them in SysConfig under <link linkend="Framework:Core::Web:Frontend::Themes">Frontend::Themes</link>.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Now the new theme should be useable in OTRS. You can
-select it via your
-
-<link linkend="user-preferences">
-personal preferences
-</link>
-
-page.
+Now the new theme should be useable. You can select it via your <link linkend="user-preferences">personal preferences</link> page.
 </para>
 
 <warning>
 <para>
-Do not change the theme files shipped with OTRS, since these changes will be lost
-after an update. Create your own themes only by performing the steps described
-above.
+Do not change the theme files shipped with OTRS, since these changes will be lost after an update. Create your own themes only by performing the steps described above.
 </para>
 </warning>
 

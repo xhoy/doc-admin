@@ -1,16 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pgp.xml,v 1.5 2010-12-01 13:03:28 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.6 2011-04-04 11:09:10 mg Exp $ -->
 
 <chapter id='configure-pgp'>
-<title> PGP</title>
+<title>PGP</title>
 
 <para>
-OTRS is able to sign or encrypt outgoing messages with PGP. Also encrypted
-incoming messages can be decrypted. Encryption and decryption is done with
-the GPL tool GnuPG. To setup GnuPG for OTRS, the following steps have to be
-performed:
+OTRS has the capability to sign or encrypt outgoing messages with PGP. Further, encrypted incoming messages can be decrypted. Encryption and decryption are done with the GPL tool GnuPG. To setup GnuPG for OTRS, the following steps have to be performed:
 </para>
 
 <para>
@@ -22,9 +19,7 @@ performed:
     </listitem>
     <listitem>
     <para>
-    Configure GnuPG for the usage with OTRS.
-    The needed directories for GnuPG and a private key have to be created.
-    The command shown in the Sript 16.1 has to be executed as OTRS user, from a shell.
+    Configure GnuPG for use with OTRS. The necessary directories for GnuPG and a private key have to be created. The command shown in Script 16.1 has to be executed as user 'otrs' from a shell.
     </para>
 
     <para>
@@ -115,49 +110,32 @@ performed:
     </para>
 
     <para>
-        <emphasis>Script 16.1. Configuring GnuPG.</emphasis>
+    <emphasis>Script 16.1. Configuring GnuPG.</emphasis>
     </para>
 
     <para>
-    As shown in the Script 16.1, for most of the settings the default is OK.
-    Only the values for the key owner have to be entered correctly and a
-    propper password for the key has to be specified.
+		As shown in Script 16.1, the default settings can be applied for most of the required parameters. Only the values for the key owner have to be entered correctly, with a proper password specified for the key.
     </para>
     </listitem>
     <listitem>
     <para>
-    Now OTRS has to be prepared to use PGP. Open the SysConfig interface,
-    via the admin panel and search for "PGP". Select the sub group
-    Crypt::PGP from the search results.
+    Now OTRS has to be made ready to use PGP. From the Admin console, open the SysConfig interface and search for "PGP". Select the sub group Crypt::PGP from the search results.
     </para>
 
     <para>
-    In the screen for the PGP settings, PGP should be activated for OTRS
-    (first option). Also the path to the gpg program should be checked.
+    In the screen for the PGP settings, PGP should be activated for OTRS (first option). Also, the path to the gpg program should be set and checked.
     </para>
 
     <para>
-    The next config setting (PGP::Options) might to be changed. Via this
-    config setting, the parameters that are used for every execution of gpg,
-    by the OTRS user, can be specified. Especially the directory of the
-    config files for GnuPG of the OTRS user is important. In the example
-    <filename>/opt/otrs/.gnupg</filename> is used. This directory was
-    created in the first step of the PGP configuration.
+    The next config setting (PGP::Options) may also require changing. Via this config setting, the parameters that are used for every execution of gpg by the 'otrs' user can be specified. In particular, the directory of the config files for GnuPG of the 'otrs' user is important. In the example <filename>/opt/otrs/.gnupg</filename> is used. This directory was created earlier during the PGP configuration.
     </para>
 
     <para>
-    Via the last config option it is possible to specify the pairs of key
-    IDs and their passwords for the own private keys. Because
-    communication partners from outside write to the ticket system and
-    their messages are encrypted with their public key, OTRS can decrypt
-    these messages with the ID/passwords specified here.
+		Via the next config option (PGP::Key::Password) it is possible to specify the pairs of key IDs and their passwords for own private keys. Because communication partners from outside write to the ticket system with their messages encrypted with your public key, OTRS can decrypt these messages with the ID/passwords specified here.
     </para>
 
     <para>
-    How to get the id of your own private key? The ID of your own private
-    key is already shown during the key generation (see step 1 from
-    above). It is also possible to get the ID if the command specified in the
-    Script 16.2 is executed as OTRS user:
+    How to get the id of your own private key? The ID of your own private key is already shown during the key generation (see step 1 from above). It is also possible to get the ID if the command specified in Script 16.2 is executed as user 'otrs':
     </para>
 
     <para>
@@ -179,50 +157,32 @@ performed:
     </para>
 
     <para>
-        <emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>
+    <emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>
     </para>
 
     <para>
-    The ID of the private key can be found in the line that starts with
-    "sub". It is a hexadecimal string that is eight characters long,
-    in the example above it is "52B97069". The password you have to
-    specify for this key in the ticket system is the same like
-    given during key generation.
+    The ID of the private key can be found in the line that starts with "sub". It is a hexadecimal string that is eight characters long, in the example above it is "52B97069". The password you have to specify for this key in the ticket system is the same that was given during key generation.
     </para>
 
     <para>
-    After these data have been inserted, the "Update" button can be used to
-    store the settings. OTRS is ready to receive and decrypt encoded
-    messages now.
+    After this data is inserted, the "Update" button can be used to save the settings. OTRS is ready to receive and decrypt encoded messages now.
     </para>
     </listitem>
     <listitem>
     <para>
-    Finally, import a customer's public key. This ensures
-    that also encrypted messages can be sent out to this customer. There
-    are two ways to import a public key of a customer.
+    Finally, import a customer's public key. This ensures that encrypted messages can be sent out to this customer. There are two ways to import a public key of a customer.
     </para>
 
     <para>
-    The first possibility is to specify the public key of a customer in the
-    interface for the customer management. A public can be given if a
-    customer is created or modified.
+    The first way is to specify the public key of a customer in the customer management interface.
     </para>
 
     <para>
-    The second possibility is to specify the key via the PGP settings,
-    reachable from the admin area of OTRS. On the right site of this screen
-    all already imported public keys of customers are displayed. After PGP
-    has been activated and configured for OTRS your own public key should be
-    listed there also. In the left area of the PGP setting screen it is
-    possible to search for keys. Also a new public key can be uploaded into
-    the system from a file.
+    The second way is to specify the key via the PGP settings, reachable from the Admin page. On the right section of this screen, all already imported public keys of customers are displayed. After PGP has been activated and configured for OTRS, your own public key should also be listed there. In the left area of the PGP setting screen it is possible to search for keys. Also, a new public key can be uploaded into the system from a file.
     </para>
 
     <para>
-    The files with the public key that need to be imported into OTRS have
-    to be GnuPGP conform key files. In most cases, the key stored in a file
-    is an "ASCII armored key". OTRS can deal with this format.
+    The files with the public key that need to be imported into OTRS have to be GnuPGP compatible key files. In most cases, the key stored in a file is an "ASCII armored key". OTRS can deal with this format.
     </para>
     </listitem>
 </orderedlist>
