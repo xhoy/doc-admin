@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
 "POT-Creation-Date: 2011-04-04 13:13+0300\n"
-"PO-Revision-Date: 2011-04-06 12:14+0100\n"
+"PO-Revision-Date: 2011-04-06 16:18+0100\n"
 "Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -5385,7 +5385,6 @@ msgstr "Queues"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:516
-#, fuzzy
 #| msgid ""
 #| "Through the link \"Queue\" of the admin area, you can manage the <link "
 #| "linkend=\"what-is-a-queue\"> queues </link> of your system (see Figure "
@@ -5399,10 +5398,9 @@ msgstr "Über den Link \"Queue\" innerhalb des Admin-Bereiches von OTRS können 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:521
 #: en/adminarea.xml:536
-#, fuzzy
 #| msgid "Queue management in OTRS"
 msgid "Queue management"
-msgstr "Verwaltung der Queues in OTRS"
+msgstr "Queue-Verwaltung"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:521
@@ -5416,7 +5414,6 @@ msgstr "<emphasis>Abb. 5.18. Queue-Verwaltung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:531
-#, fuzzy
 #| msgid ""
 #| "Here you can add queues (see Figure 5.19 below) and modify them. You can "
 #| "specify the name and the group that should use the queue; it is also "
@@ -5436,7 +5433,6 @@ msgstr "<emphasis>Abb. 5.19. Hinzufügen einer Queue.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:546
-#, fuzzy
 #| msgid ""
 #| "You can define an unlock timeout for a queue, i.e., if an agent locks a "
 #| "ticket and does not close it before the unlock timeout has passed, the "
@@ -5467,7 +5463,6 @@ msgstr "Eskalation - Aktualisierungszeit"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/adminarea.xml:566
-#, fuzzy
 #| msgid ""
 #| "If there is an article added, such as a follow-up, via e-mail or the "
 #| "customer portal, the escalation update time is reset. If there is no "
@@ -5483,7 +5478,6 @@ msgstr "Eskalation - Lösungszeit"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/adminarea.xml:575
-#, fuzzy
 #| msgid ""
 #| "If the ticket is not set to closed before the time defined here expires, "
 #| "the ticket is escalated."
@@ -5492,7 +5486,6 @@ msgstr "Wenn das Ticket nicht innerhalb der definierten Zeitdauer geschlossen we
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:581
-#, fuzzy
 #| msgid ""
 #| "With 'Ticket lock after a follow-up' you can define if a ticket should be "
 #| "set to 'locked' to the old owner if a ticket that has been set to closed "
@@ -5503,7 +5496,6 @@ msgstr "Weiterhin können Sie festlegen, dass bei einem Follow-Up auf ein Ticket
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:585
-#, fuzzy
 #| msgid ""
 #| "The parameter for the system address specifies the email address that "
 #| "will be used for the outgoing tickets of this queue. There is also "
@@ -5513,17 +5505,16 @@ msgstr "Weiterhin können Sie festlegen, dass bei einem Follow-Up auf ein Ticket
 #| "link> , <link linkend=\"adminarea-salutations\"> salutations </link> and "
 #| "<link linkend=\"adminarea-signatures\"> signatures </link> ."
 msgid "The parameter for the system address specifies the email address that will be used for the outgoing tickets of this queue. There is also possibility to associate a queue with a salutation and a signature, for the email answers. For more detailed information, please refer to the sections <link linkend=\"adminarea-emailaddresses\">email addresses</link>, <link linkend=\"adminarea-salutations\">salutations</link> and <link linkend=\"adminarea-signatures\"> signatures</link>."
-msgstr "Der Parameter für die Systemadresse legt fest, mit welcher Absenderadresse Mails aus dieser Queue versendet werden sollen. Mit Hilfe der Parameter für Anrede und Signatur kann eingestellt werden, welche Vorgaben hier standardmäßig bei Antworten auf Tickets in dieser Queue genutzt werden. In den Abschnitten <link linkend=\"adminarea-emailaddresses\">E-Mailadressen</link>, <link linkend=\"adminarea-salutations\">Anreden</link> und <link linkend=\"adminarea-signatures\">Signaturen</link> erfahren Sie mehr über die Einrichtung dieser Parameter."
+msgstr "Der Parameter für die Systemadresse legt fest, mit welcher Absenderadresse Mails aus dieser Queue versendet werden sollen. Mit Hilfe der Parameter für Anrede und Signatur kann eingestellt werden, welche Vorgaben hier standardmäßig bei Antworten auf Tickets in dieser Queue genutzt werden. In den Abschnitten <link linkend=\"adminarea-emailaddresses\">E-Mail-Adressen</link>, <link linkend=\"adminarea-salutations\">Anreden</link> und <link linkend=\"adminarea-signatures\">Signaturen</link> erfahren Sie mehr über die Einrichtung dieser Parameter."
 
 #. type: Content of: <chapter><section><note><para>
 #: en/adminarea.xml:591
-#, fuzzy
 #| msgid ""
 #| "To keep the consistency of the data for OTRS it is not possible to delete "
 #| "roles, but only deactivate them. To do so, set them to <emphasis>invalid</"
 #| "emphasis> or <emphasis>invalid-temporarily</emphasis>."
 msgid "As with agents, groups and customers, queues cannot be deleted, only deactivated, by setting the Valid option to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr "Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine Rolle zu deaktivieren, setzen Sie in den Einstellungen die entsprechende Rolle mit Hilfe der Listbox für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\"."
+msgstr "In OTRS können Queues deaktiviert, aber nicht gelöscht werden. Sie können eine Queue deaktivieren, indem Sie den Wert für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\" setzen."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:599
@@ -5537,7 +5528,6 @@ msgstr "Anreden"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:605
-#, fuzzy
 #| msgid ""
 #| "A salutation is a text module for a response. Salutations can be linked "
 #| "to one or more queues, as described in the section about <link linkend="
@@ -5601,13 +5591,12 @@ msgstr "Im unteren Teil der Bildschirmmaske zum Ändern oder Anlegen einer Anred
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:649
-#, fuzzy
 #| msgid ""
 #| "To keep the consistency of the data for OTRS it is not possible to delete "
 #| "roles, but only deactivate them. To do so, set them to <emphasis>invalid</"
 #| "emphasis> or <emphasis>invalid-temporarily</emphasis>."
 msgid "As with other OTRS entities, salutations cannot be deleted, only deactivated by setting the Valid option to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr "Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine Rolle zu deaktivieren, setzen Sie in den Einstellungen die entsprechende Rolle mit Hilfe der Listbox für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\"."
+msgstr "In OTRS können Anreden deaktiviert, aber nicht gelöscht werden. Sie können eine Anrede deaktivieren, indem Sie den Wert für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\" setzen."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:656
@@ -5616,7 +5605,6 @@ msgstr "Signaturen"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:659
-#, fuzzy
 #| msgid ""
 #| "Another text module for a response is the signature. Signatures can be "
 #| "linked to a queue, as described in the section about the <link linkend="
@@ -5629,20 +5617,18 @@ msgstr "Ein weiterer Textbaustein für eine Antwortvorlage, ist die Signatur. Si
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:664
-#, fuzzy
 #| msgid "Management of signatures"
 msgid "Management of Signatures"
 msgstr "Signaturverwaltung"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:664
-#, fuzzy
 #| msgid ""
 #| "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit="
 #| "\"Adminarea signatures - screenshot\" scale=\"40\" fileref=\"screenshots/"
 #| "admin-signatures.png\"></graphic>"
 msgid "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea Signatures - screenshot\" scale=\"40\" fileref=\"screenshots/admin-signatures.png\"></graphic>"
-msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea signatures - screenshot\" scale=\"40\" fileref=\"screenshots/admin-signatures.png\"></graphic>"
+msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminarea Signatures - screenshot\" scale=\"40\" fileref=\"screenshots/admin-signatures.png\"></graphic>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:670
@@ -5651,12 +5637,11 @@ msgstr "<emphasis>Abb. 5.22. Signaturverwaltung.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:674
-#, fuzzy
 #| msgid ""
 #| "After a default installation of OTRS, there is one predefined signature "
 #| "stored in your system, \"system standard signature (en)\"."
 msgid "After a fresh installation of OTRS, there is one predefined signature stored in your system, \"system standard signature (en)\"."
-msgstr "Nach einer Standardinstallation von OTRS sind bereits eine Signatur im System gespeichert, \"system standard signature (en)\"."
+msgstr "Nach einer Standardinstallation von OTRS ist bereits eine Signatur im System vorhanden, \"system standard signature (en)\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:678
@@ -5680,7 +5665,6 @@ msgstr "<emphasis>Abb. 5.23. Signatur hinzufügen.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:693
-#, fuzzy
 #| msgid ""
 #| "Like salutations, signatures can also contain dynamical content (e.g. the "
 #| "first and last name of the agent who answers the ticket), also variables "
@@ -5690,17 +5674,16 @@ msgstr "<emphasis>Abb. 5.23. Signatur hinzufügen.</emphasis>"
 #| "the last name of the agent who answers the ticket will replace the "
 #| "variable's name."
 msgid "Like salutations, signatures can also contain dynamical content, such as the first and last name of the agent who answers the ticket. Here too, variables can be used to replace the content of the signature text for every ticket. See the lower part of the signatures screen for the variables which can be used. If you include the variable &lt;OTRS_LAST_NAME&gt; in a signature for example, the last name of the agent who answers the ticket will replace the variable."
-msgstr "Auch in Signaturen können dynamische Inhalte eingebaut werden. Dies geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener OTRS-Variablen, die in den Text der Signatur integriert werden können. Ein variabler Textteil könnte z. B. der Name des Mitarbeiters sein, der das Ticket beantwortet hat (&lt;OTRS_LAST_NAME&gt;)."
+msgstr "Auch in Signaturen können dynamische Inhalte eingebaut werden, wie etwa Vor- und Nachname des Agenten. Dies geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener OTRS-Variablen, die in den Text der Signatur integriert werden können. Ein variabler Textteil könnte z. B. der Name des Mitarbeiters sein, der das Ticket beantwortet hat (&lt;OTRS_LAST_NAME&gt;)."
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/adminarea.xml:698
-#, fuzzy
 #| msgid ""
 #| "To keep the consistency of the data for OTRS it is not possible to delete "
 #| "roles, but only deactivate them. To do so, set them to <emphasis>invalid</"
 #| "emphasis> or <emphasis>invalid-temporarily</emphasis>."
 msgid "As with salutations, signatures too cannot be deleted, only deactivated by setting the Valid option to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr "Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine Rolle zu deaktivieren, setzen Sie in den Einstellungen die entsprechende Rolle mit Hilfe der Listbox für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\"."
+msgstr "In OTRS können Signaturen deaktiviert, aber nicht gelöscht werden. Sie können eine Signatur deaktivieren, indem Sie den Wert für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\" setzen."
 
 #. type: Content of: <chapter><section><section><title>
 #: en/adminarea.xml:705
@@ -5709,7 +5692,6 @@ msgstr "Anlagen"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:708
-#, fuzzy
 #| msgid ""
 #| "Optionally, you can also create one or more attachments for a response. "
 #| "If the response is selected, the attachments will be attached to the "
@@ -5720,7 +5702,6 @@ msgstr "Ein weitere optionaler Teil einer Antwortvorlage kann eine Anlage sein. 
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:712
-#, fuzzy
 #| msgid ""
 #| "Through the \"Attachment\" link of the admin area, you can load the "
 #| "attachments into the database of the system (see Figure 5.24 below)."
@@ -5729,10 +5710,9 @@ msgstr "Über den \"Anlagen\"-Link im Admin-Bereich können Sie neue Anlagen in 
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:717
-#, fuzzy
 #| msgid "Managing attachments for responses"
 msgid "Managing Attachments for Responses"
-msgstr "Verwaltung der Anlagen"
+msgstr "Verwaltung der Anlagen von Antworten"
 
 #. type: Content of: <chapter><section><section><para><screenshot>
 #: en/adminarea.xml:717
@@ -5751,7 +5731,6 @@ msgstr "Verwenden Sie den \"Anlage hinzufügen\"-Knopf, um eine neue Anlage zu e
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:732
-#, fuzzy
 #| msgid "Add an attachment"
 msgid "Add an Attachment"
 msgstr "Anlage hinzufügen"
@@ -5768,7 +5747,6 @@ msgstr "<emphasis>Abb. 5.25. Anlage hinzufügen.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:742
-#, fuzzy
 #| msgid ""
 #| "If an attachment is stored it can be linked to one or more responses, "
 #| "just follow the \"Attachment &lt;-&gt; Responses\" link of the admin area "
@@ -5778,7 +5756,6 @@ msgstr "Wenn eine Anlage erstellt wurde, kann sie einer order mehreren Antworten
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:748
-#, fuzzy
 #| msgid "Linking attachments to responses"
 msgid "Linking Attachments to Responses"
 msgstr "Zuordnung von Anlagen zu Antworten"
@@ -5790,14 +5767,12 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:754
-#, fuzzy
 #| msgid "<emphasis>Figure 5.26. Linking attachments to responses.</emphasis>"
 msgid "<emphasis>Figure 5.26. Linking Attachments to Responses.</emphasis>"
 msgstr "<emphasis>Abb. 5.26. Zuordnung von Anlagen zu Antworten.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:758
-#, fuzzy
 #| msgid ""
 #| "To define the different attachments a response can have and viceversa, "
 #| "click on the corresponding response name or attachment (see below the "
@@ -5807,7 +5782,6 @@ msgstr "Klicken Sie auf den Namen einer Anlage oder einer Antwortvorlage, um die
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:763
-#, fuzzy
 #| msgid "Change attachment relations for a response"
 msgid "Change Attachment relations for a Response"
 msgstr "Anlagenzuordnungen einer Antwortvorlage verändern"
@@ -5819,7 +5793,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:769
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.27. Change attachment relations for a response.</"
 #| "emphasis>"
@@ -5828,7 +5801,6 @@ msgstr "<emphasis>Abb. 5.27. Anlagenzuordnungen einer Antwortvorlage verändern.
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:774
-#, fuzzy
 #| msgid "Change response relations for an attachment"
 msgid "Change Response relations for an Attachment"
 msgstr "Antwortvorlagen-Zuordnungen einer Anlage verändern"
@@ -5840,7 +5812,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:780
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.28. Change response relations for an attachment.</"
 #| "emphasis>"
@@ -5856,7 +5827,6 @@ msgstr "Antwortvorlagen"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:789
-#, fuzzy
 #| msgid ""
 #| "To accelerate answering tickets and to standardize the look of answers, "
 #| "you can define responses in OTRS. A response can be linked to one or more "
@@ -5868,7 +5838,6 @@ msgstr "Um das Antworten auf Tickets zu beschleunigen und das Aussehen beantwort
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:793
-#, fuzzy
 #| msgid ""
 #| "After a a default installation of the system the \"empty answer\" "
 #| "response is defined for every queue. Through the \"Responses\" link in "
@@ -5889,7 +5858,6 @@ msgstr "<emphasis>Abb. 5.29. Verwaltung der Antwortvorlagen.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:808
-#, fuzzy
 #| msgid ""
 #| "To store a new response, just click on the Add response button, provide "
 #| "the required data and submit it (see Figure 5.30 below)."
@@ -5908,7 +5876,6 @@ msgstr "<emphasis>Abb. 5.30. Antwortvorlage hinzufügen.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:823
-#, fuzzy
 #| msgid ""
 #| "To add/remove responses to one or more queues, the \"Responses &lt;-&gt; "
 #| "Queues\" link of the admin area can be used (see Figure 5.31 below). You "
@@ -5918,7 +5885,6 @@ msgstr "Um eine Antwortvorlage einer oder mehreren Queues zuzuweisen, aktivieren
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:828
-#, fuzzy
 #| msgid "Manage response-queue relations"
 msgid "Manage Response-Queue relations"
 msgstr "Queue-Antwort-Zuordnungen verwalten"
@@ -5940,7 +5906,6 @@ msgstr "Klicken Sie auf den Namen einer Queue oder Antwortvorlage, um die jeweil
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:843
-#, fuzzy
 #| msgid "Change queue relations for a response"
 msgid "Change Queue relations for a Response"
 msgstr "Queue-Zuordnungen einer Antwortvorlage ändern"
@@ -5952,7 +5917,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:849
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.32. Change queue relations for a response.</emphasis>"
 msgid "<emphasis>Figure 5.32. Change Queue relations for a Response.</emphasis>"
@@ -5960,7 +5924,6 @@ msgstr "<emphasis>Abb. 5.32. Queue-Zuordnungen einer Antwortvorlage ändern.</em
 
 #. type: Content of: <chapter><section><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:854
-#, fuzzy
 #| msgid "Change response relations for a queue"
 msgid "Change Response relations for a Queue"
 msgstr "Antwort-Zuordnungen einer Queue ändern"
@@ -5972,7 +5935,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><section><para>
 #: en/adminarea.xml:860
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.33. Change response relations for a queue.</emphasis>"
 msgid "<emphasis>Figure 5.33. Change Response relations for a Queue.</emphasis>"
@@ -5990,7 +5952,6 @@ msgstr "Automatische Antworten"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:875
-#, fuzzy
 #| msgid ""
 #| "With OTRS, you can send automatic responses to customers if special "
 #| "events happen, e.g. creation of a ticket in certain queue, reception of a "
@@ -6002,7 +5963,6 @@ msgstr "OTRS bietet die Möglichkeit, automatische Antworten an Kundenbenutzer z
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:880
-#, fuzzy
 #| msgid "Auto response management"
 msgid "Auto Response management"
 msgstr "Verwaltung automatischer Antworten"
@@ -6014,7 +5974,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:886
-#, fuzzy
 #| msgid "<emphasis>Figure 5.34. Auto response management.</emphasis>"
 msgid "<emphasis>Figure 5.34. Auto Response management.</emphasis>"
 msgstr "<emphasis>Abb. 5.34. Verwaltung automatischer Antworten.</emphasis>"
@@ -6026,7 +5985,6 @@ msgstr "Verwenden Sie den Knopf \"Automatische Antwort hinzufügen\", um eine ne
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:895
-#, fuzzy
 #| msgid "Adding an auto response"
 msgid "Adding an Auto Response"
 msgstr "Automatische Antwort hinzufügen"
@@ -6038,14 +5996,12 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:901
-#, fuzzy
 #| msgid "<emphasis>Figure 5.35. Adding an auto response.</emphasis>"
 msgid "<emphasis>Figure 5.35. Adding an Auto Response.</emphasis>"
 msgstr "<emphasis>Abb. 5.35. Automatische Antwort hinzufügen.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:905
-#, fuzzy
 #| msgid ""
 #| "The subject and text of auto responses can also be generated by "
 #| "variables, the same as in signatures and salutations. If you insert, for "
@@ -6064,7 +6020,6 @@ msgstr "Für jede automatische Antwort können Sie angeben, durch welches Ereign
 
 #. type: Content of: <chapter><section><table><title>
 #: en/adminarea.xml:914
-#, fuzzy
 #| msgid "Events for auto answers"
 msgid "Events for Auto answers"
 msgstr "Ereignisse für automatische Antworten"
@@ -6121,17 +6076,15 @@ msgstr "Dieses Ereignis tritt ein, wenn ein Ticket vom System entfernt wird. "
 
 #. type: Content of: <chapter><section><note><para>
 #: en/adminarea.xml:973
-#, fuzzy
 #| msgid ""
 #| "To keep the consistency of the data for OTRS it is not possible to delete "
 #| "roles, but only deactivate them. To do so, set them to <emphasis>invalid</"
 #| "emphasis> or <emphasis>invalid-temporarily</emphasis>."
 msgid "As with other OTRS entities, Auto responses too cannot be deleted, only deactivated, by setting the Valid option to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr "Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine Rolle zu deaktivieren, setzen Sie in den Einstellungen die entsprechende Rolle mit Hilfe der Listbox für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\"."
+msgstr "In OTRS können automatische Antworten deaktiviert, aber nicht gelöscht werden. Zum Deaktivieren einer automatischen Antwort können Sie den Wert für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\" setzen."
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:978
-#, fuzzy
 #| msgid ""
 #| "To add an auto response to a queue, use the \"Auto Response &lt;-&gt; "
 #| "Queues\" link in the admin area (see Figure 5.36 below). All system "
@@ -6142,7 +6095,6 @@ msgstr "Um eine automatische Antwort einer oder mehreren Queues zuzuweisen, folg
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:983
-#, fuzzy
 #| msgid "Manage queue - auto response relations"
 msgid "Manage Queue - Auto Response relations"
 msgstr "Zuordnungen von Queues zu automatischen Antworten verwalten"
@@ -6154,7 +6106,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:989
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.36. Queue-Auto response relations management.</"
 #| "emphasis>"
@@ -6163,7 +6114,6 @@ msgstr "<emphasis>Abb. 5.36. Zuordnungen von Queues zu automatischen Antworten v
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:993
-#, fuzzy
 #| msgid ""
 #| "To define the different auto responses that will be available for a "
 #| "queue, click on the corresponding queue name (see Figure 5.37 below). It "
@@ -6175,7 +6125,6 @@ msgstr "Um die Zuordnungen von automatischen Antworten zu Queues zu verändern, 
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:998
-#, fuzzy
 #| msgid "Change auto response relations for a queue"
 msgid "Change Auto Response relations for a Queue"
 msgstr "Zuordnung von automatischen Antworten zu einer Queue bearbeiten"
@@ -6187,7 +6136,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1004
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.37. Change auto response relations for a queue.</"
 #| "emphasis>"
@@ -6201,7 +6149,6 @@ msgstr "E-Mail-Adressen"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1014
-#, fuzzy
 #| msgid ""
 #| "To enable OTRS to send emails, you need at least a valid email address to "
 #| "be used by the system. Due to a lot of setups need more than one email "
@@ -6215,10 +6162,9 @@ msgstr "Um aus OTRS heraus E-Mails verschicken zu können, benötigen Sie mindes
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1019
-#, fuzzy
 #| msgid "Email addresses"
 msgid "Managing Email Addresses"
-msgstr "E-Mail-Adressen"
+msgstr "E-Mail-Adressen verwalten"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/adminarea.xml:1019
@@ -6227,14 +6173,12 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1025
-#, fuzzy
 #| msgid "<emphasis>Figure 5.38. System email addresses management.</emphasis>"
 msgid "<emphasis>Figure 5.38. System Email Addresses management.</emphasis>"
 msgstr "<emphasis>Abb. 5.38. Verwaltung der E-Mail-Adressen des Systems.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1029
-#, fuzzy
 #| msgid ""
 #| "If you create a new mail address (see Figure 5.39 below) you can select "
 #| "the queue or sub queue that shall be linked with it. This link enables "
@@ -6245,7 +6189,6 @@ msgstr "Im Formular zur Verwaltung der E-Mail-Adressen können Sie u.a. direkt a
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1034
-#, fuzzy
 #| msgid "Adding a system email address"
 msgid "Adding a system Email Address"
 msgstr "Hinzufügen einer System-E-Mail-Adresse"
@@ -6257,20 +6200,18 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1040
-#, fuzzy
 #| msgid "<emphasis>Figure 5.39. Adding a system email address.</emphasis>"
 msgid "<emphasis>Figure 5.39. Adding a system Email Address.</emphasis>"
 msgstr "<emphasis>Abb. 5.39. Hinzufügen einer System-E-Mail-Adresse.</emphasis>"
 
 #. type: Content of: <chapter><section><note><para>
 #: en/adminarea.xml:1045
-#, fuzzy
 #| msgid ""
 #| "To keep the consistency of the data for OTRS it is not possible to delete "
 #| "roles, but only deactivate them. To do so, set them to <emphasis>invalid</"
 #| "emphasis> or <emphasis>invalid-temporarily</emphasis>."
 msgid "As with other OTRS entities, email addresses cannot be deleted, only deactivated by setting the Valid option to <emphasis>invalid</emphasis> or <emphasis>invalid-temporarily</emphasis>."
-msgstr "Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine Rolle zu deaktivieren, setzen Sie in den Einstellungen die entsprechende Rolle mit Hilfe der Listbox für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\"."
+msgstr "In OTRS können E-Mail-Adressen deaktiviert, aber nicht gelöscht werden. Sie können eine Adresse deaktivieren, indem Sie den Wert für \"Gültig\" auf \"ungültig\" oder \"ungültig-temporär\" setzen."
 
 #. type: Content of: <chapter><section><title>
 #: en/adminarea.xml:1052
@@ -6279,7 +6220,6 @@ msgstr "Benachrichtigungen"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1055
-#, fuzzy
 #| msgid ""
 #| "OTRS allows sending notifications to agents and customer when a specific "
 #| "event happens.  Agents can select the system events for their own "
@@ -6290,7 +6230,6 @@ msgstr "Kunden und Mitarbeiter können im <link linkend=\"user-preferences\">Ein
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1059
-#, fuzzy
 #| msgid ""
 #| "Through the \"Notification\" link in the adminarea, you can manage the "
 #| "notifications of your system (see Figure 5.40 below). With the help of "
@@ -6301,7 +6240,6 @@ msgstr "Über den \"Benachrichtigungen\"-Link im Admin-Bereich erreichen Sie die
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1064
 #: en/adminarea.xml:1079
-#, fuzzy
 #| msgid "Managing notifications"
 msgid "Managing Notifications"
 msgstr "Verwaltung der Benachrichtigungen"
@@ -6318,7 +6256,6 @@ msgstr "<emphasis>Abb. 5.40. Verwaltung der Benachrichtigungen.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1074
-#, fuzzy
 #| msgid ""
 #| "You can customize the subject and the text of the notifications. Just "
 #| "select the notification you want to change from the list and load its "
@@ -6334,14 +6271,12 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1085
-#, fuzzy
 #| msgid "<emphasis>Figure 5.41. Customizing a notification.</emphasis>"
 msgid "<emphasis>Figure 5.41. Customizing a Notification.</emphasis>"
 msgstr "<emphasis>Abb. 5.41. Berarbeiten einer Benachrichtigung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1089
-#, fuzzy
 #| msgid ""
 #| "Like signatures and salutations, it is possible to dynamically create the "
 #| "content of a notification, by using special variables. At the bottom of "
@@ -6351,7 +6286,6 @@ msgstr "Auch innerhalb der Benachrichtigungen können die Textinhalte mit Hilfe 
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1093
-#, fuzzy
 #| msgid ""
 #| "It is also possible to create notifications based in events. You can "
 #| "specify in detail when and to whom you want this notification to be sent, "
@@ -6364,7 +6298,6 @@ msgstr "Ebenso ist es möglich, Benachrichtigungen zu erstellen, die auf Ereigni
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1097
-#, fuzzy
 #| msgid ""
 #| "In order to see a list of all the event based notifications, click on the "
 #| "link Notifications(Event)  in the admin area (see Figure 5.42)."
@@ -6373,7 +6306,6 @@ msgstr "Um eine Übersicht aller ereignisbasierten Benachrichtigungen zu erhalte
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1102
-#, fuzzy
 #| msgid "Managing event based notifications"
 msgid "Managing Event-based Notifications"
 msgstr "Ereignisbasierte Benachrichtigungen verwalten"
@@ -6385,7 +6317,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1108
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.42. Event based notification management.</emphasis>"
 msgid "<emphasis>Figure 5.42. Event based Notification management.</emphasis>"
@@ -6393,7 +6324,6 @@ msgstr "<emphasis>Abb. 5.42. Ereignisbasierte Benachrichtigungen verwalten.</emp
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1112
-#, fuzzy
 #| msgid ""
 #| "In the screen shown in the Figure 5.42 you can create a new notification "
 #| "by clicking on the Add button (see Figure 5.43)."
@@ -6402,7 +6332,6 @@ msgstr "Erstellen Sie eine neue Benachrichtigung durch Klick auf den \"Hinzufüg
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1117
-#, fuzzy
 #| msgid "Managing event based notifications"
 msgid "Managing Event based Notifications"
 msgstr "Ereignisbasierte Benachrichtigungen verwalten"
@@ -6414,7 +6343,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1123
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.43. Registering an event based notification management."
 #| "</emphasis>"
@@ -6434,7 +6362,6 @@ msgstr "S/MIME"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1136
-#, fuzzy
 #| msgid ""
 #| "OTRS can process incoming S/MIME encoded messages and sign outgoing "
 #| "mails.  Before this feature can be used, you need to activate it and "
@@ -6445,7 +6372,6 @@ msgstr "Mit OTRS ist es möglich, Tickets mit Hilfe von SMIME zu ent- und versch
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1140
-#, fuzzy
 #| msgid ""
 #| "The \"S/MIME Certificates\" link in the admin area of OTRS, allows you "
 #| "manage your S/MIME certificates (see Figure 5.44 below). You can add or "
@@ -6477,7 +6403,6 @@ msgstr "Mit OTRS ist es möglich, Tickets mit Hilfe von PGP zu ent- und verschl�
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1164
-#, fuzzy
 #| msgid ""
 #| "Through the \"PGP Keys\" link in the admin area of OTRS, it is possible "
 #| "to manage the key ring of the user who shall be used for PGP with OTRS "
@@ -6505,13 +6430,12 @@ msgstr "Status"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1184
-#, fuzzy
 #| msgid ""
 #| "Through the \"States\" link, in the admin area of OTRS, you can manage "
 #| "the different ticket states you want to use in the system (see Figure "
 #| "5.46 below)."
 msgid "Through the \"States\" link on the Admin page, you can manage the different ticket states you want to use in the system (see Figure 5.46 below)."
-msgstr "Über den Link \"Status\" können Sie die verschiedenen Ticket-Status, die Sie in OTRS verwenden möchten, bearbeiten."
+msgstr "Über den Link \"Status\" können Sie die verschiedenen Ticket-Status bearbeiten, die Sie in OTRS verwenden möchten."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1189
@@ -6585,7 +6509,6 @@ msgstr "entfernt"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1251
-#, fuzzy
 #| msgid ""
 #| "Every state is linked to a type, which needs to be specified if a new "
 #| "state is created. Per default the state types are:"
@@ -6610,7 +6533,6 @@ msgstr "Die SysConfig (Verwaltung der Systemkonfiguration)"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1299
-#, fuzzy
 #| msgid ""
 #| "The SysConfig is the place where many configuration options for OTRS are "
 #| "stored."
@@ -6619,7 +6541,6 @@ msgstr "In der SysConfig werden die meisten Konfigurationseinstellungen von OTRS
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1303
-#, fuzzy
 #| msgid ""
 #| "The \"SysConfig\" link in the admin area of OTRS loads the graphical "
 #| "configuration front-end (see Figure 5.47 below). You can upload own "
@@ -6635,7 +6556,6 @@ msgstr "Über den \"SysConfig\"-Link im Admin-Bereich von OTRS erreichen sie die
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1308
-#, fuzzy
 #| msgid "The graphical configuration front-end of OTRS (SysConfig)"
 msgid "The graphical interface for system configuration (SysConfig)"
 msgstr "Das grafische Konfigurationsfrontend von OTRS (SysConfig)"
@@ -6647,7 +6567,6 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Adminar
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1314
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 5.47. The graphical configuration front-end of OTRS "
 #| "(SysConfig).</emphasis>"
@@ -6656,7 +6575,6 @@ msgstr "<emphasis>Abb. 5.47. Das grafische Konfigurationsfrontend von OTRS (SysC
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1318
-#, fuzzy
 #| msgid ""
 #| "The graphical configuration front-end is described in more detail in the "
 #| "chapter <link linkend=\"sysconfig\"> \"Configuring the system through the "
@@ -6671,7 +6589,6 @@ msgstr "Einrichten von Mail-Konten"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1328
-#, fuzzy
 #| msgid ""
 #| "There are several possibilities to transport new emails into the ticket "
 #| "system. One of them is the <link linkend=\"email-receiving-cmd\"> otrs."
@@ -6701,7 +6618,6 @@ msgstr "<emphasis>Abb. 5.48. Verwaltung von Mail-Konten.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1343
-#, fuzzy
 #| msgid ""
 #| "See the section about the <link linkend=\"email-receiving-pop3\"> "
 #| "PostMaster mail accounts </link> for more details."
@@ -6715,7 +6631,6 @@ msgstr "Einkommende Nachrichten filtern"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1352
-#, fuzzy
 #| msgid ""
 #| "Because incoming messages can be sorted automatically into queues or spam "
 #| "mails can be moved into a specific queue, OTRS has the possibility to "
@@ -6743,7 +6658,6 @@ msgstr "<emphasis>Abb 5.49. Verwaltung von Filterregeln für eingehende E-Mails.
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1367
-#, fuzzy
 #| msgid ""
 #| "A filter consists of one or more criteria that must match for the defined "
 #| "actions to be executed. You can define filter criteria for the headers or "
@@ -6800,7 +6714,6 @@ msgstr "Name einer Queue des Systems. "
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1410
-#, fuzzy
 #| msgid ""
 #| "Sets the queue where the ticket shall be sorted in. Is a queue set by a X-"
 #| "OTRS header all other filter rules that try to sort a ticket into a "
@@ -6835,7 +6748,6 @@ msgstr "Yes oder True"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1432
-#, fuzzy
 #| msgid ""
 #| "Is this X-OTRS header set to \"Yes\", the incoming message will "
 #| "completely be ignored and never delivered to the system."
@@ -7045,7 +6957,6 @@ msgstr "True"
 
 #. type: Content of: <chapter><section><table><tgroup><tbody><row><entry>
 #: en/adminarea.xml:1586
-#, fuzzy
 #| msgid ""
 #| "If this X-OTRS header is set no auto answer is delivered to the sender of "
 #| "the message (mail loop protection)."
@@ -7054,7 +6965,6 @@ msgstr "Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort an den
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1594
-#, fuzzy
 #| msgid ""
 #| "A name must be specified for every filter rule. In the section for \"Match"
 #| "\" the filter criteria can be specified. Choose via the listboxes for "
@@ -7089,7 +6999,6 @@ msgstr "Aussortierung von Spammails in eine bestimmte Queue"
 
 #. type: Content of: <chapter><section><example><para>
 #: en/adminarea.xml:1612
-#, fuzzy
 #| msgid ""
 #| "A useful filter rule could be to let OTRS automatically sort mails marked "
 #| "for spam with a spam detection tool, such as SpamAssassin, into the \"Junk"
@@ -7109,7 +7018,6 @@ msgstr "Eine nützliche Filterregel könnte sein, alle Mails, die von SpamAssass
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1617
-#, fuzzy
 #| msgid ""
 #| "There are additional modules, that can be used to <link linkend=\"email-"
 #| "receiving-filter\"> filter incoming messages </link> more specifically. "
@@ -7124,7 +7032,6 @@ msgstr "Ausführen von automatisierten Jobs mit Hilfe des GenericAgents"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1627
-#, fuzzy
 #| msgid ""
 #| "The GenericAgent is a tool to execute tasks automatically, that otherwise "
 #| "should be done by a human person, a real agent. The GenericAgent, for "
@@ -7135,7 +7042,6 @@ msgstr "Der GenericAgent ist ein Tool zum automatischen Ausführen von Aufgaben,
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1631
-#, fuzzy
 #| msgid ""
 #| "To access to the GenericAgent, the link \"GenericAgent\" in the admin "
 #| "area of OTRS can be used (see Figure 5.51 below). A table with the "
@@ -7161,7 +7067,6 @@ msgstr "<emphasis>Abb. 5.51. Jobliste des GenericAgent.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1646
-#, fuzzy
 #| msgid ""
 #| "To create a new job a name must be specified and the \"Add job\" button "
 #| "must be pressed. Via the screen for the creation of a new job for the "
@@ -7188,7 +7093,6 @@ msgstr "<emphasis>Abb. 5.52. Anlegen eines GenericAgent-Jobs.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1661
-#, fuzzy
 #| msgid ""
 #| "If the creation of the job is finished all affected tickets by the job "
 #| "are listed. This list helps you verify that the job is having the "
@@ -7204,14 +7108,13 @@ msgstr "Administrator-E-Mail"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1670
-#, fuzzy
 #| msgid ""
 #| "OTRS administrators can send messages to specific users or groups.  The "
 #| "\"Admin Notification\" in the admin area, opens the screen where the "
 #| "agents and groups that should be notified can be selected (see Figure "
 #| "5.53 below)."
 msgid "OTRS administrators can send messages to specific users or groups. The \"Admin Notification\" link on the Admin page opens the screen where the agents and groups that should be notified can be selected (see Figure 5.53 below)."
-msgstr "Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder Benutzergruppen im System zu versenden, folgen Sie dem Link \"Admin Notification\"."
+msgstr "Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agenten) oder Benutzergruppen im System zu versenden, folgen Sie dem Link \"Admin Notification\"."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1675
@@ -7230,13 +7133,12 @@ msgstr "<emphasis>Abb. 5.53. Administrator-Benachrichtigung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1685
-#, fuzzy
 #| msgid ""
 #| "It is possible to specify the sender, subject and body text of the "
 #| "notification.  You can also select the agents, groups and roles who "
 #| "should receive the message."
 msgid "It is possible to specify the sender, subject and body text of the notification. You can also select the agents, groups and roles who should receive the message."
-msgstr "Es wird ein Formular geladen, in das Sie die Absenderadresse, den Betreff und den Inhalt der Administratoren-Mitteilung eintragen können. Weiterhin können Sie aus der Tabelle auswählen, an welche Benutzer und / oder Benutzergruppen die Mitteilung gesendet werden soll."
+msgstr "Es wird ein Formular geladen, in das Sie die Absenderadresse, den Betreff und den Inhalt der Administratoren-Mitteilung eintragen können. Weiterhin können Sie aus der Tabelle auswählen, an welche Benutzer und / oder Benutzergruppen bzw. Rollen die Mitteilung gesendet werden soll."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/adminarea.xml:1691
@@ -7261,7 +7163,6 @@ msgstr "<emphasis>Abb. 5.54. Sitzungsverwaltung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1709
-#, fuzzy
 #| msgid ""
 #| "Some statistics about all active sessions are displayed, e.g. how many "
 #| "agents and customer users are logged in, number of active sessions.  "
@@ -7296,7 +7197,6 @@ msgstr "System Log"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1729
-#, fuzzy
 #| msgid ""
 #| "The \"System Log\" link in the admin area of OTRS, shows the last log "
 #| "entries of the system (see Figure 5.56 below)."
@@ -7315,7 +7215,6 @@ msgstr "<emphasis>Abb. 5.56. System Log.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1744
-#, fuzzy
 #| msgid ""
 #| "Each line in the log contains: a time stamp, the log priority, the system "
 #| "component and the log entry itself."
@@ -7324,7 +7223,6 @@ msgstr "Ein Logeintrag setzt sich aus der Zeit, der Priorität, der betroffenen 
 
 #. type: Content of: <chapter><section><note><para>
 #: en/adminarea.xml:1749
-#, fuzzy
 #| msgid ""
 #| "The system logs are only available via the web interface on linux or unix "
 #| "systems. On Windows systems you can see the log by opening the file "
@@ -7340,7 +7238,6 @@ msgstr "SQL-Abfragen mit Hilfe der SQL Box"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1759
-#, fuzzy
 #| msgid ""
 #| "The \"SQL Box\" link in the admin area, opens a screen that lets you "
 #| "query the content of the tables in the OTRS database (see Figure 5.57 "
@@ -7372,7 +7269,6 @@ msgstr "Paketverwaltung"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1779
-#, fuzzy
 #| msgid ""
 #| "Using the \"Package Manager\" in the admin area, you can install and "
 #| "manage packages that extend the functionality of OTRS (see Figure 5.58 "
@@ -7394,7 +7290,6 @@ msgstr "<emphasis>Abb. 5.58. Paketverwaltung.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1794
-#, fuzzy
 #| msgid ""
 #| "In the package manager you can review the packages you currently have "
 #| "installed together with their version numbers."
@@ -7403,7 +7298,6 @@ msgstr "In der Paketverwaltung können Sie die bereits installierten Pakete mit 
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1797
-#, fuzzy
 #| msgid ""
 #| "You can install packages from a remote host by selecting the repository "
 #| "in the <emphasis>Online Repository</emphasis> section and clicking the "
@@ -7417,7 +7311,6 @@ msgstr "Sie können Pakete von einem entfernten Server installieren, indem Sie d
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1801
-#, fuzzy
 #| msgid ""
 #| "To upgrade an installed package, the list of available packages in the "
 #| "online repository will show <emphasis>Upgrade</emphasis> in the Action "
@@ -7429,7 +7322,6 @@ msgstr "Um ein installiertes Paket zu aktualisieren, können Sie die Funktion \"
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1805
-#, fuzzy
 #| msgid ""
 #| "In some cases, such as when your OTRS system is not connected to the "
 #| "Internet, you can also install packages you have downloaded to a local "
@@ -7444,7 +7336,6 @@ msgstr "In manchen Fällen, wenn beispielsweise ein OTRS-System nicht mit dem In
 
 #. type: Content of: <chapter><section><para>
 #: en/adminarea.xml:1809
-#, fuzzy
 #| msgid ""
 #| "In special cases, you might want to configure the package manager, e.g., "
 #| "to use a proxy or to use a local repository. Just take a look at the "
@@ -7455,21 +7346,18 @@ msgstr "In besonderen Fällen ist es erforderlich, die Paketverwaltung zu konfig
 
 #. type: Content of: <chapter><title>
 #: en/configuration.xml:7
-#, fuzzy
 #| msgid "SysConfig"
 msgid "System Configuration"
-msgstr "Die SysConfig (Verwaltung der Systemkonfiguration)"
+msgstr "Systemkonfiguration"
 
 #. type: Content of: <chapter><section><title>
 #: en/configuration.xml:10
-#, fuzzy
 #| msgid "The config files of OTRS"
 msgid "OTRS config files"
 msgstr "Die Konfigurationsdateien von OTRS"
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:13
-#, fuzzy
 #| msgid ""
 #| "All configuration files of OTRS are stored in the directory "
 #| "<filename>Kernel</filename> and in its sub directories. There is no need "
@@ -7484,7 +7372,6 @@ msgstr "Alle Konfigurationsdateien des OTRS-Frameworks befinden sich innerhalb d
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:17
-#, fuzzy
 #| msgid ""
 #| "The file <filename>Kernel/Config/Defaults.pm</filename> contains the "
 #| "parameters of the central OTRS framework. It defines all basic system "
@@ -7497,7 +7384,6 @@ msgstr "Die Datei <filename>Kernel/Config/Defaults.pm</filename> enthält die Ko
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:21
-#, fuzzy
 #| msgid ""
 #| "In the directory <filename>Kernel/Config/Files</filename> there are some "
 #| "other files that are parsed when the OTRS login page is accessed. If "
@@ -7508,7 +7394,6 @@ msgstr "Das Verzeichnis <filename>Kernel/Config/Files</filename> enthält weiter
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:25
-#, fuzzy
 #| msgid ""
 #| "To keep compatibility with older OTRS versions, there is always a .pm- "
 #| "and a .xml file for every application and for the central framework. The ."
@@ -7529,7 +7414,6 @@ msgstr "Im Moment sind immer eine .pm- und eine .xml-Datei für jedes Modul vorh
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:29
-#, fuzzy
 #| msgid ""
 #| "If the web frontend of OTRS is accessed, all .xml files in the "
 #| "<filename>Kernel/Config/Files</filename> directory are parsed in "
@@ -7553,7 +7437,6 @@ msgstr "Konfiguration des Systems mit Hilfe des grafischen Konfigurations-Fronte
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:39
-#, fuzzy
 #| msgid ""
 #| "With OTRS 2.0 and subsequent versions, nearly all configuration "
 #| "parameters of the central framework or additional installed applications, "
@@ -7565,10 +7448,9 @@ msgstr "Seit OTRS 2.0 können nahezu alle Konfigurationsparameter des Frameworks
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
 #: en/configuration.xml:44
-#, fuzzy
 #| msgid "The graphical configuration frontend"
 msgid "The graphical interface for system configuration"
-msgstr "Die grafische Konfigurationsoberfläche"
+msgstr "Die grafische System-Konfigurationsoberfläche"
 
 #. type: Content of: <chapter><section><para><screenshot>
 #: en/configuration.xml:44
@@ -7577,15 +7459,13 @@ msgstr "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"sysconf
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:50
-#, fuzzy
 #| msgid ""
 #| "<emphasis>Figure 6.1. The graphical configuration frontend.</emphasis>"
 msgid "<emphasis>Figure 6.1. The graphical interface for system configuration.</emphasis>"
-msgstr "<emphasis>Abb. 6.1. Die grafische Konfigurationsoberfläche.</emphasis>"
+msgstr "<emphasis>Abb. 6.1. Die grafische System-Konfigurationsoberfläche.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:54
-#, fuzzy
 #| msgid ""
 #| "Because OTRS currently has over 600 configuration parameters, there are "
 #| "different ways to access quickly to a specific one.  With the full text "
@@ -7603,7 +7483,6 @@ msgstr "Weiterhin wurden die verschiedenen Konfigurationsparameter in Haupt- und
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:62
-#, fuzzy
 #| msgid ""
 #| "Every configuration parameter can be turned on or off via a checkbox. If "
 #| "the parameter is turned off, the system will ignore this parameter or the "
@@ -7615,7 +7494,6 @@ msgstr "Für jeden einzelnen Konfigurationsparameter kann über eine Checkbox fe
 
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:66
-#, fuzzy
 #| msgid ""
 #| "If you want to save all the changes you made to the configuration of your "
 #| "system, for example, to setup a new installed system quickly, you can use "
@@ -7623,11 +7501,10 @@ msgstr "Für jeden einzelnen Konfigurationsparameter kann über eine Checkbox fe
 #| "your own settings, just press the \"Import settings\" and select the .pm "
 #| "created before."
 msgid "If you want to save all the changes you made to your system's configuration, for example to setup a new installation quickly, you can use the \"Export settings\" button, which will create a .pm file. To restore your own settings, just press the \"Import settings\" and select the .pm created before."
-msgstr "Für die Sicherung aller von Ihnen vorgenommenen Änderungen, kann eine .pm-Datei heruntergeladen werden, die alle vom Standard abweichenden Konfigurationsparameter Ihres Systems enthält. Die selbe Datei können Sie ebenfalls über die Konfigurationsoberfläche eines frisch installierten Systems zurück spielen und so alle Einstellungen wiederherstellen."
+msgstr "Für die Sicherung aller von Ihnen vorgenommenen Änderungen, kann eine .pm-Datei heruntergeladen werden, die alle vom Standard abweichenden Konfigurationsparameter Ihres Systems enthält. Dieselbe Datei können Sie ebenfalls über die Konfigurationsoberfläche eines frisch installierten Systems zurück spielen und so alle Einstellungen wiederherstellen."
 
 #. type: Content of: <chapter><section><note><para>
 #: en/configuration.xml:71
-#, fuzzy
 #| msgid ""
 #| "For security reasons, the configuration parameters for the database "
 #| "connection cannot be changed in the SysConfig. They have to be set "
@@ -7652,7 +7529,6 @@ msgstr "Via Sendmail (Standard)"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:16
-#, fuzzy
 #| msgid ""
 #| "OTRS can send out emails via Sendmail (e.g.  <ulink url=\"http://www."
 #| "sendmail.org/\">Sendmail</ulink>, <ulink url=\"http://www.postfix.org/"
@@ -7674,7 +7550,6 @@ msgstr "Via SMTP server/smarthost"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:29
-#, fuzzy
 #| msgid ""
 #| "OTRS can send emails via SMTP ( <ulink url=\"http://www.ietf.org/rfc/"
 #| "rfc821.txt\">Simple Mail Transfer Protocol / RFC 821</ulink>) or Secure "
@@ -7684,7 +7559,6 @@ msgstr "Wenn kein sendmail-Binary zur Verfügung steht, kann OTRS E-Mails via SM
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:33
-#, fuzzy
 #| msgid ""
 #| "The SMTP server settings can be configured via the SysConfig (Framework::"
 #| "Core::Sendmail). If you don't see SMTPS available as an option, you miss "
@@ -7711,16 +7585,14 @@ msgstr "OTRS ist in der Lage, E-Mails von POP3, POP3S, IMAP und IMAPS E-Mail-Kon
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:51
-#, fuzzy
 #| msgid ""
 #| "Configure your mail accounts via the PostMaster Mail Accounts link in the "
 #| "admin interface."
 msgid "Configure your mail accounts via the PostMaster Mail Accounts link on the Admin page."
-msgstr "Konfigurieren Sie Ihre Mail-Konten im Admin-Bereich von OTRS in der Sektion \"PostMaster Mail Account\"."
+msgstr "Konfigurieren Sie Ihre Mail-Konten im Admin-Bereich von OTRS im Bereich \"PostMaster Mail Account\"."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:55
-#, fuzzy
 #| msgid ""
 #| "If a new mail account is created (see Figure 7.1 below), then its mail "
 #| "server name, login name and password must be specified. Also, you need to "
@@ -7749,7 +7621,6 @@ msgstr "<emphasis>Abb 7.1. Einen E-Mail-Account hinzufügen.</emphasis>"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:68
-#, fuzzy
 #| msgid ""
 #| "If you select \"Yes\" for \"Trusted\", any X-OTRS headers attached to an "
 #| "incoming message are evaluated and executed. Because the X-OTRS header "
@@ -7761,11 +7632,10 @@ msgstr "<emphasis>Abb 7.1. Einen E-Mail-Account hinzufügen.</emphasis>"
 #| "rules you'd have created are executed even if \"Trusted\" is set to \"Yes"
 #| "\"."
 msgid "If you select Yes for the value of the Trusted option, any X-OTRS headers attached to an incoming message are evaluated and executed. Because the X-OTRS header can execute some actions in the ticket system, you should set the Trusted option to Yes only for known senders. X-OTRS-Headers are used by the <link linkend=\"adminarea-postmasterfilter\">filter module</link> in OTRS. The X-OTRS headers are explained <link linkend=\"table-of-x-otrs-headers\">in this table</link> in more detail. Any postmaster filter rules created are executed, irrespective of the Trusted option's setting."
-msgstr "Wählen Sie für \"Vertraut\" den Wert \"Ja\" aus, dann werden die sog. X-OTRS-Header-Einträge ausgewertet und angewendet, sofern derartige Header-Einträge in einer abgerufenen Nachricht vorhanden sind. Da mit Hilfe der X-OTRS-Header einige Dinge am System beeinflusst werden können, sollten Sie \"Vertraut\" nur auf \"Ja\" setzen, wenn Sie genau wissen, von welchen Absendern die abgerufenen Nachrichten stammen. X-OTRS-Header werden vom <link linkend=\"adminarea-postmasterfilter\">Modul für die Nachrichtenfilterung</link> in OTRS benutzt, die X-OTRS-Header werden <link linkend=\"table-of-x-otrs-headers\">in dieser Tabelle</link> näher beschrieben. Es spielt keine Rolle, welcher Wert für \"Vertraut\" ausgewählt wurde, eventuell eingerichtete Filterregeln für eingehende Mails werden trotzdem abgearbeitet."
+msgstr "Wählen Sie für \"Vertraut\" den Wert \"Ja\" aus, dann werden die sog. X-OTRS-Header-Einträge ausgewertet und angewendet, sofern derartige Header-Einträge in einer abgerufenen Nachricht vorhanden sind. Da mit Hilfe der X-OTRS-Header einige Dinge am System beeinflusst werden können, sollten Sie \"Vertraut\" nur auf \"Ja\" setzen, wenn Sie genau wissen, von welchen Absendern die abgerufenen Nachrichten stammen. X-OTRS-Header werden vom <link linkend=\"adminarea-postmasterfilter\">Modul für die Nachrichtenfilterung</link> in OTRS benutzt, die X-OTRS-Header werden <link linkend=\"table-of-x-otrs-headers\">in dieser Tabelle</link> näher beschrieben.Eventuell eingerichtete Filterregeln werden auf jeden Fall abgearbietet, egal welcher Wert für \"Vertraut\" ausgewählt wurde."
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:72
-#, fuzzy
 #| msgid ""
 #| "The distribution of incoming messages can be controlled if they need to "
 #| "be sorted by queue or by the content of the To: field. If \"Dispatching "
@@ -7792,7 +7662,6 @@ msgstr "Die Daten zu allen Mail-Konten werden in der Datenbank von OTRS gespeich
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:80
-#, fuzzy
 #| msgid ""
 #| "On a normal installation, the mail will be fetched every 10 minutes by "
 #| "the <filename>postmaster_mailbox</filename> cron job. For further "
@@ -7803,7 +7672,6 @@ msgstr "Auf einer Standardinstallation holt der Cron-Job <filename>postmaster_ma
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/email.xml:85
-#, fuzzy
 #| msgid ""
 #| "When fetching mail OTRS deletes the mail from the POP or IMAP server. "
 #| "There's no option to also keep a copy on the server. If you'd want to "
@@ -7814,14 +7682,12 @@ msgstr "Beim Abholen löscht OTRS die E-Mails vom POP oder IMAP server. Es beste
 
 #. type: Content of: <chapter><section><section><title>
 #: en/email.xml:92
-#, fuzzy
 #| msgid "Via command line program and e.g. procmail (otrs.PostMaster.pl)"
 msgid "Via command line program and procmail (otrs.PostMaster.pl)"
 msgstr "Via Kommandozeilen-Programm und z. B. procmail (otrs.PostMaster.pl)"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:95
-#, fuzzy
 #| msgid ""
 #| "If you can't use mail accounts to get the email into OTRS, the command "
 #| "line program <filename>bin/otrs.PostMaster.pl</filename> might be a "
@@ -7829,11 +7695,10 @@ msgstr "Via Kommandozeilen-Programm und z. B. procmail (otrs.PostMaster.pl)"
 #| "That means email will be available in your OTRS system if the MDA (mail "
 #| "delivery agent, e.g. procmail) executes this program."
 msgid "If you cannot use mail accounts to get the email into OTRS, the command line program <filename>bin/otrs.PostMaster.pl</filename> might be a way around the problem. It takes the mails via STDIN and pipes them directly into OTRS. That means email will be available in your OTRS system if the MDA (mail delivery agent, e.g. procmail) executes this program."
-msgstr "OTRS ist in der Lage, E-Mails über ein Kommandozeilen-Programm (<filename>bin/otrs.PostMaster.pl</filename>) zu empfangen. Das bedeutet, dass E-Mails im OTRS angezeigt werden, wenn der MDA (mail delivery agent, z. B. procmail) die E-Mails an <filename>bin/otrs.PostMaster.pl</filename>\" weiterleitet. Um <filename>bin/otrs.PostMaster.pl</filename> auf der Kommandozeile ohne MDA zu testen, führen Sie folgendes Kommando aus:"
+msgstr "OTRS ist in der Lage, E-Mails über ein Kommandozeilen-Programm (<filename>bin/otrs.PostMaster.pl</filename>) zu empfangen. Es nimmt die Mails über STDIN entgegen und fügt sie direkt in das OTRS-System ein. Das bedeutet, dass E-Mails im OTRS angezeigt werden, wenn der MDA (mail delivery agent, z. B. procmail) die E-Mails an <filename>bin/otrs.PostMaster.pl</filename>\" weiterleitet. "
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:99
-#, fuzzy
 #| msgid ""
 #| "To test <filename>bin/otrs.PostMaster.pl</filename> without MDA, execute "
 #| "the command of the Script 7.1."
@@ -7854,7 +7719,6 @@ msgstr ""
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:111
-#, fuzzy
 #| msgid "<emphasis>Script 7.1. Testing PostMaster withouth MDA.</emphasis>"
 msgid "<emphasis>Script 7.1. Testing PostMaster without the MDA.</emphasis>"
 msgstr "<emphasis>Skript 7.1. PostMaster-Test ohne MDA.</emphasis>"
@@ -7866,7 +7730,6 @@ msgstr "Wird die E-Mail in der Queue-Ansicht angezeigt, sind Ihre Einstellungen 
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:119
-#, fuzzy
 #| msgid ""
 #| "Procmail is a very common e-mail filter in Linux environments. It will be "
 #| "installed on most systems. If not, have a look at the <ulink url=\"http://"
@@ -7876,7 +7739,6 @@ msgstr "Procmail ist in der Linux-Umgebung ein sehr bekannter E-Mail-Filter, der
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:123
-#, fuzzy
 #| msgid ""
 #| "To configure procmail for OTRS (requires a procmail configured MTA, e.g.  "
 #| "sendmail, postfix, exim or qmail), use the <filename>~otrs/.procmailrc."
@@ -7932,7 +7794,6 @@ msgstr "Voraussetzung ist eine funktionierende SMTP-Konfiguration auf dem OTRS-R
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:163
-#, fuzzy
 #| msgid ""
 #| "You can use the <filename>.fetchmailrc.dist</filename> in the home "
 #| "directory of OTRS and copy it to <filename>.fetchmailrc</filename>.  "
@@ -7972,7 +7833,6 @@ msgstr "Filterung/Verteilung über PostMaster-Module (für komplexere Verteilung
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:192
-#, fuzzy
 #| msgid ""
 #| "If you use the bin/otrs.PostMaster.pl or bin/otrs.PostMasterMailbox.pl "
 #| "method, you can insert or modify X-OTRS header entries with the "
@@ -7992,12 +7852,11 @@ msgstr "Es gibt verschiedene Standard-Filtermodule:"
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/email.xml:202
-#, fuzzy
 #| msgid ""
 #| "The job name (e.g.  $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;"
 #| "{'JobName'}) needs to be unique!"
 msgid "The job name (e.g. $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) needs to be unique!"
-msgstr "Der Jobname (z. B. $Self-&gt;{\"PostMaster::PreFilterModule\"}-&gt;{\"Jobname\"}) muss eindeutig sein."
+msgstr "Der Jobname (z. B. $Self-&gt;{\"PostMaster::PreFilterModule\"}-&gt;{\"Jobname\"}) muss eindeutig sein!"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/email.xml:207
@@ -8114,7 +7973,6 @@ msgstr "Arbeitszeiten, Feiertage und Zeitzonen für das System festlegen"
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:13
-#, fuzzy
 #| msgid ""
 #| "Some functions in OTRS, like escalations and <link linkend=\"unlock-"
 #| "tickets\">automatic unlocking of tickets</link>, depend on a proper "
@@ -8142,7 +8000,6 @@ msgstr "Arbeitszeiten"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:21
-#, fuzzy
 #| msgid ""
 #| "Set up the working hours for your system in SysConfig <link linkend="
 #| "\"Framework:Core::Time:TimeWorkingHours\"> Framework> Core::Time::"
@@ -8155,7 +8012,6 @@ msgstr "Setzen Sie die Arbeitszeiten für Ihr System in der SysConfig fest, in <
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:25
-#, fuzzy
 #| msgid ""
 #| "Only during the business hours: tickets can escalate, notifications for "
 #| "escalated and pending tickets will be send and tickets will be unlocked."
@@ -8169,7 +8025,6 @@ msgstr "Feiertage mit festem Datum"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:34
-#, fuzzy
 #| msgid ""
 #| "Holidays that are on a fixed date every year, such as New Year's Day and "
 #| "Fourth of July, can be specified in <link linkend=\"Framework:Core::Time:"
@@ -8195,7 +8050,6 @@ msgstr "TimeVacationDaysOneTime"
 
 #. type: Content of: <chapter><section><section><para>
 #: en/time.xml:53
-#, fuzzy
 #| msgid ""
 #| "Holidays that do not have a yearly fixed date, such as Easter, can be "
 #| "specified in <link linkend=\"Framework:Core::Time:TimeVacationDaysOneTime"
@@ -8210,7 +8064,6 @@ msgstr "Während der hier festgelegten Tage werden keine zeitabhängigen Aktione
 
 #. type: Content of: <chapter><section><section><note><para>
 #: en/time.xml:62
-#, fuzzy
 #| msgid ""
 #| "OTRS does not ship with any One-Time holidays pre-installed.  This means "
 #| "that you need to add holidays, such as Eastern or Thanksgiving, to the "
@@ -8225,7 +8078,6 @@ msgstr "Automatische Ticket-\"Freigabe\" (unlock)"
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:74
-#, fuzzy
 #| msgid ""
 #| "Locked tickets can be automatically unlocked by the system. This feature "
 #| "might be useful if, for example, an agent has locked tickets that need to "
@@ -8238,7 +8090,6 @@ msgstr "Gesperrte Tickets können automatisch vom System freigegeben werden. Die
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:78
-#, fuzzy
 #| msgid ""
 #| "The amount of time before a ticket is unlocked can be specified in the "
 #| "<link linkend=\"adminarea-queue\"> settings </link> for every queue. The "
@@ -8249,7 +8100,6 @@ msgstr "Die Zeit, nach der gesperrte Tickets automatisch freigegeben werden, kan
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:82
-#, fuzzy
 #| msgid ""
 #| "Notifications on unlocked tickets are send out only to those agents that "
 #| "have the queue with the unlocked tickets set in \"My queues\" and that "
@@ -8265,7 +8115,6 @@ msgstr "Tickets werden entsperrt wenn folgende Bedingungen zutreffen:"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/time.xml:92
-#, fuzzy
 #| msgid ""
 #| "There is an <emphasis>unlock timeout</emphasis> defined at the queue the "
 #| "ticket is in."
@@ -8274,7 +8123,6 @@ msgstr "In der Queue des Tickets ist ein <emphasis>Freigabe-Zeitintervall</empha
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: en/time.xml:97
-#, fuzzy
 #| msgid "The ticket is set to <emphasis>locked</emphasis>"
 msgid "The ticket is set to <emphasis>locked</emphasis>."
 msgstr "Das Ticket ist <emphasis>gesperrt</emphasis>."
@@ -8286,7 +8134,6 @@ msgstr "Der Status des Tickets is <emphasis>offen\"</emphasis>."
 
 #. type: Content of: <chapter><section><para>
 #: en/time.xml:108
-#, fuzzy
 #| msgid ""
 #| "The unlock timer will be reset if an agent adds a new external article to "
 #| "the ticket, It can be of any of the following types: <emphasis>email-"
