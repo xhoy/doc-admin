@@ -3,14 +3,14 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.28 2011-02-09 17:24:49 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.29 2011-04-19 12:09:16 mg Exp $ -->
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
 
 <abstract>
 <para>
-Eine erschöpfende Liste verschiedener Techniken, um das Maximum an Leistung
-aus Ihrem OTRS System herauszuholen: Konfiguration, Programmierung,
+Hier finden Sie eine Liste verschiedener Techniken der Leistungssteigerung
+Ihrer OTRS-Installation, einschließlich Konfiguration, Programmierung,
 Speichernutzung und mehr.
 </para>
 </abstract>
@@ -18,8 +18,7 @@ Speichernutzung und mehr.
 <section id="performance-tuning-otrs">
 <title>OTRS</title>
 <para>
-Im folgenden finden Sie Optionen, die Leistung des Systems via OTRS selbst
-zu verbessern.
+Es gibt verschiedene Ansätze zur Leistungssteigerung von OTRS.
 </para>
 
 <section id="performance-tuning-otrs-index">
@@ -59,7 +58,6 @@ Sie können den IndexAccelerator per SysConfig einstellen.
 
 </section>
 
-
 <section id="performance-tuning-otrs-storage">
 <title>TicketStorageModule</title>
 <para>
@@ -76,11 +74,11 @@ u. A. in der Datenbank. Merke: Benutzen Sie diese Option nicht für größere
 Systeme.
 </para>
 <para>
-Pro: Ist der Benutzer, unter dem der Webserver läuft, nicht der OTRS
-Benutzer, können Sie mit diesem Modul Dateiberechtigungsprobleme vermeiden.
+Pro: Ist der Benutzer, unter dem der Webserver läuft, nicht der Benutzer
+'otrs', können Sie mit diesem Modul Dateiberechtigungsprobleme vermeiden.
 </para>
 <para>
-Contra: Es ist nicht wirklich nett, Anhänge in Ihrer Datenbank zu
+Contra: Es ist nicht wirklich ratsa,, Anhänge in Ihrer Datenbank zu
 speichern. Achten Sie darauf, dass Ihre Datenbank das kann. Für MySQL setzen
 Sie in dessen Konfiguration bspw. "set-variable = max_allowed_packet=8M", um
 8 MB große Objekte zu speichern (Standard ist 2M).
@@ -96,8 +94,8 @@ Filesystem ab. Merke: Benutzen Sie dies für große Installationen.
 Pro: Schneller!
 </para>
 <para>
-Contra: Der Benutzer, unter dem der Webserver läuft, sollte der OTRS
-Benutzer sein (Dateisystemberechtigungen!). Wenn Sie mehrere
+Contra: Der Benutzer, unter dem der Webserver läuft, sollte der Benutzer
+'otrs' sein (Dateisystemberechtigungen!). Wenn Sie mehrere
 OTRS-Frontendserver haben, müssen Sie sicherstellen, dass das Dateisystem
 gemeinsam genutzt wird. Sie können es z. B. auf ein NFS-Share oder
 vorzugsweise ein SAN oder eine vergleichbare Lösung legen.
@@ -109,7 +107,7 @@ vorzugsweise ein SAN oder eine vergleichbare Lösung legen.
 </para>
 
 <para>
-Merke: Sie können während des Betriebs von einem Backend auf das andere
+	Merke: Sie können während des Betriebs von einem Backend auf das andere
 wechseln. Stellen Sie dazu das Backend in der SysConfig um, und führen Sie
 <filename>otrs.ArticleStorageSwitch.pl</filename> aus, um die Artikel aus
 der Datenbank ins Dateisystem zu überführen oder umgekehrt. Sie können die
@@ -124,7 +122,7 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
 <para>
-    <emphasis>Skript 21.1 Wechsel des TicketStorage-Backends von Datenbank zu
+<emphasis>Skript 21.1 Wechsel des TicketStorage-Backends von Datenbank zu
 Dateisystem.</emphasis>
 </para>
 </section>
@@ -262,7 +260,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-    <emphasis>Skript 21.2. Optimierung von Datenbanktabellen.</emphasis>
+<emphasis>Skript 21.2. Optimierung von Datenbanktabellen.</emphasis>
 </para>
 
 </section>
@@ -312,7 +310,6 @@ wahrscheinlich helfen.
 
 </section>
 
-
 <section id="performance-tuning-webserver">
 <title>Webserver</title>
 <para>
@@ -325,8 +322,8 @@ mehr Speicher. Ihr httpd wird mit mod_perl also größer sein.
 <section id="performance-tuning-webserver-db">
 <title>Persistente Datenbankverbindungen</title>
 <para>
-Sie können die Datenbankverbindung bereits beim Start des httpd-Prozeß
-herstellen lassen - dies spart ebenso Zeit (siehe auch README.webserver).
+Sie können die Datenbankverbindung bereits beim Start des Webservers
+herstellen lassen. Dies spart ebenso Zeit (siehe auch README.webserver).
 </para>
 </section>
 

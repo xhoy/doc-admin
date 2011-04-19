@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.40 2011-02-09 17:24:49 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.41 2011-04-19 12:09:16 mg Exp $ -->
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
 
@@ -11,45 +11,31 @@
 <title>Grundlagen</title>
 
 <para>
-Der Administrationsbereich von OTRS ist die zentrale Anlaufstelle für den
-Administrator des Ticket Systems. Innerhalb dieses Bereiches können alle
-wichtigen Einstellungen der Systemkonfiguration eingesehen bzw. geändert und
-das System auf die eigenen Bedürfnisse angepasst werden.</para>
+OTRS-Administratioren verwenden die Admin-Seite in der Weboberfläche von
+OTRS um das System zu konfigurieren - Agenten, Kunden und Queues hinzufügen,
+Ticket- und E-Mail-Einstellungen ändern und Zusatzpakete wie FAQ und ITSM
+installieren und vieles mehr ist damit möglich.</para>
 
 <para>
-Die Administrationsoberfläche kann über den Link "Admin" innerhalb der
-Navigationsleiste des Agent-Interfaces geladen werden. Damit dieser Link in
-der Navigationsleiste überhaupt sichtbar ist, müssen Sie als
-OTRS-Administrator am System angemeldet sein bzw. über Administrationsrechte
-im System verfügen. Nach einer Standardinstallation können Sie sich mit dem
-Benutzernamen "root@localhost" und dem Kennwort "root" als OTRS-Admin am
-System anmelden.
+Agenten, die Mitglied der "admin"-Gruppe sind, können über den Link "Admin"
+innerhalb der Navigationsleiste der Agenten-Weboberfläche den
+Administrationsbereich von OTRS aufrufen.
 </para>
-
-<warning>
-<para>
-Bitte ändern Sie schnellstmöglich über die Benutzereinstellungen  das
-Kennwort für root@localhost, da es sich hierbei um ein standardmäßig
-vergebenes Kennwort handelt, das allgemein bekannt ist.
-</para>
-</warning>
 
 <para>
 <screenshot>
-<screeninfo>Der Administrationsbereich von OTRS</screeninfo> <graphic srccredit="Adminarea -
+<screeninfo>Der OTRS-Admin-Bildschirm</screeninfo> <graphic srccredit="Adminarea -
 screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.1. Administrationsbereich der
-Agenten-Weboberfläche.</emphasis>
+<emphasis>Abb. 3.1. OTRS Administrationsbereich.</emphasis>
 </para>
 
 </section>
 
-
 <section id="adminarea-agents-groups-and-roles">
-<title>Benutzer-, Gruppen- und Rollenverwaltung</title>
+<title>Benutzer, Gruppen und Rollen</title>
 
 <section id="adminarea-agents">
 <title>Benutzer</title>
@@ -63,23 +49,21 @@ den Benutzer festlegen, z. B. die Oberflächensprache oder das Anzeigeschema.
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können
-einmal im System angelegte Benutzer nicht entfernt werden. Um einen
-Benutzer-Account zu deaktivieren, setzen Sie in den Einstellungen den
-entsprechenden Benutzer mit Hilfe der Listbox für "Gültig" auf "ungültig"
-bzw. "ungültig-temporär".
+Ein OTRS-Benutzer kann deaktiviert, aber nicht gelöchst werden. Um einn
+Benutzer zu deaktivieren, setzen Sie die Einstellung für "Gültig" auf
+"ungültig" oder "ungültig-temporär".
 </para>
 </note>
 
 <para>
 <screenshot>
-<screeninfo>Benutzerverwaltung</screeninfo> <graphic srccredit="Adminarea agent
+<screeninfo>Benutzer-Verwaltung</screeninfo> <graphic srccredit="Adminarea Agent
 management - screenshot" scale="40"
 fileref="screenshots/admin-agents.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.2. Benutzerverwaltung.</emphasis>
+<emphasis>Abb. 5.2. Benutzerverwaltun.</emphasis>
 </para>
 
 <para>
@@ -96,7 +80,7 @@ fileref="screenshots/add-agent.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.3. Hinzufügen einens Benutzers.</emphasis>
+<emphasis>Abb. 5.3. Hinzufügen einens Benutzers.</emphasis>
 </para>
 
 <para>
@@ -158,10 +142,10 @@ Funktionen rund um Tickets ist gegeben.
 </para>
 
 <note>
-    <para>
-        In einer neuen Installation ist die Gruppe "users" leer und der Benutzer
+<para>
+In einer neuen Installation ist die Gruppe "users" leer und der Benutzer
 "root@localhost" ist Mitglied der Gruppen "admin" und "stats".
-    </para>
+</para>
 </note>
 
 <para>
@@ -171,22 +155,20 @@ Gruppenverwaltung gelangen.
 
 <para>
 <screenshot>
-<screeninfo>Gruppenverwaltung in OTRS</screeninfo> <graphic srccredit="Adminarea group
+<screeninfo>Gruppen-Verwaltung</screeninfo> <graphic srccredit="Adminarea group
 management - screenshot" scale="40"
 fileref="screenshots/admin-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.4. Gruppenverwaltung.</emphasis>
+<emphasis>Abb. 5.4. Gruppenverwaltung.</emphasis>
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können
-einmal im System angelegte Gruppen nicht entfernt werden. Um eine Gruppe zu
-deaktivieren, setzen Sie in den Einstellungen der entsprechenden Gruppe in
-der Listbox für "Gültig" den Wert entweder auf "ungültig"
-bzw. "ungültig-temporär".
+In OTRS können Gruppen deaktiviert, aber nicht gelöscht werden. Deaktivieren
+Sie eine Gruppe, indem Sie für "Gültig" den Wert entweder auf "ungültig"
+oder auf "ungültig-temporär" setzen.
 </para>
 </note>
 
@@ -198,13 +180,13 @@ Administrationsbereich genutzt werden.
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung von Benutzer und Gruppen</screeninfo> <graphic srccredit="Adminarea groups
+<screeninfo>Verwaltung von Benutzergruppen</screeninfo> <graphic srccredit="Adminarea groups
 and agents - screenshot" scale="40"
 fileref="screenshots/admin-agents-and-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.5. Benutzer-Gruppen-Zuordnung.</emphasis>
+<emphasis>Abb. 5.5. Benutzer-Gruppen-Zuordnung.</emphasis>
 </para>
 
 <para>
@@ -217,36 +199,37 @@ sich in dieser Gruppe befinden.
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung von Benutzer und Gruppen</screeninfo> <graphic srccredit="Adminarea groups
+<screeninfo>Verwaltung von Benutzergruppen</screeninfo> <graphic srccredit="Adminarea groups
 and agents - screenshot" scale="40"
 fileref="screenshots/agent-group-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.6. Bearbeiten der Gruppenzugehörigkeiten eines
+<emphasis>Abb. 5.6. Bearbeiten der Gruppenzugehörigkeiten eines
 Benutzers.</emphasis>
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Zuweisung von Benutzer und Gruppen</screeninfo> <graphic srccredit="Adminarea groups
+<screeninfo>Verwaltung von Benutzergruppen</screeninfo> <graphic srccredit="Adminarea groups
 and agents - screenshot" scale="40"
 fileref="screenshots/agent-group-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.7. Bearbeiten der Benutzerzuordnungen einer
+<emphasis>Abb. 5.7. Bearbeiten der Benutzerzuordnungen einer
 Gruppe.</emphasis>
 </para>
 
 <para>
-Um eine bessere Abstufung der Rechte im System sicher zu stellen, können
-einem Benutzer verschiedene Rechte pro Gruppe zugewiesen werden.
+Jede Gruppe hat zugehörige Berechtigungen, und jeder Agent, der Mitglied
+dieser Gruppe ist, kann eine Kombination dieser Rechte erhalten. Eine Liste
+dieser Berechtigungen wird in Tabelle 5-2 gezeigt.
 </para>
 
 <para>
 <table id="table-of-group-permissions-after-installation">
-<title>Berechtigungen in den Benutzergruppen von OTRS</title>
+<title>Mit OTRS-Gruppen verknüpfte Rechte</title>
   <tgroup cols="2">
     <thead>
       <row>
@@ -339,7 +322,8 @@ Rollen sind ein sehr nützliches und mächtiges Feature in OTRS, um schnell
 und einfach die Vergabe von Zugriffsrechten für viele Benutzer
 vorzunehmen. Vor allem bei großen und komplexen Installationen mit vielen
 Benutzern, Gruppen und Queues, zahlt sich dieses Feature schnell aus und
-erspart dem OTRS-Administrator viel Zeit und Arbeit.
+erspart dem OTRS-Administrator viel Zeit und Arbeit. Das nachfolgende
+Beispiel stellt ein mögliches Szenario vor.
 </para>
 
 <para>
@@ -387,7 +371,8 @@ indem Sie <link
 linkend="Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup">
 Frontend::Module###AdminUserGroup </link> in der SysConfig
 deaktivieren. Dadurch werden existierende Gruppenzuordnungen natürlich nicht
-entfernt!</para>
+entfernt!
+</para>
 </note>
 
 <para>
@@ -397,20 +382,19 @@ Administrationsbereich erreichen.
 
 <para>
 <screenshot>
-<screeninfo>Rollenverwaltung in OTRS</screeninfo> <graphic srccredit="Adminarea roles
+<screeninfo>Rollenverwaltung</screeninfo> <graphic srccredit="Adminarea roles
 - screenshot" scale="40" fileref="screenshots/admin-roles.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.8. Rollenverwaltung.</emphasis>
+<emphasis>Abb. 5.8. Rollenverwaltung.</emphasis>
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, können
-einmal im System angelegte Rollen nicht mehr entfernt werden. Um eine Rolle
-zu deaktivieren, setzen Sie in den Einstellungen die entsprechende Rolle mit
-Hilfe der Listbox für "Gültig" auf "ungültig" oder "ungültig-temporär".
+In OTRS können Rollen deaktiviert, aber nicht gelöscht werden. Deaktivieren
+Sie eine Rolle, indem Sie für "Gültig" den Wert entweder auf "ungültig"
+bzw. "ungültig-temporär" setzen.
 </para>
 </note>
 
@@ -424,12 +408,12 @@ erforderlichen Daten an.
 
 <para>
 <screenshot>
-<screeninfo>Rollenverwaltung in OTRS</screeninfo> <graphic srccredit="Adminarea roles
+<screeninfo>Rollenverwaltung</screeninfo> <graphic srccredit="Adminarea roles
 - screenshot" scale="40" fileref="screenshots/add-role.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.9. Anlegen einer neuen Rolle.</emphasis>
+<emphasis>Abb. 5.9. Anlegen einer neuen Rolle.</emphasis>
 </para>
 
 <para>
@@ -443,25 +427,25 @@ einer Rolle zu verändern, klicken Sie auf die Rolle.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Benutzer-Rollen-Zuordnungen</screeninfo> <graphic srccredit="Adminarea roles
+<screeninfo>Verwaltung der Benutzer-Rollen</screeninfo> <graphic srccredit="Adminarea roles
 and agents - screenshot" scale="40"
 fileref="screenshots/admin-roles-agents-relation.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.10. Bearbeiten der Rollenzuordnungen eines
+<emphasis>Abb. 5.10. Bearbeiten der Rollenzuordnungen eines
 Agenten.</emphasis>
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Benutzer-Rollen-Zuordnungen</screeninfo> <graphic srccredit="Adminarea groups
+<screeninfo>Verwaltung der Benutzer-Rollen</screeninfo> <graphic srccredit="Adminarea groups
 and agents - screenshot" scale="40"
 fileref="screenshots/admin-roles-agents-relation2.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.11. Bearbeiten der Benutzerzuordnungen einer
+<emphasis>Abb. 5.11. Bearbeiten der Benutzerzuordnungen einer
 Rolle.</emphasis>
 </para>
 
@@ -478,7 +462,7 @@ fileref="screenshots/admin-roles-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.12. Rollen-Gruppen-Zuordnungen verwalten.</emphasis>
+<emphasis>Abb. 5.12. Rollen-Gruppen-Zuordnungen verwalten.</emphasis>
 </para>
 
 <para>
@@ -494,7 +478,7 @@ fileref="screenshots/groups-roles-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.13. Gruppenzuordnungen einer Rolle verändern.</emphasis>
+<emphasis>Abb. 5.13. Gruppenzuordnungen einer Rolle verändern.</emphasis>
 </para>
 
 <para>
@@ -505,16 +489,15 @@ fileref="screenshots/groups-roles-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.14. Rollenzuordnungen für eine Gruppe verändern.</emphasis>
+<emphasis>Abb. 5.14. Rollenzuordnungen für eine Gruppe verändern.</emphasis>
 </para>
 
 </section>
 
 </section>
 
-
 <section id="customers-and-groups">
-<title>Kundenbenutzer und -gruppen</title>
+<title>Kundenbenutzer und Kundengruppen</title>
 
 <section id="adminarea-customers">
 <title>Kunden</title>
@@ -531,13 +514,13 @@ Kunden-Account vom System für die Historie von Tickets benötigt.
 
 <para>
 <screenshot>
-<screeninfo>Kundenverwaltung in OTRS</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Kundenverwaltung</screeninfo> <graphic srccredit="Adminarea
 customer - screenshot" scale="40"
 fileref="screenshots/admin-customer.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.14. Kundenverwaltung.</emphasis>
+<emphasis>Abb. 5.14. Kundenverwaltung.</emphasis>
 </para>
 
 <para>
@@ -557,13 +540,13 @@ werden.
 
 <para>
 <screenshot>
-<screeninfo>Kundenverwaltung in OTRS</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Kundenverwaltung</screeninfo> <graphic srccredit="Adminarea
 customer - screenshot" scale="40"
 fileref="screenshots/add-customer.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.14. Hinzufügen eines Kunden.</emphasis>
+<emphasis>Abb. 5.14. Hinzufügen eines Kunden.</emphasis>
 </para>
 
 <para>
@@ -575,16 +558,13 @@ werden.
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, kann ein
-einmal im System angelegter Kunde nicht entfernt werden. Um einen Kunden
-trotzdem zu deaktivieren, setzen Sie in den Einstellungen des entsprechenden
-Kunden in der Listbox für "Gültig" den Wert entweder auf "ungültig"
-bzw. "ungültig-temporär".
+In OTRS können Kunden deaktivert, aber nicht gelöscht werden. Sie können
+einen Kunden deaktivieren, indem Sie den Wert für "Gültig" auf "ungültig"
+oder "ungültig-temporär" setzen.
 </para>
 </note>
 
 </section>
-
 
 <section id="adminarea-customers-groups">
 <title>Kundengruppen</title>
@@ -621,7 +601,7 @@ fileref="screenshots/admin-customer-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.15. Verwaltung der Kunden-Gruppen-Zuordnungen.</emphasis>
+<emphasis>Abb. 5.15. Verwaltung der Kunden-Gruppen-Zuordnungen.</emphasis>
 </para>
 
 <para>
@@ -637,18 +617,18 @@ fileref="screenshots/groups-customers-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.16. Gruppenzuordnungen eines Kunden bearbeiten.</emphasis>
+<emphasis>Abb. 5.16. Gruppenzuordnungen eines Kunden bearbeiten.</emphasis>
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Kundenzuordnungen einer Gruppe bearbeiten</screeninfo> <graphic srccredit="Adminarea roles
-and groups - screenshot" scale="40"
+<screeninfo>Kundenzuordnungen einer Gruppe bearbeiten</screeninfo> <graphic srccredit="Adminarea
+customer and groups - screenshot" scale="40"
 fileref="screenshots/groups-customers-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.17. Kundenzuordnungen einer Gruppe bearbeiten.</emphasis>
+<emphasis>Abb. 5.17. Kundenzuordnungen einer Gruppe bearbeiten.</emphasis>
 </para>
 
 </section>
@@ -669,12 +649,12 @@ kann z. B. zum Aussortieren von Spam-Mails genutzt werden.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Queues in OTRS</screeninfo> <graphic srccredit="Adminarea queue
+<screeninfo>Queue-Verwaltung</screeninfo> <graphic srccredit="Adminarea queue
 - screenshot" scale="40" fileref="screenshots/admin-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.18. Queue-Verwaltung.</emphasis>
+<emphasis>Abb. 5.18. Queue-Verwaltung.</emphasis>
 </para>
 
 <para>
@@ -686,12 +666,12 @@ einer bereits in Ihrem System vorhandenen Queue sein soll.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Queues in OTRS</screeninfo> <graphic srccredit="Adminarea queue
+<screeninfo>Queue-Verwaltung</screeninfo> <graphic srccredit="Adminarea queue
 - screenshot" scale="40" fileref="screenshots/add-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.19. Hinzufügen einer Queue.</emphasis>
+<emphasis>Abb. 5.19. Hinzufügen einer Queue.</emphasis>
 </para>
 
 <para>
@@ -709,8 +689,9 @@ Drei Arten von Eskalationszeiten können pro Queue eingestellt werden:
     <title>Eskalation - Zeit für die erste Reaktion</title>
     <listitem>
         <para>
-Wenn für die definierte Zeitdauer keine Rückmeldung an den Kunden zu einem
-neuen Ticket erfolgt, eskaliert es.
+Nach der Erstellung wird dieses Ticket eskalieren, wenn die hier definierte
+Zeit verstreicht, ohne dass eine Kommunikation zum Kunden (per E-Mail oder
+Telefonanruf) stattgefunden hat.
         </para>
     </listitem>
 </itemizedlist>
@@ -751,7 +732,7 @@ Mails aus dieser Queue versendet werden sollen. Mit Hilfe der Parameter für
 Anrede und Signatur kann eingestellt werden, welche Vorgaben hier
 standardmäßig bei Antworten auf Tickets in dieser Queue genutzt werden. In
 den Abschnitten <link
-linkend="adminarea-emailaddresses">E-Mailadressen</link>, <link
+linkend="adminarea-emailaddresses">E-Mail-Adressen</link>, <link
 linkend="adminarea-salutations">Anreden</link> und <link
 linkend="adminarea-signatures">Signaturen</link> erfahren Sie mehr über die
 Einrichtung dieser Parameter.
@@ -759,11 +740,9 @@ Einrichtung dieser Parameter.
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, kann
-eine einmal im System angelegte Queue nicht entfernt werden. Um eine Queue
-trotzdem zu deaktivieren, setzen Sie in den Einstellungen der entsprechenden
-Queue in der Listbox für "Gültig" den Wert entweder auf "ungültig"
-bzw. "ungültig-temporär".
+In OTRS können Queues deaktiviert, aber nicht gelöscht werden. Sie können
+eine Queue deaktivieren, indem Sie den Wert für "Gültig" auf "ungültig" oder
+"ungültig-temporär" setzen.
 </para>
 </note>
 
@@ -793,7 +772,7 @@ fileref="screenshots/admin-salutation.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.20. Verwaltung der Anreden.</emphasis>
+<emphasis>Abb. 5.20. Verwaltung der Anreden.</emphasis>
 </para>
 
 <para>
@@ -814,16 +793,12 @@ fileref="screenshots/add-salutation.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.21. Anrede hinzufügen.</emphasis>
+<emphasis>Abb. 5.21. Anrede hinzufügen.</emphasis>
 </para>
 
 <para>
-Damit auch dynamische Inhalte in eine Anrede eingebaut werden können, also
-Inhalte, die sich bei jeder Anrede ändern, können verschiedene Variablen in
-den Anredentext eingebaut werden. Der in der Variable gespeicherte Text wird
-beim Antworten automatisch in den Text eingefügt. Ein variabler Textteil
-könnte z. B. der Name oder die Mailadresse der Person sein, auf deren Ticket
-sie antworten.
+In Anreden können Variablen verwendet werden. Wenn Sie auf ein Ticket
+antworten, werden die Variablennamen durch die zugehörigen Werte ersetzt.
 </para>
 
 <para>
@@ -836,16 +811,13 @@ durch den Nachnamen der Person ersetzt, deren Ticket Sie beantworten.
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, kann
-eine einmal im System angelegte Anrede nicht entfernt werden. Um eine Anrede
-trotzdem zu deaktivieren, setzen Sie in den Einstellungen der entsprechenden
-Anrede in der Listbox für "Gültig" den Wert entweder auf "ungültig"
-bzw. "ungültig-temporär".
+In OTRS können Anreden deaktiviert, aber nicht gelöscht werden. Sie können
+eine Anrede deaktivieren, indem Sie den Wert für "Gültig" auf "ungültig"
+oder "ungültig-temporär" setzen.
 </para>
 </note>
 
 </section>
-
 
 <section id="adminarea-signatures">
 <title>Signaturen</title>
@@ -862,17 +834,17 @@ verschiedenen Signaturen Ihres Systems verwalten.
 <para>
 <screenshot>
 <screeninfo>Signaturverwaltung</screeninfo> <graphic srccredit="Adminarea
-signatures - screenshot" scale="40"
+Signatures - screenshot" scale="40"
 fileref="screenshots/admin-signatures.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.22. Signaturverwaltung.</emphasis>
+<emphasis>Abb. 5.22. Signaturverwaltung.</emphasis>
 </para>
 
 <para>
-Nach einer Standardinstallation von OTRS sind bereits eine Signatur im
-System gespeichert, "system standard signature (en)".
+Nach einer Standardinstallation von OTRS ist bereits eine Signatur im System
+vorhanden, "system standard signature (en)".
 </para>
 
 <para>
@@ -888,29 +860,26 @@ fileref="screenshots/add-signature.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.23. Signatur hinzufügen.</emphasis>
+<emphasis>Abb. 5.23. Signatur hinzufügen.</emphasis>
 </para>
 
 <para>
-Auch in Signaturen können dynamische Inhalte eingebaut werden. Dies
-geschieht, genauso wie bei den Anreden, mit Hilfe verschiedener
-OTRS-Variablen, die in den Text der Signatur integriert werden können. Ein
-variabler Textteil könnte z. B. der Name des Mitarbeiters sein, der das
-Ticket beantwortet hat (&lt;OTRS_LAST_NAME&gt;).
+Auch in Signaturen können dynamische Inhalte eingebaut werden, wie etwa Vor-
+und Nachname des Agenten. Dies geschieht, genauso wie bei den Anreden, mit
+Hilfe verschiedener OTRS-Variablen, die in den Text der Signatur integriert
+werden können. Ein variabler Textteil könnte z. B. der Name des Mitarbeiters
+sein, der das Ticket beantwortet hat (&lt;OTRS_LAST_NAME&gt;).
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, kann
-eine einmal im System angelegte Signatur nicht entfernt werden. Um eine
-Signatur trotzdem zu deaktivieren, setzen Sie in den Einstellungen der
-entsprechenden Signatur in der Listbox für "Gültig" den Wert entweder auf
-"ungültig" oder auf "ungültig-temporär".
+In OTRS können Signaturen deaktiviert, aber nicht gelöscht werden. Sie
+können eine Signatur deaktivieren, indem Sie den Wert für "Gültig" auf
+"ungültig" oder "ungültig-temporär" setzen.
 </para>
 </note>
 
 </section>
-
 
 <section id="adminarea-attachments">
 <title>Anlagen</title>
@@ -929,13 +898,13 @@ System integrieren.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der Anlagen</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Verwaltung der Anlagen von Antworten</screeninfo> <graphic srccredit="Adminarea
 attachment - screenshot" scale="40"
 fileref="screenshots/admin-attachment.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.24. Verwaltung der Anlagen.</emphasis>
+<emphasis>Abb. 5.24. Verwaltung der Anlagen.</emphasis>
 </para>
 
 <para>
@@ -951,7 +920,7 @@ fileref="screenshots/add-attachment.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.25. Anlage hinzufügen.</emphasis>
+<emphasis>Abb. 5.25. Anlage hinzufügen.</emphasis>
 </para>
 
 <para>
@@ -968,7 +937,7 @@ fileref="screenshots/admin-attachment-response.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.26. Zuordnung von Anlagen zu Antworten.</emphasis>
+<emphasis>Abb. 5.26. Zuordnung von Anlagen zu Antworten.</emphasis>
 </para>
 
 <para>
@@ -984,7 +953,7 @@ fileref="screenshots/response-attachment-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.27. Anlagenzuordnungen einer Antwortvorlage
+<emphasis>Abb. 5.27. Anlagenzuordnungen einer Antwortvorlage
 verändern.</emphasis>
 </para>
 
@@ -996,12 +965,11 @@ fileref="screenshots/response-attachment-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.28. Antwortvorlagen-Zuordnungen einer Anlage
+<emphasis>Abb. 5.28. Antwortvorlagen-Zuordnungen einer Anlage
 verändern.</emphasis>
 </para>
 
 </section>
-
 
 <section id="adminarea-Responses">
 <title>Antwortvorlagen</title>
@@ -1029,7 +997,7 @@ fileref="screenshots/admin-response.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.29. Verwaltung der Antwortvorlagen.</emphasis>
+<emphasis>Abb. 5.29. Verwaltung der Antwortvorlagen.</emphasis>
 </para>
 
 <para>
@@ -1045,7 +1013,7 @@ fileref="screenshots/add-response.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.30. Antwortvorlage hinzufügen.</emphasis>
+<emphasis>Abb. 5.30. Antwortvorlage hinzufügen.</emphasis>
 </para>
 
 <para>
@@ -1062,7 +1030,7 @@ fileref="screenshots/admin-response-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.31. Queue-Antwort-Zuordnungen verwalten.</emphasis>
+<emphasis>Abb. 5.31. Queue-Antwort-Zuordnungen verwalten.</emphasis>
 </para>
 
 <para>
@@ -1078,7 +1046,7 @@ fileref="screenshots/responses-queues-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.32. Queue-Zuordnungen einer Antwortvorlage
+<emphasis>Abb. 5.32. Queue-Zuordnungen einer Antwortvorlage
 ändern.</emphasis>
 </para>
 
@@ -1090,29 +1058,18 @@ fileref="screenshots/responses-queues-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.33. Antwort-Zuordnungen einer Queue ändern.</emphasis>
+<emphasis>Abb. 5.33. Antwort-Zuordnungen einer Queue ändern.</emphasis>
 </para>
 
 <para>
-Wenn Sie zum Beantworten eines Tickets, z. B. in der Queue-Ansicht, auf den
-Link für eine Antwortvorlage klicken, können Sie feststellen, dass nicht nur
-der Text der Antwortvorlage sondern auch eine Anrede, der zitierte
-Ticketinhalt und eine Signatur geladen werden. Antwortvorlagen setzen sich
-also aus verschiedenen Textbausteinen zusammen. Dies sind die Anrede und
-Signatur der Queue, in der sich das zu beantwortende Ticket befindet, der
-Text des Tickets auf das geantwortet werden soll und ggf. der Text der
-Antwortvorlage selbst, der wie gerade beschrieben, festgelegt werden
-kann. Diese Elemente sind standardmäßig so angeordnet, dass beim Antworten
-zuerst die Anrede, danach der zitierte Text des zu beantwortende Ticket,
-anschließend ggf. der Text der Antwortvorlage und zum Schluss die Signatur
-ausgegeben wird.
+Die Struktur einer Antwort ist intuitiv. Sie enthält eine  mit der Queue
+verknüpfte Anrede, den Text der Antwort, den zitierten Ticket-Text und
+schließlich die Signatur der Queue.
 </para>
 
 </section>
 
 </section>
-
-
 
 <section id="adminarea-auto-responses">
 <title>Automatische Antworten</title>
@@ -1134,7 +1091,7 @@ fileref="screenshots/admin-autoresponse.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.34. Verwaltung automatischer Antworten.</emphasis>
+<emphasis>Abb. 5.34. Verwaltung automatischer Antworten.</emphasis>
 </para>
 
 <para>
@@ -1150,7 +1107,7 @@ fileref="screenshots/add-autoresponse.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.35. Automatische Antwort hinzufügen.</emphasis>
+<emphasis>Abb. 5.35. Automatische Antwort hinzufügen.</emphasis>
 </para>
 
 <para>
@@ -1234,11 +1191,9 @@ Ticket eintrifft.
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, kann
-eine einmal im System angelegte Auto-Antwort nicht entfernt werden. Um eine
-Auto-Antwort trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Auto-Antwort in der Listbox für "Gültig"
-den Wert entweder auf "ungültig" oder "ungültig-temporär".
+In OTRS können automatische Antworten deaktiviert, aber nicht gelöscht
+werden. Zum Deaktivieren einer automatischen Antwort können Sie den Wert für
+"Gültig" auf "ungültig" oder "ungültig-temporär" setzen.
 </para>
 </note>
 
@@ -1258,7 +1213,7 @@ fileref="screenshots/admin-autoresponse-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.36. Zuordnungen von Queues zu automatischen Antworten
+<emphasis>Abb. 5.36. Zuordnungen von Queues zu automatischen Antworten
 verwalten.</emphasis>
 </para>
 
@@ -1276,7 +1231,7 @@ fileref="screenshots/autoresponses-queues-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.37. Zuordnung von automatischen Antworten zu einer Queue
+<emphasis>Abb. 5.37. Zuordnung von automatischen Antworten zu einer Queue
 bearbeiten.</emphasis>
 </para>
 
@@ -1299,12 +1254,12 @@ um die Adressen des Systems zu verwalten.
 
 <para>
 <screenshot>
-<screeninfo>Verwaltung der E-Mail-Adressen des Systems</screeninfo> <graphic srccredit="Adminarea email
+<screeninfo>E-Mail-Adressen verwalten</screeninfo> <graphic srccredit="Adminarea email
 - screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.38. Verwaltung der E-Mail-Adressen des Systems.</emphasis>
+<emphasis>Abb. 5.38. Verwaltung der E-Mail-Adressen des Systems.</emphasis>
 </para>
 
 <para>
@@ -1321,21 +1276,18 @@ der Adresse im To: Feld der entsprechenden Queue zugewiesen werden können.
 </para>
 
 <para>
-    <emphasis>Abb. 5.39. Hinzufügen einer System-E-Mail-Adresse.</emphasis>
+<emphasis>Abb. 5.39. Hinzufügen einer System-E-Mail-Adresse.</emphasis>
 </para>
 
 <note>
 <para>
-Um die Konsistenz der von OTRS verwalteten Daten sicher zu stellen, kann
-eine einmal im System angelegte Mailadresse nicht entfernt werden. Um eine
-Mailadresse trotzdem systemweit zu deaktivieren, setzen Sie in den
-Einstellungen der entsprechenden Mailadresse in der Listbox für "Gültig" den
-Wert entweder auf "ungültig" oder "ungültig-temporär".
+In OTRS können E-Mail-Adressen deaktiviert, aber nicht gelöscht werden. Sie
+können eine Adresse deaktivieren, indem Sie den Wert für "Gültig" auf
+"ungültig" oder "ungültig-temporär" setzen.
 </para>
 </note>
 
 </section>
-
 
 <section id="adminarea-notifications">
 <title>Benachrichtigungen</title>
@@ -1361,7 +1313,7 @@ fileref="screenshots/admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.40. Verwaltung der Benachrichtigungen.</emphasis>
+<emphasis>Abb. 5.40. Verwaltung der Benachrichtigungen.</emphasis>
 </para>
 
 <para>
@@ -1378,7 +1330,7 @@ fileref="screenshots/customize-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.41. Berarbeiten einer Benachrichtigung.</emphasis>
+<emphasis>Abb. 5.41. Berarbeiten einer Benachrichtigung.</emphasis>
 </para>
 
 <para>
@@ -1411,7 +1363,7 @@ fileref="screenshots/admin-notification-eventbased.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.42. Ereignisbasierte Benachrichtigungen
+<emphasis>Abb. 5.42. Ereignisbasierte Benachrichtigungen
 verwalten.</emphasis>
 </para>
 
@@ -1428,7 +1380,7 @@ fileref="screenshots/admin-notification-eventbased-new.png"></graphic></screensh
 </para>
 
 <para>
-    <emphasis>Abb. 5.43. Ereignisbasierte Benachrichtigung
+<emphasis>Abb. 5.43. Ereignisbasierte Benachrichtigung
 einrichten.</emphasis>
 </para>
 
@@ -1439,7 +1391,6 @@ sehen Sie im unteren Bildschirmbereich.
 </para>
 
 </section>
-
 
 <section id="adminarea-smime">
 <title>S/MIME</title>
@@ -1466,11 +1417,10 @@ möglich.
 </para>
 
 <para>
-    <emphasis>Abb. 5.44. S/MIME-Verwaltung.</emphasis>
+<emphasis>Abb. 5.44. S/MIME-Verwaltung.</emphasis>
 </para>
 
 </section>
-
 
 <section id="adminarea-pgp">
 <title>PGP</title>
@@ -1497,18 +1447,17 @@ screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic></screensho
 </para>
 
 <para>
-    <emphasis>Abb. 5.45. PGP-Verwaltung.</emphasis>
+<emphasis>Abb. 5.45. PGP-Verwaltung.</emphasis>
 </para>
 
 </section>
-
 
 <section id="adminarea-status">
 <title>Status</title>
 
 <para>
-Über den Link "Status" können Sie die verschiedenen Ticket-Status, die Sie
-in OTRS verwenden möchten, bearbeiten.
+Über den Link "Status" können Sie die verschiedenen Ticket-Status
+bearbeiten, die Sie in OTRS verwenden möchten.
 </para>
 
 <para>
@@ -1518,7 +1467,7 @@ in OTRS verwenden möchten, bearbeiten.
 </para>
 
 <para>
-    <emphasis>Abb. 5.46. Status-Verwaltung.</emphasis>
+<emphasis>Abb. 5.46. Status-Verwaltung.</emphasis>
 </para>
 
 <para>
@@ -1649,7 +1598,7 @@ fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.47. Das grafische Konfigurationsfrontend von OTRS
+<emphasis>Abb. 5.47. Das grafische Konfigurationsfrontend von OTRS
 (SysConfig).</emphasis>
 </para>
 
@@ -1660,7 +1609,6 @@ Konfigurations-Frontend ein.
 </para>
 
 </section>
-
 
 <section id="adminarea-postmasterpop3-account">
 <title>Einrichten von Mail-Konten</title>
@@ -1684,7 +1632,7 @@ fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.48. Verwaltung von Mail-Konten.</emphasis>
+<emphasis>Abb. 5.48. Verwaltung von Mail-Konten.</emphasis>
 </para>
 
 <para>
@@ -1694,8 +1642,6 @@ Einrichtung der Mail-Konten näher erläutert.
 </para>
 
 </section>
-
-
 
 <section id="adminarea-postmasterfilter">
 <title>Einkommende Nachrichten filtern</title>
@@ -1718,7 +1664,7 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb 5.49. Verwaltung von Filterregeln für eingehende
+<emphasis>Abb 5.49. Verwaltung von Filterregeln für eingehende
 E-Mails.</emphasis>
 </para>
 
@@ -1990,7 +1936,7 @@ fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.50. Filter-Regeln für eingehende Nachrichten
+<emphasis>Abb. 5.50. Filter-Regeln für eingehende Nachrichten
 anlegen.</emphasis>
 </para>
 
@@ -2051,7 +1997,7 @@ fileref="screenshots/admin-genericagent.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.51. Jobliste des GenericAgent.</emphasis>
+<emphasis>Abb. 5.51. Jobliste des GenericAgent.</emphasis>
 </para>
 
 <para>
@@ -2070,7 +2016,7 @@ fileref="screenshots/add-genericagent-job.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.52. Anlegen eines GenericAgent-Jobs.</emphasis>
+<emphasis>Abb. 5.52. Anlegen eines GenericAgent-Jobs.</emphasis>
 </para>
 
 <para>
@@ -2082,12 +2028,11 @@ nach der Übernahme des Jobs in die Job-Liste, wird der Job aktiviert.
 
 </section>
 
-
 <section id="adminarea-adminemail">
 <title>Administrator-E-Mail</title>
 
 <para>
-Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agents) oder
+Um als OTRS-Administrator eine Mail an bestimmte Benutzer (Agenten) oder
 Benutzergruppen im System zu versenden, folgen Sie dem Link "Admin
 Notification".
 </para>
@@ -2100,14 +2045,14 @@ fileref="screenshots/send-admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.53. Administrator-Benachrichtigung.</emphasis>
+<emphasis>Abb. 5.53. Administrator-Benachrichtigung.</emphasis>
 </para>
 
 <para>
 Es wird ein Formular geladen, in das Sie die Absenderadresse, den Betreff
 und den Inhalt der Administratoren-Mitteilung eintragen können. Weiterhin
 können Sie aus der Tabelle auswählen, an welche Benutzer und / oder
-Benutzergruppen die Mitteilung gesendet werden soll.
+Benutzergruppen bzw. Rollen die Mitteilung gesendet werden soll.
 </para>
 
 </section>
@@ -2129,7 +2074,7 @@ fileref="screenshots/admin-sessionmanagement.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.54. Sitzungsverwaltung.</emphasis>
+<emphasis>Abb. 5.54. Sitzungsverwaltung.</emphasis>
 </para>
 
 <para>
@@ -2150,7 +2095,7 @@ fileref="screenshots/admin-session-details.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.55. Sitzungsdetails.</emphasis>
+<emphasis>Abb. 5.55. Sitzungsdetails.</emphasis>
 </para>
 
 </section>
@@ -2170,7 +2115,7 @@ Ticket-Systems über die Weboberfläche einzusehen.
 </para>
 
 <para>
-    <emphasis>Abb. 5.56. System Log.</emphasis>
+<emphasis>Abb. 5.56. System Log.</emphasis>
 </para>
 
 <para>
@@ -2190,7 +2135,6 @@ Text-Editor öffnen.
 
 </section>
 
-
 <section id="adminarea-selectbox">
 <title>SQL-Abfragen mit Hilfe der SQL Box</title>
 
@@ -2209,11 +2153,10 @@ fileref="screenshots/admin-selectbox.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.57. SQL Box.</emphasis>
+<emphasis>Abb. 5.57. SQL Box.</emphasis>
 </para>
 
 </section>
-
 
 <section id="adminarea-package-manager">
 <title>Paketverwaltung</title>
@@ -2233,7 +2176,7 @@ fileref="screenshots/admin-packagemanager.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 5.58. Paketverwaltung.</emphasis>
+<emphasis>Abb. 5.58. Paketverwaltung.</emphasis>
 </para>
 
 <para>

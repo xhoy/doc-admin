@@ -3,9 +3,9 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: first-steps.xml,v 1.28 2011-02-09 17:24:49 mg Exp $ -->
-<chapter id="first-steps-in-otrs">
-<title>Die ersten Schritte in OTRS</title>
+<!-- $Id: first-steps.xml,v 1.29 2011-04-19 12:09:16 mg Exp $ -->
+<chapter id="first-steps">
+<title>Erste Schritte</title>
 
 <abstract>
 <para>
@@ -30,12 +30,13 @@ bearbeiten Kundendaten usw.
 </para>
 
 <para>
-Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain
-<citetitle>http://www.example.com</citetitle>  erreichbar, so kann der
-Login-Bildschirm für die Mitarbeiter und somit auch für den
-OTRS-Administrator über die URL
-<citetitle>http://www.example.com/otrs/index.pl</citetitle>  aufgerufen
-werden.
+Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain <ulink
+url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
+</ulink>  erreichbar, so kann der Login-Bildschirm für die Mitarbeiter und
+somit auch für den OTRS-Administrator über die URL <ulink
+url="http://www.example.com/otrs/index.pl">
+<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink>
+aufgerufen werden.
 </para>
 
 <para>
@@ -45,7 +46,7 @@ screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 4.1. Login-Bildschirm der Agenten-Weboberfläche.</emphasis>
+<emphasis>Abb. 4.1. Login-Bildschirm der Agenten-Weboberfläche.</emphasis>
 </para>
 
 </section>
@@ -60,11 +61,10 @@ erstellen und bearbeiten, die Account-Einstellungen anpassen usw.
 </para>
 
 <para>
-Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain
-<citetitle>http://www.example.com</citetitle> zu erreichen, so kann der
-Login-Bildschirm für die Kunden über die URL
-<citetitle>http://www.example.com/otrs/customer.pl</citetitle> geladen
-werden.
+Gemäß dem obigen Beispiel kann der Login-Bildschirm für die Kunden über die
+URL<ulink url="http://www.example.com/otrs/customer.pl">
+<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink>
+geladen werden.
 </para>
 
 <para>
@@ -74,7 +74,7 @@ screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></scre
 </para>
 
 <para>
-    <emphasis>Abb. 4.2. Login-Bildschirm der Kunden-Weboberfläche.</emphasis>
+<emphasis>Abb. 4.2. Login-Bildschirm der Kunden-Weboberfläche.</emphasis>
 </para>
 
 </section>
@@ -89,12 +89,14 @@ installiert werden). Es ist öffentlich, also ohne Anmeldung, zugänglich und
 bietet Zugriff auf das FAQ-System.
 </para>
 
-
 <para>
-Das öffentliche Web-Interface ist über die URL
-<citetitle>http://www.example.com/otrs/faq.pl</citetitle>
-erreichbar. Ebenfalls ist ein Zugriff auf die FAQ über die URL
-<citetitle>http://www.example.com/otrs/public.pl</citetitle>  möglich.
+Das öffentliche Web-Interface ist über die URL <ulink
+url="http://www.example.com/otrs/faq.pl">
+<citetitle>http://www.example.com/otrs/faq.pl</citetitle> </ulink>
+erreichbar. Ebenfalls ist ein Zugriff auf die FAQ über die URL  <ulink
+url="http://www.example.com/otrs/public.pl">
+<citetitle>http://www.example.com/otrs/public.pl</citetitle> </ulink>
+möglich
 </para>
 
 <para>
@@ -104,7 +106,7 @@ screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></sc
 </para>
 
 <para>
-    <emphasis>Abb. 4.3. Öffentliche Weboberfläche.</emphasis>
+<emphasis>Abb. 4.3. Öffentliche Weboberfläche.</emphasis>
 </para>
 
 </section>
@@ -113,14 +115,9 @@ screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></sc
 <title>Die erste Anmeldung</title>
 
 <para>
-Wie im Abschnitt über die <link
-linkend="agent-interface">Agenten-Weboberfläche</link> beschrieben,
-erreichen Sie den Bildschirm für die Anmeldung am System über die URL
-<citetitle>http://www.example.com/otrs/index.pl</citetitle>.
-</para>
-
-<para>
-Hier haben Sie die Möglichkeit, einen Benutzernamen und ein Kennwort
+Der Zugriff auf den Login-Bildschirm wird im Abschnitt <link
+linkend="agent-interface">Agenten-Weboberfläche </link> beschrieben. Hier
+haben Sie die Möglichkeit, einen Benutzernamen und ein Kennwort
 anzugeben. Um sich als OTRS-Administrator anzumelden, verwenden Sie als
 Benutzername "root@localhost" und als Kennwort "root".
 </para>
@@ -145,8 +142,8 @@ vorgesehenen Eingabefelder ein.
 Falls Sie einmal ihr Kennwort vergessen haben sollten, können Sie sich
 automatisch vom System ein neues Kennwort an die Mailadresse schicken
 lassen, die für Ihren OTRS-Account im System hinterlegt ist. Geben Sie dazu
-im unteren Bereich des Login-Bildschirms den Benutzernamen Ihres Accounts an
-und schicken Sie die Eingabe über den dafür vorgesehenen Schalter ab.
+im unteren Bereich des Login-Bildschirms den Benutzernamen Ihres Accounts
+an.
 </para>
 
 <para>
@@ -157,13 +154,13 @@ fileref="screenshots/request-new-password.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 4.4. Neues Passwort anfordern.</emphasis>
+<emphasis>Abb. 4.4. Neues Passwort anfordern.</emphasis>
 </para>
 
 </section>
 
 <section id="gui-overview">
-<title>Die Benutzeroberfläche im Überblick</title>
+<title>Agenten-Weboberfläche - ein Überblick</title>
 
 <para>
 Nachdem Sie sich erfolgreich am System angemeldet haben, wird die Oberfläche
@@ -180,7 +177,7 @@ screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screen
 </para>
 
 <para>
-    <emphasis>Abb. 4.5. Dashboard der Agenten-Weboberfläche.</emphasis>
+<emphasis>Abb. 4.5. Dashboard der Agenten-Weboberfläche.</emphasis>
 </para>
 
 <para>
@@ -212,9 +209,9 @@ zur Navigation hinzufügen.
 
 <para>
 Die rote Leiste unterhalb des Navigationsbereiches zeigt verschiedene
-Systemnachrichten an. Wenn Sie als 'root'-Benutzer angemeldet sind, erhalten
-Sie hier den Hinweis, dass Sie mit diesem Benutzer nicht regulär arbeiten
-sollten.
+Systemnachrichten an. Wenn Sie als OTRS-Administrator-Benutzer angemeldet
+sind, erhalten Sie hier den Hinweis, dass Sie mit diesem Benutzer nicht
+regulär arbeiten sollten.
 </para>
 
 <para>
@@ -226,39 +223,36 @@ bewegen.
 </para>
 
 <para>
-In der linken Spalte sehen Sie daten über Tickets, unterteilt in:
+In der linken Spalte sehen Sie Daten über Tickets, unterteilt in:
 Erinnerung, eskaliert, neu und offen. In jeder Kategorie können Sie alle
-Tickets sehen, auf die Sie Rechte haben.
+Tickets sehen, auf die Sie Rechte haben, wie viele Tickets Sie gesperrt
+haben und wie viele in "Meine Queues" ligen.  "Meine Queues" sind Queues die
+Sie in Ihrer <link linkend="user-preferences">Benutzer-Konfiguration</link>
+markieren können als Queues, die speziell überwacht werden sollen.
 </para>
 
 <para>
-"Meine Queues" sind diejenigen Queues, die Sie aktiv überwachen
-wollen. Diese können Sie in Ihren <link linkend="user-preferences">
-Benutzereinstellungen </link> konfigurieren.
-</para>
-
-<para>
-In der rechten Spalte finden Sie die aktuellen Einstellungen, die durch
-einen Klick auf den Bereich "Einstellungen" aus- oder eingeklappt werden
-können (diesen Bereich können Sie nicht per Drag'n'Drop verschieben. Nachdem
-Sie die Einstellungen geöffnet haben, können Sie die Einträge an- oder
-abwählen und Ihre Änderungen speichern.
+Auf der rechten Seite befindet sich der Bereich "Einstellungen". Klicken Sie
+darauf um den Bereich zu öffnen und die verschiedenen Einstellmöglichkeiten
+zu sehen. Sie können dann Einstellungen verändern und Ihre Änderungen
+speichern. Dieser Bereich ist fixiert und kann nicht mit der Maus verschoben
+werden.
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Dashboard-Einstellungen bearbeiten</screeninfo> <graphic srccredit="Dashboard's
+<screeninfo>Dashboard-Einstellungen bearbeiten</screeninfo> <graphic srccredit="Dashboard
 settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 4.6. Einstellungen des Dashboards.</emphasis>
+<emphasis>Abb. 3.5. Dashboard-Einstellungen.</emphasis>
 </para>
 
 <para>
 Unter den Einstellungen sehen Sie die Statistik der Tickets der letzten 7
-Tage. In einem neuen System ist diese Grafik natürlich leer. Zudem gibt es
-einen Abschnitt für anstehende Ereignisse und Neuigkeiten zu OTRS.
+Tage. Zudem gibt es einen Abschnitt für anstehende Ereignisse und
+Neuigkeiten zu OTRS.
 </para>
 
 <para>
@@ -273,7 +267,7 @@ scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 4.7. Fußzeile.</emphasis>
+<emphasis>Abb. 4.7. Fußzeile.</emphasis>
 </para>
 
 </section>
@@ -282,19 +276,12 @@ scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
 <title>Was verbirgt sich hinter dem Begriff Queue?</title>
 
 <para>
-Da Queues in OTRS sehr wichtig sind und als Grundkonzept hinter allem stehen
-und der Begriff in den letzten Abschnitten schon mehrmals verwendet wurde,
-soll hier näher erklärt werden, was sich hinter dem Begriff Queue verbirgt.
-</para>
-
-<para>
 Normalerweise werden E-Mails in einer INBOX gespeichert und verwaltet. Eine
 INBOX ist eine große Datei, in der alle E-Mails aneinandergereiht
 werden. Neue E-Mails werden einfach an das Ende der INBOX angehängt. Das
 E-Mail-Programm, welches Sie zum Lesen und Bearbeiten Ihrer Nachrichten
-benutzen,  liest die INBOX-Datei aus, strukturiert den Inhalt dieser Datei
-neu (wenn z. B. eine E-Mail mitten aus der INBOX-Datei gelöscht wird) und
-bereitet den Inhalt für Sie als Nutzer auf.
+benutzen,  liest die INBOX-Datei aus und bereitet den Inhalt für Sie als
+Nutzer auf.
 </para>
 
 <para>
@@ -340,9 +327,7 @@ zuzuordnen. Herr Meier bearbeitet ab jetzt nur noch die Anfragen in der
 Videorekorder-Queue, Herr Schulze geht nur noch auf die Anfragen innerhalb
 der DVD-Player-Queue ein. Beide haben auf die jeweils anderen zwei Queues
 keinen Zugriff. Herr Mustermann kümmert sich weiter wie gewohnt um alle
-Arten von Anfragen und darf auf alle drei Queues zugreifen, die
-Möglichkeiten der Vergabe von Zugriffsrechten innerhalb von OTRS macht es
-möglich.
+Arten von Anfragen und darf auf alle drei Queues zugreifen.
 </para>
 
 <para>
@@ -378,7 +363,6 @@ Abbildung von Abläufen.
 
 <section id="user-preferences">
 <title>Benutzereinstellungen</title>
-
 <para>
 Die Einstellungen eines Accounts lassen sich mit Hilfe der
 Benutzereinstellungen den eigenen Wünschen entsprechend anpassen. Dabei
@@ -389,13 +373,13 @@ Benutzernamen erreichbar, Kunden müssen den "Einstellungen"-Link verwenden.
 
 <para>
 <screenshot>
-<screeninfo>Persönliche Account-Einstellungen für Agenten</screeninfo> <graphic srccredit="index.pl -
+<screeninfo>Persönliche Benutzer-Einstellungen für Agenten</screeninfo> <graphic srccredit="index.pl -
 screenshot" scale="40"
 fileref="screenshots/agent-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 4.8. Benutzereinstellungen des Agenten.</emphasis>
+<emphasis>Abb. 4.8. Benutzereinstellungen des Agenten.</emphasis>
 </para>
 
 <para>
@@ -413,9 +397,6 @@ Einstellungen sind möglich:
         <para>Sprache der Benutzeroberfläche wechseln.</para>
     </listitem>
     <listitem>
-        <para>Rechtschreib-Wörterbuch auswählen.</para>
-    </listitem>
-    <listitem>
         <para>Oberflächen-Skin auswählen.</para>
     </listitem>
     <listitem>
@@ -429,10 +410,8 @@ Einstellungen sind möglich:
 <itemizedlist>
     <title>E-Mail-Einstellungen</title>
     <listitem>
-        <para>
-Ereignisse auswählen, bei denen eine E-Mail-Benachrichtigung durch das
-System erfolgen soll.
-        </para>
+        <para>Ereignisse auswählen, bei denen eine E-Mail-Benachrichtigung durch das
+System erfolgen soll.</para>
     </listitem>
 </itemizedlist>
 
@@ -457,14 +436,14 @@ fileref="screenshots/customer-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 4.8. Benutzereinstellungen des Kunden.</emphasis>
+<emphasis>Abb. 4.8. Benutzereinstellungen des Kunden.</emphasis>
 </para>
 
 <para>
 Ein Kunde kann die Sprache der Benutzeroberfläche wechseln, die
-Aktualisierungszeit der Ticketübersichten verändern, S/MIME-Zertifikate
-verwalten und die max. Anzahl angezeigter Tickets pro Seite
-einstellen. Zusätzlich kann das Passwort geändert werden.
+Aktualisierungszeit der Ticketübersichten verändern und die max. Anzahl
+angezeigter Tickets pro Seite einstellen. Zusätzlich kann das Passwort
+geändert werden.
 </para>
 </section>
 

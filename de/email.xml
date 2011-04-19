@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: email.xml,v 1.32 2011-02-09 17:24:49 mg Exp $ -->
+<!-- $Id: email.xml,v 1.33 2011-04-19 12:09:15 mg Exp $ -->
 <chapter id="email">
 <title>E-Mails versenden/empfangen</title>
 
@@ -45,12 +45,12 @@ Die SMTP-Einstellungen können über die SysConfig vorgenommen werden
 (Framework::Core::Sendmail). Wenn SMTPS nicht als Option auftaucht, fehlen
 benötigte Perl-Module. Lesen Sie in diesem Fall im Abschnitt <link
 linkend="installation-of-perl-modules"> "Installation benötigter
-Perl-Module" </link> nach.</para>
+Perl-Module" </link> nach.
+</para>
 
 </section>
 
 </section>
-
 
 <section id="email-receiving">
 <title>E-Mails empfangen</title>
@@ -64,7 +64,7 @@ zu empfangen.
 </para>
 
 <para>
-Konfigurieren Sie Ihre Mail-Konten im Admin-Bereich von OTRS in der Sektion
+Konfigurieren Sie Ihre Mail-Konten im Admin-Bereich von OTRS im Bereich
 "PostMaster Mail Account".
 </para>
 
@@ -85,7 +85,7 @@ fileref="screenshots/add-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb 7.1. Einen E-Mail-Account hinzufügen.</emphasis>
+<emphasis>Abb 7.1. Einen E-Mail-Account hinzufügen.</emphasis>
 </para>
 
 <para>Wählen Sie für "Vertraut" den Wert "Ja" aus, dann werden die
@@ -97,9 +97,8 @@ Absendern die abgerufenen Nachrichten stammen. X-OTRS-Header werden vom
 <link linkend="adminarea-postmasterfilter">Modul für die
 Nachrichtenfilterung</link> in OTRS benutzt, die X-OTRS-Header werden <link
 linkend="table-of-x-otrs-headers">in dieser Tabelle</link> näher
-beschrieben. Es spielt keine Rolle, welcher Wert für "Vertraut" ausgewählt
-wurde, eventuell eingerichtete Filterregeln für eingehende Mails werden
-trotzdem abgearbeitet.
+beschrieben.Eventuell eingerichtete Filterregeln werden auf jeden Fall
+abgearbietet, egal welcher Wert für "Vertraut" ausgewählt wurde.
 </para>
 
 <para>
@@ -155,11 +154,11 @@ Sie hierzu bitte in der Dokumentation ihres Mail-Servers nach.
 
 <para>
 OTRS ist in der Lage, E-Mails über ein Kommandozeilen-Programm
-(<filename>bin/otrs.PostMaster.pl</filename>) zu empfangen. Das bedeutet,
-dass E-Mails im OTRS angezeigt werden, wenn der MDA (mail delivery agent,
-z. B. procmail) die E-Mails an <filename>bin/otrs.PostMaster.pl</filename>"
-weiterleitet. Um <filename>bin/otrs.PostMaster.pl</filename> auf der
-Kommandozeile ohne MDA zu testen, führen Sie folgendes Kommando aus:
+(<filename>bin/otrs.PostMaster.pl</filename>) zu empfangen. Es nimmt die
+Mails über STDIN entgegen und fügt sie direkt in das OTRS-System ein. Das
+bedeutet, dass E-Mails im OTRS angezeigt werden, wenn der MDA (mail delivery
+agent, z. B. procmail) die E-Mails an
+<filename>bin/otrs.PostMaster.pl</filename>" weiterleitet.
 </para>
 
 <para>
@@ -176,7 +175,7 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-    <emphasis>Skript 7.1. PostMaster-Test ohne MDA.</emphasis>
+<emphasis>Skript 7.1. PostMaster-Test ohne MDA.</emphasis>
 </para>
 
 <para>
@@ -214,7 +213,7 @@ PATH=/bin:/usr/bin:/usr/local/bin
 </para>
 
 <para>
-    <emphasis>Skript 7.2. Konfiguration von procmail für OTRS.</emphasis>
+<emphasis>Skript 7.2. Konfiguration von procmail für OTRS.</emphasis>
 </para>
 
 <para>
@@ -224,7 +223,6 @@ Ticket-System gespeichert.
 </para>
 
 </section>
-
 
 <section id="email-receiving-fetchmail">
 <title>E-Mails via POP3 oder IMAP und fetchmail für otrs.PostMaster.pl empfangen</title>
@@ -300,7 +298,7 @@ Es gibt verschiedene Standard-Filtermodule:
 <para>
 Der Jobname
 (z. B. $Self-&gt;{"PostMaster::PreFilterModule"}-&gt;{"Jobname"}) muss
-eindeutig sein.
+eindeutig sein!
 </para>
 </note>
 

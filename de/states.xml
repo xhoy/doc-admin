@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: states.xml,v 1.19 2011-02-09 17:24:49 mg Exp $ -->
+<!-- $Id: states.xml,v 1.20 2011-04-19 12:09:16 mg Exp $ -->
 <chapter id="states">
 <title>Status</title>
 
@@ -12,8 +12,8 @@
 
 <para>
 OTRS erlaubt es Ihnen, die Ticket-Status zu verändern oder neue Status
-hinzuzufügen. Hierbei gibt es zwei wichtige Optionen. Zum Einen den Namen
-des Status "state-name" und zum Zweiten den Type des Status "state-type".
+hinzuzufügen. Hierbei gibt es zwei wichtige Optionen: den Namen des Status
+und Typ des Status.
 </para>
 
 <para>
@@ -44,10 +44,10 @@ Der Standardstatus für Tickets, die Queues und Agents zugeordnet sind.
 Nachdem die Wartezeit abgelaufen ist, erhält der Ticketbesitzer eine E-Mail
 zu dem Ticket. Wenn es nicht gesperrt ist, wird die Erinnerung an alle
 Agenten der Queue verschickt. Erinnerungs-Benachrichtigungen werden nur
-innerhalb der Arbeitszeiten versendet, und werden alle 24h wiederholt, bis
-der Status des Tickets vom Agenten verändert wird. Die Zeit, die dieses
-Ticket in diesem Status verbringt, wird dennoch bei der Berechnung der
-Eskalationszeiten einbezogen.
+innerhalb der Arbeitszeiten versendet, und werden alle 24 Stunden
+wiederholt, bis der Status des Tickets vom Agenten verändert wird. Die Zeit,
+die dieses Ticket in diesem Status verbringt, wird dennoch bei der
+Berechnung der Eskalationszeiten einbezogen.
 </para>
 </section>
 
@@ -88,14 +88,13 @@ eröffnen.
 <section id="state-closed-unsuccessful">
 <title>Erfolglos geschlossen</title>
 <para>
-Endstatus für Tickets, die nicht erfolgreich gelöst werden konnten. Je nach
+Endstatus für Tickets, die NICHT erfolgreich gelöst werden konnten. Je nach
 Konfiguration kann es unmöglich sein, geschlossene Tickets wieder zu
 eröffnen.
 </para>
 </section>
 
 </section>
-
 
 <section id="states-customizing">
 <title>Anpassen von Ticket-Status</title>
@@ -134,7 +133,7 @@ vorgenommen werden:
 </para>
 
 <para>
-    <emphasis>Script 12.1. Anpassung der Einstellungen von
+<emphasis>Script 12.1. Anpassung der Einstellungen von
 Kernel/Config.pm.</emphasis>
 </para>
 
@@ -169,19 +168,15 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Script 12.2. Anpassung der Statustypen.</emphasis>
+<emphasis>Script 12.2. Anpassung der Statustypen.</emphasis>
 </para>
 
 <para>
-Nun können Sie über das Admin-Interface innerhalb der Einstellungen für
-"Status" neue Ticketstatus hinzufügen, die als Statustyp "own"
-enthalten. Anschließend müssen Sie noch in
-<filename>Kernel/Config.pm</filename> oder über das grafische
-Konfigurations-Front-end einstellen, an welchen Stellen im System der neue
-Status verwendet werden soll, z. B.:
+Nun können Sie den neuen Statustyp verwenden. Nachdem ein Status mit diesem
+Statustyp verknüpft wurde, muss auch die OTRS-Konfiguration angepasst
+werden, damit der neue Status korrekt verwendet werden kann. Passen Sie die
+Folgenden Optionen in der SysConfig an:
 </para>
-
-
 
 <para>
 <link
@@ -231,7 +226,6 @@ AgentTicketPhoneOutbound###StateType </link> - um die verfügbaren Status für
 neue Telefonartikel einzustellen
 </para>
 
-
 <para>
 <link
 linkend="Ticket:Frontend::Agent::Ticket::ViewMove:Ticket::DefaultNextMoveStateType">
@@ -239,7 +233,6 @@ Ticket:Frontend::Agent::Ticket::ViewMove:Ticket::DefaultNextMoveStateType
 </link> - um den Standardstatus für das Verschieben von Tickets
 einzustellen.
 </para>
-
 
 <para>
 <link

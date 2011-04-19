@@ -3,9 +3,9 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: pgp.xml,v 1.22 2011-02-09 17:24:49 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.23 2011-04-19 12:09:16 mg Exp $ -->
 <chapter id='configure-pgp'>
-<title> PGP</title>
+<title>PGP</title>
 
 <para>
 In OTRS können ausgehende E-Mails mit Hilfe von PGP signiert oder
@@ -30,8 +30,7 @@ werden können.
     Im zweiten Schritt muss das soeben installierte GnuPG zur Benutzung für OTRS
 konfiguriert werden. Dies geschieht auf der Kommandozeilenebene durch einen
 Aufruf von GnuPG, der die notwendigen Verzeichnisse anlegt und den privaten
-Schlüssel erzeugt. Der Aufruf muss als otrs-Benutzer (bzw. als der Benutzer,
-mit dessen Rechten das Ticket-System läuft) durchgeführt werden.
+Schlüssel erzeugt. Der Aufruf muss als Benutzer 'otrs' durchgeführt werden.
     </para>
 
     <para>
@@ -122,11 +121,11 @@ mit dessen Rechten das Ticket-System läuft) durchgeführt werden.
     </para>
 
     <para>
-        <emphasis>Skript 16.1. Konfiguration von GnuPG.</emphasis>
+    <emphasis>Skript 16.1. Konfiguration von GnuPG.</emphasis>
     </para>
 
     <para>
-    Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit
+		Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit
 &lt;EINGABE&gt; zu bestätigen. Lediglich die Angabe zur Person des
 Schlüsselbesitzers ist zu vervollständigen bzw. zum Ende hin ist an der mit
 (passphrase) gekennzeichneten Stelle die Passphrase für den zu generierenden
@@ -159,7 +158,7 @@ automatisch von GnuPG angelegt.
     </para>
 
     <para>
-    Über die letzte Option können die <link
+		Über die letzte Option können die <link
 linkend="Framework:Crypt::PGP:PGP::Key::Password">Schlüssel-Werte-Paare für
 die ID(s) und Passphrase(n)</link> der eigenen PGP-Schlüssel dem Ticket
 System bekannt gemacht werden. Noch einmal genauer: da andere
@@ -172,7 +171,7 @@ Schlüssel(n) solchermaßen verschlüsselte Mails entschlüsseln.
     <para>
     Woher bekommt man die ID des eigenen Schlüssels? Die ID steckt schon in der
 Ausgabe der Schlüsselgenerierung (siehe Schritt 1). Man kann die ID aber
-auch als Benutzer otrs jederzeit über die Kommandozeile ermitteln:
+auch als Benutzer 'otrs' jederzeit über die Kommandozeile ermitteln:
     </para>
 
     <para>
@@ -194,7 +193,7 @@ auch als Benutzer otrs jederzeit über die Kommandozeile ermitteln:
     </para>
 
     <para>
-        <emphasis>Skript 16.2. Die ID des eigenen privaten Schlüssels
+    <emphasis>Skript 16.2. Die ID des eigenen privaten Schlüssels
 ermitteln.</emphasis>
     </para>
 
@@ -221,7 +220,7 @@ Möglichkeiten für den Import.
 
     <para>
     Zum einem können über das Modul zur Verwaltung der Kunden die öffentlichen
-PGP-Schlüssel beim anlegen/bearbeiten des jeweiligen Kunden im System
+PGP-Schlüssel beim Anlegen/Bearbeiten des jeweiligen Kunden im System
 hinterlegt werden.
     </para>
 
@@ -233,10 +232,7 @@ Liste der bereits dem System zur Verfügung stehenden öffentlichen Schlüssel
 zu sehen. Im Regelfall sollte nach der obigen Einrichtung hier schon der
 öffentliche Schlüssel des Ticket-Systems selbst zu sehen sein. Im linken
 Teil besteht neben der Suche die Möglichkeit, neue Schlüssel als
-Schlüsseldatei ins System zu laden. Nach dem Laden eines neuen Schlüssels
-wird dieser in der Liste auf der rechten Seite angezeigt, und gleichzeitig
-erhält man oberhalb der Maske eine Statusmeldung, die über das Laden des
-Schlüssels informiert.
+Schlüsseldatei ins System zu laden.
     </para>
 
     <para>

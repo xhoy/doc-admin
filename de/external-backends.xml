@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.39 2011-03-02 13:51:33 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.40 2011-04-19 12:09:16 mg Exp $ -->
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
 
@@ -19,8 +19,8 @@ die Daten für die Authentifizierung der Kunden am System benötigt.
 
 <para>
 Die benutzten/angezeigten Kundendaten sind frei konfigurierbar, es gibt
-jedoch drei benötigte Optionen die unbedingt vorhanden sein müssen, damit
-OTRS ordnungsgemäß funktioniert:
+jedoch folgende benötigte Optionen die unbedingt vorhanden sein müssen,
+damit OTRS ordnungsgemäß funktioniert:
 </para>
 
 <para>
@@ -61,12 +61,11 @@ möchten.
 </para>
 
 <para>
-    <emphasis>Skript 11.1. Konfigurationsparameter in
+<emphasis>Skript 11.1. Konfigurationsparameter in
 Kernel/Config.pm.</emphasis>
 </para>
 
 </section>
-
 
 <section id="customer-user-backend">
 <title>Kundenbenutzer Backend</title>
@@ -194,7 +193,7 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Skript 11.1. Ein Feld zur Tabelle customer_user
+<emphasis>Skript 11.1. Ein Feld zur Tabelle customer_user
 hinzufügen.</emphasis>
 </para>
 
@@ -212,7 +211,7 @@ Danach fügen Sie Ihre eigenen Spalten dem MAP Array in der Datei
 </para>
 
 <para>
-    <emphasis>Skript 11.3. Hinzufügen eines Feldes in Kernel/Config.pm
+<emphasis>Skript 11.3. Hinzufügen eines Feldes in Kernel/Config.pm
 file.</emphasis>
 </para>
 
@@ -220,7 +219,6 @@ file.</emphasis>
 Natürlich können Sie all diese Kundeninformationen dann auch über das
 Admin-Interface bzw. die Kundenverwaltung pflegen.
 </para>
-
 
 <section id='multi-customer-ids-db'>
 <title>Kunden mit multiplen IDs (Firmen-Tickets)</title>
@@ -266,7 +264,7 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Skript 11.4. Hinzufügen eines Feldes customer id zur Tabelle
+	<emphasis>Skript 11.4. Hinzufügen eines Feldes customer_ids zur Tabelle
 customer_user.</emphasis>
 </para>
 
@@ -284,7 +282,7 @@ Danach fügen Sie die neue Spalte dem MAP Array in der Datei
 </para>
 
 <para>
-    <emphasis>Skript 11.5. Hinzufügen des Feldes customer id zu
+<emphasis>Skript 11.5. Hinzufügen des Feldes UserCustomerIDs zu
 Kernel/Config.pm.</emphasis>
 </para>
 
@@ -324,7 +322,6 @@ Kundenverwaltung die Einstellungen des Kunden A und tragen bei
 
 </section>
 
-
 <section id='customer-backend-ldap'>
 <title>LDAP</title>
 
@@ -334,7 +331,7 @@ haben, können Sie dieses auch mit OTRS nutzen.
 </para>
 
 <example id='ldap-customer-backend'>
-<title>Konfiguration eines LDAP Kunden Backends</title>
+<title>Konfiguration eines LDAP Kunden-Backends</title>
 
 <para>
 <programlisting>
@@ -427,22 +424,13 @@ gewünschte Einträge.
 </para>
 
 <para>
-    <emphasis>Skript 11.6. Hinzufügen neuer Felder zu
+<emphasis>Skript 11.6. Hinzufügen neuer Felder zu
 Kernel/Config.pm.</emphasis>
 </para>
 
 
 <section id='multi-customer-ids-ldap'>
 <title>Kunden mit multiplen IDs (Firmen-Tickets)</title>
-
-<para>
-Es ist möglich, einem Kunden mehr als nur eine Kundennummer zuzuweisen. Dies
-kann z. B. dann sinnvoll sein, wenn ein Kunde auf Tickets anderer Kunden
-zugreifen muss, z. B. der Abteilungsleiter auf die Tickets der Mitarbeiter
-seiner Abteilung. Hat ein Kunde Zugriff auf Tickets anderer Kunden,
-verwendet man in OTRS das sog. Firmen Ticket Feature. Im Kunden-Interface
-können diese Tickets über den "Firmen-Ticket" Link eingesehen werden.
-</para>
 
 <para>
 Um Firmentickets mit einem LDAP zu nutzen, muss ein Feld zum
@@ -464,7 +452,7 @@ Wenn das neue Feld erstellt wurde, muss es zum MAP Array in
 </para>
 
 <para>
-    <emphasis>Skript 11.7. Hinzufügen eines neuen Feldes in
+<emphasis>Skript 11.7. Hinzufügen eines neuen Feldes in
 Kernel/Config.pm.</emphasis>
 </para>
 
@@ -504,7 +492,6 @@ Werte "B;C;" ein.
 
 </section>
 
-
 <section id='multiple-customer-backends'>
 <title>Verwenden mehrerer Kunden Backends</title>
 
@@ -525,7 +512,6 @@ und ein LDAP-Kunden-Backend.
 </para>
 
 <para>
-
 <programlisting>
 # 1. Customer user backend: DB
 # (customer database backend and settings)
@@ -692,7 +678,7 @@ zu authentifizieren.
 <title>Datenbank (Standard)</title>
 
 <para>
-Das Back-end für die Authentifizierung von Agenten, welches OTRS
+Das Backend für die Authentifizierung von Agenten, welches OTRS
 standardmäßig verwendet, ist die OTRS-Datenbank. Die Agenten können
 innerhalb des <link linkend="adminarea">Admin-Bereiches</link> in der <link
 linkend="adminarea-agents">Benutzerverwaltung</link> angelegt und bearbeitet
@@ -812,12 +798,11 @@ $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
 </para>
 
 <para>
-    <emphasis>Skript 11.8. Synchronisation der Benutzerdaten aus dem
+<emphasis>Skript 11.8. Synchronisation der Benutzerdaten aus dem
 LDAP-Verzeichnis in die OTRS-Datenbank.</emphasis>
 </para>
 
 </section>
-
 
 <section id='agent-auth-backend-httpbasic'>
 <title>HTTPBasicAuth für Agenten</title>
@@ -852,7 +837,6 @@ $Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
 
 </section>
 
-
 <section id='agent-auth-backend-radius'>
 <title>Radius</title>
 
@@ -862,7 +846,7 @@ einen Radius-Server realisiert werden.
 </para>
 
 <example id='configuration-agent-auth-backend-radius'>
-<title>Agentenauthentifizierung gegen ein Radius Backend</title>
+<title>Agentenauthentifizierung gegen ein Radius-Backend</title>
 
 <para>
 <programlisting>
@@ -879,17 +863,16 @@ $Self->{'AuthModule::Radius::Password'} = 'radiussecret';
 
 </section>
 
-
 <section id="customer-auth-backends">
-<title>Authentifizierungs Backends für Kunden</title>
+<title>Authentifizierungs-Backends für Kunden</title>
 
 <section id='customer-auth-backend-db'>
 <title>Datenbank (Standard)</title>
 
 <para>
-Das Back-end für die Authentifizierung von Kunden, welches OTRS
-standardmäßig verwendet, ist die OTRS-Datenbank. Die Kundendaten können über
-das Interface zur Verwaltung von Kunden angelegt und bearbeitet werden.
+Das Backend für die Authentifizierung von Kunden, welches OTRS standardmäßig
+verwendet, ist die OTRS-Datenbank. Die Kundendaten können über das Interface
+zur Verwaltung von Kunden angelegt und bearbeitet werden.
 </para>
 
 <example id='configuration-customer-auth-backend-db'>
@@ -911,7 +894,6 @@ $Self->{'Customer::AuthModule::DB::CustomerPassword'} = 'pw';
 </example>
 
 </section>
-
 
 <section id='customer-auth-backend-ldap'>
 <title>LDAP</title>
@@ -973,7 +955,6 @@ $Self->{'Customer::AuthModule::LDAP::Params'} = {
 
 </section>
 
-
 <section id='customer-auth-backend-httpbasic'>
 <title>HTTPBasicAuth für Kunden</title>
 
@@ -1006,7 +987,6 @@ $Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs
 
 </section>
 
-
 <section id='customer-auth-backend-radius'>
 <title>Radius</title>
 
@@ -1035,12 +1015,11 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 
 </section>
 
-
 <section id="customer-self-registration">
-<title>Kunden-Selbstanmeldung anpassen</title>
+<title>Kunden-Selbstregistrierung anpassen</title>
 
 <para>
-Es ist möglich, die Kunden-Selbstanmeldung für neue Kunden über
+Es ist möglich, die Kunden-Selbstregistrierung für neue Kunden über
 "customer.pl" anzupassen. Somit können Sie mehr optionale oder benötigte
 Felder (z. B. Adresse, Ort, Telefonnummer) hinzufügen.
 </para>
@@ -1072,12 +1051,11 @@ Sie das gewünschte Feld hinzu.
 </para>
 
 <para>
-    <emphasis>Skript 11.9. Anzeigen eines neuen Feldes in der
+<emphasis>Skript 11.9. Anzeigen eines neuen Feldes in der
 Weboberfläche.</emphasis>
 </para>
 
 </section>
-
 
 <section id="customer-self-registration-mapping">
 <title>Kunden-Mapping</title>
@@ -1087,7 +1065,7 @@ Zusätzlich muss das Kunden-Mapping um den Eintrag für die Raumnummer
 erweitert werden. Dazu werden zuerst die Einstellungen für "CustomerUser"
 aus der Datei <filename>Kernel/Config/Defaults.pm</filename> in die Datei
 <filename>Kernel/Config.pm</filename> übertragen. Anschließend wird das
-Kunden-Mapping um das Room-Feld erweitert.
+Kunden-Mapping um das Raumnummer-Feld erweitert.
 </para>
 
 <para>
@@ -1165,7 +1143,7 @@ $Self->{CustomerUser} = {
 </para>
 
 <para>
-    <emphasis>Skript 11.10. Anpassung des MAP-Arrays.</emphasis>
+<emphasis>Skript 11.10. Anpassung des MAP-Arrays.</emphasis>
 </para>
 
 </section>
@@ -1203,7 +1181,7 @@ linux:~#
 </para>
 
 <para>
-    <emphasis>Skript 11.11. Hinzufügen einer neuen Spalte zur Tabelle
+<emphasis>Skript 11.11. Hinzufügen einer neuen Spalte zur Tabelle
 customer_user.</emphasis>
 </para>
 
