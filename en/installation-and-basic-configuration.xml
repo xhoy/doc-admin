@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.57 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.58 2011-04-20 12:55:14 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1454,6 +1454,7 @@ shell&gt; /etc/init.d/apache start
         </para>
       </listitem>
       <listitem>
+        <para>Check for Custom Frontend Module Registrations</para>
         <para>
             Starting with OTRS 3.0, application modules may have their own special CSS and/or JavaScript code. This is part of the frontend module registration of the modules in the SysConfig. This may cause problems during the upgrade, because locally modified frontend module configuration settings will not catch the updates of the new default configuration.
         </para>
@@ -1468,6 +1469,59 @@ shell&gt; /etc/init.d/apache start
         </para>
         <para>
             The same procedure must be executed for the setting "Frontend::ToolBarModule###1-Ticket::TicketSearchFulltext", as this now also uses module specific CSS styles. If this setting is not activated on your system, you can safely omit this step.
+        </para>
+      </listitem>
+      <listitem>
+        <para>Check for customized PreferencesGroups entries</para>
+        <para>
+            With OTRS 3.1, there were a few corrections in PreferencesGroups configuration entries.
+            Notably, the keys 'Activ' and 'Colum' were changed to 'Active' and 'Column', respectively.
+            You only need to take action if you have customized such settings on your system, otherwise
+            they will be updated automatically.
+        </para>
+        <para>
+            To check if you are affected, please look at the file <filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries like:
+            <screen>
+    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
+      'Activ' => '0',
+      'Colum' => 'Frontend',
+      'Data' => {
+        '' => 'off',
+        '10' => '10 minutes',
+        '15' => '15 minutes',
+        '2' => ' 2 minutes',
+        '5' => ' 5 minutes',
+        '7' => ' 7 minutes'
+      },
+      'Desc' => 'Select your QueueView refresh time.',
+      'Label' => 'QueueView refresh time',
+      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',
+      'PrefKey' => 'UserRefreshTime',
+      'Prio' => '4000'
+    };
+            </screen>
+
+            This needs to be changed as follows:
+
+            <screen>
+    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
+      'Active' => '0',
+      'Column' => 'Frontend',
+      'Data' => {
+        '' => 'off',
+        '10' => '10 minutes',
+        '15' => '15 minutes',
+        '2' => ' 2 minutes',
+        '5' => ' 5 minutes',
+        '7' => ' 7 minutes'
+      },
+      'Desc' => 'Select your QueueView refresh time.',
+      'Label' => 'QueueView refresh time',
+      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',
+      'PrefKey' => 'UserRefreshTime',
+      'Prio' => '4000'
+    };
+            </screen>
         </para>
       </listitem>
       <listitem>
