@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.49 2011-04-19 12:09:16 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.50 2011-05-11 09:54:01 mg Exp $ -->
 <chapter id="installation">
 <title>Installation</title>
 
@@ -1634,6 +1634,7 @@ Zeichensätze sind ab sofort im Status "veraltet / nicht empfohlen".
         </para>
       </listitem>
       <listitem>
+        <para>Check for Custom Frontend Module Registrations</para>
         <para>
             Seit OTRS 3.0 können Applikationsmodule ihr eigenes spezielles CSS und/oder
 Javascript haben. Dieses wird als Teil der sog. Frontend-Modulregistrierung
@@ -1662,6 +1663,58 @@ Maßnahme können Sie die Einträge wieder anpassen, falls erforderlich.
 werden, weil dieses auch modulspezifisches CSS verwendet. Wenn diese
 Einstellung auf Ihrem System nicht aktiv ist, können Sie diesen Schritt
 überspringen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>Check for customized PreferencesGroups entries</para>
+        <para>
+            With OTRS 3.0, there were a few corrections in PreferencesGroups
+configuration entries.  Notably, the keys 'Activ' and 'Colum' were changed
+to 'Active' and 'Column', respectively.  You only need to take action if you
+have customized such settings on your system, otherwise they will be updated
+automatically.
+        </para>
+        <para>
+            To check if you are affected, please look at the file
+<filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries
+like: <screen>
+    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
+      'Activ' => '0',
+      'Colum' => 'Frontend',
+      'Data' => {
+        '' => 'off',
+        '10' => '10 minutes',
+        '15' => '15 minutes',
+        '2' => ' 2 minutes',
+        '5' => ' 5 minutes',
+        '7' => ' 7 minutes'
+      },
+      'Desc' => 'Select your QueueView refresh time.',
+      'Label' => 'QueueView refresh time',
+      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',
+      'PrefKey' => 'UserRefreshTime',
+      'Prio' => '4000'
+    };
+            </screen> This needs to be changed as
+follows: <screen>
+    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
+      'Active' => '0',
+      'Column' => 'Frontend',
+      'Data' => {
+        '' => 'off',
+        '10' => '10 minutes',
+        '15' => '15 minutes',
+        '2' => ' 2 minutes',
+        '5' => ' 5 minutes',
+        '7' => ' 7 minutes'
+      },
+      'Desc' => 'Select your QueueView refresh time.',
+      'Label' => 'QueueView refresh time',
+      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',
+      'PrefKey' => 'UserRefreshTime',
+      'Prio' => '4000'
+    };
+            </screen>
         </para>
       </listitem>
       <listitem>

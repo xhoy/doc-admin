@@ -3,26 +3,27 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: themes.xml,v 1.10 2011-04-04 08:03:20 mg Exp $ -->
+<!-- $Id: themes.xml,v 1.11 2011-05-11 09:54:02 mg Exp $ -->
 <chapter id="themes">
 <title>Создание своих собственных тем (шаблонов)</title>
 
 <para>
-Вы можете создавать свои собственные темы для OTRS, используя шаблон,
-который вам нравится больше всего для веб-интерфейса. Для создания
-собственной темы вы должны настроить шаблоны вывода под свои нужды.
+Для OTRS можно создавать свои собственные темы и использовать в качестве
+веб-интерфейса тот шаблон, который вам нравится больше всего. Для создания
+собственной темы нужно настроить шаблоны вывода под свои нужды.
 </para>
 
 <para>
 Более подробную информацию о синтаксисе и структуре шаблонов вывода можно
-найти в Руководстве Разработчика по ссылке <ulink url="http://doc.otrs.org">
-<citetitle>http://doc.otrs.org</citetitle> </ulink> , особенно в главе
-<ulink url="http://doc.otrs.org/developer/2.4/en/html/c629.html">
-<citetitle>templates</citetitle> </ulink> .
+найти в Руководстве Разработчика по ссылке <ulink
+url="http://doc.otrs.org"><citetitle>http://doc.otrs.org</citetitle></ulink>,
+особенно в главе <ulink
+url="http://doc.otrs.org/developer/2.4/en/html/c629.html"><citetitle>templates</citetitle></ulink>.
 </para>
 
 <para>
-Чтобы создать новую тему называемую "Компания" проделайте следующие шаги:
+В качестве примера, выполните следующие шаги для создания новой темы,
+которая называется "Компания":
 </para>
 
 <para>
@@ -31,32 +32,34 @@
     <para>
     Создайте директорию и назовите ее
 <filename>Kernel/Output/HTML/Company</filename> и скопируйте все файлы,
-которые вы хотите изменить из директории
-<filename>Kernel/Output/HTML/Standard</filename> в новый каталог.
+которые хотите изменить, из <filename>Kernel/Output/HTML/Standard</filename>
+в новую директорию.
     </para>
-    <important><para>Копируйте только те файлы, которые вы действительно планируете
-изменять. OTRS автоматически получит недостающие файлы из стандартной
-темы. Это позволить сделать модернизацию более простой на позних этапах.</para></important>
+    <important><para>
+		Копируйте только те файлы, которые вы действительно планируете
+изменять. OTRS автоматически получит недостающие файлы из Стандартной
+темы. На более позних этапах такой подход позволит сделать модернизацию
+более простой.</para></important>
 </listitem>
 <listitem>
     <para>
-    Настройти файлы в директории <filename>Kernel/Output/HTML/Company</filename>
-и изментите шаблоны под ваши нужнды
+    Настройте файлы в директории <filename>Kernel/Output/HTML/Company</filename>
+и изментите шаблоны по своему вкусу.
     </para>
 </listitem>
 <listitem>
     <para>
-    Чтобы активировать новую тему OTRS, добавьте ее в SysConfig по ссылке <link
-linkend="Framework:Core::Web:Frontend::Themes"> Frontend::Themes </link>.
+    Чтобы активировать новую тему, перейдите по ссылке <link
+linkend="Framework:Core::Web:Frontend::Themes">Frontend::Themes</link> и
+добавьте ее в SysConfig.
     </para>
 </listitem>
 </orderedlist>
 </para>
 
 <para>
-Теперь новая тема должна быть доступна в OTRS. Вы можете выбрать тему
-перейдя по ссылке <link linkend="user-preferences"> персональные
-предпочтения </link>.
+Теперь новая тема должна быть доступна. Вы можете выбрать эту тему перейдя
+по ссылке <link linkend="user-preferences"> предпочтения</link>.
 </para>
 
 <warning>

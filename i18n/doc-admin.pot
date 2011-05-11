@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-04-04 13:13+0300\n"
+"POT-Creation-Date: 2011-05-11 11:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3706,7 +3706,12 @@ msgid "OTRS 3.1 will only allow UTF-8 as the internal charset."
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1458
+#: en/installation-and-basic-configuration.xml:1457
+msgid "Check for Custom Frontend Module Registrations"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1459
 msgid ""
 "Starting with OTRS 3.0, application modules may have their own special CSS "
 "and/or JavaScript code. This is part of the frontend module registration of "
@@ -3716,7 +3721,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1463
+#: en/installation-and-basic-configuration.xml:1464
 #, no-wrap
 msgid ""
 "    $Self->{'Frontend::Module'}->{'AgentStats'} = { ... };\n"
@@ -3724,7 +3729,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1461
+#: en/installation-and-basic-configuration.xml:1462
 msgid ""
 "To check if you are affected, please look at the file "
 "<filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries "
@@ -3732,7 +3737,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1467
+#: en/installation-and-basic-configuration.xml:1468
 msgid ""
 "These settings should be reset to their default value in Admin -> SysConfig "
 "(in this case: 'Frontend::Module###AgentStats') with the little \"Reset\" "
@@ -3743,7 +3748,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1470
+#: en/installation-and-basic-configuration.xml:1471
 msgid ""
 "The same procedure must be executed for the setting "
 "\"Frontend::ToolBarModule###1-Ticket::TicketSearchFulltext\", as this now "
@@ -3753,11 +3758,83 @@ msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1475
+msgid "Check for customized PreferencesGroups entries"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1477
+msgid ""
+"With OTRS 3.0, there were a few corrections in PreferencesGroups "
+"configuration entries.  Notably, the keys 'Activ' and 'Colum' were changed "
+"to 'Active' and 'Column', respectively.  You only need to take action if you "
+"have customized such settings on your system, otherwise they will be updated "
+"automatically."
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1485
+#, no-wrap
+msgid ""
+"    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {\n"
+"      'Activ' => '0',\n"
+"      'Colum' => 'Frontend',\n"
+"      'Data' => {\n"
+"        '' => 'off',\n"
+"        '10' => '10 minutes',\n"
+"        '15' => '15 minutes',\n"
+"        '2' => ' 2 minutes',\n"
+"        '5' => ' 5 minutes',\n"
+"        '7' => ' 7 minutes'\n"
+"      },\n"
+"      'Desc' => 'Select your QueueView refresh time.',\n"
+"      'Label' => 'QueueView refresh time',\n"
+"      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',\n"
+"      'PrefKey' => 'UserRefreshTime',\n"
+"      'Prio' => '4000'\n"
+"    };\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
+#: en/installation-and-basic-configuration.xml:1507
+#, no-wrap
+msgid ""
+"    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {\n"
+"      'Active' => '0',\n"
+"      'Column' => 'Frontend',\n"
+"      'Data' => {\n"
+"        '' => 'off',\n"
+"        '10' => '10 minutes',\n"
+"        '15' => '15 minutes',\n"
+"        '2' => ' 2 minutes',\n"
+"        '5' => ' 5 minutes',\n"
+"        '7' => ' 7 minutes'\n"
+"      },\n"
+"      'Desc' => 'Select your QueueView refresh time.',\n"
+"      'Label' => 'QueueView refresh time',\n"
+"      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',\n"
+"      'PrefKey' => 'UserRefreshTime',\n"
+"      'Prio' => '4000'\n"
+"    };\n"
+"            "
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1483
+msgid ""
+"To check if you are affected, please look at the file "
+"<filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries "
+"like: <placeholder type=\"screen\" id=\"0\"/> This needs to be changed as "
+"follows: <placeholder type=\"screen\" id=\"1\"/>"
+msgstr ""
+
+#. type: Content of: <chapter><section><orderedlist><listitem><para>
+#: en/installation-and-basic-configuration.xml:1529
 msgid "Customer Database Backend Field Renaming"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1478
+#: en/installation-and-basic-configuration.xml:1532
 msgid ""
 "The field 'salutation' in the built-in customer database has been renamed to "
 "the more appropriate 'title'. If you are using the built-in database data "
@@ -3768,7 +3845,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1484
+#: en/installation-and-basic-configuration.xml:1538
 #, no-wrap
 msgid ""
 "     [ 'UserSalutation', 'Salutation', 'salutation', 1, 0, 'var', '', 0 ],\n"
@@ -3776,7 +3853,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1490
+#: en/installation-and-basic-configuration.xml:1544
 #, no-wrap
 msgid ""
 "     [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],\n"
@@ -3784,14 +3861,14 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1481
+#: en/installation-and-basic-configuration.xml:1535
 msgid ""
 "Change this line: <placeholder type=\"screen\" id=\"0\"/> to: <placeholder "
 "type=\"screen\" id=\"1\"/>"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1494
+#: en/installation-and-basic-configuration.xml:1548
 msgid ""
 "Please note that this can also affect any salutations or other templates "
 "where you have used the string "
@@ -3801,12 +3878,12 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1499
+#: en/installation-and-basic-configuration.xml:1553
 msgid "Optional: Mark Tickets as Read"
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
-#: en/installation-and-basic-configuration.xml:1505
+#: en/installation-and-basic-configuration.xml:1559
 #, no-wrap
 msgid ""
 "shell> bin/otrs.MarkTicketAsSeen.pl\n"
@@ -3814,7 +3891,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1502
+#: en/installation-and-basic-configuration.xml:1556
 msgid ""
 "In OTRS 3.0 there is a new feature: New tickets and new articles which an "
 "Agent did not read yet are highlighted as 'unread'. For all tickets which "
@@ -3826,17 +3903,17 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: en/installation-and-basic-configuration.xml:1510
+#: en/installation-and-basic-configuration.xml:1564
 msgid "Well done!"
 msgstr ""
 
 #. type: Content of: <chapter><section><title>
-#: en/installation-and-basic-configuration.xml:1516
+#: en/installation-and-basic-configuration.xml:1570
 msgid "Upgrading Windows Installer"
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/installation-and-basic-configuration.xml:1518
+#: en/installation-and-basic-configuration.xml:1572
 msgid ""
 "There is currently no in-place upgrade tool available for OTRS installations "
 "that were done with the Windows Installer. The upgrade process basically "
@@ -3846,7 +3923,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><para>
-#: en/installation-and-basic-configuration.xml:1521
+#: en/installation-and-basic-configuration.xml:1575
 msgid ""
 "Upgrading is described in <ulink "
 "url=\"http://faq.otrs.org/otrs/public.pl?Action=PublicFAQ;ItemID=351\">FAQ# "
