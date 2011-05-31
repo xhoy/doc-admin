@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: configuration.xml,v 1.9 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: configuration.xml,v 1.10 2011-05-31 12:49:34 mg Exp $ -->
 
 <chapter id="configuration">
 <title>System Configuration</title>
@@ -19,10 +19,6 @@ The file <filename>Kernel/Config/Defaults.pm</filename> contains the parameters 
 
 <para>
 In the directory <filename>Kernel/Config/Files</filename> there are some other files that are parsed when the OTRS login page is accessed. If additional applications like the FAQ or the File Manager are installed, the configuration files for those can also be found in the mentioned path.
-</para>
-
-<para>
-To maintain compatibility with older OTRS versions, there is always a .pm and a .xml file for every application and for the central framework. The .pm files are needed to parse all default and customized settings. The .xml files are used by the graphical interface for system configuration which has been available since OTRS 2.0, and which lets you set most of the configuration parameters of the system through your web browser. In future versions of OTRS the .pm files will be removed and the system will be configurable only via the .xml files. All parameters in <filename>Kernel/Config/Defaults.pm</filename> will be moved to <filename>Kernel/Config/Files/Framework.xml</filename> and all parameters for the trouble ticket system will be no longer stored in <filename>Kernel/Config/Files/Ticket.pm</filename> but in <filename>Kernel/Config/Files/Ticket.xml</filename>. The format of the configuration parameters will completely change to XML.
 </para>
 
 <para>
