@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
-"POT-Creation-Date: 2011-05-11 11:51+0300\n"
-"PO-Revision-Date: 2011-04-19 14:08+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0300\n"
+"PO-Revision-Date: 2011-05-31 15:00+0100\n"
 "Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -2159,13 +2159,12 @@ msgstr ""
 #: en/adminarea.xml:1332 en/adminarea.xml:1356 en/adminarea.xml:1598
 #: en/adminarea.xml:1635 en/adminarea.xml:1650 en/adminarea.xml:1674
 #: en/adminarea.xml:1698 en/adminarea.xml:1713 en/adminarea.xml:1733
-#: en/adminarea.xml:1763 en/adminarea.xml:1783 en/configuration.xml:43
+#: en/adminarea.xml:1763 en/adminarea.xml:1783 en/configuration.xml:39
 #: en/email.xml:58 en/monitoring-tickets.xml:28 en/monitoring-tickets.xml:43
 #: en/monitoring-tickets.xml:75 en/monitoring-tickets.xml:90
 #: en/monitoring-tickets.xml:105 en/stats.xml:29 en/stats.xml:72
 #: en/stats.xml:125 en/stats.xml:320 en/stats.xml:452 en/stats.xml:599
-#: en/stats.xml:635 en/stats.xml:747 en/stats.xml:773 en/applications.xml:23
-#: en/applications.xml:42 en/applications.xml:62
+#: en/stats.xml:635 en/stats.xml:747 en/stats.xml:773
 #: en/additional-resources.xml:21 en/additional-resources.xml:167
 msgid "<placeholder type=\"screenshot\" id=\"0\"/>"
 msgstr "<placeholder type=\"screenshot\" id=\"0\"/>"
@@ -5015,7 +5014,7 @@ msgstr "OTRS 3.1 wird nur noch UTF-8 als internen Zeichensatz unterstützen."
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1457
 msgid "Check for Custom Frontend Module Registrations"
-msgstr ""
+msgstr "Auf angepasste Frontend-Modulregistrierungen prüfen"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1459
@@ -5086,7 +5085,7 @@ msgstr ""
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1475
 msgid "Check for customized PreferencesGroups entries"
-msgstr ""
+msgstr "Auf angepasste PreferencesGroups-Einträge prüfen"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1477
@@ -5097,6 +5096,11 @@ msgid ""
 "have customized such settings on your system, otherwise they will be updated "
 "automatically."
 msgstr ""
+"In OTRS 3.0 gab es einige Korrekturen in den PreferencesGroups-"
+"Konfigurationseinträgen. Die Schlüssel 'Activ' und 'Colum' wurden in "
+"'Active' und 'Column' geändert. Sie müssen sich darum nur kümmern, wenn Sie "
+"solche Einträge in Ihrem System angepasst haben, ansonsten werden sie "
+"automatisch aktualisiert."
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
 #: en/installation-and-basic-configuration.xml:1485
@@ -5121,6 +5125,24 @@ msgid ""
 "    };\n"
 "            "
 msgstr ""
+"    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {\n"
+"      'Activ' => '0',\n"
+"      'Colum' => 'Frontend',\n"
+"      'Data' => {\n"
+"        '' => 'off',\n"
+"        '10' => '10 minutes',\n"
+"        '15' => '15 minutes',\n"
+"        '2' => ' 2 minutes',\n"
+"        '5' => ' 5 minutes',\n"
+"        '7' => ' 7 minutes'\n"
+"      },\n"
+"      'Desc' => 'Select your QueueView refresh time.',\n"
+"      'Label' => 'QueueView refresh time',\n"
+"      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',\n"
+"      'PrefKey' => 'UserRefreshTime',\n"
+"      'Prio' => '4000'\n"
+"    };\n"
+"            "
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para><screen>
 #: en/installation-and-basic-configuration.xml:1507
@@ -5145,14 +5167,27 @@ msgid ""
 "    };\n"
 "            "
 msgstr ""
+"    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {\n"
+"      'Active' => '0',\n"
+"      'Column' => 'Frontend',\n"
+"      'Data' => {\n"
+"        '' => 'off',\n"
+"        '10' => '10 minutes',\n"
+"        '15' => '15 minutes',\n"
+"        '2' => ' 2 minutes',\n"
+"        '5' => ' 5 minutes',\n"
+"        '7' => ' 7 minutes'\n"
+"      },\n"
+"      'Desc' => 'Select your QueueView refresh time.',\n"
+"      'Label' => 'QueueView refresh time',\n"
+"      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',\n"
+"      'PrefKey' => 'UserRefreshTime',\n"
+"      'Prio' => '4000'\n"
+"    };\n"
+"            "
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1483
-#, fuzzy
-#| msgid ""
-#| "To check if you are affected, please look at the file <filename>Kernel/"
-#| "Config/Files/ZZZAuto.pm</filename> and look for entries like: "
-#| "<placeholder type=\"screen\" id=\"0\"/>"
 msgid ""
 "To check if you are affected, please look at the file <filename>Kernel/"
 "Config/Files/ZZZAuto.pm</filename> and look for entries like: <placeholder "
@@ -5161,7 +5196,8 @@ msgid ""
 msgstr ""
 "Ob Sie betroffen sind, können sie herausfinden, indem Sie sich "
 "<filename>Kernel/Config/Files/ZZZAuto.pm</filename> ansehen und nach "
-"Einträgen wie <placeholder type=\"screen\" id=\"0\"/> suchen"
+"Einträgen wie <placeholder type=\"screen\" id=\"0\"/> suchen. Diese müssen "
+"wie folgt verändert werden: <placeholder type=\"screen\" id=\"1\"/>"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
 #: en/installation-and-basic-configuration.xml:1529
@@ -9680,37 +9716,6 @@ msgstr ""
 #. type: Content of: <chapter><section><para>
 #: en/configuration.xml:25
 msgid ""
-"To maintain compatibility with older OTRS versions, there is always a .pm "
-"and a .xml file for every application and for the central framework. The .pm "
-"files are needed to parse all default and customized settings. The .xml "
-"files are used by the graphical interface for system configuration which has "
-"been available since OTRS 2.0, and which lets you set most of the "
-"configuration parameters of the system through your web browser. In future "
-"versions of OTRS the .pm files will be removed and the system will be "
-"configurable only via the .xml files. All parameters in <filename>Kernel/"
-"Config/Defaults.pm</filename> will be moved to <filename>Kernel/Config/Files/"
-"Framework.xml</filename> and all parameters for the trouble ticket system "
-"will be no longer stored in <filename>Kernel/Config/Files/Ticket.pm</"
-"filename> but in <filename>Kernel/Config/Files/Ticket.xml</filename>. The "
-"format of the configuration parameters will completely change to XML."
-msgstr ""
-"Im Moment sind immer eine .pm- und eine .xml-Datei für jedes Modul "
-"vorhanden, da aus Kompatibilitätsgründen zu älteren OTRS-Versionen noch die "
-"Einstellungen in den .pm-Dateien benötigt werden. Die .xml-Dateien werden "
-"von der grafischen Administrationsoberfläche ausgewertet, die seit OTRS 2.0 "
-"verfügbar ist und die es Ihnen ermöglicht, das System nahezu vollständig "
-"über die Web-Oberfläche zu konfigurieren. In zukünftigen Versionen von OTRS "
-"wird auf die .pm-Dateien vollständig verzichtet und alle Einstellungen aus "
-"<filename>Kernel/Config/Defaults.pm</filename> werden nur noch in "
-"<filename>Kernel/Config/Files/Framework.xml</filename> zu finden sein bzw. "
-"alle Einstellungen für das Ticketsystem befinden sich dann nur noch in der "
-"Datei <filename>Kernel/Config/Files/Ticket.xml</filename>. Die "
-"Konfigurationsparameter werden also in zukünftigen Versionen komplett in das "
-"xml-Format übertragen."
-
-#. type: Content of: <chapter><section><para>
-#: en/configuration.xml:29
-msgid ""
 "If the OTRS web interface is accessed, all .xml files in the "
 "<filename>Kernel/Config/Files</filename> directory are parsed in "
 "alphabetical order, and the settings for the central framework and "
@@ -9737,13 +9742,13 @@ msgstr ""
 "Ihre eigenen Einstellungen geladen werden."
 
 #. type: Content of: <chapter><section><title>
-#: en/configuration.xml:36
+#: en/configuration.xml:32
 msgid "Configuring the system through the web interface"
 msgstr ""
 "Konfiguration des Systems mit Hilfe des grafischen Konfigurations-Frontends"
 
 #. type: Content of: <chapter><section><para>
-#: en/configuration.xml:39
+#: en/configuration.xml:35
 msgid ""
 "Since OTRS 2.0, nearly all configuration parameters of the central framework "
 "or additional installed applications, can be changed easily with the "
@@ -9758,12 +9763,12 @@ msgstr ""
 "grafische Konfigurations-Frontend zu laden."
 
 #. type: Content of: <chapter><section><para><screenshot><screeninfo>
-#: en/configuration.xml:44
+#: en/configuration.xml:40
 msgid "The graphical interface for system configuration"
 msgstr "Die grafische System-Konfigurationsoberfläche"
 
 #. type: Content of: <chapter><section><para><screenshot>
-#: en/configuration.xml:44
+#: en/configuration.xml:40
 msgid ""
 "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"sysconfig - "
 "screenshot\" scale=\"40\" fileref=\"screenshots/admin-sysconfig.png\"></"
@@ -9774,7 +9779,7 @@ msgstr ""
 "graphic>"
 
 #. type: Content of: <chapter><section><para>
-#: en/configuration.xml:50
+#: en/configuration.xml:46
 msgid ""
 "<emphasis>Figure 6.1. The graphical interface for system configuration.</"
 "emphasis>"
@@ -9782,7 +9787,7 @@ msgstr ""
 "<emphasis>Abb. 6.1. Die grafische System-Konfigurationsoberfläche.</emphasis>"
 
 #. type: Content of: <chapter><section><para>
-#: en/configuration.xml:54
+#: en/configuration.xml:50
 msgid ""
 "OTRS currently has over 600 configuration parameters, and there are "
 "different ways to quickly access a specific one. With the full text search, "
@@ -9800,7 +9805,7 @@ msgstr ""
 "gefunden werden, wenn ihr Name nicht bekannt ist."
 
 #. type: Content of: <chapter><section><para>
-#: en/configuration.xml:58
+#: en/configuration.xml:54
 msgid ""
 "Furthermore, all configuration parameters are sorted in main groups and sub "
 "groups. The main group represents the application that the configuration "
@@ -9818,7 +9823,7 @@ msgstr ""
 "wird."
 
 #. type: Content of: <chapter><section><para>
-#: en/configuration.xml:62
+#: en/configuration.xml:58
 msgid ""
 "Every configuration parameter can be turned on or off via a checkbox. If the "
 "parameter is turned off, the system will ignore this parameter or use a "
@@ -9833,7 +9838,7 @@ msgstr ""
 "\"Rücksetzen\"-Schalters auf ihren Default-Wert zurückgesetzt werden."
 
 #. type: Content of: <chapter><section><para>
-#: en/configuration.xml:66
+#: en/configuration.xml:62
 msgid ""
 "If you want to save all the changes you made to your system's configuration, "
 "for example to setup a new installation quickly, you can use the \"Export "
@@ -9848,7 +9853,7 @@ msgstr ""
 "Systems zurück spielen und so alle Einstellungen wiederherstellen."
 
 #. type: Content of: <chapter><section><note><para>
-#: en/configuration.xml:71
+#: en/configuration.xml:67
 msgid ""
 "For security reasons, the configuration parameters for the database "
 "connection cannot be changed in the SysConfig section. They have to be set "
@@ -11198,7 +11203,7 @@ msgid ""
 "    CustomerUserSearchSuffix => '*',\n"
 "    CustomerUserSearchListLimit => 250,\n"
 "    CustomerUserPostMasterSearchFields => ['email'],\n"
-"    CustomerUserNameFields => ['salutation','first_name','last_name'],\n"
+"    CustomerUserNameFields => ['title','first_name','last_name'],\n"
 "    CustomerUserEmailUniqCheck => 1,\n"
 "#    # show not own tickets in customer panel, CompanyTickets\n"
 "#    CustomerUserExcludePrimaryCustomerID => 0,\n"
@@ -11267,7 +11272,7 @@ msgstr ""
 "    CustomerUserSearchSuffix => '*',\n"
 "    CustomerUserSearchListLimit => 250,\n"
 "    CustomerUserPostMasterSearchFields => ['email'],\n"
-"    CustomerUserNameFields => ['salutation','first_name','last_name'],\n"
+"    CustomerUserNameFields => ['title','first_name','last_name'],\n"
 "    CustomerUserEmailUniqCheck => 1,\n"
 "#    # show not own tickets in customer panel, CompanyTickets\n"
 "#    CustomerUserExcludePrimaryCustomerID => 0,\n"
@@ -11927,7 +11932,7 @@ msgid ""
 "    CustomerUserSearchSuffix => '*',\n"
 "    CustomerUserSearchListLimit => 250,\n"
 "    CustomerUserPostMasterSearchFields => ['email'],\n"
-"    CustomerUserNameFields => ['salutation','first_name','last_name'],\n"
+"    CustomerUserNameFields => ['title','first_name','last_name'],\n"
 "    CustomerUserEmailUniqCheck => 1,\n"
 "#    # show not own tickets in customer panel, CompanyTickets\n"
 "#    CustomerUserExcludePrimaryCustomerID => 0,\n"
@@ -12063,7 +12068,7 @@ msgstr ""
 "    CustomerUserSearchSuffix => '*',\n"
 "    CustomerUserSearchListLimit => 250,\n"
 "    CustomerUserPostMasterSearchFields => ['email'],\n"
-"    CustomerUserNameFields => ['salutation','first_name','last_name'],\n"
+"    CustomerUserNameFields => ['title','first_name','last_name'],\n"
 "    CustomerUserEmailUniqCheck => 1,\n"
 "#    # show not own tickets in customer panel, CompanyTickets\n"
 "#    CustomerUserExcludePrimaryCustomerID => 0,\n"
@@ -12843,7 +12848,7 @@ msgid ""
 "    CustomerUserSearchSuffix => '*',\n"
 "    CustomerUserSearchListLimit => 250,\n"
 "    CustomerUserPostMasterSearchFields => ['email'],\n"
-"    CustomerUserNameFields => ['salutation', 'first_name', 'last_name'],\n"
+"    CustomerUserNameFields => ['title', 'first_name', 'last_name'],\n"
 "    CustomerUserEmailUniqCheck => 1,\n"
 "#    # show not own tickets in customer panel, CompanyTickets\n"
 "#    CustomerUserExcludePrimaryCustomerID => 0,\n"
@@ -12913,7 +12918,7 @@ msgstr ""
 "    CustomerUserSearchSuffix => '*',\n"
 "    CustomerUserSearchListLimit => 250,\n"
 "    CustomerUserPostMasterSearchFields => ['email'],\n"
-"    CustomerUserNameFields => ['salutation', 'first_name', 'last_name'],\n"
+"    CustomerUserNameFields => ['title', 'first_name', 'last_name'],\n"
 "    CustomerUserEmailUniqCheck => 1,\n"
 "#    # show not own tickets in customer panel, CompanyTickets\n"
 "#    CustomerUserExcludePrimaryCustomerID => 0,\n"
@@ -13791,14 +13796,14 @@ msgid ""
 "More information on the syntax and structure of output templates can be "
 "found in the Developer Manual at <ulink url=\"http://doc.otrs.org"
 "\"><citetitle>http://doc.otrs.org</citetitle></ulink>, especialy in the "
-"chapter on <ulink url=\"http://doc.otrs.org/developer/2.4/en/html/c629.html"
-"\"><citetitle>templates</citetitle></ulink>."
+"chapter on <ulink url=\"http://doc.otrs.org/developer/3.0/en/html/hacking."
+"html#TemplatingMechanism\"><citetitle>templates</citetitle></ulink>."
 msgstr ""
 "Mehr Informationen über die Syntax und den Aufbau von Templates finden Sie "
 "im Entwickler-Handbuch auf <ulink url=\"http://doc.otrs.org"
 "\"><citetitle>http://doc.otrs.org</citetitle></ulink> innerhalb des Kapitels "
-"zu den <ulink url=\"http://doc.otrs.org/developer/2.0/en/html/c494.html"
-"\"><citetitle>Templates</citetitle></ulink>."
+"zu den <ulink url=\"http://doc.otrs.org/developer/3.0/en/html/hacking."
+"html#TemplatingMechanism\"><citetitle>Templates</citetitle></ulink>."
 
 #. type: Content of: <chapter><para>
 #: en/themes.xml:19
@@ -13888,17 +13893,17 @@ msgid ""
 "Procedures for localization for the OTRS framework, steps to be followed to "
 "create a new language translation, as well as procedures for translation "
 "customizations, can be found in the <ulink url=\"http://doc.otrs.org/"
-"developer/2.4/en/html/c772.html\">\"Language Translations\"</ulink> chapter "
-"from the developer manual on <ulink url=\"http://doc.otrs.org\">http://doc."
-"otrs.org</ulink>."
+"developer/3.0/en/html/contributing.html#translate\">\"Language Translations"
+"\"</ulink> chapter from the developer manual on <ulink url=\"http://doc.otrs."
+"org\">http://doc.otrs.org</ulink>."
 msgstr ""
 "Wie der Lokalisationsmechanismus des OTRS Frameworks arbeitet und welche "
 "Möglichkeiten er bietet, entnehmen Siie bitte dem Kapitel <ulink url="
-"\"http://doc.otrs.org/developer/2.0/en/html/c630.html\">Language "
-"Translations</ulink> aus dem Developer Handbuch auf <ulink url=\"http://doc."
-"otrs.org\">http://doc.otrs.org</ulink>. Dieses Kapitel beschreibt, wie "
-"eigene Übersetzungen eingepflegt und komplett neue Sprachen hinzugefügt "
-"werden können."
+"\"http://doc.otrs.org/developer/3.0/en/html/contributing.html#translate"
+"\">Language Translations</ulink> aus dem Developer Handbuch auf <ulink url="
+"\"http://doc.otrs.org\">http://doc.otrs.org</ulink>. Dieses Kapitel "
+"beschreibt, wie eigene Übersetzungen eingepflegt und komplett neue Sprachen "
+"hinzugefügt werden können."
 
 #. type: Content of: <chapter><para>
 #: en/pgp.xml:10
@@ -16955,104 +16960,13 @@ msgstr ""
 "möglich, Pakete in Form lokaler Dateien zu installieren, z. B. für den Fall, "
 "dass Ihr OTRS keine Internetverbindung hat."
 
-#. type: Content of: <chapter><section><para><screenshot><screeninfo>
-#: en/applications.xml:16 en/applications.xml:24
-msgid "Calendar"
-msgstr "Kalender"
-
-#. type: Content of: <chapter><section><para>
-#: en/applications.xml:19
-msgid ""
-"You can edit and view both private and public user-based appointments with "
-"the web-based Calendar (see Figure 20.1 below)."
-msgstr ""
-"Dies ist ein Kalender, in dem man Termine benutzerabhängig eintragen kann. "
-"Es werden private und öffentliche Termine unterstützt."
-
-#. type: Content of: <chapter><section><para><screenshot>
-#: en/applications.xml:24
-msgid ""
-"<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Calendar - "
-"screenshot\" scale=\"40\" fileref=\"screenshots/calendar.png\"></graphic>"
-msgstr ""
-"<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Calendar - "
-"screenshot\" scale=\"40\" fileref=\"screenshots/calendar.png\"></graphic>"
-
-#. type: Content of: <chapter><section><para>
-#: en/applications.xml:30
-msgid "<emphasis>Figure 20.1. Calendar package.</emphasis>"
-msgstr "<emphasis>Abb. 20.1. Kalenderpaket.</emphasis>"
-
-#. type: Content of: <chapter><section><para><screenshot><screeninfo>
-#: en/applications.xml:35 en/applications.xml:43
-msgid "File Manager"
-msgstr "Dateimanager"
-
-#. type: Content of: <chapter><section><para>
-#: en/applications.xml:38
-msgid ""
-"The File Manager (see Figure 20.2 below) makes it possible to access the "
-"content of a directory that is located in the filesystem of the OTRS server "
-"system. You can use your web browser to upload, download, delete and view "
-"files, browse and create subdirectories, etc."
-msgstr ""
-"Mit dem Dateimanager kann auf ein Verzeichnis des Rechners, auf dem OTRS "
-"installiert ist, über die Web-Oberfläche zugegriffen und Dateien "
-"hochgeladen, gelöscht und angesehen werden."
-
-#. type: Content of: <chapter><section><para><screenshot>
-#: en/applications.xml:43
-msgid ""
-"<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Filemanager "
-"- screenshot\" scale=\"40\" fileref=\"screenshots/filemanager.png\"></"
-"graphic>"
-msgstr ""
-"<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Filemanager "
-"- screenshot\" scale=\"40\" fileref=\"screenshots/filemanager.png\"></"
-"graphic>"
-
-#. type: Content of: <chapter><section><para>
-#: en/applications.xml:49
-msgid "<emphasis>Figure 20.2. File Manager package.</emphasis>"
-msgstr "<emphasis>Abb. 20.2. Dateimanager-Paket.</emphasis>"
-
-#. type: Content of: <chapter><section><para><screenshot><screeninfo>
-#: en/applications.xml:55 en/applications.xml:63
-msgid "Web Mail"
-msgstr "Webmailer"
-
-#. type: Content of: <chapter><section><para>
-#: en/applications.xml:58
-msgid ""
-"Using the Web Mail package (see Figure 20.3 below), you can access your "
-"mailbox via an IMAP server. With a web browser, it is possible to compose "
-"new messages, answer and forward your mails, etc."
-msgstr ""
-"Das Web-Mail-Programm ermöglicht das Abrufen von Mails über einen IMAP-"
-"Server, das Verfassen von neuen Nachrichten bzw. die Beantwortung von "
-"vorhandenen E-Mails über die Web-Oberfläche."
-
-#. type: Content of: <chapter><section><para><screenshot>
-#: en/applications.xml:63
-msgid ""
-"<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Webmail - "
-"screenshot\" scale=\"40\" fileref=\"screenshots/webmail.png\"></graphic>"
-msgstr ""
-"<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Webmail - "
-"screenshot\" scale=\"40\" fileref=\"screenshots/webmail.png\"></graphic>"
-
-#. type: Content of: <chapter><section><para>
-#: en/applications.xml:69
-msgid "<emphasis>Figure 20.3. Web Mail module.</emphasis>"
-msgstr "<emphasis>Abb. 20.3. Webmail-Paket.</emphasis>"
-
 #. type: Content of: <chapter><section><title>
-#: en/applications.xml:75
+#: en/applications.xml:16
 msgid "FAQ"
 msgstr "FAQ"
 
 #. type: Content of: <chapter><section><para>
-#: en/applications.xml:78
+#: en/applications.xml:19
 msgid ""
 "The FAQ is the Knowledge Base component. It supports editing and viewing of "
 "FAQ articles. Articles can be viewed and restricted to agents, customer "
@@ -18137,17 +18051,18 @@ msgstr "Kommerzieller Support"
 msgid ""
 "For services (support, consulting, development, and training) you can "
 "contact the company behind OTRS, OTRS AG. They have offices in Germany, USA, "
-"Mexico and the Netherlands. Look at their website for contact information: "
-"<ulink url=\"http://www.otrs.com/en/corporate-navigation/contact/"
-"\"><citetitle>http://www.otrs.com/en/corporate-navigation/contact/</"
-"citetitle></ulink>"
+"Mexico, the Netherlands and other countries. Look at their website for "
+"contact information: <ulink url=\"http://www.otrs.com/en/corporate-"
+"navigation/contact/\"><citetitle>http://www.otrs.com/en/corporate-navigation/"
+"contact/</citetitle></ulink>"
 msgstr ""
 "Für Dienstleistungen (Support, Consulting, Entwicklung und Schulungen) "
 "können Sie die Firma hinter OTRS kontaktieren, die OTRS AG. Sie hat "
-"Niederlassungen in Deutschland, USA, Mexiko und Holland. Schauen Sie sich "
-"die Website an, um Kontaktinformationen zu erhalten: <ulink url=\"http://www."
-"otrs.com/de/corporate-navigation/contact/\"> <citetitle>http://www.otrs.com/"
-"de/corporate-navigation/contact/</citetitle> </ulink>."
+"Niederlassungen in Deutschland, USA, Mexiko, Holland und weiteren Ländern. "
+"Schauen Sie sich die Website an, um Kontaktinformationen zu erhalten: <ulink "
+"url=\"http://www.otrs.com/de/corporate-navigation/contact/\"> "
+"<citetitle>http://www.otrs.com/de/corporate-navigation/contact/</citetitle> "
+"</ulink>."
 
 #. type: Content of: <appendix><title>
 #: en/all-config-parameters.xml:7
@@ -19303,6 +19218,105 @@ msgstr ""
 "releasing these examples in parallel under your choice of free software "
 "license, such as the GNU General Public License, to permit their use in free "
 "software."
+
+#~ msgid ""
+#~ "To maintain compatibility with older OTRS versions, there is always a .pm "
+#~ "and a .xml file for every application and for the central framework. The ."
+#~ "pm files are needed to parse all default and customized settings. The ."
+#~ "xml files are used by the graphical interface for system configuration "
+#~ "which has been available since OTRS 2.0, and which lets you set most of "
+#~ "the configuration parameters of the system through your web browser. In "
+#~ "future versions of OTRS the .pm files will be removed and the system will "
+#~ "be configurable only via the .xml files. All parameters in "
+#~ "<filename>Kernel/Config/Defaults.pm</filename> will be moved to "
+#~ "<filename>Kernel/Config/Files/Framework.xml</filename> and all parameters "
+#~ "for the trouble ticket system will be no longer stored in "
+#~ "<filename>Kernel/Config/Files/Ticket.pm</filename> but in "
+#~ "<filename>Kernel/Config/Files/Ticket.xml</filename>. The format of the "
+#~ "configuration parameters will completely change to XML."
+#~ msgstr ""
+#~ "Im Moment sind immer eine .pm- und eine .xml-Datei für jedes Modul "
+#~ "vorhanden, da aus Kompatibilitätsgründen zu älteren OTRS-Versionen noch "
+#~ "die Einstellungen in den .pm-Dateien benötigt werden. Die .xml-Dateien "
+#~ "werden von der grafischen Administrationsoberfläche ausgewertet, die seit "
+#~ "OTRS 2.0 verfügbar ist und die es Ihnen ermöglicht, das System nahezu "
+#~ "vollständig über die Web-Oberfläche zu konfigurieren. In zukünftigen "
+#~ "Versionen von OTRS wird auf die .pm-Dateien vollständig verzichtet und "
+#~ "alle Einstellungen aus <filename>Kernel/Config/Defaults.pm</filename> "
+#~ "werden nur noch in <filename>Kernel/Config/Files/Framework.xml</filename> "
+#~ "zu finden sein bzw. alle Einstellungen für das Ticketsystem befinden sich "
+#~ "dann nur noch in der Datei <filename>Kernel/Config/Files/Ticket.xml</"
+#~ "filename>. Die Konfigurationsparameter werden also in zukünftigen "
+#~ "Versionen komplett in das xml-Format übertragen."
+
+#~ msgid "Calendar"
+#~ msgstr "Kalender"
+
+#~ msgid ""
+#~ "You can edit and view both private and public user-based appointments "
+#~ "with the web-based Calendar (see Figure 20.1 below)."
+#~ msgstr ""
+#~ "Dies ist ein Kalender, in dem man Termine benutzerabhängig eintragen "
+#~ "kann. Es werden private und öffentliche Termine unterstützt."
+
+#~ msgid ""
+#~ "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Calendar "
+#~ "- screenshot\" scale=\"40\" fileref=\"screenshots/calendar.png\"></"
+#~ "graphic>"
+#~ msgstr ""
+#~ "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Calendar "
+#~ "- screenshot\" scale=\"40\" fileref=\"screenshots/calendar.png\"></"
+#~ "graphic>"
+
+#~ msgid "<emphasis>Figure 20.1. Calendar package.</emphasis>"
+#~ msgstr "<emphasis>Abb. 20.1. Kalenderpaket.</emphasis>"
+
+#~ msgid "File Manager"
+#~ msgstr "Dateimanager"
+
+#~ msgid ""
+#~ "The File Manager (see Figure 20.2 below) makes it possible to access the "
+#~ "content of a directory that is located in the filesystem of the OTRS "
+#~ "server system. You can use your web browser to upload, download, delete "
+#~ "and view files, browse and create subdirectories, etc."
+#~ msgstr ""
+#~ "Mit dem Dateimanager kann auf ein Verzeichnis des Rechners, auf dem OTRS "
+#~ "installiert ist, über die Web-Oberfläche zugegriffen und Dateien "
+#~ "hochgeladen, gelöscht und angesehen werden."
+
+#~ msgid ""
+#~ "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit="
+#~ "\"Filemanager - screenshot\" scale=\"40\" fileref=\"screenshots/"
+#~ "filemanager.png\"></graphic>"
+#~ msgstr ""
+#~ "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit="
+#~ "\"Filemanager - screenshot\" scale=\"40\" fileref=\"screenshots/"
+#~ "filemanager.png\"></graphic>"
+
+#~ msgid "<emphasis>Figure 20.2. File Manager package.</emphasis>"
+#~ msgstr "<emphasis>Abb. 20.2. Dateimanager-Paket.</emphasis>"
+
+#~ msgid "Web Mail"
+#~ msgstr "Webmailer"
+
+#~ msgid ""
+#~ "Using the Web Mail package (see Figure 20.3 below), you can access your "
+#~ "mailbox via an IMAP server. With a web browser, it is possible to compose "
+#~ "new messages, answer and forward your mails, etc."
+#~ msgstr ""
+#~ "Das Web-Mail-Programm ermöglicht das Abrufen von Mails über einen IMAP-"
+#~ "Server, das Verfassen von neuen Nachrichten bzw. die Beantwortung von "
+#~ "vorhandenen E-Mails über die Web-Oberfläche."
+
+#~ msgid ""
+#~ "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Webmail "
+#~ "- screenshot\" scale=\"40\" fileref=\"screenshots/webmail.png\"></graphic>"
+#~ msgstr ""
+#~ "<placeholder type=\"screeninfo\" id=\"0\"/> <graphic srccredit=\"Webmail "
+#~ "- screenshot\" scale=\"40\" fileref=\"screenshots/webmail.png\"></graphic>"
+
+#~ msgid "<emphasis>Figure 20.3. Web Mail module.</emphasis>"
+#~ msgstr "<emphasis>Abb. 20.3. Webmail-Paket.</emphasis>"
 
 #~ msgid ""
 #~ "This book continues to be a work in progress, given a moving target on "

@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.41 2011-05-11 09:54:01 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.42 2011-05-31 13:03:49 mg Exp $ -->
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
 
@@ -112,7 +112,7 @@ CustomerValid => 'valid_id',
     CustomerUserSearchSuffix => '*',
     CustomerUserSearchListLimit => 250,
     CustomerUserPostMasterSearchFields => ['email'],
-    CustomerUserNameFields => ['salutation','first_name','last_name'],
+    CustomerUserNameFields => ['title','first_name','last_name'],
     CustomerUserEmailUniqCheck => 1,
 #    # show not own tickets in customer panel, CompanyTickets
 #    CustomerUserExcludePrimaryCustomerID => 0,
@@ -538,7 +538,7 @@ $Self->{CustomerUser1} = {
     CustomerUserSearchSuffix => '*',
     CustomerUserSearchListLimit => 250,
     CustomerUserPostMasterSearchFields => ['email'],
-    CustomerUserNameFields => ['salutation','first_name','last_name'],
+    CustomerUserNameFields => ['title','first_name','last_name'],
     CustomerUserEmailUniqCheck => 1,
 #    # show not own tickets in customer panel, CompanyTickets
 #    CustomerUserExcludePrimaryCustomerID => 0,
@@ -1096,7 +1096,7 @@ $Self->{CustomerUser} = {
     CustomerUserSearchSuffix => '*',
     CustomerUserSearchListLimit => 250,
     CustomerUserPostMasterSearchFields => ['email'],
-    CustomerUserNameFields => ['salutation', 'first_name', 'last_name'],
+    CustomerUserNameFields => ['title', 'first_name', 'last_name'],
     CustomerUserEmailUniqCheck => 1,
 #    # show not own tickets in customer panel, CompanyTickets
 #    CustomerUserExcludePrimaryCustomerID => 0,

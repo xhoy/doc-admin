@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: configuration.xml,v 1.31 2011-05-11 09:54:01 mg Exp $ -->
+<!-- $Id: configuration.xml,v 1.32 2011-05-31 13:03:49 mg Exp $ -->
 <chapter id="configuration">
 <title>Systemkonfiguration</title>
 
@@ -36,22 +36,6 @@ Konfigurationsdateien, die beim Starten von OTRS eingelesen werden. Sind
 zusätzliche Module wie der Filemanager oder der Webmailer installiert,
 liegen die Konfigurationsdateien dieser Applikationen ebenfalls in
 <filename>Kernel/Config/Files</filename>.
-</para>
-
-<para>
-Im Moment sind immer eine .pm- und eine .xml-Datei für jedes Modul
-vorhanden, da aus Kompatibilitätsgründen zu älteren OTRS-Versionen noch die
-Einstellungen in den .pm-Dateien benötigt werden. Die .xml-Dateien werden
-von der grafischen Administrationsoberfläche ausgewertet, die seit OTRS 2.0
-verfügbar ist und die es Ihnen ermöglicht, das System nahezu vollständig
-über die Web-Oberfläche zu konfigurieren. In zukünftigen Versionen von OTRS
-wird auf die .pm-Dateien vollständig verzichtet und alle Einstellungen aus
-<filename>Kernel/Config/Defaults.pm</filename> werden nur noch in
-<filename>Kernel/Config/Files/Framework.xml</filename> zu finden sein
-bzw. alle Einstellungen für das Ticketsystem befinden sich dann nur noch in
-der Datei <filename>Kernel/Config/Files/Ticket.xml</filename>. Die
-Konfigurationsparameter werden also in zukünftigen Versionen komplett in das
-xml-Format übertragen.
 </para>
 
 <para>

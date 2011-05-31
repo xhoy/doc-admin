@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.50 2011-05-11 09:54:01 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.51 2011-05-31 13:03:49 mg Exp $ -->
 <chapter id="installation">
 <title>Installation</title>
 
@@ -1634,7 +1634,7 @@ Zeichensätze sind ab sofort im Status "veraltet / nicht empfohlen".
         </para>
       </listitem>
       <listitem>
-        <para>Check for Custom Frontend Module Registrations</para>
+        <para>Auf angepasste Frontend-Modulregistrierungen prüfen</para>
         <para>
             Seit OTRS 3.0 können Applikationsmodule ihr eigenes spezielles CSS und/oder
 Javascript haben. Dieses wird als Teil der sog. Frontend-Modulregistrierung
@@ -1666,18 +1666,18 @@ Einstellung auf Ihrem System nicht aktiv ist, können Sie diesen Schritt
         </para>
       </listitem>
       <listitem>
-        <para>Check for customized PreferencesGroups entries</para>
+        <para>Auf angepasste PreferencesGroups-Einträge prüfen</para>
         <para>
-            With OTRS 3.0, there were a few corrections in PreferencesGroups
-configuration entries.  Notably, the keys 'Activ' and 'Colum' were changed
-to 'Active' and 'Column', respectively.  You only need to take action if you
-have customized such settings on your system, otherwise they will be updated
-automatically.
+            In OTRS 3.0 gab es einige Korrekturen in den
+PreferencesGroups-Konfigurationseinträgen. Die Schlüssel 'Activ' und 'Colum'
+wurden in 'Active' und 'Column' geändert. Sie müssen sich darum nur kümmern,
+wenn Sie solche Einträge in Ihrem System angepasst haben, ansonsten werden
+sie automatisch aktualisiert.
         </para>
         <para>
-            To check if you are affected, please look at the file
-<filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries
-like: <screen>
+            Ob Sie betroffen sind, können sie herausfinden, indem Sie sich
+<filename>Kernel/Config/Files/ZZZAuto.pm</filename> ansehen und nach
+Einträgen wie <screen>
     $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
       'Activ' => '0',
       'Colum' => 'Frontend',
@@ -1695,8 +1695,8 @@ like: <screen>
       'PrefKey' => 'UserRefreshTime',
       'Prio' => '4000'
     };
-            </screen> This needs to be changed as
-follows: <screen>
+            </screen> suchen. Diese müssen wie
+folgt verändert werden: <screen>
     $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
       'Active' => '0',
       'Column' => 'Frontend',
