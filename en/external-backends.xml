@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.24 2011-05-13 10:06:21 mb Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.25 2011-06-16 07:32:15 mb Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -83,14 +83,24 @@ $Self->{CustomerUser} = {
     Module => 'Kernel::System::CustomerUser::DB',
     Params => {
         # if you want to use an external database, add the required settings
-#        DSN => 'DBI:odbc:yourdsn',
-#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
-#        User => '',
-#        Password => '',
-        Table => 'customer_user',
-    },
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+            # if your frontend is unicode and the charset of your
+            # customer database server is iso-8859-1, use these options.
+#           SourceCharset => 'iso-8859-1',
+#           DestCharset => 'utf-8',
+
+            # CaseSensitive will control if the SQL statements need LOWER()
+            #   function calls to work case insensitively. Setting this to
+            #   1 will improve performance dramatically on large databases.
+            CaseSensitive => 0,
+        },
 # customer unique id
 CustomerKey => 'login',
+
 # customer #
 CustomerID => 'customer_id',
 CustomerValid => 'valid_id',
@@ -151,7 +161,7 @@ CustomerValid => 'valid_id',
 </example>
 
 <para>
-If you want to customize the customer data, change the column's headers or add new ones to the customer_user table in the OTRS database. As an example, Script 11.2 shows how to add a new field for room number.
+If you want to customize the customer data, change the column headers or add new ones to the customer_user table in the OTRS database. As an example, Script 11.2 shows how to add a new field for room number.
 </para>
 
 <para>
@@ -313,13 +323,13 @@ $Self->{CustomerUser} = {
         # in case you want to add always one filter to each ldap query, use
         # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
         AlwaysFilter => '',
-        # if your frontend is e. g. iso-8859-1 and the charset of your
-        # ldap server is utf-8, use these options.
-#            SourceCharset => 'utf-8',
-#            DestCharset => 'iso-8859-1',
             # if both your frontend and your LDAP are unicode, use this:
-#            SourceCharset => 'utf-8',
-#            DestCharset   => 'utf-8',
+            SourceCharset => 'utf-8',
+            DestCharset   => 'utf-8',
+            # if your frontend is unicode and the charset of your
+            # ldap server is iso-8859-1, use these options.
+            # SourceCharset => 'iso-8859-1',
+            # DestCharset => 'utf-8',
             # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
             Params => {
                 port => 389,
