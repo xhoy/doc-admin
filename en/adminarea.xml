@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.42 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.43 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id="adminarea">
 <title>The ADMIN area of OTRS</title>
@@ -13,7 +13,7 @@
 OTRS administrators use the Admin page on the OTRS web interface to configure the system - adding agents, customers and queues, ticket and mail settings, installing additional packages such as FAQ and ITSM, and much more.</para>
 
 <para>
-Agents who are members of the <emphasis>admin</emphasis> group can access the Admin area by clicking the <emphasis>Admin</emphasis> link in the navigation bar (see Figure 5.1 below). The rest of the agents won't
+Agents who are members of the <emphasis>admin</emphasis> group can access the Admin area by clicking the <emphasis>Admin</emphasis> link in the navigation bar (see Figure below). The rest of the agents won't
 see this link.
 </para>
 
@@ -25,7 +25,7 @@ see this link.
 </para>
 
 <para>
-<emphasis>Figure 5.1. OTRS Admin screen.</emphasis>
+<emphasis>Figure: OTRS Admin screen.</emphasis>
 </para>
 
 </section>
@@ -37,7 +37,7 @@ see this link.
 <title>Agents</title>
 
 <para>
-By clicking the link <emphasis>Agents</emphasis>, you get access to the agent management screen of OTRS (see Figure 5.2 below). Administrators can add, change or deactivate agent accounts. Administrators can also manage agent preferences, for instance the language and notification settings for their interface.
+By clicking the link <emphasis>Agents</emphasis>, you get access to the agent management screen of OTRS (see Figure below). Administrators can add, change or deactivate agent accounts. Administrators can also manage agent preferences, for instance the language and notification settings for their interface.
 </para>
 
 <note>
@@ -54,11 +54,11 @@ An OTRS agent account may be deactivated but not deleted. Deactivation is done b
 </para>
 
 <para>
-<emphasis>Figure 5.2. Agent management.</emphasis>
+<emphasis>Figure: Agent management.</emphasis>
 </para>
 
 <para>
-To register an agent, click on the "Add agent" button, type all the needed data and press the Submit button at the bottom of the screen, as shown in Figure 5.3.
+To register an agent, click on the "Add agent" button, type all the needed data and press the Submit button at the bottom of the screen, as shown in Figure.
 </para>
 
 <para>
@@ -69,7 +69,7 @@ To register an agent, click on the "Add agent" button, type all the needed data 
 </para>
 
 <para>
-<emphasis>Figure 5.3. Adding a new agent.</emphasis>
+<emphasis>Figure: Adding a new agent.</emphasis>
 </para>
 
 <para>
@@ -124,7 +124,7 @@ In a brand new OTRS installation, the group <emphasis>users</emphasis> is initia
 </note>
 
 <para>
-You can access the group management page (see Figure 5.4 below) by clicking the <emphasis>Groups</emphasis> link in the admin area.
+You can access the group management page (see Figure below) by clicking the <emphasis>Groups</emphasis> link in the admin area.
 </para>
 
 <para>
@@ -135,7 +135,7 @@ You can access the group management page (see Figure 5.4 below) by clicking the 
 </para>
 
 <para>
-<emphasis>Figure 5.4. Group management.</emphasis>
+<emphasis>Figure: Group management.</emphasis>
 </para>
 
 <note>
@@ -145,7 +145,7 @@ As with agents, an OTRS group may be deactivated but not deleted. Deactivation i
 </note>
 
 <para>
-To add an agent to a group, or to change the agents who belong to a group, you can use the link <emphasis>Agents &lt;-&gt; Groups</emphasis> from the Admin page (see Figure 5.5 below).
+To add an agent to a group, or to change the agents who belong to a group, you can use the link <emphasis>Agents &lt;-&gt; Groups</emphasis> from the Admin page (see Figure below).
 </para>
 
 <para>
@@ -156,11 +156,11 @@ To add an agent to a group, or to change the agents who belong to a group, you c
 </para>
 
 <para>
-<emphasis>Figure 5.5. Group management.</emphasis>
+<emphasis>Figure: Group management.</emphasis>
 </para>
 
 <para>
-An overview of all groups and agents in the system is displayed. You can also use the filters to find a specific entity. If you want to change the groups that an agent is member of, just click on the agent's name (see Figure 5.6 below). To change the agents associated with a group, just click on the group you want to edit (see Figure 5.7 below).
+An overview of all groups and agents in the system is displayed. You can also use the filters to find a specific entity. If you want to change the groups that an agent is member of, just click on the agent's name (see Figure below). To change the agents associated with a group, just click on the group you want to edit (see Figure below).
 </para>
 
 <para>
@@ -171,7 +171,7 @@ An overview of all groups and agents in the system is displayed. You can also us
 </para>
 
 <para>
-<emphasis>Figure 5.6. Change the groups an agent belongs to.</emphasis>
+<emphasis>Figure: Change the groups an agent belongs to.</emphasis>
 </para>
 
 <para>
@@ -182,7 +182,7 @@ An overview of all groups and agents in the system is displayed. You can also us
 </para>
 
 <para>
-<emphasis>Figure 5.7. Change the agents that belong to a specific group.</emphasis>
+<emphasis>Figure: Change the agents that belong to a specific group.</emphasis>
 </para>
 
 <para>
@@ -294,7 +294,7 @@ Roles are really useful when maintaining larger OTRS installations. You should t
 </note>
 
 <para>
-You can access the role management section (see Figure 5.8 below ) by clicking the <emphasis>Roles</emphasis> link on the Admin page.
+You can access the role management section (see Figure below ) by clicking the <emphasis>Roles</emphasis> link on the Admin page.
 </para>
 
 <para>
@@ -305,7 +305,7 @@ You can access the role management section (see Figure 5.8 below ) by clicking t
 </para>
 
 <para>
-<emphasis>Figure 5.8. Role management.</emphasis>
+<emphasis>Figure: Role management.</emphasis>
 </para>
 
 <note>
@@ -315,7 +315,7 @@ As with agent and groups, roles once created can be deactivated but not deleted.
 </note>
 
 <para>
-An overview of all roles in the system is displayed. To edit a role's settings, click on the role's name. In a fresh new OTRS installation, there are no roles defined by default. To register one, click on the "Add role" button,  provide the needed data and submit it (see Figure 5.9 below).
+An overview of all roles in the system is displayed. To edit a role's settings, click on the role's name. In a fresh new OTRS installation, there are no roles defined by default. To register one, click on the "Add role" button,  provide the needed data and submit it (see Figure below).
 </para>
 
 <para>
@@ -326,12 +326,12 @@ An overview of all roles in the system is displayed. To edit a role's settings, 
 </para>
 
 <para>
-<emphasis>Figure 5.9. Adding a new role.</emphasis>
+<emphasis>Figure: Adding a new role.</emphasis>
 </para>
 
 <para>
 To get an overview of all roles and agents in the system, click on the link Roles &lt;-&gt; Agents on the Admin page. You can also use filters to find a specific element. If you want to change the roles associated with an agent, just
-click on the agent's name (see Figure 5.10 below). To change the agents associated with a role, click on the role you want to edit (see Figure 5.11 below).
+click on the agent's name (see Figure below). To change the agents associated with a role, click on the role you want to edit (see Figure below).
 </para>
 
 <para>
@@ -342,7 +342,7 @@ click on the agent's name (see Figure 5.10 below). To change the agents associat
 </para>
 
 <para>
-<emphasis>Figure 5.10. Change the Roles associated with an Agent.</emphasis>
+<emphasis>Figure: Change the Roles associated with an Agent.</emphasis>
 </para>
 
 <para>
@@ -353,11 +353,11 @@ click on the agent's name (see Figure 5.10 below). To change the agents associat
 </para>
 
 <para>
-<emphasis>Figure 5.11. Change the Agents associated with a specific Role.</emphasis>
+<emphasis>Figure: Change the Agents associated with a specific Role.</emphasis>
 </para>
 
 <para>
-To get an overview of all roles and groups in the system, click on the link Roles &lt;-&gt; Groups on the Admin page. You will see a similar screen as the one shown in the Figure 5.12. You can also use filters to find a specific entity.
+To get an overview of all roles and groups in the system, click on the link Roles &lt;-&gt; Groups on the Admin page. You will see a similar screen as the one shown in the Figure. You can also use filters to find a specific entity.
 </para>
 
 <para>
@@ -368,7 +368,7 @@ To get an overview of all roles and groups in the system, click on the link Role
 </para>
 
 <para>
-<emphasis>Figure 5.12. Manage Roles-Groups relations.</emphasis>
+<emphasis>Figure: Manage Roles-Groups relations.</emphasis>
 </para>
 
 <para>
@@ -383,7 +383,7 @@ To define the different access rights for a role, click on the name of a role or
 </para>
 
 <para>
-<emphasis>Figure 5.13. Change Group relations for a Role.</emphasis>
+<emphasis>Figure: Change Group relations for a Role.</emphasis>
 </para>
 
 <para>
@@ -394,7 +394,7 @@ To define the different access rights for a role, click on the name of a role or
 </para>
 
 <para>
-<emphasis>Figure 5.14. Change Role relations for a Group.</emphasis>
+<emphasis>Figure: Change Role relations for a Group.</emphasis>
 </para>
 
 </section>
@@ -408,7 +408,7 @@ To define the different access rights for a role, click on the name of a role or
 <title>Customers</title>
 
 <para>
-OTRS supports different types of users. Using the link "Customers" (via the navigation bar, or the Admin page), you can manage the accounts of your customers (see Figure 5.14 below), who can log into the system via the Customers interface (customer.pl). Through this interface, your customers can create tickets and access them as they are updated. It is important to know that a customer is needed for the ticket history in the system.
+OTRS supports different types of users. Using the link "Customers" (via the navigation bar, or the Admin page), you can manage the accounts of your customers (see Figure below), who can log into the system via the Customers interface (customer.pl). Through this interface, your customers can create tickets and access them as they are updated. It is important to know that a customer is needed for the ticket history in the system.
 </para>
 
 <para>
@@ -419,7 +419,7 @@ OTRS supports different types of users. Using the link "Customers" (via the navi
 </para>
 
 <para>
-<emphasis>Figure 5.14. Customer management.</emphasis>
+<emphasis>Figure: Customer management.</emphasis>
 </para>
 
 <para>
@@ -427,7 +427,7 @@ You can search for a registered customer, or edit their settings by clicking on 
 </para>
 
 <para>
-To create a new customer account, click on the "Add customer" button (see Figure 5.15 below). Some of the fields are mandatory, i.e., they have to contain values, so if you leave one of those empty, it will be highlighted in red.
+To create a new customer account, click on the "Add customer" button (see Figure below). Some of the fields are mandatory, i.e., they have to contain values, so if you leave one of those empty, it will be highlighted in red.
 </para>
 
 <para>
@@ -438,7 +438,7 @@ To create a new customer account, click on the "Add customer" button (see Figure
 </para>
 
 <para>
-<emphasis>Figure 5.14. Adding a customer.</emphasis>
+<emphasis>Figure: Adding a customer.</emphasis>
 </para>
 
 <para>
@@ -465,7 +465,7 @@ The next step is to activate the customer group support. This can be done with t
 </para>
 
 <para>
-Through the link "Customers &lt;-&gt; Groups" you can manage which customer shall belong to the different groups (see Figure 5.15 below).
+Through the link "Customers &lt;-&gt; Groups" you can manage which customer shall belong to the different groups (see Figure below).
 </para>
 
 <para>
@@ -476,7 +476,7 @@ Through the link "Customers &lt;-&gt; Groups" you can manage which customer shal
 </para>
 
 <para>
-<emphasis>Figure 5.15. Customer-Group relations management.</emphasis>
+<emphasis>Figure: Customer-Group relations management.</emphasis>
 </para>
 
 <para>
@@ -491,7 +491,7 @@ To define the different groups a customer should be part of and vice versa, clic
 </para>
 
 <para>
-<emphasis>Figure 5.16. Change Group relations for a Customer.</emphasis>
+<emphasis>Figure: Change Group relations for a Customer.</emphasis>
 </para>
 
 <para>
@@ -502,7 +502,7 @@ To define the different groups a customer should be part of and vice versa, clic
 </para>
 
 <para>
-<emphasis>Figure 5.17. Change Customer relations for a Group.</emphasis>
+<emphasis>Figure: Change Customer relations for a Group.</emphasis>
 </para>
 
 </section>
@@ -513,7 +513,7 @@ To define the different groups a customer should be part of and vice versa, clic
 <title>Queues</title>
 
 <para>
-Clicking on the link "Queues" of the Admin page, you can manage the <link linkend="what-is-a-queue">queues</link> of your system (see Figure 5.18 below). In a new OTRS installation there are 4 default queues: Raw, Junk, Misc and Postmaster. All incoming messages will be stored in the "Raw" queue if no filter rules are defined. The "Junk" queue can be used to store spam messages.
+Clicking on the link "Queues" of the Admin page, you can manage the <link linkend="what-is-a-queue">queues</link> of your system (see Figure below). In a new OTRS installation there are 4 default queues: Raw, Junk, Misc and Postmaster. All incoming messages will be stored in the "Raw" queue if no filter rules are defined. The "Junk" queue can be used to store spam messages.
 </para>
 
 <para>
@@ -524,11 +524,11 @@ Clicking on the link "Queues" of the Admin page, you can manage the <link linken
 </para>
 
 <para>
-<emphasis>Figure 5.18. Queue management.</emphasis>
+<emphasis>Figure: Queue management.</emphasis>
 </para>
 
 <para>
-Here you can add queues (see Figure 5.19 below) and modify them. You can specify the group that should use the queue. You can also set the queue as a sub-queue of an existing queue.
+Here you can add queues (see Figure below) and modify them. You can specify the group that should use the queue. You can also set the queue as a sub-queue of an existing queue.
 </para>
 
 <para>
@@ -539,7 +539,7 @@ Here you can add queues (see Figure 5.19 below) and modify them. You can specify
 </para>
 
 <para>
-<emphasis>Figure 5.19. Adding a new queue.</emphasis>
+<emphasis>Figure: Adding a new queue.</emphasis>
 </para>
 
 <para>
@@ -603,7 +603,7 @@ As with agents, groups and customers, queues cannot be deleted, only deactivated
 
 <para>
 A salutation is a text module for a response. Salutations can be linked to one or more queues, as described in the section about <link linkend="adminarea-queue">queues</link>. A salutation is used only if a ticket from a queue the salutation is linked to, is answered. To manage the different salutations of your system, use the "Salutations"
-link of the admin area (see Figure 5.20 below).
+link of the admin area (see Figure below).
 </para>
 
 <para>
@@ -614,7 +614,7 @@ link of the admin area (see Figure 5.20 below).
 </para>
 
 <para>
-<emphasis>Figure 5.20. Salutation management.</emphasis>
+<emphasis>Figure: Salutation management.</emphasis>
 </para>
 
 <para>
@@ -622,7 +622,7 @@ After a default installation there is already one salutation available, "system 
 </para>
 
 <para>
-To create a new salutation, press the button "Add salutation", provide the needed data and submit it (see Figure 5.21 below).
+To create a new salutation, press the button "Add salutation", provide the needed data and submit it (see Figure below).
 </para>
 
 <para>
@@ -633,7 +633,7 @@ To create a new salutation, press the button "Add salutation", provide the neede
 </para>
 
 <para>
-<emphasis>Figure 5.21. Adding a new salutation.</emphasis>
+<emphasis>Figure: Adding a new salutation.</emphasis>
 </para>
 
 <para>
@@ -656,7 +656,7 @@ As with other OTRS entities, salutations cannot be deleted, only deactivated by 
 <title>Signatures</title>
 
 <para>
-Another text module for a response is the signature. Signatures can be linked to a queue, as described in the section about the <link linkend="adminarea-queue">queues</link>. Only if a signature is linked to a queue will it be included into the response text. Through the "Signatures" link of the Admin page, you can manage the signatures in your system (see Figure 5.22 below).
+Another text module for a response is the signature. Signatures can be linked to a queue, as described in the section about the <link linkend="adminarea-queue">queues</link>. Only if a signature is linked to a queue will it be included into the response text. Through the "Signatures" link of the Admin page, you can manage the signatures in your system (see Figure below).
 </para>
 
 <para>
@@ -667,7 +667,7 @@ Another text module for a response is the signature. Signatures can be linked to
 </para>
 
 <para>
-<emphasis>Figure 5.22. Signatures management.</emphasis>
+<emphasis>Figure: Signatures management.</emphasis>
 </para>
 
 <para>
@@ -675,7 +675,7 @@ After a fresh installation of OTRS, there is one predefined signature stored in 
 </para>
 
 <para>
-To create a new signature, press the button "Add signature", provide the needed data and submit it (see Figure 5.23 below).
+To create a new signature, press the button "Add signature", provide the needed data and submit it (see Figure below).
 </para>
 
 <para>
@@ -686,7 +686,7 @@ To create a new signature, press the button "Add signature", provide the needed 
 </para>
 
 <para>
-<emphasis>Figure 5.23. Adding a new signature.</emphasis>
+<emphasis>Figure: Adding a new signature.</emphasis>
 </para>
 
 <para>
@@ -709,7 +709,7 @@ You can also optionally add one or more attachments for a response. If the respo
 </para>
 
 <para>
-Through the "Attachment" link of the Admin page, you can load the attachments into the database of the system (see Figure 5.24 below).
+Through the "Attachment" link of the Admin page, you can load the attachments into the database of the system (see Figure below).
 </para>
 
 <para>
@@ -720,11 +720,11 @@ Through the "Attachment" link of the Admin page, you can load the attachments in
 </para>
 
 <para>
-<emphasis>Figure 5.24. Attachments management.</emphasis>
+<emphasis>Figure: Attachments management.</emphasis>
 </para>
 
 <para>
-To create a new attachment, press the button "Add attachment", provide the needed data and submit it (see Figure 5.25 below).
+To create a new attachment, press the button "Add attachment", provide the needed data and submit it (see Figure below).
 </para>
 
 <para>
@@ -735,12 +735,12 @@ To create a new attachment, press the button "Add attachment", provide the neede
 </para>
 
 <para>
-<emphasis>Figure 5.25. Adding a new attachment.</emphasis>
+<emphasis>Figure: Adding a new attachment.</emphasis>
 </para>
 
 <para>
 If an attachment is stored it can be linked to one or more responses. Click on the "Attachment &lt;-&gt; Responses"
-link of the Admin page (see Figure 5.26 below).
+link of the Admin page (see Figure below).
 </para>
 
 <para>
@@ -751,7 +751,7 @@ link of the Admin page (see Figure 5.26 below).
 </para>
 
 <para>
-<emphasis>Figure 5.26. Linking Attachments to Responses.</emphasis>
+<emphasis>Figure: Linking Attachments to Responses.</emphasis>
 </para>
 
 <para>
@@ -766,7 +766,7 @@ To associate different attachments with a specific response and vice versa, clic
 </para>
 
 <para>
-<emphasis>Figure 5.27. Change Attachment relations for a Response.</emphasis>
+<emphasis>Figure: Change Attachment relations for a Response.</emphasis>
 </para>
 
 <para>
@@ -777,7 +777,7 @@ To associate different attachments with a specific response and vice versa, clic
 </para>
 
 <para>
-<emphasis>Figure 5.28. Change Response relations for an Attachment.</emphasis>
+<emphasis>Figure: Change Response relations for an Attachment.</emphasis>
 </para>
 
 </section>
@@ -790,7 +790,7 @@ To speed up the answering of tickets and to standardize the look of answers, you
 </para>
 
 <para>
-On a fresh OTRS installation, the "empty answer" response is defined for every queue. Clicking the "Responses" link on the Admin page brings you to the Responses management page (see Figure 5.29 below).
+On a fresh OTRS installation, the "empty answer" response is defined for every queue. Clicking the "Responses" link on the Admin page brings you to the Responses management page (see Figure below).
 </para>
 
 <para>
@@ -801,11 +801,11 @@ On a fresh OTRS installation, the "empty answer" response is defined for every q
 </para>
 
 <para>
-<emphasis>Figure 5.29. Responses management.</emphasis>
+<emphasis>Figure: Responses management.</emphasis>
 </para>
 
 <para>
-To create a new response, click on the "Add response" button, provide the required data and submit it (see Figure 5.30 below).
+To create a new response, click on the "Add response" button, provide the required data and submit it (see Figure below).
 </para>
 
 <para>
@@ -816,11 +816,11 @@ To create a new response, click on the "Add response" button, provide the requir
 </para>
 
 <para>
-<emphasis>Figure 5.30. Adding a response.</emphasis>
+<emphasis>Figure: Adding a response.</emphasis>
 </para>
 
 <para>
-To add/remove responses to one or more queues, click on the "Responses &lt;-&gt; Queues" link on the Admin page (see Figure 5.31 below). You can also use filters to get information on a specific entity.
+To add/remove responses to one or more queues, click on the "Responses &lt;-&gt; Queues" link on the Admin page (see Figure below). You can also use filters to get information on a specific entity.
 </para>
 
 <para>
@@ -831,7 +831,7 @@ To add/remove responses to one or more queues, click on the "Responses &lt;-&gt;
 </para>
 
 <para>
-<emphasis>Figure 5.31. Response-Queue relations management.</emphasis>
+<emphasis>Figure: Response-Queue relations management.</emphasis>
 </para>
 
 <para>
@@ -846,7 +846,7 @@ To define the different responses that will be available for a queue and vice ve
 </para>
 
 <para>
-<emphasis>Figure 5.32. Change Queue relations for a Response.</emphasis>
+<emphasis>Figure: Change Queue relations for a Response.</emphasis>
 </para>
 
 <para>
@@ -857,7 +857,7 @@ To define the different responses that will be available for a queue and vice ve
 </para>
 
 <para>
-<emphasis>Figure 5.33. Change Response relations for a Queue.</emphasis>
+<emphasis>Figure: Change Response relations for a Queue.</emphasis>
 </para>
 
 <para>
@@ -872,7 +872,7 @@ The structure of a response is intuitive. It includes the salutation associated 
 <title>Auto responses</title>
 
 <para>
-OTRS allows you to send automatic responses to customers on the occurence of certain events, such as the creation of a ticket in certain queue, reception of a follow-up message on a ticket, closure or rejection of a ticket, etc. To manage such responses, click the link "Auto responses" on the Admin page (see Figure 5.34 below).
+OTRS allows you to send automatic responses to customers on the occurence of certain events, such as the creation of a ticket in certain queue, reception of a follow-up message on a ticket, closure or rejection of a ticket, etc. To manage such responses, click the link "Auto responses" on the Admin page (see Figure below).
 </para>
 
 <para>
@@ -883,11 +883,11 @@ OTRS allows you to send automatic responses to customers on the occurence of cer
 </para>
 
 <para>
-<emphasis>Figure 5.34. Auto Response management.</emphasis>
+<emphasis>Figure: Auto Response management.</emphasis>
 </para>
 
 <para>
-To create an automatic response, click on the button "Add auto response", provide the needed data and submit it (see Figure 5.35 below).
+To create an automatic response, click on the button "Add auto response", provide the needed data and submit it (see Figure below).
 </para>
 
 <para>
@@ -898,11 +898,11 @@ To create an automatic response, click on the button "Add auto response", provid
 </para>
 
 <para>
-<emphasis>Figure 5.35. Adding an Auto Response.</emphasis>
+<emphasis>Figure: Adding an Auto Response.</emphasis>
 </para>
 
 <para>
-The subject and text of auto responses can be generated by variables, just as in signatures and salutations. If you insert, for example, the variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; into the body of the auto answer, the first 5 lines of the customer mail text will be inserted into the auto answer. You will find more details about the valid variables that can be used at the bottom of the screen shown in the Figure 5.35.
+The subject and text of auto responses can be generated by variables, just as in signatures and salutations. If you insert, for example, the variable &lt;OTRS_CUSTOMER_EMAIL[5]&gt; into the body of the auto answer, the first 5 lines of the customer mail text will be inserted into the auto answer. You will find more details about the valid variables that can be used at the bottom of the screen shown in the Figure.
 </para>
 
 <para>
@@ -975,7 +975,7 @@ As with other OTRS entities, Auto responses too cannot be deleted, only deactiva
 </note>
 
 <para>
-To add an auto response to a queue, use the "Auto Response &lt;-&gt; Queues" link on the Admin page (see Figure 5.36 below). All system events are listed for every queue, and an auto answer with the same event can be selected or removed via a listbox.
+To add an auto response to a queue, use the "Auto Response &lt;-&gt; Queues" link on the Admin page (see Figure below). All system events are listed for every queue, and an auto answer with the same event can be selected or removed via a listbox.
 </para>
 
 <para>
@@ -986,11 +986,11 @@ To add an auto response to a queue, use the "Auto Response &lt;-&gt; Queues" lin
 </para>
 
 <para>
-<emphasis>Figure 5.36. Queue-Auto Response relations management.</emphasis>
+<emphasis>Figure: Queue-Auto Response relations management.</emphasis>
 </para>
 
 <para>
-To define the different auto responses that will be available for a queue, click on the corresponding queue name (see Figure 5.37 below). It is also possible to edit an existing auto response - to do so, click on the reponse and edit in the same manner as editing a new auto response.
+To define the different auto responses that will be available for a queue, click on the corresponding queue name (see Figure below). It is also possible to edit an existing auto response - to do so, click on the reponse and edit in the same manner as editing a new auto response.
 </para>
 
 <para>
@@ -1001,7 +1001,7 @@ To define the different auto responses that will be available for a queue, click
 </para>
 
 <para>
-<emphasis>Figure 5.37. Change Auto Response relations for a Queue.</emphasis>
+<emphasis>Figure: Change Auto Response relations for a Queue.</emphasis>
 </para>
 
 </section>
@@ -1011,7 +1011,7 @@ To define the different auto responses that will be available for a queue, click
 <title>Email addresses</title>
 
 <para>
-To enable OTRS to send emails, you need a valid email address to be used by the system. OTRS is capable of working with multiple email addresses, since many support installations need to use more than one. A queue can be linked to many email addresses, and vice versa. The address used for outgoing messages from a queue can be set when the queue is created. Use the "Email Addresses" link from the Admin page to manage all email addresses of the system (see Figure 5.38 below).
+To enable OTRS to send emails, you need a valid email address to be used by the system. OTRS is capable of working with multiple email addresses, since many support installations need to use more than one. A queue can be linked to many email addresses, and vice versa. The address used for outgoing messages from a queue can be set when the queue is created. Use the "Email Addresses" link from the Admin page to manage all email addresses of the system (see Figure below).
 </para>
 
 <para>
@@ -1022,11 +1022,11 @@ To enable OTRS to send emails, you need a valid email address to be used by the 
 </para>
 
 <para>
-<emphasis>Figure 5.38. System Email Addresses management.</emphasis>
+<emphasis>Figure: System Email Addresses management.</emphasis>
 </para>
 
 <para>
-If you create a new mail address (see Figure 5.39 below) you can select the queue or sub queue to be linked with it. This link enables the system to sort incoming messages via the address in the To: field of the mail into the right queue.
+If you create a new mail address (see Figure below) you can select the queue or sub queue to be linked with it. This link enables the system to sort incoming messages via the address in the To: field of the mail into the right queue.
 </para>
 
 <para>
@@ -1037,7 +1037,7 @@ If you create a new mail address (see Figure 5.39 below) you can select the queu
 </para>
 
 <para>
-<emphasis>Figure 5.39. Adding a system Email Address.</emphasis>
+<emphasis>Figure: Adding a system Email Address.</emphasis>
 </para>
 
 <note>
@@ -1056,7 +1056,7 @@ OTRS allows notifications to be sent to agents and customers, on the occurence o
 </para>
 
 <para>
-Through the "Agent Notifications" link on the Admin page, you can manage the notifications of your system (see Figure 5.40 below). You can use filters to list only certain notifications.
+Through the "Agent Notifications" link on the Admin page, you can manage the notifications of your system (see Figure below). You can use filters to list only certain notifications.
 </para>
 
 <para>
@@ -1067,11 +1067,11 @@ Through the "Agent Notifications" link on the Admin page, you can manage the not
 </para>
 
 <para>
-<emphasis>Figure 5.40. Notification management.</emphasis>
+<emphasis>Figure: Notification management.</emphasis>
 </para>
 
 <para>
-You can customize the subject and the text of the notifications. Click on the notification you want to change from the list, and its content will get loaded for editing (see Figure 5.41). Please note that there is a notification with the same name for each of the available languages.
+You can customize the subject and the text of the notifications. Click on the notification you want to change from the list, and its content will get loaded for editing (see Figure). Please note that there is a notification with the same name for each of the available languages.
 </para>
 
 <para>
@@ -1082,11 +1082,11 @@ You can customize the subject and the text of the notifications. Click on the no
 </para>
 
 <para>
-<emphasis>Figure 5.41. Customizing a Notification.</emphasis>
+<emphasis>Figure: Customizing a Notification.</emphasis>
 </para>
 
 <para>
-Just as with signatures and salutations, it is possible to dynamically create the content of a notification, by using special variables. You can find a list of variables at the bottom of the screen shown in the Figure 5.41.
+Just as with signatures and salutations, it is possible to dynamically create the content of a notification, by using special variables. You can find a list of variables at the bottom of the screen shown in the Figure.
 </para>
 
 <para>
@@ -1094,7 +1094,7 @@ It is also possible to create notifications based on events. You can specify in 
 </para>
 
 <para>
-In order to see a list of all event based notifications, click on the link "Notifications (Event)" on the Admin page (see Figure 5.42).
+In order to see a list of all event based notifications, click on the link "Notifications (Event)" on the Admin page (see Figure).
 </para>
 
 <para>
@@ -1105,11 +1105,11 @@ In order to see a list of all event based notifications, click on the link "Noti
 </para>
 
 <para>
-<emphasis>Figure 5.42. Event based Notification management.</emphasis>
+<emphasis>Figure: Event based Notification management.</emphasis>
 </para>
 
 <para>
-As shown in Figure 5.42, you can create a new notification by clicking on the Add button (see Figure 5.43).
+As shown in Figure, you can create a new notification by clicking on the Add button (see Figure).
 </para>
 
 <para>
@@ -1120,11 +1120,11 @@ As shown in Figure 5.42, you can create a new notification by clicking on the Ad
 </para>
 
 <para>
-<emphasis>Figure 5.43. Registering an Event based Notification management.</emphasis>
+<emphasis>Figure: Registering an Event based Notification management.</emphasis>
 </para>
 
 <para>
-Please note that the content of the event based notifications can also be dynamically created by using the special variables listed at the bottom of the screen shown in the Figure 5.43.
+Please note that the content of the event based notifications can also be dynamically created by using the special variables listed at the bottom of the screen shown in the Figure.
 </para>
 
 </section>
@@ -1137,7 +1137,7 @@ OTRS can process incoming S/MIME encoded messages and sign outgoing mails. Befor
 </para>
 
 <para>
-The "S/MIME Certificates" link on the Admin page allows you to manage your S/MIME certificates (see Figure 5.44 below). You can add or remove certificates, and also search through the SMIME data.
+The "S/MIME Certificates" link on the Admin page allows you to manage your S/MIME certificates (see Figure below). You can add or remove certificates, and also search through the SMIME data.
 </para>
 
 <para>
@@ -1148,7 +1148,7 @@ The "S/MIME Certificates" link on the Admin page allows you to manage your S/MIM
 </para>
 
 <para>
-<emphasis>Figure 5.44. S/MIME management.</emphasis>
+<emphasis>Figure: S/MIME management.</emphasis>
 </para>
 
 </section>
@@ -1161,7 +1161,7 @@ OTRS handles PGP keys, which allows you to encrypt/decrypt messages and to sign 
 </para>
 
 <para>
-Through the "PGP Keys" link on the Admin page, it is possible to manage the key ring of the user who shall be used for PGP with OTRS (see Figure 5.45 below), e.g. the local OTRS user or the web server user. It is possible to add and remove keys and signatures, and you can search through all data in your key ring.
+Through the "PGP Keys" link on the Admin page, it is possible to manage the key ring of the user who shall be used for PGP with OTRS (see Figure below), e.g. the local OTRS user or the web server user. It is possible to add and remove keys and signatures, and you can search through all data in your key ring.
 </para>
 
 <para>
@@ -1172,7 +1172,7 @@ Through the "PGP Keys" link on the Admin page, it is possible to manage the key 
 </para>
 
 <para>
-<emphasis>Figure 5.45. PGP management.</emphasis>
+<emphasis>Figure: PGP management.</emphasis>
 </para>
 
 </section>
@@ -1181,7 +1181,7 @@ Through the "PGP Keys" link on the Admin page, it is possible to manage the key 
 <title>States</title>
 
 <para>
-Through the "States" link on the Admin page, you can manage the different ticket states you want to use in the system (see Figure 5.46 below).
+Through the "States" link on the Admin page, you can manage the different ticket states you want to use in the system (see Figure below).
 </para>
 
 <para>
@@ -1192,7 +1192,7 @@ Through the "States" link on the Admin page, you can manage the different ticket
 </para>
 
 <para>
-<emphasis>Figure 5.46. State management.</emphasis>
+<emphasis>Figure: State management.</emphasis>
 </para>
 
 <para>
@@ -1300,7 +1300,7 @@ The SysConfig link leads to the section where many OTRS configuration options ar
 </para>
 
 <para>
-The SysConfig link on the Admin page loads the graphical interface for system configuration (see Figure 5.47 below). You can upload your own configuration files for the system, as well as backup all your current settings into a file. Almost all configuration parameters of the OTRS framework and installed applications can be viewed and changed through this interface. Since all configuration parameters are sorted into groups and sub groups, it is possible to navigate quickly through the multitude of the parameters. It is also possible to perform a full-text search through all the configuration parameters.
+The SysConfig link on the Admin page loads the graphical interface for system configuration (see Figure below). You can upload your own configuration files for the system, as well as backup all your current settings into a file. Almost all configuration parameters of the OTRS framework and installed applications can be viewed and changed through this interface. Since all configuration parameters are sorted into groups and sub groups, it is possible to navigate quickly through the multitude of the parameters. It is also possible to perform a full-text search through all the configuration parameters.
 </para>
 
 <para>
@@ -1311,7 +1311,7 @@ The SysConfig link on the Admin page loads the graphical interface for system co
 </para>
 
 <para>
-<emphasis>Figure 5.47. The graphical interface for system configuration (SysConfig).</emphasis>
+<emphasis>Figure: The graphical interface for system configuration (SysConfig).</emphasis>
 </para>
 
 <para>
@@ -1325,7 +1325,7 @@ The graphical interface for system configuration is described in more detail in 
 <title>Using mail accounts</title>
 
 <para>
-There are several possibilities to transport new emails into the ticket system. One of them is the <link linkend="email-receiving-cmd">otrs.PostMaster.pl module</link> that pipes the mails directly into the system. Another possibility is the use of mail accounts which can be administrated through the web interface. The "PostMaster Mail Accounts" link on the Admin page loads the management console for the mail accounts (see Figure 5.48 below). OTRS supports the mail protocols: POP3, POP3S, IMAP and IMAPS.
+There are several possibilities to transport new emails into the ticket system. One of them is the <link linkend="email-receiving-cmd">otrs.PostMaster.pl module</link> that pipes the mails directly into the system. Another possibility is the use of mail accounts which can be administrated through the web interface. The "PostMaster Mail Accounts" link on the Admin page loads the management console for the mail accounts (see Figure below). OTRS supports the mail protocols: POP3, POP3S, IMAP and IMAPS.
 </para>
 
 <para>
@@ -1336,7 +1336,7 @@ There are several possibilities to transport new emails into the ticket system. 
 </para>
 
 <para>
-<emphasis>Figure 5.48. Mail account management.</emphasis>
+<emphasis>Figure: Mail account management.</emphasis>
 </para>
 
 <para>
@@ -1349,7 +1349,7 @@ See the section about the <link linkend="email-receiving-pop3">PostMaster mail a
 <title>Filtering incoming messages</title>
 
 <para>
-OTRS has the capability to filter incoming messages, as reflected by incoming messages being sorted automatically into queues, or spam mails being moved into a specific queue. It is irrelevant whether  <filename>PostMaster.pl</filename> or mail accounts are used to get messages into the ticket system. Filter rules can be created through the link "PostMaster Filter" on the Admin page (see Figure 5.49 below).
+OTRS has the capability to filter incoming messages, as reflected by incoming messages being sorted automatically into queues, or spam mails being moved into a specific queue. It is irrelevant whether  <filename>PostMaster.pl</filename> or mail accounts are used to get messages into the ticket system. Filter rules can be created through the link "PostMaster Filter" on the Admin page (see Figure below).
 </para>
 
 <para>
@@ -1360,7 +1360,7 @@ OTRS has the capability to filter incoming messages, as reflected by incoming me
 </para>
 
 <para>
-<emphasis>Figure 5.49. PostMaster filter management.</emphasis>
+<emphasis>Figure: PostMaster filter management.</emphasis>
 </para>
 
 <para>
@@ -1591,7 +1591,7 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
 </table>
 
 <para>
-A name must be specified for every filter rule. Filter criteria can be specified in the section "Filter Condition". Choose via the listboxes for "Header 1", "Header 2" and so on for the parts of the messages where you would like to search, and specify on the right side the values you wish to filter on. In the section "Set Email Headers", you can choose the actions that are triggered if the filter rules match. You can select for "Header 1", "Header 2" and so on to select the X-OTRS-Header and set the associated values (see Figure 5.50 below).
+A name must be specified for every filter rule. Filter criteria can be specified in the section "Filter Condition". Choose via the listboxes for "Header 1", "Header 2" and so on for the parts of the messages where you would like to search, and specify on the right side the values you wish to filter on. In the section "Set Email Headers", you can choose the actions that are triggered if the filter rules match. You can select for "Header 1", "Header 2" and so on to select the X-OTRS-Header and set the associated values (see Figure below).
 </para>
 
 <para>
@@ -1602,7 +1602,7 @@ A name must be specified for every filter rule. Filter criteria can be specified
 </para>
 
 <para>
-<emphasis>Figure 5.50. Add a PostMaster filter.</emphasis>
+<emphasis>Figure: Add a PostMaster filter.</emphasis>
 </para>
 
 <example id="sort-mails-into-junk">
@@ -1628,7 +1628,7 @@ The GenericAgent is a tool to execute tasks automatically. In its absence such t
 </para>
 
 <para>
-Click the link "GenericAgent" on the Admin page (see Figure 5.51 below). A table with currently automated jobs is displayed which can be edited to switch to executing jobs manually, or removing them.
+Click the link "GenericAgent" on the Admin page (see Figure below). A table with currently automated jobs is displayed which can be edited to switch to executing jobs manually, or removing them.
 </para>
 
 <para>
@@ -1639,11 +1639,11 @@ Click the link "GenericAgent" on the Admin page (see Figure 5.51 below). A table
 </para>
 
 <para>
-<emphasis>Figure 5.51. Job list for the GenericAgent.</emphasis>
+<emphasis>Figure: Job list for the GenericAgent.</emphasis>
 </para>
 
 <para>
-Click the "Add job" button to create a new job. You first need to supply a name for the job, as also the times when the job should be executed. Different criteria to select the tickets to work on and the new properties of those tickets can also be set (see Figure 5.52 below).
+Click the "Add job" button to create a new job. You first need to supply a name for the job, as also the times when the job should be executed. Different criteria to select the tickets to work on and the new properties of those tickets can also be set (see Figure below).
 </para>
 
 <para>
@@ -1654,7 +1654,7 @@ Click the "Add job" button to create a new job. You first need to supply a name 
 </para>
 
 <para>
-<emphasis>Figure 5.52. Creating a job for the GenericAgent.</emphasis>
+<emphasis>Figure: Creating a job for the GenericAgent.</emphasis>
 </para>
 
 <para>
@@ -1667,7 +1667,7 @@ On completing the job creation, all affected tickets by the job are listed. This
 <title>Admin email</title>
 
 <para>
-OTRS administrators can send messages to specific users or groups. The "Admin Notification" link on the Admin page opens the screen where the agents and groups that should be notified can be selected (see Figure 5.53 below).
+OTRS administrators can send messages to specific users or groups. The "Admin Notification" link on the Admin page opens the screen where the agents and groups that should be notified can be selected (see Figure below).
 </para>
 
 <para>
@@ -1678,7 +1678,7 @@ OTRS administrators can send messages to specific users or groups. The "Admin No
 </para>
 
 <para>
-<emphasis>Figure 5.53. Admin notification.</emphasis>
+<emphasis>Figure: Admin notification.</emphasis>
 </para>
 
 <para>
@@ -1691,7 +1691,7 @@ It is possible to specify the sender, subject and body text of the notification.
 <title>Session management</title>
 
 <para>
-You can see all logged in users and their session details by clicking the "Session Management" link in the admin area (see Figure 5.54 below).
+You can see all logged in users and their session details by clicking the "Session Management" link in the admin area (see Figure below).
 </para>
 
 <para>
@@ -1702,11 +1702,11 @@ You can see all logged in users and their session details by clicking the "Sessi
 </para>
 
 <para>
-<emphasis>Figure 5.54. Session management.</emphasis>
+<emphasis>Figure: Session management.</emphasis>
 </para>
 
 <para>
-Some statistics about all active sessions are displayed, e.g. how many agents and customer users are logged in, number of active sessions. Any individual session can be removed by clicking on the <emphasis>Kill this session</emphasis> link on the right-hand side of the list. You also have the option to <emphasis>Kill all sessions</emphasis>, which can be useful if you'd like to bring the system down. Detailed information for every session is available, too (see Figure 5.55 below).
+Some statistics about all active sessions are displayed, e.g. how many agents and customer users are logged in, number of active sessions. Any individual session can be removed by clicking on the <emphasis>Kill this session</emphasis> link on the right-hand side of the list. You also have the option to <emphasis>Kill all sessions</emphasis>, which can be useful if you'd like to bring the system down. Detailed information for every session is available, too (see Figure below).
 </para>
 
 <para>
@@ -1717,7 +1717,7 @@ Some statistics about all active sessions are displayed, e.g. how many agents an
 </para>
 
 <para>
-<emphasis>Figure 5.55. Session details.</emphasis>
+<emphasis>Figure: Session details.</emphasis>
 </para>
 
 </section>
@@ -1726,7 +1726,7 @@ Some statistics about all active sessions are displayed, e.g. how many agents an
 <title>System Log</title>
 
 <para>
-The "System Log" link on the Admin page shows the log entries of the system, reverse chronologically sorted with most recent first (see Figure 5.56 below).
+The "System Log" link on the Admin page shows the log entries of the system, reverse chronologically sorted with most recent first (see Figure below).
 </para>
 
 <para>
@@ -1737,7 +1737,7 @@ The "System Log" link on the Admin page shows the log entries of the system, rev
 </para>
 
 <para>
-<emphasis>Figure 5.56. System Log.</emphasis>
+<emphasis>Figure: System Log.</emphasis>
 </para>
 
 <para>
@@ -1756,7 +1756,7 @@ System logs are available via the web interface only on Linux / Unix systems. On
 <title>SQL queries via the SQL box</title>
 
 <para>
-The "SQL Box" link on the Admin page opens a screen that lets you query the content of the tables in the OTRS database (see Figure 5.57 below). It is not possible to change the content of the tables, only select queries are allowed.
+The "SQL Box" link on the Admin page opens a screen that lets you query the content of the tables in the OTRS database (see Figure below). It is not possible to change the content of the tables, only select queries are allowed.
 </para>
 
 <para>
@@ -1767,7 +1767,7 @@ The "SQL Box" link on the Admin page opens a screen that lets you query the cont
 </para>
 
 <para>
-<emphasis>Figure 5.57. SQL Box.</emphasis>
+<emphasis>Figure: SQL Box.</emphasis>
 </para>
 
 </section>
@@ -1776,7 +1776,7 @@ The "SQL Box" link on the Admin page opens a screen that lets you query the cont
 <title>Package Manager</title>
 
 <para>
-Using the "Package Manager" link on the Admin page, you can install and manage packages that extend the functionality of OTRS (see Figure 5.58 below). See the <link linkend="application">Additional applications</link> section for a discussion on the extensions that are available from the OTRS repositories.
+Using the "Package Manager" link on the Admin page, you can install and manage packages that extend the functionality of OTRS (see Figure below). See the <link linkend="application">Additional applications</link> section for a discussion on the extensions that are available from the OTRS repositories.
 </para>
 
 <para>
@@ -1787,7 +1787,7 @@ Using the "Package Manager" link on the Admin page, you can install and manage p
 </para>
 
 <para>
-<emphasis>Figure 5.58. Package Manager.</emphasis>
+<emphasis>Figure: Package Manager.</emphasis>
 </para>
 
 <para>

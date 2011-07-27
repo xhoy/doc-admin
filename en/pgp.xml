@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: pgp.xml,v 1.6 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.7 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id='configure-pgp'>
 <title>PGP</title>
@@ -19,7 +19,7 @@ OTRS has the capability to sign or encrypt outgoing messages with PGP. Further, 
     </listitem>
     <listitem>
     <para>
-    Configure GnuPG for use with OTRS. The necessary directories for GnuPG and a private key have to be created. The command shown in Script 16.1 has to be executed as user 'otrs' from a shell.
+    Configure GnuPG for use with OTRS. The necessary directories for GnuPG and a private key have to be created. The command shown in the script below has to be executed as user 'otrs' from a shell.
     </para>
 
     <para>
@@ -110,11 +110,11 @@ OTRS has the capability to sign or encrypt outgoing messages with PGP. Further, 
     </para>
 
     <para>
-    <emphasis>Script 16.1. Configuring GnuPG.</emphasis>
+    <emphasis>Script: Configuring GnuPG.</emphasis>
     </para>
 
     <para>
-		As shown in Script 16.1, the default settings can be applied for most of the required parameters. Only the values for the key owner have to be entered correctly, with a proper password specified for the key.
+		As shown in the script below, the default settings can be applied for most of the required parameters. Only the values for the key owner have to be entered correctly, with a proper password specified for the key.
     </para>
     </listitem>
     <listitem>
@@ -135,7 +135,7 @@ OTRS has the capability to sign or encrypt outgoing messages with PGP. Further, 
     </para>
 
     <para>
-    How to get the id of your own private key? The ID of your own private key is already shown during the key generation (see step 1 from above). It is also possible to get the ID if the command specified in Script 16.2 is executed as user 'otrs':
+    How to get the id of your own private key? The ID of your own private key is already shown during the key generation (see step 1 from above). It is also possible to get the ID if the command specified in the following script is executed as user 'otrs':
     </para>
 
     <para>
@@ -157,7 +157,7 @@ OTRS has the capability to sign or encrypt outgoing messages with PGP. Further, 
     </para>
 
     <para>
-    <emphasis>Script 16.2. Getting the ID of your own private key.</emphasis>
+    <emphasis>Script: Getting the ID of your own private key.</emphasis>
     </para>
 
     <para>

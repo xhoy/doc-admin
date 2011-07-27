@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.25 2011-06-16 07:32:15 mb Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.26 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -38,7 +38,7 @@ Customer data used or displayed within OTRS is highly customizable. The followin
 </para>
 
 <para>
-Use configuration parameters of Script 11.1 in your <filename>Kernel/Config.pm</filename> file, if you want to display customer information in your agent interface.
+Use configuration parameters of the following script in your <filename>Kernel/Config.pm</filename> file, if you want to display customer information in your agent interface.
 </para>
 
 <para>
@@ -53,7 +53,7 @@ Use configuration parameters of Script 11.1 in your <filename>Kernel/Config.pm</
 </para>
 
 <para>
-<emphasis>Script 11.1. Kernel/Config.pm configuration parameters.</emphasis>
+<emphasis>Script: Kernel/Config.pm configuration parameters.</emphasis>
 </para>
 
 </section>
@@ -161,7 +161,7 @@ CustomerValid => 'valid_id',
 </example>
 
 <para>
-If you want to customize the customer data, change the column headers or add new ones to the customer_user table in the OTRS database. As an example, Script 11.2 shows how to add a new field for room number.
+If you want to customize the customer data, change the column headers or add new ones to the customer_user table in the OTRS database. As an example, the script below shows how to add a new field for room number.
 </para>
 
 <para>
@@ -189,11 +189,11 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script 11.2. Adding a room field to the customer_user table.</emphasis>
+<emphasis>Script: Adding a room field to the customer_user table.</emphasis>
 </para>
 
 <para>
-Now add the new column to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in Script 11.3.
+Now add the new column to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in the following script.
 </para>
 
 <para>
@@ -205,7 +205,7 @@ Now add the new column to the MAP array in <filename>Kernel/Config.pm</filename>
 </para>
 
 <para>
-<emphasis>Script 11.3. Adding a room field to the Kernel/Config.pm file.</emphasis>
+<emphasis>Script: Adding a room field to the Kernel/Config.pm file.</emphasis>
 </para>
 
 <para>
@@ -220,7 +220,7 @@ It is possible to assign more than one customer ID to a customer. This can be us
 </para>
 
 <para>
-To use company tickets, a new column with the IDs that should be accessible for a customer, has to be added to the customer_user table in the OTRS database (see Script 11.4 below).
+To use company tickets, a new column with the IDs that should be accessible for a customer, has to be added to the customer_user table in the OTRS database (see Script below).
 </para>
 
 <para>
@@ -248,11 +248,11 @@ linux:~#
 </para>
 
 <para>
-	<emphasis>Script 11.4. Adding a customer_ids field to the customer_user table.</emphasis>
+	<emphasis>Script: Adding a customer_ids field to the customer_user table.</emphasis>
 </para>
 
 <para>
-Now the new column has to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in Script 11.5.
+Now the new column has to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in the script below.
 </para>
 
 <para>
@@ -264,7 +264,7 @@ Now the new column has to be added to the MAP array in <filename>Kernel/Config.p
 </para>
 
 <para>
-<emphasis>Script 11.5. Adding a UserCustomerIDs field to the Kernel/Config.pm file.</emphasis>
+<emphasis>Script: Adding a UserCustomerIDs field to the Kernel/Config.pm file.</emphasis>
 </para>
 
 <para>
@@ -378,7 +378,7 @@ $Self->{CustomerUser} = {
 </example>
 
 <para>
-If additional customer attributes are stored in your LDAP directory, such as a manager's name, a mobile phone number, or a department, and if you want to display this information in OTRS, just expand the MAP array in <filename>Kernel/Config.pm</filename> with the entries for these attributes, as shown in Script 11.6.
+If additional customer attributes are stored in your LDAP directory, such as a manager's name, a mobile phone number, or a department, and if you want to display this information in OTRS, just expand the MAP array in <filename>Kernel/Config.pm</filename> with the entries for these attributes, as shown in the following script.
 </para>
 
 <para>
@@ -390,7 +390,7 @@ If additional customer attributes are stored in your LDAP directory, such as a m
 </para>
 
 <para>
-<emphasis>Script 11.6. Adding new fields to the Kernel/Config.pm file.</emphasis>
+<emphasis>Script: Adding new fields to the Kernel/Config.pm file.</emphasis>
 </para>
 
 
@@ -402,7 +402,7 @@ It is possible to assign more than one Customer ID to a customer, when using an 
 </para>
 
 <para>
-If the new field in the LDAP directory has been created, the new entry has to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in Script 11.7.
+If the new field in the LDAP directory has been created, the new entry has to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as shown in the script below.
 </para>
 
 <para>
@@ -414,7 +414,7 @@ If the new field in the LDAP directory has been created, the new entry has to be
 </para>
 
 <para>
-<emphasis>Script 11.7. Maping new fields to the Kernel/Config.pm file.</emphasis>
+<emphasis>Script: Maping new fields to the Kernel/Config.pm file.</emphasis>
 </para>
 
 <para>
@@ -691,7 +691,7 @@ $Self->{'AuthModule::LDAP::Params'} = {
 </example>
 
 <para>
-The configuration parameters shown in Script 11.8 can be used to synchronize the user data from your LDAP directory into your local OTRS database. This reduces the number of requests to your LDAP server and speeds up the authentication with OTRS. The data synchronization is done when the agent authenticates the first time. Although the data can be syncronized into the local OTRS database, the LDAP directory is the last instance for the authentication, so an inactive user in the LDAP tree can't authenticate to OTRS, even when the account data is already stored in the OTRS database. The agent data in the LDAP directory can't be edited via the web interface of OTRS, so the data has to be managed directly in the LDAP tree.
+The configuration parameters shown in the script below can be used to synchronize the user data from your LDAP directory into your local OTRS database. This reduces the number of requests to your LDAP server and speeds up the authentication with OTRS. The data synchronization is done when the agent authenticates the first time. Although the data can be syncronized into the local OTRS database, the LDAP directory is the last instance for the authentication, so an inactive user in the LDAP tree can't authenticate to OTRS, even when the account data is already stored in the OTRS database. The agent data in the LDAP directory can't be edited via the web interface of OTRS, so the data has to be managed directly in the LDAP tree.
 </para>
 
 <para>
@@ -721,7 +721,7 @@ $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
 </para>
 
 <para>
-<emphasis>Script 11.8. Synchronizing the user data from the LDAP directory into the OTRS database.</emphasis>
+<emphasis>Script: Synchronizing the user data from the LDAP directory into the OTRS database.</emphasis>
 </para>
 
 </section>
@@ -940,7 +940,7 @@ The following example shows how you can specify a required field in the customer
 <title>Customizing the web interface</title>
 
 <para>
-To display the new field for the room number in the customer.pl web interface, the .dtl file responsible for the layout in this interface has to be modified. Edit the <filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file, adding the new field around line 80 (see Script 11.9 below).
+To display the new field for the room number in the customer.pl web interface, the .dtl file responsible for the layout in this interface has to be modified. Edit the <filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file, adding the new field around line 80 (see Script below).
 </para>
 
 <para>
@@ -955,7 +955,7 @@ To display the new field for the room number in the customer.pl web interface, t
 </para>
 
 <para>
-<emphasis>Script 11.9. Displaying a new field in the web interface.</emphasis>
+<emphasis>Script: Displaying a new field in the web interface.</emphasis>
 </para>
 
 </section>
@@ -964,7 +964,7 @@ To display the new field for the room number in the customer.pl web interface, t
 <title>Customer mapping</title>
 
 <para>
-In the next step, the customer mapping has to be expanded with the new entry for the room number. To ensure that the changes are not lost after an update, put the "CustomerUser" settings from the <filename>Kernel/Config/Defaults.pm</filename> into the <filename>Kernel/Config.pm</filename>. Now change the MAP array and add the new room number field, as shown in Script 11.10.
+In the next step, the customer mapping has to be expanded with the new entry for the room number. To ensure that the changes are not lost after an update, put the "CustomerUser" settings from the <filename>Kernel/Config/Defaults.pm</filename> into the <filename>Kernel/Config.pm</filename>. Now change the MAP array and add the new room number field, as shown in the script below.
 </para>
 
 <para>
@@ -1042,7 +1042,7 @@ $Self->{CustomerUser} = {
 </para>
 
 <para>
-<emphasis>Script 11.10. Changing the map array.</emphasis>
+<emphasis>Script: Changing the map array.</emphasis>
 </para>
 
 </section>
@@ -1051,7 +1051,7 @@ $Self->{CustomerUser} = {
 <title>Customize the customer_user table in the OTRS DB</title>
 
 <para>
-The last step is to add the new room number column to the customer_user table in the OTRS database (see Script 11.11 below). In this column, the entries for the room numbers will be stored.
+The last step is to add the new room number column to the customer_user table in the OTRS database (see Script below). In this column, the entries for the room numbers will be stored.
 </para>
 
 <para>
@@ -1079,7 +1079,7 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script 11.11. Adding a new column to the customer_user table.</emphasis>
+<emphasis>Script: Adding a new column to the customer_user table.</emphasis>
 </para>
 
 <para>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: email.xml,v 1.21 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: email.xml,v 1.22 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id="email">
 <title>Sending/Receiving emails</title>
@@ -52,7 +52,7 @@ Configure your mail accounts via the PostMaster Mail Accounts link on the Admin 
 </para>
 
 <para>
-If a new mail account is to be created (see Figure 7.1 below), then it's mail server name, login name and password must be specified. Also, you need to select the mail server type, which can be POP3, POP3S, IMAP or IMAPS. If you don't see your server type available as an option, the required Perl modules are missing on your system. In that case, please refer to <link linkend="installation-of-perl-modules"> "Installation of Perl modules required for OTRS"</link> for instructions.</para>
+If a new mail account is to be created (see Figure below), then it's mail server name, login name and password must be specified. Also, you need to select the mail server type, which can be POP3, POP3S, IMAP or IMAPS. If you don't see your server type available as an option, the required Perl modules are missing on your system. In that case, please refer to <link linkend="installation-of-perl-modules"> "Installation of Perl modules required for OTRS"</link> for instructions.</para>
 
 <para>
 <screenshot>
@@ -62,7 +62,7 @@ If a new mail account is to be created (see Figure 7.1 below), then it's mail se
 </para>
 
 <para>
-<emphasis>Figure 7.1. Adding a mail account.</emphasis>
+<emphasis>Figure: Adding a mail account.</emphasis>
 </para>
 
 <para>If you select Yes for the value of the Trusted option, any X-OTRS headers attached to an incoming message are evaluated and executed. Because the X-OTRS header can execute some actions in the ticket system, you should set the Trusted option to Yes only for known senders. X-OTRS-Headers are used by the <link linkend="adminarea-postmasterfilter">filter module</link> in OTRS. The X-OTRS headers are explained <link linkend="table-of-x-otrs-headers">in this table</link> in more detail. Any postmaster filter rules created are executed, irrespective of the Trusted option's setting.
@@ -96,7 +96,7 @@ If you cannot use mail accounts to get the email into OTRS, the command line pro
 </para>
 
 <para>
-To test <filename>bin/otrs.PostMaster.pl</filename> without an MDA, execute the command of the Script 7.1.
+To test <filename>bin/otrs.PostMaster.pl</filename> without an MDA, execute the command of the following script.
 </para>
 
 <para>
@@ -108,7 +108,7 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-<emphasis>Script 7.1. Testing PostMaster without the MDA.</emphasis>
+<emphasis>Script: Testing PostMaster without the MDA.</emphasis>
 </para>
 
 <para>
@@ -121,7 +121,7 @@ Procmail is a very common e-mail filter in Linux environments. It is installed o
 
 <para>
 To configure procmail for OTRS (based upon a procmail configured MTA such as sendmail, postfix, exim or qmail), use the
-<filename>~otrs/.procmailrc.dist</filename> file and copy it to <filename>.procmailrc</filename> and add the lines of the Script 7.2.
+<filename>~otrs/.procmailrc.dist</filename> file and copy it to <filename>.procmailrc</filename> and add the lines of the script below.
 </para>
 
 <para>
@@ -137,7 +137,7 @@ PATH=/bin:/usr/bin:/usr/local/bin
 </para>
 
 <para>
-<emphasis>Script 7.2. Configuring procmail for OTRS.</emphasis>
+<emphasis>Script: Configuring procmail for OTRS.</emphasis>
 </para>
 
 <para>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.16 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.17 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -95,7 +95,7 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
 <para>
-<emphasis>Script 21.1 Switching storage back-ends from database to filesystem.</emphasis>
+<emphasis>Script: Switching storage back-ends from database to filesystem.</emphasis>
 </para>
 </section>
 
@@ -196,7 +196,7 @@ DB issues vary by the database being used. Study the documentation for your data
 If you use the MySQL table type MyISAM (which is the default), and have deleted a large part of a table or if you have made many changes to a table with variable-length rows (tables that have VARCHAR, BLOB or TEXT columns), you need to defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
-You should try this if the mysqld daemon needs a lot of your CPU time. Optimize the tables - ticket, ticket_history and article (see Script 21.2 below).
+You should try this if the mysqld daemon needs a lot of your CPU time. Optimize the tables - ticket, ticket_history and article (see Script below).
 </para>
 
 <para>
@@ -209,7 +209,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-<emphasis>Script 21.2. Optimizing data base tables.</emphasis>
+<emphasis>Script: Optimizing data base tables.</emphasis>
 </para>
 
 </section>

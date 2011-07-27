@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: states.xml,v 1.9 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: states.xml,v 1.10 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id="states">
 <title>States</title>
@@ -82,7 +82,7 @@ Every state has a name (state-name) and a type (state-type). Click on the <link 
 </para>
 
 <para>
-The name of an already existing state can be changed, or new states added through this screen. If the state "new" has been changed via the web interface, this change also has to be configured via the config file <filename>Kernel/Config.pm</filename> or via the SysConfig interface. The settings specified in Script 12.1 have to be modified to ensure that OTRS works with the changed state for "new".
+The name of an already existing state can be changed, or new states added through this screen. If the state "new" has been changed via the web interface, this change also has to be configured via the config file <filename>Kernel/Config.pm</filename> or via the SysConfig interface. The settings specified in the script below have to be modified to ensure that OTRS works with the changed state for "new".
 </para>
 
 <para>
@@ -100,11 +100,11 @@ The name of an already existing state can be changed, or new states added throug
 </para>
 
 <para>
-<emphasis>Script 12.1. Modifying the Kernel/Config.pm settings.</emphasis>
+<emphasis>Script: Modifying the Kernel/Config.pm settings.</emphasis>
 </para>
 
 <para>
-If a new state type should be added, the ticket_state_type table in the OTRS database needs to be modified with a database client program, as shown in Script 12.2.
+If a new state type should be added, the ticket_state_type table in the OTRS database needs to be modified with a database client program, as shown in the script below.
 </para>
 
 <para>
@@ -132,7 +132,7 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script 12.2. Modifying the OTRS database.</emphasis>
+<emphasis>Script: Modifying the OTRS database.</emphasis>
 </para>
 
 <para>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: smime.xml,v 1.6 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: smime.xml,v 1.7 2011-07-27 14:25:57 mg Exp $ -->
 
 <chapter id="smime">
 <title>S/MIME</title>
@@ -11,7 +11,7 @@ At first glance, encryption with S/MIME seems a little more complicated than wit
 </para>
 
 <para>
-The S/MIME configuration is conducted outside the OTRS web interface for the most part, and should be carried out in a shell by the 'otrs' user. The MIME configuration under Linux is based on SSL (OpenSSL). Therefore, check first of all whether the OpenSSL package is installed on your system. The OpenSSL package includes a script called CA.pl, with which the most important steps of certificate creation can be performed. To simplify the procedure, find out where in the filesystem the CA.pl script is stored and enter the location temporarily into the PATH variable of the shell (see Script 17.1 below).
+The S/MIME configuration is conducted outside the OTRS web interface for the most part, and should be carried out in a shell by the 'otrs' user. The MIME configuration under Linux is based on SSL (OpenSSL). Therefore, check first of all whether the OpenSSL package is installed on your system. The OpenSSL package includes a script called CA.pl, with which the most important steps of certificate creation can be performed. To simplify the procedure, find out where in the filesystem the CA.pl script is stored and enter the location temporarily into the PATH variable of the shell (see Script below).
 </para>
 
 <para>
@@ -27,11 +27,11 @@ otrs@linux:~/tmp&gt;
 </para>
 
 <para>
-<emphasis>Script 17.1. Configuring S/MIME.</emphasis>
+<emphasis>Script: Configuring S/MIME.</emphasis>
 </para>
 
 <para>
-Script 17.1 shows that a new temporary directory ~/tmp has been created, in which the certificate is to be generated.
+The script above shows that a new temporary directory ~/tmp has been created, in which the certificate is to be generated.
 </para>
 
 <para>
@@ -42,7 +42,7 @@ To create a certificate, perform the following operations in the command line (w
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    Establish your own Certification Authority for SSL. You need it to certify the request for your own SSL certificate (see Script 17.2 below).
+    Establish your own Certification Authority for SSL. You need it to certify the request for your own SSL certificate (see Script below).
     </para>
 
     <para>
@@ -86,13 +86,13 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-    <emphasis>Script 17.2. Establishing a Certification Authority for SSL.</emphasis>
+    <emphasis>Script: Establishing a Certification Authority for SSL.</emphasis>
     </para>
 
 </listitem>
 <listitem>
     <para>
-    Generate a certificate request (see Script 17.3 below).
+    Generate a certificate request (see Script below).
     </para>
 
     <para>
@@ -134,12 +134,12 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-    <emphasis>Script 17.3. Creating a certificate request.</emphasis>
+    <emphasis>Script: Creating a certificate request.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Signing of the certificate request. The certificate request can either be signed and thereby certified by your own CA, or made more credible by being signed by another external certified CA (see Script 17.4 below).
+    Signing of the certificate request. The certificate request can either be signed and thereby certified by your own CA, or made more credible by being signed by another external certified CA (see Script below).
     </para>
 
     <para>
@@ -186,12 +186,12 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-    <emphasis>Script 17.4. Signing of the certificate request.</emphasis>
+    <emphasis>Script: Signing of the certificate request.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Generate your own certificate, and all data going with it, using the signed certificate request (see Script 17.5 below).
+    Generate your own certificate, and all data going with it, using the signed certificate request (see Script below).
     </para>
 
     <para>
@@ -210,7 +210,7 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-    <emphasis>Script 17.5. Generating a new certificate.</emphasis>
+    <emphasis>Script: Generating a new certificate.</emphasis>
     </para>
 </listitem>
 </orderedlist>
