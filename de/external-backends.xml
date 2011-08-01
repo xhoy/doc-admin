@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.42 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.42.2.1 2011-08-01 09:44:14 mg Exp $ -->
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
 
@@ -95,14 +95,24 @@ $Self->{CustomerUser} = {
     Module => 'Kernel::System::CustomerUser::DB',
     Params => {
         # if you want to use an external database, add the required settings
-#        DSN => 'DBI:odbc:yourdsn',
-#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
-#        User => '',
-#        Password => '',
-        Table => 'customer_user',
-    },
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+            # if your frontend is unicode and the charset of your
+            # customer database server is iso-8859-1, use these options.
+#           SourceCharset => 'iso-8859-1',
+#           DestCharset => 'utf-8',
+
+            # CaseSensitive will control if the SQL statements need LOWER()
+            #   function calls to work case insensitively. Setting this to
+            #   1 will improve performance dramatically on large databases.
+            CaseSensitive => 0,
+        },
 # customer unique id
 CustomerKey => 'login',
+
 # customer #
 CustomerID => 'customer_id',
 CustomerValid => 'valid_id',
@@ -354,13 +364,13 @@ $Self->{CustomerUser} = {
         # in case you want to add always one filter to each ldap query, use
         # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
         AlwaysFilter => '',
-        # if your frontend is e. g. iso-8859-1 and the charset of your
-        # ldap server is utf-8, use these options.
-#            SourceCharset => 'utf-8',
-#            DestCharset => 'iso-8859-1',
             # if both your frontend and your LDAP are unicode, use this:
-#            SourceCharset => 'utf-8',
-#            DestCharset   => 'utf-8',
+            SourceCharset => 'utf-8',
+            DestCharset   => 'utf-8',
+            # if your frontend is unicode and the charset of your
+            # ldap server is iso-8859-1, use these options.
+            # SourceCharset => 'iso-8859-1',
+            # DestCharset => 'utf-8',
             # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
             Params => {
                 port => 389,
