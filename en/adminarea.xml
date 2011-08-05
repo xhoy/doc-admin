@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.43 2011-07-27 14:25:57 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.44 2011-08-05 11:50:37 cr Exp $ -->
 
 <chapter id="adminarea">
 <title>The ADMIN area of OTRS</title>
@@ -1809,6 +1809,27 @@ In some cases, such as when your OTRS system is not connected to the Internet, y
 In special cases, you might want to configure the Package Manager, e.g., to use a proxy or to use a local repository. Just take a look at the available options in SysConfig under <link linkend="Framework:Core::Package">Framework:Core::Package</link>.
 </para>
 
+</section>
+
+<section id="adminarea-webservices">
+    <title>Web Services</title>
+    <para>
+        The Web Services link leads to the graphical interface where web services (for the OTRS
+        Generic Interface) are created and maitained  (see Figure below).
+    </para>
+    <para>
+        <screenshot>
+            <screeninfo>The graphical interface for web services</screeninfo>
+            <graphic srccredit="Adminarea webservices - screenshot" scale="40" fileref="screenshots/admin-webservice-overview.png"></graphic>
+        </screenshot>
+    </para>
+    <para>
+        <emphasis>Figure: The graphical interface for web services.</emphasis>
+    </para>
+    <para>
+        The graphical interface for web services configuration is described in more detail in the
+        section <link linkend="webservice_gui">"Web Service Graphical Interface"</link>.
+    </para>
 </section>
 
 </chapter>
