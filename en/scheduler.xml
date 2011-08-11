@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: scheduler.xml,v 1.1 2011-08-05 11:51:50 cr Exp $ -->
+<!-- $Id: scheduler.xml,v 1.2 2011-08-11 07:47:16 mg Exp $ -->
 
 <chapter id="scheduler">
     <title>OTRS Scheduler</title>
@@ -37,79 +37,76 @@
             Scheduler is not visible in the OTRS Graphical User Interface unless it stops running
             when it should be running.
         </para>
-            <section id="scheduler-gui-notify">
-                <title>Scheduler Not Running Notification</title>
+        <section id="scheduler-gui-notify">
+            <title>Scheduler Not Running Notification</title>
+            <para>
+                There are two notifications if the system does not detect that scheduler is
+                running this detection in based on the Scheduler process update frequency, if
+                the difference between current time and the last process update time is 2X the
+                process update frequency a warning message will be displayed in the OTRS
+                notification area. If it over pass 4X the process frequency then an alert will
+                be displayed.
+            </para>
+            <para>
+                The Scheduler process update time can be configured via the SysConfig in the
+                "Scheduler::PIDUpdateTime" setting.
+            </para>
+            <para>
+                For a warning message it is not always necessary to take an action, but is
+                highly recommended to check if the scheduler process is running. If the alert
+                came then is highly probable that the scheduler is not running and should be
+                started.
+            </para>
+            <para>
+                By default the Scheduler not running notification is enabled (if there is a
+                valid web service registered in the database) and is only displayed to the
+                users in the "admin" group.
+            </para>
+            <para>
+                To disable the notification (not recommended) or to change or add the
+                notification groups, please edit the
+                "Frontend::NotifyModule###800-Scheduler-Check" setting in the SysConfig.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Scheduler Notification</screeninfo>
+                    <graphic srccredit="scheduler notification - screenshot" scale="40" fileref="screenshots/scheduler-notify.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Scheduler notification.</emphasis>
+            </para>
+        </section>
+        <section id="scheduler-gui-start">
+            <title>Start Scheduler</title>
+            <para>
+                By clicking on the Scheduler not running notification link (either warning or
+                alert) a dialog box will open to let you start the Scheduler process again. The
+                Scheduler can be stared normally or forced to start, by clicking on the
+                appropriate check box in the dialog.
+            </para>
+            <note>
                 <para>
-                    There are two notifications if the system does not detect that scheduler is
-                    running this detection in based on the Scheduler process update frequency, if
-                    the difference between current time and the last process update time is 2X the
-                    process update frequency a warning message will be displayed in the OTRS
-                    notification area. If it over pass 4X the process frequency then an alert will
-                    be displayed.
+                    A forced Scheduler start is only necessary if previous Scheduler process was
+                    terminated abnormally and the Process ID is still registered on the
+                    database.
                 </para>
                 <para>
-                    The Scheduler process update time can be configured via the SysConfig in the
-                    "Scheduler::PIDUpdateTime" setting.
+                    To have full control of the Scheduler process and to check it real status
+                    please use the command line tools descried below.
                 </para>
-                <para>
-                    For a warning message it is not always necessary to take an action, but is
-                    highly recommended to check if the scheduler process is running. If the alert
-                    came then is highly probable that the scheduler is not running and should be
-                    started.
-                </para>
-                <para>
-                    By default the Scheduler not running notification is enabled (if there is a
-                    valid web service registered in the database) and is only displayed to the
-                    users in the "admin" group.
-                </para>
-                <para>
-                    To disable the notification (not recommended) or to change or add the
-                    notification groups, please edit the
-                    "Frontend::NotifyModule###800-Scheduler-Check" setting in the SysConfig.
-                </para>
-                <para>
-                    <screenshot>
-                        <screeninfo>Scheduler Notification</screeninfo>
-                        <graphic srccredit="scheduler notification - screenshot" scale="40" fileref="screenshots/scheduler-notify.png"></graphic>
-                    </screenshot>
-                </para>
-                <para>
-                    <emphasis>Figure: Scheduler notification.</emphasis>
-                </para>
-            </section>
-            <section id="scheduler-gui-start">
-                <title>Start Scheduler</title>
-                <para>
-                    By clicking on the Scheduler not running notification link (either warning or
-                    alert) a dialog box will open to let you start the Scheduler process again. The
-                    Scheduler can be stared normally or forced to start, by clicking on the
-                    appropriate check box in the dialog.
-                </para>
-                <note>
-                    <para>
-                        A forced Scheduler start is only necessary if previous Scheduler process was
-                        terminated abnormally and the Process ID is still registered on the
-                        database.
-                    </para>
-                    <para>
-                        To have full control of the Scheduler process and to check it real status
-                        please use the command line tools descried below.
-                    </para>
-                </note>
-                <para>
-                    <screenshot>
-                        <screeninfo>Start Scheduler</screeninfo>
-                        <graphic srccredit="scheduler start - screenshot" scale="40" fileref="screenshots/scheduler-start.png"></graphic>
-                    </screenshot>
-                </para>
-                <para>
-                    <emphasis>Figure: Start Scheduler.</emphasis>
-                </para>
-
-            </section>
-
+            </note>
+            <para>
+                <screenshot>
+                    <screeninfo>Start Scheduler</screeninfo>
+                    <graphic srccredit="scheduler start - screenshot" scale="40" fileref="screenshots/scheduler-start.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Start Scheduler.</emphasis>
+            </para>
+        </section>
     </section>
-
     <section id="scheduler-cli">
         <title>Scheduler Command Line Interface</title>
         <para>
@@ -166,20 +163,20 @@
                     <title>List of Init Scripts And Supported Operating Systems</title>
                     <tgroup cols="2">
                     <thead>
-                        <tr>
+                        <row>
                             <th>Init Script</th>
                             <th>Supported OS</th>
-                        </tr>
+                        </row>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>otrs-scheduler-linux</td>
-                            <td>RedHat, Fedora, CentOS, SuSE, OpenSuSE, Debian, Ubuntu</td>
-                        </tr>
-                        <tr>
-                            <td>otrs-scheduler-gentoo-init.d, otrs-scheduler-gentoo-conf.d</td>
-                            <td>Gentoo</td>
-                        </tr>
+                        <row>
+                            <entry>otrs-scheduler-linux</entry>
+                            <entry>RedHat, Fedora, CentOS, SuSE, OpenSuSE, Debian, Ubuntu</entry>
+                        </row>
+                        <row>
+                            <entry>otrs-scheduler-gentoo-init.d, otrs-scheduler-gentoo-conf.d</entry>
+                            <entry>Gentoo</entry>
+                        </row>
                     </tbody>
                     </tgroup>
                 </table>
@@ -451,6 +448,5 @@
                 </note>
             </section>
         </section>
-
     </section>
 </chapter>
