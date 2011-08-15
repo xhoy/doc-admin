@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.59 2011-04-20 14:18:09 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.59.2.1 2011-08-15 12:10:38 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1546,6 +1546,17 @@ shell&gt; /etc/init.d/apache start
         </para>
         <para>
             Please note that this can also affect any salutations or other templates where you have used the string <literal>&lt;OTRS_*_UserSalutation&gt;</literal>. If you have used this string AND you use the built-in customer table, please replace it with <literal>&lt;OTRS_CURRENT_UserTitle&gt;</literal> instead.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Check Your Cronjobs
+        </para>
+        <para>
+            With OTRS 3.0, some commandline scripts were renamed, such as <filename>otrs.PostMaster.pl</filename>.
+            Please check that your cronjobs still use the correct filenames. With RPM upgrades,
+            files such as <filename>/etc/sysconfig/otrs</filename> sometimes are not correctly overwritten, thus
+            keeping the old cron settings, which may lead to errors.
         </para>
       </listitem>
       <listitem>
