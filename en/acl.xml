@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.7 2011-07-27 14:25:57 mg Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.8 2011-08-31 08:03:15 mb Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <para>
@@ -100,6 +100,31 @@ As yet, ACLs cannot be created using the <link linkend="adminarea-sysconfig">Sys
             # possible ticket options
             Ticket => {
                 State => ['closed successful'],
+            },
+        },
+    };
+</programlisting>
+</example>
+</para>
+
+<para>
+<example id="acl-new-ticket-service" >
+<title>ACL only showing Hardware services for tickets that are created in queues that start with &quot;HW&quot;.</title>
+
+<programlisting>
+    $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
+        # match properties
+        # note we don't have "Ticket => {" because there's no ticket yet
+        Properties => {
+        Queue => {
+            Name => ['[RegExp]HW'],
+            }
+        },
+        # return possible options
+        Possible => {
+            # possible ticket options
+            Ticket => {
+                Service => ['[RegExp]^(Hardware)'],
             },
         },
     };
