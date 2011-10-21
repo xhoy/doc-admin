@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: genericinterface-webservice-configuration.xml,v 1.1 2011-08-05 11:51:50 cr Exp $ -->
+<!-- $Id: genericinterface-webservice-configuration.xml,v 1.2 2011-10-21 05:01:40 mb Exp $ -->
 
 <section id="genericinterface-webservice-configuration">
     <title>Web Service Configuration</title>
     <para>
-        From it design the web services was conceived to be portable from one OTRS system to
-        another (e.g. from a test or development environment to a production system), then it
-        was needed an easy way to extract the web service configuration from the database, and
-        import it to another. To accomplish this task Generic Interface implements YAML files
+        From its design the web services were conceived to be portable from one OTRS system to
+        another, e.g. from a test or development environment to a production system. Therefore it
+        was needed to have an easy way to extract the web service configuration from the database, and
+        import it to another. To accomplish this task Generic Interface uses YAML files
         as the web services configuration basis.
     </para>
     <para>
-        Why YAML? YAML is a markup language designed to be human friendly to read and write (is
-        easier to understand than JSON), it does not have some limitations from XML like numeric
-        tags, is open, standardized, and is complete enough to store the whole web service
+        Why YAML? YAML is a markup language designed to be human friendly to read and write (it is
+        easier to understand than JSON), it does not have some of the limitations of XML like numeric
+        tags, it is open, standardized, and is complete enough to store the whole web service
         configuration.
     </para>
     <note>
@@ -246,7 +246,7 @@ Requester:
                     <section>
                         <title>MappingInbound</title>
                         <para>
-                            This section is based on mappings from type "Simple" other mappings
+                            This section is based on mappings from type "Simple". Other mappings
                             might contain more or different settings.
                         </para>
                         <itemizedlist mark="round">
@@ -303,7 +303,7 @@ Requester:
                                     <itemizedlist mark="round">
                                         <listitem>
                                             <para>
-                                                MapTo: the new value to be used (only apply if
+                                                MapTo: the new value to be used (only applicable if
                                                 MapType is set to MapTo).
                                             </para>
                                         </listitem>
@@ -361,7 +361,7 @@ Requester:
                                         <listitem>
                                             <para>
                                                 &lt;oldkey(RegEx)&gt;: &lt;newkey&gt; (
-                                                cardinality 0 .. n but not duplicate).
+                                                cardinality 0 .. n but no duplicates).
                                             </para>
                                         </listitem>
                                     </itemizedlist>
@@ -444,7 +444,7 @@ Requester:
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    Contig: a container for the specific network transport
+                                    Config: a container for the specific network transport
                                     configuration settings.
                                 </para>
                             </listitem>
@@ -459,7 +459,7 @@ Requester:
                             <itemizedlist mark="round">
                                 <listitem>
                                     <para>
-                                        MaxLenght: the maximum length in bytes to be read in a
+                                        MaxLength: the maximum length in bytes to be read in a
                                         SOAP message by OTRS.
                                     </para>
                                 </listitem>
@@ -481,7 +481,7 @@ Requester:
             <itemizedlist mark="round">
                 <listitem>
                     <para>
-                        Invoker: a container for each invoker settings.
+                        Invoker: a container for each invokers' settings.
                     </para>
                 </listitem>
                 <listitem>
@@ -809,7 +809,7 @@ Requester:
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    Contig: a container for the specific network transport
+                                    Config: a container for the specific network transport
                                     configuration settings.
                                 </para>
                             </listitem>

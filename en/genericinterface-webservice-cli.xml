@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: genericinterface-webservice-cli.xml,v 1.1 2011-08-05 11:51:50 cr Exp $ -->
+<!-- $Id: genericinterface-webservice-cli.xml,v 1.2 2011-10-21 05:01:40 mb Exp $ -->
 
 <section id="webservice_cli">
     <title>Web Service Command Line Interface</title>
     <para>
-        The Command Line Interface (CLI) is fast way to work with the web services, It Consist in
+        The Command Line Interface (CLI) is fast way to work with the web services. It consists of
         a set of tools can be use to perform basic operations like:
     </para>
     <para>
@@ -24,17 +24,17 @@
     </para>
     <note>
         <para>
-            There is another option instead of the CLI to work with web services. Integrated to the
-            Admin interface there are is a complete set of screens to interact with every part of
-            the web service. Please read the web service GUI section included in this manual.
+            You don't need to use the CLI to work with web services. Integrated into the
+            Admin interface there is a complete set of screens to interact with every part of
+            the web services. Please read the web service GUI section included in this manual.
         </para>
     </note>
 
     <section id="webservice_cli_webserviceconfig">
         <title>Web Service Configuration</title>
         <para>
-            The "WebserviceConfig.pl" was developed thinking in a basic, but fast and powerful tool
-            to work with web service configurations, it give you the ability to perform following
+            The "WebserviceConfig.pl" was developed in order to create basic, but fast and powerful tool
+            to work with web service configurations. It gives you the ability to perform the following
             actions:
         </para>
         <para>
@@ -62,7 +62,7 @@
                 </listitem>
                 <listitem>
                     <para>
-                        Delete: to delete a web service from the system, be careful when you use it,
+                        Delete: to delete a web service from the system. Be careful when you use it,
                         because this action can't be undone.
                     </para>
                 </listitem>
@@ -71,8 +71,8 @@
         <warning>
             <para>
                 A web service READ operation will display all the configuration as plain text on
-                the screen even stored passwords, please be aware of it and take the needed
-                precautions when you use it.
+                the screen, including any stored passwords. Please be aware of this and take the needed
+                precautions!
             </para>
         </warning>
         <para>
@@ -122,8 +122,8 @@
     <section id="webservice_cli_debugger">
         <title>Web Service Debugger</title>
         <para>
-            Other available tool on the command line is the "otrs.GenericInterfaceDebugRead.pl"
-            script, which is an interface to search for web service communication's debugger log
+            Another available tool on the command line is the "otrs.GenericInterfaceDebugRead.pl"
+            script, which is an interface to search for web service debugger log
             entries.
         </para>
         <para>
@@ -137,8 +137,7 @@
         <para>
             <itemizedlist>
                 <para>
-                    Optional parameters can be used for "otrs.GenericInterfaceDebugRead.pl" script,
-                    they are listed below:
+                    Optional parameters can be used for the "otrs.GenericInterfaceDebugRead.pl" script:
                 </para>
                 <listitem>
                     <para>
@@ -190,10 +189,10 @@
         <note>
             <para>
                 It is highly recommended to include at least one of the filter options listed above,
-                and even more if the "-d" option is selected, because a
-                <emphasis>a lot of </emphasis> information is to be retrieved from the data base
-                and displayed on the screen, this could result in a long wait and much more
-                information than what is really needed.
+                and even more if the "-d" option is selected, because
+                <emphasis>a lot of </emphasis> information can be retrieved from the data base
+                and displayed on the screen, this could result in slow response times and much more
+                information than what you really needed.
             </para>
         </note>
     </section>
