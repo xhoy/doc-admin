@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.61 2011-08-15 12:10:44 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.62 2011-10-24 08:48:42 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1425,6 +1425,13 @@ shell&gt; /etc/init.d/cron start
 shell&gt; /etc/init.d/postfix start
 shell&gt; /etc/init.d/apache start
             </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>Check installed packages</para>
+        <para>
+            In the package manager, check if all packages are still marked as
+            correctly installed or if any require reinstallation or even a package upgrade.
         </para>
       </listitem>
       <listitem>
