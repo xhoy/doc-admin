@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: performance-tuning.xml,v 1.16 2011-04-04 11:09:10 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.16.2.1 2011-10-31 20:10:55 mb Exp $ -->
 
 <chapter id="performance-tuning">
 <title>Performance Tuning</title>
@@ -275,14 +275,14 @@ Use the startup script <filename>scripts/apache2-perl-startup.pl</filename> for 
 <section id="performance-tuning-webserver-reload">
 <title>Reload Perl modules when updated on disk</title>
 <para>
-By default Apachee::Reload is used in scripts/apache2-httpd.include.conf. Disable it and you will get 8% more speed. But remember to restart the web server if you install any modules via the OTRS Package Manager, or any values in your SysConfig or in Kernel/Config.pm. Important: this would also mean you can't use the OTRS Package Manager via the web interface, you need to use the command line variant - <filename>bin/otrs.PackageManager.pl</filename>.
+By default Apache::Reload is used in scripts/apache2-httpd.include.conf. Disable it and you will get 8% more speed. But remember to restart the web server if you install any modules via the OTRS Package Manager, or any values in your SysConfig or in Kernel/Config.pm. Important: this would also mean you can't use the OTRS Package Manager via the web interface, you need to use the command line variant - <filename>bin/otrs.PackageManager.pl</filename>.
 </para>
 </section>
 
 <section id="performance-tuning-webserver-strategy">
 <title>Choosing the Right Strategy</title>
 <para>
-If you have a really large installation, say over 1,000 new tickets per day and over 40 agents, it is a good idea to read "Choosing the Right Strategy" ( <ulink url="http://perl.apache.org/docs/1.0/guide/strategy.html"><citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle></ulink> ).
+If you have a larger installation, say over 1,000 new tickets per day and over 40 agents, it is a good idea to read the chapters on Performance of the mod_perl User's Guide ( <ulink url="http://perl.apache.org/docs/2.0/user/index.html"><citetitle>http://perl.apache.org/docs/2.0/user/index.html</citetitle></ulink> ).
 </para>
 </section>
 
