@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.63 2011-10-31 13:57:30 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.64 2011-11-11 08:41:07 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -532,7 +532,12 @@ already configured, you can install the modules with the command <command>instal
 </para>
 
 <para>
-Execute also the two commands <command>perl -cw bin/cgi-bin/index.pl</command> and <command>perl -cw bin/otrs.PostMaster.pl</command> after changing into the directory <filename>/opt/otrs</filename>. If the output of both commands is "syntax OK", your Perl is properly set up (see Script below).
+    Execute also the commands
+    <command>perl -cw bin/cgi-bin/index.pl</command>
+    <command>perl -cw bin/cgi-bin/customer.pl</command>
+    and <command>perl -cw bin/otrs.PostMaster.pl</command>
+    after changing into the directory <filename>/opt/otrs</filename>.
+    If the output of both commands is "syntax OK", your Perl is properly set up (see Script below).
 </para>
 
 <para>
@@ -540,14 +545,15 @@ Execute also the two commands <command>perl -cw bin/cgi-bin/index.pl</command> a
 linux:~# cd /opt/otrs
 linux:/opt/otrs# perl -cw bin/cgi-bin/index.pl
 cgi-bin/installer.pl syntax OK
+linux:/opt/otrs# perl -cw bin/cgi-bin/customer.pl
+cgi-bin/customer.pl syntax OK
 linux:/opt/otrs# perl -cw bin/otrs.PostMaster.pl
-otrs.PostMaster.pl syntax OK
+bin/otrs.PostMaster.pl syntax OK
 linux:/opt/otrs#
 </screen>
 </para>
-
 <para>
-<emphasis>Script: Checking syntax.</emphasis>
+<emphasis>Script: Syntax check.</emphasis>
 </para>
 
 </section>
