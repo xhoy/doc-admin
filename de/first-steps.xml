@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: first-steps.xml,v 1.31 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: first-steps.xml,v 1.32 2011-11-15 13:08:59 mg Exp $ -->
 <chapter id="first-steps">
 <title>Erste Schritte</title>
 
@@ -30,13 +30,12 @@ bearbeiten Kundendaten usw.
 </para>
 
 <para>
-Angenommen, Ihr Host mit der OTRS-Installation ist über die Domain <ulink
+Supposing your OTRS host is reachable via the URL <ulink
 url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
-</ulink>  erreichbar, so kann der Login-Bildschirm für die Mitarbeiter und
-somit auch für den OTRS-Administrator über die URL <ulink
-url="http://www.example.com/otrs/index.pl">
-<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink>
-aufgerufen werden.
+</ulink> , then the OTRS login screen can be reached by using the address
+<ulink url="http://www.example.com/otrs/index.pl">
+<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink> in a
+web browser (see Figure below).
 </para>
 
 <para>
@@ -46,7 +45,7 @@ screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 4.1. Login-Bildschirm der Agenten-Weboberfläche.</emphasis>
+<emphasis>Figure: Login screen of the agent interface.</emphasis>
 </para>
 
 </section>
@@ -61,10 +60,10 @@ erstellen und bearbeiten, die Account-Einstellungen anpassen usw.
 </para>
 
 <para>
-Gemäß dem obigen Beispiel kann der Login-Bildschirm für die Kunden über die
-URL<ulink url="http://www.example.com/otrs/customer.pl">
-<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink>
-geladen werden.
+Continuing with the above example, the customer login screen can be reached
+by using the URL <ulink url="http://www.example.com/otrs/customer.pl">
+<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink> with
+a web browser (see Figure below).
 </para>
 
 <para>
@@ -74,7 +73,7 @@ screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></scre
 </para>
 
 <para>
-<emphasis>Abb. 4.2. Login-Bildschirm der Kunden-Weboberfläche.</emphasis>
+<emphasis>Figure: Login screen of the customer interface.</emphasis>
 </para>
 
 </section>
@@ -106,7 +105,7 @@ screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></sc
 </para>
 
 <para>
-<emphasis>Abb. 4.3. Öffentliche Weboberfläche.</emphasis>
+<emphasis>Figure: Public web interface.</emphasis>
 </para>
 
 </section>
@@ -139,11 +138,10 @@ vorgesehenen Eingabefelder ein.
 </para>
 
 <para>
-Falls Sie einmal ihr Kennwort vergessen haben sollten, können Sie sich
-automatisch vom System ein neues Kennwort an die Mailadresse schicken
-lassen, die für Ihren OTRS-Account im System hinterlegt ist. Geben Sie dazu
-im unteren Bereich des Login-Bildschirms den Benutzernamen Ihres Accounts
-an.
+In case you have forgotten your password, you can request the system for a
+new password. Simply press the link below the Login button, enter the mail
+address that is registered for your OTRS account into the input field, and
+press the Submit button (see Figure).
 </para>
 
 <para>
@@ -154,7 +152,7 @@ fileref="screenshots/request-new-password.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 4.4. Neues Passwort anfordern.</emphasis>
+<emphasis>Figure: Request new password.</emphasis>
 </para>
 
 </section>
@@ -163,11 +161,12 @@ fileref="screenshots/request-new-password.png"></graphic></screenshot>
 <title>Agenten-Weboberfläche - ein Überblick</title>
 
 <para>
-Nachdem Sie sich erfolgreich am System angemeldet haben, wird die Oberfläche
-von OTRS geladen. Standardmäßig befinden Sie sich nach der Anmeldung im
-Dashboard. Dieses Dashboard ist frei anpassbar. Zu Beginn zeigt es Ihre
-gesperrten Tickets und bietet Übersichten über fällige, eskalierte, neue und
-offene Tickets, neben anderen Dingen.
+On successfully logging into the system, you are presented with the
+Dashboard page (see Figure below). The Dashboard is completely
+customizable. It shows your locked tickets, allows direct access through
+menus to the queue, status and escalation views, and also holds options for
+creation of new phone and e-mail tickets. It also presents a quick summary
+of the tickets which are pending, escalated, new and open.
 </para>
 
 <para>
@@ -177,7 +176,7 @@ screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screen
 </para>
 
 <para>
-<emphasis>Abb. 4.5. Dashboard der Agenten-Weboberfläche.</emphasis>
+<emphasis>Figure: Dashboard of the agent interface.</emphasis>
 </para>
 
 <para>
@@ -232,11 +231,10 @@ markieren können als Queues, die speziell überwacht werden sollen.
 </para>
 
 <para>
-Auf der rechten Seite befindet sich der Bereich "Einstellungen". Klicken Sie
-darauf um den Bereich zu öffnen und die verschiedenen Einstellmöglichkeiten
-zu sehen. Sie können dann Einstellungen verändern und Ihre Änderungen
-speichern. Dieser Bereich ist fixiert und kann nicht mit der Maus verschoben
-werden.
+In the right column is the Settings button. Click on it to expand the
+section and see the various settings, as shown in Figure. You can then check
+or uncheck the individual settings options, and save your changes. This
+section is fixed, so you can not drag and drop it.
 </para>
 
 <para>
@@ -246,7 +244,7 @@ settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screens
 </para>
 
 <para>
-<emphasis>Abb. 3.5. Dashboard-Einstellungen.</emphasis>
+<emphasis>Figure: Dashboard Settings.</emphasis>
 </para>
 
 <para>
@@ -256,8 +254,9 @@ Neuigkeiten zu OTRS.
 </para>
 
 <para>
-Im unteren Bildschirmbereich sehen sie die Fußzeile. Sie enthält u. A. Links
-auf die offizielle OTRS-Website und zum Seitenanfang.
+Finally at the bottom of the page, the site footer is displayed (see Figure
+below). It contains links to directly access the OTRS official website, or
+go to the Top of the page.
 </para>
 
 <para>
@@ -267,7 +266,7 @@ scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 4.7. Fußzeile.</emphasis>
+<emphasis>Figure: Footer.</emphasis>
 </para>
 
 </section>
@@ -364,11 +363,11 @@ Abbildung von Abläufen.
 <section id="user-preferences">
 <title>Benutzereinstellungen</title>
 <para>
-Die Einstellungen eines Accounts lassen sich mit Hilfe der
-Benutzereinstellungen den eigenen Wünschen entsprechend anpassen. Dabei
-spielt keine Rolle, ob man als Mitarbeiter, Kunde oder Administrator am
-System angemeldet ist. Die Benutzereinstellungen sind über den Link auf den
-Benutzernamen erreichbar, Kunden müssen den "Einstellungen"-Link verwenden.
+OTRS users such as customers, agents and the OTRS administrator can
+configure their account preferences as per their needs. Agent can access the
+configuration screen by clicking on their login name at the top right corner
+of the web interface (see Figure below), and customers must click on the
+"Preferences" link (see Figure below).
 </para>
 
 <para>
@@ -379,7 +378,7 @@ fileref="screenshots/agent-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 4.8. Benutzereinstellungen des Agenten.</emphasis>
+<emphasis>Figure: Agent's personal preferences.</emphasis>
 </para>
 
 <para>
@@ -436,7 +435,7 @@ fileref="screenshots/customer-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 4.8. Benutzereinstellungen des Kunden.</emphasis>
+<emphasis>Figure: Customer's personal preferences.</emphasis>
 </para>
 
 <para>

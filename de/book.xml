@@ -3,7 +3,7 @@
 					"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: book.xml,v 1.61 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: book.xml,v 1.62 2011-11-15 13:08:59 mg Exp $ -->
 <book lang="de">
 	<bookinfo>
 		<title>OTRS 3.0 - Administrator-Handbuch</title>
@@ -27,6 +27,12 @@ Fernando Rodríguez, Stefan Rother, Burchard Steinbild, Daniel Zamorano.
 				Es darf als Ganzes oder in Auszügen kopiert werden, vorausgesetzt, dieser
 Copyright-Vermerk befindet sich auf jeder Kopie.
 			</para>
+
+            <para>
+                Der Quellcode dieses Dokuments kann unter <ulink
+url="http://source.otrs.org/viewvc.cgi/doc-admin/">source.otrs.org</ulink>
+abgerufen werden.
+            </para>
 
 			<para>
 				UNIX ist ein eingetragenes Warenzeichen von X/Open Company Limited. Linux
@@ -76,6 +82,8 @@ Herstellers sein.
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="smime.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="acl.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stats.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scheduler.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applications.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="performance-tuning.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="backup-and-restore.xml" />

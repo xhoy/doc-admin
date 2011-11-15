@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.12 2011-05-31 13:03:50 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
 <chapter id="installation">
 <title>Установка</title>
 
@@ -68,11 +68,11 @@ url="http://www.otrs.org/downloads">
 </para>
 
 <para>
-Если вы решили устанавливать OTRS из командной строки используя
-<application>rpm</application>, первое, что нужно сделать - это вручную
-установить все необходимые Perl-модули. Предположим, что вы загрузили файл
-<filename>otrs.rpm</filename> в директорию <filename>/tmp</filename>. Чтобы
-начать установку OTRS необходимо выполнить команду, из Сценария 3.1.
+If you decide to install OTRS via the command line and
+<command>rpm</command>, first you have to manually install the needed Perl
+modules. Assuming you saved the file <filename>otrs.rpm</filename> in the
+directory <filename>/tmp</filename>, you can execute the command specified
+in the following script to install OTRS.
 </para>
 
 <para>
@@ -114,12 +114,12 @@ linux:~ #
 </para>
 
 <para>
-<emphasis>Сценарий 3.1. Команда для установки OTRS.</emphasis>
+<emphasis>Script: Command to install OTRS.</emphasis>
 </para>
 
 <para>
-После установки RPM-пакета OTRS, нужно запустить
-<application>SuSEconfig</application> так, как это показано в Сценарии 3.2.
+After the installation of the OTRS RPM package, you have to run
+<application>SuSEconfig</application>, as shown in the following script.
 </para>
 
 <para>
@@ -148,13 +148,12 @@ linux:~ #
 </para>
 
 <para>
-<emphasis>Сценарий 3.2. Запуск команды SuSEconfig.</emphasis>
+<emphasis>Script: Running the SuSEconfig command.</emphasis>
 </para>
 
 <para>
-Установка OTRS завершена. Чтобы новые изменения, касающиеся конфигурации
-OTRS, вступили в силу - перезагрузите веб-сервер используя команду из
-Сценария 3.3.
+The OTRS installation is done. Restart your web server to load the OTRS
+specific changes in its configuration, as shown in the script below.
 </para>
 
 <para>
@@ -167,7 +166,7 @@ linux:~ #
 </para>
 
 <para>
-<emphasis>Сценарий 3.3. Перезапуск веб-сервера.</emphasis>
+<emphasis>Script: Restarting the web server.</emphasis>
 </para>
 
 <para>
@@ -272,9 +271,9 @@ Windows<application>Cron</application>. Именно по этой причин�
 </para>
 
 <para>
-Распакуйте архив (например с помощью команды <command>tar</command>) в
-каталог <filename>/opt</filename> а затем переименуйте каталог otrs-3.0 на
-otrs (см. ниже Сценарий 3.4).
+Unpack the archive (for example, using <command>tar</command>) into the
+directory <filename>/opt</filename>, and rename the directory from otrs-3.0
+to otrs (see Script below).
 </para>
 
 <para>
@@ -288,17 +287,16 @@ linux:/opt#
 </para>
 
 <para>
-<emphasis>Script 3.4. Установка OTRS, первые шаги.</emphasis>
+<emphasis>Script: First steps to install OTRS.</emphasis>
 </para>
 
 <para>
-OTRS не должен выполнятся с правами администратора (root rights). На
-следующем шаге установки для OTRS необходимо добавить нового
-пользователя. Домашняя директория нового пользователя должна находится в
-каталоге <filename>/opt/otrs</filename>.  Если веб-сервер не работает с теми
-правами что и новый пользователь 'otrs' (а именно так и есть в большинстве
-систем), то его нужно добавить в группу пользователей веб-сервера  (см ниже
-Сценарий 3.5 ).
+OTRS should NOT be run with root rights. You should add a new user for OTRS
+as the next step. The home directory of this new user should be
+<filename>/opt/otrs</filename>. If your web server is not running with the
+same user rights as the new 'otrs' user, which is the case on most systems,
+you have to add the new 'otrs' user to the group of the web server user (see
+Script below).
 </para>
 
 <para>
@@ -310,17 +308,16 @@ linux:/opt#
 </para>
 
 <para>
-<emphasis>Сценарий 3.5. Добавление нового пользователя 'otrs' и добавление
-его в группу.</emphasis>
+<emphasis>Script: Adding a new user 'otrs', and adding it to a
+group.</emphasis>
 </para>
 
 <para>
-Затем нужно скопировать некоторые конфигурационные файлы (точнее
-демонстрационные копии конфигурационных файлов), которые позже будут
-использоваться системой. Файлы находятся в каталоге
-<filename>/opt/otrs/Kernel</filename> и
-<filename>/opt/otrs/Kernel/Config</filename> и имеют расширение (суффикс)
-.dist (см. ниже Сценарий 3.6).
+Next, you have to copy some sample configuration files. The system will
+later use the copied files. The files are located in
+<filename>/opt/otrs/Kernel</filename> and
+<filename>/opt/otrs/Kernel/Config</filename> and have the suffix .dist (see
+Script below).
 </para>
 
 <para>
@@ -333,8 +330,7 @@ linux:/opt/otrs/Kernel/Config# cp GenericAgent.pm.dist GenericAgent.pm
 </para>
 
 <para>
-<emphasis>Сценарий 3.6. Копирование демонстрационных копий конфигурационных
-файлов</emphasis>
+<emphasis>Script: Copying some sample files.</emphasis>
 </para>
 
 <para>
@@ -531,10 +527,10 @@ MD5
 </para>
 
 <para>
-Используйте команду <command>otrs.CheckModules.pl</command>, чтобы
-проверить, какие модули необходимо установить. Этот сценарий находится в
-директории <filename>bin</filename> домашнего каталогоа пользователя 'otrs'
-(см. ниже Сценарий 3.7).
+You can verify which modules you need to install with
+<command>otrs.CheckModules.pl</command>. This script is located in the
+<filename>bin</filename> directory, in the home directory of the 'otrs' user
+(see Script below).
 </para>
 
 <para>
@@ -592,7 +588,7 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-<emphasis>Сценарий 3.7. Проверка необходимых модулей.</emphasis>
+<emphasis>Script: Checking needed modules.</emphasis>
 </para>
 
 <para>
@@ -618,11 +614,11 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-Также, после изменений в директории <filename>/opt/otrs</filename> выполните
-эти две команды <command>perl -cw bin/cgi-bin/index.pl</command> и
-<command>perl -cw bin/otrs.PostMaster.pl</command>. Если результатом
-выполнения обеих команд будет "syntax OK", значит Perl установлен правильно
-(см. ниже Сценарий 3.8).
+    Execute also the commands <command>perl -cw bin/cgi-bin/index.pl</command>
+<command>perl -cw bin/cgi-bin/customer.pl</command> and <command>perl -cw
+bin/otrs.PostMaster.pl</command> after changing into the directory
+<filename>/opt/otrs</filename>.  If the output of both commands is "syntax
+OK", your Perl is properly set up (see Script below).
 </para>
 
 <para>
@@ -630,14 +626,15 @@ linux:/opt/otrs/bin#
 linux:~# cd /opt/otrs
 linux:/opt/otrs# perl -cw bin/cgi-bin/index.pl
 cgi-bin/installer.pl syntax OK
+linux:/opt/otrs# perl -cw bin/cgi-bin/customer.pl
+cgi-bin/customer.pl syntax OK
 linux:/opt/otrs# perl -cw bin/otrs.PostMaster.pl
-otrs.PostMaster.pl syntax OK
+bin/otrs.PostMaster.pl syntax OK
 linux:/opt/otrs#
 </screen>
 </para>
-
 <para>
-<emphasis>Сценарий 3.8. Проверка синтаксиса.</emphasis>
+<emphasis>Script: Syntax check.</emphasis>
 </para>
 
 </section>
@@ -675,10 +672,9 @@ Apache.
 </para>
 
 <para>
-Перезагрузите веб-сервер, чтобы новые настройки вступили в силу. На
-большинстве систем запустить/перезагрузить веб-сервер можно с помощью
-команды <command>/etc/init.d/apache2 restart</command> (см. ниже Сценарий
-3.11 ).
+Restart your web server to load the new configuration settings. On most
+systems you can start/restart your web server with the command
+<command>/etc/init.d/apache2 restart</command> (see Script below).
 </para>
 
 <para>
@@ -690,7 +686,7 @@ linux:/etc/apache2/conf.d#
 </para>
 
 <para>
-<emphasis>Сценарий 3.11. Перезапуск веб-сервера. </emphasis>
+<emphasis>Script: Restarting the web server.</emphasis>
 </para>
 
 <para>
@@ -713,8 +709,8 @@ linux:/etc/apache2/conf.d#
 </para>
 
 <para>
-Чтобы проверить загружен ли этот модуль, поищите файл mod_perl.so в каталоге
-/etc/apache* (см. ниже Сценарий 3.12).
+Search your /etc/apache* directory for mod_perl.so (see Script below) to see
+if the module is already loaded.
 </para>
 
 <para>
@@ -722,7 +718,7 @@ linux:/etc/apache2/conf.d#
 </para>
 
 <para>
-<emphasis>Сценарий 3.12. Поиск mod_perl.</emphasis>
+<emphasis>Script: Searching for mod_perl.</emphasis>
 </para>
 
 <para>
@@ -753,8 +749,8 @@ url="http://localhost/otrs/installer.pl">
 </para>
 
 <para>
-1. Проверьте информацию о OTRS-офисах и нажмите кнопку Далее (см. ниже Рис
-3.1 ).
+1. Check out the information about the OTRS offices and click on next to
+continue (see Figure below).
 </para>
 
 <para>
@@ -764,13 +760,12 @@ screenshot" scale="40" fileref="screenshots/installer1.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.1. Экран приветствия.</emphasis>
+<emphasis>Figure: Welcome screen.</emphasis>
 </para>
 
 <para>
-2. Прочитайте соглашения лицензии GNU Affero General Public License
-(см. ниже Рисунок 3.2)  и примите их, нажав на соответствующую кнопку внизу
-страницы.
+2. Read the GNU Affero General Public License (see Figure below) and accept
+it, by clicking the corresponding button at the bottom of the page.
 </para>
 
 <para>
@@ -780,13 +775,13 @@ screenshot" scale="40" fileref="screenshots/installer2.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.2. GNU Affero General Public License.</emphasis>
+<emphasis>Figure: GNU Affero General Public License.</emphasis>
 </para>
 
 <para>
-3. Введите имя пользователя и пароль администратора, DNS-имя компьютера на
-котором находится OTRS и тип используемой СУБД. После этого, проверьте
-настройки (см. ниже  Рисунок 3.3 ).
+3. Provide the username and password of the administrator, the DNS name of
+the computer which hosts OTRS and the type of database system to be
+used. After that, check the settings (see Figure below).
 </para>
 
 <para>
@@ -796,12 +791,12 @@ screenshot" scale="40" fileref="screenshots/installer3.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.3. Первоначальная настройка базы данных.</emphasis>
+<emphasis>Figure: Database initial settings.</emphasis>
 </para>
 
 <para>
-Если проверка прошла успешно, вы будете уведомлены. Чтобы продолжить,
-нажмите кнопку OK (см. ниже Рисунок 3.4).
+You will be notified if the check was successful. Press OK to continue (see
+Figure below).
 </para>
 
 <para>
@@ -812,12 +807,12 @@ screenshot" scale="40" fileref="screenshots/installer4.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.4. Уведомление об успешной проверке.</emphasis>
+<emphasis>Figure: Notification for successful check.</emphasis>
 </para>
 
 <para>
-4. Создайте нового пользователя базы данных, выберите имя базы данных и
-нажмите кнопку 'Далее' (см. ниже Рисунок 3.5).
+4. Create a new database user, choose a name for the database and click on
+'Next' (see Figure below).
 </para>
 
 <warning>
@@ -834,13 +829,12 @@ screenshot" scale="40" fileref="screenshots/installer5.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.5. Настройки базы данных.</emphasis>
+<emphasis>Figure: Database settings.</emphasis>
 </para>
 
 <para>
-Если база данных и пользователь базы данных были успешно созданы, вы
-получите уведомление, как это показанно на Рисунке 3.6. Нажмите кнопку
-'Далее' для перехода к следующему этапу установки.
+If the database and its user were successfully created, you will get a setup
+notification, as shown in Figure. Click 'Next' to go to the next screen.
 </para>
 
 <para>
@@ -850,13 +844,13 @@ screenshot" scale="40" fileref="screenshots/installer6.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.6. Уведомление о успешной установке базы
-данных.</emphasis>
+<emphasis>Figure: Notification indicating successful database
+setup.</emphasis>
 </para>
 
 <para>
-5. Укажите все необходимые настройки системы и нажмите кнопку 'Дальше'
-(см. ниже Рисунок 3.7 ).
+5. Provide all the required system settings and click on 'Next' (see Figure
+below).
 </para>
 
 <para>
@@ -866,13 +860,13 @@ screenshot" scale="40" fileref="screenshots/installer7.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.7. Настройки системы.</emphasis>
+<emphasis>Figure: System settings.</emphasis>
 </para>
 
 <para>
-6. Если хотите, можно указать необходимые данные для настройки входящей и
-выходящей почты, можете пропустить этот шаг, нажав кнопку в нижней части
-экрана (см. Рисунок 3.8 ниже).
+6. If you want, you can provide the needed data to configure your inbound
+and outbound mail, or skip this step by pressing the right button at the
+bottom of the screen (see Figure below).
 </para>
 
 <para>
@@ -882,12 +876,12 @@ screenshot" scale="40" fileref="screenshots/installer8.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.8. Настройка электронной почты.</emphasis>
+<emphasis>Figure: Mail configuration.</emphasis>
 </para>
 
 <para>
-7. Чтобы новые конфигурационные параметры вступили в силу, перезапустите
-OTRS, как это показано в Сценарии 3.13.
+7. Restart the OTRS service now to use the new configuration settings as
+shown in the script below.
 </para>
 
 <para>
@@ -920,17 +914,18 @@ linux:~ #
 </para>
 
 <para>
-<emphasis>Сценарий 3.13. Перезапуск службы OTRS.</emphasis>
+<emphasis>Script: Restarting the OTRS service.</emphasis>
 </para>
 
 <para>
-Поздравляем! Установка OTRS завершена и можно начинать работу с системой
-(см. ниже Рисунок 3.9). Для входа в веб-интерфейс OTRS, откройте веб-браузер
-и наберите в адресной строке <ulink url="http://localhost/otrs/index.pl">
-<citetitle>http://localhost/otrs/index.pl</citetitle> </ulink>. Чтобы войти
-в систему OTRS с правами администратора, используйте логин 'root@localhost'
-и пароль 'root'. Затем вы можете настроить систему в соответствии с вашими
-требованиями.
+Congratulations! Now the installation of OTRS is finished and you should be
+able to work with the system (see Figure below). To log into the web
+interface of OTRS, use the address <ulink
+url="http://localhost/otrs/index.pl">
+<citetitle>http://localhost/otrs/index.pl</citetitle> </ulink> from your web
+browser. Log in as OTRS administrator, using the username 'root@localhost'
+and the password 'root'. After that you can configure the system for your
+needs.
 </para>
 
 <warning>
@@ -947,7 +942,7 @@ screenshot" scale="40" fileref="screenshots/installer9.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Рисунок 3.9. Заключительные шаги для установки OTRS.</emphasis>
+<emphasis>Figure: Final steps to install OTRS.</emphasis>
 </para>
 
 </section>
@@ -956,11 +951,10 @@ screenshot" scale="40" fileref="screenshots/installer9.png"></graphic></screensh
 <title>Установка базы данных OTRS вручную.</title>
 
 <para>
-Если вы не можете воспользоваться веб-инсталлятором для установки базы
-данных OTRS, то ее нужно установить вручную. Сценарий с SQL-инструкциями для
-создания и настройки базы данных находится в директории
-<filename>scripts/database</filename> домашенего каталога пользователя
-'otrs' (см. ниже Сценарий 3.14).
+If you can't use the web installer to setup the OTRS database, you have to
+set it up manually. Scripts with the SQL statements to create and configure
+the database are located in <filename>scripts/database</filename>, in the
+home directory of the 'otrs' user (see Script below).
 </para>
 
 <para>
@@ -982,8 +976,8 @@ linux:/opt/otrs/scripts/database#
 </para>
 
 <para>
-<emphasis>Сценарий 3.14. Файлы, необходимые для создания и настройки базы
-данных.</emphasis>
+<emphasis>Script: Files needed to create and configure the
+database.</emphasis>
 </para>
 
 <para>
@@ -1044,11 +1038,12 @@ otrs-schema-post.DatabaseType.sql (например
 </para>
 
 <para>
-Если база данных и права доступа настроены правильно, то на следующем этапе
-ее нужно подключить к OTRS. Откройте файл
-<filename>Kernel/Config.pm</filename>, находящийся в домашнем каталоге
-пользователя 'otrs' и измените параметры в соответствии с вашими
-требованиями так, как это показанно в Сценарии 3.15.
+If your database and the access rights are configured properly, you have to
+tell OTRS which database back-end you want to use and how the ticket system
+can connect to the database. Open the file
+<filename>Kernel/Config.pm</filename> located in the home directory of the
+'otrs' user, and change the parameters shown in the script below according
+to your needs.
 </para>
 
 <para>
@@ -1074,7 +1069,7 @@ otrs-schema-post.DatabaseType.sql (например
 </para>
 
 <para>
-<emphasis>Сценарий 3.15. "Подгоняемые" параметры</emphasis>
+<emphasis>Script: Parameters to be customized.</emphasis>
 </para>
 
 </section>
@@ -1092,9 +1087,8 @@ crontab-файл пользователя 'otrs'.
 </para>
 
 <para>
-Все сценарии с cron jobs находятся в директории
-<filename>var/cron</filename> домашнего каталога пользователя 'otrs'
-(см. ниже Сценарий 3.16 ).
+All scripts with the cron jobs are located in <filename>var/cron</filename>,
+in the home directory of the 'otrs' user (see Script below).
 </para>
 
 <para>
@@ -1110,14 +1104,13 @@ linux:/opt/otrs/var/cron#
 </para>
 
 <para>
-<emphasis>Сценарий 3.16. Файлы, необходимые для создания заданий
-планировщика задач (cron jobs).</emphasis>
+<emphasis>Script: Files needed to create the cron jobs.</emphasis>
 </para>
 
 <para>
-Эти сценарии имеют расширение '.dist'. Их нужно скопироваь в соответствующие
-файлы без расширения. Если вы работаете в оболочке bash, то можете
-воспользоваться командой из Сценария 3.17.
+These scripts have a suffix of '.dist'. You should copy them to files with
+the suffix removed. If you use bash, you might want to use the command
+listed in Script below.
 </para>
 
 <para>
@@ -1137,8 +1130,8 @@ linux:/opt/otrs/var/cron#
 </para>
 
 <para>
-<emphasis> Сценарий 3.17. Копирование и переименование всех файлов,
-необходимых для создания заданий планировщика задач (cron jobs).</emphasis>
+<emphasis>Script: Copying and renaming all the files needed to create the
+cron jobs.</emphasis>
 </para>
 
 <para>
@@ -1278,12 +1271,10 @@ linux:/opt/otrs/var/cron#
 </para>
 
 <para>
-Посокольку задания планировщика cron jobs должны быть установлены в
-crontab-файле пользователя 'otrs', то нужно залогинится как пользователь
-'otrs'. Если вы вошли в систему как суперпользователь (с правами
-администратора) и хотите изменить пользователя - используйте команду
-<command>su otrs</command>. Для установки заданий cron jobs выполните
-команды приведенные ниже, в Сценарии 3.18.
+Because the cron jobs need to be installed in the crontab file of the 'otrs'
+user, you need to be logged in as 'otrs'. If you are logged in as root, you
+can switch to 'otrs' with the command <command>su otrs</command>. Execute
+the commands specified in Script below to install the cron jobs.
 </para>
 
 <warning>
@@ -1311,14 +1302,13 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-<emphasis>Сценарий 3.18. Установка cron jobs.</emphasis>
+<emphasis>Script: Installing the cron jobs.</emphasis>
 </para>
 
 <para>
-Команда <command>crontab -l -u otrs</command>, которую можно запускать с
-правами администратора, отображает содержание crontab-файла пользователя
-'otrs', так что можно легко проверить правильность расположения всех записей
-(см. ниже Сценарий 3.19).
+The command <command>crontab -l -u otrs</command>, which can be executed as
+root, shows you the crontab file of the 'otrs' user, and you can check if
+all entries are placed correctly (see Script below).
 </para>
 
 <para>
@@ -1428,7 +1418,7 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-<emphasis>Сценарий 3.19. Файл Crontab.</emphasis>
+<emphasis>Script: Crontab file.</emphasis>
 </para>
 
 </section>
@@ -1612,6 +1602,13 @@ shell&gt; /etc/init.d/apache start
         </para>
       </listitem>
       <listitem>
+        <para>Check installed packages</para>
+        <para>
+            In the package manager, check if all packages are still marked as correctly
+installed or if any require reinstallation or even a package upgrade.
+        </para>
+      </listitem>
+      <listitem>
         <para>
     Проверьте возможные проблемы с кодировкой:
         </para>
@@ -1757,6 +1754,18 @@ follows: <screen>
       </listitem>
       <listitem>
         <para>
+            Check Your Cronjobs
+        </para>
+        <para>
+            With OTRS 3.0, some commandline scripts were renamed, such as
+<filename>otrs.PostMaster.pl</filename>.  Please check that your cronjobs
+still use the correct filenames. With RPM upgrades, files such as
+<filename>/etc/sysconfig/otrs</filename> sometimes are not correctly
+overwritten, thus keeping the old cron settings, which may lead to errors.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
             Дополнительно:  Помечайте Заявки как Прочитанные
         </para>
         <para>
@@ -1795,6 +1804,70 @@ url="http://faq.otrs.org/otrs/public.pl?Action=PublicFAQ;ItemID=351">FAQ#
 url="http://www.youtube.com/watch?v=sf0R-reMTWc">YouTube video</ulink> можно
 найти достаточно информативное видео.
 </para>
+</section>
+
+<section id="upgrading-mssql-datatypes">
+<title>Upgrading Microsoft SQL Server Data Types</title>
+<para>
+Starting OTRS version <emphasis>3.1</emphasis>, OTRS uses the
+<emphasis>NVARCHAR</emphasis> data type rather than
+<emphasis>VARCHAR</emphasis> or <emphasis>TEXT</emphasis>, to store textual
+data. This is because the <emphasis>NVARCHAR</emphasis> type has full
+support for Unicode, whereas the old data types store data in UCS-2 format,
+which is a sub-set of Unicode. Also, the <emphasis>TEXT</emphasis> data type
+is deprecated since <emphasis>SQL Server 2005</emphasis>. Due to this,
+starting with OTRS version 3.1, the minimal SQL Server version required for
+operation with OTRS is now <emphasis>Microsoft SQL Server 2005</emphasis>.
+</para>
+
+<para>
+Because dropping and re-creating these indexes is a time-consuming
+operation, especially on large databases, please plan enough time for
+performing the upgrade. We would recommend that you perform the upgrade on a
+copy of the database prior to doing the actual conversion to test the
+upgrade procedure and to time how much time will be needed on your specific
+environment.
+</para>
+
+<para>
+Please make sure that, before you start, there is enough space available on
+the database server. Make sure the free space on your database server is at
+least 2.5x the current size of the database.
+</para>
+
+<important>
+<para>
+This upgrade procedure will upgrade all fields of the mentioned data types
+to the new types. This procedure first removes any indexes and constraints
+in which these fields are referenced, upgrades the fields, and then adds the
+indexes and constraints back. It will do so on all tables found in the SQL
+Server database that OTRS uses. If you would have stored non-OTRS tables in
+the OTRS database, and these tables contain columns of the data types
+VARCHAR or TEXT, these will also be updated.
+</para>
+</important>
+
+  <orderedlist>
+      <listitem>
+        <para>Open a Command Line on the OTRS server.</para>
+      </listitem>
+      <listitem>
+        <para>Change directory to the OTRS root directory.  If you're using the default
+OTRS installer this would be C:\Program Files\OTRS\OTRS.</para>
+      </listitem>
+      <listitem>
+        <para>Run the following command: <screen>
+shell> perl scripts/DUpdate-to-3.1.mssql-datatypes.pl
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>This will generate three scripts in the specified directory
+scripts\database\update. Run these scripts on the SQL Server database, via
+SQL Server Management Studio or isql.
+        </para>
+      </listitem>
+  </orderedlist>
 </section>
 
 </chapter>

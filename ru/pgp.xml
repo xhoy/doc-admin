@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: pgp.xml,v 1.12 2011-05-31 13:03:50 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
 <chapter id='configure-pgp'>
 <title>PGP</title>
 
@@ -23,9 +23,9 @@ GnuPG. Чтобы установить GnuPG для OTRS, нужно проде�
     </listitem>
     <listitem>
     <para>
-    Настройте GnuPG для использования с OTRS. Для GnuPG и приватного ключа нужно
-создать необходимые директории. В командной строки для пользователя 'otrs'
-нужно выполнить команду из Сценария 16.1.
+    Configure GnuPG for use with OTRS. The necessary directories for GnuPG and a
+private key have to be created. The command shown in the script below has to
+be executed as user 'otrs' from a shell.
     </para>
 
     <para>
@@ -116,13 +116,13 @@ GnuPG. Чтобы установить GnuPG для OTRS, нужно проде�
     </para>
 
     <para>
-    <emphasis>Сценарий 16.1. Настройка GnuPG.</emphasis>
+    <emphasis>Script: Configuring GnuPG.</emphasis>
     </para>
 
     <para>
-		Как показано в сценарии 16.1, настройки по умолчанию могут быть применены
-для большинства из необходимых параметров. Правильно должны быть указаны
-только пароль и значения для владельца ключа.
+		As shown in the script below, the default settings can be applied for most
+of the required parameters. Only the values for the key owner have to be
+entered correctly, with a proper password specified for the key.
     </para>
     </listitem>
     <listitem>
@@ -155,10 +155,10 @@ GnuPG. Чтобы установить GnuPG для OTRS, нужно проде�
     </para>
 
     <para>
-    Как получить идентификатор вашего собственного закрытого ключа? ID вашего
-собственного закрытого идентификатора отображается во время генерации
-(см. выше шаг 1). Также есть возможность получить ID, указав команду из
-Сценария 16.2 вызванную с правами пользователя 'otrs':
+    How to get the id of your own private key? The ID of your own private key is
+already shown during the key generation (see step 1 from above). It is also
+possible to get the ID if the command specified in the following script is
+executed as user 'otrs':
     </para>
 
     <para>
@@ -180,8 +180,7 @@ GnuPG. Чтобы установить GnuPG для OTRS, нужно проде�
     </para>
 
     <para>
-    <emphasis>Сценарий 16.2. Получение ID вашего собственного приватного
-ключа.</emphasis>
+    <emphasis>Script: Getting the ID of your own private key.</emphasis>
     </para>
 
     <para>

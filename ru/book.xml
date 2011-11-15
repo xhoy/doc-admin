@@ -3,7 +3,7 @@
 					"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: book.xml,v 1.12 2011-05-31 13:03:50 mg Exp $ -->
+<!-- $Id: book.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
 <book lang="ru">
 	<bookinfo>
 		<title>OTRS 3.0 - Руководство Администратора</title>
@@ -27,6 +27,11 @@ Fernando Rodríguez, Stefan Rother, Burchard Steinbild, Daniel Zamorano.
 				Это руководство может быть скопировано целиком или частично, при условии,
 что это уведомление об авторских правах будет включено в каждую копию.
 			</para>
+
+            <para>
+                The source code of this document can be found at <ulink
+url="http://source.otrs.org/viewvc.cgi/doc-admin/">source.otrs.org</ulink>.
+            </para>
 
 			<para>
 				UNIX является зарегистрированной торговой маркой компании X/Open Company
@@ -80,6 +85,8 @@ Public Interest, Inc. MySQL и логотип MySQL являются зарег�
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="smime.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="acl.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stats.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scheduler.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applications.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="performance-tuning.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="backup-and-restore.xml" />

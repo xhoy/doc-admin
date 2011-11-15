@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.42 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.43 2011-11-15 13:08:59 mg Exp $ -->
 <chapter id="external-backends">
 <title>Einbinden externer Backends</title>
 
@@ -44,9 +44,9 @@ damit OTRS ordnungsgemäß funktioniert:
 </para>
 
 <para>
-Verwenden Sie die Konfigurationsparameter aus Skript 11.1 in Ihrer Datei
-<filename>Kernel/Config.pm</filename>, wenn Sie Kundeninformationen anzeigen
-möchten.
+Use configuration parameters of the following script in your
+<filename>Kernel/Config.pm</filename> file, if you want to display customer
+information in your agent interface.
 </para>
 
 <para>
@@ -61,8 +61,7 @@ möchten.
 </para>
 
 <para>
-<emphasis>Skript 11.1. Konfigurationsparameter in
-Kernel/Config.pm.</emphasis>
+<emphasis>Script: Kernel/Config.pm configuration parameters.</emphasis>
 </para>
 
 </section>
@@ -95,14 +94,24 @@ $Self->{CustomerUser} = {
     Module => 'Kernel::System::CustomerUser::DB',
     Params => {
         # if you want to use an external database, add the required settings
-#        DSN => 'DBI:odbc:yourdsn',
-#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
-#        User => '',
-#        Password => '',
-        Table => 'customer_user',
-    },
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+            # if your frontend is unicode and the charset of your
+            # customer database server is iso-8859-1, use these options.
+#           SourceCharset => 'iso-8859-1',
+#           DestCharset => 'utf-8',
+
+            # CaseSensitive will control if the SQL statements need LOWER()
+            #   function calls to work case insensitively. Setting this to
+            #   1 will improve performance dramatically on large databases.
+            CaseSensitive => 0,
+        },
 # customer unique id
 CustomerKey => 'login',
+
 # customer #
 CustomerID => 'customer_id',
 CustomerValid => 'valid_id',
@@ -163,9 +172,9 @@ CustomerValid => 'valid_id',
 </example>
 
 <para>
-Falls Sie die Kundendaten anpassen möchten, ändern Sie in der Datenbank die
-Tabellenspalten oder fügen Sie weitere hinzu (im folgenden Beispiel wird ein
-Feld für die Raumnummer hinzugefügt).
+If you want to customize the customer data, change the column headers or add
+new ones to the customer_user table in the OTRS database. As an example, the
+script below shows how to add a new field for room number.
 </para>
 
 <para>
@@ -193,13 +202,12 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Skript 11.1. Ein Feld zur Tabelle customer_user
-hinzufügen.</emphasis>
+<emphasis>Script: Adding a room field to the customer_user table.</emphasis>
 </para>
 
 <para>
-Danach fügen Sie Ihre eigenen Spalten dem MAP Array in der Datei
-<filename>Kernel/Config.pm</filename> hinzu:
+Now add the new column to the MAP array in
+<filename>Kernel/Config.pm</filename>, as shown in the following script.
 </para>
 
 <para>
@@ -211,7 +219,7 @@ Danach fügen Sie Ihre eigenen Spalten dem MAP Array in der Datei
 </para>
 
 <para>
-<emphasis>Skript 11.3. Hinzufügen eines Feldes in Kernel/Config.pm
+<emphasis>Script: Adding a room field to the Kernel/Config.pm
 file.</emphasis>
 </para>
 
@@ -233,10 +241,9 @@ können diese Tickets über den "Firmen-Ticket" Link eingesehen werden.
 </para>
 
 <para>
-Um Firmen-Tickets zu verwenden, muss die customer_user Tabelle in der OTRS
-Datenbank um eine Spalte erweitert werden, in die später die Kundennummern
-eingetragen werden, auf die ein Kunde zusätzlich zu den eigenen Tickets
-Zugriff haben soll.
+To use company tickets, a new column with the IDs that should be accessible
+for a customer, has to be added to the customer_user table in the OTRS
+database (see Script below).
 </para>
 
 <para>
@@ -264,13 +271,13 @@ linux:~#
 </para>
 
 <para>
-	<emphasis>Skript 11.4. Hinzufügen eines Feldes customer_ids zur Tabelle
-customer_user.</emphasis>
+	<emphasis>Script: Adding a customer_ids field to the customer_user
+table.</emphasis>
 </para>
 
 <para>
-Danach fügen Sie die neue Spalte dem MAP Array in der Datei
-<filename>Kernel/Config.pm</filename> hinzu.
+Now the new column has to be added to the MAP array in
+<filename>Kernel/Config.pm</filename>, as shown in the script below.
 </para>
 
 <para>
@@ -282,8 +289,8 @@ Danach fügen Sie die neue Spalte dem MAP Array in der Datei
 </para>
 
 <para>
-<emphasis>Skript 11.5. Hinzufügen des Feldes UserCustomerIDs zu
-Kernel/Config.pm.</emphasis>
+<emphasis>Script: Adding a UserCustomerIDs field to the Kernel/Config.pm
+file.</emphasis>
 </para>
 
 <para>
@@ -354,13 +361,13 @@ $Self->{CustomerUser} = {
         # in case you want to add always one filter to each ldap query, use
         # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
         AlwaysFilter => '',
-        # if your frontend is e. g. iso-8859-1 and the charset of your
-        # ldap server is utf-8, use these options.
-#            SourceCharset => 'utf-8',
-#            DestCharset => 'iso-8859-1',
             # if both your frontend and your LDAP are unicode, use this:
-#            SourceCharset => 'utf-8',
-#            DestCharset   => 'utf-8',
+            SourceCharset => 'utf-8',
+            DestCharset   => 'utf-8',
+            # if your frontend is unicode and the charset of your
+            # ldap server is iso-8859-1, use these options.
+            # SourceCharset => 'iso-8859-1',
+            # DestCharset => 'utf-8',
             # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
             Params => {
                 port => 389,
@@ -409,10 +416,11 @@ $Self->{CustomerUser} = {
 </example>
 
 <para>
-Falls Sie in Ihrem LDAP Verzeichnis weitere Informationen zu Ihren Kunden
-gespeichert haben und mit OTRS darauf zugreifen möchten, erweitern Sie das
-MAP Array in <filename>Kernel/Config.pm</filename> bzw. entfernen nicht
-gewünschte Einträge.
+If additional customer attributes are stored in your LDAP directory, such as
+a manager's name, a mobile phone number, or a department, and if you want to
+display this information in OTRS, just expand the MAP array in
+<filename>Kernel/Config.pm</filename> with the entries for these attributes,
+as shown in the following script.
 </para>
 
 <para>
@@ -424,8 +432,7 @@ gewünschte Einträge.
 </para>
 
 <para>
-<emphasis>Skript 11.6. Hinzufügen neuer Felder zu
-Kernel/Config.pm.</emphasis>
+<emphasis>Script: Adding new fields to the Kernel/Config.pm file.</emphasis>
 </para>
 
 
@@ -439,8 +446,9 @@ Kunden zugänglich sein sollen.
 </para>
 
 <para>
-Wenn das neue Feld erstellt wurde, muss es zum MAP Array in
-<filename>Kernel/Config.pm</filename> hinzugefügt werden.
+If the new field in the LDAP directory has been created, the new entry has
+to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as
+shown in the script below.
 </para>
 
 <para>
@@ -452,8 +460,7 @@ Wenn das neue Feld erstellt wurde, muss es zum MAP Array in
 </para>
 
 <para>
-<emphasis>Skript 11.7. Hinzufügen eines neuen Feldes in
-Kernel/Config.pm.</emphasis>
+<emphasis>Script: Maping new fields to the Kernel/Config.pm file.</emphasis>
 </para>
 
 <para>
@@ -759,16 +766,16 @@ $Self->{'AuthModule::LDAP::Params'} = {
 </example>
 
 <para>
-Mit den folgenden Konfigurationsparametern können die Benutzerdaten der
-Agenten aus dem LDAP in die lokale OTRS Datenbank synchronisiert
-werden. Dies reduziert die Zugriffe auf ihr LDAP Verzeichnis, entlastet den
-Server mit den LDAP Daten und beschleunigt die Anmeldung an OTRS. Die
-Synchronisierung der Daten findet bei der ersten Anmeldung des Agenten
-statt, trotz der synchronisierten Daten bleibt ihr LDAP Verzeichnis die
-letzte Instanz bei der Anmeldung. D.h. wird ein User im LDAP Verzeichnis
-gelöscht oder deaktiviert, klappt die Anmeldung an OTRS nicht. Ebenfalls
-müssen die Daten für einen Agenten weiterhin direkt im LDAP Verzeichnis
-gepflegt werden.
+The configuration parameters shown in the script below can be used to
+synchronize the user data from your LDAP directory into your local OTRS
+database. This reduces the number of requests to your LDAP server and speeds
+up the authentication with OTRS. The data synchronization is done when the
+agent authenticates the first time. Although the data can be syncronized
+into the local OTRS database, the LDAP directory is the last instance for
+the authentication, so an inactive user in the LDAP tree can't authenticate
+to OTRS, even when the account data is already stored in the OTRS
+database. The agent data in the LDAP directory can't be edited via the web
+interface of OTRS, so the data has to be managed directly in the LDAP tree.
 </para>
 
 <para>
@@ -798,8 +805,8 @@ $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
 </para>
 
 <para>
-<emphasis>Skript 11.8. Synchronisation der Benutzerdaten aus dem
-LDAP-Verzeichnis in die OTRS-Datenbank.</emphasis>
+<emphasis>Script: Synchronizing the user data from the LDAP directory into
+the OTRS database.</emphasis>
 </para>
 
 </section>
@@ -1033,10 +1040,11 @@ hinzugefügt.
 <title>Anpassen der Weboberfläche</title>
 
 <para>
-Damit im Webinterface das zusätzliche Feld für die Raumnummer angezeigt
-wird, muss die zuständige dtl-Datei angepasst werden. Editieren Sie
-<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> und fügen
-Sie das gewünschte Feld hinzu.
+To display the new field for the room number in the customer.pl web
+interface, the .dtl file responsible for the layout in this interface has to
+be modified. Edit the
+<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file,
+adding the new field around line 80 (see Script below).
 </para>
 
 <para>
@@ -1051,8 +1059,7 @@ Sie das gewünschte Feld hinzu.
 </para>
 
 <para>
-<emphasis>Skript 11.9. Anzeigen eines neuen Feldes in der
-Weboberfläche.</emphasis>
+<emphasis>Script: Displaying a new field in the web interface.</emphasis>
 </para>
 
 </section>
@@ -1061,11 +1068,12 @@ Weboberfläche.</emphasis>
 <title>Kunden-Mapping</title>
 
 <para>
-Zusätzlich muss das Kunden-Mapping um den Eintrag für die Raumnummer
-erweitert werden. Dazu werden zuerst die Einstellungen für "CustomerUser"
-aus der Datei <filename>Kernel/Config/Defaults.pm</filename> in die Datei
-<filename>Kernel/Config.pm</filename> übertragen. Anschließend wird das
-Kunden-Mapping um das Raumnummer-Feld erweitert.
+In the next step, the customer mapping has to be expanded with the new entry
+for the room number. To ensure that the changes are not lost after an
+update, put the "CustomerUser" settings from the
+<filename>Kernel/Config/Defaults.pm</filename> into the
+<filename>Kernel/Config.pm</filename>. Now change the MAP array and add the
+new room number field, as shown in the script below.
 </para>
 
 <para>
@@ -1143,7 +1151,7 @@ $Self->{CustomerUser} = {
 </para>
 
 <para>
-<emphasis>Skript 11.10. Anpassung des MAP-Arrays.</emphasis>
+<emphasis>Script: Changing the map array.</emphasis>
 </para>
 
 </section>
@@ -1152,8 +1160,9 @@ $Self->{CustomerUser} = {
 <title>Anpassen der Kunden-Tabelle in der OTRS-Datenbank</title>
 
 <para>
-Abschließend muss eine neue Spalte zur "customer_user" Tabelle in der OTRS
-Datenbank hinzugefügt werden, in der die Raumnummer gespeichert werden kann.
+The last step is to add the new room number column to the customer_user
+table in the OTRS database (see Script below). In this column, the entries
+for the room numbers will be stored.
 </para>
 
 <para>
@@ -1181,8 +1190,7 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Skript 11.11. Hinzufügen einer neuen Spalte zur Tabelle
-customer_user.</emphasis>
+<emphasis>Script: Adding a new column to the customer_user table.</emphasis>
 </para>
 
 <para>

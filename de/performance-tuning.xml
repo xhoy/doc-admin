@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.31 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.32 2011-11-15 13:09:00 mg Exp $ -->
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
 
@@ -122,8 +122,8 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
 <para>
-<emphasis>Skript 21.1 Wechsel des TicketStorage-Backends von Datenbank zu
-Dateisystem.</emphasis>
+<emphasis>Script: Switching storage back-ends from database to
+filesystem.</emphasis>
 </para>
 </section>
 
@@ -246,8 +246,9 @@ BLOB oder TEXT Spalten), sollten Sie die Datendateien mit dem "optimize"
 Kommando behandeln.
 </para>
 <para>
-Dies bietet sich an, wenn MySQL viel CPU Zeit braucht. Optimieren Sie die
-Tabellen ticket, ticket_history und article.
+You should try this if the mysqld daemon needs a lot of your CPU
+time. Optimize the tables - ticket, ticket_history and article (see Script
+below).
 </para>
 
 <para>
@@ -260,7 +261,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-<emphasis>Skript 21.2. Optimierung von Datenbanktabellen.</emphasis>
+<emphasis>Script: Optimizing data base tables.</emphasis>
 </para>
 
 </section>
@@ -339,22 +340,24 @@ und braucht weniger Speicher.
 <section id="performance-tuning-webserver-reload">
 <title>Perl Module bei Änderung neu laden</title>
 <para>
-Standardmäßig wird Apache::Reload in scripts/apache2-httpd.include.conf
-eingesetzt. Deaktivieren Sie es und die Geschwindigkeit steigt um etwa
-8%. Ab nun müssen Sie den Webserver neu starten, wenn Sie irgendetwas
-ändern! Wichtig: Dies hat zur Folge, dass der OTRS-Paket-Manager nicht mehr
-über das Web-Interface bedient werden kann sondern nur noch auf der
-Kommandozeile - <filename>bin/otrs.PackageManager.pl</filename>.
+By default Apache::Reload is used in
+scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
+speed. But remember to restart the web server if you install any modules via
+the OTRS Package Manager, or any values in your SysConfig or in
+Kernel/Config.pm. Important: this would also mean you can't use the OTRS
+Package Manager via the web interface, you need to use the command line
+variant - <filename>bin/otrs.PackageManager.pl</filename>.
 </para>
 </section>
 
 <section id="performance-tuning-webserver-strategy">
 <title>Die richtige Strategie wählen</title>
 <para>
-Bei wirklich großen Installationen (über 1000 neue Tickets am Tag, über 40
-Agenten) ist es eine sehr gute Idee, den Artikel "Choosing the Right
-Strategy" (in englisch) zu lesen (<ulink
-url="http://perl.apache.org/docs/1.0/guide/strategy.html">http://perl.apache.org/docs/1.0/guide/strategy.html</ulink>).
+If you have a larger installation, say over 1,000 new tickets per day and
+over 40 agents, it is a good idea to read the chapters on Performance of the
+mod_perl User's Guide ( <ulink
+url="http://perl.apache.org/docs/2.0/user/index.html"><citetitle>http://perl.apache.org/docs/2.0/user/index.html</citetitle></ulink>
+).
 </para>
 </section>
 

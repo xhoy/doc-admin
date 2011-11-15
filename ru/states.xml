@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: states.xml,v 1.12 2011-05-31 13:03:50 mg Exp $ -->
+<!-- $Id: states.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
 <chapter id="states">
 <title>Состояния</title>
 
@@ -111,13 +111,12 @@ linkend="adminarea-status">Состояния</link> на Панели Адми�
 </para>
 
 <para>
-Используя эту страницу можно добавить новое состояние или же изменить
-название уже существующего. Если состояние "новый" было изменено посредством
-веб-интерфейса, то это изменение также должно быть настроено в файле
-<filename>Kernel/Config.pm</filename> или с помощью интерфейса
-SysConfig. Чтобы убедится что OTRS правильно работает с измененным
-состоянием "новый" нужно модифицировать настройки приведенные в Сценарии
-12.1.
+The name of an already existing state can be changed, or new states added
+through this screen. If the state "new" has been changed via the web
+interface, this change also has to be configured via the config file
+<filename>Kernel/Config.pm</filename> or via the SysConfig interface. The
+settings specified in the script below have to be modified to ensure that
+OTRS works with the changed state for "new".
 </para>
 
 <para>
@@ -135,14 +134,13 @@ SysConfig. Чтобы убедится что OTRS правильно работ
 </para>
 
 <para>
-<emphasis>Сценарий 12.1. Изменение параметров настройки в
-Kernel/Config.pm.</emphasis>
+<emphasis>Script: Modifying the Kernel/Config.pm settings.</emphasis>
 </para>
 
 <para>
-Если нужно добавить новый тип состояния, то это можно сделать с помощью
-клиентской программы управления базами данных, изменив таблицу
-ticket_state_type базы данных OTRS, как это показано в Сценарии 12.2.
+If a new state type should be added, the ticket_state_type table in the OTRS
+database needs to be modified with a database client program, as shown in
+the script below.
 </para>
 
 <para>
@@ -170,7 +168,7 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script 12.2. Изменение базы данных OTRS.</emphasis>
+<emphasis>Script: Modifying the OTRS database.</emphasis>
 </para>
 
 <para>

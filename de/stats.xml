@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.28 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.29 2011-11-15 13:09:00 mg Exp $ -->
 <chapter id="statistic-module">
 <title>Statistikmodul</title>
 
@@ -33,8 +33,8 @@ Statistik-Moduls um ganz spezifische Anforderungen ergänzen).
 <title>Bedienung des Moduls durch den Agent</title>
 
 <para>
-Wenn man als Agent angemeldet ist, erscheint der Menüpunkt "Statistik" mit
-verschiedenen Unterpunkten, siehe Abb. 19.1.
+When signed on as an agent, the navigation bar displays the link
+"Statistics". This has various submenu options, as shown in Figure.
 </para>
 
 <para>
@@ -45,7 +45,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 3.7. Statistikmenü.</emphasis>
+<emphasis>Figure: Statistics menu options.</emphasis>
 </para>
 
 <para>
@@ -77,9 +77,9 @@ an.
 <title>Übersicht</title>
 
 <para>
-Die Auswahl von "Statistik" und des Unterpunktes "Übersicht" ruft den
-Übersichtsbildschirm auf. Hier wird dem Agenten eine Liste von
-vorkonfigurierten Reports präsentiert, die er verwenden kann.
+Selecting the "Statistics" link in the navigation bar, and then the submenu
+link "Overview", calls up the Overview screen. The Overview screen presents
+a list of all pre-configured reports the agent can use (see Figure below).
 
 </para>
 
@@ -91,7 +91,7 @@ srccredit="stats-overview - Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 19.2. Übersicht der Standardstatistiken.</emphasis>
+<emphasis>Figure: Overview of the standard reports.</emphasis>
 </para>
 
 <para>
@@ -144,8 +144,8 @@ Ansichtsseite des Reports.
 <title>Ansehen und Generieren von Statistiken</title>
 
 <para>
-Aufgabe der "Ansehen"-Oberfläche ist es, dem Agent einen Überblick über die
-Vorkonfiguration der Statistik zu ermöglichen.
+The view user interface provides the stat's configuration settings (see
+Figure below).
 </para>
 
 <para>
@@ -156,7 +156,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 19.3. Ansicht einer Statistik.</emphasis>
+<emphasis>Figure: Viewing a specific report.</emphasis>
 </para>
 
 <para>
@@ -370,8 +370,8 @@ Einsatz:
                 <itemizedlist>
                     <listitem>
                         <para>
-                            <emphasis>Anzeige statischer Statistiken</emphasis>. Statische
-Report-Generatoren können in die Statistik integriert werden (siehe unten).
+                            <emphasis>Static stat view</emphasis>. Static report generators can be
+integrated into the stats module (see Figure below).
                         </para>
                         <para>
                         <screenshot>
@@ -380,13 +380,13 @@ fileref="screenshots/stats-view-static.png" scale="40"
 srccredit="stats-view-static - Screenshot" /></screenshot>
                         </para>
                         <para>
-                            <emphasis>Abb. 19.4. Ansicht der statischen Statistik.</emphasis>
+                            <emphasis>Figure: Viewing a static report.</emphasis>
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            <emphasis>Anzeige dynamischer Statistiken</emphasis> Dynamische Statistiken
-können auf zweierlei Weise angezeigt werden:
+                            <emphasis>Dynamic stat view</emphasis> (see Figure above). They can be
+displayed in two different ways:
                         </para>
                         <para>
                         <itemizedlist>
@@ -526,8 +526,8 @@ wurde, gelangt man zur nächsten Eingabeoberfläche.
 <orderedlist numeration="arabic" >
 <listitem>
     <para>
-        <emphasis>Allgemeine Angaben</emphasis>. Dies ist die erste Seite des
-Assistenten.
+        <emphasis>General specifications</emphasis>. It is the first page of the
+Edit wizard (see Figure below).
     </para>
 
     <para>
@@ -538,13 +538,13 @@ srccredit="stats-edit-general - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Abb. 19.5. Allgemeine Angaben zur Statistik bearbeiten.</emphasis>
+        <emphasis>Figure: Editing the general specifications of a report.</emphasis>
     </para>
 
 
     <para>
-        Folgende allgemeine Angaben und Einstellungen der Statistik können geändert
-werden:
+        In the screen showed in Figure, there are a great number of common
+specifications and settings that can be edited:
     </para>
 
     <para>
@@ -721,9 +721,9 @@ möglich.
 </listitem>
 <listitem>
     <para>
-        <emphasis>Definition des Elements für die X-Achse</emphasis>. Hier wird
-eingestellt welches Element für die Darstellung der X-Achse verwendet wird,
-bzw. bei Tabellen, welche Spaltenbezeichnung die Statistik bekommt.
+        <emphasis>Definition of the element for the X-axis</emphasis>. It is the
+configuration of the element used for the depiction of the X-axis or, if
+tables are used, of the column name applied to the X-axis (see Figure).
     </para>
 
     <para>
@@ -734,7 +734,7 @@ srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Abb. 19.6. Definition des Elements für die X-Achse.</emphasis>
+        <emphasis>Figure: Definition of the element for the X-axis.</emphasis>
     </para>
 
     <para>
@@ -769,10 +769,9 @@ Oberfläche "Allgemeine Angaben" zu bearbeiten.
     </para>
 
     <para>
-    Im dritten Schritt der Vorkonfiguration einer Statistik werden die
-Wertereihen der Statistik festgelegt. Sie bilden später die einzelnen Grafen
-des Diagramms (grafische Darstellung) oder die einzelnen Reihen
-(tabellarische Darstellung).
+    In the third step of the report configuration, the value series are defined
+(see Figure below). They will later form the individual graphs or the
+various series within a tabular view.
     </para>
 
     <para>
@@ -783,7 +782,7 @@ srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Abb. 19.7. Festlegen der Wertereihen.</emphasis>
+        <emphasis>Figure: Definition of the value series.</emphasis>
     </para>
 
     <para>
@@ -892,11 +891,10 @@ Statistik erstellt, die Attribute des entsprechenden Elements verändern.
 </listitem>
 <listitem>
     <para>
-        <emphasis>Festlegen der Einschränkungen</emphasis>. Vierter und letzter
-Schritt bei der Vorkonfiguration ist das Festlegen der Einschränkungen. Hier
-ist es möglich die Ergebnisse einer Statistik durch die Angabe von
-Bedingungen einzuschränken. Vergleichbar ist dies mit Eingaben in eine
-Such-Oberfläche.
+        <emphasis>Setting restrictions to the report</emphasis>. This is the fourth
+and final step of the configuration (see Figure below). The restrictions
+serve to limit the results to the selected criteria. In many cases, no
+restrictions at all may be set up.
     </para>
 
     <para>
@@ -907,7 +905,7 @@ srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Abb. 19.8. Festlegen der Einschränkungen.</emphasis>
+        <emphasis>Figure: Definition of restrictions.</emphasis>
     </para>
 
     <para>
@@ -924,9 +922,10 @@ gelangt in die "Ansehen" Oberfläche.
 <title>Importieren</title>
 
 <para>
-Durch die Auswahl des "Import"-Menüpunkts im Statistikmenü der
-Navigationsleiste oder durch den "Import"-Knopf in der Übersichtsmaske
-gelangt man in die Importoberfläche ("rw"-Rechte erforderlich).
+The Import user interface (see Figure below) can be accessed by choosing
+from the navigation bar, the link "Statistics", then "Import". Alternately,
+pressing the Import button on the Overview screen achieves the same
+result. "rw" rights to the report are required.
 </para>
 
 <para>
@@ -937,7 +936,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Abb. 19.9. Die Import-Oberfläche.</emphasis>
+    <emphasis>Figure: The Import user interface.</emphasis>
 </para>
 
 <para>
@@ -1169,7 +1168,7 @@ sie ist es möglich, Statistiken auf der Kommandozeile zu generieren.
 </para>
 
 <para>
-Exemplarisch soll hierzu folgender Kommandozeilenaufruf angegeben werden:
+As an example, see the command line call in the following script.
 </para>
 
 <para>
@@ -1179,8 +1178,7 @@ bin> perl otrs.GenerateStats.pl -n 10004 -o /output/dir
 </para>
 
 <para>
-    <emphasis>Skript 19.1. Generieren einer Statistik auf der
-Kommandozeile.</emphasis>
+    <emphasis>Script: Generating a report from the command line.</emphasis>
 </para>
 
 <para>
@@ -1190,8 +1188,8 @@ gespeichert.
 </para>
 
 <para>
-Ferner kann die generierte Statistik auch per Email versandt werden. Mehr
-Informationen erhält man wie in Skript 19.2 geschildert.
+The generated report can also be sent as an e-mail. More information can be
+called up with the command in the script below.
 </para>
 
 <para>
@@ -1201,8 +1199,8 @@ bin> perl otrs.GenerateStats.pl --help
 </para>
 
 <para>
-    <emphasis>Skript 19.2. Aufruf der Hilfe von
-otrs.GenerateStats.pl.</emphasis>
+    <emphasis>Script: Getting information about the otrs.GenerateStats.pl
+file.</emphasis>
 </para>
 
 </section>

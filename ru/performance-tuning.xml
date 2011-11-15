@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.12 2011-05-31 13:03:50 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
 <chapter id="performance-tuning">
 <title>Настройка Производительности</title>
 
@@ -125,8 +125,8 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
 <para>
-<emphasis>Сценарий 21.1 Перемещение хранилища данных с базы данных на
-файловую систему.</emphasis>
+<emphasis>Script: Switching storage back-ends from database to
+filesystem.</emphasis>
 </para>
 </section>
 
@@ -251,9 +251,9 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 "оптимизировать".
 </para>
 <para>
-Нужно попытаться сделать это, если сервер mysqld использует много
-процессорного времени. Оптимизация таблиц ticket_history и article (см ниже
-Сценарий 21.2).
+You should try this if the mysqld daemon needs a lot of your CPU
+time. Optimize the tables - ticket, ticket_history and article (see Script
+below).
 </para>
 
 <para>
@@ -266,7 +266,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-<emphasis>Сценарий 21.2. Оптимизация таблиц базы данных.</emphasis>
+<emphasis>Script: Optimizing data base tables.</emphasis>
 </para>
 
 </section>
@@ -346,24 +346,23 @@ url="http://perl.apache.org/"><citetitle>http://perl.apache.org/</citetitle></ul
 <section id="performance-tuning-webserver-reload">
 <title>Перезагрузка Perl-модулей во время обновления с диска</title>
 <para>
-По умолчанию Apachee::Reload используется в
-scripts/apache2-httpd.include.conf. Отключив его вы получите больше 8%
-прироста скорости. Не забудьте перезапустить веб-сервер, если устанавливаете
-модули через OTRS Package Manager, или устанавливаете любые значения в
-SysConfig или в Kernel/Config.pm. Важно: это также будет означать, что у вас
-не будет возможности использовать OTRS Package Manager через
-пользовательский веб-интерфейс. В таком случае необходимо воспользоваться
-командной строкой - <filename>bin/otrs.PackageManager.pl</filename>.
+By default Apache::Reload is used in
+scripts/apache2-httpd.include.conf. Disable it and you will get 8% more
+speed. But remember to restart the web server if you install any modules via
+the OTRS Package Manager, or any values in your SysConfig or in
+Kernel/Config.pm. Important: this would also mean you can't use the OTRS
+Package Manager via the web interface, you need to use the command line
+variant - <filename>bin/otrs.PackageManager.pl</filename>.
 </para>
 </section>
 
 <section id="performance-tuning-webserver-strategy">
 <title>Выбор Правильной Стратегии</title>
 <para>
-Если у вас действительно большая система, более 1 000 новых заявок в день и
-болше 40 агентов, то хорошей идеей будет почитать статью "Выбор Правильной
-Стратегии"  (<ulink
-url="http://perl.apache.org/docs/1.0/guide/strategy.html"><citetitle>http://perl.apache.org/docs/1.0/guide/strategy.html</citetitle></ulink>
+If you have a larger installation, say over 1,000 new tickets per day and
+over 40 agents, it is a good idea to read the chapters on Performance of the
+mod_perl User's Guide ( <ulink
+url="http://perl.apache.org/docs/2.0/user/index.html"><citetitle>http://perl.apache.org/docs/2.0/user/index.html</citetitle></ulink>
 ).
 </para>
 </section>

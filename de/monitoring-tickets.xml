@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-<!-- $Id: monitoring-tickets.xml,v 1.28 2011-05-31 13:03:49 mg Exp $ -->
+<!-- $Id: monitoring-tickets.xml,v 1.29 2011-11-15 13:09:00 mg Exp $ -->
 <chapter id="monitoring-tickets" >
 <title>Ticket-Verantwortlicher und Beobachten von Tickets</title>
 
@@ -34,8 +34,9 @@ drei neue Icons in ihrer Toolbar erscheinen.
 </para>
 
 <para>
-Die Ticketverantwortung kann übergeben werden, indem das Ticket aufgerufen
-und die Funktion "Verantwortlicher" in der Aktionsleiste genutzt wird.
+Ticket responsibility can be assigned by calling up the ticket content and
+clicking on the "Responsible" link in the ticket activities menu of a zoomed
+ticket in the agent interface (see the Figure below).
 </para>
 
 <para>
@@ -46,13 +47,14 @@ fileref="screenshots/ticket-zoom-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 9.1. Verantwortlichen eines Tickets ändern.</emphasis>
+<emphasis>Figure: Changing the Responsibility of a ticket in its zoomed
+view.</emphasis>
 </para>
 
 <para>
-Nach dem Klick auf "Verantwortlicher" öffnet sich ein Popup-Fenster, in dem
-die Änderung durchgeführt werden kann. Damit kann auch dem neuen
-verantwortlichen Benutzer eine Nachricht geschickt werden.
+After clicking on "Responsible", a pop-up dialog to change the
+responsibility of that ticket will open (see Figure below). This dialog can
+also be used to send a message to the new responsible agent.
 </para>
 
 <para>
@@ -63,8 +65,8 @@ fileref="screenshots/ticket-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 9.2. Popup-Dialog zum Ändern des
-Ticket-Verantwortlichen.</emphasis>
+<emphasis>Figure: Pop-up dialog to change a ticket's
+responsibility.</emphasis>
 </para>
 
 <para>
@@ -96,9 +98,8 @@ sollen Tickets zu beobachten.
 </para>
 
 <para>
-Um ein Ticket zu beobachten, muss der Inhalt des Tickets aufgerufen und im
-Menü für die verschiedenen Aktionen für das Ticket der "Beobachten"-Schalter
-betätigt werden.
+In order to watch a ticket, go to its zoomed view and click on the
+"Subscribe" link in the ticket activities menu (see Figure below).
 </para>
 
 <para>
@@ -108,13 +109,14 @@ screenshot" scale="40" fileref="screenshots/ticket-subscribe.png"></graphic></sc
 </para>
 
 <para>
-<emphasis>Abb. 9.3. Ticket beobachten.</emphasis>
+<emphasis>Figure: Subscribing to watching a ticket in its zoomed
+view.</emphasis>
 </para>
 
 <para>
-Die Beobachtung eines Tickets wird aufgehoben, indem in der Inhaltsanzeige
-eines Tickets im Menü für die möglichen Aktionen der "Nicht
-beobachten"-Schalter gedrückt wird.
+If you no longer want to watch a specific ticket, go to its zoomed view and
+click on the "Unsubscribe" link in the ticket activities menu (see Figure
+below).
 </para>
 
 <para>
@@ -125,13 +127,14 @@ fileref="screenshots/ticket-unsubscribe.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 9.4. Ticket nicht mehr beobachten.</emphasis>
+<emphasis>Figure: Unsubscribing from watching a ticket in its zoomed
+view.</emphasis>
 </para>
 
 <para>
-Die Liste aller zur Beobachtung ausgewählten Tickets wird über die Ansicht
-"Beobachtete Tickets" erreicht. Diese kann über 3 Icons in der Toolbar
-aufgerufen werden, sobald das TicketWatcher-Feature aktiviert wird.
+The list of all watched tickets can be accessed through the Watched view of
+the OTRS agent interface (see Figure below), as soon as the ticket watcher
+feature gets activated.
 </para>
 
 <para>
@@ -142,7 +145,7 @@ fileref="screenshots/ticket-subscribe-mailbox.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Abb. 9.5. Ansicht "Beobachtete Tickets".</emphasis>
+<emphasis>Figure: Watched tickets view.</emphasis>
 </para>
 </section>
 

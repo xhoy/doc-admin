@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.12 2011-05-31 13:03:50 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
 <chapter id="statistic-module">
 <title>Stats-модуль</title>
 
@@ -33,9 +33,8 @@ OTRS использует общеупотребляемый термин "stat"
 <title>Обработка модуля агентом</title>
 
 <para>
-Когда вы вошли в систему как агент, в навигационной панели будет отображатся
-ссылка "Статистика". Этот раздел имеет множество различных подменю, как это
-показано на Рисунке 19.1.
+When signed on as an agent, the navigation bar displays the link
+"Statistics". This has various submenu options, as shown in Figure.
 </para>
 
 <para>
@@ -46,7 +45,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Рисунок 19.1. Опции меню Статистика.</emphasis>
+<emphasis>Figure: Statistics menu options.</emphasis>
 </para>
 
 <para>
@@ -78,10 +77,9 @@ Screenshot" /></screenshot>
 <title>Обзор</title>
 
 <para>
-Выберите ссылку "Статистика" на панели навигации, а затем подменю
-"Обзор". На открывшейся странице будет представлен список всех
-предварительно настроеных отчетов, которые агент уже может использовать
-(см. ниже Рисунок 19.2).
+Selecting the "Statistics" link in the navigation bar, and then the submenu
+link "Overview", calls up the Overview screen. The Overview screen presents
+a list of all pre-configured reports the agent can use (see Figure below).
 
 </para>
 
@@ -93,7 +91,7 @@ srccredit="stats-overview - Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Рисунок 19.2. Обзор стандартных отчетов.</emphasis>
+<emphasis>Figure: Overview of the standard reports.</emphasis>
 </para>
 
 <para>
@@ -145,8 +143,8 @@ srccredit="stats-overview - Screenshot" /></screenshot>
 <title>Создание и просмотр отчетов</title>
 
 <para>
-Пользовательский интерфейс предоставляет параметры настройки статистики
-(см. ниже Рисунок 19.3).
+The view user interface provides the stat's configuration settings (see
+Figure below).
 </para>
 
 <para>
@@ -157,7 +155,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Рисунок 19.3. Просмотр определенного отчета.</emphasis>
+<emphasis>Figure: Viewing a specific report.</emphasis>
 </para>
 
 <para>
@@ -366,9 +364,8 @@ OTRS-администратором).
                 <itemizedlist>
                     <listitem>
                         <para>
-                            <emphasis>Шаблон просмотра статической статистики</emphasis>. Создатели
-(генераторы) статических отчетов могут быть интегрированыв модуль статистики
-(см. ниже Рисунок 19.4).
+                            <emphasis>Static stat view</emphasis>. Static report generators can be
+integrated into the stats module (see Figure below).
                         </para>
                         <para>
                         <screenshot>
@@ -377,13 +374,13 @@ fileref="screenshots/stats-view-static.png" scale="40"
 srccredit="stats-view-static - Screenshot" /></screenshot>
                         </para>
                         <para>
-                            <emphasis>Рисунок 19.4. Просмотр статического отчета.</emphasis>
+                            <emphasis>Figure: Viewing a static report.</emphasis>
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            <emphasis>Шаблон для просмотра динамического отчета</emphasis> (см. ниже
-Рисунок 19.3 ).  Есть два различных способа отображения:
+                            <emphasis>Dynamic stat view</emphasis> (see Figure above). They can be
+displayed in two different ways:
                         </para>
                         <para>
                         <itemizedlist>
@@ -520,8 +517,8 @@ srccredit="stats-view-static - Screenshot" /></screenshot>
 <orderedlist numeration="arabic" >
 <listitem>
     <para>
-        <emphasis>Общие технические условия</emphasis>. Это первая страница мастера
-Редактирования (см. ниже Рисунок 19.5).
+        <emphasis>General specifications</emphasis>. It is the first page of the
+Edit wizard (see Figure below).
     </para>
 
     <para>
@@ -532,13 +529,13 @@ srccredit="stats-edit-general - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Рисунок 19.5. Редактирование общих спецификаций отчета.</emphasis>
+        <emphasis>Figure: Editing the general specifications of a report.</emphasis>
     </para>
 
 
     <para>
-        На странице приведенной на Рисунке 19.5 есть большое количество общих
-спецификаций и настроек, которые можно редактировать:
+        In the screen showed in Figure, there are a great number of common
+specifications and settings that can be edited:
     </para>
 
     <para>
@@ -703,9 +700,9 @@ srccredit="stats-edit-general - Screenshot" /></screenshot>
 </listitem>
 <listitem>
     <para>
-        <emphasis>Определение элементов для X-axis</emphasis>. Это конфигурация для
-элементов, которые используются для описания X-axis или, если используются
-таблицы, имя столбца применяется для X-axis (см. ниже Рисунок 19.6).
+        <emphasis>Definition of the element for the X-axis</emphasis>. It is the
+configuration of the element used for the depiction of the X-axis or, if
+tables are used, of the column name applied to the X-axis (see Figure).
     </para>
 
     <para>
@@ -716,7 +713,7 @@ srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Рисунок 19.6. Определение элементов для X-axis.</emphasis>
+        <emphasis>Figure: Definition of the element for the X-axis.</emphasis>
     </para>
 
     <para>
@@ -749,9 +746,9 @@ srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     </para>
 
     <para>
-    На третьем шаге настройки отчета нужно определить серию значений (см. ниже
-Рисунок 19.7). Позже они будут представлены в форме графиков или различных
-серий в табличном виде.
+    In the third step of the report configuration, the value series are defined
+(see Figure below). They will later form the individual graphs or the
+various series within a tabular view.
     </para>
 
     <para>
@@ -762,7 +759,7 @@ srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Рисунок 19.7. Определение значений серии.</emphasis>
+        <emphasis>Figure: Definition of the value series.</emphasis>
     </para>
 
     <para>
@@ -869,10 +866,10 @@ srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
 </listitem>
 <listitem>
     <para>
-        <emphasis>Установка ограничений отчета</emphasis>. Это четвертый и последний
-этап конфигурации (см. ниже Рисунок 19.8). Ограничения служат для
-ограничения результатов выбранных критериев. В ряде случаев не должно быть
-никаких ограничений.
+        <emphasis>Setting restrictions to the report</emphasis>. This is the fourth
+and final step of the configuration (see Figure below). The restrictions
+serve to limit the results to the selected criteria. In many cases, no
+restrictions at all may be set up.
     </para>
 
     <para>
@@ -883,7 +880,7 @@ srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Рисунок 19.8. Определение ограничений.</emphasis>
+        <emphasis>Figure: Definition of restrictions.</emphasis>
     </para>
 
     <para>
@@ -899,10 +896,10 @@ srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
 <title>Импорт</title>
 
 <para>
-Для доступа к пользовательскому интерфейсу Импорта (см. ниже Рисунок 19.9)
-перейдите по ссылке "Статистика", а затем выберите "Импорт". Альтернативный
-способ - на странице "Обзор" нажать кнопку Импорт, это приведет к тому же
-результату, но для этого действия требуются права для чтения и записи "RW".
+The Import user interface (see Figure below) can be accessed by choosing
+from the navigation bar, the link "Statistics", then "Import". Alternately,
+pressing the Import button on the Overview screen achieves the same
+result. "rw" rights to the report are required.
 </para>
 
 <para>
@@ -913,8 +910,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Рисунок 19.9. Пользовательский веб-интерфейс для
-Импорта.</emphasis>
+    <emphasis>Figure: The Import user interface.</emphasis>
 </para>
 
 <para>
@@ -1139,7 +1135,7 @@ linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentSta
 </para>
 
 <para>
-В качестве примера смотрите вызов Сценария 19.1 из командной строки.
+As an example, see the command line call in the following script.
 </para>
 
 <para>
@@ -1149,7 +1145,7 @@ bin> perl otrs.GenerateStats.pl -n 10004 -o /output/dir
 </para>
 
 <para>
-    <emphasis>Сценарий 19.1. Создание отчета из командной строки.</emphasis>
+    <emphasis>Script: Generating a report from the command line.</emphasis>
 </para>
 
 <para>
@@ -1158,8 +1154,8 @@ csv-формате в директории <filename>/output/dir</filename>.
 </para>
 
 <para>
-Сгенерированный отчет также быть отправлен по электронной почте. Более
-подробную информацию можно получить выполнив команду из Сценария 19.2.
+The generated report can also be sent as an e-mail. More information can be
+called up with the command in the script below.
 </para>
 
 <para>
@@ -1169,8 +1165,8 @@ bin> perl otrs.GenerateStats.pl --help
 </para>
 
 <para>
-    <emphasis>Сценарий 19.2. Получение информации о файле
-otrs.GenerateStats.pl.</emphasis>
+    <emphasis>Script: Getting information about the otrs.GenerateStats.pl
+file.</emphasis>
 </para>
 
 </section>
