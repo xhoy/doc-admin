@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.11 2011-11-11 16:03:03 cr Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.12 2011-11-16 20:19:28 cr Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <para>
@@ -188,6 +188,45 @@ In the script below there is a list of all parameters which can be used for ACLs
             Type => {
                 ID   => ['some id'],
                 Name => ['some name'],
+                # ...
+            },
+            # current priority match properties
+            Priority = {
+                ID   => ['some id'],
+                Name => ['some name'],
+                # ...
+            },
+            # current SLA match properties
+            SLA = {
+                SLAID    => ['some id'],
+                Name     => ['some name'],
+                Calendar => ['some calendar'],
+                # ...
+            },
+            # current state match properties
+            State = {
+                ID       => ['some id'],
+                Name     => ['some name'],
+                TypeName => ['some state type name'],,
+                TypeID   => ['some state type id'],
+                # ...
+            },
+            # current ticket owner match properties
+            Owner => {
+                UserLogin => ['some login'],
+                # ...
+                Group_rw => [
+                    'some group',
+                ],
+                # ...
+            },
+            # current ticket responsible match properties
+            Responsible => {
+                UserLogin => ['some login'],
+                # ...
+                Group_rw => [
+                    'some group',
+                ],
                 # ...
             },
             # current dynamic field match properties
