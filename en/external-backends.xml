@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.26 2011-07-27 14:25:57 mg Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.27 2011-11-17 14:55:00 des Exp $ -->
 
 <chapter id="external-backends">
 <title>Using external backends</title>
@@ -696,6 +696,11 @@ The configuration parameters shown in the script below can be used to synchroniz
 
 <para>
 <programlisting>
+# defines AuthSyncBackend (AuthSyncModule) for AuthModule
+# if this key exists and is empty, there won't be a sync.
+# example values: AuthSyncBackend, AuthSyncBackend2
+$Self->{'AuthModule::UseSyncBackend'} = 'AuthSyncBackend';
+
 # agent data sync against ldap
 $Self->{'AuthSyncModule'} = 'Kernel::System::Auth::Sync::LDAP';
 $Self->{'AuthSyncModule::LDAP::Host'} = 'ldap://ldap.example.com/';
