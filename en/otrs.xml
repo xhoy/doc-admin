@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.39 2011-11-21 13:24:20 mb Exp $ -->
+<!-- $Id: otrs.xml,v 1.40 2011-11-21 14:22:56 mb Exp $ -->
 
 <chapter id="otrs">
-<title>OTRS - Open Ticket Request System</title>
+<title>OTRS Help Desk</title>
 
 <abstract>
 <para>
-This chapter describes the features of the Open Ticket Request System
+This chapter describes the features of OTRS Help Desk
 (OTRS). You will find information about the hardware and software
 requirements for OTRS. Additionally, this chapter tells you how to get
 commercial support for OTRS, should you require it, and how to contact the
@@ -20,21 +20,17 @@ community.
 <title>Basics</title>
 
 <para>
-The Open Ticket Request System (OTRS) is a web application which can be
-used with every HTML-compatible web browser. The web interface of OTRS
-does not use active web content like Flash or Java applets to ensure that the
-system is usable with mobile phones or other mobile computers. To use
-OTRS, no special client operating system is necessary; only an HTML
-browser is needed.
+OTRS Help Desk (OTRS) is a web application which is installed on a web
+server and can be used with a web browser. The web interface of OTRS
+does not use active web content like Flash or Java applets.
 </para>
 
 <para>
 OTRS is separated into several components. The basic component is the
 OTRS framework that contains all central functions for the application and the
-ticket system. Via the web interface of the central OTRS framework, it is
-possible to install additional applications like a web mailer, a content
-manager, a file manager, a web calendar and a tool to monitor system status
-information.
+ticket system. Via the web interface of the OTRS framework, it is
+possible to install additional applications such as ITSM modules, integrations
+with Network Monitoring solutions, a knowledge base (FAQ), et cetera.
 </para>
 </section>
 
@@ -1122,31 +1118,32 @@ OTRS can receive and send mails in multiple ways. All currently available method
 <title>Hardware and software requirements</title>
 
 <para>
-OTRS can be installed on many operating systems. OTRS runs not only on
-linux and on other unix derivates (e.g. OpenBSD or FreeBSD) but on
-all Microsoft Windows platforms too. OTRS has no excessive hardware requirements. We
+OTRS can be installed on many different operating systems. OTRS can run on
+linux and on other unix derivates (e.g. OpenBSD or FreeBSD). You can also deploy
+it on Microsoft Windows. OTRS does not have excessive hardware requirements. We
 recommend using a machine with at least a 2 GHz Xeon or comparable
-CPU, 2 GB RAM and a 160 GB hard drive.
+CPU, 2 GB RAM and a 160 GB hard drive for a small setup.
 </para>
 
 <para>
-If you want to use OTRS, you need some other software components. The basic
-software requirements are: a web and a database servers, as well as a working
-Perl environment with some additional modules. The web server and
+To run OTRS you'll also need to use a web server and a database server.
+Apart from that, on the OTRS machine, you should install perl and/or install
+some additional perl modules.
+The web server and
 <application>Perl</application> have to be installed on the same machine
 as OTRS. The database back-end can be installed locally or on another host.
 </para>
 
 <para>
-For the web server, we recommend using <application>apache 2</application>, because
-its module mod_perl improves greatly the performance of OTRS. If you can't use apache,
+For the web server we recommend using the <application>Apache HTTP Server</application>, because
+its module mod_perl improves greatly the performance of OTRS. Apart from that,
 OTRS should run on any web server that can execute Perl scripts.
 </para>
 
 <para>
-For database back-ends, you can use <application>MySQL</application>,
+You can deploy OTRS on different databases. You can choose between <application>MySQL</application>,
  <application>PostgreSQL</application>, <application>Oracle</application>,
-<application>MSSQL</application> or <application>DB2</application>.
+<application>Microsoft SQL Server</application>, or <application>IBM DB2</application>.
 If you use <application>MySQL</application> you have the advantage that the database
 and some system settings can be configured during the installation, through a web front-end.
 </para>
@@ -1161,14 +1158,17 @@ the Perl shell and CPAN or via the package manager of your operating system
 
 <para>Software requirements</para>
 
-<para>Perl</para>
+<section id="perl-support">
+    <title>Perl support</title>
     <itemizedlist>
     <listitem>
         <para>Perl 5.8.8 or higher</para>
     </listitem>
     </itemizedlist>
+</section>
 
-<para>Webserver</para>
+<section id="webserver-support">
+    <title>Web server support</title>
     <itemizedlist>
     <listitem>
         <para>Apache2 + mod_perl2 or higher (recommended, mod_perl is really fast!)</para>
@@ -1177,17 +1177,20 @@ the Perl shell and CPAN or via the package manager of your operating system
         <para>Webserver with CGI support (CGI is not recommended)</para>
     </listitem>
     <listitem>
-        <para>IIS 6 or higher</para>
+        <para>Microsoft Internet Information Server (IIS) 6 or higher</para>
     </listitem>
     </itemizedlist>
+</section>
 
-<para>Databases</para>
+<section id="database-support">
+    <title>Database support</title>
+
     <itemizedlist>
     <listitem>
         <para>MySQL 4.1 or higher</para>
     </listitem>
     <listitem>
-        <para>PostgreSQL 8.0 or higher</para>
+        <para>PostgreSQL 7.0 or higher (8.2 or higher recommended)</para>
     </listitem>
     <listitem>
         <para>Oracle 10g or higher</para>
@@ -1196,9 +1199,33 @@ the Perl shell and CPAN or via the package manager of your operating system
         <para>DB2 8 or higher</para>
     </listitem>
     <listitem>
-        <para>MSSQL 2000 or higher</para>
+        <para>Microsoft SQL Server 2005 or higher</para>
     </listitem>
     </itemizedlist>
+</section>
+
+<section id="webbrowser-support">
+    <title>Web browser support</title>
+    <para>For the Agent interface of OTRS, you'll be OK if you use a modern browser with JavaScript support enabled.
+    We support the following browsers:</para>
+    <itemizedlist>
+    <listitem>
+        <para>Internet Explorer 8.0 or higher</para>
+    </listitem>
+    <listitem>
+        <para>Mozilla Firefox 3.6 or higher</para>
+    </listitem>
+    <listitem>
+        <para>Google Chrome</para>
+    </listitem>
+    <listitem>
+        <para>Safari</para>
+    </listitem>
+    </itemizedlist>
+    <para>For the OTRS Customer Interface, in addition to the browsers listed above,  you can also use
+    Internet Explorer versions 6 or 7, and we do not require JavaScript either.</para>
+</section>
+
 
 <para>
 The section in the manual about
@@ -1229,16 +1256,9 @@ interchange information on related issues through the
 mailing-lists
 </link>
 
-. There is available help for questions regarding the installation,
-configuration, usage, localization and development. Software bugs
-can be reported on the
-
-<link linkend="additional-resources-bugtracking">
-bug tracking system
-</link>
-
-, so that they reach the responsible developers directly and without getting
-lost.
+. You can use the mailing lists to discuss installation,
+configuration, usage, localization and development of OTRS. You can report software bugs
+in our <link linkend="additional-resources-bugtracking">bug tracking system</link>.
 </para>
 
 <para>
