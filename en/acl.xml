@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.12 2011-11-16 20:19:28 cr Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.13 2011-11-22 16:57:42 cr Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <para>
@@ -245,8 +245,9 @@ In the script below there is a list of all parameters which can be used for ACLs
                 Lock                 => ['lock'],
                 CustomerID           => ['some id'],
                 CustomerUserID       => ['some id'],
+                Owner                => ['some owner'],
                 DynamicField_Field1  => ['some value'],
-                DynamicField_MyField => ['some value']
+                DynamicField_MyField => ['some value'],
                 # ...
             },
         },
@@ -258,7 +259,10 @@ In the script below there is a list of all parameters which can be used for ACLs
                 State => => ['some state'],
                 Priority => ['5 very high'],
                 DynamicField_Field1  => ['some value'],
-                DynamicField_MyField => ['some value']
+                DynamicField_MyField => ['some value'],
+                # ...
+                NewOwner => ['some owner'],
+                OldOwner => ['some owner'],
                 # ...
             },
             # possible action options (white list)
@@ -289,6 +293,7 @@ In the script below there is a list of all parameters which can be used for ACLs
             Ticket => {
                 Queue => ['Hotline', 'Koordination'],
                 State => ['closed', 'removed'],
+                # ...
             },
         },
     };
