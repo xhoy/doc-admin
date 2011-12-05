@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.42 2011-12-05 10:02:02 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.43 2011-12-05 10:04:18 mg Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS Help Desk</title>
@@ -831,6 +831,19 @@ the Perl shell and CPAN or via the package manager of your operating system
         <para>Microsoft SQL Server 2005 or higher</para>
     </listitem>
     </itemizedlist>
+
+    <para>
+        The section in the manual about
+        <link linkend="installation-of-perl-modules">installation of Perl modules</link>
+        describes in more detail how you can set up those which are needed for OTRS.
+    </para>
+
+    <para>
+    If you install a binary package of OTRS, which was built for your operating
+    system (rpm, Windows-Installer), either the package contains all Perl
+    modules needed or the package manager of your system should take care of the
+    dependencies of the Perl modules needed.
+    </para>
 </section>
 
 <section id="webbrowser-support">
@@ -854,24 +867,6 @@ the Perl shell and CPAN or via the package manager of your operating system
     <para>For the OTRS Customer Interface, in addition to the browsers listed above,  you can also use
     Internet Explorer versions 6 or 7, and we do not require JavaScript either.</para>
 </section>
-
-
-<para>
-The section in the manual about
-
-<link linkend="installation-of-perl-modules">
-installation of Perl modules
-</link>
-
-describes in more detail how you can set up those which are needed for OTRS.
-</para>
-
-<para>
-If you install a binary package of OTRS, which was built for your operating
-system (rpm, Windows-Installer), either the package contains all Perl
-modules needed or the package manager of your system should take care of the
-dependencies of the Perl modules needed.
-</para>
 </section>
 
 <section id="community">
