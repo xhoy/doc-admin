@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: pgp.xml,v 1.26 2011-11-15 13:09:00 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.27 2011-12-05 10:55:44 mg Exp $ -->
 <chapter id='configure-pgp'>
 <title>PGP</title>
 
@@ -27,9 +27,10 @@ werden können.
     </listitem>
     <listitem>
     <para>
-    Configure GnuPG for use with OTRS. The necessary directories for GnuPG and a
-private key have to be created. The command shown in the script below has to
-be executed as user 'otrs' from a shell.
+    Im zweiten Schritt muss das soeben installierte GnuPG zur Benutzung für OTRS
+konfiguriert werden. Dies geschieht auf der Kommandozeilenebene durch einen
+Aufruf von GnuPG, der die notwendigen Verzeichnisse anlegt und den privaten
+Schlüssel erzeugt. Der Aufruf muss als Benutzer 'otrs' durchgeführt werden.
     </para>
 
     <para>
@@ -120,13 +121,15 @@ be executed as user 'otrs' from a shell.
     </para>
 
     <para>
-    <emphasis>Script: Configuring GnuPG.</emphasis>
+    <emphasis>Skript: Konfiguration von GnuPG.</emphasis>
     </para>
 
     <para>
-		As shown in the script below, the default settings can be applied for most
-of the required parameters. Only the values for the key owner have to be
-entered correctly, with a proper password specified for the key.
+		Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit
+&lt;EINGABE&gt; zu bestätigen. Lediglich die Angabe zur Person des
+Schlüsselbesitzers ist zu vervollständigen bzw. zum Ende hin ist an der mit
+(passphrase) gekennzeichneten Stelle die Passphrase für den zu generierenden
+Schlüssel einzugeben.
     </para>
     </listitem>
     <listitem>
@@ -166,10 +169,9 @@ Schlüssel(n) solchermaßen verschlüsselte Mails entschlüsseln.
     </para>
 
     <para>
-    How to get the id of your own private key? The ID of your own private key is
-already shown during the key generation (see step 1 from above). It is also
-possible to get the ID if the command specified in the following script is
-executed as user 'otrs':
+    Woher bekommt man die ID des eigenen Schlüssels? Die ID steckt schon in der
+Ausgabe der Schlüsselgenerierung (siehe Schritt 1). Man kann die ID aber
+auch als Benutzer 'otrs' jederzeit über die Kommandozeile ermitteln:
     </para>
 
     <para>
@@ -191,7 +193,8 @@ executed as user 'otrs':
     </para>
 
     <para>
-    <emphasis>Script: Getting the ID of your own private key.</emphasis>
+    <emphasis>Skript: Die ID des eigenen privaten Schlüssels
+ermitteln.</emphasis>
     </para>
 
     <para>

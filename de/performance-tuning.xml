@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: performance-tuning.xml,v 1.32 2011-11-15 13:09:00 mg Exp $ -->
+<!-- $Id: performance-tuning.xml,v 1.33 2011-12-05 10:55:44 mg Exp $ -->
 <chapter id="performance-tuning">
 <title>Leistungsverbesserung</title>
 
@@ -122,8 +122,8 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 </programlisting>
 </para>
 <para>
-<emphasis>Script: Switching storage back-ends from database to
-filesystem.</emphasis>
+<emphasis>Skript: Wechsel des TicketStorage-Backends von Datenbank zu
+Dateisystem.</emphasis>
 </para>
 </section>
 
@@ -246,9 +246,8 @@ BLOB oder TEXT Spalten), sollten Sie die Datendateien mit dem "optimize"
 Kommando behandeln.
 </para>
 <para>
-You should try this if the mysqld daemon needs a lot of your CPU
-time. Optimize the tables - ticket, ticket_history and article (see Script
-below).
+Dies bietet sich an, wenn MySQL viel CPU Zeit braucht. Optimieren Sie die
+Tabellen ticket, ticket_history und article.
 </para>
 
 <para>
@@ -261,7 +260,7 @@ mysql$ optimize table article;
 </para>
 
 <para>
-<emphasis>Script: Optimizing data base tables.</emphasis>
+<emphasis>Skript: Optimierung von Datenbanktabellen.</emphasis>
 </para>
 
 </section>

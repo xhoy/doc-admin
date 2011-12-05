@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: first-steps.xml,v 1.32 2011-11-15 13:08:59 mg Exp $ -->
+<!-- $Id: first-steps.xml,v 1.33 2011-12-05 10:55:44 mg Exp $ -->
 <chapter id="first-steps">
 <title>Erste Schritte</title>
 
@@ -45,7 +45,7 @@ screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Login screen of the agent interface.</emphasis>
+<emphasis>Abb.: Login-Bildschirm der Agenten-Weboberfläche.</emphasis>
 </para>
 
 </section>
@@ -60,10 +60,10 @@ erstellen und bearbeiten, die Account-Einstellungen anpassen usw.
 </para>
 
 <para>
-Continuing with the above example, the customer login screen can be reached
-by using the URL <ulink url="http://www.example.com/otrs/customer.pl">
-<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink> with
-a web browser (see Figure below).
+Gemäß dem obigen Beispiel kann der Login-Bildschirm für die Kunden über die
+URL<ulink url="http://www.example.com/otrs/customer.pl">
+<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink>
+geladen werden.
 </para>
 
 <para>
@@ -73,7 +73,7 @@ screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></scre
 </para>
 
 <para>
-<emphasis>Figure: Login screen of the customer interface.</emphasis>
+<emphasis>Abb.: Login-Bildschirm der Kunden-Weboberfläche.</emphasis>
 </para>
 
 </section>
@@ -105,7 +105,7 @@ screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></sc
 </para>
 
 <para>
-<emphasis>Figure: Public web interface.</emphasis>
+<emphasis>Abb.: Öffentliche Weboberfläche.</emphasis>
 </para>
 
 </section>
@@ -138,10 +138,11 @@ vorgesehenen Eingabefelder ein.
 </para>
 
 <para>
-In case you have forgotten your password, you can request the system for a
-new password. Simply press the link below the Login button, enter the mail
-address that is registered for your OTRS account into the input field, and
-press the Submit button (see Figure).
+Falls Sie einmal ihr Kennwort vergessen haben sollten, können Sie sich
+automatisch vom System ein neues Kennwort an die Mailadresse schicken
+lassen, die für Ihren OTRS-Account im System hinterlegt ist. Geben Sie dazu
+im unteren Bereich des Login-Bildschirms den Benutzernamen Ihres Accounts
+an.
 </para>
 
 <para>
@@ -152,7 +153,7 @@ fileref="screenshots/request-new-password.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Request new password.</emphasis>
+<emphasis>Abb.: Neues Passwort anfordern.</emphasis>
 </para>
 
 </section>
@@ -161,12 +162,11 @@ fileref="screenshots/request-new-password.png"></graphic></screenshot>
 <title>Agenten-Weboberfläche - ein Überblick</title>
 
 <para>
-On successfully logging into the system, you are presented with the
-Dashboard page (see Figure below). The Dashboard is completely
-customizable. It shows your locked tickets, allows direct access through
-menus to the queue, status and escalation views, and also holds options for
-creation of new phone and e-mail tickets. It also presents a quick summary
-of the tickets which are pending, escalated, new and open.
+Nachdem Sie sich erfolgreich am System angemeldet haben, wird die Oberfläche
+von OTRS geladen. Standardmäßig befinden Sie sich nach der Anmeldung im
+Dashboard. Dieses Dashboard ist frei anpassbar. Zu Beginn zeigt es Ihre
+gesperrten Tickets und bietet Übersichten über fällige, eskalierte, neue und
+offene Tickets, neben anderen Dingen.
 </para>
 
 <para>
@@ -176,7 +176,7 @@ screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screen
 </para>
 
 <para>
-<emphasis>Figure: Dashboard of the agent interface.</emphasis>
+<emphasis>Abb.: Dashboard der Agenten-Weboberfläche.</emphasis>
 </para>
 
 <para>
@@ -231,10 +231,11 @@ markieren können als Queues, die speziell überwacht werden sollen.
 </para>
 
 <para>
-In the right column is the Settings button. Click on it to expand the
-section and see the various settings, as shown in Figure. You can then check
-or uncheck the individual settings options, and save your changes. This
-section is fixed, so you can not drag and drop it.
+Auf der rechten Seite befindet sich der Bereich "Einstellungen". Klicken Sie
+darauf um den Bereich zu öffnen und die verschiedenen Einstellmöglichkeiten
+zu sehen. Sie können dann Einstellungen verändern und Ihre Änderungen
+speichern. Dieser Bereich ist fixiert und kann nicht mit der Maus verschoben
+werden.
 </para>
 
 <para>
@@ -244,7 +245,7 @@ settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screens
 </para>
 
 <para>
-<emphasis>Figure: Dashboard Settings.</emphasis>
+<emphasis>Abb.: Dashboard-Einstellungen.</emphasis>
 </para>
 
 <para>
@@ -254,9 +255,8 @@ Neuigkeiten zu OTRS.
 </para>
 
 <para>
-Finally at the bottom of the page, the site footer is displayed (see Figure
-below). It contains links to directly access the OTRS official website, or
-go to the Top of the page.
+Im unteren Bildschirmbereich sehen sie die Fußzeile. Sie enthält u. A. Links
+auf die offizielle OTRS-Website und zum Seitenanfang.
 </para>
 
 <para>
@@ -266,7 +266,7 @@ scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Footer.</emphasis>
+<emphasis>Abb.: Fußzeile.</emphasis>
 </para>
 
 </section>
@@ -363,11 +363,11 @@ Abbildung von Abläufen.
 <section id="user-preferences">
 <title>Benutzereinstellungen</title>
 <para>
-OTRS users such as customers, agents and the OTRS administrator can
-configure their account preferences as per their needs. Agent can access the
-configuration screen by clicking on their login name at the top right corner
-of the web interface (see Figure below), and customers must click on the
-"Preferences" link (see Figure below).
+Die Einstellungen eines Accounts lassen sich mit Hilfe der
+Benutzereinstellungen den eigenen Wünschen entsprechend anpassen. Dabei
+spielt keine Rolle, ob man als Mitarbeiter, Kunde oder Administrator am
+System angemeldet ist. Die Benutzereinstellungen sind über den Link auf den
+Benutzernamen erreichbar, Kunden müssen den "Einstellungen"-Link verwenden.
 </para>
 
 <para>
@@ -378,7 +378,7 @@ fileref="screenshots/agent-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Agent's personal preferences.</emphasis>
+<emphasis>Abb.: Benutzereinstellungen des Agenten.</emphasis>
 </para>
 
 <para>
@@ -435,7 +435,7 @@ fileref="screenshots/customer-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Customer's personal preferences.</emphasis>
+<emphasis>Abb.: Benutzereinstellungen des Kunden.</emphasis>
 </para>
 
 <para>

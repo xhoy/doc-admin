@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: backup-and-restore.xml,v 1.31 2011-11-15 13:08:59 mg Exp $ -->
+<!-- $Id: backup-and-restore.xml,v 1.32 2011-12-05 10:55:44 mg Exp $ -->
 <chapter id="backup-and-restore">
 <title>Datensicherung</title>
 
@@ -21,9 +21,8 @@ Bei einem Backup gibt es zwei Arten von Datensicherung, die Applikation
 </para>
 
 <para>
-To simplify backups, the script <filename>scripts/backup.pl</filename> is
-included with every OTRS installation. It can be run to backup all important
-data (see Script below).
+Um Backups zu vereinfachen, wird ein <filename>scripts/backup.pl</filename>
+mitgeliefert, das alle benötigten Komponenten sichert.
 </para>
 
 <para>
@@ -38,11 +37,11 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-<emphasis>Script: Getting help about the OTRS backup mechanism.</emphasis>
+<emphasis>Skript: Aufruf der Hilfe des Backup-Mechanismus.</emphasis>
 </para>
 
 <para>
-Execute the command specified in the script below to create a backup:
+Ein Backup kann also z. B. mit folgendem Befehl erstellt werden:
 </para>
 
 <para>
@@ -57,13 +56,13 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-<emphasis>Script: Creating a backup.</emphasis>
+<emphasis>Abb.: Erstellen einer Datensicherung.</emphasis>
 </para>
 
 <para>
-All data was stored in the directory
-<filename>/backup/2010-09-07_14-28/</filename> (see Script
-below). Additionally, the data was saved into a .tar.gz file.
+Alle Daten wurden in das Verzeichnis
+<filename>/backup/2010-09-12_14-28/</filename> gesichert und dort, getrennt
+nach Art der Daten, in einzelne .tar.gz-Dateien gespeichert.
 </para>
 
 <para>
@@ -75,7 +74,7 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-<emphasis>Script: Checking the backup files.</emphasis>
+<emphasis>Skript: Prüfung der gesicherten Dateien.</emphasis>
 </para>
 
 </section>
@@ -90,9 +89,9 @@ werden.
 </para>
 
 <para>
-A script <filename>scripts/restore.pl</filename> (see Script below), which
-simplifies the restore process, is shipped with every OTRS installation. It
-supports MySQL and PostgreSQL.
+Um Backups einspielen zu können, wird ein
+<filename>scripts/restore.pl</filename> mitgeliefert, das die benötigten
+Komponenten wieder zurück sichert. Es unterstützt MySQL und PostgreSQL.
 </para>
 
 <para>
@@ -106,14 +105,13 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-<emphasis>Script: Getting help about the restore mechanism.</emphasis>
+<emphasis>Skript: Aufruf der Hilfe des Restore-Mechanismus.</emphasis>
 </para>
 
 <para>
-Data that is stored, for example, in the directory
-<filename>/backup/2010-09-07_14-28/</filename>, can be restored with the
-command specified in the script below, assuming the OTRS installation is at
-<filename>/opt/otrs</filename>.
+Daten, die im Verzeichnis <filename>/backup/2010-09-12_14-28/</filename>
+gesichert wurden, können bei einer OTRS-Installation in
+<filename>/opt/otrs</filename> folgendermaßen zurückgespielt werden.
 </para>
 
 <para>
@@ -130,7 +128,7 @@ linux:/opt/otrs/scripts#
 </para>
 
 <para>
-<emphasis>Script: Restoring OTRS data.</emphasis>
+<emphasis>Skript: Wiederherstellung des Systems.</emphasis>
 </para>
 
 </section>

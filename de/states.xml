@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: states.xml,v 1.23 2011-11-15 13:08:59 mg Exp $ -->
+<!-- $Id: states.xml,v 1.24 2011-12-05 10:55:44 mg Exp $ -->
 <chapter id="states">
 <title>Status</title>
 
@@ -109,12 +109,13 @@ Tickets von bestimmten Statustypen ab.
 </para>
 
 <para>
-The name of an already existing state can be changed, or new states added
-through this screen. If the state "new" has been changed via the web
-interface, this change also has to be configured via the config file
-<filename>Kernel/Config.pm</filename> or via the SysConfig interface. The
-settings specified in the script below have to be modified to ensure that
-OTRS works with the changed state for "new".
+Im Admin-Interface können Sie innerhalb der Einstellungen für "Status" neue
+Status für die vorhandenen Statustypen hinzufügen oder ändern. Beachten Sie,
+dass Sie bei Änderungen am Status "neu - new" auch die entsprechenden
+Änderungen in der Konfigurationsdatei<filename>Kernel/Config.pm</filename>
+bzw. mit Hilfe des grafischen Konfigurations-Front-End vornehmen
+müssen. Folgende Änderungen müssen für einen geänderten "neu"-Status
+vorgenommen werden:
 </para>
 
 <para>
@@ -132,13 +133,14 @@ OTRS works with the changed state for "new".
 </para>
 
 <para>
-<emphasis>Script: Modifying the Kernel/Config.pm settings.</emphasis>
+<emphasis>Skript: Anpassung der Einstellungen von
+Kernel/Config.pm.</emphasis>
 </para>
 
 <para>
-If a new state type should be added, the ticket_state_type table in the OTRS
-database needs to be modified with a database client program, as shown in
-the script below.
+Möchten Sie einen neuen Statustyp hinzufügen, müssen Sie zuerst die
+ticket_status-type-Tabelle in der OTRS Datenbank mit Hilfe eines
+entsprechenden Datenbankclient anpassen.
 </para>
 
 <para>
@@ -166,7 +168,7 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script: Modifying the OTRS database.</emphasis>
+<emphasis>Skript: Anpassung der Statustypen.</emphasis>
 </para>
 
 <para>

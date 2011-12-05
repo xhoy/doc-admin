@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.14 2011-12-05 10:55:46 mg Exp $ -->
 <chapter id="installation">
 <title>Установка</title>
 
@@ -272,14 +272,14 @@ Windows<application>Cron</application>. Именно по этой причин�
 
 <para>
 Unpack the archive (for example, using <command>tar</command>) into the
-directory <filename>/opt</filename>, and rename the directory from otrs-3.0
-to otrs (see Script below).
+directory <filename>/opt</filename>, and rename the directory from
+otrs-3.1.x to otrs (see Script below).
 </para>
 
 <para>
 <screen>
-linux:/opt# tar xf /tmp/otrs-3.0.tar.gz
-linux:/opt# mv otrs-3.0 otrs
+linux:/opt# tar xf /tmp/otrs-3.1.tar.gz
+linux:/opt# mv otrs-3.1 otrs
 linux:/opt# ls
 otrs
 linux:/opt#
@@ -1428,19 +1428,28 @@ linux:/opt/otrs/bin#
 <section id="upgrading">
 <title>Обновление OTRS-фреймворка</title>
 <para>
-Эти инструкции предназначены для тех, кто обновляет OTRS
-<emphasis>2.4</emphasis> до версии <emphasis>3.0</emphasis>, их можно
-применять при обновлении системы из RPM так и в случае использования
-исходных кодов (тарболов).
+    These instructions are for people upgrading OTRS from version
+<emphasis>3.0</emphasis> to <emphasis>3.1</emphasis>, and apply both for RPM
+and source code (tarball) upgrades.
 </para>
 <para>
-Если вы используете более старую версию OTRS, то сначала выполните
-обновление до версии 2.4
-(1.1-&gt;1.2-&gt;1.3-&gt;2.0-&gt;2.1-&gt;2.2-&gt;2.3-&gt;2.4-&gt;3.0 ...).
+    If you are running a lower version of OTRS you have to follow the upgrade
+path to 3.0 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1 ...)!
 </para>
-<para>Если вы хотите сделать "patch level upgrade", который является обновлением
-OTRS, например, с версии 3.0.3 до 3.0.4, то можете пропустить шаги 8, 9, 10,
-and 13 - 16.
+<para>
+    Please note that if you upgrade from OTRS 2.2 or earlier, you have to take
+an extra step; please read <ulink
+url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
+</para>
+<para>
+    If you need to do a "patch level upgrade", which is an upgrade for instance
+from OTRS version 3.1.1 to 3.1.3, you should skip steps 8, 10 and 12-20.
+</para>
+<para>
+    If you are using Microsoft SQL Server as the DBMS for OTRS, please refer to
+the manual, chapter "Upgrading Microsoft SQL Server Data Types" for
+instructions how to upgrade the data types used by OTRS (<ulink
+url="http://doc.otrs.org/3.1/en/html/upgrading-mssql-datatypes.html">http://doc.otrs.org/3.1/en/html/upgrading-mssql-datatypes.html</ulink>).
 </para>
 
   <orderedlist>
@@ -1474,6 +1483,14 @@ OTRS_HOME=/opt/otrs):
         </para>
       </listitem>
       <listitem>
+        <para>
+            Make sure that you have backed up everything ;-)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Setup new system (optional)
+        </para>
         <para>
             Если есть возможность, сначала попробуйте произвести установку на отдельном
 тестовом компьютере.
@@ -1522,9 +1539,12 @@ shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
             Собственные темы
         </para>
         <para>
-            Примечание: Темы OTRS 2.4 и OTRS 3.0 являются НЕ совместимыми, так что не
-используйте старые темы. Темы расположены в каталоге
-$OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs).
+            Note: The OTRS themes between 3.0 and 3.1 are NOT compatible, so don't use
+your old themes!
+        </para>
+        <para>
+            Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default:
+OTRS_HOME=/opt/otrs).
         </para>
       </listitem>
       <listitem>
@@ -1547,33 +1567,38 @@ shell> bin/otrs.SetPermissions.pl
 shell&gt; cd /opt/otrs/
 
 # MySQL:
-shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs
-# PostgreSQL:
-shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs
+shell&gt; cat scripts/DBUpdate-to-3.1.mysql.sql | mysql -p -f -u root otrs
+# PostgreSQL 8.2+:
+shell&gt; cat scripts/DBUpdate-to-3.1.postgresql.sql | psql otrs
+# PostgreSQL, older versions:
+shell&gt; cat scripts/DBUpdate-to-3.1.postgresql_before_8_2.sql | psql otrs
+            </screen> NOTE: If you use PostgreSQL 8.1 or
+earlier, you need to activate the new legacy driver for these older
+versions. Do this by adding a new line to your
+<filename>Kernel/Config.pm</filename> like this: <screen>
+$Self->{DatabasePostgresqlBefore82} = 1;
             </screen>
         </para>
-      </listitem>
-      <listitem>
         <para>
             Запустите сценарий перемещения (как пользователь 'otrs', а НЕ root):
         </para>
         <para>
             Сценарий перемещения (миграции) нужно запускать для перемещения некоторых
 данных из старой базы данных в новую. Пожалуйста, запустите: <screen>
-shell&gt; scripts/DBUpdate-to-3.0.pl
+shell&gt; scripts/DBUpdate-to-3.1.pl
             </screen>
         </para>
-      </listitem>
-      <listitem>
         <para>
             Примените изменения к базе данных (часть 2/2):
         </para>
         <para>
             <screen>
 # MySQL:
-shell&gt; cat scripts/DBUpdate-to-3.0-post.mysql.sql | mysql -p -f -u root otrs
-# PostgreSQL:
-shell&gt; cat scripts/DBUpdate-to-3.0-post.postgresql.sql | psql otrs
+shell&gt; cat scripts/DBUpdate-to-3.1-post.mysql.sql | mysql -p -f -u root otrs
+# PostgreSQL 8.2+:
+shell&gt; cat scripts/DBUpdate-to-3.1-post.postgresql.sql | psql otrs
+# PostgreSQL, older versions:
+shell&gt; cat scripts/DBUpdate-to-3.1-post.postgresql_before_8_2.sql | psql otrs
             </screen>
         </para>
       </listitem>
@@ -1590,15 +1615,36 @@ shell&gt; bin/otrs.DeleteCache.pl
         </para>
       </listitem>
       <listitem>
+            <para>Update your web server configuration</para>
+            <para>
+            Note: this applies only if you use the Apache web server together with
+mod_perl2, and do not use the configuration file directly from the OTRS
+installation directory (e. g. with a symlink from the Apache configuration
+directory).
+            </para>
+            <para>
+            Please add a new setting to the Apache configuration file for OTRS:
+<screen>
+# set mod_perl2 option for generic interface
+&lt;Location /otrs/nph-genericinterface.pl&gt;
+  PerlOptions -ParseHeaders
+&lt;/Location&gt;
+            </screen> Please see the file
+/opt/otrs/scripts/apache2-httpd.include.conf for an example of where this
+new option needs to be added (inside the &lt;IfModule mod_perl.c&gt; block).
+            </para>
+      </listitem>
+      <listitem>
         <para>
             Перезапустите сервисы.
         </para>
         <para>
-            в т.ч. (зависящие от использующихся услуг): <screen>
+            e. g. (depends on used services): <screen>
 shell&gt; /etc/init.d/cron start
 shell&gt; /etc/init.d/postfix start
 shell&gt; /etc/init.d/apache start
-            </screen>
+            </screen> Now
+you can log into your system.
         </para>
       </listitem>
       <listitem>
@@ -1610,175 +1656,77 @@ installed or if any require reinstallation or even a package upgrade.
       </listitem>
       <listitem>
         <para>
-    Проверьте возможные проблемы с кодировкой:
+            Check for encoding issues
         </para>
         <para>
-            В OTRS 3.0, кодировка по умолчанию была изменена с "iso-8859-1" на "utf-8".
-        </para>
-        <para>
-            Это каснется вас только в том случае, если вы не указали кодировку в файле
-Kernel/Config.pm (все установки, которые были произведены с помощью
-веб-инсталлятора имеют пользовательские настройки) или, если вы не изменили
-кодировку по умолчанию в AdminSysConfig.
-        </para>
-        <para>
-            Если у вас возникли проблемы с новой кодировкой, добавьте эту строку в файл
-Kernel/Config.pm: <screen>
-    $Self->{'DefaultCharset'} = 'iso-8859-1';
-            </screen>
-        </para>
-        <para>
-            В общем, "UTF-8" это только рекомендованный набор символов для работы OTRS,
-и переключение на "ISO-8859-1" будет работать также хорошо.
-        </para>
-        <para>
-            Примечание: Мы настоятельно рекомендуем обновить все установленные на
-сегодня системы OTRS, в которых нету поддержки UTF-8 до версии 3.0. Все
-другие кодировки считаются устаревшыми.
-        </para>
-        <para>
-            OTRS 3.1 будет испольвать исключительно UTF-8 в качестве внутренней
-кодировки.
+            OTRS 3.1 only allows UTF-8 as internal charset.  Non-UTF-8 installations of
+OTRS must switch to UTF-8.
         </para>
       </listitem>
       <listitem>
-        <para>Check for Custom Frontend Module Registrations</para>
+        <para>Escalation events</para>
         <para>
-            Начиная с OTRS 3.0, модули приложений могут иметь свои собственные CSS-стили
-и/или JavaScript-сценарии. Это является частью так называемого интерфейсного
-модуля регистрации новых модулей в SysConfig. Такой подход может вызвать
-проблемы при обновлении, так ка, по умолчанию, конфигурационные настройки
-интерфейсного модуля, которые были изменены локально не будут получать
-обновлений.
-        </para>
-        <para>
-            Чтобы убедиться что ничего не пострадало, пожалуйста, проверьте файл
-<filename>Kernel/Config/Files/ZZZAuto.pm</filename>. Особое внимание
-обратите на такие записи, как например: <screen>
-    $Self->{'Frontend::Module'}->{'AgentStats'} = { ... };
-            </screen>
-        </para>
-        <para>
-            Эти настройки должны быть сброшены в значения по умолчанию в Admin ->
-SysConfig (в данном случае: 'Frontend::Module###AgentStats') с помощью
-небольшой кнопки "Сбросить", которая находится рядом с флажком
-"Активизировать".Таким образом, настройки будут сброшены в соответствии с
-новыми, специфическими настройками модуля и больше не будут появляться в
-<filename>Kernel/Config/Files/ZZZAuto.pm</filename>. Если необходимо, в
-будущем, вы сможете настроить эти параметры заново.
-        </para>
-        <para>
-            Такая же процедура должна быть выполнена для настройки
-"Frontend::ToolBarModule###1-Ticket::TicketSearchFulltext", поскольку он
-также использует CSS-стили, конкретного модуля. Вы можете смело пропустить
-этот шаг, если в вашей системе эти настройки не активированы.
+            If you want to use the new escalation events in your system, you need to
+activate the corresponding GenericAgent job in
+Kernel/Config/GenericAcent.pm. Please look into
+Kernel/Config/GenericAgent.pm.dist for an example of how to do this.
         </para>
       </listitem>
       <listitem>
-        <para>Check for customized PreferencesGroups entries</para>
+        <para>Ticket event handlers</para>
         <para>
-            With OTRS 3.0, there were a few corrections in PreferencesGroups
-configuration entries.  Notably, the keys 'Activ' and 'Colum' were changed
-to 'Active' and 'Column', respectively.  You only need to take action if you
-have customized such settings on your system, otherwise they will be updated
-automatically.
-        </para>
-        <para>
-            To check if you are affected, please look at the file
-<filename>Kernel/Config/Files/ZZZAuto.pm</filename> and look for entries
-like: <screen>
-    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
-      'Activ' => '0',
-      'Colum' => 'Frontend',
-      'Data' => {
-        '' => 'off',
-        '10' => '10 minutes',
-        '15' => '15 minutes',
-        '2' => ' 2 minutes',
-        '5' => ' 5 minutes',
-        '7' => ' 7 minutes'
-      },
-      'Desc' => 'Select your QueueView refresh time.',
-      'Label' => 'QueueView refresh time',
-      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',
-      'PrefKey' => 'UserRefreshTime',
-      'Prio' => '4000'
-    };
-            </screen> This needs to be changed as
-follows: <screen>
-    $Self->{'CustomerPreferencesGroups'}->{'RefreshTime'} =  {
-      'Active' => '0',
-      'Column' => 'Frontend',
-      'Data' => {
-        '' => 'off',
-        '10' => '10 minutes',
-        '15' => '15 minutes',
-        '2' => ' 2 minutes',
-        '5' => ' 5 minutes',
-        '7' => ' 7 minutes'
-      },
-      'Desc' => 'Select your QueueView refresh time.',
-      'Label' => 'QueueView refresh time',
-      'Module' => 'Kernel::Output::HTML::PreferencesGeneric',
-      'PrefKey' => 'UserRefreshTime',
-      'Prio' => '4000'
-    };
-            </screen>
+            The Event name TicketFreeTextUpdate_$Counter was renamed to
+TicketDynamicFieldUpdate_$FieldName.  If you have any custom event handlers
+for these events, please adapt them.
         </para>
       </listitem>
       <listitem>
         <para>
-            Переименование пользовательских полей в базе данных
+            DynamicField user preferences module
         </para>
         <para>
-            Поле 'Приветствие', встроенное в клиентскую базу данных было переименовано в
-более подходящее 'Заголовок'. Если для клиентов используется встроенная база
-данных, и вы изменили конфигурацию, например, добавили новые поля в таблицу
-клиентов или включили поддержку для Компаний Клиентов, необходимо изменить
-правила преобразования (mapping) в <filename>Kernel/Config.pm</filename>:
-        </para>
-        <para>
-             Измените эту строку с: <screen>
-     [ 'UserSalutation', 'Salutation', 'salutation', 1, 0, 'var', '', 0 ],
-            </screen> на: <screen>
-     [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],
-            </screen>
-        </para>
-        <para>
-            Пожалуйста, обратите винмание на то, что это также может повлиять на любые
-приветствия или шаблоны, в которых используется строка
-<literal>&lt;OTRS_*_UserSalutation&gt;</literal>. Если вы использовали эту
-строку И используете встроенную таблицу клиентов, пожалуйста, замените ее на
-<literal>&lt;OTRS_CURRENT_UserTitle&gt;</literal>.
+            If you had one or more active custom settings for
+"PreferencesGroups###Freetext", you need to adapt them to work with the new
+DynamicFields engine. The PrefKey setting must be changed to
+"UserDynamicField_DynamicField", where the part after the _ is the name of
+the dynamic field. Existing values would need to be renamed in the database
+as well.
         </para>
       </listitem>
       <listitem>
         <para>
-            Check Your Cronjobs
+            Custom free field default value event handler
         </para>
         <para>
-            With OTRS 3.0, some commandline scripts were renamed, such as
-<filename>otrs.PostMaster.pl</filename>.  Please check that your cronjobs
-still use the correct filenames. With RPM upgrades, files such as
-<filename>/etc/sysconfig/otrs</filename> sometimes are not correctly
-overwritten, thus keeping the old cron settings, which may lead to errors.
+            If you used the event handler
+Ticket::EventModulePost###TicketFreeFieldDefault (not active by default),
+you'll need to migrate its configuration to the new setting
+Ticket::EventModulePost###TicketDynamicFieldDefault.
+        </para>
+        <para>
+            The configuration of this is slightly different; where you had to specify a
+Counter indicating the TicketFreeText number previously, now you need to
+specify the name of the DynamicField (for migrated fields, this will be
+DynamicField_TicketFreeKey$Counter and
+DynamicField_TicketFreeText$Counter. You need two separate entries now if
+you want to set both the key and the text field.
         </para>
       </listitem>
       <listitem>
         <para>
-            Дополнительно:  Помечайте Заявки как Прочитанные
+            FreeText/Time based ACLs
         </para>
         <para>
-            В OTRS 3.0 появилась новая возможность: Новые заявки и новые статьи, которые
-Агент еще не читал, выделены как 'непрочитанные'. Все заявки, которые были
-созданны перед обновлением OTRS до версии 3.0 будут помечены как
-'непрочитанные'. Если вам не нравиться такой подход, воспользуйтесь
-специальным скриптом, чтобы пометить все заявки и статьи как прочитанные для
-всех агентов, которые имеют права на чтение этих заявок. Обратите внимание,
-что для работы этого сценария может потребоваться некоторое время!
-<screen>
-shell> bin/otrs.MarkTicketAsSeen.pl
-            </screen>
+            If you have any ACLs defined which involve freetext or freetime fields, you
+need to adjust these ACL definitions.
+        </para>
+        <para>
+            Please have a look at <ulink
+url="http://doc.otrs.org/3.1/en/html/acl.html">http://doc.otrs.org/3.1/en/html/acl.html</ulink>.
+There you can find a list of all possible ACL settings. In general, you need
+to add the prefix "DynamicField_" to existing free field definitions, and
+you can add a new "DynamicField" section to the "Properties" list for
+situations when a ticket does not exist yet.
         </para>
       </listitem>
       <listitem>

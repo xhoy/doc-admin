@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.13 2011-11-15 13:09:01 mg Exp $ -->
+<!-- $Id: acl.xml,v 1.14 2011-12-05 10:55:46 mg Exp $ -->
 <chapter id="acl" >
 <title>Списки Контроля Доступа (ACLs)</title>
 
@@ -195,6 +195,45 @@ ACLs.
                 Name => ['some name'],
                 # ...
             },
+            # current priority match properties
+            Priority = {
+                ID   => ['some id'],
+                Name => ['some name'],
+                # ...
+            },
+            # current SLA match properties
+            SLA = {
+                SLAID    => ['some id'],
+                Name     => ['some name'],
+                Calendar => ['some calendar'],
+                # ...
+            },
+            # current state match properties
+            State = {
+                ID       => ['some id'],
+                Name     => ['some name'],
+                TypeName => ['some state type name'],,
+                TypeID   => ['some state type id'],
+                # ...
+            },
+            # current ticket owner match properties
+            Owner => {
+                UserLogin => ['some login'],
+                # ...
+                Group_rw => [
+                    'some group',
+                ],
+                # ...
+            },
+            # current ticket responsible match properties
+            Responsible => {
+                UserLogin => ['some login'],
+                # ...
+                Group_rw => [
+                    'some group',
+                ],
+                # ...
+            },
             # current dynamic field match properties
             DynamicField => {
                 # keys must be in DynamicField_&lt;field_name&gt; format
@@ -211,8 +250,9 @@ ACLs.
                 Lock                 => ['lock'],
                 CustomerID           => ['some id'],
                 CustomerUserID       => ['some id'],
+                Owner                => ['some owner'],
                 DynamicField_Field1  => ['some value'],
-                DynamicField_MyField => ['some value']
+                DynamicField_MyField => ['some value'],
                 # ...
             },
         },
@@ -224,7 +264,10 @@ ACLs.
                 State => => ['some state'],
                 Priority => ['5 very high'],
                 DynamicField_Field1  => ['some value'],
-                DynamicField_MyField => ['some value']
+                DynamicField_MyField => ['some value'],
+                # ...
+                NewOwner => ['some owner'],
+                OldOwner => ['some owner'],
                 # ...
             },
             # possible action options (white list)
@@ -255,6 +298,7 @@ ACLs.
             Ticket => {
                 Queue => ['Hotline', 'Koordination'],
                 State => ['closed', 'removed'],
+                # ...
             },
         },
     };
