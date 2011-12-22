@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.45 2011-08-07 17:29:33 cr Exp $ -->
+<!-- $Id: adminarea.xml,v 1.46 2011-12-22 18:42:01 cr Exp $ -->
 
 <chapter id="adminarea">
 <title>The ADMIN area of OTRS</title>
@@ -1511,28 +1511,6 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
       </row>
       <row>
         <entry>
-          X-OTRS-ArticleKey(1|2|3):
-        </entry>
-        <entry>
-          Additional info key for the article.
-        </entry>
-        <entry>
-          Saves an additional info key for this article.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          X-OTRS-ArticleValue(1|2|3):
-        </entry>
-        <entry>
-          Additional info value for the article.
-        </entry>
-        <entry>
-          Saves an additional info value for the article.
-        </entry>
-      </row>
-      <row>
-        <entry>
           X-OTRS-SenderType:
         </entry>
         <entry>
@@ -1555,24 +1533,13 @@ Note: You also can use X-OTRS-FollowUp-* headers for follow up emails.
       </row>
       <row>
         <entry>
-          X-OTRS-TicketKey(1|2|...|8):
+          X-OTRS-DynamicField-&lt;DynamicFieldName&gt;:
         </entry>
         <entry>
-          Additional info key for the ticket.
+          Depends on Dynamic Field configuration (Text: Notebook, Date: 2010-11-20 00:00:00, Integer: 1)
         </entry>
         <entry>
-          Saves an additional info key for the ticket.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          X-OTRS-TicketValue(1|2|...|8):
-        </entry>
-        <entry>
-          Additional info value for the ticket.
-        </entry>
-        <entry>
-          Saves an additional info value for the ticket.
+          Saves an additional info value for the ticket on &lt;DynamicFieldName&gt; Dynamic Field.
         </entry>
       </row>
       <row>
