@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.6.2.2 2012-01-19 09:29:07 mb Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.6.2.3 2012-01-19 09:31:28 mb Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <para>
@@ -174,7 +174,7 @@ In Script 18.1 there is a list of all parameters which can be used for ACLs.
         Possible => {
             # possible ticket options (white list)
             Ticket => {
-                Queue => ['Hotline', 'Koordination'],
+                Queue => ['Hotline', 'Coordination'],
                 State => ['some state'],
                 Priority => ['5 very high'],
                 TicketFreeKey1 => ['some key'],
@@ -212,7 +212,7 @@ In Script 18.1 there is a list of all parameters which can be used for ACLs.
         PossibleNot => {
             # possible ticket options (black list)
             Ticket => {
-                Queue => ['Hotline', 'Koordination'],
+                Queue => ['Hotline', 'Coordination'],
                 State => ['closed', 'removed'],
             },
         },
