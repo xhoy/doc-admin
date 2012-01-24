@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.15 2012-01-24 00:07:34 cr Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.16 2012-01-24 18:32:39 cr Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <para>
@@ -79,12 +79,15 @@
                 AgentTicketNote          => 1,
                 AgentTicketOwner         => 1,
                 AgentTicketPending       => 1,
+                AgentTicketPhone         => 1, # only used to hide the Split action
                 AgentTicketPhoneInbound  => 1,
                 AgentTicketPhoneOutbound => 1,
                 AgentTicketPrint         => 1,
                 AgentTicketPriority      => 1,
                 AgentTicketResponsible   => 1,
                 AgentTicketWatcher       => 1,
+                AgentTicketZoom          => 1,
+                AgentLinkObject          => 1, # only used to hide the Link action
             },
         },
     };
@@ -248,7 +251,9 @@ In the script below there is a list of all parameters which can be used for ACLs
                 CustomerID           => ['some id'],
                 CustomerUserID       => ['some id'],
                 Owner                => ['some owner'],
-                DynamicField_Field1  => ['some value'],
+                DynamicField_Field1  => ['some value'],     # Must be the untranslated values
+                                                            #   specified in the dynamic field
+                                                            #   definition and not the IDs
                 DynamicField_MyField => ['some value'],
                 # ...
             },
@@ -283,12 +288,15 @@ In the script below there is a list of all parameters which can be used for ACLs
                 AgentTicketNote          => 1,
                 AgentTicketOwner         => 1,
                 AgentTicketPending       => 1,
+                AgentTicketPhone         => 1, # only used to hide the Split action
                 AgentTicketPhoneInbound  => 0,
                 AgentTicketPhoneOutbound => 1,
                 AgentTicketPrint         => 1,
                 AgentTicketPriority      => 0,
                 AgentTicketResponsible   => 1,
                 AgentTicketWatcher       => 1,
+                AgentTicketZoom          => 1,
+                AgentLinkObject          => 1, # only used to hide the Link action
             },
         },
         # remove options (black list)
