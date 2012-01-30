@@ -1,7 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.16 2012-01-24 18:32:39 cr Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.17 2012-01-30 13:21:38 mg Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
+
+<section>
+<title>Introduction</title>
 
 <para>
     From OTRS 2.0 on, Access Control Lists (ACLs) can be used to control access to tickets, modules, queues, etc.,
@@ -14,32 +17,52 @@
 <para>
     As yet, ACLs cannot be created using the <link linkend="adminarea-sysconfig">SysConfig interface</link>.
     They must be directly entered into the <filename>Kernel/Config.pm</filename> file.
-    Some ACL examples are listed below, including a reference of all possible important ACL settings:
+    This chapter has some ACL examples which will walk you trough the process of defining ACL definitions,
+    and a reference of all possible important ACL settings.
 </para>
+</section>
+
+<section>
+<title>Examples</title>
 
 <para>
 <example id="acl-move">
 <title>ACL allowing movement into a queue of only those tickets with ticket priority 5.</title>
 
+<para>
+    This example shows you the basic structure of an ACL. First, it needs to have a name.
+    In this case, it is "ACL-Name-2". Note that the ACLs will be numerically sorted before execution,
+    so you should use the names carefully.
+</para>
+<para>
+    Secondly, you have a "Properties" section which is a filter for your tickets. All the criteria
+    defined here will be applied to a ticket to determine if the ACL must be applied or not.
+    In our example, a ticket will match if it is in the queue "Raw" and has priority "5 very high".
+</para>
+<para>
+    Lastly, a section "Possible" defines modifications to the screens. In this case, from the available
+    queues, only the queue "Alert" can be selected in a ticket screen.
+</para>
+
 <programlisting>
-    # ticket acl
-    $Self->{TicketAcl}->{'ACL-Name-2'} = {
-        # match properties
-        Properties => {
-            # current ticket match properties
-            Ticket => {
-                Queue => ['Raw'],
-                Priority => ['5 very high'],
-            }
+# ticket acl
+$Self->{TicketAcl}->{'100-Example-ACL'} = {
+    # match properties
+    Properties => {
+        # current ticket match properties
+        Ticket => {
+            Queue => ['Raw'],
+            Priority => ['5 very high'],
+        }
+    },
+    # return possible options (white list)
+    Possible => {
+        # possible ticket options (white list)
+        Ticket => {
+            Queue => ['Alert'],
         },
-        # return possible options (white list)
-        Possible => {
-            # possible ticket options (white list)
-            Ticket => {
-                Queue => ['Alert'],
-            },
-        },
-    };
+    },
+};
 </programlisting>
 </example>
 </para>
@@ -48,49 +71,55 @@
 <example id="acl-close" >
 <title>ACL disabling the closing of tickets in the raw queue, and hiding the close button.</title>
 
+<para>
+    Here you can see how a ticket field (state) can be filtered with more than one possible value
+    to select from. It is also possible to limit the actions that can be executed for a certain
+    ticket. In this case, the ticket cannot be closed.
+</para>
+
 <programlisting>
-    $Self->{TicketAcl}->{'ACL-Name-1'} = {
-        # match properties
-        Properties => {
-            # current ticket match properties
-            Ticket => {
-                Queue => ['Raw'],
-            }
+$Self->{TicketAcl}->{'101-Second-Example-ACL'} = {
+    # match properties
+    Properties => {
+        # current ticket match properties
+        Ticket => {
+            Queue => ['Raw'],
+        }
+    },
+    # return possible options (white list)
+    Possible => {
+        # possible ticket options (white list)
+        Ticket => {
+            State => ['new', 'open', 'pending reminder'],
         },
-        # return possible options (white list)
-        Possible => {
-            # possible ticket options (white list)
-            Ticket => {
-                State => ['new', 'open', 'pending reminder'],
-            },
-            # possible action options
-            Action => {
-                AgentTicketBounce        => 1,
-                AgentTicketClose         => 0,
-                AgentTicketCompose       => 1,
-                AgentTicketCustomer      => 1,
-                AgentTicketForward       => 1,
-                AgentTicketFreeText      => 1,
-                AgentTicketHistory       => 1,
-                AgentTicketLink          => 1,
-                AgentTicketLock          => 1,
-                AgentTicketMerge         => 1,
-                AgentTicketMove          => 1,
-                AgentTicketNote          => 1,
-                AgentTicketOwner         => 1,
-                AgentTicketPending       => 1,
-                AgentTicketPhone         => 1, # only used to hide the Split action
-                AgentTicketPhoneInbound  => 1,
-                AgentTicketPhoneOutbound => 1,
-                AgentTicketPrint         => 1,
-                AgentTicketPriority      => 1,
-                AgentTicketResponsible   => 1,
-                AgentTicketWatcher       => 1,
-                AgentTicketZoom          => 1,
-                AgentLinkObject          => 1, # only used to hide the Link action
-            },
+        # possible action options
+        Action => {
+            AgentTicketBounce        => 1,
+            AgentTicketClose         => 0,
+            AgentTicketCompose       => 1,
+            AgentTicketCustomer      => 1,
+            AgentTicketForward       => 1,
+            AgentTicketFreeText      => 1,
+            AgentTicketHistory       => 1,
+            AgentTicketLink          => 1,
+            AgentTicketLock          => 1,
+            AgentTicketMerge         => 1,
+            AgentTicketMove          => 1,
+            AgentTicketNote          => 1,
+            AgentTicketOwner         => 1,
+            AgentTicketPending       => 1,
+            AgentTicketPhone         => 1, # only used to hide the Split action
+            AgentTicketPhoneInbound  => 1,
+            AgentTicketPhoneOutbound => 1,
+            AgentTicketPrint         => 1,
+            AgentTicketPriority      => 1,
+            AgentTicketResponsible   => 1,
+            AgentTicketWatcher       => 1,
+            AgentTicketZoom          => 1,
+            AgentLinkObject          => 1, # only used to hide the Link action
         },
-    };
+    },
+};
 </programlisting>
 </example>
 </para>
@@ -99,20 +128,27 @@
 <example id="acl-state" >
 <title>ACL removing always state closed successful.</title>
 
+<para>
+    This example shows how it is possible to define negative filters (the state "closed successful" will
+    be removed). You can also see that not defining match properties for a ticket will match any ticket,
+    i. e. the ACL will always be applied. This may be useful if you want to hide certain values by default,
+    and only enable them in special circumstances (e. g. if the agent is in a specific group).
+</para>
+
 <programlisting>
-    $Self->{TicketAcl}->{'ACL-Name-5'} = {
-        # match properties
-        Properties => {
-            # current ticket match properties (match always)
+$Self->{TicketAcl}->{'102-Third-ACL-Example'} = {
+    # match properties
+    Properties => {
+        # current ticket match properties (match always)
+    },
+    # return possible options
+    PossibleNot => {
+        # possible ticket options
+        Ticket => {
+            State => ['closed successful'],
         },
-        # return possible options
-        PossibleNot => {
-            # possible ticket options
-            Ticket => {
-                State => ['closed successful'],
-            },
-        },
-    };
+    },
+};
 </programlisting>
 </example>
 </para>
@@ -121,196 +157,202 @@
 <example id="acl-new-ticket-service" >
 <title>ACL only showing Hardware services for tickets that are created in queues that start with &quot;HW&quot;.</title>
 
+<para>
+    This example also shows you how you can use regular expressions for matching tickets and for
+    filtering the available options.
+</para>
+
 <programlisting>
-    $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
-        # match properties
-        # note we don't have "Ticket => {" because there's no ticket yet
-        Properties => {
-        Queue => {
-            Name => ['[RegExp]HW'],
-            }
+$Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
+    # match properties
+    # note we don't have "Ticket => {" because there's no ticket yet
+    Properties => {
+    Queue => {
+        Name => ['[RegExp]HW'],
+        }
+    },
+    # return possible options
+    Possible => {
+        # possible ticket options
+        Ticket => {
+            Service => ['[RegExp]^(Hardware)'],
         },
-        # return possible options
-        Possible => {
-            # possible ticket options
-            Ticket => {
-                Service => ['[RegExp]^(Hardware)'],
-            },
-        },
-    };
+    },
+};
 </programlisting>
 </example>
 </para>
+</section>
+
+<section>
+<title>Reference</title>
 
 <para>
-In the script below there is a list of all parameters which can be used for ACLs.
+    In the example below there is a list of all parameters which can be used for ACLs.
 </para>
 
 <para>
 <example>
 <title>Reference showing all possible important ACL settings.</title>
 <programlisting>
-    # ticket acl
-    $Self->{TicketAcl}->{'ACL-Name-Test'} = {
-        # match properties
-        Properties => {
-            # current action match properties
-            Frontend => {
-                Action => ['AgentTicketPhone', 'AgentTicketEmail'],
-            },
-            # current queue match properties
-            Queue => {
-                Name     => ['Raw'],
-                QueueID  => ['some id'],
-                GroupID  => ['some id'],
-                Email    => ['some email'],
-                RealName => ['OTRS System'],
-                # ...
-                }
-            },
-            # current user match properties
-            User => {
-                UserLogin => ['some login'],
-                # ...
-                Group_rw => [
-                    'hotline',
-                ],
-                # ...
-            },
-            # current customer user match properties
-            CustomerUser => {
-                UserLogin => ['some login'],
-                # ...
-            },
-            # current service match properties
-            Service => {
-                ServiceID => ['some id'],
-                Name      => ['some name'],
-                ParentID  => ['some id'],
-                # ...
-            },
-            # current type match properties
-            Type => {
-                ID   => ['some id'],
-                Name => ['some name'],
-                # ...
-            },
-            # current priority match properties
-            Priority = {
-                ID   => ['some id'],
-                Name => ['some name'],
-                # ...
-            },
-            # current SLA match properties
-            SLA = {
-                SLAID    => ['some id'],
-                Name     => ['some name'],
-                Calendar => ['some calendar'],
-                # ...
-            },
-            # current state match properties
-            State = {
-                ID       => ['some id'],
-                Name     => ['some name'],
-                TypeName => ['some state type name'],,
-                TypeID   => ['some state type id'],
-                # ...
-            },
-            # current ticket owner match properties
-            Owner => {
-                UserLogin => ['some login'],
-                # ...
-                Group_rw => [
-                    'some group',
-                ],
-                # ...
-            },
-            # current ticket responsible match properties
-            Responsible => {
-                UserLogin => ['some login'],
-                # ...
-                Group_rw => [
-                    'some group',
-                ],
-                # ...
-            },
-            # current dynamic field match properties
-            DynamicField => {
-                # keys must be in DynamicField_&lt;field_name&gt; format
-                DynamicField_Field1          => ['some value'],
-                DynamicField_OtherField      => ['some value'],
-                DynamicField_TicketFreeText2 => ['some value'],
-                # ...
-            },
-            # current ticket match properties
-            Ticket => {
-                Queue                => ['Raw'],
-                State                => ['new', 'open'],
-                Priority             => ['some priority'],
-                Lock                 => ['lock'],
-                CustomerID           => ['some id'],
-                CustomerUserID       => ['some id'],
-                Owner                => ['some owner'],
-                DynamicField_Field1  => ['some value'],     # Must be the untranslated values
-                                                            #   specified in the dynamic field
-                                                            #   definition and not the IDs
-                DynamicField_MyField => ['some value'],
-                # ...
-            },
+# ticket acl
+$Self->{TicketAcl}->{'200-ACL-Reference'} = {
+    # match properties
+    Properties => {
+        # current action match properties
+        Frontend => {
+            Action => ['AgentTicketPhone', 'AgentTicketEmail'],
         },
-        # return possible options (white list)
-        Possible => {
-            # possible ticket options (white list)
-            Ticket => {
-                Queue => ['Hotline', 'Coordination'],
-                State => ['some state'],
-                Priority => ['5 very high'],
-                DynamicField_Field1  => ['some value'],
-                DynamicField_MyField => ['some value'],
-                # ...
-                NewOwner => ['some owner'],
-                OldOwner => ['some owner'],
-                # ...
-            },
-            # possible action options (white list)
-            Action => {
-                AgentTicketBounce        => 1,
-                AgentTicketClose         => 1,
-                AgentTicketCompose       => 0,
-                AgentTicketCustomer      => 0,
-                AgentTicketForward       => 0,
-                AgentTicketFreeText      => 1,
-                AgentTicketHistory       => 1,
-                AgentTicketLink          => 0,
-                AgentTicketLock          => 1,
-                AgentTicketMerge         => 0,
-                AgentTicketMove          => 1,
-                AgentTicketNote          => 1,
-                AgentTicketOwner         => 1,
-                AgentTicketPending       => 1,
-                AgentTicketPhone         => 1, # only used to hide the Split action
-                AgentTicketPhoneInbound  => 0,
-                AgentTicketPhoneOutbound => 1,
-                AgentTicketPrint         => 1,
-                AgentTicketPriority      => 0,
-                AgentTicketResponsible   => 1,
-                AgentTicketWatcher       => 1,
-                AgentTicketZoom          => 1,
-                AgentLinkObject          => 1, # only used to hide the Link action
-            },
+        # current queue match properties
+        Queue => {
+            Name     => ['Raw'],
+            QueueID  => ['some id'],
+            GroupID  => ['some id'],
+            Email    => ['some email'],
+            RealName => ['OTRS System'],
+            # ...
+            }
         },
-        # remove options (black list)
-        PossibleNot => {
-            # possible ticket options (black list)
-            Ticket => {
-                Queue => ['Hotline', 'Coordination'],
-                State => ['closed', 'removed'],
-                # ...
-            },
+        # current user match properties
+        User => {
+            UserLogin => ['some login'],
+            # ...
+            Group_rw => [
+                'hotline',
+            ],
+            # ...
         },
-    };
+        # current customer user match properties
+        CustomerUser => {
+            UserLogin => ['some login'],
+            # ...
+        },
+        # current service match properties
+        Service => {
+            ServiceID => ['some id'],
+            Name      => ['some name'],
+            ParentID  => ['some id'],
+            # ...
+        },
+        # current type match properties
+        Type => {
+            ID   => ['some id'],
+            Name => ['some name'],
+            # ...
+        },
+        # current priority match properties
+        Priority = {
+            ID   => ['some id'],
+            Name => ['some name'],
+            # ...
+        },
+        # current SLA match properties
+        SLA = {
+            SLAID    => ['some id'],
+            Name     => ['some name'],
+            Calendar => ['some calendar'],
+            # ...
+        },
+        # current state match properties
+        State = {
+            ID       => ['some id'],
+            Name     => ['some name'],
+            TypeName => ['some state type name'],,
+            TypeID   => ['some state type id'],
+            # ...
+        },
+        # current ticket owner match properties
+        Owner => {
+            UserLogin => ['some login'],
+            # ...
+            Group_rw => [
+                'some group',
+            ],
+            # ...
+        },
+        # current ticket responsible match properties
+        Responsible => {
+            UserLogin => ['some login'],
+            # ...
+            Group_rw => [
+                'some group',
+            ],
+            # ...
+        },
+        # current dynamic field match properties
+        DynamicField => {
+            # keys must be in DynamicField_&lt;field_name&gt; format
+            DynamicField_Field1          => ['some value'],
+            DynamicField_OtherField      => ['some value'],
+            DynamicField_TicketFreeText2 => ['some value'],
+            # ...
+        },
+        # current ticket match properties
+        Ticket => {
+            Queue                => ['Raw'],
+            State                => ['new', 'open'],
+            Priority             => ['some priority'],
+            Lock                 => ['lock'],
+            CustomerID           => ['some id'],
+            CustomerUserID       => ['some id'],
+            Owner                => ['some owner'],
+            DynamicField_Field1  => ['some value'],     # Must be the untranslated values
+                                                        #   specified in the dynamic field
+                                                        #   definition and not the IDs
+            DynamicField_MyField => ['some value'],
+            # ...
+        },
+    },
+    # return possible options (white list)
+    Possible => {
+        # possible ticket options (white list)
+        Ticket => {
+            Queue => ['Hotline', 'Coordination'],
+            State => ['some state'],
+            Priority => ['5 very high'],
+            DynamicField_Field1  => ['some value'],
+            DynamicField_MyField => ['some value'],
+            # ...
+            NewOwner => ['some owner'],
+            OldOwner => ['some owner'],
+            # ...
+        },
+        # possible action options (white list)
+        Action => {
+            AgentTicketBounce        => 1,
+            AgentTicketClose         => 1,
+            AgentTicketCompose       => 0,
+            AgentTicketCustomer      => 0,
+            AgentTicketForward       => 0,
+            AgentTicketFreeText      => 1,
+            AgentTicketHistory       => 1,
+            AgentTicketLink          => 0,
+            AgentTicketLock          => 1,
+            AgentTicketMerge         => 0,
+            AgentTicketMove          => 1,
+            AgentTicketNote          => 1,
+            AgentTicketOwner         => 1,
+            AgentTicketPending       => 1,
+            AgentTicketPhone         => 1, # only used to hide the Split action
+            AgentTicketPhoneInbound  => 0,
+            AgentTicketPhoneOutbound => 1,
+            AgentTicketPrint         => 1,
+            AgentTicketPriority      => 0,
+            AgentTicketResponsible   => 1,
+            AgentTicketWatcher       => 1,
+            AgentTicketZoom          => 1,
+            AgentLinkObject          => 1, # only used to hide the Link action
+        },
+    },
+    # remove options (black list)
+    PossibleNot => {
+        # See section "Possible"
+        # ...
+    },
+};
 </programlisting>
 </example>
 </para>
+</section>
 
 </chapter>
