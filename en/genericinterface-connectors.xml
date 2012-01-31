@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: genericinterface-connectors.xml,v 1.1 2012-01-31 06:21:10 cr Exp $ -->
+<!-- $Id: genericinterface-connectors.xml,v 1.2 2012-01-31 08:11:04 cr Exp $ -->
 
 
 <section id="genericinterface-connectors">
@@ -129,9 +129,128 @@
                         Article and can contain several attachments, all defined Dynamic Fields
                         can be also set on TicketCreate operation.
                     </para>
+                    <para>Possible Attributes:</para>
+                    <para>
+                        <programlisting>
+                            <![CDATA[
+      <TicketCreate>
+         <!--You have a CHOICE of the next 3 items at this level-->
+         <!--Optional:-->
+         <UserLogin>?</UserLogin>
+         <!--Optional:-->
+         <CustomerUserLogin>?</CustomerUserLogin>
+         <!--Optional:-->
+         <SessionID>?</SessionID>
+         <!--Optional:-->
+         <Password>?</Password>
+         <Ticket>
+            <Title>?</Title>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <QueueID>?</QueueID>
+            <!--Optional:-->
+            <Queue>?</Queue>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <TypeID>?</TypeID>
+            <!--Optional:-->
+            <Type>?</Type>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ServiceID>?</ServiceID>
+            <!--Optional:-->
+            <Service>?</Service>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <SLAID>?</SLAID>
+            <!--Optional:-->
+            <SLA>?</SLA>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <StateID>?</StateID>
+            <!--Optional:-->
+            <State>?</State>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <PriorityID>?</PriorityID>
+            <!--Optional:-->
+            <Priority>?</Priority>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <OwnerID>?</OwnerID>
+            <!--Optional:-->
+            <Owner>?</Owner>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ResponsibleID>?</ResponsibleID>
+            <!--Optional:-->
+            <Responsible>?</Responsible>
+            <CustomerUser>?</CustomerUser>
+            <!--Optional:-->
+            <PendingTime>
+               <Year>?</Year>
+               <Month>?</Month>
+               <Day>?</Day>
+               <Hour>?</Hour>
+               <Minute>?</Minute>
+            </PendingTime>
+         </Ticket>
+         <Article>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ArticleTypeID>?</ArticleTypeID>
+            <!--Optional:-->
+            <ArticleType>?</ArticleType>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <SenderTypeID>?</SenderTypeID>
+            <!--Optional:-->
+            <SenderType>?</SenderType>
+            <!--Optional:-->
+            <From>?</From>
+            <Subject>?</Subject>
+            <Body>?</Body>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ContentType>?</ContentType>
+            <Charset>?</Charset>
+            <MimeType>?</MimeType>
+            <!--Optional:-->
+            <HistoryType>?</HistoryType>
+            <!--Optional:-->
+            <HistoryComment>?</HistoryComment>
+            <!--Optional:-->
+            <AutoResponseType>?</AutoResponseType>
+            <!--Optional:-->
+            <TimeUnit>?</TimeUnit>
+            <!--Optional:-->
+            <NoAgentNotify>?</NoAgentNotify>
+            <!--Zero or more repetitions:-->
+            <ForceNotificationToUserID>?</ForceNotificationToUserID>
+            <!--Zero or more repetitions:-->
+            <ExcludeNotificationToUserID>?</ExcludeNotificationToUserID>
+            <!--Zero or more repetitions:-->
+            <ExcludeMuteNotificationToUserID>?</ExcludeMuteNotificationToUserID>
+         </Article>
+         <!--Zero or more repetitions:-->
+         <DynamicField>
+            <Name>?</Name>
+            <!--1 or more repetitions:-->
+            <Value>?</Value>
+         </DynamicField>
+         <!--Zero or more repetitions:-->
+         <Attachment>
+            <Content>cid:61886944659</Content>
+            <ContentType>?</ContentType>
+            <Filename>?</Filename>
+         </Attachment>
+      </TicketCreate>
+                            ]]>
+                        </programlisting>
+                    </para>
                 </section>
                 <section id="generic-ticket-connector-operations-ticketupdate">
-                    <title>TicketCreate</title>
+                    <title>TicketUpdate</title>
                     <para>
                         TicketUpdate operation add the capability to modify attributes from a
                         ticket or add a new article, including attachments and all defined
@@ -143,6 +262,132 @@
                             attribute.
                         </para>
                     </note>
+                    <para>Possible Attributes:</para>
+                    <para>
+                        <programlisting>
+                            <![CDATA[
+      <TicketUpdate>
+         <!--You have a CHOICE of the next 3 items at this level-->
+         <!--Optional:-->
+         <UserLogin>?</UserLogin>
+         <!--Optional:-->
+         <CustomerUserLogin>?</CustomerUserLogin>
+         <!--Optional:-->
+         <SessionID>?</SessionID>
+         <!--Optional:-->
+         <Password>?</Password>
+         <!--You have a CHOICE of the next 2 items at this level-->
+         <TicketID>?</TicketID>
+         <TicketNumber>?</TicketNumber>
+         <!--Optional:-->
+         <Ticket>
+            <!--Optional:-->
+            <Title>?</Title>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <QueueID>?</QueueID>
+            <!--Optional:-->
+            <Queue>?</Queue>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <TypeID>?</TypeID>
+            <!--Optional:-->
+            <Type>?</Type>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ServiceID>?</ServiceID>
+            <!--Optional:-->
+            <Service>?</Service>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <SLAID>?</SLAID>
+            <!--Optional:-->
+            <SLA>?</SLA>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <StateID>?</StateID>
+            <!--Optional:-->
+            <State>?</State>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <PriorityID>?</PriorityID>
+            <!--Optional:-->
+            <Priority>?</Priority>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <OwnerID>?</OwnerID>
+            <!--Optional:-->
+            <Owner>?</Owner>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ResponsibleID>?</ResponsibleID>
+            <!--Optional:-->
+            <Responsible>?</Responsible>
+            <!--Optional:-->
+            <CustomerUser>?</CustomerUser>
+            <!--Optional:-->
+            <PendingTime>
+               <Year>?</Year>
+               <Month>?</Month>
+               <Day>?</Day>
+               <Hour>?</Hour>
+               <Minute>?</Minute>
+            </PendingTime>
+         </Ticket>
+         <!--Optional:-->
+         <Article>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ArticleTypeID>?</ArticleTypeID>
+            <!--Optional:-->
+            <ArticleType>?</ArticleType>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <SenderTypeID>?</SenderTypeID>
+            <!--Optional:-->
+            <SenderType>?</SenderType>
+            <!--Optional:-->
+            <From>?</From>
+            <Subject>?</Subject>
+            <Body>?</Body>
+            <!--You have a CHOICE of the next 2 items at this level-->
+            <!--Optional:-->
+            <ContentType>?</ContentType>
+            <Charset>?</Charset>
+            <MimeType>?</MimeType>
+            <!--Optional:-->
+            <HistoryType>?</HistoryType>
+            <!--Optional:-->
+            <HistoryComment>?</HistoryComment>
+            <!--Optional:-->
+            <AutoResponseType>?</AutoResponseType>
+            <!--Optional:-->
+            <TimeUnit>?</TimeUnit>
+            <!--Optional:-->
+            <NoAgentNotify>?</NoAgentNotify>
+            <!--Zero or more repetitions:-->
+            <ForceNotificationToUserID>?</ForceNotificationToUserID>
+            <!--Zero or more repetitions:-->
+            <ExcludeNotificationToUserID>?</ExcludeNotificationToUserID>
+            <!--Zero or more repetitions:-->
+            <ExcludeMuteNotificationToUserID>?</ExcludeMuteNotificationToUserID>
+         </Article>
+         <!--Zero or more repetitions:-->
+         <DynamicField>
+            <Name>?</Name>
+            <!--1 or more repetitions:-->
+            <Value>?</Value>
+         </DynamicField>
+         <!--Zero or more repetitions:-->
+         <Attachment>
+            <Content>cid:166861569966</Content>
+            <ContentType>?</ContentType>
+            <Filename>?</Filename>
+         </Attachment>
+      </TicketUpdate>
+                            ]]>
+                        </programlisting>
+                    </para>
                 </section>
                 <section id="generic-ticket-connector-operations-ticketget">
                     <title>TicketGet</title>
@@ -151,12 +396,233 @@
                         dynamic fields, all the articles and all the attachments that belongs to
                         the ticket.
                     </para>
+                    <para>Possible Attributes:</para>
+                    <para>
+                        <programlisting>
+                            <![CDATA[
+      <TicketGet>
+         <!--You have a CHOICE of the next 3 items at this level-->
+         <!--Optional:-->
+         <UserLogin>?</UserLogin>
+         <!--Optional:-->
+         <CustomerUserLogin>?</CustomerUserLogin>
+         <!--Optional:-->
+         <SessionID>?</SessionID>
+         <!--Optional:-->
+         <Password>?</Password>
+         <!--Optional:-->
+         <TicketID>?</TicketID>
+         <!--Optional:-->
+         <DynamicFields>?</DynamicFields>
+         <!--Optional:-->
+         <Extended>?</Extended>
+         <!--Optional:-->
+         <AllArticles>?</AllArticles>
+         <!--Optional:-->
+         <DynamicFields>?</DynamicFields>
+         <!--Optional:-->
+         <ArticleSenderType>?</ArticleSenderType>
+         <!--Optional:-->
+         <ArticleOrder>?</ArticleOrder>
+         <!--Optional:-->
+         <ArticleLimit>?</ArticleLimit>
+         <!--Optional:-->
+         <Attachments>?</Attachments>
+      </TicketGet>
+                            ]]>
+                        </programlisting>
+                    </para>
                 </section>
                 <section id="generic-ticket-connector-operations-ticketsearch">
                     <title>TicketSearch</title>
                     <para>
                         TicketSearch operation returns a list of Ticket IDs that matches a
                         predefined criteria.
+                    </para>
+                    <para>Possible Attributes:</para>
+                    <para>
+                        <programlisting>
+                            <![CDATA[
+      <TicketSearch>
+         <!--You have a CHOICE of the next 3 items at this level-->
+         <!--Optional:-->
+         <UserLogin>?</UserLogin>
+         <!--Optional:-->
+         <CustomerUserLogin>?</CustomerUserLogin>
+         <!--Optional:-->
+         <SessionID>?</SessionID>
+         <!--Optional:-->
+         <Password>?</Password>
+         <!--Optional:-->
+         <Limit>?</Limit>
+         <!--Zero or more repetitions:-->
+         <TicketNumber>?</TicketNumber>
+         <!--Zero or more repetitions:-->
+         <Title>?</Title>
+         <!--Zero or more repetitions:-->
+         <Queues>?</Queues>
+         <!--Zero or more repetitions:-->
+         <QueueIDs>?</QueueIDs>
+         <!--Optional:-->
+         <UseSubQueues>?</UseSubQueues>
+         <!--Zero or more repetitions:-->
+         <Types>?</Types>
+         <!--Zero or more repetitions:-->
+         <TypeIDs>?</TypeIDs>
+         <!--Zero or more repetitions:-->
+         <States>?</States>
+         <!--Zero or more repetitions:-->
+         <StateIDs>?</StateIDs>
+         <!--Zero or more repetitions:-->
+         <StateType>?</StateType>
+         <!--Zero or more repetitions:-->
+         <StateTpeyIDs>?</StateTpeyIDs>
+         <!--Zero or more repetitions:-->
+         <Priorities>?</Priorities>
+         <!--Zero or more repetitions:-->
+         <PriorityIDs>?</PriorityIDs>
+         <!--Zero or more repetitions:-->
+         <Services>?</Services>
+         <!--Zero or more repetitions:-->
+         <ServiceIDs>?</ServiceIDs>
+         <!--Zero or more repetitions:-->
+         <SLA>?</SLA>
+         <!--Zero or more repetitions:-->
+         <SLAIDs>?</SLAIDs>
+         <!--Zero or more repetitions:-->
+         <Locks>?</Locks>
+         <!--Zero or more repetitions:-->
+         <LockIDs>?</LockIDs>
+         <!--Zero or more repetitions:-->
+         <OwnerIDs>?</OwnerIDs>
+         <!--Zero or more repetitions:-->
+         <ResponsibleIDs>?</ResponsibleIDs>
+         <!--Zero or more repetitions:-->
+         <WatchUserIDs>?</WatchUserIDs>
+         <!--Zero or more repetitions:-->
+         <CustomerID>?</CustomerID>
+         <!--Zero or more repetitions:-->
+         <CustomerUserLogin>?</CustomerUserLogin>
+         <!--Zero or more repetitions:-->
+         <CreatedUserIDs>?</CreatedUserIDs>
+         <!--Zero or more repetitions:-->
+         <CreatedTypes>?</CreatedTypes>
+         <!--Zero or more repetitions:-->
+         <CreatedTypeIDs>?</CreatedTypeIDs>
+         <!--Zero or more repetitions:-->
+         <CreatedPriorities>?</CreatedPriorities>
+         <!--Zero or more repetitions:-->
+         <CreatedPriorityIDs>?</CreatedPriorityIDs>
+         <!--Zero or more repetitions:-->
+         <CreatedStates>?</CreatedStates>
+         <!--Zero or more repetitions:-->
+         <CreatedStateIDs>?</CreatedStateIDs>
+         <!--Zero or more repetitions:-->
+         <CreatedQueues>?</CreatedQueues>
+         <!--Zero or more repetitions:-->
+         <CreatedStateIDs>?</CreatedStateIDs>
+         <!--Zero or more repetitions:-->
+         <DynamicFields>
+            <!--You have a CHOICE of the next 6 items at this level-->
+            <!--Optional:-->
+            <Equals>?</Equals>
+            <!--Optional:-->
+            <Like>?</Like>
+            <!--Optional:-->
+            <GreaterThan>?</GreaterThan>
+            <!--Optional:-->
+            <GreaterThanEquals>?</GreaterThanEquals>
+            <!--Optional:-->
+            <LowerThan>?</LowerThan>
+            <!--Optional:-->
+            <LowerThanEquals>?</LowerThanEquals>
+         </DynamicFields>
+         <!--Optional:-->
+         <Ticketflag>
+            <!--Optional:-->
+            <Seen>?</Seen>
+         </Ticketflag>
+         <!--Optional:-->
+         <From>?</From>
+         <!--Optional:-->
+         <To>?</To>
+         <!--Optional:-->
+         <Cc>?</Cc>
+         <!--Optional:-->
+         <Subject>?</Subject>
+         <!--Optional:-->
+         <Body>?</Body>
+         <!--Optional:-->
+         <FullTextIndex>?</FullTextIndex>
+         <!--Optional:-->
+         <ContentSearch>?</ContentSearch>
+         <!--Optional:-->
+         <ContentSearchPrefix>?</ContentSearchPrefix>
+         <!--Optional:-->
+         <ContentSearchSuffix>?</ContentSearchSuffix>
+         <!--Optional:-->
+         <ConditionInline>?</ConditionInline>
+         <!--Optional:-->
+         <ArticleCreateTimeOlderMinutes>?</ArticleCreateTimeOlderMinutes>
+         <!--Optional:-->
+         <ArticleCreateTimeNewerMinutes>?</ArticleCreateTimeNewerMinutes>
+         <!--Optional:-->
+         <ArticleCreateTimeNewerDate>?</ArticleCreateTimeNewerDate>
+         <!--Optional:-->
+         <ArticleCreateTimeOlderDate>?</ArticleCreateTimeOlderDate>
+         <!--Optional:-->
+         <TicketCreateTimeOlderMinutes>?</TicketCreateTimeOlderMinutes>
+         <!--Optional:-->
+         <ATicketCreateTimeNewerMinutes>?</ATicketCreateTimeNewerMinutes>
+         <!--Optional:-->
+         <TicketCreateTimeNewerDate>?</TicketCreateTimeNewerDate>
+         <!--Optional:-->
+         <TicketCreateTimeOlderDate>?</TicketCreateTimeOlderDate>
+         <!--Optional:-->
+         <TicketChangeTimeOlderMinutes>?</TicketChangeTimeOlderMinutes>
+         <!--Optional:-->
+         <TicketChangeTimeNewerMinutes>?</TicketChangeTimeNewerMinutes>
+         <!--Optional:-->
+         <TicketChangeTimeNewerDate>?</TicketChangeTimeNewerDate>
+         <!--Optional:-->
+         <TicketChangeTimeOlderDate>?</TicketChangeTimeOlderDate>
+         <!--Optional:-->
+         <TicketCloseTimeOlderMinutes>?</TicketCloseTimeOlderMinutes>
+         <!--Optional:-->
+         <TicketCloseTimeNewerMinutes>?</TicketCloseTimeNewerMinutes>
+         <!--Optional:-->
+         <TicketCloseTimeNewerDate>?</TicketCloseTimeNewerDate>
+         <!--Optional:-->
+         <TicketCloseTimeOlderDate>?</TicketCloseTimeOlderDate>
+         <!--Optional:-->
+         <TicketPendingTimeOlderMinutes>?</TicketPendingTimeOlderMinutes>
+         <!--Optional:-->
+         <TicketPendingTimeNewerMinutes>?</TicketPendingTimeNewerMinutes>
+         <!--Optional:-->
+         <TicketPendingTimeNewerDate>?</TicketPendingTimeNewerDate>
+         <!--Optional:-->
+         <TicketPendingTimeOlderDate>?</TicketPendingTimeOlderDate>
+         <!--Optional:-->
+         <TicketEscalationTimeOlderMinutes>?</TicketEscalationTimeOlderMinutes>
+         <!--Optional:-->
+         <TTicketEscalationTimeNewerMinutes>?</TTicketEscalationTimeNewerMinutes>
+         <!--Optional:-->
+         <TicketEscalationTimeNewerDate>?</TicketEscalationTimeNewerDate>
+         <!--Optional:-->
+         <TicketEscalationTimeOlderDate>?</TicketEscalationTimeOlderDate>
+         <!--Optional:-->
+         <ArchiveFlags>?</ArchiveFlags>
+         <!--Zero or more repetitions:-->
+         <OrderBy>?</OrderBy>
+         <!--Zero or more repetitions:-->
+         <SortBy>?</SortBy>
+         <!--Optional:-->
+         <Permission>?</Permission>
+         <!--Zero or more repetitions:-->
+         <CustomerUserID>?</CustomerUserID>
+      </TicketSearch>
+                            ]]>
+                        </programlisting>
                     </para>
                 </section>
             </section>
@@ -278,7 +744,7 @@ Requester:
 # otrs.SOAPRequest.pl - sample to send a SOAP request to OTRS Generic Interface Ticket Connector
 # Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
-# $Id: genericinterface-connectors.xml,v 1.1 2012-01-31 06:21:10 cr Exp $
+# $Id: genericinterface-connectors.xml,v 1.2 2012-01-31 08:11:04 cr Exp $
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU AFFERO General Public License as published by
