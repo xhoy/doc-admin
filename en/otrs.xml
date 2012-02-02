@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.47 2012-01-30 12:50:38 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.48 2012-02-02 16:05:08 mg Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS Help Desk</title>
@@ -283,7 +283,7 @@
           <listitem>
             <para>
             Support of several database systems for the central OTRS back-end,
-            e.g. MySQL, PostgreSQL, Oracle, DB2).
+            e.g. MySQL, PostgreSQL, Oracle, MSSQL).
             </para>
           </listitem>
           <listitem>
@@ -1086,8 +1086,8 @@
 
     <para>
     You can deploy OTRS on different databases. You can choose between <application>MySQL</application>,
-     <application>PostgreSQL</application>, <application>Oracle</application>,
-    <application>Microsoft SQL Server</application>, or <application>IBM DB2</application>.
+     <application>PostgreSQL</application>, <application>Oracle</application>, or
+    <application>Microsoft SQL Server</application>.
     If you use <application>MySQL</application> you have the advantage that the database
     and some system settings can be configured during the installation, through a web front-end.
     </para>
@@ -1138,9 +1138,6 @@
         </listitem>
         <listitem>
             <para>Oracle 10g or higher</para>
-        </listitem>
-        <listitem>
-            <para>DB2 8 or higher</para>
         </listitem>
         <listitem>
             <para>Microsoft SQL Server 2005 or higher</para>
