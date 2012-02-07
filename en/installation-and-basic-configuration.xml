@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.68 2012-02-02 16:05:08 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.69 2012-02-07 14:10:51 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1459,14 +1459,36 @@ shell&gt; bin/otrs.DeleteCache.pl
             </para>
             <para>
             Please add a new setting to the Apache configuration file for OTRS:
-            <screen>
+                <screen>
 # set mod_perl2 option for generic interface
 &lt;Location /otrs/nph-genericinterface.pl&gt;
   PerlOptions -ParseHeaders
 &lt;/Location&gt;
-            </screen>
+                </screen>
             Please see the file /opt/otrs/scripts/apache2-httpd.include.conf for an example of
             where this new option needs to be added (inside the &lt;IfModule mod_perl.c&gt; block).
+            </para>
+            <para>
+                In this file, you will also note a new section on caching:
+
+                <screen><![CDATA[
+<IfModule mod_headers.c>
+    <Directory "/opt/otrs/var/httpd/htdocs/skins/*/*/css-cache">
+        <FilesMatch "\.(css|CSS)$">
+            Header set Cache-Control "max-age=2592000 must-revalidate"
+        </FilesMatch>
+    </Directory>
+
+    <Directory "/opt/otrs/var/httpd/htdocs/js/js-cache">
+        <FilesMatch "\.(js|JS)$">
+            Header set Cache-Control "max-age=2592000 must-revalidate"
+        </FilesMatch>
+    </Directory>
+</IfModule>
+                ]]></screen>
+
+                Please activate this in your local installation too, and make sure that mod_headers
+                is installed and active.
             </para>
       </listitem>
       <listitem>
