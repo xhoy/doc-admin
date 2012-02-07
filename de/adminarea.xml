@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.45 2011-12-05 10:55:44 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.46 2012-02-07 09:33:22 mg Exp $ -->
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
 
@@ -1828,28 +1828,6 @@ ist).
       </row>
       <row>
         <entry>
-          X-OTRS-ArticleKey(1|2|3):
-        </entry>
-        <entry>
-          Zusätzlicher Info-Key für den Artikel.
-        </entry>
-        <entry>
-          Speichert einen zusätzlichen Info-Key für den Artikel.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          X-OTRS-ArticleValue(1|2|3):
-        </entry>
-        <entry>
-          Zusätzlicher Info-Value.
-        </entry>
-        <entry>
-          Speichert einen zusätzlichen Info-Value für den Artikel.
-        </entry>
-      </row>
-      <row>
-        <entry>
           X-OTRS-SenderType:
         </entry>
         <entry>
@@ -1874,24 +1852,15 @@ note-external, note-report
       </row>
       <row>
         <entry>
-          X-OTRS-TicketKey(1|2|...|8):
+          X-OTRS-DynamicField-&lt;DynamicFieldName&gt;:
         </entry>
         <entry>
-          Zusätzlicher Info-Key
+          Depends on Dynamic Field configuration (Text: Notebook, Date: 2010-11-20
+00:00:00, Integer: 1)
         </entry>
         <entry>
-          Speichert einen zusätzlichen Info-Key für das Ticket.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          X-OTRS-TicketValue(1|2|...|8):
-        </entry>
-        <entry>
-          Zusätzlicher Info-Value
-        </entry>
-        <entry>
-          Speichert einen zusätzlichen Info-Value für das Ticket.
+          Saves an additional info value for the ticket on &lt;DynamicFieldName&gt;
+Dynamic Field.
         </entry>
       </row>
       <row>

@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.14 2011-12-05 10:55:46 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.15 2012-02-07 09:33:25 mg Exp $ -->
 <chapter id="adminarea">
 <title>Панель управления OTRS</title>
 
@@ -1802,28 +1802,6 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
       </row>
       <row>
         <entry>
-          X-OTRS-ArticleKey(1|2|3):
-        </entry>
-        <entry>
-          Дополнительный информационный ключ для статьи.
-        </entry>
-        <entry>
-          Сохраняет дополнительную ключевую информацию для статьи.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          X-OTRS-ArticleValue(1|2|3):
-        </entry>
-        <entry>
-          Дополнительное информационное значение для статьи.
-        </entry>
-        <entry>
-          Сохраняет дополнительную информацию для статьи.
-        </entry>
-      </row>
-      <row>
-        <entry>
           X-OTRS-SenderType:
         </entry>
         <entry>
@@ -1848,24 +1826,15 @@ note-external, note-report
       </row>
       <row>
         <entry>
-          X-OTRS-TicketKey(1|2|...|8):
+          X-OTRS-DynamicField-&lt;DynamicFieldName&gt;:
         </entry>
         <entry>
-          Дополнительный информационный ключ для заявки
+          Depends on Dynamic Field configuration (Text: Notebook, Date: 2010-11-20
+00:00:00, Integer: 1)
         </entry>
         <entry>
-          Сохраняет дополнительные ключевые поля для заявки.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          X-OTRS-TicketValue(1|2|...|8):
-        </entry>
-        <entry>
-          Дополнительное информационное поле для заявки.
-        </entry>
-        <entry>
-          Сохраняет дополнительное информационное поле для заявки.
+          Saves an additional info value for the ticket on &lt;DynamicFieldName&gt;
+Dynamic Field.
         </entry>
       </row>
       <row>
