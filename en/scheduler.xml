@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: scheduler.xml,v 1.5 2012-02-09 13:35:16 mb Exp $ -->
+<!-- $Id: scheduler.xml,v 1.6 2012-02-09 15:00:08 mb Exp $ -->
 
 <chapter id="scheduler">
     <title>OTRS Scheduler</title>
@@ -39,7 +39,7 @@
         <section id="scheduler-gui-notify">
             <title>Scheduler Not Running Notification</title>
             <para>
-                There are two notifications if the system does not detect that scheduler is
+                There are two different types of notifications if the system detects that scheduler is not
                 running. This detection is based on the Scheduler process update frequency, if
                 the difference between current time and the last process update time is 2 times the
                 process update frequency a warning message will be displayed in the OTRS
@@ -320,8 +320,8 @@
                 <title>Scheduler Service Installer</title>
                 <para>
                     The integration of the services into the MS Windows Operating System is done
-                    in the Windows Service Control Manager (SCM). In order to make the OTRS Scheduler
-                    process to be controlled by the SCM is necessary to register it.
+                    via the Windows Service Control Manager (SCM). In order to make the OTRS Scheduler
+                    process to be controlled by the SCM is necessary to register this service
                 </para>
                 <para>
                     OTRS provides the script
@@ -360,8 +360,8 @@
                     </listitem>
                 </itemizedlist>
                 <para>
-                    After installed into the Widows SCM The OTRS Scheduler process can be used as
-                    any other service in Windows, it can be started, stopped and restarted and can
+                    After installing into the Widows SCM the OTRS Scheduler process can be used as
+                    any other service in Windows. It can be started, stopped and restarted and can
                     be configured to be started manually or automatic.
                 </para>
                 <note>
@@ -432,17 +432,17 @@
                 </example>
                 <note>
                     <para>
-                        Force stop the Scheduler is used remove the process ID from the database
+                        Force stopping the Scheduler is used to remove the process ID from the database
                         when scheduler is not running and the process is still registered.
                     </para>
                     <para>
-                        Force start the Scheduler is used to start the Scheduler process if the
-                        scheduler is not running and the process is registered.
+                        Force starting the Scheduler is used to start the Scheduler process if the
+                        scheduler is not running and the process is still registered.
                     </para>
                     <para>
-                        Force start or stop are only necessary if the start of the process is needed
+                        Force start or stop are only necessary if starting the process is needed
                         to be done before the process update time expires. Otherwise an expired
-                        entry in the database is discarded by normal start.
+                        entry in the database would be discarded by a normal start.
                     </para>
                 </note>
             </section>
