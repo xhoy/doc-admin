@@ -1,65 +1,64 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: scheduler.xml,v 1.4 2012-01-18 01:17:10 ep Exp $ -->
+<!-- $Id: scheduler.xml,v 1.5 2012-02-09 13:35:16 mb Exp $ -->
 
 <chapter id="scheduler">
     <title>OTRS Scheduler</title>
     <para>
-        The OTRS Scheduler is an independent system process that execute tasks in background. this
-        kind of processes are know as Daemons in Unix / Linux systems or as Services on Windows
-        environments. To be independent doesn't mean that the Scheduler do all alone, it is fully
-        integrated to OTRS and can use any OTRS module as needed to complete each task.
+        The OTRS Scheduler is an independent system process that executes tasks in background. These
+        kind of processes are know as <emphasis>daemons</emphasis> in Unix / Linux systems or as <emphasis>services</emphasis> on Windows
+        environments. It is independent but that doesn't mean that the Scheduler does everything alone, it is fully
+        integrated into OTRS and can use any OTRS module as needed to complete each task.
     </para>
     <para>
-        Currently OTRS Scheduler is only able to handle Generic Interface tasks, this kind of tasks
-        executes invokers that sends requests to Remote Systems. Other handlers for different tasks
-        will be added on further OTRS versions.
+        Currently the OTRS Scheduler is only able to handle Generic Interface tasks. These kind of tasks
+        executes invokers that send requests to remote systems. Other handlers for different tasks
+        will be added in future OTRS versions.
     </para>
     <para>
-        For sanity reasons the Scheduler process needs to be restarted from time to time, this is
+        For sanity reasons the Scheduler process needs to be restarted from time to time. This is
         done automatically by the scheduler process itself once a day, but it can be adjusted as
         needed using the SysConfig by editing the "Scheduler::RestartAfterSeconds" setting.
     </para>
     <para>
-        OTRS Scheduler is a set it and forget it process, the only needed human interaction is to
-        check its status and start or stop it as needed.
+        The OTRS Scheduler is a set it and forget it process, the only needed human interaction is to
+        check its status periodically and start or stop it as needed.
     </para>
     <note>
         <para>
-            If Scheduler is stopped for any reason all left tasks and new tasks registered when the
-            Scheduler is stopped, are going to be executed ASAP when the Scheduler starts again
-            (unless the tasks are programmed to be executed in the future).
+            If the Scheduler is stopped for any reason all pending tasks and new tasks registered when the
+            Scheduler is stopped will  be executed as soon as the Scheduler starts again
+            (unless the tasks are set to be executed in the future).
         </para>
     </note>
     <section id="scheduler-gui">
         <title>Scheduler Graphical Interface</title>
         <para>
-            Scheduler is not visible in the OTRS Graphical User Interface unless it stops running
-            when it should be running.
+            The Scheduler is not visible in the OTRS Graphical User Interface unless it stops running.
         </para>
         <section id="scheduler-gui-notify">
             <title>Scheduler Not Running Notification</title>
             <para>
                 There are two notifications if the system does not detect that scheduler is
-                running this detection in based on the Scheduler process update frequency, if
-                the difference between current time and the last process update time is 2X the
+                running. This detection is based on the Scheduler process update frequency, if
+                the difference between current time and the last process update time is 2 times the
                 process update frequency a warning message will be displayed in the OTRS
-                notification area. If it over pass 4X the process frequency then an alert will
-                be displayed.
+                notification area. If it is over 4 times the process frequency then an alert will
+                be displayed instead.
             </para>
             <para>
                 The Scheduler process update time can be configured via the SysConfig in the
                 "Scheduler::PIDUpdateTime" setting.
             </para>
             <para>
-                For a warning message it is not always necessary to take an action, but is
-                highly recommended to check if the scheduler process is running. If the alert
-                came then is highly probable that the scheduler is not running and should be
+                If you would see a warning message it is not always necessary to take an action, but is
+                highly recommended to check if the scheduler process is running. If you see an alert,
+                then is highly probable that the scheduler is in fact not running and should be
                 started.
             </para>
             <para>
-                By default the Scheduler not running notification is enabled (if there is a
-                valid web service registered in the database) and is only displayed to the
+                By default the Scheduler not running notification is enabled, if there is a
+                valid web service registered in the database, and is only displayed to the
                 users in the "admin" group.
             </para>
             <para>
@@ -88,7 +87,7 @@
             <note>
                 <para>
                     A forced Scheduler start is only necessary if previous Scheduler process was
-                    terminated abnormally and the Process ID is still registered on the
+                    terminated abnormally and the Process ID is still registered in the
                     database.
                 </para>
                 <para>
@@ -171,7 +170,7 @@
                     <tbody>
                         <row>
                             <entry>otrs-scheduler-linux</entry>
-                            <entry>RedHat, Fedora, CentOS, SuSE, OpenSuSE, Debian, Ubuntu</entry>
+                            <entry>Red Hat, Fedora, CentOS, SUSE, OpenSuSE, Debian, Ubuntu</entry>
                         </row>
                         <row>
                             <entry>otrs-scheduler-gentoo-init.d, otrs-scheduler-gentoo-conf.d</entry>
@@ -212,18 +211,18 @@
                     </listitem>
                 </itemizedlist>
                 <para>
-                    Scheduler needs the database to be available to register it Process ID, for this
+                    The Scheduler needs the database to be available to register its Process ID, for this
                     reason is necessary to:
                     <itemizedlist mark="round">
                         <listitem>
                             <para>
-                                Execute the Scheduler init.d script to <emphasis>start </emphasis>
+                                Execute the Scheduler init.d script to <emphasis>start</emphasis>
                                 the Scheduler process after the database process is up and running.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                Execute the Scheduler init.d script to <emphasis>stop </emphasis>
+                                Execute the Scheduler init.d script to <emphasis>stop</emphasis>
                                 the Scheduler before the database process shuts down.
                             </para>
                         </listitem>
@@ -231,9 +230,9 @@
                 </para>
                 <note>
                     <para>
-                        If you want that Scheduler runs at system startup, please read the
+                        If you want the Scheduler to run at system startup, please read the
                         documentation of the operating system for the right location to place the
-                        init.d scripts, how to configure them to run automatically and its run
+                        init.d scripts, how to configure them to run automatically and how to set the run
                         order.
                     </para>
                 </note>
