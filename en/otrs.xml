@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.49 2012-02-07 08:53:51 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.50 2012-02-09 15:00:21 mb Exp $ -->
 
 <chapter id="otrs">
 <title>OTRS Help Desk</title>
@@ -390,13 +390,13 @@
                 </listitem>
                 <listitem>
                     <para>A scheduler daemon process supports asynchronous event handling. This is useful to asynchronously start web service requests from OTRS
-                        to another system, after the agent's request has been answered (e. g. a ticket has been created). Otherwise, it might block the response,
+                        to another system, after the agents request has been answered (e.g. when a ticket has been created). Otherwise, it might block the response,
                         resulting in increased response times for the agent.</para>
                 </listitem>
             </itemizedlist>
             <para>
             With the Generic Interface new web services can be configured easily by using existing OTRS modules, without additional code. They can be combined to
-            create a new web service. When configuring a new web service connection, the administrator: has to add:
+            create a new web service. When configuring a new web service connection, the administrator has to add:
             </para>
             <itemizedlist>
                 <listitem>
