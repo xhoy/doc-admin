@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: dynamicfields-configuration.xml,v 1.1 2012-02-16 06:33:55 cr Exp $ -->
+<!-- $Id: dynamicfields-configuration.xml,v 1.2 2012-02-16 13:01:04 cr Exp $ -->
 
 <section id="dynamicfields-configuration">
     <title>Configuration</title>
@@ -1196,6 +1196,12 @@
             A ticket event (e.g. TicketCreate) can trigger a value set for a certain field, if the
             field does not have a value yet.
         </para>
+        <note>
+            <para>
+                By using this method this default value, is not seen in the edit screen
+                (i.e. New Phone Ticket) since the value is set after the submit of the ticket
+            </para>
+        </note>
         <para>
             To activate this feature is necessary to enable the following setting:
             Ticket::EventModulePost###TicketDynamicFieldDefault
@@ -1274,11 +1280,26 @@
             user preferences
         </para>
         <para>
-            The "sysconfig" setting "PreferencesGroups###DynamicField" located in the
-            "Frontend::Agent::Preferences" Sub-group is an example of how to create an entry in
-            the  User Preferences screen. if two or more fields will use this feature is necessary
-            to create a custom XML configuration file to add the new settings.
+            Using this method, the default value of the field will be shown on any screen where the
+            field is activated (if the field does not have already a different value).
         </para>
+        <para>
+            The "sysconfig" setting "PreferencesGroups###DynamicField" located in the
+            "Frontend::Agent::Preferences" Sub-group. This setting is an example of how to create
+            an entry in the User Preferences screen to set an exclusive dynamic field default value
+            for the selected user. The limitation of this setting is that it only admits one
+            dynamic field. if two or more fields will use this feature is necessary to create a
+            custom XML configuration file to add more settings similar to this one.
+        </para>
+        <note>
+            <para>
+                Remember, if more settings are added in a new XML each setting name needs to be
+                unique in the system and different than "PreferencesGroups###DynamicField". for
+                example: PreferencesGroups###101-DynamicField-Field1,
+                PreferencesGroups###102-DynamicField-Field2, PreferencesGroups###My-Field1,
+                PreferencesGroups###My-Field2, etc
+            </para>
+        </note>
         <example id="Field1-UserPreference">
             <title>Activate Field1 in the User preferences.</title>
             <para>
@@ -1298,7 +1319,7 @@
                     <listitem>
                         <para>
                             <emphasis>Setting:</emphasis>
-                            PreferencesGroups###01_DynamicField_Field1
+                            PreferencesGroups###101-DynamicField-Field1
                         </para>
                     </listitem>
                     <listitem>
@@ -1336,11 +1357,11 @@
                                     </row>
                                     <row>
                                         <entry>Key:</entry>
-                                        <entry>Default value for Field1</entry>
+                                        <entry>My Field 1</entry>
                                     </row>
                                     <row>
                                         <entry>Label:</entry>
-                                        <entry>Example for dynamic field for Field1</entry>
+                                        <entry>Default value for: My Field 1</entry>
                                     </row>
                                     <row>
                                         <entry>Module:</entry>
@@ -1348,7 +1369,7 @@
                                     </row>
                                     <row>
                                         <entry>PrefKey:</entry>
-                                        <entry>UserDynamicField_File1</entry>
+                                        <entry>UserDynamicField_Field1</entry>
                                     </row>
                                     <row>
                                         <entry>Prio:</entry>
