@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: adminarea.xml,v 1.46 2011-12-22 18:42:01 cr Exp $ -->
+<!-- $Id: adminarea.xml,v 1.47 2012-02-16 06:52:00 cr Exp $ -->
 
 <chapter id="adminarea">
 <title>The ADMIN area of OTRS</title>
@@ -1782,7 +1782,7 @@ In special cases, you might want to configure the Package Manager, e.g., to use 
     <title>Web Services</title>
     <para>
         The Web Services link leads to the graphical interface where web services (for the OTRS
-        Generic Interface) are created and maitained  (see Figure below).
+        Generic Interface) are created and maintained  (see Figure below).
     </para>
     <para>
         <screenshot>
@@ -1797,6 +1797,37 @@ In special cases, you might want to configure the Package Manager, e.g., to use 
         The graphical interface for web services configuration is described in more detail in the
         section <link linkend="webservice_gui">"Web Service Graphical Interface"</link>.
     </para>
+</section>
+
+<section id="adminarea-dynamicfields">
+    <title>Dynamic Fields</title>
+    <para>
+        Dynamic Fields is the place where you setup an manage custom fields for tickets and
+        articles (see Figure below).
+    </para>
+    <para>
+        <screenshot>
+            <screeninfo>Dynamic fields overview screen</screeninfo>
+            <graphic srccredit="Adminarea dynamicfields - screenshot" scale="40" fileref="screenshots/dynamicfields-overview-filled.png"></graphic>
+        </screenshot>
+    </para>
+    <para>
+        <emphasis>Figure: The dynamic fields overview screen with some dynamic fields.</emphasis>
+    </para>
+    <para>
+        The dynamic fields configuration is described in more detail in the section
+        <link linkend="dynamicfields_configuration">"Dynamic Fields Configuration"</link>.
+    </para>
+    <para>
+        Each dynamic field type has it's own configuration settings and therefore it's own
+        configuration screen.
+    </para>
+    <note>
+        <para>
+            Out of the box dynamic fields can only be linked to tickets and articles, but they can
+            be extended to other objects as well.
+        </para>
+    </note>
 </section>
 
 </chapter>
