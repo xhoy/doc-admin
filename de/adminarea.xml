@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.46 2012-02-07 09:33:22 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.47 2012-02-23 13:44:35 mg Exp $ -->
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
 
@@ -2187,7 +2187,7 @@ linkend="Framework:Core::Package">Framework:Core::Package</link>.
     <title>Web-Services</title>
     <para>
         The Web Services link leads to the graphical interface where web services
-(for the OTRS Generic Interface) are created and maitained (see Figure
+(for the OTRS Generic Interface) are created and maintained (see Figure
 below).
     </para>
     <para>
@@ -2204,6 +2204,39 @@ fileref="screenshots/genericinterface-webservice-overview.png"></graphic></scree
 detail in the section <link linkend="webservice_gui">"Web Service Graphical
 Interface"</link>.
     </para>
+</section>
+
+<section id="adminarea-dynamicfields">
+    <title>Dynamic Fields</title>
+    <para>
+        Dynamic Fields is the place where you setup an manage custom fields for
+tickets and articles (see figure below).
+    </para>
+    <para>
+        <screenshot>
+<screeninfo>Dynamic fields overview screen</screeninfo> <graphic srccredit="Adminarea
+dynamicfields - screenshot" scale="40"
+fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
+    </para>
+    <para>
+        <emphasis>Figure: The dynamic fields overview screen with some dynamic
+fields.</emphasis>
+    </para>
+    <para>
+        The dynamic fields configuration is described in more detail in the section
+<link linkend="dynamicfields-configuration">"Dynamic Fields
+Configuration"</link>.
+    </para>
+    <para>
+        Each dynamic field type has its own configuration settings and therefore its
+own configuration screen.
+    </para>
+    <note>
+        <para>
+            In the OTRS framework, dynamic fields can only be linked to tickets and
+articles by default, but they can be extended to other objects as well.
+        </para>
+    </note>
 </section>
 
 </chapter>

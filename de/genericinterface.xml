@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+
+<!-- $Id: genericinterface.xml,v 1.1 2012-02-23 13:44:35 mg Exp $ -->
+<chapter id="genericinterface">
+    <title>Generic Interface</title>
+    <para>
+        The OTRS Generic Interface consists of a multiple layer framework that lets
+OTRS communicate with other systems via a web service. This communication
+could be in two different directions:
+    </para>
+    <itemizedlist>
+        <listitem>
+            <para>
+                <emphasis>OTRS as Provider: </emphasis> OTRS acts as a server listening to
+requests from the External System, processing the information, performing
+the requested action, and answering the request.
+            </para>
+        </listitem>
+        <listitem>
+            <para>
+                <emphasis>OTRS as Requester: </emphasis> OTRS acts as a client collecting
+information, sending the request to the Remote System, and waiting for the
+response.
+            </para>
+        </listitem>
+    </itemizedlist>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface-layers.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface-communication-flow.xml" />
+
+    <section id="genericinterface-webservices">
+        <title>Web-Services</title>
+        <para>
+            A Web Service is a communication method between two systems, in our case
+OTRS and a Remote System.
+         </para>
+         <para>
+            The heart of the Web Service is its configuration, where is defined what
+actions the web service can perform internally (Operation), what can actions
+the OTRS request can perform Remote System (Invokers), how data is converted
+from one system to the other (Mapping), and over which protocol the
+communication will take place (Transport)
+         </para>
+         <para>
+             The Generic Interface is the framework that makes it possible to create Web
+Services for OTRS in a pre-defined way, using already made building blocks
+that are independent from each other and interchangeable.
+        </para>
+    </section>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface-webservice-gui.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface-webservice-cli.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface-webservice-configuration.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface-connectors.xml" />
+</chapter>

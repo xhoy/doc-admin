@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.54 2012-02-07 09:33:22 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.55 2012-02-23 13:44:35 mg Exp $ -->
 <chapter id="installation">
 <title>Installation</title>
 
@@ -52,13 +52,12 @@ andere Möglichkeit haben.
 <title>Installation des RPM auf einem SuSE-Linux-Server</title>
 
 <para>
-Dieser Abschnitt beinhaltet die Anleitung für die Installation von OTRS
-unter SUSE Linux. Getestet wurden die Versionen auf allen aktuellen
-Versionen von SLES und OpenSUSE. Bevor Sie mit der Installation beginnen,
-sehen Sie bitte unter <ulink
-url="http://www.otrs.org/downloads"><citetitle>http://www.otrs.org/downloads</citetitle></ulink>
-nach, ob eine aktuellere Version von OTRS als .rpm-Datei vorliegt. Sollte
-dies der Fall sein, verwenden Sie bitte diese neuere Version.
+This section demonstrates the installation of a pre-built RPM package on a
+SUSE Linux distro. We have tested against all recent SLES and openSUSE
+versions. Before you start the installation, please have a look at <ulink
+url="http://www.otrs.org/downloads">
+<citetitle>http://www.otrs.org/downloads</citetitle> </ulink> and check if a
+newer OTRS RPM package is available. Always use the latest RPM package.
 </para>
 
 <para>
@@ -178,9 +177,9 @@ Datenbankkonfiguration  </link> beschrieben.
 <title>Installation von OTRS auf einem CentOS-System</title>
 
 <para>
-Im OTRS-Wiki finden Sie detaillierte Anweisungen für das Aufsetzen unter
-CentOS, die auch für die Installation unter RedHat gelten, weil beide
-Systeme auf derselben Basis aufsetzen: <ulink
+On the OTRS Wiki you can find detailed instructions for setting up OTRS on a
+CentOS system. Please note that these instructions will also apply to Red
+Hat Linux systems since they use the same source: <ulink
 url="http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5">
 http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5
 </ulink> .
@@ -1627,9 +1626,27 @@ directory).
 &lt;Location /otrs/nph-genericinterface.pl&gt;
   PerlOptions -ParseHeaders
 &lt;/Location&gt;
-            </screen> Please see the file
+                </screen> Please see the file
 /opt/otrs/scripts/apache2-httpd.include.conf for an example of where this
 new option needs to be added (inside the &lt;IfModule mod_perl.c&gt; block).
+            </para>
+            <para>
+                In this file, you will also note a new section on caching: <screen><![CDATA[
+<IfModule mod_headers.c>
+    <Directory "/opt/otrs/var/httpd/htdocs/skins/*/*/css-cache">
+        <FilesMatch "\.(css|CSS)$">
+            Header set Cache-Control "max-age=2592000 must-revalidate"
+        </FilesMatch>
+    </Directory>
+
+    <Directory "/opt/otrs/var/httpd/htdocs/js/js-cache">
+        <FilesMatch "\.(js|JS)$">
+            Header set Cache-Control "max-age=2592000 must-revalidate"
+        </FilesMatch>
+    </Directory>
+</IfModule>
+                ]]></screen> Please activate this in your local installation too,
+and make sure that mod_headers is installed and active.
             </para>
       </listitem>
       <listitem>
