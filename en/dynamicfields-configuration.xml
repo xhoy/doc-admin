@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: dynamicfields-configuration.xml,v 1.3 2012-02-16 13:35:55 cr Exp $ -->
+<!-- $Id: dynamicfields-configuration.xml,v 1.4 2012-02-23 12:52:55 mg Exp $ -->
 
 <section id="dynamicfields-configuration">
     <title>Configuration</title>
     <para>
-        By default, a clean installation of OTRS 3.1.x does not include any dynamic fields if you
-        need or plan to use more fields in tickets or articles you need to create dynamic fields.
+        By default, a clean installation of OTRS 3.1.x does not include any dynamic fields. If you
+        plan to use such fields in tickets or articles you need to create dynamic fields.
     </para>
     <para>
-        An updated installation from OTRS 3.0.x should have all the old "Free fields" created as
-        dynamic fields for compatibility and data preservation, the following is the list of
-        dynamic fields that are created during the migration from OTRS 3.0.x to 3.1.x
+        An updated installation from OTRS 3.0.x will have all the old "free fields" created as
+        dynamic fields for compatibility and data preservation. The following is the list of
+        dynamic fields that are created during the migration from OTRS 3.0.x to 3.1.x.
     </para>
     <para>
         <itemizedlist>
@@ -45,8 +45,8 @@
     <note>
         <para>
             During the migration procedure from OTRS 3.0.x to OTRS 3.1.x all the old
-            "Free fields" data and configuration are migrated to the new dynamic fields
-            architecture. Any custom development around the old "Free fields" has to be
+            "free fields" data and configuration are migrated to the new dynamic fields
+            architecture. Any custom development around the old "free fields" has to be
             updated to use the new dynamic field framework.
         </para>
         <para>
@@ -58,24 +58,24 @@
         The configuration of a dynamic field is split in two parts, to add a new dynamic field or
         manage an existing one you need to navigate into the "Admin" panel in the "Dynamic Fields"
         link. To show, show as mandatory or hide a dynamic field in one screen you need to change
-        the OTRS settings in the "SysConfig" link also located in the "Admin" panel.
+        the OTRS settings in the "SysConfig" screen.
     </para>
 
     <section id="dynamicfields-configuration-add">
-        <title>Add a dynamic field</title>
+        <title>Adding a Dynamic Field</title>
         <para>
-            Click in the "ADMIN" button located in the navigation bar, then click on the "Dynamic
+            Click in the "Admin" button located in the navigation bar, then click on the "Dynamic
             Field" link inside "Ticket Settings" box located in the lower center of the screen.
             The dynamic fields overview will display as follows:
         </para>
         <para>
             <screenshot>
-                <screeninfo>Dynamic fields overview screen empty</screeninfo>
+                <screeninfo>Dynamic fields overview screen, empty</screeninfo>
                 <graphic srccredit="Adminarea dynamicfields - screenshot" scale="40" fileref="screenshots/dynamicfields-overview-empty.png"></graphic>
             </screenshot>
         </para>
         <para>
-            <emphasis>Figure: Dynamic fields overview screen empty.</emphasis>
+            <emphasis>Figure: Dynamic fields overview screen, empty.</emphasis>
         </para>
         <para>
             Notice that this screen will change as you add more dynamic fields to list all created
@@ -129,12 +129,12 @@
             </para>
             <listitem>
                 <para>
-                    Name: Mandatory, Unique, only letters and numbers are allowed.
+                    Name: Mandatory, unique, only letters and numbers are allowed.
                 </para>
                 <para>
                     This is the internal name of the field, used for example to show or hide a
                     field in one screen. Any modification on field name (not recommended) will need
-                    manual a update on the "sysconfig" settings where the field is referenciated.
+                    manual a update on the "SysConfig" settings where the field is referenciated.
                 </para>
             </listitem>
             <listitem>
@@ -142,11 +142,11 @@
                     Label: Mandatory.
                 </para>
                 <para>
-                    This is field name to be displayed in the screens, it support translations.
+                    This is field name to be displayed in the screens, it supports translations.
                 </para>
                 <note>
                     <para>
-                        Label translations has to be added manually to language translations files.
+                        Label translations have to be added manually to language translations files.
                     </para>
                 </note>
             </listitem>
@@ -189,13 +189,13 @@
 
         <note>
             <para>
-                To illustrate each specific field type settings a new field will be added, this new
+                To illustrate each specific field type settings a few fields will be added in our example. These new
                 fields will be referenciated in later sections.
             </para>
             <para>
                 For the following examples all the dynamic fields will be created for the Ticket object
                 if you need to create a dynamic field for Article object, just chose the field from the
-                Article dropdown list
+                Article dropdown list.
             </para>
         </note>
 
@@ -251,7 +251,7 @@
     </section>
 
     <section id="dynamicfields-configuration-text">
-        <title>Text dynamic field configuration</title>
+        <title>Text Dynamic Field Configuration</title>
         <para>
             Text dynamic field is used to store a single line string.
         </para>
@@ -273,12 +273,12 @@
                     Show link: Optional.
                 </para>
                 <para>
-                    If set, the field value will be converted into a clickable HTP link for
-                    display screens (like Zoom or overviews).
+                    If set, the field value will be converted into a clickable link for
+                    display screens (like ticket zoom or overviews).
                 </para>
                 <para>
-                    For example, if Show link is set to "http://www.otrs.com", clicking on the
-                    filed value will make your browser to open the OTRS web page.
+                    For example, if "Show link" is set to "http://www.otrs.com", clicking on the
+                    filled value will make your browser to open the OTRS web page.
                 </para>
                 <note>
                     <para>
@@ -301,7 +301,7 @@
     </section>
 
     <section id="dynamicfields-configuration-textarea">
-        <title>Textarea dynamic field configuration</title>
+        <title>Textarea Dynamic Field Configuration</title>
         <para>
             Textarea dynamic field is used to store a multiple line string.
         </para>
@@ -311,7 +311,7 @@
             </para>
             <listitem>
                 <para>
-                    Number of rows: Optional, Integer.
+                    Number of rows: Optional, integer.
                 </para>
                 <para>
                     Used to define the height of the field in the edit screens (like New Phone
@@ -348,7 +348,7 @@
     </section>
 
     <section id="dynamicfields-configuration-checkbox">
-        <title>Checkbox dynamic field configuration</title>
+        <title>Checkbox Dynamic Field Configuration</title>
         <para>
             Checkbox dynamic field is used to store true or false value, represented by a checked
             or unchecked check box.
@@ -381,7 +381,7 @@
     </section>
 
     <section id="dynamicfields-configuration-dropdown">
-        <title>Dropdown dynamic field configuration</title>
+        <title>Dropdown Dynamic Field Configuration</title>
         <para>
             Dropdown dynamic field is used to store a single value, from a closed list.
         </para>
@@ -460,7 +460,7 @@
     </section>
 
     <section id="dynamicfields-configuration-multiselect">
-        <title>Multiselect dynamic field configuration</title>
+        <title>Multiselect Dynamic Field Configuration</title>
         <para>
             Multiselect dynamic field is used to store a multiple values, from a closed list.
         </para>
@@ -519,7 +519,7 @@
     </section>
 
     <section id="dynamicfields-configuration-date">
-        <title>Date dynamic field configuration</title>
+        <title>Date Dynamic Field Configuration</title>
         <para>
             Date dynamic field is used to store a date value (Day, Month and Year).
         </para>
@@ -602,7 +602,7 @@
     </section>
 
     <section id="dynamicfields-configuration-datetime">
-        <title>Date / Time dynamic field configuration</title>
+        <title>Date / Time Dynamic Field Configuration</title>
         <para>
             Date / Time dynamic field is used to store a date time value (Minute, Hour, Day, Month
             and Year).
@@ -686,7 +686,7 @@
     </section>
 
     <section id="dynamicfields-configuration-edit">
-        <title>Edit a dynamic field</title>
+        <title>Editing a Dynamic Field</title>
         <para>
             A filled dynamic field overview screen (with the previous examples) should look like:
         </para>
@@ -710,7 +710,7 @@
             </para>
             <para>
                 It is not recommended to change the field internal name, but the label can be
-                changed at any time. If internal name is changed all "sysconfig" settings that
+                changed at any time. If internal name is changed all "SysConfig" settings that
                 has a reference to that particular field needs to be updated as well as user
                 preferences (if defined).
             </para>
@@ -718,7 +718,7 @@
     </section>
 
     <section id="dynamicfields-configuration-show">
-        <title>Show a dynamic field on a screen</title>
+        <title>Showing a Dynamic Field on a Screen</title>
         <para>
             To display a dynamic field on a particular screen there are two mandatory conditions:
         </para>
@@ -759,8 +759,8 @@
             </listitem>
             <listitem>
                 <para>
-                    Locate the setting sub-group for the screen that you are looking for and clik
-                    on it. For example "Frontend::Agent::Ticket::ViewPhoneNew"
+                    Locate the setting sub-group for the screen that you are looking for and click
+                    on it. For example "Frontend::Agent::Ticket::ViewPhoneNew".
                 </para>
             </listitem>
             <listitem>
@@ -1191,7 +1191,7 @@
     </section>
 
     <section id="dynamicfields-configuration-event-defaut">
-        <title>Set default a value by a ticket event</title>
+        <title>Setting a Default Value by a Ticket Event Module</title>
         <para>
             A ticket event (e.g. TicketCreate) can trigger a value set for a certain field, if the
             field does not have a value yet.
@@ -1199,12 +1199,12 @@
         <note>
             <para>
                 By using this method this default value, is not seen in the edit screen
-                (i.e. New Phone Ticket) since the value is set after the submit of the ticket
+                (e.g. New Phone Ticket) since the value is set after the creation of the ticket.
             </para>
         </note>
         <para>
             To activate this feature is necessary to enable the following setting:
-            Ticket::EventModulePost###TicketDynamicFieldDefault
+            "Ticket::EventModulePost###TicketDynamicFieldDefault".
         </para>
         <example id="Field1-EventDefault">
             <title>Activate Field1 in TicketCreate event.</title>
@@ -1274,10 +1274,10 @@
     </section>
 
     <section id="dynamicfields-configuration-preferences-defaut">
-        <title>Set default a value by user preferences</title>
+        <title>Set a Default Value by User Preferences</title>
         <para>
             The dynamic field default value can be overwritten with a user defined value stored in
-            user preferences
+            the user preferences.
         </para>
         <para>
             Using this method, the default value of the field will be shown on any screen where the
@@ -1297,7 +1297,7 @@
                 unique in the system and different than "PreferencesGroups###DynamicField". for
                 example: PreferencesGroups###101-DynamicField-Field1,
                 PreferencesGroups###102-DynamicField-Field2, PreferencesGroups###My-Field1,
-                PreferencesGroups###My-Field2, etc
+                PreferencesGroups###My-Field2, etc.
             </para>
         </note>
         <example id="Field1-UserPreference">
@@ -1415,9 +1415,9 @@
             </para>
             <para>
                 While the updating script tries to be very precise migrating the screen
-                configurations it is always good to do a manual fine tuning. Notice that
+                configurations it is always good to do a manual fine tuning. Please note that
                 "Free fields" TicketFreeKey[1-16] and TicketFreeText[1-16] came always in pair in
-                OTRS 3.0 systems (and before), this is not longer necessary it could be that
+                OTRS 3.0 systems (and before). This is not longer necessary it could be that
                 the TicketFreeKey field is not necessary anymore for a particular TicketFreeText
                 field.
             </para>
@@ -1445,7 +1445,7 @@
             <emphasis>Figure: Updated dynamic field overview screen page2.</emphasis>
         </para>
         <para>
-            Notice that the new dynamic field named "TicketFreeText2" has the label "Product",
+            Please note that the new dynamic field named "TicketFreeText2" has the label "Product",
             this is because the default configuration from this "Free field" in OTRS 3.0.x
             specifies that "TicketFreeKey2" has a fixed value of "Product". in this case the
             dynamic field "TicketFreeKey2" is not needed anymore and it can be manually set to
