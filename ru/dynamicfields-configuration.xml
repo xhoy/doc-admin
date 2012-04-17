@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: dynamicfields-configuration.xml,v 1.1 2012-02-23 13:44:38 mg Exp $ -->
+<!-- $Id: dynamicfields-configuration.xml,v 1.2 2012-04-17 11:35:55 mg Exp $ -->
 <section id="dynamicfields-configuration">
     <title>Configuration</title>
     <para>
@@ -208,52 +208,50 @@ chose the field from the Article dropdown list.
 
         <table>
             <title>The following fields will be added into the system:</title>
-            <tgroup cols='3' align='left' colsep='1' rowsep='1'>
-                <thead>
-                    <row>
-                        <entry>Название</entry>
-                        <entry>Label</entry>
-                        <entry>Type</entry>
-                    </row>
-                </thead>
-                <tbody>
-                    <row>
-                        <entry>Field1</entry>
-                        <entry>My Field 1</entry>
-                        <entry>Text</entry>
-                    </row>
-                    <row>
-                        <entry>Field2</entry>
-                        <entry>My Field 2</entry>
-                        <entry>Textarea</entry>
-                    </row>
-                    <row>
-                        <entry>Field3</entry>
-                        <entry>My Field 3</entry>
-                        <entry>Checkbox</entry>
-                    </row>
-                    <row>
-                        <entry>Field4</entry>
-                        <entry>My Field 4</entry>
-                        <entry>Dropdown</entry>
-                    </row>
-                    <row>
-                        <entry>Field5</entry>
-                        <entry>My Field 5</entry>
-                        <entry>Multiselect</entry>
-                    </row>
-                    <row>
-                        <entry>Field6</entry>
-                        <entry>My Field 5</entry>
-                        <entry>Date</entry>
-                    </row>
-                    <row>
-                        <entry>Field7</entry>
-                        <entry>My Field 6</entry>
-                        <entry>Date / Time</entry>
-                    </row>
-                </tbody>
-            </tgroup>
+            <thead>
+                 <tr>
+                     <td>Название</td>
+                     <td>Label</td>
+                     <td>Type</td>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td>Field1</td>
+                     <td>My Field 1</td>
+                     <td>Text</td>
+                 </tr>
+                 <tr>
+                     <td>Field2</td>
+                     <td>My Field 2</td>
+                     <td>Textarea</td>
+                 </tr>
+                 <tr>
+                     <td>Field3</td>
+                     <td>My Field 3</td>
+                     <td>Checkbox</td>
+                 </tr>
+                 <tr>
+                     <td>Field4</td>
+                     <td>My Field 4</td>
+                     <td>Dropdown</td>
+                 </tr>
+                 <tr>
+                     <td>Field5</td>
+                     <td>My Field 5</td>
+                     <td>Multiselect</td>
+                 </tr>
+                 <tr>
+                     <td>Field6</td>
+                     <td>My Field 5</td>
+                     <td>Date</td>
+                 </tr>
+                 <tr>
+                     <td>Field7</td>
+                     <td>My Field 6</td>
+                     <td>Date / Time</td>
+                 </tr>
+             </tbody>
         </table>
     </section>
 
@@ -833,16 +831,16 @@ Ticket::Frontend::AgentTicketPhone###DynamicField
                                 <para>
                                     <informaltable>
                                         <thead>
-                                            <row>
-                                                <entry>Key</entry>
-                                                <entry>Content</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            <row>
-                                                <entry>Field1</entry>
-                                                <entry>1</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
                                         </tbody>
                                     </informaltable>
                                 </para>
@@ -888,16 +886,16 @@ Ticket::Frontend::AgentTicketPhone###DynamicField
                                 <para>
                                     <informaltable>
                                         <thead>
-                                            <row>
-                                                <entry>Key</entry>
-                                                <entry>Content</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            <row>
-                                                <entry>Field1</entry>
-                                                <entry>2</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>2</td>
+                                            </tr>
                                         </tbody>
                                     </informaltable>
                                 </para>
@@ -943,40 +941,40 @@ Ticket::Frontend::AgentTicketPhone###DynamicField
                                 <para>
                                     <informaltable>
                                         <thead>
-                                            <row>
-                                                <entry>Key</entry>
-                                                <entry>Content</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            <row>
-                                                <entry>Field1</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field2</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field3</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field4</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field5</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field6</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field7</entry>
-                                                <entry>1</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field2</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field3</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field4</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field5</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field6</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field7</td>
+                                                <td>1</td>
+                                            </tr>
                                         </tbody>
                                     </informaltable>
                                 </para>
@@ -1023,40 +1021,40 @@ Ticket::Frontend::AgentTicketPhone###DynamicField
                                 <para>
                                     <informaltable>
                                         <thead>
-                                            <row>
-                                                <entry>Key</entry>
-                                                <entry>Content</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            <row>
-                                                <entry>Field1</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field2</entry>
-                                                <entry>0</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field3</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field4</entry>
-                                                <entry>0</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field5</entry>
-                                                <entry>1</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field6</entry>
-                                                <entry>0</entry>
-                                            </row>
-                                            <row>
-                                                <entry>Field7</entry>
-                                                <entry>1</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field2</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field3</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field4</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field5</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field6</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field7</td>
+                                                <td>1</td>
+                                            </tr>
                                         </tbody>
                                     </informaltable>
                                 </para>
@@ -1103,16 +1101,16 @@ Ticket::Frontend::AgentTicketZoom###DynamicField
                                 <para>
                                     <informaltable>
                                         <thead>
-                                            <row>
-                                                <entry>Key</entry>
-                                                <entry>Content</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            <row>
-                                                <entry>Field1</entry>
-                                                <entry>1</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
                                         </tbody>
                                     </informaltable>
                                 </para>
@@ -1157,16 +1155,16 @@ fileref="screenshots/dynamicfields-agentticketzoom-field1.png"></graphic></scree
                                 <para>
                                     <informaltable>
                                         <thead>
-                                            <row>
-                                                <entry>Key</entry>
-                                                <entry>Content</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            <row>
-                                                <entry>Field1</entry>
-                                                <entry>1</entry>
-                                            </row>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
                                         </tbody>
                                     </informaltable>
                                 </para>
@@ -1244,24 +1242,24 @@ in $OTRS_HOME/Kernel/Config/files directory to extend this feature.
                         <para>
                             <informaltable>
                                 <thead>
-                                    <row>
-                                        <entry>Key</entry>
-                                        <entry>Content</entry>
-                                    </row>
+                                    <tr>
+                                        <td>Key</td>
+                                        <td>Content</td>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <row>
-                                        <entry>Event</entry>
-                                        <entry>TicketCreate</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Название</entry>
-                                        <entry>Field1</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Value</entry>
-                                        <entry>a new value</entry>
-                                    </row>
+                                    <tr>
+                                        <td>Event</td>
+                                        <td>TicketCreate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Название</td>
+                                        <td>Field1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>a new value</td>
+                                    </tr>
                                 </tbody>
                             </informaltable>
                         </para>
@@ -1327,52 +1325,52 @@ PreferencesGroups###My-Field2, etc.
                         <para>
                             <informaltable>
                                 <thead>
-                                    <row>
-                                        <entry>Key</entry>
-                                        <entry>Content</entry>
-                                    </row>
+                                    <tr>
+                                        <td>Key</td>
+                                        <td>Content</td>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <row>
-                                        <entry>Event</entry>
-                                        <entry>TicketCreate</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Active</entry>
-                                        <entry>1</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Block</entry>
-                                        <entry>Input</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Column</entry>
-                                        <entry>Другие настройки</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Data:</entry>
-                                        <entry>$Env{"UserDynamicField_Field1"}</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Key:</entry>
-                                        <entry>My Field 1</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Label:</entry>
-                                        <entry>Default value for: My Field 1</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Module:</entry>
-                                        <entry>Kernel::Output::HTML::PreferencesGeneric</entry>
-                                    </row>
-                                    <row>
-                                        <entry>PrefKey:</entry>
-                                        <entry>UserDynamicField_Field1</entry>
-                                    </row>
-                                    <row>
-                                        <entry>Prio:</entry>
-                                        <entry>7000</entry>
-                                    </row>
+                                    <tr>
+                                        <td>Event</td>
+                                        <td>TicketCreate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Active</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Block</td>
+                                        <td>Input</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Column</td>
+                                        <td>Другие настройки</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data:</td>
+                                        <td>$Env{"UserDynamicField_Field1"}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Key:</td>
+                                        <td>My Field 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Label:</td>
+                                        <td>Default value for: My Field 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Module:</td>
+                                        <td>Kernel::Output::HTML::PreferencesGeneric</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PrefKey:</td>
+                                        <td>UserDynamicField_Field1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prio:</td>
+                                        <td>7000</td>
+                                    </tr>
                                 </tbody>
                             </informaltable>
                         </para>
