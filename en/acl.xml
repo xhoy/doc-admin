@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.17 2012-01-30 13:21:38 mg Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.18 2012-04-23 17:43:04 cr Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <section>
@@ -38,6 +38,9 @@
     Secondly, you have a "Properties" section which is a filter for your tickets. All the criteria
     defined here will be applied to a ticket to determine if the ACL must be applied or not.
     In our example, a ticket will match if it is in the queue "Raw" and has priority "5 very high".
+    This is also affected by changes in the form (e.g. if the ticket is the queue "raw" and had a
+    priority "3 normal", but then priority drop-down is selected and the priority is changed now to
+    "5 very high" will also match).
 </para>
 <para>
     Lastly, a section "Possible" defines modifications to the screens. In this case, from the available
@@ -66,6 +69,43 @@ $Self->{TicketAcl}->{'100-Example-ACL'} = {
 </programlisting>
 </example>
 </para>
+
+<para>
+<example id="acl-move2">
+<title>
+    ACL allowing movement into a queue of only those tickets with ticket priority 5 stored in the
+    database.
+</title>
+
+<para>
+    This example is very similar to the last one, but in this case only tickets in the queue "Raw"
+    and with a priority "5 very high", both stored in the database will match. This kind of ACLs
+    does not consider changes in the form before the ticket is really updated in the database.
+</para>
+
+<programlisting>
+# ticket acl
+$Self->{TicketAcl}->{'100-Example-ACL'} = {
+    # match properties
+    PropertiesDatabase => {
+        # current ticket match properties
+        Ticket => {
+            Queue => ['Raw'],
+            Priority => ['5 very high'],
+        }
+    },
+    # return possible options (white list)
+    Possible => {
+        # possible ticket options (white list)
+        Ticket => {
+            Queue => ['Alert'],
+        },
+    },
+};
+</programlisting>
+</example>
+</para>
+
 
 <para>
 <example id="acl-close" >
@@ -197,7 +237,7 @@ $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
 <programlisting>
 # ticket acl
 $Self->{TicketAcl}->{'200-ACL-Reference'} = {
-    # match properties
+    # match properties (current)
     Properties => {
         # current action match properties
         Frontend => {
@@ -303,6 +343,13 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             # ...
         },
     },
+
+    # match properties (Database)
+    PropertiesDatabase => {
+        # See section "Properties"
+        # ...
+    }
+
     # return possible options (white list)
     Possible => {
         # possible ticket options (white list)
@@ -317,6 +364,7 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             OldOwner => ['some owner'],
             # ...
         },
+
         # possible action options (white list)
         Action => {
             AgentTicketBounce        => 1,
