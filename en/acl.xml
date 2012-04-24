@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.18 2012-04-23 17:43:04 cr Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.19 2012-04-24 09:56:02 mg Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <section>
@@ -104,6 +104,8 @@ $Self->{TicketAcl}->{'100-Example-ACL'} = {
 };
 </programlisting>
 </example>
+
+    Please note that PropertiesDatabase is available since OTRS 3.1.5.
 </para>
 
 
@@ -237,7 +239,7 @@ $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
 <programlisting>
 # ticket acl
 $Self->{TicketAcl}->{'200-ACL-Reference'} = {
-    # match properties (current)
+    # match properties (current values from the form)
     Properties => {
         # current action match properties
         Frontend => {
@@ -344,7 +346,8 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
         },
     },
 
-    # match properties (Database)
+    # match properties (existing values from the database)
+    #   This section is available since OTRS 3.1.5.
     PropertiesDatabase => {
         # See section "Properties"
         # ...

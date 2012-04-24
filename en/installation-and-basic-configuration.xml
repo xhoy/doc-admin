@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.73 2012-04-24 06:52:37 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.74 2012-04-24 09:56:02 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1567,7 +1567,7 @@ shell&gt; /etc/init.d/apache start
       </listitem>
       <listitem>
         <para>
-            FreeText/Time based ACLs
+            ACL changes
         </para>
         <para>
             If you have any ACLs defined which involve freetext or freetime fields, you need to adjust these
@@ -1578,6 +1578,11 @@ shell&gt; /etc/init.d/apache start
             There you can find a list of all possible ACL
             settings. In general, you need to add the prefix "DynamicField_" to existing free field definitions, and you
             can add a new "DynamicField" section to the "Properties" list for situations when a ticket does not exist yet.
+        </para>
+        <para>
+            Please also note that since OTRS 3.1.5, it is possible to match either the values of an existing ticket as
+            it is on the database (new setting "PropertiesDatabase"), in addition to the existing match against the current
+            values of the form. Details can be found at http://doc.otrs.org/3.1/en/html/acl.html.
         </para>
       </listitem>
       <listitem>
