@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.20 2012-04-24 11:13:06 sb Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.21 2012-04-24 12:18:03 mg Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <section>
@@ -241,21 +241,12 @@ $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
 $Self->{TicketAcl}->{'200-ACL-Reference'} = {
     # match properties (current values from the form)
     Properties => {
-        # current action match properties
+
+        # the used frontend module
         Frontend => {
             Action => ['AgentTicketPhone', 'AgentTicketEmail'],
         },
-        # current queue match properties
-        Queue => {
-            Name     => ['Raw'],
-            QueueID  => ['some id'],
-            GroupID  => ['some id'],
-            Email    => ['some email'],
-            RealName => ['OTRS System'],
-            # ...
-            }
-        },
-        # current user match properties
+        # the logged in agent
         User => {
             UserLogin => ['some login'],
             # ...
@@ -268,7 +259,7 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             ],
             # ...
         },
-        # current customer user match properties
+        # the logged in customer
         CustomerUser => {
             UserLogin => ['some login'],
             # ...
@@ -281,33 +272,41 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             ],
             # ...
         },
-        # current service match properties
+
+        #
+        # ticket properties
+        #
+
+        Queue => {
+            Name     => ['Raw'],
+            QueueID  => ['some id'],
+            GroupID  => ['some id'],
+            Email    => ['some email'],
+            RealName => ['OTRS System'],
+            # ...
+        },
         Service => {
             ServiceID => ['some id'],
             Name      => ['some name'],
             ParentID  => ['some id'],
             # ...
         },
-        # current type match properties
         Type => {
             ID   => ['some id'],
             Name => ['some name'],
             # ...
         },
-        # current priority match properties
         Priority = {
             ID   => ['some id'],
             Name => ['some name'],
             # ...
         },
-        # current SLA match properties
         SLA = {
             SLAID    => ['some id'],
             Name     => ['some name'],
             Calendar => ['some calendar'],
             # ...
         },
-        # current state match properties
         State = {
             ID       => ['some id'],
             Name     => ['some name'],
@@ -315,7 +314,6 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             TypeID   => ['some state type id'],
             # ...
         },
-        # current ticket owner match properties
         Owner => {
             UserLogin => ['some login'],
             # ...
@@ -328,7 +326,6 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             ],
             # ...
         },
-        # current ticket responsible match properties
         Responsible => {
             UserLogin => ['some login'],
             # ...
@@ -341,7 +338,6 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             ],
             # ...
         },
-        # current dynamic field match properties
         DynamicField => {
             # keys must be in DynamicField_&lt;field_name&gt; format
             DynamicField_Field1          => ['some value'],
@@ -349,7 +345,7 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             DynamicField_TicketFreeText2 => ['some value'],
             # ...
         },
-        # current ticket match properties
+        # alternatively, ticket properties can be specified in the ticket hash
         Ticket => {
             Queue                => ['Raw'],
             State                => ['new', 'open'],
@@ -369,7 +365,7 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
     # match properties (existing values from the database)
     #   This section is available since OTRS 3.1.5.
     PropertiesDatabase => {
-        # See section "Properties"
+        # See section "Properties", the same config can be used here.
         # ...
     }
 
