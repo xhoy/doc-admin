@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.19 2012-04-24 09:56:02 mg Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.20 2012-04-24 11:13:06 sb Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <section>
@@ -263,10 +263,22 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
                 'hotline',
             ],
             # ...
+            Role => [
+                'admin',
+            ],
+            # ...
         },
         # current customer user match properties
         CustomerUser => {
             UserLogin => ['some login'],
+            # ...
+            Group_rw => [
+                'hotline',
+            ],
+            # ...
+            Role => [
+                'admin',
+            ],
             # ...
         },
         # current service match properties
@@ -311,6 +323,10 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
                 'some group',
             ],
             # ...
+            Role => [
+                'admin',
+            ],
+            # ...
         },
         # current ticket responsible match properties
         Responsible => {
@@ -318,6 +334,10 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             # ...
             Group_rw => [
                 'some group',
+            ],
+            # ...
+            Role => [
+                'admin',
             ],
             # ...
         },
