@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.21 2012-04-24 12:18:03 mg Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.22 2012-04-26 01:54:20 cr Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <section>
@@ -420,6 +420,19 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
 </programlisting>
 </example>
 </para>
+<note>
+    <para>
+        While matching ACLs if CustomerUserID parameter sent, the ACL mechanism will compare the
+        defined ACLs using the supplied CustomerUserID to gather the CustomerUser details to fill
+        the CustomerUser hash and it also overrides the Customer information in the Ticket hash for
+        the Properties match. On the other hand this calculations are also made for the
+        PropertiesDatabase part, but using the Ticket Customer as the basis to gather the data.
+    </para>
+    <para>
+        Notice that in Customer Interface, the CustomerUserID is always sent with the current
+        logged Customer User.
+    </para>
+</note>
 </section>
 
 </chapter>
