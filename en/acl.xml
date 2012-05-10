@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.22 2012-04-26 01:54:20 cr Exp $ --><chapter id="acl" >
+<!-- $Id: acl.xml,v 1.23 2012-05-10 18:57:27 cr Exp $ --><chapter id="acl" >
 <title>Access Control Lists (ACLs)</title>
 
 <section>
@@ -431,6 +431,11 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
     <para>
         Notice that in Customer Interface, the CustomerUserID is always sent with the current
         logged Customer User.
+    </para>
+    <para>
+        Be aware that in ticket search screens (AgentTicketSearch and CustomerTicketSearch) the
+        only affected attributes by ACLs are the Dynamic Fields. This means that this screens you
+        can not restrict any other attribute like ticket type, state, queue, etc.
     </para>
 </note>
 </section>
