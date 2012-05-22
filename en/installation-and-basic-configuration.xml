@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.75 2012-05-21 11:14:45 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.76 2012-05-22 06:38:44 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1595,9 +1595,10 @@ shell&gt; /etc/init.d/apache start
             to encrypt/sign your emails.
         </para>
         <para>
-            Between OTRS 3.0.x and 3.1.x, the file naming of password file names changed and need to be
-            updated. In addition, OpenSSL 0.9.x and 1.x use different algorithms to calculate the
-            certificate hash. To update your password and certificate file names, please run this command:
+            Between OTRS 3.0.x and 3.1.x, the file naming of private secret file names changed and need to
+            be updated. In addition, OpenSSL 0.9.x and 1.x use different algorithms to calculate the
+            certificate hash. To update your private secrets and certificate file names, please run this
+            command:
             <screen>
 shell&gt; bin/otrs.RefreshSMIMEKeys.pl
             </screen>
