@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: upgrading-mssql.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+
+<section id="upgrading-mssql-datatypes">
+<title>Upgrading Microsoft SQL Server Data Types</title>
+<para>
+Starting OTRS version <emphasis>3.1</emphasis>, OTRS uses the <emphasis>NVARCHAR</emphasis> data type rather
+than <emphasis>VARCHAR</emphasis> or <emphasis>TEXT</emphasis>, to store textual data. This is because the
+<emphasis>NVARCHAR</emphasis> type has full support for Unicode, whereas the old data types store data in
+UCS-2 format, which is a sub-set of Unicode. Also, the <emphasis>TEXT</emphasis> data type is deprecated since
+<emphasis>SQL Server 2005</emphasis>. Due to this, starting with OTRS version 3.1, the minimal
+SQL Server version required for operation with OTRS is now <emphasis>Microsoft SQL Server 2005</emphasis>.
+</para>
+
+<para>
+Because dropping and re-creating these indexes is a time-consuming operation, especially on large databases,
+please plan enough time for performing the upgrade. We would recommend that you perform the upgrade on a copy
+of the database prior to doing the actual conversion to test the upgrade procedure and to time how much time
+will be needed on your specific environment.
+</para>
+
+<para>
+Please make sure that, before you start, there is enough space available on the database server. Make sure
+the free space on your database server is at least 2.5x the current size of the database.
+</para>
+
+<important>
+<para>
+This upgrade procedure will upgrade all fields of the mentioned data types to the new types. This procedure
+first removes any indexes and constraints in which these fields are referenced, upgrades the fields, and then
+adds the indexes and constraints back. It will do so on all tables found in the SQL Server database that OTRS
+uses. If you would have stored non-OTRS tables in the OTRS database, and these tables contain columns of the
+data types VARCHAR or TEXT, these will also be updated.
+</para>
+</important>
+
+  <orderedlist>
+      <listitem>
+        <para>Open a Command Line on the OTRS server.</para>
+      </listitem>
+      <listitem>
+        <para>Change directory to the OTRS root directory.
+        If you're using the default OTRS installer this would be C:\Program Files\OTRS\OTRS.</para>
+      </listitem>
+      <listitem>
+        <para>Run the following command:
+            <screen>
+shell> perl scripts/DUpdate-to-3.1.mssql-datatypes.pl
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>This will generate three scripts in the specified directory scripts\database\update. Run these
+        scripts on the SQL Server database, via SQL Server Management Studio or isql.
+        </para>
+      </listitem>
+  </orderedlist>
+</section>

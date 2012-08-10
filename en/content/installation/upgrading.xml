@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: upgrading.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+
+<section id="upgrading">
+<title>Upgrading the OTRS Framework</title>
+<para>
+    These instructions are for people upgrading OTRS from version <emphasis>3.0</emphasis> to <emphasis>3.1</emphasis>, and apply both for RPM and source code (tarball) upgrades.
+</para>
+<para>
+    If you are running a lower version of OTRS you have to follow the upgrade path
+    to 3.0 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1 ...)!
+</para>
+<para>
+    Please note that if you upgrade from OTRS 2.2 or earlier, you have to take an extra step;
+    please read <ulink url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
+</para>
+<para>
+    Within a single minor version you can skip patch level releases if you want to upgrade. For instance you can
+    upgrade directly from OTRS 3.1.1 to version 3.1.4. If you need to do such a "patch level upgrade",
+    you should skip steps 9, 11 and 13-19.
+</para>
+<para>
+    Please note that for upgrades from 3.1.beta1 or 3.1.beta2, an additional step 21
+    is needed!
+</para>
+<para>
+    If you are using Microsoft SQL Server as the DBMS for OTRS, please refer
+    to the manual, chapter "Upgrading Microsoft SQL Server Data Types" for instructions
+    how to upgrade the data types used by OTRS
+    (<ulink url="http://doc.otrs.org/3.1/en/html/upgrading-mssql-datatypes.html">http://doc.otrs.org/3.1/en/html/upgrading-mssql-datatypes.html</ulink>).
+</para>
+
+  <orderedlist>
+      <listitem>
+        <para>
+            Stop all relevant services.
+        </para>
+        <para>
+            e. g. (depends on used services):
+            <screen>
+shell&gt; /etc/init.d/cron stop
+shell&gt; /etc/init.d/postfix stop
+shell&gt; /etc/init.d/apache stop
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs):
+            <itemizedlist>
+                <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
+                <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
+                <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
+                <listitem><para><filename>var/*</filename></para></listitem>
+            </itemizedlist>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Backup the database.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Make sure that you have backed up everything ;-)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Setup new system (optional)
+        </para>
+        <para>
+            If possible, try this install on a separate machine for testing first.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Install the new release (tar or RPM).
+        </para>
+         <itemizedlist>
+          <listitem>
+            <para>
+                With the tarball:
+            </para>
+            <para>
+                <screen>
+shell&gt; cd /opt
+shell&gt; tar -xzf otrs-x.x.x.tar.gz
+shell&gt; ln -s otrs-x.x.x otrs
+                </screen>
+            </para>
+            <para>
+                Restore old configuration files.
+                <itemizedlist>
+                    <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
+                    <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
+                    <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
+                </itemizedlist>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+                With the RPM:
+                <screen>
+shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
+                </screen>
+            </para>
+            <para>
+                In this case the RPM update automatically restores the old configuration files.
+            </para>
+          </listitem>
+         </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>
+            Own themes
+        </para>
+        <para>
+            Note: The OTRS themes between 3.0 and 3.1 are NOT compatible, so don't use your old themes!
+        </para>
+        <para>
+            Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Set file permissions.
+        </para>
+        <para>
+            If the tarball is used, execute:
+            <screen>
+shell> cd /opt/otrs/
+shell> bin/otrs.SetPermissions.pl
+            </screen>
+            with the permissions needed for your system setup.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Apply the database changes (part 1/2):
+        </para>
+        <para>
+            <screen>
+shell&gt; cd /opt/otrs/
+
+# MySQL:
+shell&gt; cat scripts/DBUpdate-to-3.1.mysql.sql | mysql -p -f -u root otrs
+# PostgreSQL 8.2+:
+shell&gt; cat scripts/DBUpdate-to-3.1.postgresql.sql | psql otrs
+# PostgreSQL, older versions:
+shell&gt; cat scripts/DBUpdate-to-3.1.postgresql_before_8_2.sql | psql otrs
+            </screen>
+
+            NOTE: If you use PostgreSQL 8.1 or earlier, you need to activate the new legacy driver
+            for these older versions. Do this by adding a new line to your <filename>Kernel/Config.pm</filename> like this:
+
+            <screen>
+$Self->{DatabasePostgresqlBefore82} = 1;
+            </screen>
+        </para>
+        <para>
+            Run the migration script (as user 'otrs', NOT as root):
+        </para>
+        <para>
+            You must execute the migration script to migrate some data from the old database structure to the new one. Please run:
+            <screen>
+shell&gt; scripts/DBUpdate-to-3.1.pl
+            </screen>
+        </para>
+        <para>
+            Apply the database changes (part 2/2):
+        </para>
+        <para>
+            <screen>
+# MySQL:
+shell&gt; cat scripts/DBUpdate-to-3.1-post.mysql.sql | mysql -p -f -u root otrs
+# PostgreSQL 8.2+:
+shell&gt; cat scripts/DBUpdate-to-3.1-post.postgresql.sql | psql otrs
+# PostgreSQL, older versions:
+shell&gt; cat scripts/DBUpdate-to-3.1-post.postgresql_before_8_2.sql | psql otrs
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Refresh the configuration and delete caches. Please run:
+        </para>
+        <para>
+            <screen>
+shell&gt; bin/otrs.RebuildConfig.pl
+shell&gt; bin/otrs.DeleteCache.pl
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+            <para>Update your web server configuration</para>
+            <para>
+            Note: this applies only if you use the Apache web server together with mod_perl2,
+            and do not use the configuration file directly from the OTRS installation directory
+            (e. g. with a symlink from the Apache configuration directory).
+            </para>
+            <para>
+            Please add a new setting to the Apache configuration file for OTRS:
+                <screen>
+# set mod_perl2 option for generic interface
+&lt;Location /otrs/nph-genericinterface.pl&gt;
+  PerlOptions -ParseHeaders
+&lt;/Location&gt;
+                </screen>
+            Please see the file /opt/otrs/scripts/apache2-httpd.include.conf for an example of
+            where this new option needs to be added (inside the &lt;IfModule mod_perl.c&gt; block).
+            </para>
+            <para>
+                In this file, you will also note a new section on caching:
+
+                <screen><![CDATA[
+<IfModule mod_headers.c>
+    <Directory "/opt/otrs/var/httpd/htdocs/skins/*/*/css-cache">
+        <FilesMatch "\.(css|CSS)$">
+            Header set Cache-Control "max-age=2592000 must-revalidate"
+        </FilesMatch>
+    </Directory>
+
+    <Directory "/opt/otrs/var/httpd/htdocs/js/js-cache">
+        <FilesMatch "\.(js|JS)$">
+            Header set Cache-Control "max-age=2592000 must-revalidate"
+        </FilesMatch>
+    </Directory>
+</IfModule>
+                ]]></screen>
+
+                Please activate this in your local installation too, and make sure that mod_headers
+                is installed and active.
+            </para>
+      </listitem>
+      <listitem>
+        <para>
+            Restart your services.
+        </para>
+        <para>
+            e. g. (depends on used services):
+            <screen>
+shell&gt; /etc/init.d/cron start
+shell&gt; /etc/init.d/postfix start
+shell&gt; /etc/init.d/apache start
+            </screen>
+
+            Now you can log into your system.
+        </para>
+      </listitem>
+      <listitem>
+        <para>Check installed packages</para>
+        <para>
+            In the package manager, check if all packages are still marked as
+            correctly installed or if any require reinstallation or even a package upgrade.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Check for encoding issues
+        </para>
+        <para>
+            OTRS 3.1 only allows UTF-8 as internal charset.
+            Non-UTF-8 installations of OTRS must switch to UTF-8.
+        </para>
+      </listitem>
+      <listitem>
+        <para>Escalation events</para>
+        <para>
+            If you want to use the new escalation events in your system, you need to activate the
+            corresponding GenericAgent job in Kernel/Config/GenericAgent.pm. Please look into
+            Kernel/Config/GenericAgent.pm.dist for an example of how to do this.
+        </para>
+      </listitem>
+      <listitem>
+        <para>Ticket event handlers</para>
+        <para>
+            The Event name TicketFreeTextUpdate_$Counter was renamed to TicketDynamicFieldUpdate_$FieldName.
+            If you have any custom event handlers for these events, please adapt them.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            DynamicField user preferences module
+        </para>
+        <para>
+            If you had one or more active custom settings for "PreferencesGroups###Freetext",
+            you need to adapt them to work with the new DynamicFields engine. The PrefKey
+            setting must be changed to "UserDynamicField_DynamicField", where the part after
+            the _ is the name of the dynamic field. Existing values would need to be renamed
+            in the database as well.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Custom free field default value event handler
+        </para>
+        <para>
+            If you used the event handler Ticket::EventModulePost###TicketFreeFieldDefault (not active by default),
+            you'll need to migrate its configuration to the new setting Ticket::EventModulePost###TicketDynamicFieldDefault.
+        </para>
+        <para>
+            The configuration of this is slightly different; where you had to specify a Counter indicating the TicketFreeText
+            number previously, now you need to specify the name of the DynamicField (for migrated fields, this will be
+            DynamicField_TicketFreeKey$Counter and DynamicField_TicketFreeText$Counter. You need two separate entries now
+            if you want to set both the key and the text field.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            ACL changes
+        </para>
+        <para>
+            If you have any ACLs defined which involve freetext or freetime fields, you need to adjust these
+            ACL definitions.
+        </para>
+        <para>
+            Please have a look at <ulink url="http://doc.otrs.org/3.1/en/html/acl.html">http://doc.otrs.org/3.1/en/html/acl.html</ulink>.
+            There you can find a list of all possible ACL
+            settings. In general, you need to add the prefix "DynamicField_" to existing free field definitions, and you
+            can add a new "DynamicField" section to the "Properties" list for situations when a ticket does not exist yet.
+        </para>
+        <para>
+            Please also note that since OTRS 3.1.5, it is possible to match either the values of an existing ticket as
+            it is on the database (new setting "PropertiesDatabase"), in addition to the existing match against the current
+            values of the form. Details can be found at http://doc.otrs.org/3.1/en/html/acl.html.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            SMIME file names
+        </para>
+        <para>
+            This step is ONLY needed if you use SMIME to encrypt/sign your emails. You need to take this
+            step if you upgrade from 3.0.x OR if you upgrade from 3.1.x before 3.1.6 while using OpenSSL 1.x
+            to encrypt/sign your emails.
+        </para>
+        <para>
+            Between OTRS 3.0.x and 3.1.x, the file naming of private secret file names changed and need to
+            be updated. In addition, OpenSSL 0.9.x and 1.x use different algorithms to calculate the
+            certificate hash. To update your private secrets and certificate file names, please run this
+            command:
+            <screen>
+shell&gt; bin/otrs.RefreshSMIMEKeys.pl
+            </screen>
+        </para>
+        <para>
+            This step must also be taken if you change a running installation from OpenSSL 0.9 to 1.x.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Database Upgrade During Beta Phase
+        </para>
+        <para>
+            This step is ONLY needed if you upgrade from 3.1.beta1 or 3.1.beta2!
+            Please apply the required database changes as follows:
+        </para>
+        <para>
+            <screen>
+MySQL:
+ shell> cat scripts/DBUpdate-3.1.beta.mysql.sql | mysql -p -f -u root otrs
+
+PostgreSQL 8.2+:
+ shell> cat scripts/DBUpdate-3.1.beta.postgresql.sql | psql otrs
+
+PostgreSQL, older versions:
+ shell> cat scripts/DBUpdate-3.1.beta.postgresql_before_8_2.sql | psql otrs
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>Well done!</para>
+      </listitem>
+  </orderedlist>
+</section>

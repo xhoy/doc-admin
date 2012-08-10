@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: configuration.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+
+<section id="configuration">
+<title>System Configuration</title>
+
+<section id="directories-and-configfiles">
+<title>OTRS config files</title>
+
+<para>
+All OTRS configuration files are stored in the directory <filename>Kernel</filename> and in its subdirectories. There is no need to manually change any other file than <filename>Kernel/Config.pm</filename>, because the rest of the files will be changed when the system gets upgraded. Just copy the configuration parameters from the other files into <filename>Kernel/Config.pm</filename> and change them as per your needs. This file will never be touched during the upgrade process, so your manual settings are safe.
+</para>
+
+<para>
+The file <filename>Kernel/Config/Defaults.pm</filename> contains the parameters of the central OTRS framework. It defines all basic system settings such as the mail configuration, database connection, default charset and standard language. The file <filename>Kernel/Config/Files/Ticket.pm</filename> contains all configuration parameters for the trouble ticket system.
+</para>
+
+<para>
+In the directory <filename>Kernel/Config/Files</filename> there are some other files that are parsed when the OTRS login page is accessed. If additional applications like the FAQ or the File Manager are installed, the configuration files for those can also be found in the mentioned path.
+</para>
+
+<para>
+If the OTRS web interface is accessed, all .xml files in the <filename>Kernel/Config/Files</filename> directory are parsed in alphabetical order, and the settings for the central framework and additional applications will be loaded. Afterwards, the settings in the two files <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> and <filename>Kernel/Config/Files/ZZZAuto.pm</filename> will be evaluated. Both files are used by the graphical interface for system configuration and should never be changed manually. Lastly, the file <filename>Kernel/Config.pm</filename>
+that contains your individual settings and manually changed configuration parameters, will be parsed. Reading the configuration files in this order makes sure that your specific configuration settings are used by the system.
+</para>
+
+</section>
+
+<section id="sysconfig">
+<title>Configuring the system through the web interface</title>
+
+<para>
+Since OTRS 2.0, nearly all configuration parameters of the central framework or additional installed applications, can be changed easily with the graphical interface for system configuration. Log in as OTRS administrator and follow the SysConfig link on the Admin page to execute the new configuration tool (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>The graphical interface for system configuration</screeninfo>
+<graphic srccredit="sysconfig - screenshot" scale="40" fileref="screenshots/admin-sysconfig.png"></graphic>
+</screenshot>
+</para>
+
+<para>
+	<emphasis>Figure: The graphical interface for system configuration.</emphasis>
+</para>
+
+<para>
+OTRS currently has over 600 configuration parameters, and there are different ways to quickly access a specific one. With the full text search, all configuration parameters can be scanned for one or more keywords. The full text search not only searches through the names of the configuration parameters, but also through the descriptions of the parameters. This allows an element to be found easily even if its name is unknown.
+</para>
+
+<para>
+Furthermore, all configuration parameters are sorted in main groups and sub groups. The main group represents the application that the configuration parameter belongs to, e.g. "Framework" for the central OTRS framework, "Ticket" for the ticket system, "FAQ" for the FAQ system, and so on. The sub groups can be accessed if the application is selected from the groups listbox and the "Select group" button is pressed.
+</para>
+
+<para>
+Every configuration parameter can be turned on or off via a checkbox. If the parameter is turned off, the system will ignore this parameter or use a default. It is possible to switch a changed configuration parameter back to the system default using the Reset link. The Update button submits all changes to system configuration parameters.
+</para>
+
+<para>
+If you want to save all the changes you made to your system's configuration, for example to setup a new installation quickly, you can use the "Export settings" button, which will create a .pm file. To restore your own settings, just press the "Import settings" and select the .pm created before.
+</para>
+
+<note>
+<para>
+For security reasons, the configuration parameters for the database connection cannot be changed in the SysConfig section. They have to be set manually in <filename>Kernel/Config.pm</filename>.
+</para>
+</note>
+
+</section>
+
+</section>

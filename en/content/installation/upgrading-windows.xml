@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<!-- $Id: upgrading-windows.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+
+<section id="upgrade-windows-installer">
+<title>Upgrading Windows Installer</title>
+<para>
+There is currently no in-place upgrade tool available for OTRS installations that were done with the Windows Installer. The upgrade process basically consists of backing up the database and the filesystem, uninstalling OTRS, installing the new version, restoring the database and running the upgrade procedure if needed.
+</para>
+
+<para>Upgrading is described in
+<ulink url="http://faq.otrs.org/otrs/public.pl?Action=PublicFAQZoom;ItemID=351">FAQ# 4200351</ulink>, and
+there is also an informative
+<ulink url="http://www.youtube.com/watch?v=sf0R-reMTWc">YouTube video</ulink>
+available.
+</para>
+</section>
