@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 					"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: book.xml,v 1.44 2012-08-10 12:42:09 mg Exp $ -->
+<!-- $Id: book.xml,v 1.45 2012-08-24 08:00:31 mg Exp $ -->
 
 <book lang="en">
 	<bookinfo>
@@ -83,6 +83,7 @@
         	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/pgp.xml" />
         	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/smime.xml" />
         </section>
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/external-backends.xml" />
         <section id="ticket-settings">
             <title>Ticket settings</title>
         	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/states.xml" />
@@ -90,17 +91,17 @@
         	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/monitoring-tickets.xml" />
         </section>
     	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/time.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/stats.xml" />
     	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/pdf-output.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/external-backends.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/stats.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/dynamicfields.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/genericinterface.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/scheduler.xml" />
-        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/dynamicfields.xml" />
     </chapter>
 
     <chapter id="customization">
         <title>Customization</title>
     	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/acl.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/process-management.xml" />
     	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/themes.xml" />
     	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/language-translation.xml" />
     </chapter>
