@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.1 2012-08-24 08:00:31 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.2 2012-09-24 12:08:22 mg Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -153,136 +153,135 @@ ISBN: 3527703713
                 </itemizedlist>
                 </para>
         </section>
-<!--
         <section>
-            <title>Bereichsgliederung Transitions:</title>
+            <title>Transitions</title>
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>"Zur Genehmigung" (T1):
-                        Eine Transition die prüft ob das Statusfeld auf "zur Genehmigung" steht.</para>
+                        <para>"Approval" (T1):
+                        A transition which checks if the status field is set to "Approval".</para>
                     </listitem>
                     <listitem>
-                        <para>"Genehmigung Abgelehnt" (T2):
-                        Eine Transition die prüft ob das Statusfeld auf "Genehmigung abgelehnt" steht.</para>
+                        <para>"Approval denied" (T2):
+                        A transition which checks if the status field is set to "Approval denied".</para>
                     </listitem>
                     <listitem>
-                        <para>"Genehmigt" (T3):
-                        Eine Transition die prüft ob das Statusfeld auf "Genehmigt" steht.</para>
+                        <para>"Approved" (T3):
+                        A transition which checks if the status field is set to "Approved".</para>
                     </listitem>
                     <listitem>
-                        <para>"Bestellung Abgelehnt" (T4):
-                        Eine Transition die prüft ob das Statusfeld auf "Bestellung Abgelehnt" steht.</para>
+                        <para>"Order denied" (T4):
+                        A transition which checks if the status field is set to "Order denied".</para>
                     </listitem>
                     <listitem>
-                        <para>"Bestellung Durchgeführt" (T5):
-                        Eine Transition die prüft ob das Statusfeld auf "Bestellung durchgeführt" steht.</para>
+                        <para>"Order placed" (T5):
+                        A transition which checks if the status field is set to "Order placed".</para>
                     </listitem>
                     <listitem>
-                        <para>"Lieferung eingegangen" (T6):
-                        Eine Transition die prüft ob das Statusfeld auf "Lieferung eingegangen" steht.</para>
+                        <para>"Shipment received" (T6):
+                        A transition which checks if the status field is set to "Shipment received".</para>
                     </listitem>
                 </itemizedlist>
                 </para>
         </section>
         <section>
-            <title>Bereichsgliederung TransitionActions:</title>
+            <title>TransitionActions</title>
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Process-Ticket in die "Vorgesetzten" Queue verschieben. (TA1):
-                        Soll durchgeführt werden wenn die Transition "Zur Genehmigung" erfolgreich geprüft hat.</para>
+                        <para>Moving the process ticket into the "Superior" queue. (TA1):
+                        This action is supposed to be executed when the Transition "Approval" applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Verantwortlichen auf "Vorgesetzten" ändern. (TA2):
-                        Soll durchgeführt werden wenn die Transition "Zur Genehmigung" erfolgreich geprüft hat.</para>
+                        <para>Change ticket responsible to "Superior". (TA2):
+                        To be executed when the Transition "Approval" applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Process-Ticket in die "Mitarbeiter" Queue verschieben. (TA3):
-                        Soll durchgeführt werden wenn:</para>
+                        <para>Move the process ticket to the "Employee" Queues. (TA3):
+                        To be executed when:</para>
                         <itemizedlist>
-                        <listitem><para>
-                        die Transition "Genehmigung Abgelehnt" erfolgreich geprüft hat
-                        </para></listitem>
-                        <listitem><para>
-                        die Transition "Bestellung Abgelehnt" erfolgreich geprüft hat
-                        </para></listitem>
-                        <listitem><para>
-                        die Transition "Lieferung Eingegangen" erfolgreich geprüft hat
-                        </para></listitem>
+                            <listitem><para>
+                            the Transition "Approval denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the Transition "Order denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the Transition "Shipment received" applied
+                            </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Verantwortlichen auf "Mitarbeiter" ändern. (TA4):
-                        Soll durchgeführt werden wenn:</para>
+                        <para>Change ticket responsible to "Employee". (TA4):
+                        To be executed when:</para>
                         <itemizedlist>
-                        <listitem><para>
-                        die Transition "Genehmigung Abgelehnt" erfolgreich geprüft hat
-                        </para></listitem>
-                        <listitem><para>
-                        die Transition "Bestellung Abgelehnt" erfolgreich geprüft hat
-                        </para></listitem>
-                        <listitem><para>
-                        die Transition "Lieferung Eingegangen" erfolgreich geprüft hat
-                        </para></listitem>
+                            <listitem><para>
+                            the transition "Approval denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the transition "Oder denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the transition "Shipment received" applied
+                            </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Process-Ticket in die "Einkauf" Queue verschieben. (TA5):
-                        Soll durchgeführt werden wenn die Transition "Genehmigt" erfolgreich geprüft hat.</para>
+                        <para>Move process ticket to Queue "Purchasing". (TA5):
+                        To be executed when the transition "Approved" applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Process-Ticket in die "Poststelle" Queue verschieben. (TA6):
-                        Soll durchgeführt werden wenn die Transition "Bestellung durchgeführt" erfolgreich geprüft hat.</para>
+                        <para>Process-Ticket in die "Post office" Queue verschieben. (TA6):
+                        To be executed when the transition "Order placed" applied.</para>
                     </listitem>
                 </itemizedlist>
                 </para>
                 <para>
-                    Wie hier schön erkennbar ist, gibt es mehrere Stellen an denen die gleiche TransitionAction durchgeführt werden soll.
-                    Daher macht es Sinn, diese mit Transitions frei verknüpfbar zu machen,
-                    um sie nur ein mal zu schreiben, aber öfter einsetzen zu können.
+                    As you can see, there are places where the same TransitionAction should be executed.
+                    Therefore it is reasonable to make it possible to link TransitionActions freely with
+                    Transitions to be able to reuse them. können.
                 </para>
         </section>
         <section>
-            <title>Spezialfall des Activities:</title>
+            <title>Activities</title>
             <para>
-                Hier sind wir den Weg gegangen, Activities als Korb zu betrachten,
-                der keine, eine oder auch viele Activity Dialogs zur Verfügung stellen kann.
-                Für unser Beispiel sind folgende Activities nötig:
+                We chose the approach to see Activities as a basket which can contain one
+                or more Activity Dialogs.
+                We need these Activities for our example:
             </para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Bedarfserfassung (A1):
-                        Beinhaltet die Activity Dialog "Bedarfserfassung"</para>
+                        <para>Recording the demand (A1):
+                        Contains the Activity Dialog "Recording the demand"</para>
                     </listitem>
                     <listitem>
-                        <para>Genehmigung (A2):
-                        Beinhaltet die Activity Dialogs "Genehmigung Abgelehnt" sowie "Genehmigt"</para>
+                        <para>Approval (A2):
+                        Contains the Activity Dialogs "Approval denied" as well as "Approved"</para>
                     </listitem>
                     <listitem>
                         <para>Bestellung (A3):
-                        Beinhaltete die Activity Dialogs "Bestellung Abgelehnt" sowie "Bestellung Durchgeführt"</para>
+                        Contains the Activity Dialogs "Order denied" as well as "Order placed"</para>
                     </listitem>
                     <listitem>
-                        <para>Eingang (AS):
-                        Beinhaltet die Activity Dialog "Lieferung Eingegangen"</para>
+                        <para>Incoming (AS):
+                        Contains the Activity Dialog "Shipment received"</para>
                     </listitem>
                     <listitem>
-                        <para>Process Abgeschlossen (A5):
-                            Dies ist ein Activity ohne mögliche Activity Dialogs,
-                            in welches das Process-Ticket übergeht wenn die "Genehmigung Abgelehnt",
-                            die "Bestellung Abgelehnt" oder die "Lieferung Eingegangen" ist.
+                        <para>Process complete (A5):
+                            This is an Activity without possible ActivityDialogs.
+                            It will be set after "Approval denied", "Order denied" or "Shipment received"
+                            and represents the end of the process.
                         </para>
                     </listitem>
                 </itemizedlist>
             </para>
             <para>
-                Wer nun schon etwas zwischen den Zeilen gelesen hat, wird erkannt haben,
-                dass Activities klar definierte Zustände eines Process-Tickets sind.
-                Nach erfolgreich geprüfter Transition geht ein Process-Ticket von einem Activitset ins nächste über.
+                Now we can clearly see that Activities are precisely defined states of a process ticket.
+                After a successful Transition a process ticket moves from one Activity to another.
             </para>
         </section>
+<!--
         <section>
             <title>Prozessabbildung Buchbestellung</title>
             <para>
