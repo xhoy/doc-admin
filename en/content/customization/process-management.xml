@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.2 2012-09-24 12:08:22 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.3 2012-09-24 12:40:24 mg Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -260,7 +260,7 @@ ISBN: 3527703713
                         Contains the Activity Dialogs "Approval denied" as well as "Approved"</para>
                     </listitem>
                     <listitem>
-                        <para>Bestellung (A3):
+                        <para>Order (A3):
                         Contains the Activity Dialogs "Order denied" as well as "Order placed"</para>
                     </listitem>
                     <listitem>
@@ -281,46 +281,47 @@ ISBN: 3527703713
                 After a successful Transition a process ticket moves from one Activity to another.
             </para>
         </section>
-<!--
+
         <section>
-            <title>Prozessabbildung Buchbestellung</title>
+            <title>Book ordering Process</title>
             <para>
-                Schließen wir nun unsere Abbildung der Buchbestellung mit dem letzten fehlenden Puzzlestein ab,
-                dem Process. Der Process wäre in unserem Fall die Buchbestellung als ganzes.
-                Ein weiterer Process wäre z.b. eine Bürobedarfsbestellung oder ein anderer abzubildender Arbeitsablauf.
+                Let us conclude our example with the last missing piece in the puzzle, the Process.
+                In our case this is the whole ordering workflow. Other processes could be office supply ordering
+                or completely different processes.
             </para>
 
             <para>
-                Er beinhaltet einen Startpunkt, der sich aus StartActivity und StartActivityDialog zusammensetzt.
-                Soll eine neue Buchbestellung vorgenommen werden, ist die StartActivityDialog die erste Activity die angezeigt wird.
-                Wird diese ausgefüllte Activity Dialog gespeichert, wird das Process-Ticket für die Buchbestellung erstellt und kann seinen Lauf nehmen.
+                The process has a starting point which consists of the start Activity and the start Activity Dialog.
+                For any new book order, the start Activity Dialog is the first screen that is displayed.
+                If this is completed and saved, the Process ticket will be created and can follow the configured
+                workflow.
             </para>
 
             <para>
-                Weiters enthält er die "Wegbeschreibung" der entlang das Process-Ticket wandern kann. Nennen wir sie "Path".
-                Der Path setzt sich zusammen aus einem Activity das als Ausgangsbasis dient, einer oder mehrerer Transition Möglichkeiten,
-                einem Ziel Activity sowie möglicherweise einer oder mehrerer TransitionActions, die nach erfolgreich geprüfter Transition ausgeführt werden.
+                The process also contains the directions for how the process ticket can move through the Process. Let's call this the
+                "Path". It consists of the start Activity, one or more Transitions (possibly with Transition Actions),
+                and other Activities.
             </para>
-            <para>Erfassung bis "Zur Genehmigung"</para>
+            <para>Recording the demand until "Approval"</para>
             <para>
             <itemizedlist>
                 <listitem>
-                    <para>Ausgangssituation: Activity A1 (Bedarfserfassung)</para>
+                    <para>Starting point: Activity A1 (Recording the demand)</para>
                 </listitem>
                 <listitem>
-                    <para>Mögliche Transition: T1 (Zur Genehmigung)</para>
+                    <para>Possible Transition: T1 (Approval)</para>
                     <itemizedlist>
                         <listitem>
-                            <para>Triff die Bedingung dieser Transition zu wandert das Process-Ticket zum Activity A2 (Genehmigung)</para>
+                            <para>If the condition of this activity is fulfilled, the ticket will move to Activity A2 (Approval)</para>
                         </listitem>
                         <listitem>
-                            <para>Weiters werden folgende TransitionActions ausgeführt:</para>
+                            <para>Additionally, the following TransitionActions are executed:</para>
                             <itemizedlist>
                                 <listitem>
-                                    <para>TA1 (Process-Ticket in die "Vorgesetzten" Queue verschieben)</para>
+                                    <para>TA1 (Moving the ticket into the "Superior" Queue)</para>
                                 </listitem>
                                 <listitem>
-                                    <para>TA2 (Verantwortlichen auf "Vorgesetzten" ändern)</para>
+                                    <para>TA2 (Set ticket responsible to "Superior")</para>
                                 </listitem>
                             </itemizedlist>
                         </listitem>
@@ -329,68 +330,68 @@ ISBN: 3527703713
             </itemizedlist>
             </para>
             <para>
-                Dies wäre der erste Arbeitsabschnitt des Buchbestellungs-Process. Vereinfacht notiert würde er so aussehen:
+                That's the first step in the path of the book ordering process. It looks like this (slightly simplified):
             </para>
             <para>
                 <screen>
-            'A1' => {
-                'T1' => {
-                    ActivityEntityID => 'A2',
-                    TransitionAction => [ 'TA1', 'TA2',],
+                'A1' => {
+                    'T1' => {
+                        ActivityEntityID => 'A2',
+                        TransitionAction => [ 'TA1', 'TA2',],
+                    },
                 },
-            },
                 </screen>
             </para>
             <para>
-                A1 entspricht einem überprüfbaren Zustand des Process Tickets, in dem sich die Möglichkeit der Transition 'T1' ergibt.
-                Trifft diese zu, wandert das Process-Ticket zum nächsten Activity mit der ID 'A2' und die TransitionActions TA1 und TA2 werden ausgeführt.
-                Im Activity 'A2' stehen dann die Activity Dialogs 'AD2' (Genehmigung abgelehnt) und 'AD3' (Genehmigung erteilt) zur Verfügung.
+                Action 'A1' is a defined state of the process ticket, where there is the possibility for the Transition 'T1'.
+                If this applies, the ticket will move to the next Activity 'A2', and the TransitionActions 'TA1' and 'TA2' are executed.
+                In Activity 'A2', the Activity Dialogs 'AD2' (Apprival denied) and 'AD3' (Approved) are available.
             </para>
-            <para>Genehmigung</para>
+            <para>Approval</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Ausgangssituation: Activity A2 (Genehmigung)</para>
+                        <para>Starting Point: Activity A2 (Approval)</para>
                     </listitem>
                     <listitem>
-                        <para>Mögliche Transitions:</para>
+                        <para>Possible Transitions:</para>
                             <itemizedlist>
                                 <listitem>
-                                    <para>T2 (Genehmigung Abgelehnt)</para>
+                                    <para>T2 (Approval Abgelehnt)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
-                                            Triff die Bedingung dieser Transition zu wandert das Process-Ticket zum
-                                            Activity A5 (Process Abgeschlossen)
+                                            If this matches, the process ticket will move to
+                                            Activity A5 (Process complete).
                                         </para>
                                         </listitem>
                                         <listitem>
-                                        <para>Weiters werden folgende TransitionActions ausgeführt:</para>
+                                        <para>Additionally, the following TransitionActions are executed:</para>
                                         <itemizedlist>
                                         <listitem>
-                                            <para>TA3 (Process-Ticket in die "Mitarbeiter" Queue verschieben)</para>
+                                            <para>TA3 (move process ticket to the "Employee" Queue)</para>
                                         </listitem>
                                         <listitem>
-                                            <para>TA4 (Verantwortlichen auf "Mitarbeiter" ändern)</para>
+                                            <para>TA4 (set ticket responsible to "Employee")</para>
                                         </listitem>
                                         </itemizedlist>
                                         </listitem>
                                     </itemizedlist>
                                 </listitem>
                                 <listitem>
-                                    <para>T3 (Genehmigt)</para>
+                                    <para>T3 (Approved)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
-                                            Triff die Bedingung dieser Transition zu wandert das Process-Ticket zum
-                                            Activity A3 (Bestellung)
+                                            If this matches, the process ticket will move to
+                                            Activity A3 (Order).
                                         </para>
                                         </listitem>
                                         <listitem>
-                                            <para>Weiters wird folgende TransitionAction ausgeführt:</para>
+                                            <para>Additionally, the following TransitionAction is executed:</para>
                                             <itemizedlist>
                                             <listitem>
-                                                <para>TA5 (Process-Ticket in die "Einkauf" Queue verschieben)</para>
+                                                <para>TA5 (move process ticket to "Purchasing" Queue)</para>
                                             </listitem>
                                             </itemizedlist>
                                         </listitem>
@@ -400,7 +401,7 @@ ISBN: 3527703713
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>Vereinfacht notiert:</para>
+            <para>Simplified representation:</para>
             <para>
                 <screen>
             'A2' => {
@@ -415,7 +416,7 @@ ISBN: 3527703713
             },
                 </screen>
             </para>
-            <para>Die Path Konfiguration dieser beiden Arbeitsschritte zusammengefasst ergibt:</para>
+            <para>The path for these two steps together looks like this:</para>
             <para>
                 <screen>
             Path => {
@@ -439,14 +440,12 @@ ISBN: 3527703713
                 </screen>
             </para>
             <para>
-                Klar erkennbar ist immer das Ausgangs-Activity, das einem Process-Ticket einen eindeutigen Zustand zuweist.
-                Auf diesen Zustand überprüft, ergeben sich eine oder mehrere Transition Möglichkeiten,
-                die dann jeweils exakt eine Ziel-ActivityEntityID definiert haben sowie keine, eine oder mehrere TransitionActions.
+                We can see that from the current Activity, which defines a state of the process ticket, there are one
+                or more possibilities for Transition which have exactly one target Activity (and possibly one or more TransitionActions).
             </para>
-        </section>
-        <section>
-            <title>Path der Buchbestellung</title>
-            <para>Der Path für den vollständigen Prozess Buchbestellung sieht dann wie folgt aus:</para>
+            <para>
+                The complete Path for the book ordering Process will then look like this:
+            </para>
             <para>
                     <screen>
             Path => {
@@ -486,7 +485,6 @@ ISBN: 3527703713
                     </screen>
                 </para>
             </section>
--->
     </section>
 
     <section>
