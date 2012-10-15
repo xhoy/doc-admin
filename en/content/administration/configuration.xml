@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: configuration.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+<!-- $Id: configuration.xml,v 1.2 2012-10-15 09:31:59 mg Exp $ -->
 
 <section id="configuration">
 <title>System Configuration</title>
@@ -22,8 +22,13 @@ In the directory <filename>Kernel/Config/Files</filename> there are some other f
 </para>
 
 <para>
-If the OTRS web interface is accessed, all .xml files in the <filename>Kernel/Config/Files</filename> directory are parsed in alphabetical order, and the settings for the central framework and additional applications will be loaded. Afterwards, the settings in the two files <filename>Kernel/Config/Files/ZZZAAuto.pm</filename> and <filename>Kernel/Config/Files/ZZZAuto.pm</filename> will be evaluated. Both files are used by the graphical interface for system configuration and should never be changed manually. Lastly, the file <filename>Kernel/Config.pm</filename>
-that contains your individual settings and manually changed configuration parameters, will be parsed. Reading the configuration files in this order makes sure that your specific configuration settings are used by the system.
+If the OTRS web interface is accessed, all .xml files in the <filename>Kernel/Config/Files</filename> directory are parsed in alphabetical order,
+and the settings for the central framework and additional applications will be loaded.
+Afterwards, the settings in the files <filename>Kernel/Config/Files/ZZZAAuto.pm</filename>, <filename>Kernel/Config/Files/ZZZAuto.pm</filename>
+and <filename>Kernel/Config/Files/ZZZProcessManagement.pm</filename> (if it exists) will be evaluated.
+These files are used by the graphical interface for system configuration caching and should never be changed manually.
+Lastly, the file <filename>Kernel/Config.pm</filename> that contains your individual settings and manually changed configuration parameters,
+will be parsed. Reading the configuration files in this order makes sure that your specific configuration settings are used by the system.
 </para>
 
 </section>
