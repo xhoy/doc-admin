@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+<!-- $Id: acl.xml,v 1.2 2012-10-23 08:34:36 mg Exp $ -->
 
 <section id="acl" >
 <title>Access Control Lists (ACLs)</title>
@@ -341,7 +341,10 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             # ...
         },
         DynamicField => {
-            # keys must be in DynamicField_&lt;field_name&gt; format
+            # Names must be in DynamicField_&lt;field_name&gt; format.
+            # Values in [ ... ] must always be the untranslated internal data keys
+            #   specified in the dynamic field definition and
+            #   not the data values shown to the user.
             DynamicField_Field1          => ['some value'],
             DynamicField_OtherField      => ['some value'],
             DynamicField_TicketFreeText2 => ['some value'],
@@ -356,9 +359,7 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             CustomerID           => ['some id'],
             CustomerUserID       => ['some id'],
             Owner                => ['some owner'],
-            DynamicField_Field1  => ['some value'],     # Must be the untranslated values
-                                                        #   specified in the dynamic field
-                                                        #   definition and not the IDs
+            DynamicField_Field1  => ['some value'],
             DynamicField_MyField => ['some value'],
             # ...
         },
