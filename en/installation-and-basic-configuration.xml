@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.77 2012-05-31 15:10:41 mb Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.77.2.1 2012-11-05 11:52:26 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -1311,12 +1311,8 @@ shell&gt; /etc/init.d/apache stop
                 <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
                 <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
                 <listitem><para><filename>var/*</filename></para></listitem>
+                <listitem><para>as well as the database</para></listitem>
             </itemizedlist>
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-            Backup the database.
         </para>
       </listitem>
       <listitem>
@@ -1529,6 +1525,14 @@ shell&gt; /etc/init.d/apache start
             If you want to use the new escalation events in your system, you need to activate the
             corresponding GenericAgent job in Kernel/Config/GenericAgent.pm. Please look into
             Kernel/Config/GenericAgent.pm.dist for an example of how to do this.
+        </para>
+      </listitem>
+      <listitem>
+        <para>TicketHistory</para>
+        <para>
+            The TicketHistory type TicketFreeTextUpdate was renamed to
+            TicketDynamicFieldUpdate. If you have any custom reporting using this,
+            please adjust it.
         </para>
       </listitem>
       <listitem>
