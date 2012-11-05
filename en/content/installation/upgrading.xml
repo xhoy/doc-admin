@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: upgrading.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.2 2012-11-05 11:53:47 mg Exp $ -->
 
 <section id="upgrading">
 <title>Upgrading the OTRS Framework</title>
@@ -54,12 +54,8 @@ shell&gt; /etc/init.d/apache stop
                 <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
                 <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
                 <listitem><para><filename>var/*</filename></para></listitem>
+                <listitem><para><filename>as well as the database</filename></para></listitem>
             </itemizedlist>
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-            Backup the database.
         </para>
       </listitem>
       <listitem>
