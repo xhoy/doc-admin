@@ -1,59 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: dynamicfields-configuration.xml,v 1.2 2012-10-24 10:04:26 mb Exp $ -->
+<!-- $Id: dynamicfields-configuration.xml,v 1.3 2012-11-06 11:11:27 mg Exp $ -->
 
 <section id="dynamicfields-configuration">
     <title>Configuration</title>
     <para>
-        By default, a clean installation of OTRS 3.1.x does not include any dynamic fields. If you
+        By default, a clean installation of OTRS does not include any dynamic fields. If you
         plan to use such fields in tickets or articles you need to create dynamic fields.
     </para>
-    <para>
-        An updated installation from OTRS 3.0.x will have all the old "free fields" created as
-        dynamic fields for compatibility and data preservation. The following is the list of
-        dynamic fields that are created during the migration from OTRS 3.0.x to 3.1.x.
-    </para>
-    <para>
-        <itemizedlist>
-            <listitem>
-                <para>
-                    TicketFreeKey[1-16] (TicketFreeKey1, TicketFreeKey2 ... TicketFreeKey16)
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    TicketFreeText[1-16]
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    TicketFreeTime[1-6]
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    ArticleFreeKey[1-16]
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    ArticleFreeText[1-16]
-                </para>
-            </listitem>
-        </itemizedlist>
-    </para>
-    <note>
-        <para>
-            During the migration procedure from OTRS 3.0.x to OTRS 3.1.x all the old
-            "free fields" data and configuration are migrated to the new dynamic fields
-            architecture. Any custom development around the old "free fields" has to be
-            updated to use the new dynamic field framework.
-        </para>
-        <para>
-            The migration of the configuration include the field itself and the screen
-            configurations to hide, show or show field as mandatory for each screen.
-        </para>
-    </note>
     <para>
         The configuration of a dynamic field is split in two parts, to add a new dynamic field or
         manage an existing one you need to navigate into the "Admin" panel in the "Dynamic Fields"
@@ -1389,69 +1343,5 @@
                 <emphasis>Figure: Field1 in User preferences screen.</emphasis>
             </para>
         </example>
-    </section>
-
-    <section id="dynamicfields-configuration-updating">
-        <title>Updating from OTRS 3.0</title>
-        <para>
-            During the update from OTRS 3.0 there is an special step that is very important
-            and must not be skipped, there is an script file named "DBUpdate-to-3.1.pl" under the
-            "$OTRS_HOME/scripts" that must be called at the precise time in the update procedure
-            (please refer to UPGRADING file for more details).
-        </para>
-        <para>
-            The script mentioned above is in charge to get all the "Free fields" configurations
-            and creates their dynamic field substitute, it also gathers each "Free field" data
-            from every ticket and article and move it to the dynamic fields format. It also read
-            the screen configuration for "Free fields" and port it to the dynamic fields format.
-        </para>
-        <note>
-            <para>
-                All the "Free fields" configurations are keep in the system but they are not used
-                anymore, they are placed under the group "Z_Deprecated", and the might be removed
-                in further versions of OTRS.
-            </para>
-            <para>
-                While the updating script tries to be very precise migrating the screen
-                configurations it is always good to do a manual fine tuning. Please note that
-                "Free fields" TicketFreeKey[1-16] and TicketFreeText[1-16] came always in pair in
-                OTRS 3.0 systems (and before). This is not longer necessary it could be that
-                the TicketFreeKey field is not necessary anymore for a particular TicketFreeText
-                field.
-            </para>
-        </note>
-        <para>
-            The dynamic fields overview screen from clean OTRS 3.0.x updated to 3.1.x should look
-            like:
-        </para>
-        <para>
-            <screenshot>
-                <screeninfo>Updated dynamic field overview screen page1</screeninfo>
-                <graphic srccredit="dynamicfields - screenshot" scale="40" fileref="screenshots/dynamicfields-overview-update-page1.png"></graphic>
-            </screenshot>
-        </para>
-        <para>
-            <emphasis>Figure: Updated dynamic field overview screen page2.</emphasis>
-        </para>
-        <para>
-            <screenshot>
-                <screeninfo>Updated dynamic field overview screen page1</screeninfo>
-                <graphic srccredit="dynamicfields - screenshot" scale="40" fileref="screenshots/dynamicfields-overview-update-page2.png"></graphic>
-            </screenshot>
-        </para>
-        <para>
-            <emphasis>Figure: Updated dynamic field overview screen page2.</emphasis>
-        </para>
-        <para>
-            Please note that the new dynamic field named "TicketFreeText2" has the label "Product",
-            this is because the default configuration from this "Free field" in OTRS 3.0.x
-            specifies that "TicketFreeKey2" has a fixed value of "Product". in this case the
-            dynamic field "TicketFreeKey2" is not needed anymore and it can be manually set to
-            invalid.
-        </para>
-        <para>
-            It might me also a very good idea to set the label value of each valid migrated field
-            to a text that describes better the use of the field in the system.
-        </para>
     </section>
 </section>

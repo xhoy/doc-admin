@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: source.xml,v 1.1 2012-08-10 12:42:09 mg Exp $ -->
+<!-- $Id: source.xml,v 1.2 2012-11-06 11:11:28 mg Exp $ -->
 
 <section id="manual-installation-of-otrs">
 <title>Installation from source (Linux, Unix)</title>
@@ -17,13 +17,13 @@ If you want to install OTRS from source, first download the source archive as .t
 </para>
 
 <para>
-Unpack the archive (for example, using <command>tar</command>) into the directory <filename>/opt</filename>, and rename the directory from otrs-3.1.x to otrs (see Script below).
+Unpack the archive (for example, using <command>tar</command>) into the directory <filename>/opt</filename>, and rename the directory from otrs-x.x.x to otrs (see Script below).
 </para>
 
 <para>
 <screen>
-linux:/opt# tar xf /tmp/otrs-3.1.tar.gz
-linux:/opt# mv otrs-3.1 otrs
+linux:/opt# tar xf /tmp/otrs-x.x.x.tar.gz
+linux:/opt# mv otrs-x.x.x otrs
 linux:/opt# ls
 otrs
 linux:/opt#
@@ -108,202 +108,84 @@ If your web server is running with the same user rights as user 'otrs', the comm
 <title>Installation of Perl modules</title>
 
 <para>
-OTRS needs some additional Perl modules, as described in Table 3-1. If you install OTRS from source, you will have to install these modules manually. This can be done either with the package manager of your Linux distribution (<application>yast</application>, <application>apt-get</application>) or, as described in this section, through the Perl shell and CPAN. If you're using ActiveState Perl, for instance on Windows, you could use PPM, the built-in Perl Package Manager. We recommend using your package manager if possible.
+OTRS needs some additional Perl modules, as described in Table 3-1. If you install OTRS from source, you will have to install these modules manually.
+This can be done either with the package manager of your Linux distribution (<application>yast</application>, <application>apt-get</application>) or,
+as described in this section, through the Perl shell and CPAN. If you're using ActiveState Perl, for instance on Windows, you could use PPM, the built-in Perl Package Manager.
+We recommend using your package manager if possible.
 </para>
 
 <para>
-
-<table id="table-of-needed-perl-modules">
-<title>Needed Perl modules for OTRS</title>
-  <tgroup cols="2">
-    <thead>
-      <row>
-        <entry>
-          Name
-        </entry>
-        <entry>
-          Description
-        </entry>
-      </row>
-    </thead>
-    <tbody>
-      <row>
-        <entry>
-          DBI
-        </entry>
-        <entry>
-          Establishes a connection to the database back-end.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          DBD::mysql
-        </entry>
-        <entry>
-          Contains special functions to connect to the MySQL
-          database back-end (only required if MySQL is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          DBD::pg
-        </entry>
-        <entry>
-          Contains special functions to connect to the PostgreSQL
-          database back-end (only required if PostgreSQL is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Digest::MD5
-        </entry>
-        <entry>
-          Allows the use of the md5 algorithm.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          CSS::Minifier
-        </entry>
-        <entry>
-          Minifies a CSS file and writes the output directly to another file.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Crypt::PasswdMD5
-        </entry>
-        <entry>
-          Provides interoperable MD5-based crypt functions.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          MIME::Base64
-        </entry>
-        <entry>
-          Encodes / decodes Base64 strings, e.g. for mail attachments.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          JavaScript:Minifier
-        </entry>
-        <entry>
-          Minifies a JavaScript file and writes the output directly to another file.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Net::DNS
-        </entry>
-        <entry>
-          Perl interface to the domain name system.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          LWP::UserAgent
-        </entry>
-        <entry>
-          Processes HTTP requests.
-        </entry>
-      </row>
-      <row>
-        <entry>
-          Net::LDAP
-        </entry>
-        <entry>
-          Perl interface to a LDAP directory (only required if an LDAP back-end is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          GD
-        </entry>
-        <entry>
-          Interface to the GD graphics library (only required if the OTRS stats
-          module is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          GD::Text, GD::Graph, GD::Graph::lines, GD::Text::Align
-        </entry>
-        <entry>
-          Some more text and graphic tools for the GD graphics library (only
-          required if the OTRS stats module is used).
-        </entry>
-      </row>
-      <row>
-        <entry>
-          PDF::API2, Compress::Zlib
-        </entry>
-        <entry>
-          Needed to generate the PDF output for reports, search results and for the
-          ticket print view.
-        </entry>
-      </row>
-    </tbody>
-  </tgroup>
-</table>
-
-</para>
-
-<para>
-You can verify which modules you need to install with <command>otrs.CheckModules.pl</command>. This script is located in the <filename>bin</filename> directory, in the home directory of the 'otrs' user (see Script below).
-</para>
-
-<para>
+You can verify which modules you need to install with <command>otrs.CheckModules.pl</command>.
+This script is located in the <filename>bin</filename> directory, in the home directory of the 'otrs' user (see Script below).
 Please note that some modules are optional.
-</para>
 
-<para>
 <screen>
 linux:~# cd /opt/otrs/bin/
 linux:/opt/otrs/bin# ./otrs.CheckModules.pl
-   o CGI............................ok (v3.49)
-   o Crypt::PasswdMD5...............ok (v1.3)
-   o CSS::Minifier..................ok (v0.01)
-   o Date::Format...................ok (v2.24)
-   o Date::Pcalc....................ok (v1.2)
-   o DBI............................ok (v1.609)
-   o DBD::mysql.....................ok (v4.013)
-   o Digest::MD5....................ok (v2.36_01)
-   o Encode::HanExtra...............ok (v0.23)
-   o GD.............................ok (v2.44)
-      o GD::Text....................ok (v0.86)
-      o GD::Graph...................ok (v1.44)
-      o GD::Graph::lines............ok (v1.15)
-      o GD::Text::Align.............ok (v1.18)
-   o IO::Scalar.....................ok (v2.110)
-   o IO::Wrap.......................ok (v2.110)
-   o JavaScript::Minifier...........ok (v1.05)
-   o JSON...........................ok (v2.21)
-      o JSON::PP....................ok (v2.27003)
-      o JSON::XS....................Not installed! (Optional - Install it for faster AJAX/JavaScript handling.)
-   o LWP::UserAgent.................ok (v5.829)
-   o Mail::Internet.................ok (v2.06)
-   o Mail::POP3Client...............ok (v2.18 )
-      o IO::Socket::SSL.............ok (v1.31)
-   o MIME::Base64...................ok (v3.07_01)
-   o MIME::Tools....................ok (v5.428)
-   o Net::DNS.......................ok (v0.65)
-   o Net::POP3......................ok (v2.29)
-   o Net::IMAP::Simple..............ok (v1.1916)
-      o Net::IMAP::Simple::SSL......ok (v1.3)
-   o Net::SMTP......................ok (v2.31)
-      o Authen::SASL................ok (v2.15)
-      o Net::SMTP::SSL..............ok (v1.01)
-   o Net::LDAP......................ok (v0.4001)
-   o PDF::API2......................ok (v0.73)
-      o Compress::Zlib..............ok (v2.008)
-   o SOAP::Lite.....................ok (v0.712)
-   o Text::CSV......................ok (v1.18)
-      o Text::CSV_PP................ok (v1.26)
-      o Text::CSV_XS................Not installed! (Optional - Optional, install it for faster CSV handling.)
-   o XML::Parser....................ok (v2.36)
-linux:/opt/otrs/bin#
+   o CGI..............................ok (v3.60)
+   o Crypt::PasswdMD5.................ok (v1.3)
+   o Crypt::SSLeay....................Not installed! (Optional - Required for Generic Interface SOAP SSL connections.)
+   o CSS::Minifier....................ok (v0.01)
+   o Date::Format.....................ok (v2.22)
+   o Date::Pcalc......................ok (v1.2)
+   o DBI..............................ok (v1.616)
+   o DBD::mysql.......................ok (v4.018)
+   o DBD::ODBC........................Not installed! (Optional - Required to connect to a MS-SQL database.)
+   o DBD::Oracle......................Not installed! (Optional - Required to connect to a Oracle database.)
+   o DBD::Pg..........................ok (v2.18.1)
+   o Digest::MD5......................ok (v2.39)
+   o Digest::SHA::PurePerl............ok (v5.72)
+   o Digest::SHA......................ok (v5.45)
+   o Encode::HanExtra.................ok (v0.23)
+   o Encode::Locale...................ok (v1.03)
+   o GD...............................ok (v2.46)
+      o GD::Text......................ok (v0.86)
+      o GD::Graph.....................ok (v1.44)
+      o GD::Graph::lines..............ok (v1.15)
+      o GD::Text::Align...............ok (v1.18)
+   o IO::Scalar.......................ok (v2.110)
+   o IO::Wrap.........................ok (v2.110)
+   o JavaScript::Minifier.............ok (v1.05)
+   o JSON.............................ok (v2.53)
+      o JSON::PP......................ok (v2.27200)
+      o JSON::XS......................ok (v2.3)
+   o Locale::Codes....................ok (v3.23)
+   o LWP::UserAgent...................ok (v6.04)
+   o Mail::Internet...................ok (v2.11)
+   o Mail::POP3Client.................ok (v2.18 )
+      o IO::Socket::SSL...............ok (v1.22)
+   o Mail::IMAPClient.................Not installed! (Optional - Required for IMAP TLS connections.)
+      o IO::Socket::SSL...............ok (v1.22)
+   o MIME::Base64.....................ok (v3.07_01)
+   o MIME::Tools......................ok (v5.428)
+   o ModPerl::Util....................ok (v2.000005)
+      o Apache::DBI...................ok (v1.11)
+      o Apache2::Reload...............ok (v0.12)
+   o Net::DNS.........................ok (v0.65)
+   o Net::POP3........................ok (v2.29)
+   o Net::IMAP::Simple................ok (v1.2030)
+      o Net::IMAP::Simple::SSL........ok (v1.3)
+   o Net::SMTP........................ok (v2.31)
+      o Authen::SASL..................ok (v2.15)
+      o Net::SMTP::SSL................ok (v1.01)
+      o Net::SMTP::TLS::ButMaintained.ok (v0.20)
+   o Net::LDAP........................ok (v0.36)
+   o Net::SSL.........................Not installed! (Optional - Required for Generic Interface SOAP SSL connections.)
+   o PDF::API2........................ok (v0.73)
+      o Compress::Zlib................ok (v2.027)
+   o Storable.........................ok (v2.21)
+   o SOAP::Lite.......................ok (v0.715)
+      o version.......................ok (v0.82)
+      o Class::Inspector..............ok (v1.28)
+   o Text::CSV........................ok (v1.21)
+      o Text::CSV_PP..................ok (v1.29)
+      o Text::CSV_XS..................Not installed! (Optional - Recommended for faster CSV handling.)
+   o XML::Parser......................ok (v2.36)
+   o HTTP::Message....................ok (v6.06)
+      o HTTP::Headers.................ok (v6.05)
+   o URI..............................ok (v1.60)
+      o URI::Escape...................ok (v3.31)
+   o Scalar::Util.....................ok (v1.23)
 </screen>
 </para>
 
