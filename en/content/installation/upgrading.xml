@@ -1,35 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: upgrading.xml,v 1.2 2012-11-05 11:53:47 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.3 2012-11-06 10:34:16 mg Exp $ -->
 
 <section id="upgrading">
 <title>Upgrading the OTRS Framework</title>
 <para>
-    These instructions are for people upgrading OTRS from version <emphasis>3.0</emphasis> to <emphasis>3.1</emphasis>, and apply both for RPM and source code (tarball) upgrades.
+    These instructions are for people upgrading OTRS from version <emphasis>3.1</emphasis> to <emphasis>3.2</emphasis>, and apply both for RPM and source code (tarball) upgrades.
 </para>
 <para>
     If you are running a lower version of OTRS you have to follow the upgrade path
-    to 3.0 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1 ...)!
+    to 3.0 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1->3.2 ...)!
 </para>
 <para>
     Please note that if you upgrade from OTRS 2.2 or earlier, you have to take an extra step;
     please read <ulink url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
 </para>
 <para>
-    Within a single minor version you can skip patch level releases if you want to upgrade. For instance you can
-    upgrade directly from OTRS 3.1.1 to version 3.1.4. If you need to do such a "patch level upgrade",
-    you should skip steps 9, 11 and 13-19.
-</para>
-<para>
-    Please note that for upgrades from 3.1.beta1 or 3.1.beta2, an additional step 21
-    is needed!
-</para>
-<para>
-    If you are using Microsoft SQL Server as the DBMS for OTRS, please refer
-    to the manual, chapter "Upgrading Microsoft SQL Server Data Types" for instructions
-    how to upgrade the data types used by OTRS
-    (<ulink url="http://doc.otrs.org/3.1/en/html/upgrading-mssql-datatypes.html">http://doc.otrs.org/3.1/en/html/upgrading-mssql-datatypes.html</ulink>).
+    Within a single minor version you can skip patch level releases if you want to
+    upgrade. For instance you can upgrade directly from OTRS 3.2.1 to version
+    3.2.4. If you need to do such a "patch level upgrade", you should skip steps
+    8, 11, 13 and 14.
 </para>
 
   <orderedlist>
@@ -114,7 +105,7 @@ shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
             Own themes
         </para>
         <para>
-            Note: The OTRS themes between 3.0 and 3.1 are NOT compatible, so don't use your old themes!
+            Note: The OTRS themes between 3.1 and 3.2 are NOT compatible, so don't use your old themes!
         </para>
         <para>
             Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs).
@@ -135,18 +126,18 @@ shell> bin/otrs.SetPermissions.pl
       </listitem>
       <listitem>
         <para>
-            Apply the database changes (part 1/2):
+            Schema update:
         </para>
         <para>
             <screen>
 shell&gt; cd /opt/otrs/
 
 # MySQL:
-shell&gt; cat scripts/DBUpdate-to-3.1.mysql.sql | mysql -p -f -u root otrs
+shell&gt; cat scripts/DBUpdate-to-3.2.mysql.sql | mysql -p -f -u root otrs
 # PostgreSQL 8.2+:
-shell&gt; cat scripts/DBUpdate-to-3.1.postgresql.sql | psql otrs
+shell&gt; cat scripts/DBUpdate-to-3.2.postgresql.sql | psql otrs
 # PostgreSQL, older versions:
-shell&gt; cat scripts/DBUpdate-to-3.1.postgresql_before_8_2.sql | psql otrs
+shell&gt; cat scripts/DBUpdate-to-3.2.postgresql_before_8_2.sql | psql otrs
             </screen>
 
             NOTE: If you use PostgreSQL 8.1 or earlier, you need to activate the new legacy driver
@@ -160,23 +151,12 @@ $Self->{DatabasePostgresqlBefore82} = 1;
             Run the migration script (as user 'otrs', NOT as root):
         </para>
         <para>
-            You must execute the migration script to migrate some data from the old database structure to the new one. Please run:
             <screen>
-shell&gt; scripts/DBUpdate-to-3.1.pl
+shell&gt; scripts/DBUpdate-to-3.2.pl
             </screen>
-        </para>
-        <para>
-            Apply the database changes (part 2/2):
-        </para>
-        <para>
-            <screen>
-# MySQL:
-shell&gt; cat scripts/DBUpdate-to-3.1-post.mysql.sql | mysql -p -f -u root otrs
-# PostgreSQL 8.2+:
-shell&gt; cat scripts/DBUpdate-to-3.1-post.postgresql.sql | psql otrs
-# PostgreSQL, older versions:
-shell&gt; cat scripts/DBUpdate-to-3.1-post.postgresql_before_8_2.sql | psql otrs
-            </screen>
+
+            Do not continue the upgrading process if this script did not work properly for you.
+            Otherwise data loss may occur.
         </para>
       </listitem>
       <listitem>
@@ -189,47 +169,6 @@ shell&gt; bin/otrs.RebuildConfig.pl
 shell&gt; bin/otrs.DeleteCache.pl
             </screen>
         </para>
-      </listitem>
-      <listitem>
-            <para>Update your web server configuration</para>
-            <para>
-            Note: this applies only if you use the Apache web server together with mod_perl2,
-            and do not use the configuration file directly from the OTRS installation directory
-            (e. g. with a symlink from the Apache configuration directory).
-            </para>
-            <para>
-            Please add a new setting to the Apache configuration file for OTRS:
-                <screen>
-# set mod_perl2 option for generic interface
-&lt;Location /otrs/nph-genericinterface.pl&gt;
-  PerlOptions -ParseHeaders
-&lt;/Location&gt;
-                </screen>
-            Please see the file /opt/otrs/scripts/apache2-httpd.include.conf for an example of
-            where this new option needs to be added (inside the &lt;IfModule mod_perl.c&gt; block).
-            </para>
-            <para>
-                In this file, you will also note a new section on caching:
-
-                <screen><![CDATA[
-<IfModule mod_headers.c>
-    <Directory "/opt/otrs/var/httpd/htdocs/skins/*/*/css-cache">
-        <FilesMatch "\.(css|CSS)$">
-            Header set Cache-Control "max-age=2592000 must-revalidate"
-        </FilesMatch>
-    </Directory>
-
-    <Directory "/opt/otrs/var/httpd/htdocs/js/js-cache">
-        <FilesMatch "\.(js|JS)$">
-            Header set Cache-Control "max-age=2592000 must-revalidate"
-        </FilesMatch>
-    </Directory>
-</IfModule>
-                ]]></screen>
-
-                Please activate this in your local installation too, and make sure that mod_headers
-                is installed and active.
-            </para>
       </listitem>
       <listitem>
         <para>
@@ -247,6 +186,18 @@ shell&gt; /etc/init.d/apache start
         </para>
       </listitem>
       <listitem>
+        <para>
+            Check 'Cache::Module' setting
+        </para>
+        <para>
+            The file cache backend 'FileRaw' was removed in favor of the faster 'FileStorable'.
+            The DBUpdate-to-3.2.pl automatically updates the config setting 'Cache::Module', but
+            you need to change it manually if you defined this setting in Kernel/Config.pm directly.
+            It needs to be changed from 'Kernel::System::Cache::FileRaw' to
+            'Kernel::System::Cache::FileStorable'.
+        </para>
+      </listitem>
+      <listitem>
         <para>Check installed packages</para>
         <para>
             In the package manager, check if all packages are still marked as
@@ -255,115 +206,93 @@ shell&gt; /etc/init.d/apache start
       </listitem>
       <listitem>
         <para>
-            Check for encoding issues
+            Cleanup metadata of archived tickets
         </para>
         <para>
-            OTRS 3.1 only allows UTF-8 as internal charset.
-            Non-UTF-8 installations of OTRS must switch to UTF-8.
-        </para>
-      </listitem>
-      <listitem>
-        <para>Escalation events</para>
-        <para>
-            If you want to use the new escalation events in your system, you need to activate the
-            corresponding GenericAgent job in Kernel/Config/GenericAgent.pm. Please look into
-            Kernel/Config/GenericAgent.pm.dist for an example of how to do this.
-        </para>
-      </listitem>
-      <listitem>
-        <para>Ticket event handlers</para>
-        <para>
-            The Event name TicketFreeTextUpdate_$Counter was renamed to TicketDynamicFieldUpdate_$FieldName.
-            If you have any custom event handlers for these events, please adapt them.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-            DynamicField user preferences module
+            Note: This step only applies if you use the ticket archiving feature of OTRS.
         </para>
         <para>
-            If you had one or more active custom settings for "PreferencesGroups###Freetext",
-            you need to adapt them to work with the new DynamicFields engine. The PrefKey
-            setting must be changed to "UserDynamicField_DynamicField", where the part after
-            the _ is the name of the dynamic field. Existing values would need to be renamed
-            in the database as well.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-            Custom free field default value event handler
+            With OTRS 3.2, when tickets are archived, the information which agent read the
+            ticket and articles can be removed, as well as the ticket subscriptions of agents.
+            This is active by default and helps reduce the amount of data in the database on
+            large systems with many tickets and agents.
         </para>
         <para>
-            If you used the event handler Ticket::EventModulePost###TicketFreeFieldDefault (not active by default),
-            you'll need to migrate its configuration to the new setting Ticket::EventModulePost###TicketDynamicFieldDefault.
-        </para>
-        <para>
-            The configuration of this is slightly different; where you had to specify a Counter indicating the TicketFreeText
-            number previously, now you need to specify the name of the DynamicField (for migrated fields, this will be
-            DynamicField_TicketFreeKey$Counter and DynamicField_TicketFreeText$Counter. You need two separate entries now
-            if you want to set both the key and the text field.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-            ACL changes
-        </para>
-        <para>
-            If you have any ACLs defined which involve freetext or freetime fields, you need to adjust these
-            ACL definitions.
-        </para>
-        <para>
-            Please have a look at <ulink url="http://doc.otrs.org/3.1/en/html/acl.html">http://doc.otrs.org/3.1/en/html/acl.html</ulink>.
-            There you can find a list of all possible ACL
-            settings. In general, you need to add the prefix "DynamicField_" to existing free field definitions, and you
-            can add a new "DynamicField" section to the "Properties" list for situations when a ticket does not exist yet.
-        </para>
-        <para>
-            Please also note that since OTRS 3.1.5, it is possible to match either the values of an existing ticket as
-            it is on the database (new setting "PropertiesDatabase"), in addition to the existing match against the current
-            values of the form. Details can be found at http://doc.otrs.org/3.1/en/html/acl.html.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-            SMIME file names
-        </para>
-        <para>
-            This step is ONLY needed if you use SMIME to encrypt/sign your emails. You need to take this
-            step if you upgrade from 3.0.x OR if you upgrade from 3.1.x before 3.1.6 while using OpenSSL 1.x
-            to encrypt/sign your emails.
-        </para>
-        <para>
-            Between OTRS 3.0.x and 3.1.x, the file naming of private secret file names changed and need to
-            be updated. In addition, OpenSSL 0.9.x and 1.x use different algorithms to calculate the
-            certificate hash. To update your private secrets and certificate file names, please run this
-            command:
+            If you also want to cleanup this information for existing archived tickets,
+            please run this script:
+
             <screen>
-shell&gt; bin/otrs.RefreshSMIMEKeys.pl
+shell> bin/otrs.CleanupTicketMetadata.pl --archived
+            </screen>
+
+            If you want to KEEP this information instead, please set these
+            SysConfig settings to "No":
+            <screen>
+Ticket::ArchiveSystem::RemoveSeenFlags
+Ticket::ArchiveSystem::RemoveTicketWatchers
             </screen>
         </para>
-        <para>
-            This step must also be taken if you change a running installation from OpenSSL 0.9 to 1.x.
-        </para>
       </listitem>
       <listitem>
+        <para>Review (Modify) ACLs for Dynamic Fields</para>
         <para>
-            Database Upgrade During Beta Phase
+            Note: This step only applies if you use ACLs to limit Dynamic Fields Dropdown or Multiselect
+            possible values.
         </para>
         <para>
-            This step is ONLY needed if you upgrade from 3.1.beta1 or 3.1.beta2!
-            Please apply the required database changes as follows:
+            Now in OTRS 3.2 the Possible and PossibleNot ACL sections for Dynamic Fields Dropdown and
+            Multiselect must refer to the key (internal values) rather than the value (shown values).
         </para>
         <para>
+            Example:
+
             <screen>
-MySQL:
- shell> cat scripts/DBUpdate-3.1.beta.mysql.sql | mysql -p -f -u root otrs
+For the defined field "Dropdown1"  with possible values:
+1 => 'A',
+2 => 'B',
+3 => 'C',
 
-PostgreSQL 8.2+:
- shell> cat scripts/DBUpdate-3.1.beta.postgresql.sql | psql otrs
+ACLs prior OTRS 3.2 should look like:
 
-PostgreSQL, older versions:
- shell> cat scripts/DBUpdate-3.1.beta.postgresql_before_8_2.sql | psql otrs
+$Self->{TicketAcl}->{'Limit Dropdown1 entries'} = {
+   Properties => {},
+   Possible => {
+       Ticket => {
+           # White list entries with VALUES containing 'B' and 'C'
+           DynamicField_Dropdown1 => [ 'B', 'C' ],
+       },
+   },
+};
+
+ACLs must be modified to:
+
+$Self->{TicketAcl}->{'Limit Dropdown1 entries'} = {
+   Properties => {},
+   Possible => {
+       Ticket => {
+           # White list entries with VALUES containing 'B' and 'C' (now using KEYS)
+           DynamicField_Dropdown1 => [ '2', '3' ],
+       },
+   },
+};
+
+By doing this change ACLs will look much more consistent, since Possible and PossibleDatabase
+sections already use Keys instead of Values, please look at the following example:
+
+$Self->{TicketAcl}->{'Limit Dropdown1 entries based in Dropdown2'} = {
+    Properties => {
+        Ticket => {
+            # Match on the DeopDown2 KEY '1'
+            DynamicField_Dwondown2 => ['1'],
+        },
+    },
+    Possible => {
+        Ticket => {
+            # White list Dropdown1 entries with VALUES containing 'B' and 'C' (now using KEYS)
+            DynamicField_Dropdown1 => ['1', '2'],
+        },
+    },
+};
             </screen>
         </para>
       </listitem>
