@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: installation-and-basic-configuration.xml,v 1.1 2012-11-07 08:47:27 mg Exp $ -->
+<chapter id="installation">
+<title>Установка</title>
+
+<abstract>
+<para>
+В этой главе описывается установка и базовая конфигурация главного
+OTRS-фреймворка. Здесь вы найдете информацию об установке OTRS из исходных
+кодов или из бинарных пакетов, например RPM, или с помощью
+Windows-инсталлятора.
+</para>
+
+<para>
+В этой главе рассматриваются такие вопросы как: конфигурация веб-сервера и
+сервера базы данных, интефейса между OTRS и базой данных, установка
+дополнительных Perl-модулей, установка соответствующих прав доступа для
+OTRS, настройка планировщика задач cron jobs для OTRS и основных параметров
+в конфигурационных файлах.
+</para>
+
+<para>
+Следуйте подробным шагам этой главы чтобы установить OTRS на своем
+сервере. Потом можно использовать его веб-интерфейс чтобы войти в систему и
+производить администрирование.
+</para>
+</abstract>
+
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="installation/packages.xml" />
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="installation/source.xml" />
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="installation/upgrading.xml" />
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="installation/upgrading-windows.xml" />
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="installation/applications.xml" />
+
+
+
+
+
+
+
+</chapter>

@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: packages.xml,v 1.1 2012-11-07 08:47:26 mg Exp $ -->
+<section id="installation-of-prepared-packages">
+<title>Der einfache Weg - Installation fertiger Pakete</title>
+
+<para>
+Der einfachste und komfortableste Weg ein lauffähiges OTRS zu installieren
+ist sicherlich, auf bereits vorgefertigte Pakete zurück zu greifen. Viele
+bereits vorgefertigte Installations-Pakete sind im Download-Bereich unter
+<ulink
+url="http://www.otrs.org"><citetitle>http://www.otrs.org</citetitle></ulink>
+zu finden. Da der Aufwand viel zu groß wäre, die Installation aller dort
+aufgeführten Pakete in dieser Dokumentation anzuführen, soll im Folgenden
+nur näher auf die Installation von OTRS unter SUSE Linux, Debian und
+Microsoft Windows eingegangen werden. Sehen Sie unter der o.g. URL nach, ob
+auch für Ihr Betriebssystem ein fertiges Installations-Paket vorhanden ist
+und greifen Sie nur auf die manuelle Installation zurück, wenn Sie keine
+andere Möglichkeit haben.
+</para>
+
+<section id="installation-on-suse">
+<title>Installation des RPM auf einem SuSE-Linux-Server</title>
+
+<para>
+This section demonstrates the installation of a pre-built RPM package on a
+SUSE Linux distro. We have tested against all recent SLES and openSUSE
+versions. Before you start the installation, please have a look at <ulink
+url="http://www.otrs.org/downloads">
+<citetitle>http://www.otrs.org/downloads</citetitle> </ulink> and check if a
+newer OTRS RPM package is available. Always use the latest RPM package.
+</para>
+
+<para>
+Installieren Sie OTRS mittels <application>yast</application> (yast2) oder
+der Kommandozeile und <command>rpm</command>, je nach Vorliebe. Beachten Sie
+jedoch, dass OTRS einige Perl-Module benötigt, die nicht standardmäßig in
+einer typischen SUSE-Installation enthalten
+sind. <application>yast</application> sollte die bessere Wahl sein, da es
+alle Abhängikeiten automatisch beachtet und auflösen kann.
+</para>
+
+<para>
+Sollten Sie den Weg über die Kommandozeile mit <command>rpm</command>
+bevorzugen, so müssen Sie die Perl-Module manuell vor Beginn der
+Installation von OTRS installieren. Angenommen Sie haben die Datei
+<filename>otrs.rpm</filename> im Verzeichnis <filename>/tmp</filename>
+gespeichert, dann geben Sie zur Installation von OTRS folgenden Befehl ein.
+</para>
+
+<para>
+<screen>
+linux:~ # rpm -i /tmp/otrs-xxx.rpm
+otrs                        ##################################################
+Check OTRS user (/etc/passwd)... otrs exists.
+
+Next steps:
+
+[SuSEconfig]
+ Execute 'SuSEconfig' to configure the web server.
+
+[start Apache and MySQL]
+ Execute 'rcapache restart' and 'rcmysql start' in case they don't run.
+
+[install the OTRS database]
+ Use a web browser and open this link:
+ http://localhost/otrs/installer.pl
+
+[OTRS services]
+ Start OTRS 'rcotrs start-force' (rcotrs {start|stop|status|restart|start-force|stop-force}).
+
+Have fun!
+
+ Your OTRS Team
+ http://otrs.org/
+
+linux:~ #
+</screen>
+</para>
+
+<para>
+<emphasis>Skript: Kommando für die Installation von OTRS.</emphasis>
+</para>
+
+<para>
+Nach der Installation des rpm's ist es notwendig,
+<application>SuSEconfig</application> zu starten. Geben Sie hierzu Folgendes
+ein.
+</para>
+
+<para>
+<screen>
+linux:~ # SuSEconfig
+Starting SuSEconfig, the SuSE Configuration Tool...
+Running in full featured mode.
+Reading /etc/sysconfig and updating the system...
+Executing /sbin/conf.d/SuSEconfig.aaa_at_first...
+Executing /sbin/conf.d/SuSEconfig.apache...
+Including /opt/otrs/scripts/apache-httpd.include.conf
+Executing /sbin/conf.d/SuSEconfig.bootsplash...
+Executing /sbin/conf.d/SuSEconfig.doublecheck...
+Executing /sbin/conf.d/SuSEconfig.guile...
+Executing /sbin/conf.d/SuSEconfig.hostname...
+Executing /sbin/conf.d/SuSEconfig.ispell...
+Executing /sbin/conf.d/SuSEconfig.perl...
+Executing /sbin/conf.d/SuSEconfig.permissions...
+Executing /sbin/conf.d/SuSEconfig.postfix...
+Setting up postfix local as MDA...
+Setting SPAM protection to "off"...
+Executing /sbin/conf.d/SuSEconfig.profiles...
+Finished.
+linux:~ #
+</screen>
+</para>
+
+<para>
+<emphasis>Skript: Ausführung des Kommandos SuSEconfig.</emphasis>
+</para>
+
+<para>
+Die Installation von OTRS ist abgeschlossen. Starten Sie nun Ihren Webserver
+neu, um die Änderungen in der Konfiguration zu übernehmen, wie im Skript
+unten gezeigt.
+</para>
+
+<para>
+<screen>
+linux:~ # rcapache restart
+Shutting down httpd                                         done
+Starting httpd [ PERL ]                                     done
+linux:~ #
+</screen>
+</para>
+
+<para>
+<emphasis>Skript: Neustart des Webservers.</emphasis>
+</para>
+
+<para>
+Der nächste Schritt ist das Aufsetzen der Datenbank wie in <link
+linkend="database-configuration"> dem Abschnitt über die
+Datenbankkonfiguration  </link> beschrieben.
+</para>
+
+</section>
+
+<section id="installation-on-centos">
+<title>Installation von OTRS auf einem CentOS-System</title>
+
+<para>
+On the OTRS Wiki you can find detailed instructions for setting up OTRS on a
+CentOS system. Please note that these instructions will also apply to Red
+Hat Linux systems since they use the same source: <ulink
+url="http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5">
+http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5
+</ulink> .
+</para>
+
+</section>
+
+<section id="installation-on-debian">
+<title>Installation von OTRS auf einem Debian-System</title>
+
+<para>
+Im OTRS-Wiki finden Sie detaillierte Anweisungen für die Installation unter
+Debian: <ulink
+url="http://wiki.otrs.org/index.php?title=Installation_on_Debian_5.04_lenny">
+http://wiki.otrs.org/index.php?title=Installation_on_Debian_5.04_lenny
+</ulink>.
+</para>
+
+</section>
+
+<section id="installation-on-ubuntu">
+<title>Installation von OTRS auf einem Ubuntu-System</title>
+
+<para>
+Im OTRS-Wiki finden Sie detaillierte Anweisungen für die Installation unter
+Ubuntu: <ulink
+url="http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)">
+http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)
+</ulink>.
+</para>
+
+</section>
+
+<section id="installation-on-windows">
+<title>Installation von OTRS auf Microsoft Windows-Systemen</title>
+
+<para>
+Die Installation von OTRS unter Microsoft Windows ist denkbar einfach. Laden
+Sie den auf <ulink
+url="http://www.otrs.org/downloads/"><citetitle>http://www.otrs.org/downloads/</citetitle></ulink>
+bereit gestellten Installer herunter und speichern Sie die
+Datei. Anschließend führen Sie den Installer einfach aus und folgen den
+einzelnen Installationsschritten. Danach können Sie sich als
+OTRS-Administrator am System anmelden und dieses weiter konfigurieren. Um
+sich als Administrator anzumelden, verwenden Sie den Benutzernamen
+'root@localhost' und das voreingestellte Passwort 'root'.
+</para>
+
+<warning>
+<para>
+Bitte ändern Sie das Passwort für den Benutzer 'root@localhost' umgehend.
+</para>
+</warning>
+
+<important>
+<para>
+Der Windows-Installer für OTRS beinhaltet bereits alle Komponenten, die für
+den Betrieb von OTRS benötigt werden. D.h., es wird zusätzlich zum
+eigentlichen OTRS der <application>apache2</application> Webserver,
+<application>MySQL</application>, <application>Perl</application> mit den
+für OTRS benötigten Modulen und<application>cron</application> für Windows
+installiert. Aus diesem Grund ist es empfehlenswert OTRS über den Installer
+nur auf solchen Windowssystemen zu installieren, auf denen noch kein
+<application>apache2</application> bzw. ein anderer Webserver und kein
+<application>MySQL</application> läuft.
+</para>
+</important>
+
+</section>
+
+</section>

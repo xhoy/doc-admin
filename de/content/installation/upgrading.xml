@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: upgrading.xml,v 1.1 2012-11-07 08:47:26 mg Exp $ -->
+<section id="upgrading">
+<title>Upgrade des OTRS Frameworks</title>
+<para>
+    These instructions are for people upgrading OTRS from version
+<emphasis>3.1</emphasis> to <emphasis>3.2</emphasis>, and apply both for RPM
+and source code (tarball) upgrades.
+</para>
+<para>
+    If you are running a lower version of OTRS you have to follow the upgrade
+path to 3.0 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1->3.2
+...)!
+</para>
+<para>
+    Please note that if you upgrade from OTRS 2.2 or earlier, you have to take
+an extra step; please read <ulink
+url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
+</para>
+<para>
+    Within a single minor version you can skip patch level releases if you want
+to upgrade. For instance you can upgrade directly from OTRS 3.2.1 to version
+3.2.4. If you need to do such a "patch level upgrade", you should skip steps
+8, 11, 13 and 14.
+</para>
+
+  <orderedlist>
+      <listitem>
+        <para>
+            Stoppen Sie alle relevanten Dienste.
+        </para>
+        <para>
+            z. B. (hängt von eingesetzten Diensten ab): <screen>
+shell&gt; /etc/init.d/cron stop
+shell&gt; /etc/init.d/postfix stop
+shell&gt; /etc/init.d/apache stop
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Sichern Sie folgende Daten in $OTRS_HOME (Standard: OTRS_HOME=/opt/otrs):
+            <itemizedlist>
+                <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
+                <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
+                <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
+                <listitem><para><filename>var/*</filename></para></listitem>
+                <listitem><para><filename>und die Datenbank</filename></para></listitem>
+            </itemizedlist>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Make sure that you have backed up everything ;-)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Setup new system (optional)
+        </para>
+        <para>
+            Neues System aufsetzen (optional). Wenn möglich, installieren Sie zunächst
+auf einer separaten Testmaschine.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Installieren Sie das neue Release (tar oder RPM).
+        </para>
+         <itemizedlist>
+          <listitem>
+            <para>
+                Mit dem Tarball:
+            </para>
+            <para>
+                <screen>
+shell&gt; cd /opt
+shell&gt; tar -xzf otrs-x.x.x.tar.gz
+shell&gt; ln -s otrs-x.x.x otrs
+                </screen>
+            </para>
+            <para>
+                Alte Configdateien wiederherstellen.
+                <itemizedlist>
+                    <listitem><para><filename>Kernel/Config.pm</filename></para></listitem>
+                    <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
+                    <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
+                </itemizedlist>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+                Per RPM: <screen>
+shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
+                </screen>
+            </para>
+            <para>
+                In diesem Fall stellt das RPM-Update die alten Konfigurationsdateien
+automatisch wieder her.
+            </para>
+          </listitem>
+         </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>
+            Eigene Themes
+        </para>
+        <para>
+            Note: The OTRS themes between 3.1 and 3.2 are NOT compatible, so don't use
+your old themes!
+        </para>
+        <para>
+            Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default:
+OTRS_HOME=/opt/otrs).
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Setzen Sie die Datei-Berechtigungen.
+        </para>
+        <para>
+            wenn der Tarball benutzt wird, führen Sie <screen>
+shell> cd /opt/otrs/
+shell> bin/otrs.SetPermissions.pl
+            </screen> aus, um die Berechtigungen zu setzen, die für Ihr System benötigt
+werden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Schema update:
+        </para>
+        <para>
+            <screen>
+shell&gt; cd /opt/otrs/
+
+# MySQL:
+shell&gt; cat scripts/DBUpdate-to-3.2.mysql.sql | mysql -p -f -u root otrs
+# PostgreSQL 8.2+:
+shell&gt; cat scripts/DBUpdate-to-3.2.postgresql.sql | psql otrs
+# PostgreSQL, older versions:
+shell&gt; cat scripts/DBUpdate-to-3.2.postgresql_before_8_2.sql | psql otrs
+            </screen> NOTE: If you use PostgreSQL 8.1 or
+earlier, you need to activate the new legacy driver for these older
+versions. Do this by adding a new line to your
+<filename>Kernel/Config.pm</filename> like this: <screen>
+$Self->{DatabasePostgresqlBefore82} = 1;
+            </screen>
+        </para>
+        <para>
+            Führen Sie das Migrationsskript aus (als OTRS-Benutzer, nicht als root!):
+        </para>
+        <para>
+            <screen>
+shell&gt; scripts/DBUpdate-to-3.2.pl
+            </screen> Do not continue the upgrading process if
+this script did not work properly for you.  Otherwise data loss may occur.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+Systemkonfiguration aktualisieren und Caches löschen. Bitte führen Sie aus:
+        </para>
+        <para>
+            <screen>
+shell&gt; bin/otrs.RebuildConfig.pl
+shell&gt; bin/otrs.DeleteCache.pl
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Starten Sie Ihre Dienste neu.
+        </para>
+        <para>
+            e. g. (depends on used services): <screen>
+shell&gt; /etc/init.d/cron stop
+shell&gt; /etc/init.d/postfix stop
+shell&gt; /etc/init.d/apache stop
+</screen> Now
+you can log into your system.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Check 'Cache::Module' setting
+        </para>
+        <para>
+            The file cache backend 'FileRaw' was removed in favor of the faster
+'FileStorable'.  The DBUpdate-to-3.2.pl automatically updates the config
+setting 'Cache::Module', but you need to change it manually if you defined
+this setting in Kernel/Config.pm directly.  It needs to be changed from
+'Kernel::System::Cache::FileRaw' to 'Kernel::System::Cache::FileStorable'.
+        </para>
+      </listitem>
+      <listitem>
+        <para>Installierte Pakete überprüfen</para>
+        <para>
+            Prüfen Sie im Paketmanager, ob alle Pakete noch als korrekt installiert
+markiert sind oder eine Re-Installation oder ein Upgrade benötigen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Cleanup metadata of archived tickets
+        </para>
+        <para>
+            Note: This step only applies if you use the ticket archiving feature of
+OTRS.
+        </para>
+        <para>
+            With OTRS 3.2, when tickets are archived, the information which agent read
+the ticket and articles can be removed, as well as the ticket subscriptions
+of agents.  This is active by default and helps reduce the amount of data in
+the database on large systems with many tickets and agents.
+        </para>
+        <para>
+            If you also want to cleanup this information for existing archived tickets,
+please run this script: <screen>
+shell> bin/otrs.CleanupTicketMetadata.pl --archived
+            </screen> If you want to
+KEEP this information instead, please set these SysConfig settings to "No":
+<screen>
+Ticket::ArchiveSystem::RemoveSeenFlags
+Ticket::ArchiveSystem::RemoveTicketWatchers
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>Review (Modify) ACLs for Dynamic Fields</para>
+        <para>
+            Note: This step only applies if you use ACLs to limit Dynamic Fields
+Dropdown or Multiselect possible values.
+        </para>
+        <para>
+            Now in OTRS 3.2 the Possible and PossibleNot ACL sections for Dynamic Fields
+Dropdown and Multiselect must refer to the key (internal values) rather than
+the value (shown values).
+        </para>
+        <para>
+            Example: <screen>
+For the defined field "Dropdown1"  with possible values:
+1 => 'A',
+2 => 'B',
+3 => 'C',
+
+ACLs prior OTRS 3.2 should look like:
+
+$Self->{TicketAcl}->{'Limit Dropdown1 entries'} = {
+   Properties => {},
+   Possible => {
+       Ticket => {
+           # White list entries with VALUES containing 'B' and 'C'
+           DynamicField_Dropdown1 => [ 'B', 'C' ],
+       },
+   },
+};
+
+ACLs must be modified to:
+
+$Self->{TicketAcl}->{'Limit Dropdown1 entries'} = {
+   Properties => {},
+   Possible => {
+       Ticket => {
+           # White list entries with VALUES containing 'B' and 'C' (now using KEYS)
+           DynamicField_Dropdown1 => [ '2', '3' ],
+       },
+   },
+};
+
+By doing this change ACLs will look much more consistent, since Possible and PossibleDatabase
+sections already use Keys instead of Values, please look at the following example:
+
+$Self->{TicketAcl}->{'Limit Dropdown1 entries based in Dropdown2'} = {
+    Properties => {
+        Ticket => {
+            # Match on the DeopDown2 KEY '1'
+            DynamicField_Dwondown2 => ['1'],
+        },
+    },
+    Possible => {
+        Ticket => {
+            # White list Dropdown1 entries with VALUES containing 'B' and 'C' (now using KEYS)
+            DynamicField_Dropdown1 => ['1', '2'],
+        },
+    },
+};
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>Gut gemacht!</para>
+      </listitem>
+  </orderedlist>
+</section>

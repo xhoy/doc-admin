@@ -3,15 +3,15 @@
 					"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: book.xml,v 1.66 2012-04-17 11:33:03 mg Exp $ -->
+<!-- $Id: book.xml,v 1.67 2012-11-07 08:47:26 mg Exp $ -->
 <book lang="de">
 	<bookinfo>
-		<title>OTRS 3.1 - Administrator-Handbuch</title>
+		<title>OTRS 3.2 - Admin Manual</title>
 
 		<!--		<edition>
 Cancún Beach (México)</edition> -->
 <copyright> <year>2003-2012</year> <holder>OTRS AG</holder> </copyright>
-<date>2012-02-14</date>
+<date>2012-08-07</date>
 
 		<legalnotice>
 			<para>
@@ -65,34 +65,53 @@ Herstellers sein.
 		</legalnotice>
 	</bookinfo>
 
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="preface.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="tts.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="otrs.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="installation-and-basic-configuration.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="first-steps.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adminarea.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="configuration.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="email.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="time.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="monitoring-tickets.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pdf-output.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="external-backends.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="states.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="priorities.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="themes.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="language-translation.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pgp.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="smime.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="acl.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="stats.xml" />
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="genericinterface.xml" />
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scheduler.xml" />
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="dynamicfields.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applications.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="performance-tuning.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="backup-and-restore.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="additional-resources.xml" />
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/preface.xml" />
+    <chapter id="introduction">
+        <title>Introduction</title>
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/introduction/tts.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/introduction/otrs.xml" />
+    </chapter>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/installation-and-basic-configuration.xml" />
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/first-steps.xml" />
+    <chapter id="administration">
+        <title>Administration</title>
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/adminarea.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/configuration.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/backup-and-restore.xml" />
+
+        <section id="email-settings">
+            <title>Email settings</title>
+        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/email.xml" />
+        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/pgp.xml" />
+        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/smime.xml" />
+        </section>
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/external-backends.xml" />
+        <section id="ticket-settings">
+            <title>Ticket settings</title>
+        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/states.xml" />
+        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/priorities.xml" />
+        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/monitoring-tickets.xml" />
+        </section>
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/time.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/pdf-output.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/stats.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/dynamicfields.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/genericinterface.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/scheduler.xml" />
+    </chapter>
+
+    <chapter id="customization">
+        <title>Customization</title>
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/acl.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/process-management.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/themes.xml" />
+    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/language-translation.xml" />
+    </chapter>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/performance-tuning.xml" />
+
+	<!-- appendices -->
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/additional-resources.xml" />
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="all-config-parameters.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="credits.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fdl.xml" />
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/credits.xml" />
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/fdl.xml" />
 </book>

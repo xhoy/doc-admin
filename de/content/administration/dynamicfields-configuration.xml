@@ -1,0 +1,1344 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: dynamicfields-configuration.xml,v 1.1 2012-11-07 08:47:26 mg Exp $ -->
+<section id="dynamicfields-configuration">
+    <title>Configuration</title>
+    <para>
+        By default, a clean installation of OTRS does not include any dynamic
+fields. If you plan to use such fields in tickets or articles you need to
+create dynamic fields.
+    </para>
+    <para>
+        The configuration of a dynamic field is split in two parts, to add a new
+dynamic field or manage an existing one you need to navigate into the
+"Admin" panel in the "Dynamic Fields" link. To show, show as mandatory or
+hide a dynamic field in one screen you need to change the OTRS settings in
+the "SysConfig" screen.
+    </para>
+
+    <section id="dynamicfields-configuration-add">
+        <title>Adding a Dynamic Field</title>
+        <para>
+            Click in the "Admin" button located in the navigation bar, then click on the
+"Dynamic Field" link inside "Ticket Settings" box located in the lower
+center of the screen.  The dynamic fields overview will display as follows:
+        </para>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic fields overview screen, empty</screeninfo> <graphic srccredit="Adminarea
+dynamicfields - screenshot" scale="40"
+fileref="screenshots/dynamicfields-overview-empty.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic fields overview screen, empty.</emphasis>
+        </para>
+        <para>
+            Notice that this screen will change as you add more dynamic fields to list
+all created dynamic fields. This screen might already have some fields if
+the installation was updated from an older version of OTRS.
+        </para>
+        <para>
+            The Actions in the side bar at the left of the screen describes two
+possibilities: Article and Ticket, each one has it's own dropdown selection
+of dynamic fields.
+        </para>
+        <note>
+            <para>
+                The installation of an OTRS package could add more objects to the Action
+side bar.
+            </para>
+        </note>
+        <itemizedlist>
+            <para>
+                The general procedure to create a dynamic field is:
+            </para>
+            <listitem>
+                <para>
+                    Click on the desired dynamic field object dropdown in the Action side bar.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Click on the dynamic field type that you want to add from the list.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Fill the configuration.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Save.
+                </para>
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            The configuration dialogs for the dynamic fields are split in two parts, the
+upper section is common among all the fields and the lower part might be
+different from one type of dynamic field to another.
+        </para>
+
+        <itemizedlist>
+            <para>
+                General dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Name: Mandatory, unique, only letters and numbers are allowed.
+                </para>
+                <para>
+                    This is the internal name of the field, used for example to show or hide a
+field in one screen. Any modification on field name (not recommended) will
+need manual a update on the "SysConfig" settings where the field is
+referenciated.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Label: Mandatory.
+                </para>
+                <para>
+                    This is field name to be displayed in the screens, it supports translations.
+                </para>
+                <note>
+                    <para>
+                        Label translations have to be added manually to language translations files.
+                    </para>
+                </note>
+            </listitem>
+            <listitem>
+                <para>
+                    Field order: Mandatory.
+                </para>
+                <para>
+                    Defines the relative order in which the field will be displayed in the
+screen, by default each new field has the last position, a change in this
+setting will affect the other of the other created dynamic fields.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Validity: Mandatory.
+                </para>
+                <para>
+                    An invalid dynamic field will not be displayed in any screen, no matter if
+is configured to displayed.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Field type: Mandatory, Read only.
+                </para>
+                <para>
+                    Shows the current selected field type.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Object type: Mandatory, Read only.
+                </para>
+                <para>
+                    Shows the scope of field.
+                </para>
+            </listitem>
+        </itemizedlist>
+
+        <note>
+            <para>
+                To illustrate each specific field type settings a few fields will be added
+in our example. These new fields will be referenciated in later sections.
+            </para>
+            <para>
+                For the following examples all the dynamic fields will be created for the
+Ticket object if you need to create a dynamic field for Article object, just
+choose the field from the Article dropdown list.
+            </para>
+        </note>
+
+        <table>
+            <title>The following fields will be added into the system:</title>
+            <thead>
+                 <tr>
+                     <td>Name</td>
+                     <td>Label</td>
+                     <td>Type</td>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td>Field1</td>
+                     <td>My Field 1</td>
+                     <td>Text</td>
+                 </tr>
+                 <tr>
+                     <td>Field2</td>
+                     <td>My Field 2</td>
+                     <td>Textarea</td>
+                 </tr>
+                 <tr>
+                     <td>Field3</td>
+                     <td>My Field 3</td>
+                     <td>Checkbox</td>
+                 </tr>
+                 <tr>
+                     <td>Field4</td>
+                     <td>My Field 4</td>
+                     <td>Dropdown</td>
+                 </tr>
+                 <tr>
+                     <td>Field5</td>
+                     <td>My Field 5</td>
+                     <td>Multiselect</td>
+                 </tr>
+                 <tr>
+                     <td>Field6</td>
+                     <td>My Field 5</td>
+                     <td>Date</td>
+                 </tr>
+                 <tr>
+                     <td>Field7</td>
+                     <td>My Field 6</td>
+                     <td>Date / Time</td>
+                 </tr>
+             </tbody>
+        </table>
+    </section>
+
+    <section id="dynamicfields-configuration-text">
+        <title>Text Dynamic Field Configuration</title>
+        <para>
+            Text dynamic field is used to store a single line string.
+        </para>
+        <itemizedlist>
+            <para>
+                Text dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Default value: Optional.
+                </para>
+                <para>
+                    This is the value to be shown by default in the edit screens (like New Phone
+Ticket or Ticket Compose).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Show link: Optional.
+                </para>
+                <para>
+                    If set, the field value will be converted into a clickable link for display
+screens (like ticket zoom or overviews).
+                </para>
+                <para>
+                    For example, if "Show link" is set to "http://www.otrs.com", clicking on the
+filled value will make your browser to open the OTRS web page.
+                </para>
+                <note>
+                    <para>
+                        The use of $LQData{"NameX"} in the Set link value, where NameX is the name
+of the field will add the field value as part of the link reference.
+                    </para>
+                </note>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Text configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-text.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Text configuration dialog.</emphasis>
+        </para>
+    </section>
+
+    <section id="dynamicfields-configuration-textarea">
+        <title>Textarea Dynamic Field Configuration</title>
+        <para>
+            Textarea dynamic field is used to store a multiple line string.
+        </para>
+        <itemizedlist>
+            <para>
+                Textarea dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Number of rows: Optional, integer.
+                </para>
+                <para>
+                    Used to define the height of the field in the edit screens (like New Phone
+Ticket or Ticket Compose).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Number of cols: Optional, Integer.
+                </para>
+                <para>
+                    This is value is used to define the width of the field in the edit screens.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Default value: Optional.
+                </para>
+                <para>
+                    This is the value to be shown by default in the edit screens (it can be a
+multiple line text).
+                </para>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Textarea configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-textarea.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Textarea configuration dialog.</emphasis>
+        </para>
+    </section>
+
+    <section id="dynamicfields-configuration-checkbox">
+        <title>Checkbox Dynamic Field Configuration</title>
+        <para>
+            Checkbox dynamic field is used to store true or false value, represented by
+a checked or unchecked check box.
+        </para>
+        <itemizedlist>
+            <para>
+                Checkbox dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Default value: Mandatory.
+                </para>
+                <para>
+                    This is the value to be shown by default in the edit screens (like New Phone
+Ticket or Ticket Compose), the default value for this field is closed
+selection that can be Checked or Unchecked.
+                </para>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Checkbox configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-checkbox.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Checkbox configuration dialog.</emphasis>
+        </para>
+
+    </section>
+
+    <section id="dynamicfields-configuration-dropdown">
+        <title>Dropdown Dynamic Field Configuration</title>
+        <para>
+            Dropdown dynamic field is used to store a single value, from a closed list.
+        </para>
+        <itemizedlist>
+            <para>
+                Dropdown dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Possible values: Mandatory.
+                </para>
+                <para>
+                    List of values to choose. when add a new value is necessary to specify the
+Key (internal value) and the Value (display value).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Default value: Optional.
+                </para>
+                <para>
+                    This is the value to be show by default in the edit screens (like New Phone
+Ticket or Ticket Compose), the default value for this field is closed
+selection defined by the Possible values.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Add empty value: Mandatory, (Yes / No).
+                </para>
+                <para>
+                    If this option is activated an extra value is defined to show a "-" in the
+list of possible values, this special value is empty internally.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Translatable values: Mandatory, (Yes / No).
+                </para>
+                <para>
+                    This setting is used mark the possible values of this field to be
+translated.  Only the display values are translated, internal values are not
+affected, the translation of the values needs to be manually added to the
+language files.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Show link: Optional.
+                </para>
+                <para>
+                    If set, the field value will be converted into a clickable HTP link for
+display screens (like Zoom or overviews).
+                </para>
+                <para>
+                    For example, if Show link is set to "http://www.otrs.com", clicking on the
+filed value will make your browser to open the OTRS web page.
+                </para>
+                <note>
+                    <para>
+                        The use of $LQData{"NameX"} in the Set link value, where NameX is the name
+of the field will add the field value as part of the link reference.
+                    </para>
+                </note>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Dropdown configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-dropdown.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Dropdown configuration dialog.</emphasis>
+        </para>
+    </section>
+
+    <section id="dynamicfields-configuration-multiselect">
+        <title>Multiselect Dynamic Field Configuration</title>
+        <para>
+            Multiselect dynamic field is used to store a multiple values, from a closed
+list.
+        </para>
+        <itemizedlist>
+            <para>
+                Multiselect dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Possible values: Mandatory.
+                </para>
+                <para>
+                    List of values to choose. when add a new value is necessary to specify the
+Key (internal value) and the Value (display value).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Default value: Optional.
+                </para>
+                <para>
+                    This is the value to be show by default in the edit screens (like New Phone
+Ticket or Ticket Compose), the default value for this field is closed
+selection defined by the Possible values.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Add empty value: Mandatory, (Yes / No).
+                </para>
+                <para>
+                    If this option is activated an extra value is defined to show a "-" in the
+list of possible values, this special value is empty internally.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Translatable values: Mandatory, (Yes / No).
+                </para>
+                <para>
+                    This setting is used mark the possible values of this field to be
+translated.  Only the display values are translated, internal values are not
+affected, the translation of the values needs to be manually added to the
+language files.
+                </para>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Multiselect configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-multiselect.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Multiselect configuration dialog.</emphasis>
+        </para>
+    </section>
+
+    <section id="dynamicfields-configuration-date">
+        <title>Date Dynamic Field Configuration</title>
+        <para>
+            Date dynamic field is used to store a date value (Day, Month and Year).
+        </para>
+        <itemizedlist>
+            <para>
+                Date dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Default date difference: Optional, Integer.
+                </para>
+                <para>
+                    Number of seconds (positive or negative) between the current date and the
+selected date to be show by default in the edit screens (like New Phone
+Ticket or Ticket Compose).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Define years period: Mandatory (Yes / No).
+                </para>
+                <para>
+                    Used to set a defined number of years in past and future from current date
+in the year select of this field, If set to Yes the following options are
+available:
+                </para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                Years in the past: Optional, Positive integer.
+                            </para>
+                            <para>
+                                Define the number of years in past from current day to display in the year
+selection for this dined in edit screens.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                Years in the future: Optional, Positive integer.
+                            </para>
+                            <para>
+                                Define the number of years in future from current day to display in the year
+selection for this dined in edit screens.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Show link: Optional.
+                </para>
+                <para>
+                    If set, the field value will be converted into a clickable HTP link for
+display screens (like Zoom or overviews).
+                </para>
+                <para>
+                    For example, if Show link is set to "http://www.otrs.com", clicking on the
+filed value will make your browser to open the OTRS web page.
+                </para>
+                <note>
+                    <para>
+                        The use of $LQData{"NameX"} in the Set link value, where NameX is the name
+of the field will add the field value as part of the link reference.
+                    </para>
+                </note>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Date configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-date.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Date configuration dialog.</emphasis>
+        </para>
+    </section>
+
+    <section id="dynamicfields-configuration-datetime">
+        <title>Date / Time Dynamic Field Configuration</title>
+        <para>
+            Date / Time dynamic field is used to store a date time value (Minute, Hour,
+Day, Month and Year).
+        </para>
+        <itemizedlist>
+            <para>
+                Date / Time dynamic field settings:
+            </para>
+            <listitem>
+                <para>
+                    Default date difference: Optional, Integer.
+                </para>
+                <para>
+                    Number of seconds (positive or negative) between the current date and the
+selected date to be show by default in the edit screens (like New Phone
+Ticket or Ticket Compose).
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Define years period: Mandatory (Yes / No).
+                </para>
+                <para>
+                    Used to set a defined number of years in past and future from current date
+in the year select of this field, If set to Yes the following options are
+available:
+                </para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                Years in the past: Optional, Positive integer.
+                            </para>
+                            <para>
+                                Define the number of years in past from current day to display in the year
+selection for this dined in edit screens.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                Years in the future: Optional, Positive integer.
+                            </para>
+                            <para>
+                                Define the number of years in future from current day to display in the year
+selection for this dined in edit screens.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Show link: Optional.
+                </para>
+                <para>
+                    If set, the field value will be converted into a clickable HTP link for
+display screens (like Zoom or overviews).
+                </para>
+                <para>
+                    For example, if Show link is set to "http://www.otrs.com", clicking on the
+filed value will make your browser to open the OTRS web page.
+                </para>
+                <note>
+                    <para>
+                        The use of $LQData{"NameX"} in the Set link value, where NameX is the name
+of the field will add the field value as part of the link reference.
+                    </para>
+                </note>
+            </listitem>
+        </itemizedlist>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field Date / Time configuration dialog</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-configuration-datetime.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field Date / Time configuration dialog.</emphasis>
+        </para>
+    </section>
+
+    <section id="dynamicfields-configuration-edit">
+        <title>Editing a Dynamic Field</title>
+        <para>
+            A filled dynamic field overview screen (with the previous examples) should
+look like:
+        </para>
+        <para>
+            <screenshot>
+<screeninfo>Dynamic field overview screen filled with sample data</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
+        </para>
+        <para>
+            <emphasis>Figure: Dynamic field overview screen filled with sample
+data.</emphasis>
+        </para>
+        <para>
+            To change or edit a dynamic field you must have at least one field defined,
+select an already added field from the dynamic fields overview screen and
+update it's settings.
+        </para>
+        <note>
+            <para>
+                Not all the dynamic field settings can be changed, the Field type and Object
+type are fixed from the selection of the field and they can't be changed.
+            </para>
+            <para>
+                It is not recommended to change the field internal name, but the label can
+be changed at any time. If internal name is changed all "SysConfig" settings
+that has a reference to that particular field needs to be updated as well as
+user preferences (if defined).
+            </para>
+        </note>
+    </section>
+
+    <section id="dynamicfields-configuration-show">
+        <title>Showing a Dynamic Field on a Screen</title>
+        <para>
+            To display a dynamic field on a particular screen there are two mandatory
+conditions:
+        </para>
+        <orderedlist>
+            <listitem>
+                <para>
+                    The dynamic field must be valid.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    The dynamic field must be set to 1 or 2 in the configuration of the screen.
+                </para>
+            </listitem>
+        </orderedlist>
+        <itemizedlist>
+            <para>
+                Follow this steps to show a dynamic field in a screen
+            </para>
+            <listitem>
+                <para>
+                    Be sure that the dynamic field is set to valid, you can see the validity of
+the field from the dynamic field overview screen. Set to valid by editing
+the field if necessary.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Open the "sysconfig" and select "Ticket" from the dropdown list in the
+Actions side bar located in the left part of the screen.
+                </para>
+                <note>
+                    <para>
+                        You can also search for "DynamicField" in the search box above or the
+"sysconfig" key directly if you already know it.
+                    </para>
+                </note>
+            </listitem>
+            <listitem>
+                <para>
+                    Locate the setting sub-group for the screen that you are looking for and
+click on it. For example "Frontend::Agent::Ticket::ViewPhoneNew".
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Search for the setting that ends with "###DynamicField". For example
+"Ticket::Frontend::AgentTicketPhone###DynamicField".
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    If the setting is empty or does not have the required dynamic field name,
+click on the "+" button to add a new entry. For example Key: Field1,
+Content: 1.
+                </para>
+                <para>
+                    If the setting already has the dynamic field name listed be sure that is set
+to "1" to display the field or to "2" to display it as mandatory.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Save the configuration by clicking in the "Update" button and the bottom of
+the screen and navigate to the screen where you want the field to be
+displayed.
+                </para>
+            </listitem>
+        </itemizedlist>
+
+        <section id="dynamicfields-configuration-show-examples">
+            <title>Show Examples</title>
+            <para>
+                The following are "sysconfig" configurations examples to show or hide
+dynamic fields on different screens.
+            </para>
+            <para>
+                <example id="Field1-PhoneTicket-Normal">
+                    <title>Activate Field1 in New Phone Ticket Screen.</title>
+                    <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Group:</emphasis> Ticket
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Sub-group:</emphasis> Frontend::Agent::Ticket::ViewPhoneNew
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Setting:</emphasis>
+Ticket::Frontend::AgentTicketPhone###DynamicField
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Value:</emphasis>
+                                </para>
+                                <para>
+                                    <informaltable>
+                                        <thead>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </informaltable>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        <screenshot>
+<screeninfo>Field1 in New Phone Ticket Screen.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-agentticketphone-field1.png"></graphic></screenshot>
+                    </para>
+                    <para>
+                        <emphasis>Figure: Field1 in New Phone Ticket Screen.</emphasis>
+                    </para>
+                </example>
+            </para>
+            <para>
+                <example id="Field1-PhoneTicket-Mandatory">
+                    <title>Activate Field1 in New Phone Ticket Screen as mandatory.</title>
+                    <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Group:</emphasis> Ticket
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Sub-group:</emphasis> Frontend::Agent::Ticket::ViewPhoneNew
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Setting:</emphasis>
+Ticket::Frontend::AgentTicketPhone###DynamicField
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Value:</emphasis>
+                                </para>
+                                <para>
+                                    <informaltable>
+                                        <thead>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>2</td>
+                                            </tr>
+                                        </tbody>
+                                    </informaltable>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        <screenshot>
+<screeninfo>Field1 in New Phone Ticket Screen as mandatory.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-agentticketphone-field1-mandatory.png"></graphic></screenshot>
+                    </para>
+                    <para>
+                        <emphasis>Figure: Field1 in New Phone Ticket Screen as mandatory.</emphasis>
+                    </para>
+                </example>
+            </para>
+            <para>
+                <example id="AllFields-PhoneTicket">
+                    <title>Activate several fields in New Phone Ticket Screen.</title>
+                    <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Group:</emphasis> Ticket
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Sub-group:</emphasis> Frontend::Agent::Ticket::ViewPhoneNew
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Setting:</emphasis>
+Ticket::Frontend::AgentTicketPhone###DynamicField
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Value:</emphasis>
+                                </para>
+                                <para>
+                                    <informaltable>
+                                        <thead>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field2</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field3</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field4</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field5</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field6</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field7</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </informaltable>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        <screenshot>
+<screeninfo>Several fields in New Phone Ticket Screen as mandatory.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-agentticketphone-allfields.png"></graphic></screenshot>
+                    </para>
+                    <para>
+                        <emphasis>Figure: Several fields in New Phone Ticket Screen as
+mandatory.</emphasis>
+                    </para>
+                </example>
+            </para>
+            <para>
+                <example id="SomeFields-PhoneTicket">
+                    <title>Deactivate some fields in New Phone Ticket Screen.</title>
+                    <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Group:</emphasis> Ticket
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Sub-group:</emphasis> Frontend::Agent::Ticket::ViewPhoneNew
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Setting:</emphasis>
+Ticket::Frontend::AgentTicketPhone###DynamicField
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Value:</emphasis>
+                                </para>
+                                <para>
+                                    <informaltable>
+                                        <thead>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field2</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field3</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field4</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field5</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field6</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Field7</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </informaltable>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        <screenshot>
+<screeninfo>Some deactivated fields in New Phone Ticket Screen as mandatory.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-agentticketphone-somefields.png"></graphic></screenshot>
+                    </para>
+                    <para>
+                        <emphasis>Figure: Some deactivated fields in New Phone Ticket Screen as
+mandatory.</emphasis>
+                    </para>
+                </example>
+            </para>
+            <para>
+                <example id="Field1-TicketZoom">
+                    <title>Activate Field1 in Ticket Zoom Screen.</title>
+                    <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Group:</emphasis> Ticket
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Sub-group:</emphasis> Frontend::Agent::Ticket::ViewZoom
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Setting:</emphasis>
+Ticket::Frontend::AgentTicketZoom###DynamicField
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Value:</emphasis>
+                                </para>
+                                <para>
+                                    <informaltable>
+                                        <thead>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </informaltable>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        <screenshot>
+<screeninfo>Field1 in Ticket Zoom Screen.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-agentticketzoom-field1.png"></graphic></screenshot>
+                    </para>
+                    <para>
+                        <emphasis>Figure: Field1 in Ticket Zoom Screen.</emphasis>
+                    </para>
+                </example>
+            </para>
+            <para>
+                <example id="Field1-TicketOverviewSmall">
+                    <title>Activate Field1 in Ticket Overview Small Screens.</title>
+                    <para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <emphasis>Group:</emphasis> Ticket
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Sub-group:</emphasis> Frontend::Agent::TicketOverview
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Setting:</emphasis> Ticket::Frontend::OverviewSmall###DynamicField
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <emphasis>Value:</emphasis>
+                                </para>
+                                <para>
+                                    <informaltable>
+                                        <thead>
+                                            <tr>
+                                                <td>Key</td>
+                                                <td>Content</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field1</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </informaltable>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        <screenshot>
+<screeninfo>Field1 in Ticket Overview Small Screen.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-ticketoverviewsmall-field1.png"></graphic></screenshot>
+                    </para>
+                    <para>
+                        <emphasis>Figure: Field1 in Ticket Overview Small Screen.</emphasis>
+                    </para>
+                    <para>
+                        This setting affects: Escalation View, Locked View, Queue View, Responsible
+View, Status View and Watch View screens.
+                    </para>
+                </example>
+            </para>
+        </section>
+    </section>
+
+    <section id="dynamicfields-configuration-event-defaut">
+        <title>Setting a Default Value by a Ticket Event Module</title>
+        <para>
+            A ticket event (e.g. TicketCreate) can trigger a value set for a certain
+field, if the field does not have a value yet.
+        </para>
+        <note>
+            <para>
+                By using this method this default value, is not seen in the edit screen
+(e.g. New Phone Ticket) since the value is set after the creation of the
+ticket.
+            </para>
+        </note>
+        <para>
+            To activate this feature is necessary to enable the following setting:
+"Ticket::EventModulePost###TicketDynamicFieldDefault".
+        </para>
+        <example id="Field1-EventDefault">
+            <title>Activate Field1 in TicketCreate event.</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis>Group:</emphasis> Ticket
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Sub-group:</emphasis> Core::TicketDynamicFieldDefault
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Setting:</emphasis> Ticket::TicketDynamicFieldDefault###Element1
+                        </para>
+                        <note>
+                            <para>
+                                This configuration can be set in any of the 16
+Ticket::TicketDynamicFieldDefault###Element settings.
+                            </para>
+                            <para>
+                                If more that 16 fields needs to be set up a custom XML file must be places
+in $OTRS_HOME/Kernel/Config/files directory to extend this feature.
+                            </para>
+                        </note>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Value:</emphasis>
+                        </para>
+                        <para>
+                            <informaltable>
+                                <thead>
+                                    <tr>
+                                        <td>Key</td>
+                                        <td>Content</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Event</td>
+                                        <td>TicketCreate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Field1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Value</td>
+                                        <td>a new value</td>
+                                    </tr>
+                                </tbody>
+                            </informaltable>
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </example>
+    </section>
+
+    <section id="dynamicfields-configuration-preferences-defaut">
+        <title>Set a Default Value by User Preferences</title>
+        <para>
+            The dynamic field default value can be overwritten with a user defined value
+stored in the user preferences.
+        </para>
+        <para>
+            Using this method, the default value of the field will be shown on any
+screen where the field is activated (if the field does not have already a
+different value).
+        </para>
+        <para>
+            The "sysconfig" setting "PreferencesGroups###DynamicField" located in the
+"Frontend::Agent::Preferences" Sub-group. This setting is an example of how
+to create an entry in the User Preferences screen to set an exclusive
+dynamic field default value for the selected user. The limitation of this
+setting is that it only admits one dynamic field. if two or more fields will
+use this feature is necessary to create a custom XML configuration file to
+add more settings similar to this one.
+        </para>
+        <note>
+            <para>
+                Remember, if more settings are added in a new XML each setting name needs to
+be unique in the system and different than
+"PreferencesGroups###DynamicField". for example:
+PreferencesGroups###101-DynamicField-Field1,
+PreferencesGroups###102-DynamicField-Field2, PreferencesGroups###My-Field1,
+PreferencesGroups###My-Field2, etc.
+            </para>
+        </note>
+        <example id="Field1-UserPreference">
+            <title>Activate Field1 in the User preferences.</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <emphasis>Group:</emphasis> Ticket
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Sub-group:</emphasis> Frontend::Agent::Preferences
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Setting:</emphasis> PreferencesGroups###101-DynamicField-Field1
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <emphasis>Value:</emphasis>
+                        </para>
+                        <para>
+                            <informaltable>
+                                <thead>
+                                    <tr>
+                                        <td>Key</td>
+                                        <td>Content</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Event</td>
+                                        <td>TicketCreate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Active</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Block</td>
+                                        <td>Input</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Column</td>
+                                        <td>Andere Einstellungen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data:</td>
+                                        <td>$Env{"UserDynamicField_Field1"}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Key:</td>
+                                        <td>My Field 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Label:</td>
+                                        <td>Default value for: My Field 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Module:</td>
+                                        <td>Kernel::Output::HTML::PreferencesGeneric</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PrefKey:</td>
+                                        <td>UserDynamicField_Field1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prio:</td>
+                                        <td>7000</td>
+                                    </tr>
+                                </tbody>
+                            </informaltable>
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <screenshot>
+<screeninfo>Field1 in User preferences screen.</screeninfo> <graphic srccredit="dynamicfields -
+screenshot" scale="40"
+fileref="screenshots/dynamicfields-userpreferences.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Field1 in User preferences screen.</emphasis>
+            </para>
+        </example>
+    </section>
+</section>

@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: first-steps.xml,v 1.1 2012-11-07 08:47:27 mg Exp $ -->
+<chapter id="first-steps">
+<title>Первые шаги</title>
+
+<abstract>
+<para>
+В этой главе приводится общий обзор OTRS и структура веб-интерфейса. Дается
+обьяснение таким терминам как: агенты, клиенты и администраторы. В этом
+разделе вы войдете в систему с правами OTRS-администратора и более
+внимательно ознакомитесь с настройками пользователей, доступными для каждого
+из типов аккаунта.
+</para>
+</abstract>
+
+<section id="agent-interface">
+<title>Веб-интерфейс для агентов</title>
+
+<para>
+Агентский веб-интерфейс позволяет агентам отвечать на вопросы клиентов,
+создавать новые заявки для клиентов и агентов, создавать заявки на основе
+телефонных звонков клиентов, писать и редактировать записи FAQ-модуля,
+редактировать данные клиентов и так далее.
+</para>
+
+<para>
+Supposing your OTRS host is reachable via the URL <ulink
+url="http://www.example.com/"> <citetitle>http://www.example.com</citetitle>
+</ulink> , then the OTRS login screen can be reached by using the address
+<ulink url="http://www.example.com/otrs/index.pl">
+<citetitle>http://www.example.com/otrs/index.pl</citetitle> </ulink> in a
+web browser (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>index.pl - Экран для входа Агентов.</screeninfo> <graphic srccredit="index.pl -
+screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Login screen of the agent interface.</emphasis>
+</para>
+
+</section>
+
+<section id="customer-interface">
+<title>Пользовательский веб-интерфейс</title>
+
+<para>
+В OTRS клиенты имеют отдельный веб-интерфейс, с помощью этого веб-интерфейса
+они могут создавать новые учетные записи, просматривать собственные заявки,
+создавать и редактировать заявки, изменять настройки своей учетной записи и
+т.д.
+</para>
+
+<para>
+Continuing with the above example, the customer login screen can be reached
+by using the URL <ulink url="http://www.example.com/otrs/customer.pl">
+<citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink> with
+a web browser (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>customer.pl - Пользовательский веб-интерфейс</screeninfo> <graphic srccredit="customer.pl -
+screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Login screen of the customer interface.</emphasis>
+</para>
+
+</section>
+
+<section id="public-interface">
+<title>Общедоступный веб-интерфейс</title>
+
+<para>
+В дополнение к веб-интерфейсу для агентов и пользователей, OTRS имеет
+открытый веб-интерфейс (см. ниже Рисунок 4.3), доступ к которому возможен
+посредством FAQ-модуля (который устанавливается отдельно). Он предоставляет
+открытый доступ к FAQ-системе и позволяет пользователям без авторизации
+искать информацию.
+</para>
+
+<para>
+В нашем примере общий веб-интерфейс будет доступен перейдя по ссылке: <ulink
+url="http://www.example.com/otrs/faq.pl">
+<citetitle>http://www.example.com/otrs/faq.pl</citetitle> </ulink> , <ulink
+url="http://www.example.com/otrs/public.pl">
+<citetitle>http://www.example.com/otrs/public.pl</citetitle> </ulink>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>public.pl - Общедоступный веб-интерфейс</screeninfo> <graphic srccredit="public.pl -
+screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Public web interface.</emphasis>
+</para>
+
+</section>
+
+<section id="first-login">
+<title>Первое применение</title>
+
+<para>
+Перейдите к странице входа, как это описано в разделе <link
+linkend="agent-interface">Агентский веб-интерфейс </link>. Введите имя
+пользователя и пароль. Ввиду того что после новой установки в системе нету
+ни одного зарегистрированного пользователя, войдите с правами
+OTRS-администратора, используя для этого имя пользователя 'root@localhost' и
+пароль 'root'.
+</para>
+
+<warning>
+<para>
+Данные доступа этого аккаунта действительны для каждой копии
+новоустановленной системы OTRS. Именно по этой причине пароль
+OTRS-администратора необходимо изменить как можно быстрее. Это можно сделать
+после входа в систему с правами администратора перейдя по ссылке <link
+linkend="user-preferences">preferences</link>.
+</para>
+</warning>
+
+<para>
+Если не хотите входить в систему с правами OTRS-администратора, просто
+введите имя и пароль своего обычного агентского аккаунта.
+</para>
+
+<para>
+In case you have forgotten your password, you can request the system for a
+new password. Simply press the link below the Login button, enter the mail
+address that is registered for your OTRS account into the input field, and
+press the Submit button (see Figure).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>login.pl - Забыли пароль?</screeninfo> <graphic srccredit="login.pl -
+screenshot" scale="40"
+fileref="screenshots/request-new-password.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Request new password.</emphasis>
+</para>
+
+</section>
+
+<section id="gui-overview">
+<title>Веб-интерфейс - обзор</title>
+
+<para>
+On successfully logging into the system, you are presented with the
+Dashboard page (see Figure below). The Dashboard is completely
+customizable. It shows your locked tickets, allows direct access through
+menus to the queue, status and escalation views, and also holds options for
+creation of new phone and e-mail tickets. It also presents a quick summary
+of the tickets which are pending, escalated, new and open.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Страница, которая отображается после входа в систему</screeninfo> <graphic srccredit="First screen -
+screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Dashboard of the agent interface.</emphasis>
+</para>
+
+<para>
+Для большей ясности, общий веб-интерфейс разделен на несколько частей
+(областей). В верхней части окна отображается строка с общей информацией:
+имя пользователя, кнопка выхода, иконки, отображающие количество
+заблокированных заявок (позволяют прямой доступ к ним), ссылки для создания
+новой заявки на основе телефонного звонка или сообщения электронной
+почты. Также есть иконки для перехода к очереди, просмотра информации о
+статусах и эскалациях.
+</para>
+
+<para>
+Под иконками находится навигационная строка. Она показывает меню,
+позволяющие переходить к разным модулям системы и позволяет выполнять
+некоторые глобальные действия. При нажатии на кнопку Панель Управления вы
+перейдете на страницу Панели Инструментов, которая по умолчанию отображается
+после входа в сисетму. Если нажать ссылку меню Заявки, откроется подменю,
+предлагающее различные действия, допустимые над заявками: создание новой
+заявки (на основе телефонного звонка или сообщения электронной почты), поиск
+конкретных заявок. Кнопка Статистика также является частью меню и позволяет
+просматривать существующую статистическую информацию, создать новую а также
+производить импорт существующей статистики. Кнопка Клиенты позволяет перейти
+на страницу Управления Клиентами. Для администрирования системы нажмите
+кнопку Администрирование. На этой странице можно создавать аккаунты для
+других агентов, очереди и т.д. Для поиска заявок используйте кнопку Поиск.
+</para>
+
+<para>
+Если установлены дополнительные приложения, такие как, например, Файловый
+Менеджер или Менеджер Емейл-Рассылки, кнопки для запуска этих приложений
+будут также отображатся.
+</para>
+
+<para>
+Красная полоса, которая находится под панелью навигации предназначена для
+отображения различных системных сообщений. Если войти в систему с правами
+OTRS-администратора, будет выведено сообщение о том, что в системе не
+следует работать с правами администратора.
+</para>
+
+<para>
+Под названием раздела, в котором вы находитесь в данный момент, есть
+несколько подразделов (каждый из них находится в отдельном блоке), которые
+можно перетаскивать и перемещать в пределах блока или перенести их в другое
+место.
+</para>
+
+<para>
+В левой колонке находится информация о заявках: напоминания, эскалации,
+новые или открытые. В каждой из категорий можно просматривать все заявки, к
+которым у вас есть доступ, сколько заявок заблокировано и сколько находится
+в "Мои Очереди". "Мои Очереди" - очередь, которая определяется в настройках
+пользовательского аккаунта <link
+linkend="user-preferences">предпочтения</link>. Она используется в том
+случае, когда нужно отслеживать заявки с определенными параметрами
+(характеристиками).
+</para>
+
+<para>
+In the right column is the Settings button. Click on it to expand the
+section and see the various settings, as shown in Figure. You can then check
+or uncheck the individual settings options, and save your changes. This
+section is fixed, so you can not drag and drop it.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение настроек Панели Управления</screeninfo> <graphic srccredit="Dashboard
+settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Dashboard Settings.</emphasis>
+</para>
+
+<para>
+Ниже, под настройками, можно увидеь раздел с статистическим графиком по
+заявкам за последние 7 дней. Ниже располагается секция, в которой
+отображаются Предстоящие События и новости OTRS.
+</para>
+
+<para>
+Finally at the bottom of the page, the site footer is displayed (see Figure
+below). It contains links to directly access the OTRS official website, or
+go to the Top of the page.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Нижний колонтитул</screeninfo> <graphic srccredit="Footer"
+scale="40" fileref="screenshots/footer.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Footer.</emphasis>
+</para>
+
+</section>
+
+<section id="what-is-a-queue">
+<title>Что такое очередь?</title>
+
+<para>
+На физическом уровне для почтового ящика создается специальный файл (иногда
+его еще называют почтовый спул), в который помещаются и хранятся все
+сообщения. Новые сообщения электронной почты просто добавляются в конец
+этого файла. Почтовая программа, которая используется для чтения и написания
+писем (такие программы еще называются пользовательскими почтовыми агентами -
+MUA (Mail User Agent) читает этот файл и отображает его содержимое.
+</para>
+
+<para>
+Очереди OTRS можно сравнить с Inbox-файлом, в котором хранятся входящие
+сообщения электронной почты, так как в них тоже может хранится множество
+сообщений. Очереди имеют много функций, схожих с теми, которые присущи
+Inbox-файлу. Как агенты так и пользователи, все должны помнить о том, в
+какой очереди содержится заявка. Агенты могут открывать,  редактировать
+заявки, размещенные в очереди, а также, перемещать их из одной очереди в
+другую. Но зачем перемещать заявки?
+</para>
+
+<para>
+Чтобы обьяснить это с более практической точки зрения давайте вспомним
+пример с компанией Максима, которая была описана в разделе <link
+linkend="basic-tts-example">пример системы обработки заявок</link>. Максим
+установил OTRS чтобы избавится от существующего хаоса в системе поддержки и
+предоставить возможность своей команде лучше управлять службой поддержки
+клиентов, покупающих видеомагнитофоны.
+</para>
+
+<para>
+На данный момент достаточно одной очереди, чтобы хранить в ней все запросы
+клиетов. Но через некоторое время Максим решает начать продажи
+DVD-магнитофонов. Теперь у клиентов есть вопросы касающиеся не только
+видеомагнитофонов, но и вопросы относительно нового продукта. С течением
+времени в очередь, ранее созданую Максимом, начинает приходить все больше и
+больше писем и управлятся с ними становится все труднее и труднее.
+</para>
+
+<para>
+Однажды Максим принимает решение немного оптимизировать структуру системы
+поддержки и добавляет две новых очереди. Таким образом в системе
+используется уже три очереди. Новые заявки, только поступившие в систему
+хранятся в очереди "raw". Две новые очереди: одна для хранения заявок
+касающихся видеомагнитофонов и другая - для dvd-магнитофонов.
+</para>
+
+<para>
+Максим просит Маргариту просматривать очередь "raw" и сортировать емейлы
+либо в очередь "видеомагнитофоны" или в "dvd-магнитофоны", в зависимости от
+того, что запросил клиент. Андрей имееть доступ только к очереди
+"видеомагнитофоны", а Сергей может отвечать на заявки из очереди
+"dvd-магнитофоны". Маким имеет возможность редактировать заявки, находящиеся
+во всех очередях.
+</para>
+
+<para>
+OTRS поддерживает управление доступом для пользователей, групп и ролей,
+таким образом можно очень легко настроить очереди, которые доступны только
+для некторых учетных записей. Чтобы все запросы приходили в различные
+очереди, Максим может использовать правила фильтрации. Иначе, если
+используются два различных email-адреса, Маргарита будет сортировать и
+направлять в другие очереди только те заявки, которые не были отсортированы
+автоматически.
+</para>
+
+<para>
+Сортировка входящих сообщений в различные очереди позволяет сохранять
+систему поддержки в структурированном и аккуратном виде. Поскольку ваши
+агенты находятся в разных группах и имеют различные права для доступа к
+очередям, система может быть оптимизирована еще больше. Очереди могут быть
+использованы для определения структуры всей компании а также для определения
+рабочего потока процессов. Максим может к примеру создать еще одну очередь и
+назвать ее "продажи", которая будет содержать подочереди "запросы",
+"предложения", "заказы", "оплаты" и т.д. Такой подход поможет Максиму
+структурировать и оптимизировать процесс работы с транзакциями.
+</para>
+
+<para>
+Чем лучше структурированна система поддержки, тем меньше времени требуется
+для различных задач. Это приводит к уменьшению рабочего времени,
+соответственно и к уменьшению денежных затрат. Очереди могут помочь
+оптимизировать бизнес-процесы вашей компании.
+</para>
+</section>
+
+<section id="user-preferences">
+<title>Пользовательские настройки</title>
+<para>
+OTRS users such as customers, agents and the OTRS administrator can
+configure their account preferences as per their needs. Agent can access the
+configuration screen by clicking on their login name at the top right corner
+of the web interface (see Figure below), and customers must click on the
+"Preferences" link (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Страница "Настройки Аккаунта" для Агентов</screeninfo> <graphic srccredit="index.pl -
+screenshot" scale="40"
+fileref="screenshots/agent-preferences.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Agent's personal preferences.</emphasis>
+</para>
+
+<para>
+Агент можен настраивать три различных категории настроек: профиль
+пользователя, настройки электронной почты и другие параметры. Возможности по
+умолчанию:
+</para>
+
+<itemizedlist>
+    <title>Профиль пользователя</title>
+    <listitem>
+        <para>Изменение текущего пароля.</para>
+    </listitem>
+    <listitem>
+        <para>Выбор языка интерфейса.</para>
+    </listitem>
+    <listitem>
+        <para>Переключение между темами интерфейса.</para>
+    </listitem>
+    <listitem>
+        <para>Изменение темы веб-интерфейса.</para>
+    </listitem>
+    <listitem>
+        <para>Активация и настройка функции "время вне оффиса".</para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Настройки электронной почты</title>
+    <listitem>
+        <para>Выберите события, при наступлении которых, система должна отсылать
+уведомления агентам на их емейлы.</para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Другие настройки</title>
+    <listitem>
+        <para>В меню "Мои Очереди" выберите те очедеди, которые хотите отслеживать более
+внимательно.</para>
+    </listitem>
+    <listitem>
+        <para>Установите время обновления страницы для шаблона отображения очередей.</para>
+    </listitem>
+    <listitem>
+        <para>Выберите страницу, которая должна отображатся после создания заявки.</para>
+    </listitem>
+</itemizedlist>
+
+<para>
+<screenshot>
+<screeninfo>Личные настройки пользовательского аккаунта клиентов.</screeninfo> <graphic srccredit="customer.pl -
+screenshot" scale="40"
+fileref="screenshots/customer-preferences.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Customer's personal preferences.</emphasis>
+</para>
+
+<para>
+Клиент может выбрать язык веб-интерфейса системы, изменять время обновления
+страницы в шаблоне просмотра очередей, выбирать максимальное количество
+отображаемых заявок. Кроме этого также можно установить новый пароль.
+</para>
+</section>
+
+</chapter>

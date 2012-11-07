@@ -1,0 +1,1837 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: process-management.xml,v 1.1 2012-11-07 08:47:26 mg Exp $ -->
+<section id="process-management" >
+<title>Process Management</title>
+
+    <section>
+        <title>Introduction</title>
+        <para>
+            This feature of OTRS allows you to model processes (workflows) in the ticket
+system.  The basic idea is to be able to define reoccurring processes, and
+to delegate work items to different people, as well as leading the progress
+of a process in different directions based on certain criteria.
+        </para>
+    </section>
+    <section>
+        <title>Example</title>
+        <para>
+            Let's see an example to make it more demonstrative. We will define a book
+order process:
+        </para>
+
+        <section>
+            <title>Recording the demand</title>
+            <para>
+                Before an order will be placed, the demand for literature by an employee
+will be recorded.  The following book is needed in our example:
+            </para>
+            <para>
+                <screen>
+Title: Prozessmanagement für Dummies
+Autor: Thilo Knuppertz
+ISBN: 3527703713
+                </screen>
+            </para>
+        </section>
+
+        <section>
+            <title>Approval by superior</title>
+            <para>
+                The head of the employee's department needs to decide on the order.  In case
+of a denial, a reason should be recorded by the superior.  In case of
+approval, the order is passed to the purchasing department.
+            </para>
+        </section>
+
+        <section>
+            <title>Processing by purchasing department</title>
+            <para>
+                Purchasing now has the task to find out where the book can be ordered with
+the best conditions.  If it is out of stock, this can be recorded in the
+order.  In case of a successful order purchasing will record the supplier,
+the price and the delivery date.
+            </para>
+        </section>
+
+        <section>
+            <title>Processing by the mailroom</title>
+            <para>
+                The shipment will arrive at the company. The incoming goods department
+checks the shipment and records the date of receipt.  Now the employee will
+be informed that their order has arrived and is ready to be collected.
+            </para>
+        </section>
+    </section>
+
+    <section>
+        <title>Implementing the example</title>
+        <para>
+            If we assume that a ticket acts in this workflow like an accompanying
+document that can receive change notes, we already have a clear picture of
+process tickets.
+        </para>
+        <para>
+            From the analysis of the example process we can identify the following
+neccessary items:
+        </para>
+        <para>
+            <itemizedlist>
+                <listitem><para>Possiblities to record data, let's call them <emphasis>Activity
+Dialogs</emphasis>,</para></listitem>
+                <listitem><para>checks which can react to changed data automatically, let's call them
+<emphasis>Transitions</emphasis>,</para></listitem>
+                <listitem><para>changes which can be applied to a process ticket after successful
+transitions of a process ticket, let's call them <emphasis>Transition
+Actions</emphasis>.</para></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            We also need an additional item which might not be as obvious:
+        </para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        A possibility to offer more than just one Activity Dialog to be available.
+In our example this is needed when the superior must have the choice between
+"Approve" and "Deny".  Let's call this <emphasis>Activity</emphasis>.
+                </para></listitem>
+            </itemizedlist>
+        </para>
+
+        <para>
+            Now, with Activities, Activity Dialogs, Transitions and Transition Actions
+we have the neccessary tools to model the individual steps of our example.
+To be able to refer to these entities later, we will assign to them an
+abbreviation in parentheses.
+        </para>
+
+        <para>
+            What's still missing is an area where for each workflow the order of the
+steps can be specified.  Let's call this <emphasis>Process</emphasis>.
+        </para>
+
+        <para>
+            In the next step, we will define the individual entities that we need.
+        </para>
+
+        <section>
+            <title>Activity Dialogs</title>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            "Recoding the demand" (AD1): An Activity Dialog that contains all the
+required fields for the data to be collected for the order (Title, Author
+and ISBN), and a status field with the possibility to choose "to be
+approved".
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            "Approval denied" (AD2): An Activity Dialog with a comment field and a
+status field with the option "approval denied".
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            "Approved " (AD3): Here we just need the status field with the option
+"approved".
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            "Order rejected" (AD4): An activity dialog which makes it possible for
+purchasing to reject an impossible order (book out of stock).  Here we also
+need a comment field and the status field with the option "order rejected".
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            "Order placed" (AD5): An activity dialog with the fields supplier, price and
+delivery date for purchasing.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            "Shipment received" (AD6): An activity for the mailroom with a field for the
+date of receipt and the status field with the option "shipment received".
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                </para>
+        </section>
+        <section>
+            <title>Transitions</title>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>"Approval" (T1): A transition which checks if the status field is set to
+"Approval".</para>
+                    </listitem>
+                    <listitem>
+                        <para>"Approval denied" (T2): A transition which checks if the status field is set
+to "Approval denied".</para>
+                    </listitem>
+                    <listitem>
+                        <para>"Approved" (T3): A transition which checks if the status field is set to
+"Approved".</para>
+                    </listitem>
+                    <listitem>
+                        <para>"Order denied" (T4): A transition which checks if the status field is set to
+"Order denied".</para>
+                    </listitem>
+                    <listitem>
+                        <para>"Order placed" (T5): A transition which checks if the status field is set to
+"Order placed".</para>
+                    </listitem>
+                    <listitem>
+                        <para>"Shipment received" (T6): A transition which checks if the status field is
+set to "Shipment received".</para>
+                    </listitem>
+                </itemizedlist>
+                </para>
+        </section>
+        <section>
+            <title>TransitionActions</title>
+                <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Moving the process ticket into the "Superior" queue. (TA1): This action is
+supposed to be executed when the Transition "Approval" applied.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Change ticket responsible to "Superior". (TA2): To be executed when the
+Transition "Approval" applied.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Move the process ticket to the "Employee" Queues. (TA3): To be executed
+when:</para>
+                        <itemizedlist>
+                            <listitem><para>
+                            the Transition "Approval denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the Transition "Order denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the Transition "Shipment received" applied
+                            </para></listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Change ticket responsible to "Employee". (TA4): To be executed when:</para>
+                        <itemizedlist>
+                            <listitem><para>
+                            the transition "Approval denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the transition "Oder denied" applied
+                            </para></listitem>
+                            <listitem><para>
+                            the transition "Shipment received" applied
+                            </para></listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Move process ticket to Queue "Purchasing". (TA5): To be executed when the
+transition "Approved" applied.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Process-Ticket in die "Post office" Queue verschieben. (TA6): To be executed
+when the transition "Order placed" applied.</para>
+                    </listitem>
+                </itemizedlist>
+                </para>
+                <para>
+                    As you can see, there are places where the same TransitionAction should be
+executed.  Therefore it is reasonable to make it possible to link
+TransitionActions freely with Transitions to be able to reuse them. können.
+                </para>
+        </section>
+        <section>
+            <title>Activities</title>
+            <para>
+                We chose the approach to see Activities as a basket which can contain one or
+more Activity Dialogs.  We need these Activities for our example:
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Recording the demand (A1): Contains the Activity Dialog "Recording the
+demand"</para>
+                    </listitem>
+                    <listitem>
+                        <para>Approval (A2): Contains the Activity Dialogs "Approval denied" as well as
+"Approved"</para>
+                    </listitem>
+                    <listitem>
+                        <para>Order (A3): Contains the Activity Dialogs "Order denied" as well as "Order
+placed"</para>
+                    </listitem>
+                    <listitem>
+                        <para>Incoming (AS): Contains the Activity Dialog "Shipment received"</para>
+                    </listitem>
+                    <listitem>
+                        <para>Process complete (A5): This is an Activity without possible
+ActivityDialogs.  It will be set after "Approval denied", "Order denied" or
+"Shipment received" and represents the end of the process.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                Now we can clearly see that Activities are precisely defined states of a
+process ticket.  After a successful Transition a process ticket moves from
+one Activity to another.
+            </para>
+        </section>
+
+        <section>
+            <title>Book ordering Process</title>
+            <para>
+                Let us conclude our example with the last missing piece in the puzzle, the
+Process.  In our case this is the whole ordering workflow. Other processes
+could be office supply ordering or completely different processes.
+            </para>
+
+            <para>
+                The process has a starting point which consists of the start Activity and
+the start Activity Dialog.  For any new book order, the start Activity
+Dialog is the first screen that is displayed.  If this is completed and
+saved, the Process ticket will be created and can follow the configured
+workflow.
+            </para>
+
+            <para>
+                The process also contains the directions for how the process ticket can move
+through the Process. Let's call this the "Path". It consists of the start
+Activity, one or more Transitions (possibly with Transition Actions), and
+other Activities.
+            </para>
+            <para>Recording the demand until "Approval"</para>
+            <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Starting point: Activity A1 (Recording the demand)</para>
+                </listitem>
+                <listitem>
+                    <para>Possible Transition: T1 (Approval)</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>If the condition of this activity is fulfilled, the ticket will move to
+Activity A2 (Approval)</para>
+                        </listitem>
+                        <listitem>
+                            <para>Additionally, the following TransitionActions are executed:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>TA1 (Moving the ticket into the "Superior" Queue)</para>
+                                </listitem>
+                                <listitem>
+                                    <para>TA2 (Set ticket responsible to "Superior")</para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </itemizedlist>
+            </para>
+            <para>
+                That's the first step in the path of the book ordering process. It looks
+like this (slightly simplified):
+            </para>
+            <para>
+                <screen>
+                'A1' => {
+                    'T1' => {
+                        ActivityEntityID => 'A2',
+                        TransitionAction => [ 'TA1', 'TA2',],
+                    },
+                },
+                </screen>
+            </para>
+            <para>
+                Action 'A1' is a defined state of the process ticket, where there is the
+possibility for the Transition 'T1'.  If this applies, the ticket will move
+to the next Activity 'A2', and the TransitionActions 'TA1' and 'TA2' are
+executed.  In Activity 'A2', the Activity Dialogs 'AD2' (Apprival denied)
+and 'AD3' (Approved) are available.
+            </para>
+            <para>Approval</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting Point: Activity A2 (Approval)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Possible Transitions:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>T2 (Approval Abgelehnt)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to Activity A5 (Process
+complete).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                        <para>Additionally, the following TransitionActions are executed:</para>
+                                        <itemizedlist>
+                                        <listitem>
+                                            <para>TA3 (move process ticket to the "Employee" Queue)</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>TA4 (set ticket responsible to "Employee")</para>
+                                        </listitem>
+                                        </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para>T3 (Approved)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to Activity A3 (Order).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>Additionally, the following TransitionAction is executed:</para>
+                                            <itemizedlist>
+                                            <listitem>
+                                                <para>TA5 (move process ticket to "Purchasing" Queue)</para>
+                                            </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>Simplified representation:</para>
+            <para>
+                <screen>
+            'A2' => {
+                'T2' => {
+                    ActivityEntityID => 'A5',
+                    TransitionAction => [ 'TA3', 'TA4'],
+                },
+                'T3' => {
+                ActivityEntityID => 'A3',
+                    TransitionAction => [ 'TA5'],
+                    }
+            },
+                </screen>
+            </para>
+            <para>The path for these two steps together looks like this:</para>
+            <para>
+                <screen>
+            Path => {
+                'A1' => {
+                    'T1' => {
+                        ActivityEntityID => 'A2',
+                        TransitionAction => [ 'TA1', 'TA2'],
+                    },
+                },
+                'A2' => {
+                    'T2' => {
+                        ActivityEntityID => 'A5',
+                        TransitionAction => [ 'TA3', 'TA4'],
+                    },
+                    'T3' => {
+                        ActivityEntityID => 'A3',
+                        TransitionAction => [ 'TA5'],
+                    },
+                },
+            },
+                </screen>
+            </para>
+            <para>
+                We can see that from the current Activity, which defines a state of the
+process ticket, there are one or more possibilities for Transition which
+have exactly one target Activity (and possibly one or more
+TransitionActions).
+            </para>
+            <para>
+                The complete Path for the book ordering Process will then look like this:
+            </para>
+            <para>
+                    <screen>
+            Path => {
+                'A1' => {
+                    'T1' => {
+                        ActivityEntityID => 'A2',
+                        TransitionAction => [ 'TA1', 'TA2'],
+                    },
+                },
+                'A2' => {
+                    'T2' => {
+                        ActivityEntityID => 'A5',
+                        TransitionAction => [ 'TA3', 'TA4'],
+                    },
+                    'T3' => {
+                        ActivityEntityID => 'A3',
+                        TransitionAction => [ 'TA5'],
+                    },
+                },
+                'A3' => {
+                    'T4' => {
+                        ActivityEntityID => 'A5',
+                        TransitionAction => [ 'TA3', 'TA4'],
+                    },
+                    'T5' => {
+                        ActivityEntityID => 'A4',
+                        TransitionAction => [ 'TA6'],
+                    },
+                }
+                'A4' => {
+                    'T6' => {
+                        ActivityEntityID => 'A5',
+                        TransitionAction => [ 'TA3', 'TA4'],
+                    },
+                },
+            },
+                    </screen>
+                </para>
+            </section>
+    </section>
+
+    <section>
+        <title>Process configuration reference</title>
+
+    <!--
+        <section>
+
+            <title>Process</title>
+            <para>
+                Ein Process bildet den zu durchlaufenden Pfad eines Processes ab.
+                Wegpunkte auf diesem Pfad können Activities wie auch Transitions sein.
+                Zu diesen jedoch später.
+            </para>
+            <section>
+                <title>Process Konfiguration</title>
+                <para>
+                    Die Process Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
+                    Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+                </para>
+                <para>
+                    <screen>
+            $Self->{'Process'}   =
+            {
+                'P1' => {
+                    Name       => 'Buchbestellung',
+                    CreateTime => '16-02-2012 13:37:00',
+                    CreateBy   => '1',
+                    ChangeTime => '17-02-2012 13:37:00',
+                    ChangeBy   => '1',
+                    State      => 'Active',
+                    StartActivity => 'A1',
+                    StartActivityDialog => 'AD1',
+                    Path       => {
+                        'A1' => {
+                            'T1' => {
+                                ActivityEntityID => 'A2',
+                            },
+                        },
+                        'A2' => {
+                            'T2' =>  {
+                                ActivityEntityID => 'A3',
+                            },
+                        },
+                    },
+                },
+                'P2' => {
+                    Name       => 'EDV Bestellung',
+                    CreateTime => '26-02-2012 13:37:00',
+                    CreateBy   => '1',
+                    ChangeTime => '27-02-2012 13:37:00',
+                    ChangeBy   => '1',
+                    State      => 'Active',
+                    StartActivity => 'A2',
+                    StartActivityDialog => 'AD2',
+                    Path       => {
+                        'A2' => {
+                            'T3' => {
+                                ActivityEntityID => 'A4',
+                            },
+                        },
+                    },
+                }
+            };
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>Name</title>
+                <para>
+                    Gibt den Namen des Processes an, dieser wird bei Erstellung eines neuen Auftragstickets zur Auswahl angeboten.
+                </para>
+            </section>
+            <section>
+                <title>CreateTime</title>
+                <para>
+                    Gibt die Zeit der Erstellung dieses Processes an.
+                </para>
+            </section>
+            <section>
+                <title>CreateBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der diesen Process erstellt hat.
+                </para>
+            </section>
+            <section>
+                <title>ChangeTime</title>
+                <para>
+                    Gibt die Zeit der letzten Änderung dieses Processes an.
+                </para>
+            </section>
+            <section>
+                <title>ChangeBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der diesen Process zuletzt geändert hat.
+                </para>
+            </section>
+            <section>
+                <title>State</title>
+                <para>
+                    Definiert den Zustand eines Process. Mögliche Werte:
+                    'Active' sind alle Processes die für neue Auftragstickets auswählbar sind.
+                    'FadeAway' sind Processes in denen bestehende Auftragstickets noch weiterhin den Process durchlaufen können,
+                    die aber für neue Auftragstickets nicht mehr zur Auswahl stehen. 'Inactive' sind deaktivierte Processes.
+                    Sie stehen sowohl beim Anlegen neuer Auftragstickets nicht mehr zur Verfügung,
+                    wie auch bestehende Auftragstickets die einem 'Inactive' Process zugeordnet sind,
+                    bei Veränderung nicht mehr auf mögliche Transitions geprüft werden.
+                </para>
+            </section>
+            <section>
+                <title>StartActivity</title>
+                <para>
+                    Beim Anlegen eines neuen Auftragstickets muss ein klar definiertes StartActivity eingestellt sein.
+                    Sobald das Auftragsticket erstellt wurde, wird dieses Activity gesetzt,
+                    sowie auf mögliche Transitions von diesem Activity ausgehend geprüft.
+                </para>
+            </section>
+            <section>
+                <title>StartActivityDialog</title>
+                <para>
+                    Beim anlegen eines neuen Auftragstickets muss eine klar definierte Activity Dialog vorhanden sein,
+                    diese wird angezeigt sobald die Maske zur Erstellung eines neuen Auftragstickets
+                    inklusive Process-Auswahl abgeschickt wurde.
+                    In diesem Moment ist das Auftragsticket noch nicht erstellt,
+                    erst nach absenden der StartActivityDialog wird die Auftragsticketerstellung ausgelöst.
+                </para>
+            </section>
+            <section>
+                <title>Path</title>
+                <para>
+                    Path enthält die Abbildung der zu durchlaufenden Process Activity ID's
+                    sowie jeweils davon ausgehender Transition Möglichkeiten (TransitionEntityID's)
+                    und dazugehöriger Ziel-Activities (ActivityEntityID's).
+                    Hier wird der Weg, den ein Auftragsticket durchlaufen kann abgebildet. Beispiel:
+                </para>
+                <para>
+                <screen>
+            'A1' => {
+                'T1' => {
+                    ActivityEntityID => 'A2',
+                },
+                'T2' => {
+                    ActivityEntityID => 'A3',
+                },
+                'T3' => {
+                    ActivityEntityID => 'A4',
+                    TransitionAction        => ['TA1', 'TA2'],
+                },
+            },
+                </screen>
+                </para>
+                <para>
+                    Ist ein Auftragsticket im obigen Beispiel bei Activity 'A1' angelangt,
+                    hat es 3 mögliche Bedingungen um zum nächsten Activity zu gelangen.
+                    In den Transitions 'T1' bis 'T3' sind Bedingungen definiert,
+                    die ein Auftragsticket erfüllen muss, um eine Transition zu absolvieren.
+                    Sind im obigen Fall alle nötigen Werte der Auftragsticketfelder bzw. DynamicFields für das Erfüllen
+                    der Bedingung 'T2' vorhanden und zutreffend, wird der Activity Wert des Auftragstickets von A1 auf A3 umgestellt.
+                    Nach jedem Speichern von Activity Dialogs erfolgt eine Prüfung auf die möglichen Transitions,
+                    die laut dieser Path Konfiguration vom aktuellen Activity aus möglich sind.
+                    Sollten mehrere Transitions mit den aktuellen Werten der Auftragsticket bzw. DynamicFields
+                    möglich sein, greift die erste zutreffende Transition.
+                    Die Reihenfolge der Transitions wird durch Alphanumerische Sortierung der Transition ID's bestimmt.
+                </para>
+                <para>
+                    Weiters ist es möglich in der Path Konfiguration eine oder mehrere TransitionActions pro möglicher Transition zu verankern.
+                    TransitionActions sind Module die nach erfolgter Transition ausgeführt werden. In der Path Konfiguration müssen
+                    transitionActions in Arrayform mit eckigen Klammern angegeben werden. Wird mehr als eine TransitionAction benötigt, sind diese,
+                    wie im obigen Beispiel, mit Komma zu trennen. Wie TransitionActions konfiguriert werden können lesen Sie im Punkt
+                    "TransitionActions".
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>Activity</title>
+            <para>
+                Ein Activity beinhaltet eine oder mehrere Activitys und entspricht einem "Schritt" im Process.
+                Alle Activitys des aktiven Activities werden in der AgentTicketZoom-Maske angezeigt und können bearbeitet werden
+                bis die erste Bedinung einer Transition erfüllt ist.
+            </para>
+            <section>
+            <title>Activity Konfiguration</title>
+            <para>
+                Die Activity Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
+                Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+            </para>
+            <para>
+                <screen>
+            $Self->{'Process::Activity'} =
+            {
+                'A1' => {
+                    Name       => 'Activity 1 optional',
+                    CreateTime => '16-02-2012 13:37:00',
+                    CreateBy   => '1',
+                    ChangeTime => '17-02-2012 13:37:00',
+                    ChangeBy   => '1',
+                    ActivityDialog => {
+                        1 => 'AD1',
+                    },
+                },
+                'A2' => {
+                    Name       => 'Activity 2 optional',
+                    CreateTime => '16-02-2012 13:37:00',
+                    CreateBy   => '1',
+                    ChangeTime => '17-02-2012 13:37:00',
+                    ChangeBy   => '1',
+                    ActivityDialog => {
+                        1 => 'AD5',
+                        2 => 'AD6',
+                        3 => 'AD1',
+                    },
+                },
+            };
+                </screen>
+            </para>
+            </section>
+            <section>
+                <title>Name</title>
+                <para>
+                    Gibt den Namen des Activity an.
+                </para>
+            </section>
+            <section>
+                <title>CreateTime</title>
+                <para>
+                    Gibt die Zeit der Erstellung dieses Activities an.
+                </para>
+            </section>
+            <section>
+                <title>CreateBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der dieses Activity erstellt hat.
+                </para>
+            </section>
+            <section>
+                <title>ChangeTime</title>
+                <para>
+                    Gibt die Zeit der letzten Änderung dieses Activity an.
+                </para>
+            </section>
+            <section>
+                <title>ChangeBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der dieses Activity zuletzt geändert hat.
+                </para>
+            </section>
+            <section>
+                <title>Activity Dialog</title>
+                <para>
+                    Activity Dialog enthält die Liste der in diesem Activity zur Verfügung stehender Activity Dialogs.
+                    Ist ein Auftragsticket in einem Activity angelangt, werden alle für dieses Activity definierten
+                    Activity Dialogs zur Auswahl angeboten. Die Reihenfolge der Darstellung wird mittels der Reihenfolge
+                    der Activity Dialogs festgelegt. Im obigen Beispiel 'AD5' vor 'AD6' vor 'AD1'.
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>Activity Dialog</title>
+            <para>
+                Eine Activity Dialog entspricht einer Oberflächenmaske und kann je nach belieben in mehreren Activities eingebunden werden.
+            </para>
+            <section>
+                <title>Activity Dialog Konfiguration</title>
+                <para>
+                    Die Activity Dialog Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
+                    Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+                </para>
+                <para>
+                    <screen>
+            $Self->{'Process::ActivityDialog'} = {
+                'AD1' => {
+                    Name => 'ActivityDialog 1 optional',
+                    DescriptionShort => 'Basic Infos',
+                    DescriptionLong  => 'Please insert the necessesary basic information for IT orders',
+                    CreateTime => '28-02-2012 13:37:00',
+                    CreateBy => '1',
+                    ChangeTime => '29-02-2012 13:37:00',
+                    ChangeBy => '1',
+                    Fields => {
+                        PriorityID => {
+                            DescriptionShort => 'Priority ID',
+                            DescriptionLong  => 'Enter the priority here',
+                            Display => 2,
+                        },
+                    },
+                    FieldOrder       => [ 'PriorityID' ],
+                    SubmitAdviceText => 'ACHTUNG: Wenn Sie das Formular absenden...',
+                    SubmitButtonText => 'Anfrage stellen',
+                },
+                'AD2' => {
+                    Name => 'ActivityDialog 2 optional',
+                    DescriptionShort => 'Basic Infos',
+                    DescriptionLong  => 'Please insert the necessesary basic information for Book orders',
+                    CreateTime => '28-02-2012 13:37:00',
+                    CreateBy => '1',
+                    ChangeTime => '29-02-2012 13:37:00',
+                    ChangeBy => '1',
+                    Fields => {
+                        StateID => {
+                            DescriptionShort    => 'State ID',
+                            DescriptionLong     => 'Enter the state here',
+                            Display             => 2,
+                            DefaultValue        => '2',
+                        },
+                        Queue => {
+                            DescriptionShort    => 'Queue ID',
+                            DescriptionLong     => 'Enter the queue here',
+                            Display             => 2,
+                            DefaultValue        => 'Raw',
+                        },
+                        Title => {
+                            DescriptionShort    => 'Title',
+                            DescriptionLong     => 'Enter the title here',
+                            Display             => 1,
+                            DefaultValue        => 'Default Title',
+                        },
+                        DynamicField_Anzahl => {
+                            DescriptionShort    => 'Amount',
+                            DescriptionLong     => 'Enter the amount here',
+                            Display             => 2,
+                            DefaultValue        => '4',
+                        },
+                    },
+                    FieldOrder       => [ 'DynamicField_Anzahl', 'StateID', 'Queue', 'Title' ],
+                    SubmitAdviceText => 'ACHTUNG: Wenn Sie das Formular absenden...',
+                    SubmitButtonText => 'Anfrage stellen',
+                },
+            };
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>Name</title>
+                <para>
+                    Gibt den Namen der ActivityDialog an.
+                </para>
+            </section>
+            <section>
+                <title>CreateTime</title>
+                <para>
+                    Gibt die Zeit der Erstellung dieser Activity Dialog an.
+                </para>
+            </section>
+            <section>
+                <title>CreateBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der dieser Activity Dialog erstellt hat.
+                </para>
+            </section>
+            <section>
+                <title>ChangeTime</title>
+                <para>
+                    Gibt die Zeit der letzten Änderung dieser Activity Dialog an.
+                </para>
+            </section>
+            <section>
+                <title>ChangeBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der dieser Activity Dialog zuletzt geändert hat.
+                </para>
+            </section>
+            <section>
+                <title>Fields</title>
+                <para>
+                    Enthält alle Felder die in dieser Activity Dialog dargestellt werden können.
+                    Mögliche Felder sind momentan alle DynamicFields (jeweils mit 'DynamicField_Fieldname')
+                    sowie folgende Ticketfelder:
+                </para>
+                <para>
+                    <screen>
+            Title
+            State
+            StateID
+            Priority
+            PriorityID
+            Lock
+            LockID
+            Queue
+            QueueID
+            Customer
+            CustomerID
+            CustomerNo
+            CustomerUserID
+            Owner
+            OwnerID
+            Type
+            TypeID
+            SLA
+            SLAID
+            Service
+            ServiceID
+            Responsible
+            ResponsibleID
+            PendingTime
+                    </screen>
+                </para>
+                <para>
+                    Beispiel einer Feldkonfiguration:
+                </para>
+                <para>
+                <screen>
+            StateID => {
+                DescriptionShort    => 'State ID',
+                DescriptionLong     => 'Enter the state here',
+                Display             => 2,
+                DefaultValue        => '2',
+            },
+                </screen>
+                </para>
+                <para>
+                    Einen Sonderfall stellt das Feld "Article" dar. Taucht dieses Feld im "Fields"-Hash mit einer korrekten
+                    Konfiguration auf, wird in der entsprechenden Activity Dialog ein Richtext-Editor samt Betreff- und Anhangs-Feld
+                    angezeigt. Der eingegebene Text wird dann als Artikel an das Process-Ticket angehängt und versendet.
+                </para>
+                <para>
+                    Beispiel einer Article-Feldkonfiguration:
+                </para>
+                <para>
+                    <screen>
+            Article => {
+                DescriptionShort => 'Please insert your comment here.',
+                DescriptionLong => '',
+                Display         => 1,
+                Config          => {
+                    ArticleType  => 'note-internal',
+                    LabelSubject => '',
+                    LabelBody    => '',
+                },
+            },
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>DescriptionShort</title>
+                <para>
+                    Enthält eine Kurzbeschreibung die zum Feldtitel eingeblendet wird.
+                    Dieses Feld ist optional.
+                </para>
+            </section>
+            <section>
+                <title>DescriptionLong</title>
+                <para>
+                    Enthält eine detaillierte Beschreibung des Felds, die über mouseover eingeblendet wird.
+                    Hier kann eine Anleitung angegeben werden was in diesem Feld auszufüllen ist.
+                    Dieses Feld ist optional.
+                </para>
+            </section>
+            <section>
+                <title>Display</title>
+                <para>
+                    Hier wird eingestellt, ob das Feld angezeigt wird bzw. ob es zwingend ausgefüllt sein muss.
+                    Mögliche Werte sind: 0 für nicht dargestellt (invisible). Dies kann nützlich sein, wenn in einer Activity
+                    automatisch Feldwerte gesetzt werden sollen. Der DefaultValue der hier eingestellt ist,
+                    wird automatisch gespeichert. 1 steht für dargestellt aber optional ausfüllbar (visible). 2 steht für
+                    zwingend erforderlich (required). Folgende Felder können nur als invisible oder required
+                    konfiguriert werden:
+                </para>
+                <para>
+                    <screen>
+            QueueID
+            Qeue
+            StateID
+            State
+            Lock
+            LockID
+            Priority
+            Priority
+                    </screen>
+                </para>
+                <para>
+                    Werden diese Felder als optional konfiguriert werden zur Speicherung bei nicht-vorhanden sein
+                    eines übermittelten Werts die in der Paketkonfiguration eingestellten Defaultwerte herangezogen.
+                </para>
+            </section>
+            <section>
+                <title>DefaultValue</title>
+                <para>
+                    Dieser ist bei Feldern mit ID (QueueID, OwnerID,...) die tatsächliche Datenbank ID des möglichen Werts.
+                    Ist das Feld jedoch ohne ID konfiguriert (Queue, Owner,...) muss der DefaultValue den möglichen Wert
+                    selbst enthalten. Beispiel:
+                </para>
+                <para>
+                    <screen>
+            Queue => {
+                DescriptionShort    => 'Queue ID',
+                DescriptionLong     => 'Enter the queue here',
+                Display             => 2,
+                DefaultValue        => 'Raw',
+            },
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>FieldOrder</title>
+                <para>
+                    Hier wird die Reihenfolge, in der die konfigurierten Felder in der Maske dargestellt werden, festgelegt.
+                    WICHTIG: auch Invisible Felder müssen hier konfiguriert sein, da diese Liste für die Werteverarbeitung
+                    beim Speichern herangezogen wird. Ist ein Feld hier nicht konfiguriert, wird es auch nicht gespeichert.
+                </para>
+            </section>
+            <section>
+                <title>SubmitAdviceText</title>
+                <para>
+                    Dieser Wert ist optional. Ein Text der hier angegeben wird, wird kurz überhalb des Submit Buttons
+                    ausgegeben und kann noch eine zusätzliche Anleitung beinhalten.
+                </para>
+            </section>
+            <section>
+                <title>SubmitAdviceText</title>
+                <para>
+                    Dieser Wert ist optional. Ein Text der hier angegeben wird, wird kurz überhalb des Submit Buttons
+                    ausgegeben und kann noch eine zusätzliche Anleitung beinhalten.
+                </para>
+            </section>
+            <section>
+                <title>SubmitButtonText</title>
+                <para>
+                    Dieser Wert ist optional. Ist er angegeben, wird er als Text für den Submit Button herangezogen.
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>Transition</title>
+            <para>
+                Eine Transition entscheidet anhand definierbarer Bedingungen,
+                sogenannter "Condition"s, welcher weiterführende Pfad im Process eingeschlagen wird.
+            </para>
+            <section>
+                <title>Transition Konfiguration</title>
+                <para>
+                    Die Transition Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
+                    Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+                </para>
+                <para>
+                    <screen>
+            $Self->{'Process::Transition'} = {
+                'T1' => {
+                    Name => 'Transition 1',
+                    CreateTime => '14-03-2012 13:37:00', # optional
+                    CreateBy => '1', # optional
+                    ChangeTime => '15-03-2012 13:37:00', # optional
+                    ChangeBy => '15-03-2012 13:37:00', # optional
+                    Condition => {
+                        Cond1 => {
+                            Fields => {
+                                StateID => {
+                                    Type => 'String',
+                                    Match => '1',
+                                },
+                            },
+                        },
+                    },
+                },
+                'T2' => {
+                    Name => 'Transition 2 optional',
+                    CreateTime => 'DATE', # optional
+                    CreateBy => 'USERID', # optional
+                    ChangeTime => 'DATE', # optional
+                    ChangeBy => 'USERID', # optional
+                    Condition => {
+                        Cond1 => {
+                            Queue => 'Raw',
+                            DynamicField_Farbe => '2',
+                            DynamicField_Anzahl => '1',
+                        },
+                    },
+                },
+            };
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>Name</title>
+                <para>
+                    Gibt den Namen der Transition an.
+                </para>
+            </section>
+            <section>
+                <title>CreateTime</title>
+                <para>
+                    Gibt die Zeit der Erstellung dieser Transition an.
+                </para>
+            </section>
+            <section>
+                <title>CreateBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der dieser Transition erstellt hat.
+                </para>
+            </section>
+            <section>
+                <title>ChangeTime</title>
+                <para>
+                    Gibt die Zeit der letzten Änderung dieser Transition an.
+                </para>
+            </section>
+            <section>
+                <title>ChangeBy</title>
+                <para>
+                    Gibt die UserID des Benutzers an, der dieser Transition zuletzt geändert hat.
+                </para>
+            </section>
+            <section>
+                <title>Condition</title>
+                <para>
+                    Enthält alle Bedingungen die für das positive Überprüfen dieser Transition notwendig sind.
+                    Detaillierte Beschreibung anhand folgenden Beispiels:
+                </para>
+                <para>
+                    <screen>
+            Condition => {
+                Type => 'and',
+                Cond1 => {
+                    Type => 'and',
+                    Fields => {
+                        StateID => {
+                            Type => 'String',
+                            Match => '1',
+                        },
+                        DynamicField_Marke => {
+                            Type => 'String',
+                            Match => 'VW',
+                    },
+                },
+                Cond2 => {
+                    Type => 'and',
+                    Fields => {
+                        Queue => {
+                            Type => 'String',
+                            Match => 'Raw',
+                        },
+                    },
+                },
+            },
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>Type (Condition)</title>
+                <para>
+                    Hier kann die Art der Verknüfpung der folgenden Einzelbedingungen angegeben werden.
+                    Mögliche werte sind 'and', 'or' sowieo 'xor'.
+                    Wird Type nicht explizit angegeben, wird der Type 'and' als Default Wert angenommen.
+                    Im Falle von 'and' sind müssen alle Einzelbedingungen erfüllt sein,
+                    um diese Transition als erfüllt zurückzuliefern.
+                    Im Falle von 'or' genügt eine erfüllte Bedingung, bei 'xor' darf exakt nur eine
+                    Bedingung positiv erfüllt sein, keine andere darf positiv überprüft werden um
+                    die Transition als erfüllt zurückzuliefern.
+                </para>
+            </section>
+            <section>
+                <title>Cond1</title>
+                <para>
+                    Die Bezeichnung einer Einzelbedinung. Sie kann alphanumerisch frei vergeben werden.
+                    Die Überprüfung erfolgt in alphanumerisch sortierter Reihenfolge.
+                </para>
+            </section>
+            <section>
+                <title>Type (Cond)</title>
+                <para>
+                    Hier kann die Art der Verknüfpung der einzelnen Felder dieser Bedingung angegeben werden.
+                    Mögliche werte sind 'and', 'or' sowieo 'xor'.
+                    Wird Type nicht explizit angegeben, wird der Type 'and' als Default Wert angenommen.
+                    Im Falle von 'and' sind müssen alle Feldtests erfüllt sein,
+                    um diese Transition als erfüllt zurückzuliefern.
+                    Im Falle von 'or' genügt ein erfüllter Feldtests, bei 'xor' darf exakt nur eine
+                    Feldtests positiv erfüllt sein, keine andere darf positiv überprüft werden um
+                    die Einzelbedingung als erfüllt zurückzuliefern.
+                </para>
+            </section>
+            <section>
+                <title>Fields</title>
+                <para>
+                    Hier werden die einzelnen Felder angegeben, deren werte überprüft werden sollen.
+                    Anhand unseres obigen Beispiels:
+                </para>
+                <para>
+                    <screen>
+            Fields => {
+                StateID => {
+                    Type => 'String',
+                    Match => '1',
+                },
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>StateID</title>
+                <para>
+                    Beispiel eines Feldnamens. Möglich sind hier alle DynamicFields angegeben mit
+                    DynamicField_Feldname sowie folgende Ticketfelder:
+                </para>
+                <para>
+                    <screen>
+            Title
+            State
+            StateID
+            Priority
+            PriorityID
+            Lock
+            LockID
+            Queue
+            QueueID
+            Customer
+            CustomerID
+            CustomerNo
+            CustomerUserID
+            Owner
+            OwnerID
+            Type
+            TypeID
+            SLA
+            SLAID
+            Service
+            ServiceID
+            Responsible
+            ResponsibleID
+            PendingTime
+                    </screen>
+                </para>
+                <para>
+                    Auch hier ist darauf zu achten, dass bei Prüfung eines ID Felds (z. B. StateID)
+                    als zu prüfender Wert die ID des Felds herangezogen wird. Während ohne ID
+                    der tatsächliche Wert überprüft wird.
+                </para>
+            </section>
+            <section>
+                <title>Type</title>
+                <para>
+                    Mittels 'Type' wird die Art der Feldüberprüfung angegeben.
+                    Mögliche Werte sind:
+                </para>
+                <para>
+                    <screen>
+            'String'
+            'Hash'
+            'Array'
+            'Regex'
+            'Module'
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>String</title>
+                <para>
+                    Vergleicht den Wert des Feldes mit dem unter 'Match' angegebenen String.
+                    Erfolgreich wenn der Feldwert exakt dem String entspricht.
+                </para>
+            </section>
+            <section>
+                <title>Hash</title>
+                <para>
+                    Vergleicht den Wert des Feldes der in dem Fall ein Hash sein muß
+                    mit dem unter 'Match' angegebenen Hash. Bei erfüllen aller im 'Match'
+                    Hash angegebener Werte ist die Prüfung positiv.
+                </para>
+            </section>
+            <section>
+                <title>Array</title>
+                <para>
+                    Vergleicht den Wert des Feldes der in dem Fall eine Liste (Array) sein muß
+                    mit dem unter 'Match' angegebenen Array. Sind die beiden Listen ident,
+                    ist die Prüfung positiv.
+                </para>
+            </section>
+            <section>
+                <title>Regex</title>
+                <para>
+                    Hier kann der Wert des Feldes gegen eine Regular Expression überprüft werden.
+                    Wichtig ist hierfür, dass in 'Match' als Grundbedingung
+                    qr{}xms enthält. Innerhalb der geschweiften Klammern kann die Regular Expression
+                    eingefügt werden. Beispiele für Regular Expresseions können unter:
+                    http://de.wikibooks.org/wiki/Perl-Programmierung:_Reguläre_Ausdrücke#Pattern_Matching
+                    nachgelesen werden.
+                </para>
+            </section>
+            <section>
+                <title>Module</title>
+                <para>
+                    Bietet die Möglichkeit, die mitgelieferten Werte an ein Perl Modul zur Prüfung
+                    weiterzureichen. Hiermit ist dann auch alles möglich was mit Perl machbar ist.
+                    Die Werte können beispielsweise für SOAP Anfragen benutzt und deren Antworten
+                    auf mögliche True/False Returns überprüft werden. Wenn das Modul '1' zurückliefert
+                    ist die Überprüfung positiv. Wird '0' zurückgeliefert ist die Überprüfung fehlgeschlagen.
+                    Ein Beispiel für ein Modul ist in
+                    /Kernel/System/ProcessManagement/TransitionValidation/ValidateDemo.pm zu finden.
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>TransitionActions</title>
+            <para>
+                TransitionActions sind Erweiterungen des OTRSTicketProcesses die nach erfolgreich durchgeführten Transitions angestoßen werden.
+                Über TransitionActions können alle möglichen Veränderungen am Auftragsticket wie z.b. Queue Move oder Owner Change durchgeführt werden.
+                Weiters lassen sich auf Wunsch TransitionActions erstellen die Emails versenden können oder andere automatisierbare Vorgänge
+                nach erfolgreicher Transition durchführen.
+            </para>
+            <section>
+                <title>TransitionAction Konfiguration</title>
+                <para>
+                    Die TransitionAction Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
+                    Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen>
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name => 'Queue Move',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+                    Config => {
+                        TargetQueue => 'Junk',
+                    },
+
+                },
+            };
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>Name</title>
+                <para>
+                    Gibt den Namen der TransitionAction an.
+                </para>
+            </section>
+            <section>
+                <title>Module</title>
+                <para>
+                    Hier ist der Pfad zum .pm File anzugeben in Perl Modulnotation.
+                </para>
+            </section>
+            <section>
+                <title>Config</title>
+                <para>
+                    Dies ist der Parameter in dem alle für das Modul benötigten Einstellungen gesetzt werden.
+                    Was hier konfiguriert wird, hängt von den Anforderungen des jeweiligen TransitionAction Moduls ab.
+                    Siehe hierzu die Dokumentation der einzelnen TransitionAction Module. Im obigen Beispiel des
+                    QueueMove ist nur die Angabe der TargetQueue nötig.
+                </para>
+            </section>
+            <section>
+                <title>TransitionAction Module mehrfach verwenden</title>
+                <para>
+                    Um TransitionActionmodule wiederverwendbar zu machen, geben Sie einfach mehrere TransitionActions in der Konfiguration an.
+                    Beispiel:
+                </para>
+                <para>
+                    <screen>
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name => 'Queue Move Junk',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+                    Config => {
+                        TargetQueue => 'Junk',
+                    },
+
+                },
+                'TA2' => {
+                    Name => 'Queue Move Raw',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+                    Config => {
+                        TargetQueue => 'Raw',
+                    },
+
+                },
+            };
+                    </screen>
+                </para>
+                <para>
+                    Hier wird das gleiche Modul einmal zum Verschieben eines Auftragstickets in die 'Raw', einmal zum
+                    Verschieben eines Auftragstickets in die 'Junk' Queue verwendet. Welche TransitionAction durchgeführt werden soll,
+                    ist in der Path Einstellung der Process Konfiguration zu setzen.
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>Verwendbare TransitionActions</title>
+            <para>
+                Mit OTRSTicketProcesses werden mehrere bereits verwendbare TransitionActions mitgeliefert.
+                Im folgen finden Sie die Dokumentation zu diesen Modulen und was Sie konfigurieren
+                müssen um diese einzusetzen.
+            </para>
+            <section>
+                <title>ArticleCreate</title>
+                <para>
+                    Diese TransitionAction erstellt einen Auftragsticket Artikel und kann für die Notizerstellung sowie
+                    Email Antworten herangezogen werden. Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen><![CDATA[
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name   => 'Article Create Note Internal',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::ArticleCreate',
+                    Config => {
+                        ArticleType => 'note-internal',    # email-external|email-internal|phone|fax|...
+                        SenderType  => 'agent',            # agent|system|customer
+                        ContentType =>
+                            'text/plain; charset=ISO-8859-15',    # or optional Charset & MimeType
+                        Subject     => 'some short description',  # required
+                        Body        => 'the message text',        # required
+                        HistoryType => 'OwnerUpdate'
+                        ,    # EmailCustomer|Move|AddNote|PriorityUpdate|WebRequestCustomer|...
+                        HistoryComment => 'Some free text!',
+                        From           => 'Some Agent <email@example.com>',    # not required but useful
+                        To      => 'Some Customer A <customer-a@example.com>', # not required but useful
+                        Cc      => 'Some Customer B <customer-b@example.com>', # not required but useful
+                        ReplyTo => 'Some Customer B <customer-b@example.com>', # not required
+                        InReplyTo => '<asdasdasd.12@example.com>',             # not required but useful
+                        References => '<asdasdasd.1@example.com> <asdasdasd.12@example.com>'
+                        ,                                                      # not required but useful
+                        NoAgentNotify => 0,    # if you don't want to send agent notifications
+                        AutoResponseType =>
+                            'auto reply', # auto reject|auto follow up|auto reply/new ticket|auto remove
+
+                        ForceNotificationToUserID => [ 1, 43, 56 ],    # if you want to force somebody
+                        ExcludeNotificationToUserID => [ 43, 56 ],
+                             # if you want full exclude somebody from notfications,
+                             # will also be removed in To: line of article,
+                             # higher prio as ForceNotificationToUserID
+                        ExcludeMuteNotificationToUserID => [ 43, 56 ],
+                             # the same as ExcludeNotificationToUserID but only the
+                             # sending gets muted, agent will still shown in To:
+                             # line of article
+                    },
+                },
+            };
+                    ]]></screen>
+                </para>
+                <para>
+                    Name definiert den Namen der konfigurierten TransitionAction.
+                    Dieser ist frei wählbar, sollte jedoch
+                    die Ausprägung der konfigurierten Aktion widerspiegeln.
+                </para>
+                <para>
+                    ArticleType definiert die Art des Artikels. Mögliche Optionen sind:
+                    email-external, email-internal, email-notification-ext, email-notification-int,
+                    phone, fax, sms, webrequest, note-internal, note-external, note-report
+                </para>
+                <para>
+                    SenderType definiert wer als Absender des Artikels herangezogen wird.
+                    Mögliche Optionen sind: agent, system, customer
+                </para>
+                <para>
+                    ContentType definiert die art des Artikelinhalts. Mögliche Optionen:
+                    'text/plain; charset=ISO-8859-15' oder sonstiges Charset und MimeType
+                </para>
+                <para>
+                    Subject definiert den Artikeltitel. Subject muß zwingend vorhanden sein.
+                </para>
+                <para>
+                    Body definiert den Inhalt des Artikels. Body muß zwingend vorhanden sein.
+                </para>
+                <para>
+                    HistoryType definiert die Art des History Eintrags. Mögliche Optionen:
+                    AddNote, ArchiveFlagUpdate, Bounce, CustomerUpdate, EmailAgent, EmailCustomer,
+                    EscalationResponseTimeNotifyBefore, EscalationResponseTimeStart, EscalationResponseTimeStop,
+                    EscalationSolutionTimeNotifyBefore, EscalationSolutionTimeStart, EscalationSolutionTimeStop,
+                    EscalationUpdateTimeNotifyBefore, EscalationUpdateTimeStart, EscalationUpdateTimeStop,
+                    FollowUp, Forward, Lock, LoopProtection, Merged, Misc, Move, NewTicket, OwnerUpdate,
+                    PhoneCallAgent, PhoneCallCustomer, PriorityUpdate, Remove, ResponsibleUpdate,
+                    SendAgentNotification, SendAnswer, SendAutoFollowUp, SendAutoReject, SendAutoReply,
+                    SendCustomerNotification, ServiceUpdate, SetPendingTime, SLAUpdate, StateUpdate,
+                    Subscribe, SystemRequest, TicketDynamicFieldUpdate, TicketLinkAdd, TicketLinkDelete,
+                    TimeAccounting, TypeUpdate, Unlock, Unsubscribe, WebRequestCustomer
+                </para>
+                <para>
+                    HistoryComment definiert den frei wählbaren Inhalt des History Kommentars.
+                </para>
+                <para>
+                    From, To, Cc, ReplyTo nehmen Mailadressen in der oben angegebenen Mailadressnotierung auf.
+                    InReplyTo
+                </para>
+                <para>
+                    InReplyTo nimmt eine oder mehrere Mailadressen auf.
+                </para>
+                <para>
+                    NoAgentNotify wenn auf 1 gesetzt, unterbindet es eine Email benachrichtigung des Agents.
+                </para>
+                <para>
+                    AutoResponseType kann folgende Werte annehmen:
+                    auto follow up, auto reject, auto remove, auto reply, auto reply/new ticket
+                </para>
+                <para>
+                    ForceNotificationToUserID, ExcludeNotificationToUserID,  ExcludeMuteNotificationToUserID
+                    köann jeweils eine in [] Klammern gesetzte Liste von BenutzerID's aufnehmen, die entweder
+                    immer benachrichtigt werden, nicht benachrichtigt werden oder nur als mailadresse angeführt
+                    jedoch nicht tatsächlich beschickt werden.
+                </para>
+            </section>
+            <section>
+                <title>CustomerSet</title>
+                <para>
+                    Diese TransitionAction stellt einen Kunden am Auftragsticket ein. Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen><![CDATA[
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name   => 'Customer Set Customer to test',
+                    Module => 'Kernel::System::Process::TransitionAction::CustomerSet',
+                    Config => {
+                        No      => 'test',
+                        User    => 'client-user-123',
+                        # or in other words
+                        # CustomerID     => 'client123',
+                        # CustomerUserID => 'client-user-123',
+
+                    },
+                },
+            };
+                    ]]></screen>
+                </para>
+                <para>
+                    Name definiert den Namen der konfigurierten TransitionAction.
+                    Dieser ist frei wählbar, sollte jedoch
+                    die Ausprägung der konfigurierten Aktion widerspiegeln.
+                </para>
+                <para>
+                    No oder CustomerID stellt die Kundennummer des Kunden ein.
+                </para>
+                <para>
+                    User oder CustomerUserID stellt den Benutzernamen des Kunden ein.
+                </para>
+            </section>
+            <section>
+                <title>DynamicFieldSet</title>
+                <para>
+                    Diese TransitionAction setzt einen oder mehrere DynamicFields an einem Auftragsticket. Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen><![CDATA[
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name   => 'Set DynamicField Master to Master and Approved to 1',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::DynamicFieldSet',
+                    Config => {
+                        MasterSlave => 'Master',
+                        Approved    => '1',
+
+                    },
+                },
+            };
+                    ]]></screen>
+                </para>
+                <para>
+                    Name definiert den Namen der konfigurierten TransitionAction.
+                    Dieser ist frei wählbar, sollte jedoch
+                    die Ausprägung der konfigurierten Aktion widerspiegeln.
+                </para>
+                <para>
+                    MasterSlave sowie Approved sind hier als Beispiele für DynamicField Namen angegeben.
+                    Die Wert der Keys (Master bzw. 1) sind die Werte auf die das Dynamische Feld durch die TransitionAction gesetzt werden.
+                </para>
+            </section>
+            <section>
+                <title>OwnerSet</title>
+                <para>
+                    Diese TransitionAction ändert den Besitzer des Auftragstickets. Entweder Owner oder OwnerID
+                    sind zwingend notwending um diese Aktion durchzuführen. Der jeweilige konfigurierte
+                    Wert muss entweder einem validen Benutzerlogin oder OTRS interne ID wiederspiegeln,
+                    da sonst das setzten des Benutzers nicht möglich ist.
+                    Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen><![CDATA[
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name   => 'Owner Set root@localhost',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::OwnerSet',
+                    Config => {
+                        Owner => 'root@localhost',
+                        # or
+                        OwnerID => 1,
+                    },
+                },
+            };
+                    ]]></screen>
+                </para>
+                <para>
+                    Name definiert den Namen der konfigurierten TransitionAction.
+                    Dieser ist frei wählbar, sollte jedoch
+                    die Ausprägung der konfigurierten Aktion widerspiegeln.
+                </para>
+                <para>
+                    Owner definiert den ausgeschriebenen Loginnamen des neuen Benutzers.
+                </para>
+                <para>
+                    OwnerID definiert die OTRS interne ID des neuen Benutzers.
+                </para>
+            </section>
+            <section>
+                <title>QueueMove</title>
+                <para>
+                    Diese TransitionAction verschiebt ein Auftragsticket in eine ZielQueue. Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen><![CDATA[
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name   => 'Queue Move Raw',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+                    Config => {
+                        TargetQueue => 'Raw',
+                        # or
+                        # TargetQueueID => '2',
+                    },
+                },
+            };
+                    ]]></screen>
+                </para>
+                <para>
+                    Name definiert den Namen der konfigurierten TransitionAction.
+                    Dieser ist frei wählbar, sollte jedoch
+                    die Ausprägung der konfigurierten Aktion widerspiegeln.
+                </para>
+                <para>
+                    TargetQueue gibt den Namen der Queue an, in die das Auftragsticket verschoben werden soll.
+                </para>
+                <para>
+                    TargetQueueID gibt die Datenbank ID der Queue an, in die das Auftragsticket verschoben werden soll.
+                </para>
+            </section>
+            <section>
+                <title>StateSet</title>
+                <para>
+                    Diese TransitionAction ändert den Status des Auftragstickets. Es ist sowohl möglich den Status generell
+                    oder aber auch den Status anhand einer Fallentscheidung zu ändern. Diese Fallentscheidung
+                    wird anhand eines definierten DynamicFields getroffen. Ist der Wert des definierten DynamicFields
+                    zum Zeitpunkt der Ausführung der TransitionAction nicht in der Fallentscheidung enthalten geschieht nichts.
+                    Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen><![CDATA[
+            $Self->{'Process::TransitionAction'} = {
+                'TA1' => {
+                    Name   => 'Set State if it is a MasterTicket',
+                    Module => 'Kernel::System::ProcessManagement::TransitionAction::StateSet',
+                    Config => {
+                        State  => 'open',
+                        # or
+                        StateID => 3,
+
+                        #OR (DynamicField state mapping)
+                        DynamicField        => 'MasterSlave', # or DynamicField_MasterSlave
+                        DynamicFieldMapping => {
+                            Master           => {
+                                State => 'open'
+                            }
+                            # or
+                            Master           => {
+                                StateID => 3
+                            }
+                        },
+                    },
+                },
+            };
+                    ]]></screen>
+                </para>
+                <para>
+                    Name definiert den Namen der konfigurierten TransitionAction.
+                    Dieser ist frei wählbar, sollte jedoch
+                    die Ausprägung der konfigurierten Aktion widerspiegeln.
+                </para>
+                <para>
+                    State definiert den Status den das Auftragsticket bekommen soll. Es ist zwingend
+                    notwendig, dass dieser Status im OTRS System hinterlegt und valide ist.
+                </para>
+                <para>
+                    StateID definiert die OTRS interne ID des neuen Status. Es ist zwingend notwending,
+                    dass diese ID im OTRS System hinterlegt und valide ist.
+                </para>
+                <para>
+                    DynamicField definiert den Namen des DynamicField anhand dessen die Fallentscheidung
+                    getroffen werden soll. Es ist außerdem möglich, dass ein führendes 'DynamicField_' vor
+                    dem Namen des DynamicField steht. Es ist zwingend notwending, dass das definierte
+                    DynamicField im OTRS System hinterlegt und valide ist.
+                </para>
+                <para>
+                    DynamicFieldMapping definiert die Fallentscheidung anhand der der Status des
+                    Auftragsticket entschieden wird. Für jeden definierten Wert ist es nötig einen State oder
+                    eine StateID anzugeben. Diese verhalten sich analog zu den fest definierten State und
+                    StateID Parametern, die bereits im oberen Teil beschrieben wurden. Falls keiner der
+                    definierten Werte zutreffen sollte wird der Status des Auftragstickets nicht verändert.
+                </para>
+            </section>
+        </section>
+        <section>
+            <title>ACL Werte-Einschränkung</title>
+            <para>
+                Mittels ACLs können wie auch für reguläre Tickets Werte-Einschränkungen in Auftragstickets vorgenommen werden.
+            </para>
+            <section>
+                <title>ACL Konfiguration</title>
+                <para>
+                    Die ACL Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
+                    Eine Beispielkonfiguration:
+                </para>
+                <para>
+                    <screen>
+            $Self->{TicketAcl}->{'001-ACL-ProcessProperties'} = {
+                Properties => {
+                    Process => {
+                        ProcessEntityID       => ['P1'],
+                        ActivityEntityID   => ['A1'],
+                        ActivityDialogEntityID      => ['AD1'],
+                    }
+                },
+                Possible => {
+                    ActivityDialog => ['AD1', 'AD3'],
+                },
+                PossibleNot => {
+                    ActivityDialog => ['AD3'],
+                },
+            };
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>001-ACL-ProcessProperties</title>
+                <para>
+                    Der Name der ACL Regel. Für weitere Informationen zur Benennung von ACL Regeln konsultieren Sie bitte das OTRS Handbuch.
+                </para>
+            </section>
+            <section>
+                <title>Process</title>
+                <para>
+                    Die ACL Sektion die für eine Prüfung herangezogen wird. Hat ein Auftragsticket die eingestellten Werte, trifft die ACL Regel zu.
+                    Hier können folgende Werte eingetragen werden:
+                </para>
+            </section>
+            <section>
+                <title>ProcessEntityID</title>
+                <para>
+                    Die ID des Prozesses den das Auftragsticket durchläuft.
+                </para>
+            </section>
+            <section>
+                <title>ActivityEntityID</title>
+                <para>
+                    Die ID des Activities in dem sich das Auftragsticket aktuell befindet.
+                </para>
+            </section>
+            <section>
+                <title>ActivityDialogEntityID</title>
+                <para>
+                    Die ID der Activity, die gerade zur Bearbeitung aufgerufen wurde bzw. bearbeitet wird.
+                </para>
+            </section>
+            <section>
+                <title>Possible bzw. PossibleNot Activity Dialog</title>
+                <para>
+                    Hier kann ein Array von Activity Dialog IDs angegeben werden. Dieses Array schränkt bei zutreffen der Properties Bedingung die Auswahl der
+                    in der Zoom Maske angezeigten Activity Dialogs ein.
+                </para>
+                <para>
+                    Possible gibt die Liste der erlaubten Activity Dialogs an.
+                    Sind z. B. für das aktuelle Activity folgende Activity Dialogs konfiguriert: 'AD1', 'AD2', 'AD3' (einstellbar in der Activity Konfiguration)
+                    schränkt die obige Konfiguration die Auswahlmöglichkeit auf die Activity Dialogs 'AD1' und 'AD3' ein.
+                </para>
+                <para>
+                    PossibleNot gibt die Liste der nicht erlaubte Activity Dialogs an.
+                    Sind z. B. für das aktuelle Activity folgende Activity Dialogs konfiguriert: 'AD1', 'AD2', 'AD3' (einstellbar in der Activity Konfiguration)
+                    schränkt die obige Konfiguration die Auswahlmöglichkeit auf die Activity Dialogs 'AD1' und 'AD2' ein.
+                </para>
+                <para>
+                    Wird wie oben sowohl Possible als auch PossibleNot angegeben, durchläuft die Ermittlung der möglichen Activity Dialog folgende Logik:
+                    Konfigurierte ActivityDialogs: 'AD1', 'AD2', 'AD3'. Nach Prüfung auf Possible verbleiben die Möglichkeiten 'AD1' und 'AD3'.
+                    Danach setzt PossibleNot ein und nimmt auch noch 'AD3' aus der Liste der möglichen ActivityDialogs.
+                    Übrig bleibt als einzige erlaubte Activity Dialog 'AD1'.
+                </para>
+                <para>
+                    Weiters werden die erlaubten Activity Dialogs als Schnittmenge aller zutreffender ACL Regeln,
+                    die "Activity" unter Possible oder PossibleNot konfiguriert haben, ermittelt. Beispiel:
+                </para>
+                <para>
+                    Konfigurierte Activity Dialogs: 'AD1', 'AD2', 'AD3', 'AD4', 'AD5', 'AD6', 'AD7'
+                </para>
+                <para>
+                    <screen>
+            $Self->{TicketAcl}->{'001-ACL-Status'} = {
+                Properties => {
+                    Ticket => {
+                        Status       => 'new',
+                    }
+                },
+                Possible => {
+                    ActivityDialog => ['AD1', 'AD2', 'AD3', 'AD6', 'AD7'],
+                },
+            };
+            $Self->{TicketAcl}->{'002-ACL-Queue'} = {
+                Properties => {
+                    Ticket => {
+                        Queue        => ['Raw']
+                    }
+                },
+                Possible => {
+                    ActivityDialog => ['AD2', 'AD3', 'AD4', 'AD7'],
+                },
+            };
+            $Self->{TicketAcl}->{'003-ACL-Priority'} = {
+                Properties => {
+                    Ticket => {
+                        Priority        => ['3 normal']
+                    }
+                },
+                PossibleNot => {
+                    ActivityDialog => ['AD3', 'AD4'],
+                },
+            };
+                    </screen>
+                </para>
+                <para>
+                    Angenommen das Auftragsticket hat den Status 'new', ist in der 'Raw' Queue und hat als Priority '3 normal'
+                    treffen alle drei obigen ACL Rules zu.
+                </para>
+                <para>
+                    Die erste ACL Rule reduziert die erlaubten Activity Dialogs von 'AD1', 'AD2', 'AD3', 'AD4', 'AD5', 'AD6', 'AD7' auf
+                    'AD1', 'AD2', 'AD3', 'AD6', 'AD7' und verbietet somit 'AD4' und 'AD5'.
+                </para>
+                <para>
+                    Die zweite ACL Rule reduziert die erlaubten Activity Dialogs von den nach der ersten ACL verbleibenden:
+                    'AD1', 'AD2', 'AD3', 'AD6', 'AD7' auf die Activity Dialogs die sowohl in der ersten als auch in der zweiten Regel unter Possible zu finden sind.
+                    In unserem Beispiel verbleiben somit 'AD2', 'AD3', 'AD7'. Die Activity Dilalog 'AD1' fällt heraus, da sie nur in der ersten Regel definiert ist.
+                    Die Activity Dialog 'AD4' wird nicht in die erlaubten Activity Dialogs aufgenommen, da sie nur in der zweiten Regel definiert ist.
+                </para>
+                <para>
+                    Nach der Reduktion der möglichen Activity Dialogs durch Possible setzt die weitere Reduktion durch PossibleNot ein.
+                    In unserem Fall versucht sie die Activity Dialog 'AD3' zu verhindern, welche nach den Possibles noch vorhanden war.
+                    Das Verbot von 'AD4' wirkt sich nicht aus, da diese schon vorher herausgefallen war.
+                    Somit verbleiben nach PossibleNot 'AD2' und 'AD7' als mögliche Activity Dialogs.
+                </para>
+            </section>
+        </section>
+-->
+</section>
+</section>

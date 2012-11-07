@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: time.xml,v 1.1 2012-11-07 08:47:26 mg Exp $ -->
+<section id="time">
+<title>Zeitabhängige Funktionen in OTRS</title>
+
+<section id="time-settings">
+<title>Arbeitszeiten, Feiertage und Zeitzonen für das System festlegen</title>
+
+<para>
+Einige Funktionen in OTRS, wie <link linkend="unlock-tickets">das
+automatische Entsperren von Tickets</link>, setzen eine korrekte
+Konfiguration von Arbeitszeiten, Zeitzonen und Feiertagen voraus.  Sie
+können diese in der <link linkend="sysconfig"> SysConfig </link> definieren,
+in <link linkend="Framework:Core::Time">Framework &gt; Core::Time</link>.
+Ebenso können Sie verschiedene Typen von Arbeitszeiten, Feiertagen und
+Zeitzonen als separate "Kalender" in <link
+linkend="Framework:Core::Time::Calendar1">Framework >
+Core::Time::Calendar1</link> bis <link
+linkend="Framework:Core::Time::Calendar9">Framework >
+Core::Time::Calendar9</link> definieren.  Kalender können auf <link
+linkend="adminarea-queue">Queue</link>- oder SLA-Ebene definiert werden. Das
+heißt, dass Sie z. B. einen Kalender mit 5x8 Arbeitsstunden pro Woche für
+Ihren "Standard"-SLA definieren können, zusätzlich jedoch auch einen mit
+7x24 für Ihren "Gold"-SLA. Ebenso kann der Kalender für Ihre Queue
+"Support-USA" ein anderes Arbeitszeitfenster haben als ihre Queue
+"Support-Japan". OTRS kann bis zu 99 verschiedene Kalender verwalten.
+</para>
+
+<section id="TimeWorkingHours">
+<title>Arbeitszeiten</title>
+
+<para>
+Setzen Sie die Arbeitszeiten für Ihr System in der SysConfig fest, in <link
+linkend="Framework:Core::Time:TimeWorkingHours"> Framework>
+Core::Time::TimeWorkingHours </link> oder in der Konfiguration Ihrer
+Kalender.  OTRS unterstützt eine Granularität von einer Stunde. Um
+z. B. 8:00 bis 18:00 als Arbeitszeit festzulegen, müssen die Auswahlkästchen
+8, 9, 10 .. 17 aktiviert werden.
+</para>
+
+<para>
+Nur während dieser Stunden können Tickets eskalieren, Benachrichtigungen zu
+Erinnerungs-Tickets versendet oder Tickets automatisch freigegeben
+werden. Weiterhin werden auch nur diese Stunden in die Berechnung der
+Eskalationszeit und der Zeit für die automatische Freigabe mit einbezogen.
+</para>
+</section>
+
+
+<section id="TimeVacationDays">
+<title>Feiertage mit festem Datum</title>
+
+<para>
+Feiertage deren Datum jedes Jahr gleich ist, können dem System in <link
+linkend="Framework:Core::Time:TimeVacationDays"> TimeVacationDays </link>
+oder im entsprechenden Abschnitt in den Kalendern 1-9 bekannt gemacht
+werden.
+</para>
+
+<para>
+Während der hier festgelegten Tage werden keine zeitabhängigen Aktionen oder
+Berechnungen auf Tickets im system ausgeführt.
+</para>
+
+<note>
+<para>
+In OTRS sind die <emphasis>deutschen</emphasis> Feiertage voreingestellt.
+</para>
+</note>
+
+</section>
+
+<section id="TimeVacationDaysOneTime">
+<title>TimeVacationDaysOneTime</title>
+
+<para>
+Freie oder Feiertage, für die sich jährlich das Datum ändert, können in
+<link linkend="Framework:Core::Time:TimeVacationDaysOneTime">
+TimeVacationDaysOneTime </link> angegeben werden.
+</para>
+
+<para>
+Während der hier festgelegten Tage werden keine zeitabhängigen Aktionen oder
+Berechnungen auf Tickets im system ausgeführt.
+</para>
+
+<note>
+<para>
+OTRS hat für diese Feiertage keine Voreinstellung. Sie müssen diese, wie
+z. B. Ostern, dem System also selbst bekannt machen.
+</para>
+</note>
+
+</section>
+
+</section>
+
+<section id="unlock-tickets">
+<title>Automatische Ticket-"Freigabe" (unlock)</title>
+
+<para>
+Gesperrte Tickets können automatisch vom System freigegeben werden. Diese
+Funktion kann z. B. dann nützlich sein, wenn sich ein Agent im Urlaub
+befindet und noch Tickets gesperrt hat, die bearbeitet werden sollen /
+müssen. Dieses Feature entsperrt Tickets nach einer bestimmten Zeit, um
+sicherzustellen, dass gesperrte Tickets nicht vergessen werden und andere
+Agenten darauf zugreifen können.
+</para>
+
+<para>
+Die Zeit, nach der gesperrte Tickets automatisch freigegeben werden, kann in
+den <link linkend="adminarea-queue">Einstellungen jeder Queue</link>
+festgelegt werden. Mit Hilfe des Moduls
+<filename>bin/otrs.UnlockTickets.pl</filename>, das als cron-Job regelmäßig
+ausgeführt werden sollte, wird die automatische Freigabe von Tickets
+umgesetzt.
+</para>
+
+<para>
+Benachrichtigungen für entsperrte Tickets werden nur zu den Benutzern
+versendet, die die jeweilige Queue in "Meine Queues" eingetragen und die
+Benachrichtigung für entsperrte Tickets in ihren <link
+linkend="user-preferences"> persönlichen Einstellungen </link> aktiviert
+haben.
+</para>
+
+<para>
+Tickets werden entsperrt wenn folgende Bedingungen zutreffen:
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+In der Queue des Tickets ist ein <emphasis>Freigabe-Zeitintervall</emphasis>
+definiert.
+</para>
+</listitem>
+<listitem>
+<para>
+Das Ticket ist <emphasis>gesperrt</emphasis>.
+</para>
+</listitem>
+<listitem>
+<para>
+Der Status des Tickets is <emphasis>offen"</emphasis>.
+</para>
+</listitem>
+</itemizedlist>
+
+<para>
+Die Freigabezeit wird zurückgesetzt, wenn ein Agent einen neuen externen
+Artikel zum Ticket hinzufügt. Das kann einer der folgenden Artikeltypen
+sein: <emphasis>email-external</emphasis>, <emphasis>phone</emphasis>,
+<emphasis>fax</emphasis>, <emphasis>sms</emphasis>, or
+<emphasis>note-external</emphasis>.
+</para>
+
+<para>
+Die Freigabezeit wird auch zurückgesetzt, wenn der letzte Artikel von einem
+Agent stammt und dann der Kunde einen hinzufügt, per E-Mail oder
+Weboberfläche.
+</para>
+
+<para>
+Zuletzt wird die Freigabezeit auch dann zurückgesetzt, wenn das Ticket einem
+anderen Agenten zugewiesen wird.
+</para>
+
+</section>
+
+</section>

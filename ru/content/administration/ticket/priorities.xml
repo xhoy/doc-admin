@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: priorities.xml,v 1.1 2012-11-07 08:47:26 mg Exp $ -->
+<section id="priorities">
+<title>Ticket priorities</title>
+
+<para>
+OTRS поставляется с пятью предустановлеными уровнями приоритетов, которые
+можно изменить перейдя по ссылке "Приоритеты" на Панели
+Администрирования. При создании настраиваемого списка приоритетов,
+пожалуйста помните, что они сортируются в алфавитном порядке. Также OTRS
+сортирует заявки в QueueView по их внутреннему номеру (ID).
+</para>
+
+<note>
+<para>
+Как и в случае с другими сущностями OTRS, приоритеты не могут быть удалены,
+а только деактивированы путем установки параметра Действительный в значение
+<emphasis>не действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+<important>
+<para>
+Если был создан новый приоритет, или был изменен уже существующий, то можно
+также произвести изменения некоторых параметров в SysConfig:
+</para>
+
+<itemizedlist>
+<listitem><para><link linkend="Ticket:Core::PostMaster:PostmasterDefaultPriority">
+Ticket:Core::Postmaster::PostmasterDefaultPriority</link> - определяет
+предустановленный приоритет для всех входящих сообщений электронной почты.</para></listitem>
+
+<listitem><para><link
+linkend="Ticket:Frontend::Agent::Ticket::ViewPhoneNew:Ticket::Frontend::AgentTicketPhone_Priority">
+Ticket:Frontend::Agent:Ticket::ViewPhoneNew:Priority</link> - определяет
+предустановленный приоритет для новых Заявок созданных на основе Телефонных
+Звонков.</para></listitem>
+
+<listitem><para><link
+linkend="Ticket:Frontend::Agent::Ticket::ViewEmailNew:Ticket::Frontend::AgentTicketEmail_Priority">
+Ticket:Frontend::Agent:Ticket::ViewEmailNew:Priority</link> - определяет
+предустановленый приоритет на странице с новыми Email-Заявками для агентов.</para></listitem>
+
+<listitem><para><link
+linkend="Ticket:Frontend::Customer::Ticket::ViewNew:Ticket::Frontend::CustomerTicketMessage_PriorityDefault">
+Ticket:Frontend::Customer:Ticket::ViewNew:PriorityDefault</link> -
+определяет предустановленные приоритеты для страцицы Новые Заявки в
+пользовательском веб-интерфейсе.
+</para></listitem>
+</itemizedlist>
+
+</important>
+
+</section>

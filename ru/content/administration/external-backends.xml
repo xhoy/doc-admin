@@ -1,0 +1,1219 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: external-backends.xml,v 1.1 2012-11-07 08:47:27 mg Exp $ -->
+<section id="external-backends">
+<title>Использование внешних хранилищ данных</title>
+
+<section id='customer-data'>
+<title>Данные клиентов</title>
+
+<para>
+OTRS работает с различными атрибутами данных клиентов, такими как имя
+пользователя, адрес электронной почты, номер телефона и т.д. Эти атрибуты
+отображаются в обеих фронтэндах, для Агентов и Клиентов. Они также
+используются для проверки подлинности клиентов.
+</para>
+
+<para>
+Данные клиентов, которые используются и отображаются в OTRS очень легко
+настраиваются. Несмотря на это следующая информация будет всегда необходима
+для проверки подлинности клиента:
+</para>
+
+<para>
+<itemizedlist>
+  <listitem>
+    <para>
+      Вход пользователей
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+      Адресс электронной почты
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+      ID Клиента
+    </para>
+  </listitem>
+</itemizedlist>
+</para>
+
+<para>
+Use configuration parameters of the following script in your
+<filename>Kernel/Config.pm</filename> file, if you want to display customer
+information in your agent interface.
+</para>
+
+<para>
+<programlisting>
+    # Ticket::Frontend::CustomerInfo*
+    # (show customer info on Compose (Phone and Email), Zoom and
+    # Queue view)
+    $Self->{'Ticket::Frontend::CustomerInfoCompose'} = 1;
+    $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;
+    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Kernel/Config.pm configuration parameters.</emphasis>
+</para>
+
+</section>
+
+<section id="customer-user-backend">
+<title>Пользовательский бэк-енд</title>
+
+<para>
+Вы можете использоваь два типа хранилища информации клиентов: Базу Данных DB
+и LDAP. Если у вас уже есть другой бэк-енд для хранения пользовательской
+информации (например SAP), также есть возможность написать модуль для
+использования этой функции.
+</para>
+
+<section id='customer-backend-db'>
+<title>База Данных (По умолчанию)</title>
+
+<para>
+В Примере 11-1 приведена конфигурация базы данных, которая использует данные
+клиента, хранящиеся в базе данных OTRS.
+</para>
+
+<example id='db-customer-backend'>
+<title>Настройка клиентского хранилища базы данных (DB)</title>
+
+<para>
+<programlisting>
+# CustomerUser (customer database backend and settings)
+$Self->{CustomerUser} = {
+    Name => 'Database Datasource',
+    Module => 'Kernel::System::CustomerUser::DB',
+    Params => {
+        # if you want to use an external database, add the required settings
+#            DSN => 'DBI:odbc:yourdsn',
+#            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#            User => '',
+#            Password => '',
+            Table => 'customer_user',
+            # if your frontend is unicode and the charset of your
+            # customer database server is iso-8859-1, use these options.
+#           SourceCharset => 'iso-8859-1',
+#           DestCharset => 'utf-8',
+
+            # CaseSensitive will control if the SQL statements need LOWER()
+            #   function calls to work case insensitively. Setting this to
+            #   1 will improve performance dramatically on large databases.
+            CaseSensitive => 0,
+        },
+# customer unique id
+CustomerKey => 'login',
+
+# customer #
+CustomerID => 'customer_id',
+CustomerValid => 'valid_id',
+    CustomerUserListFields => ['first_name', 'last_name', 'email'],
+    CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
+    CustomerUserSearchPrefix => '',
+    CustomerUserSearchSuffix => '*',
+    CustomerUserSearchListLimit => 250,
+    CustomerUserPostMasterSearchFields => ['email'],
+    CustomerUserNameFields => ['title','first_name','last_name'],
+    CustomerUserEmailUniqCheck => 1,
+#    # show not own tickets in customer panel, CompanyTickets
+#    CustomerUserExcludePrimaryCustomerID => 0,
+#    # generate auto logins
+#    AutoLoginCreation => 0,
+#    AutoLoginCreationPrefix => 'auto',
+#    # admin can change customer preferences
+#    AdminSetPreferences => 1,
+#    # cache time to live in sec. - cache any database queries
+#    CacheTTL => 0,
+#    # just a read only source
+#    ReadOnly => 1,
+    Map => [
+        # note: Login, Email and CustomerID needed!
+        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target
+        [ 'UserTitle',      'Title',      'title',      1, 0, 'var', '', 0 ],
+        [ 'UserFirstname',  'Firstname',  'first_name', 1, 1, 'var', '', 0 ],
+        [ 'UserLastname',   'Lastname',   'last_name',  1, 1, 'var', '', 0 ],
+        [ 'UserLogin',      'Username',   'login',      1, 1, 'var', '', 0 ],
+        [ 'UserPassword',   'Password',   'pw',         0, 0, 'var', '', 0 ],
+        [ 'UserEmail',      'Email',      'email',      1, 1, 'var', '', 0 ],
+
+#        [ 'UserEmail',      'Email', 'email',           1, 1, 'var', '$Env{"CGIHandle"}?Action=AgentTicketCompose&amp;ResponseID=1&amp;TicketID=$Data{"TicketID"}&amp;ArticleID=$Data{"ArticleID"}', 0 ],
+        [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
+
+#        [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+        [ 'UserPhone',        'Phone',       'phone',        1, 0, 'var', '', 0 ],
+        [ 'UserFax',          'Fax',         'fax',          1, 0, 'var', '', 0 ],
+        [ 'UserMobile',       'Mobile',      'mobile',       1, 0, 'var', '', 0 ],
+        [ 'UserStreet',       'Street',      'street',       1, 0, 'var', '', 0 ],
+        [ 'UserZip',          'Zip',         'zip',          1, 0, 'var', '', 0 ],
+        [ 'UserCity',         'City',        'city',         1, 0, 'var', '', 0 ],
+        [ 'UserCountry',      'Country',     'country',      1, 0, 'var', '', 0 ],
+        [ 'UserComment',      'Comment',     'comments',     1, 0, 'var', '', 0 ],
+        [ 'ValidID',          'Valid',       'valid_id',     0, 1, 'int', '', 0 ],
+    ],
+    # default selections
+    Selections => {
+        UserTitle => {
+            'Mr.' => 'Mr.',
+            'Mrs.' => 'Mrs.',
+        },
+    },
+};
+</programlisting>
+</para>
+
+</example>
+
+<para>
+If you want to customize the customer data, change the column headers or add
+new ones to the customer_user table in the OTRS database. As an example, the
+script below shows how to add a new field for room number.
+</para>
+
+<para>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 116 to server version: 5.0.18-Debian_7-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; ALTER TABLE customer_user ADD room VARCHAR (250);
+Query OK, 1 rows affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
+</para>
+
+<para>
+<emphasis>Script: Adding a room field to the customer_user table.</emphasis>
+</para>
+
+<para>
+Now add the new column to the MAP array in
+<filename>Kernel/Config.pm</filename>, as shown in the following script.
+</para>
+
+<para>
+<programlisting>
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserRoom',      'Room',      'room',       0, 1, 'var', '', 0 ],
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Adding a room field to the Kernel/Config.pm
+file.</emphasis>
+</para>
+
+<para>
+Всю эту информацию можно также отредактировать воспользовавшись ссылкой
+Клиенты.
+</para>
+
+<section id='multi-customer-ids-db'>
+<title>Клиент с несколькими идентификаторами (Заявки Компании)</title>
+
+<para>
+Одному клиенту можно назначить больше одного клиентского идентификатора
+(Customer ID). Это может быть полезно, если клиенту необходимо получить
+доступ к заявкам других  клиентов, например, руководитель хочет посмотреть
+заявки своих помощников. Если клиент может получить доступ к заявкам другого
+клиента, то используется особенность OTRS "заявки компании". Заявки компании
+могут быть доступны перейдя по ссылке "Заявки Компании" в клиентской панели
+управления.
+</para>
+
+<para>
+To use company tickets, a new column with the IDs that should be accessible
+for a customer, has to be added to the customer_user table in the OTRS
+database (see Script below).
+</para>
+
+<para>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 124 to server version: 5.0.18-Debian_7-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; ALTER TABLE customer_user ADD customer_ids VARCHAR (250);
+Query OK, 1 rows affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
+</para>
+
+<para>
+	<emphasis>Script: Adding a customer_ids field to the customer_user
+table.</emphasis>
+</para>
+
+<para>
+Now the new column has to be added to the MAP array in
+<filename>Kernel/Config.pm</filename>, as shown in the script below.
+</para>
+
+<para>
+<programlisting>
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Adding a UserCustomerIDs field to the Kernel/Config.pm
+file.</emphasis>
+</para>
+
+<para>
+Теперь, новый столбец для мульти-идентификатора ( IDs) клиента можно
+редактировать с помощью веб-интерфейса Агента, в разделе управления
+клиентами.
+</para>
+
+<para>
+Для того, чтобы убедится что один клиент имеет доступ к заявкам других
+клиентов нужно добавить идентификаторы (IDs) этих пользователей в новое поле
+для нескольких идентификаторов клиента. Каждый идентификатор (ID) должен
+быть отделен точкой с запятой (см. ниже Пример 11-2).
+</para>
+
+<example id='company-tickets-db'>
+<title>Хранение Заявок Компании в базе данных DB</title>
+
+<para>
+Клиенты А, Б и Ц созданы в вашей системе и А хочет иметь доступ к заявкам Б
+и Ц используя клиентскую панель. Б и Ц не должны иметь доступа к заявкам
+других пользователей.
+</para>
+
+<para>
+Для реализации этой структуры, измените таблицу customer_user и маппинг
+(преобразование) в <filename>Kernel/Config.pm</filename> как это показано
+выше. С помощью Панели Администрирования или используя ссылку Клиенты в
+веб-интерфейсе Агента загрузите настройки пользователя А. Если настройки
+отображаются, добавьте значения "Б;Ц;" в поле для CustomerIDs.
+</para>
+
+</example>
+
+</section>
+
+</section>
+
+<section id='customer-backend-ldap'>
+<title>LDAP</title>
+
+<para>
+Если у вас есть LDAP­-каталог, в котором хранятся данные о клиентах, его
+можно использовать в OTRS, в качестве хранилища данных о клиентах, как это
+показано в Примере 11-3.
+</para>
+
+<example id='ldap-customer-backend'>
+<title>Настройка LDAP в качестве клиентского бэк-енда</title>
+
+<para>
+<programlisting>
+# CustomerUser
+# (customer ldap backend and settings)
+$Self->{CustomerUser} = {
+    Name => 'LDAP Data Source',
+    Module => 'Kernel::System::CustomerUser::LDAP',
+    Params => {
+        # ldap host
+        Host => 'bay.csuhayward.edu',
+        # ldap base dn
+        BaseDN => 'ou=seas,o=csuh',
+        # search scope (one|sub)
+        SSCOPE => 'sub',
+        # The following is valid but would only be necessary if the
+        # anonymous user does NOT have permission to read from the LDAP tree
+        UserDN => '',
+        UserPw => '',
+        # in case you want to add always one filter to each ldap query, use
+        # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+        AlwaysFilter => '',
+            # if both your frontend and your LDAP are unicode, use this:
+            SourceCharset => 'utf-8',
+            DestCharset   => 'utf-8',
+            # if your frontend is unicode and the charset of your
+            # ldap server is iso-8859-1, use these options.
+            # SourceCharset => 'iso-8859-1',
+            # DestCharset => 'utf-8',
+            # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+            Params => {
+                port => 389,
+                timeout => 120,
+                async => 0,
+                version => 3,
+            },
+    },
+    # customer unique id
+    CustomerKey => 'uid',
+    # customer #
+    CustomerID => 'mail',
+    CustomerUserListFields => ['cn', 'mail'],
+    CustomerUserSearchFields => ['uid', 'cn', 'mail'],
+    CustomerUserSearchPrefix => '',
+    CustomerUserSearchSuffix => '*',
+    CustomerUserSearchListLimit => 250,
+    CustomerUserPostMasterSearchFields => ['mail'],
+    CustomerUserNameFields => ['givenname', 'sn'],
+    # show not own tickets in customer panel, CompanyTickets
+    CustomerUserExcludePrimaryCustomerID => 0,
+    # add an ldap filter for valid users (expert setting)
+#    CustomerUserValidFilter => '(!(description=locked))',
+    # administrator can't change customer preferences
+    AdminSetPreferences => 0,
+#    # cache time to live in sec. - cache any database queries
+#    CacheTTL => 0,
+    Map => [
+        # note: Login, Email and CustomerID are mandatory!
+        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+        [ 'UserTitle',      'Title',      'title',           1, 0, 'var', '', 0 ],
+        [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],
+        [ 'UserLastname',   'Lastname',   'sn',              1, 1, 'var', '', 0 ],
+        [ 'UserLogin',      'Username',   'uid',             1, 1, 'var', '', 0 ],
+        [ 'UserEmail',      'Email',      'mail',            1, 1, 'var', '', 0 ],
+        [ 'UserCustomerID', 'CustomerID', 'mail',            0, 1, 'var', '', 0 ],
+#        [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+        [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+        [ 'UserAddress',    'Address',    'postaladdress',   1, 0, 'var', '', 0 ],
+        [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],
+    ],
+};
+</programlisting>
+</para>
+
+</example>
+
+<para>
+If additional customer attributes are stored in your LDAP directory, such as
+a manager's name, a mobile phone number, or a department, and if you want to
+display this information in OTRS, just expand the MAP array in
+<filename>Kernel/Config.pm</filename> with the entries for these attributes,
+as shown in the following script.
+</para>
+
+<para>
+<programlisting>
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Adding new fields to the Kernel/Config.pm file.</emphasis>
+</para>
+
+
+<section id='multi-customer-ids-ldap'>
+<title>Клиент с несколькими идентификаторами (Заявки Компании)</title>
+
+<para>
+При использовании LDAP-бэкэнда клиенту можно присвоить больше одного
+клиентского айди (Customer ID). Для использования заявок компании, в
+LDAP-директорию нужно добавить новое поле, которое содержит доступные агенту
+идентификаторы (IDs).
+</para>
+
+<para>
+If the new field in the LDAP directory has been created, the new entry has
+to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as
+shown in the script below.
+</para>
+
+<para>
+<programlisting>
+    # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+    [...]
+    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Maping new fields to the Kernel/Config.pm file.</emphasis>
+</para>
+
+<para>
+Клиентские идентификаторы (IDs) можно редактировать напрямую в
+LDAP-директории. OTRS может только считать информацию из LDAP, но не
+записывать.
+</para>
+
+<para>
+Чтобы убедтися что клиент имеет доступ к заявкам других клиентов, добавьте
+идентификаторы (IDs) клиентов, к заявкам которых нужен доступ, к новому полю
+вашей LDAP-директории. Каждый идентификатор ID должен быть отделен точнкой с
+запятой (см. ниже Рисунок 11-4).
+</para>
+
+<example id='company-tickets-ldap'>
+<title>Использование заявок Компании с LDAP-бэкэндом</title>
+
+<para>
+Клиенты А, Б и Ц созданны в вашей системе и А хочет иметь доступ к заявкам Б
+и Ц через панель клиента. Б и Ц не должны иметь доступа к другим
+пользователям.
+</para>
+
+<para>
+Для реализации этой установки измените LDAP-директорию и маппинг (mapping) в
+<filename>Kernel/Config.pm</filename>, как это показано выше. Затем добавьте
+в вашей LDAP-директории значения "Б;Ц;" в поле для CustomerIDs, для клиента
+"А".
+</para>
+
+</example>
+
+</section>
+
+</section>
+
+<section id='multiple-customer-backends'>
+<title>Использование больше чем одного хранилища информации с OTRS</title>
+
+<para>
+Если в OTRS нужно использовать больше одного источника данных о клиентах
+(например LDAP и базу данных), конфигурационный параметр CustomerUser должен
+быть расширен числом, например "CustomerUser1", "CustomerUser2" (см. ниже
+Пример 11-5).
+</para>
+
+<example id='multiple-customer-backend-example'>
+<title>Использование больше чем одного пользовательского хранилища данных с OTRS</title>
+
+<para>
+В следующем примере показано применение конфигурации как для LDAP так и для
+базы данных клиентского бэкэнда с OTRS.
+</para>
+
+<para>
+<programlisting>
+# 1. Customer user backend: DB
+# (customer database backend and settings)
+$Self->{CustomerUser1} = {
+    Name => 'Customer Database',
+    Module => 'Kernel::System::CustomerUser::DB',
+    Params => {
+        # if you want to use an external database, add the
+        # required settings
+#        DSN => 'DBI:odbc:yourdsn',
+#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#        User => '',
+#        Password => '',
+        Table => 'customer_user',
+    },
+    # customer unique id
+    CustomerKey = 'login',
+    # customer #
+    CustomerID = 'customer_id',
+    CustomerValid = 'valid_id',
+    CustomerUserListFields => ['first_name', 'last_name', 'email'],
+    CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
+    CustomerUserSearchPrefix => '',
+    CustomerUserSearchSuffix => '*',
+    CustomerUserSearchListLimit => 250,
+    CustomerUserPostMasterSearchFields => ['email'],
+    CustomerUserNameFields => ['title','first_name','last_name'],
+    CustomerUserEmailUniqCheck => 1,
+#    # show not own tickets in customer panel, CompanyTickets
+#    CustomerUserExcludePrimaryCustomerID => 0,
+#    # generate auto logins
+#    AutoLoginCreation => 0,
+#    AutoLoginCreationPrefix => 'auto',
+#    # admin can change customer preferences
+#    AdminSetPreferences => 1,
+#    # cache time to live in sec. - cache any database queries
+#    CacheTTL => 0,
+#    # just a read only source
+#    ReadOnly => 1,
+    Map => [
+
+        # note: Login, Email and CustomerID needed!
+        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target
+        [ 'UserTitle',      'Title',      'title',        1, 0, 'var', '', 0 ],
+        [ 'UserFirstname',  'Firstname',  'first_name',   1, 1, 'var', '', 0 ],
+        [ 'UserLastname',   'Lastname',   'last_name',    1, 1, 'var', '', 0 ],
+        [ 'UserLogin',      'Username',   'login',        1, 1, 'var', '', 0 ],
+        [ 'UserPassword',   'Password',   'pw',           0, 0, 'var', '', 0 ],
+        [ 'UserEmail',      'Email',      'email',        1, 1, 'var', '', 0 ],
+        [ 'UserCustomerID', 'CustomerID', 'customer_id',  0, 1, 'var', '', 0 ],
+        [ 'UserPhone',      'Phone',      'phone',        1, 0, 'var', '', 0 ],
+        [ 'UserFax',        'Fax',        'fax',          1, 0, 'var', '', 0 ],
+        [ 'UserMobile',     'Mobile',     'mobile',       1, 0, 'var', '', 0 ],
+        [ 'UserStreet',     'Street',     'street',       1, 0, 'var', '', 0 ],
+        [ 'UserZip',        'Zip',        'zip',          1, 0, 'var', '', 0 ],
+        [ 'UserCity',       'City',       'city',         1, 0, 'var', '', 0 ],
+        [ 'UserCountry',    'Country',    'country',      1, 0, 'var', '', 0 ],
+        [ 'UserComment',    'Comment',    'comments',     1, 0, 'var', '', 0 ],
+        [ 'ValidID',        'Valid',      'valid_id',     0, 1, 'int', '', 0 ],
+    ],
+    # default selections
+    Selections => {
+        UserTitle => {
+            'Mr.' => 'Mr.',
+            'Mrs.' => 'Mrs.',
+        },
+    },
+};
+
+# 2. Customer user backend: LDAP
+# (customer ldap backend and settings)
+$Self->{CustomerUser2} = {
+    Name => 'LDAP Datasource',
+    Module => 'Kernel::System::CustomerUser::LDAP',
+    Params => {
+        # ldap host
+        Host => 'bay.csuhayward.edu',
+        # ldap base dn
+        BaseDN => 'ou=seas,o=csuh',
+        # search scope (one|sub)
+        SSCOPE => 'sub',
+#        # The following is valid but would only be necessary if the
+#        # anonymous user does NOT have permission to read from the LDAP tree
+        UserDN => '',
+        UserPw => '',
+        # in case you want to add always one filter to each ldap query, use
+        # this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+        AlwaysFilter => '',
+        # if both your frontend and your LDAP are unicode, use this:
+#        SourceCharset => 'utf-8',
+#        DestCharset   => 'utf-8',
+        # if your frontend is e. g. iso-8859-1 and the character set of your
+        # ldap server is utf-8, use these options:
+#        SourceCharset => 'utf-8',
+#        DestCharset => 'iso-8859-1',
+
+        # Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+        Params => {
+            port => 389,
+            timeout => 120,
+            async => 0,
+            version => 3,
+        },
+    },
+    # customer unique id
+    CustomerKey => 'uid',
+    # customer #
+    CustomerID => 'mail',
+    CustomerUserListFields => ['cn', 'mail'],
+    CustomerUserSearchFields => ['uid', 'cn', 'mail'],
+    CustomerUserSearchPrefix => '',
+    CustomerUserSearchSuffix => '*',
+    CustomerUserSearchListLimit => 250,
+    CustomerUserPostMasterSearchFields => ['mail'],
+    CustomerUserNameFields => ['givenname', 'sn'],
+    # show not own tickets in customer panel, CompanyTickets
+    CustomerUserExcludePrimaryCustomerID => 0,
+    # add a ldap filter for valid users (expert setting)
+#    CustomerUserValidFilter => '(!(description=locked))',
+    # admin can't change customer preferences
+    AdminSetPreferences => 0,
+    Map => [
+        # note: Login, Email and CustomerID needed!
+        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly
+        [ 'UserTitle',      'Title',      'title',           1, 0, 'var', '', 0 ],
+        [ 'UserFirstname',  'Firstname',  'givenname',       1, 1, 'var', '', 0 ],
+        [ 'UserLastname',   'Lastname',   'sn',              1, 1, 'var', '', 0 ],
+        [ 'UserLogin',      'Username',   'uid',             1, 1, 'var', '', 0 ],
+        [ 'UserEmail',      'Email',      'mail',            1, 1, 'var', '', 0 ],
+        [ 'UserCustomerID', 'CustomerID', 'mail',            0, 1, 'var', '', 0 ],
+#        [ 'UserCustomerIDs', 'CustomerIDs', 'second_customer_ids', 1, 0, 'var', '', 0 ],
+        [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],
+        [ 'UserAddress',    'Address',    'postaladdress',   1, 0, 'var', '', 0 ],
+        [ 'UserComment',    'Comment',    'description',     1, 0, 'var', '', 0 ],
+    ],
+};
+</programlisting>
+</para>
+
+</example>
+
+<para>
+Есть возможность интегрировать до 10 различных пользовательских
+бэк-эндов. Используйте интерфейс управления клиентами в OTRS, чтобы
+просматривать и редактировать данные о них (при условии наличия прав для
+записи).
+</para>
+
+</section>
+
+</section>
+
+<section id="auth-backends">
+<title>Хранилища (бэк-енды) для аутентификации Агентов и Клиентов</title>
+
+<para>
+OTRS предлагает опцию для проверки подлинности агентов и клиентов с
+использованием различных хранилищ данных (бэкендов).
+</para>
+
+<section id='agent-auth-backends'>
+<title>Хранилища данных (бэк-енды) для аутентификации Агентов</title>
+
+<section id='agent-auth-backend-db'>
+<title>База Данных (DB, по умаолчанию)</title>
+
+<para>
+В качестве бэк-энда для аутентификации агентов в OTRS, по умолчанию,
+используется база данных. Чтобы добавлять агентов, редактировать данные о
+них, перейдите на страницу <link linkend="adminarea">Панель
+Администрирования</link> и нажмите ссылку <link
+linkend="adminarea-agents">Интерфейс для управления агентами</link>
+(см. ниже Пример 11.6).
+</para>
+
+<example id='configuration-agent-auth-backend-db'>
+<title>Проверка подлинности агентов путем использования Базы Данных (DB) в качестве
+хранилища информации.</title>
+
+<para>
+<programlisting>
+    $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+<section id='agent-auth-backend-ldap'>
+<title>LDAP</title>
+
+<para>
+Если данные всех ваших агентов хранятся в LDAP-директории, то для
+аутентификации пользователей в OTRS можно использовать LDAP-модуль (см. ниже
+Пример 11-7). Этот модуль имеет права только на чтение дерева
+LDAP-каталогов, что означает что нету возможности редактировать данные
+пользователей используя ссылку <link linkend='adminarea-agents'>
+веб-интерфейс для управления пользователями </link> .
+</para>
+
+<example id='configuration-agent-auth-backend-ldap'>
+<title>Проверка подлинности агентов при использовании LDAP в качестве хранилища
+данных</title>
+
+<para>
+<programlisting>
+# This is an example configuration for an LDAP auth. backend.
+# (Make sure Net::LDAP is installed!)
+$Self->{'AuthModule'} = 'Kernel::System::Auth::LDAP';
+$Self->{'AuthModule::LDAP::Host'} = 'ldap.example.com';
+$Self->{'AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';
+$Self->{'AuthModule::LDAP::UID'} = 'uid';
+
+# Check if the user is allowed to auth in a posixGroup
+# (e. g. user needs to be in a group xyz to use otrs)
+$Self->{'AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';
+$Self->{'AuthModule::LDAP::AccessAttr'} = 'memberUid';
+# for ldap posixGroups objectclass (just uid)
+#  $Self->{'AuthModule::LDAP::UserAttr'} = 'UID';
+# for non ldap posixGroups objectclass (with full user dn)
+#  $Self->{'AuthModule::LDAP::UserAttr'} = 'DN';
+
+# The following is valid but would only be necessary if the
+# anonymous user do NOT have permission to read from the LDAP tree
+$Self->{'AuthModule::LDAP::SearchUserDN'} = '';
+$Self->{'AuthModule::LDAP::SearchUserPw'} = '';
+
+# in case you want to add always one filter to each ldap query, use
+# this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+$Self->{'AuthModule::LDAP::AlwaysFilter'} = '';
+
+# in case you want to add a suffix to each login name, then
+# you can use this option. e. g. user just want to use user but
+# in your ldap directory exists user@domain.
+#    $Self->{'AuthModule::LDAP::UserSuffix'} = '@domain.com';
+
+# Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+$Self->{'AuthModule::LDAP::Params'} = {
+    port => 389,
+    timeout => 120,
+    async => 0,
+    version => 3,
+};
+</programlisting>
+</para>
+
+</example>
+
+<para>
+The configuration parameters shown in the script below can be used to
+synchronize the user data from your LDAP directory into your local OTRS
+database. This reduces the number of requests to your LDAP server and speeds
+up the authentication with OTRS. The data synchronization is done when the
+agent authenticates the first time. Although the data can be syncronized
+into the local OTRS database, the LDAP directory is the last instance for
+the authentication, so an inactive user in the LDAP tree can't authenticate
+to OTRS, even when the account data is already stored in the OTRS
+database. The agent data in the LDAP directory can't be edited via the web
+interface of OTRS, so the data has to be managed directly in the LDAP tree.
+</para>
+
+<para>
+<programlisting>
+# defines AuthSyncBackend (AuthSyncModule) for AuthModule
+# if this key exists and is empty, there won't be a sync.
+# example values: AuthSyncBackend, AuthSyncBackend2
+$Self->{'AuthModule::UseSyncBackend'} = 'AuthSyncBackend';
+
+# agent data sync against ldap
+$Self->{'AuthSyncModule'} = 'Kernel::System::Auth::Sync::LDAP';
+$Self->{'AuthSyncModule::LDAP::Host'} = 'ldap://ldap.example.com/';
+$Self->{'AuthSyncModule::LDAP::BaseDN'} = 'dc=otrs, dc=org';
+$Self->{'AuthSyncModule::LDAP::UID'} = 'uid';
+$Self->{'AuthSyncModule::LDAP::SearchUserDN'} = 'uid=sys, ou=user, dc=otrs, dc=org';
+$Self->{'AuthSyncModule::LDAP::SearchUserPw'} = 'some_pass';
+$Self->{'AuthSyncModule::LDAP::UserSyncMap'} = {
+    # DB -> LDAP
+    UserFirstname => 'givenName',
+    UserLastname  => 'sn',
+    UserEmail     => 'mail',
+};
+[...]
+
+# AuthSyncModule::LDAP::UserSyncInitialGroups
+# (sync following group with rw permission after initial create of first agent
+# login)
+$Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
+    'users',
+];
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Synchronizing the user data from the LDAP directory into
+the OTRS database.</emphasis>
+</para>
+
+</section>
+
+<section id='agent-auth-backend-httpbasic'>
+<title>HTTPBasicAuth-аутентификация для Агентов</title>
+
+<para>
+Если вы хотите реализовать решение "single sign on" для всех агентов, вы
+можете использовать базовую аунентификацию (для всех систем) и
+HTTPBasicAuth-модуль для OTRS (см. ниже Пример 11-8).
+</para>
+
+<example id='configuration-agent-auth-backend-htbasic'>
+<title>Аутентификация Агентов с помощью HTTPBasic</title>
+
+<para>
+<programlisting>
+# This is an example configuration for an apache ($ENV{REMOTE_USER})
+# auth. backend. Use it if you want to have a singe login through
+# apache http-basic-auth
+$Self->{'AuthModule'} = 'Kernel::System::Auth::HTTPBasicAuth';
+
+# Note:
+#
+# If you use this module, you should use as fallback
+# the following configuration settings if the user is not authorized
+# apache ($ENV{REMOTE_USER})
+$Self->{LoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';
+$Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+<section id='agent-auth-backend-radius'>
+<title>Radius</title>
+
+<para>
+Параметры конфигурации приведенные в Примере 11-9 могут быть использованы
+для аутентификации агентов с использованием Radius-сервера.
+</para>
+
+<example id='configuration-agent-auth-backend-radius'>
+<title>Аутентификация (проверка подлинности) агентов с использованием
+Radius-сервера в качестве хранилища информации</title>
+
+<para>
+<programlisting>
+# This is example configuration to auth. agents against a radius server
+$Self->{'AuthModule'} = 'Kernel::System::Auth::Radius';
+$Self->{'AuthModule::Radius::Host'} = 'radiushost';
+$Self->{'AuthModule::Radius::Password'} = 'radiussecret';
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+</section>
+
+<section id="customer-auth-backends">
+<title>Хранилища информации для аутентификации (проверки подлинности) клиентов</title>
+
+<section id='customer-auth-backend-db'>
+<title>База Данных (По умолчанию)</title>
+
+<para>
+Для аутентификации клиентов в OTRS, по умолчанию, используется база
+данных. Используя базу данных в качестве хранилища,  все данные клиентов
+можно редактировать через веб-интерфейс OTRS (см. ниже Пример 11-10).
+</para>
+
+<example id='configuration-customer-auth-backend-db'>
+<title>Аутентификация Клиента в Базе Данных</title>
+
+<para>
+<programlisting>
+# This is the auth. module againt the otrs db
+$Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::DB';
+$Self->{'Customer::AuthModule::DB::Table'} = 'customer_user';
+$Self->{'Customer::AuthModule::DB::CustomerKey'} = 'login';
+$Self->{'Customer::AuthModule::DB::CustomerPassword'} = 'pw';
+#$Self->{'Customer::AuthModule::DB::DSN'} = "DBI:mysql:database=customerdb;host=customerdbhost";
+#$Self->{'Customer::AuthModule::DB::User'} = "some_user";
+#$Self->{'Customer::AuthModule::DB::Password'} = "some_password";
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+<section id='customer-auth-backend-ldap'>
+<title>LDAP</title>
+
+<para>
+Если у вас есть LDAP-каталог со всеми данными о клиентах, можно использовать
+модуль LDAP для аутентификации клиентов в OTRS (см. Пример 11-11
+ниже). Поскольку этот модуль имеет права только для чтения для данных из
+LDAP-бэкенда, то нету возможности изменить данные клиента через веб.
+</para>
+
+<example id='configuration-customer-auth-backend-ldap'>
+<title>Аутентификация пользователей с помощью LDAP-бэкэнда</title>
+
+<para>
+<programlisting>
+# This is an example configuration for an LDAP auth. backend.
+# (make sure Net::LDAP is installed!)
+$Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::LDAP';
+$Self->{'Customer::AuthModule::LDAP::Host'} = 'ldap.example.com';
+$Self->{'Customer::AuthModule::LDAP::BaseDN'} = 'dc=example,dc=com';
+$Self->{'Customer::AuthModule::LDAP::UID'} = 'uid';
+
+# Check if the user is allowed to auth in a posixGroup
+# (e. g. user needs to be in a group xyz to use otrs)
+$Self->{'Customer::AuthModule::LDAP::GroupDN'} = 'cn=otrsallow,ou=posixGroups,dc=example,dc=com';
+$Self->{'Customer::AuthModule::LDAP::AccessAttr'} = 'memberUid';
+# for ldap posixGroups objectclass (just uid)
+$Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'UID';
+# for non ldap posixGroups objectclass (full user dn)
+#$Self->{'Customer::AuthModule::LDAP::UserAttr'} = 'DN';
+
+# The following is valid but would only be necessary if the
+# anonymous user does NOT have permission to read from the LDAP tree
+$Self->{'Customer::AuthModule::LDAP::SearchUserDN'} = '';
+$Self->{'Customer::AuthModule::LDAP::SearchUserPw'} = '';
+
+# in case you want to add always one filter to each ldap query, use
+# this option. e. g. AlwaysFilter => '(mail=*)' or AlwaysFilter => '(objectclass=user)'
+$Self->{'Customer::AuthModule::LDAP::AlwaysFilter'} = '';
+
+# in case you want to add a suffix to each customer login name, then
+# you can use this option. e. g. user just want to use user but
+# in your ldap directory exists user@domain.
+#$Self->{'Customer::AuthModule::LDAP::UserSuffix'} = '@domain.com';
+
+# Net::LDAP new params (if needed - for more info see perldoc Net::LDAP)
+$Self->{'Customer::AuthModule::LDAP::Params'} = {
+    port => 389,
+    timeout => 120,
+    async => 0,
+    version => 3,
+};
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+<section id='customer-auth-backend-httpbasic'>
+<title>HTTPBasicAuth аутентификация для клиентов</title>
+
+<para>
+Если для пользователей нужно внедрить "single sign on"-решение, можно
+использовать базовую, HTTPBasic аутентификацию (для всех систем) и
+использовать модуль HTTPBasicAuth с OTRS (больше не нужно логинится в
+OTRS). См. ниже Пример 11-12.
+</para>
+
+<example id='configuration-customer-auth-backend-htbasic'>
+<title>Аутентификация клиентов с помощью HTTPBasic</title>
+
+<para>
+<programlisting>
+# This is an example configuration for an apache ($ENV{REMOTE_USER})
+# auth. backend. Use it if you want to have a singe login through
+# apache http-basic-auth
+$Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::HTTPBasicAuth';
+
+# Note:
+# If you use this module, you should use the following
+# config settings as fallback, if user isn't login through
+# apache ($ENV{REMOTE_USER})
+$Self->{CustomerPanelLoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';
+$Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+<section id='customer-auth-backend-radius'>
+<title>Radius</title>
+
+<para>
+Настройки приведенные в примере 11-13 могут быть использованы для
+аутентификации ваших клиентов с помощью Radius-сервера.
+</para>
+
+<example id='configuration-customer-auth-backend-radius'>
+<title>Аутентификация клиентов с использованием Radius</title>
+
+<para>
+<programlisting>
+# This is a example configuration to auth. customer against a radius server
+$Self->{'Customer::AuthModule'} = 'Kernel::System::Auth::Radius';
+$Self->{'Customer::AuthModule::Radius::Host'} = 'radiushost';
+$Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
+</programlisting>
+</para>
+
+</example>
+
+</section>
+
+</section>
+
+</section>
+
+<section id="customer-self-registration">
+<title>Customizing the customer self-registration</title>
+
+<para>
+Есть возможность настроить самостоятельную регистрацию новых клиентов,
+доступную через панель customer.pl. Можно добавить новые дополнительные или
+обязательные поля, такие как номер комнаты, адрес или состояние.
+</para>
+
+<para>
+В следующем примере показано каким образом можно указать обязательные для
+заполнения поля в базе данных клиентов, в данном случае, для хранения номера
+клиента.
+</para>
+
+<section id='customer-self-registration-dtl'>
+<title>Настройка веб-интерфейса</title>
+
+<para>
+To display the new field for the room number in the customer.pl web
+interface, the .dtl file responsible for the layout in this interface has to
+be modified. Edit the
+<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file,
+adding the new field around line 80 (see Script below).
+</para>
+
+<para>
+<programlisting>
+[...]
+&lt;div class="NewLine"&gt;
+    &lt;label for="Room"&gt;$Text{"Room{CustomerUser}"}&lt;/label&gt;
+    &lt;input title="$Text{"Room Number"}" name="Room" type="text" id="UserRoom" maxlength="50" /&gt;
+&lt;/div&gt;
+[...]
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Displaying a new field in the web interface.</emphasis>
+</para>
+
+</section>
+
+<section id="customer-self-registration-mapping">
+<title>Отображения клиентов</title>
+
+<para>
+In the next step, the customer mapping has to be expanded with the new entry
+for the room number. To ensure that the changes are not lost after an
+update, put the "CustomerUser" settings from the
+<filename>Kernel/Config/Defaults.pm</filename> into the
+<filename>Kernel/Config.pm</filename>. Now change the MAP array and add the
+new room number field, as shown in the script below.
+</para>
+
+<para>
+<programlisting>
+# CustomerUser
+# (customer database backend and settings)
+$Self->{CustomerUser} = {
+    Name => 'Database Backend',
+    Module => 'Kernel::System::CustomerUser::DB',
+    Params => {
+        # if you want to use an external database, add the
+        # required settings
+#        DSN => 'DBI:odbc:yourdsn',
+#        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
+#        User => '',
+#        Password => '',
+        Table => 'customer_user',
+    },
+    # customer unique id
+    CustomerKey => 'login',
+    # customer #
+    CustomerID => 'customer_id',
+    CustomerValid => 'valid_id',
+    CustomerUserListFields => ['first_name', 'last_name', 'email'],
+#    CustomerUserListFields => ['login', 'first_name', 'last_name', 'customer_id', 'email'],
+    CustomerUserSearchFields => ['login', 'last_name', 'customer_id'],
+    CustomerUserSearchPrefix => '',
+    CustomerUserSearchSuffix => '*',
+    CustomerUserSearchListLimit => 250,
+    CustomerUserPostMasterSearchFields => ['email'],
+    CustomerUserNameFields => ['title', 'first_name', 'last_name'],
+    CustomerUserEmailUniqCheck => 1,
+#    # show not own tickets in customer panel, CompanyTickets
+#    CustomerUserExcludePrimaryCustomerID => 0,
+#    # generate auto logins
+#    AutoLoginCreation => 0,
+#    AutoLoginCreationPrefix => 'auto',
+#    # admin can change customer preferences
+#    AdminSetPreferences => 1,
+#    # cache time to live in sec. - cache database queries
+#    CacheTTL => 0,
+#    # just a read only source
+#    ReadOnly => 1,
+    Map => [
+
+        # note: Login, Email and CustomerID needed!
+        # var, frontend, storage, shown (1=always,2=lite), required, storage-type, http-link, readonly, http-link-target
+        [ 'UserTitle',      'Title',      'title',       1, 0, 'var', '', 0 ],
+        [ 'UserFirstname',  'Firstname',  'first_name',  1, 1, 'var', '', 0 ],
+        [ 'UserLastname',   'Lastname',   'last_name',   1, 1, 'var', '', 0 ],
+        [ 'UserLogin',      'Username',   'login',       1, 1, 'var', '', 0 ],
+        [ 'UserPassword',   'Password',   'pw',          0, 0, 'var', '', 0 ],
+        [ 'UserEmail',      'Email',      'email',       1, 1, 'var', '', 0 ],
+        [ 'UserCustomerID', 'CustomerID', 'customer_id', 0, 1, 'var', '', 0 ],
+        [ 'UserPhone',      'Phone',      'phone',       1, 0, 'var', '', 0 ],
+        [ 'UserFax',        'Fax',        'fax',         1, 0, 'var', '', 0 ],
+        [ 'UserMobile',     'Mobile',     'mobile',      1, 0, 'var', '', 0 ],
+        [ 'UserRoom',       'Room',       'room',        1, 0, 'var', '', 0 ],
+        [ 'UserStreet',     'Street',     'street',      1, 0, 'var', '', 0 ],
+        [ 'UserZip',        'Zip',        'zip',         1, 0, 'var', '', 0 ],
+        [ 'UserCity',       'City',       'city',        1, 0, 'var', '', 0 ],
+        [ 'UserCountry',    'Country',    'country',     1, 0, 'var', '', 0 ],
+        [ 'UserComment',    'Comment',    'comments',    1, 0, 'var', '', 0 ],
+        [ 'ValidID',        'Valid',      'valid_id',    0, 1, 'int', '', 0 ],
+    ],
+    # default selections
+    Selections => {
+        UserTitle => {
+            'Mr.' => 'Mr.',
+            'Mrs.' => 'Mrs.',
+        },
+    },
+};
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Changing the map array.</emphasis>
+</para>
+
+</section>
+
+<section id="customer-self-registration-customer-table">
+<title>Customizing the customer_user table in the OTRS DB</title>
+
+<para>
+The last step is to add the new room number column to the customer_user
+table in the OTRS database (see Script below). In this column, the entries
+for the room numbers will be stored.
+</para>
+
+<para>
+<screen>
+linux:~# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6 to server version: 5.0.18-Debian_7-log
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; use otrs;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; ALTER TABLE customer_user ADD room VARCHAR (200);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql&gt; quit
+Bye
+linux:~#
+</screen>
+</para>
+
+<para>
+<emphasis>Script: Adding a new column to the customer_user table.</emphasis>
+</para>
+
+<para>
+Теперь новое поле для номера комнаты должно отображатся в customer.pl
+панели. Когда новые клиенты будут регистрировать аккаунт, им нужно будет
+вписать номер комнаты. Если для работы OTRS используется Apache и  модуль
+mod_perl, то чтобы новые изменения вступили в силу нужно перезапустить
+веб-сервер.
+</para>
+</section>
+
+</section>
+
+</section>

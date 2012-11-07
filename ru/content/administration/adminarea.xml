@@ -1,0 +1,2203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: adminarea.xml,v 1.1 2012-11-07 08:47:27 mg Exp $ -->
+<section id="adminarea">
+<title>Панель управления OTRS</title>
+
+<section id="adminarea-general">
+<title>Основы</title>
+
+<para>
+Администраторы используют страницу администрирования веб-интерфейса OTRS для
+настройки системы - добавления агентов, клиентов и очередей, заявок и
+настройки почты, установки дополнительных пакетов, таких как FAQ (ЧАВО) и
+ITSM и многое другое. </para>
+
+<para>
+Agents who are members of the <emphasis>admin</emphasis> group can access
+the Admin area by clicking the <emphasis>Admin</emphasis> link in the
+navigation bar (see Figure below). The rest of the agents won't see this
+link.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Страница OTRS-Администратора</screeninfo> <graphic srccredit="Adminarea -
+screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: OTRS Admin screen.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-agents-groups-and-roles">
+<title>Агенты, Группы и Роли</title>
+
+<section id="adminarea-agents">
+<title>Агенты</title>
+
+<para>
+By clicking the link <emphasis>Agents</emphasis>, you get access to the
+agent management screen of OTRS (see Figure below). Administrators can add,
+change or deactivate agent accounts. Administrators can also manage agent
+preferences, for instance the language and notification settings for their
+interface.
+</para>
+
+<note>
+<para>
+Учетная запись (аккаунт) агента может быть деактивирована, но не
+удалена. Деактивация осуществляется путем установки параметра Действительный
+в значение <emphasis>не действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+<para>
+<screenshot>
+<screeninfo>Управление Агентами</screeninfo> <graphic srccredit="Adminarea agent
+management - screenshot" scale="40"
+fileref="screenshots/admin-agents.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Agent management.</emphasis>
+</para>
+
+<para>
+To register an agent, click on the "Add agent" button, type all the needed
+data and press the Submit button at the bottom of the screen, as shown in
+Figure.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавление агента</screeninfo> <graphic srccredit="Adminarea agent
+management - screenshot" scale="40"
+fileref="screenshots/add-agent.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a new agent.</emphasis>
+</para>
+
+<para>
+После того, как новая учетная запись агента создана, его нужно сделать
+членом одной или нескольких груп или ролей. За дополнительной информацией о
+группах и ролях обращайтесь к разделу <link
+linkend="adminarea-groups">Группы</link> и <link
+linkend="adminarea-roles">Роли</link> данной главы.
+</para>
+
+</section>
+
+<section id="adminarea-groups">
+<title>Группы</title>
+
+<para>
+Каждая учетная запись агента должна принадлежать по крайней мере к одной
+группе или роли. После установки системы есть три предопределенных групы,
+которые приведены в Таблице 5-1.
+</para>
+
+<para>
+<table id="table-of-groups-after-installation">
+<title>Предопределенные групы, доступны для новой (только что) установленной
+системы OTRS</title>
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>Группа</entry>
+        <entry>Описание</entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>admin</entry>
+        <entry>Допускается для выполнения административных задач в системе.</entry>
+      </row>
+      <row>
+        <entry>stats</entry>
+        <entry>
+          Компетентные для генерации статистики и доступа к модулю статистики OTRS.
+        </entry>
+      </row>
+      <row>
+        <entry>users</entry>
+        <entry>
+          Агенты должны входить в эту группу с правами для чтения и записи. Тогда они
+смогут получить доступ ко всем функциям системы обработки заявок.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</para>
+
+<note>
+<para>
+В новой установке OTRS, группа <emphasis>users</emphasis> изначально
+пуста. Агент 'root@localhost' по умолчанию принадлежит к группам admin и
+stats.
+</para>
+</note>
+
+<para>
+You can access the group management page (see Figure below) by clicking the
+<emphasis>Groups</emphasis> link in the admin area.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Группами</screeninfo> <graphic srccredit="Adminarea group
+management - screenshot" scale="40"
+fileref="screenshots/admin-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Group management.</emphasis>
+</para>
+
+<note>
+<para>
+Как в случае с агентами, группа в OTRS может быть только деактивирована, но
+не удалена. Деактивация осуществляется путем установки флага Действительный
+в значение <emphasis>не действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+<para>
+To add an agent to a group, or to change the agents who belong to a group,
+you can use the link <emphasis>Agents &lt;-&gt; Groups</emphasis> from the
+Admin page (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Группой  Агента</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/admin-agents-and-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Group management.</emphasis>
+</para>
+
+<para>
+An overview of all groups and agents in the system is displayed. You can
+also use the filters to find a specific entity. If you want to change the
+groups that an agent is member of, just click on the agent's name (see
+Figure below). To change the agents associated with a group, just click on
+the group you want to edit (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Группами Агентов</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/agent-group-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change the groups an agent belongs to.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Группами Агентов</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/agent-group-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change the agents that belong to a specific
+group.</emphasis>
+</para>
+
+<para>
+Каждая группа имеет набор прав, связанный с ней и, каждый агент, член этой
+группы может иметь некоторую собственную комбинацию прав. Список
+разрешений/прав показано в Таблице 5-2.
+</para>
+
+<para>
+<table id="table-of-group-permissions-after-installation">
+<title>Права, связанные с OTRS-группами</title>
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>
+          Права
+        </entry>
+        <entry>
+          Описание
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>
+          ro
+        </entry>
+        <entry>
+          Права "только для чтения" заявок, записей и очередей этой группы.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          move into
+        </entry>
+        <entry>
+          Права для перемещения заявок или записей между очередями или для области,
+принадлежащей группе.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          create
+        </entry>
+        <entry>
+          Права для создания заявок или записей в очередях или области группы.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          owner
+        </entry>
+        <entry>
+          Права для изменения владельца заявок или записей в очередях принадлежащих
+этой группе.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          priority
+        </entry>
+        <entry>
+          Права для изменения приоритета заявок или записей в очереди или области,
+принадлежащей этой группе.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          rw
+        </entry>
+        <entry>
+          Полный доступ к заявкам или записям в очереди или области, принадлежащей к
+этой группе.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+</para>
+
+<note>
+    <para>
+        По умолчанию, СписокОчередей (QueueView) отображает только заявки в
+очередях, к которым агент имеет права <emphasis>rw</emphasis>, т.е к
+заявкам, с которыми он должен работать. Если вы хотите изменить это
+поведение, вы можете установить параметр <link
+linkend="Ticket:Frontend::Agent::Ticket::ViewQueue:Ticket::Frontend::AgentTicketQueue_ViewAllPossibleTickets">
+Ticket::Frontend::AgentTicketQueue###ViewAllPossibleTickets </link> в
+значение <emphasis>Да</emphasis>.
+    </para>
+</note>
+</section>
+
+<section id="adminarea-roles">
+<title>Роли</title>
+
+<para>
+Роли являются мощным средством для простого и быстрого управления правами
+доступа множества агентов. Они особенно полезны для больших и сложных систем
+поддержки, с большим количеством агентов, групп и очередей. В приведенном
+ниже примере обьясняется как и когда они могут использоваться.
+</para>
+
+<para>
+Давайте представим, что у нас есть система, в которой зарегистрированно 100
+агентов, 90 из них имеют доступ только к очереди "поддержка", в которой
+хранятся все запросы о поддержке. Очередь "поддержка" содержит несколько под
+очередей. Остальные 10 агентов имеют права доступа ко всем очередям,
+существующим в системе. Эти 10 агентов работают с заявками, просматривают
+"raw"-очередь и перемещают спам-сообщения в очередь "junk".
+</para>
+
+<para>
+В один день компания открывает новый отдел для продажи
+товаров. Запрос/принятие заказа, подтверждение, счета и т.д. должны быть
+обработаны, и некоторые из агентов компании должны делать это используя
+OTRS. Разным агентам нужно предоставить доступ к очередям, которые
+планируется создать.
+</para>
+
+<para>
+Поскольку изменения вручную прав доступа для разных агентов займет много
+времени, то для определения различных уровней доступа можно создать
+роли. Затем, агенты могут быть добавлены к одной или нескольким ролям, таким
+образом их права будут изменены автоматически. Если будет создана новая
+учетная запись агента, ее также можно с легкостью добавить к одной или
+нескольким ролям.
+</para>
+
+<note>
+<para>
+Роли действительно полезны для управления большими OTRS­-системами. Однако,
+используя роли, нужно проявлять осторожность. Смешивание Агента входящего в
+группу с Агентом входящим в Роль может сделать схему контроля сложной для
+понимания и управления. Если вы решили использовать только роли и отключить
+опцию Агенты &lt;-&gt; Группы в Панели Администрирования, то это можно
+сделать изменив параметр <link
+linkend="Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUserGroup">Frontend::Module###AdminUserGroup</link>
+в SysConfig. Помните, это действие не удалит существующих Агентов из Групп,
+в которых они находятся!
+</para>
+</note>
+
+<para>
+You can access the role management section (see Figure below ) by clicking
+the <emphasis>Roles</emphasis> link on the Admin page.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Ролями</screeninfo> <graphic srccredit="Adminarea roles
+- screenshot" scale="40" fileref="screenshots/admin-roles.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Role management.</emphasis>
+</para>
+
+<note>
+<para>
+Как в случае с агентом и группами, однажды созданные роли могут быть
+деактивированы, но не удалены. Чтобы отключить, установите опцию
+Действительный в значение <emphasis>не действительный</emphasis> или
+<emphasis>не действительный-временно</emphasis>.
+</para>
+</note>
+
+<para>
+An overview of all roles in the system is displayed. To edit a role's
+settings, click on the role's name. In a fresh new OTRS installation, there
+are no roles defined by default. To register one, click on the "Add role"
+button, provide the needed data and submit it (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Ролями</screeninfo> <graphic srccredit="Adminarea roles
+- screenshot" scale="40" fileref="screenshots/add-role.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a new role.</emphasis>
+</para>
+
+<para>
+To get an overview of all roles and agents in the system, click on the link
+Roles &lt;-&gt; Agents on the Admin page. You can also use filters to find a
+specific element. If you want to change the roles associated with an agent,
+just click on the agent's name (see Figure below). To change the agents
+associated with a role, click on the role you want to edit (see Figure
+below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления Ролями Агентов</screeninfo> <graphic srccredit="Adminarea roles
+and agents - screenshot" scale="40"
+fileref="screenshots/admin-roles-agents-relation.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change the Roles associated with an Agent.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления Ролями Агентов</screeninfo> <graphic srccredit="Adminarea groups
+and agents - screenshot" scale="40"
+fileref="screenshots/admin-roles-agents-relation2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change the Agents associated with a specific
+Role.</emphasis>
+</para>
+
+<para>
+To get an overview of all roles and groups in the system, click on the link
+Roles &lt;-&gt; Groups on the Admin page. You will see a similar screen as
+the one shown in the Figure. You can also use filters to find a specific
+entity.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление связью Роль Группа</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/admin-roles-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Manage Roles-Groups relations.</emphasis>
+</para>
+
+<para>
+Чтобы определить различные права доступа для роли, нажмите на имя роли или
+группы (см. ниже Рисунок 5.13 и 5.14, соответственно).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связи между Группой и Ролью</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/groups-roles-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Group relations for a Role.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение отношения Роли к Группе</screeninfo> <graphic srccredit="Adminarea roles
+and groups - screenshot" scale="40"
+fileref="screenshots/groups-roles-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Role relations for a Group.</emphasis>
+</para>
+
+</section>
+
+</section>
+
+<section id="customers-and-groups">
+<title>Клиенты и Группы Клиентов</title>
+
+<section id="adminarea-customers">
+<title>Клиенты</title>
+
+<para>
+OTRS supports different types of users. Using the link "Customers" (via the
+navigation bar, or the Admin page), you can manage the accounts of your
+customers (see Figure below), who can log into the system via the Customers
+interface (customer.pl). Through this interface, your customers can create
+tickets and access them as they are updated. It is important to know that a
+customer is needed for the ticket history in the system.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления Клиентами</screeninfo> <graphic srccredit="Adminarea
+customer - screenshot" scale="40"
+fileref="screenshots/admin-customer.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Customer management.</emphasis>
+</para>
+
+<para>
+Нажав на имя клиента, по зарегистрированным клиентам можно производить
+поиск, редактировать их данные. Также есть возможность изменить клиентский
+back-end, за более подробной информацией обращайтесь к главе <link
+linkend="external-backends">внешние хранилища данных</link>.
+</para>
+
+<para>
+To create a new customer account, click on the "Add customer" button (see
+Figure below). Some of the fields are mandatory, i.e., they have to contain
+values, so if you leave one of those empty, it will be highlighted in red.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления Клиентами</screeninfo> <graphic srccredit="Adminarea
+customer - screenshot" scale="40"
+fileref="screenshots/add-customer.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a customer.</emphasis>
+</para>
+
+<para>
+Клиент может получить доступ к системе путем ввода логина и
+пароля. CustomerID нужен для идентификации клиента и его заявок. Поскольку
+адресс электронной почты является уникальным, его можно использовать в
+качестве уникального идетнтификатора (ID).
+</para>
+
+<note>
+<para>
+Как и в случае с агентами, группами и ролями, система не позволяет удалять
+клиентов, а только деактивировать их, установив опцию Действительный в
+значение <emphasis>недействительный</emphasis> или
+<emphasis>недействительный-временно</emphasis>.
+</para>
+</note>
+
+</section>
+
+<section id="adminarea-customers-groups">
+<title>Группы Клиентов</title>
+
+<para>
+Клиенты также могут быть добавлены в группу, что может быть полезно, если вы
+хотите обьеденить нескольких клиентов той же компании для доступа к одной
+или нескольким очередям. Сначала создайте группу, в которую будут входить
+клиенты, для этого перейдите по ссылке <link
+linkend="adminarea-groups">Модуль Управления Группами </link>. Затем
+добавьте <link linkend="adminarea-queue">очереди</link> и выберите новую
+группу для этих очередей.
+</para>
+
+<para>
+Следующим шагом будет включение поддержки клиентов группы. Это можно сделать
+используя конфигурационный параметр <link
+linkend="Framework:Frontend::Customer:CustomerGroupSupport">CustomerGroupSupport</link>
+в SysConfig. Используя параметр <link
+linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">CustomerGroupAlwaysGroups</link>
+можно указать группы по умолчанию, к которым будет принадлежать новый
+пользователь, таким образом каждая новая учетная запись будет добавлятся в
+эту группу.
+</para>
+
+<para>
+Through the link "Customers &lt;-&gt; Groups" you can manage which customer
+shall belong to the different groups (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления Группами Клиентов</screeninfo> <graphic srccredit=">Adminarea
+customer groups - screenshot" scale="40"
+fileref="screenshots/admin-customer-groups.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Customer-Group relations management.</emphasis>
+</para>
+
+<para>
+Для определения различных групп, в которые должен входить клиент, и
+наоборот, нажмите на соответствующее имя пользователя или группы (см. ниже
+Рисунок 5.16 и 5.17, соответственно).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связи между Группой и Пользователем</screeninfo> <graphic srccredit="Adminarea
+customers and groups - screenshot" scale="40"
+fileref="screenshots/groups-customers-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Group relations for a Customer.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связи между Клиентом и Группой</screeninfo> <graphic srccredit="Adminarea
+customer and groups - screenshot" scale="40"
+fileref="screenshots/groups-customers-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Customer relations for a Group.</emphasis>
+</para>
+
+</section>
+
+</section>
+
+<section id="adminarea-queue">
+<title>Очереди</title>
+
+<para>
+Clicking on the link "Queues" of the Admin page, you can manage the <link
+linkend="what-is-a-queue">queues</link> of your system (see Figure
+below). In a new OTRS installation there are 4 default queues: Raw, Junk,
+Misc and Postmaster. All incoming messages will be stored in the "Raw" queue
+if no filter rules are defined. The "Junk" queue can be used to store spam
+messages.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления очередями</screeninfo> <graphic srccredit="Adminarea queue
+- screenshot" scale="40" fileref="screenshots/admin-queue.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Queue management.</emphasis>
+</para>
+
+<para>
+Here you can add queues (see Figure below) and modify them. You can specify
+the group that should use the queue. You can also set the queue as a
+sub-queue of an existing queue.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления очередями</screeninfo> <graphic srccredit="Adminarea queue
+- screenshot" scale="40" fileref="screenshots/add-queue.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a new queue.</emphasis>
+</para>
+
+<para>
+Для очереди можно определить время разблокировки - если агент заблокировал
+заявку и не закрыл ее до истечения времени блокировки, заявка будет
+автоматически разблокирована и доступна для других агентов.
+</para>
+
+<para>
+Есть три типа настроек эскалации времени, которые могут быть связаны на
+уровне очередей:
+</para>
+
+<itemizedlist>
+    <title>Эскалация - Время Первого Отклика</title>
+    <listitem>
+        <para>
+После создания заявки, если истекает оговоренное время без какой-либо связи
+с клиентом как по электронной почте так и по телефону, - заявка будет
+эскалирована.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Эскалация - Время обновления</title>
+    <listitem>
+        <para>
+Если какой-нибудь клиент прислал ответ на заявку по электронной почте или
+изменил ее через пользовательский портал, время эскалации будет
+обнулено. Если до истечения времени ожидания контакта с клиентом небыло,
+заявка эскалируется.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<itemizedlist>
+    <title>Эскалация - Время решения</title>
+    <listitem>
+        <para>
+Если до истечения оговореного времени заявка не закрыта - она эскалируется.
+        </para>
+    </listitem>
+</itemizedlist>
+
+<para>
+Используя опцию 'Ticket lock after a follow-up', можно определить будет ли
+заявка установлена в значение 'заблокирована' для старого владельца, если
+она была закрыта а потом открыта заново. Такое поведение гарантирует, что
+последующая заявка будет обрабатываться агентом, который работал с этой
+заявкой ранее.
+</para>
+
+<para>
+Параметром системный адрес определяется адресс электронной почты, который
+будет использоваться для исходящих заявок этой очереди. Также, для ответов
+по электронной почте, есть возможность ассоциировать (связать) очереди с
+приветствиями и подписями. За более подробной информацией перейдите по
+ссылке <link linkend="adminarea-emailaddresses"> адреса электронной почты
+</link> , <link linkend="adminarea-salutations"> приветствия </link> и <link
+linkend="adminarea-signatures"> подписи </link>.
+</para>
+
+<note>
+<para>
+Как в случае с агентами, группами и клиентами, очереди не могут быть
+удалены, а только отключены, путем установки опции "Действительная" в
+значение <emphasis>недействительная</emphasis> или
+<emphasis>недействительная-временно</emphasis>.
+</para>
+</note>
+
+</section>
+
+
+<section id="adminarea-salutations-signatures-attachments-and-answers">
+<title>Приветствия, подписи, вложения и ответы</title>
+
+<section id="adminarea-salutations">
+<title>Приветсвтия</title>
+
+<para>
+A salutation is a text module for a response. Salutations can be linked to
+one or more queues, as described in the section about <link
+linkend="adminarea-queue">queues</link>. A salutation is used only if a
+ticket from a queue the salutation is linked to, is answered. To manage the
+different salutations of your system, use the "Salutations" link of the
+admin area (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления приветствиями</screeninfo> <graphic srccredit="Adminarea
+salutation - screenshot" scale="40"
+fileref="screenshots/admin-salutation.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Salutation management.</emphasis>
+</para>
+
+<para>
+После установки в системе есть одно предопределенное приветствие: "system
+standard salutation (en)".
+</para>
+
+<para>
+To create a new salutation, press the button "Add salutation", provide the
+needed data and submit it (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавление приветствия</screeninfo> <graphic srccredit="Adminarea
+salutation - screenshot" scale="40"
+fileref="screenshots/add-salutation.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a new salutation.</emphasis>
+</para>
+
+<para>
+В приветствиях можно использовать переменные. Когда вы отвечаете на заявку,
+имена переменных будут заменены на их значения.
+</para>
+
+<para>
+Различные переменные, которые можно использовать в ответах приведены в
+нижней части экрана приветствия. Если вы используете, например, переменную
+&lt;OTRS_LAST_NAME&gt; то в ответ будет включена фамилия отправителя заявки.
+</para>
+
+<note>
+<para>
+Как и в случае с другими сущностями системы OTRS, приветствия не можно
+удалять, только деактивировать их, установив параметр Действительный в
+значение <emphasis>не действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+</section>
+
+<section id="adminarea-signatures">
+<title>Подписи</title>
+
+<para>
+Another text module for a response is the signature. Signatures can be
+linked to a queue, as described in the section about the <link
+linkend="adminarea-queue">queues</link>. Only if a signature is linked to a
+queue will it be included into the response text. Through the "Signatures"
+link of the Admin page, you can manage the signatures in your system (see
+Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Подписями</screeninfo> <graphic srccredit="Adminarea
+Signatures - screenshot" scale="40"
+fileref="screenshots/admin-signatures.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Signatures management.</emphasis>
+</para>
+
+<para>
+В новой, только установленной системе OTRS есть одна предустановленная
+подпись:  "system standard signature (en)".
+</para>
+
+<para>
+To create a new signature, press the button "Add signature", provide the
+needed data and submit it (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавление подписи</screeninfo> <graphic srccredit="Adminarea
+signature - screenshot" scale="40"
+fileref="screenshots/add-signature.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a new signature.</emphasis>
+</para>
+
+<para>
+Как и приветствия, подписи также могут содержать динамический контент,
+например, имя и фамилию агента, который отвечает на заявку, а также могут
+использоваться переменные для замены текста подписи каждой
+заявки. Переменные, которые можно использовать ищите в нижней части страницы
+с подписями. Если вы, к примеру, включаете переменную &lt;OTRS_LAST_NAME&gt;
+то она будет заменена фамилией агента, который отвечает на заявку.
+</para>
+
+<note>
+<para>
+Как и в случае с приветствиями, подписи не могут быть удалены, только
+деактивированы путем установки параметра Действительный в значения
+<emphasis>не действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+</section>
+
+<section id="adminarea-attachments">
+<title>Вложения</title>
+
+<para>
+При желании к ответу можно добавить одно или несколько вложений. Если ответ
+выбран, вложения будут прикреплены к сообщению. При необходимости,
+непосредственно перед отправкой ответа клиенту, агент может удалить
+вложения.
+</para>
+
+<para>
+Through the "Attachment" link of the Admin page, you can load the
+attachments into the database of the system (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управления Вложениями для Ответов</screeninfo> <graphic srccredit="Adminarea
+attachment - screenshot" scale="40"
+fileref="screenshots/admin-attachment.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Attachments management.</emphasis>
+</para>
+
+<para>
+To create a new attachment, press the button "Add attachment", provide the
+needed data and submit it (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавить Вложение</screeninfo> <graphic srccredit="Adminarea
+signature - screenshot" scale="40"
+fileref="screenshots/add-attachment.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a new attachment.</emphasis>
+</para>
+
+<para>
+If an attachment is stored it can be linked to one or more responses. Click
+on the "Attachment &lt;-&gt; Responses" link of the Admin page (see Figure
+below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Связывание Вложений с Ответами</screeninfo> <graphic srccredit="Adminarea
+attachment response - screenshot" scale="40"
+fileref="screenshots/admin-attachment-response.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Linking Attachments to Responses.</emphasis>
+</para>
+
+<para>
+Чтобы связать различные вложения с конкретным ответом и наоборот, нажмите на
+название соответствующего ответа или вложения (см. ниже Рисунки 5.27 и 5.28,
+соответственно).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связей между Вложением и Ответом</screeninfo> <graphic srccredit="Adminarea
+responses and attachments - screenshot" scale="40"
+fileref="screenshots/response-attachment-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Attachment relations for a Response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связей между Ответом и Вложением</screeninfo> <graphic srccredit="Adminarea
+responses and attachments - screenshot" scale="40"
+fileref="screenshots/response-attachment-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Response relations for an Attachment.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-Responses">
+<title>Ответы</title>
+
+<para>
+В OTRS можно определить ответы для того, чтобы быстрее отвечать на заявки и
+как то стандартизировать вид ответов. Ответ может быть связан с одной или
+несколькими очередями и наоборот. Для того чтобы можно было быстро
+использовать заранее заготовленные ответы, различные ответы отображаются в
+очереди "Мои Очереди", внизу под каждой заявкой.
+</para>
+
+<para>
+On a fresh OTRS installation, the "empty answer" response is defined for
+every queue. Clicking the "Responses" link on the Admin page brings you to
+the Responses management page (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Ответы</screeninfo> <graphic srccredit="Adminarea
+response - screenshot" scale="40"
+fileref="screenshots/admin-response.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Responses management.</emphasis>
+</para>
+
+<para>
+To create a new response, click on the "Add response" button, provide the
+required data and submit it (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Ответы</screeninfo> <graphic srccredit="Adminarea
+response - screenshot" scale="40"
+fileref="screenshots/add-response.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a response.</emphasis>
+</para>
+
+<para>
+To add/remove responses to one or more queues, click on the "Responses
+&lt;-&gt; Queues" link on the Admin page (see Figure below). You can also
+use filters to get information on a specific entity.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление связью Ответ-Очередь</screeninfo> <graphic srccredit="Adminarea
+response queue - screenshot" scale="40"
+fileref="screenshots/admin-response-queue.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Response-Queue relations management.</emphasis>
+</para>
+
+<para>
+Чтобы определить различные ответы для очереди и наоборот, нажмите на
+соответствующий ответ или очередь (см. ниже Рисунко 5.32 и 5.33,
+соответственно).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связей между Очердью и Ответом</screeninfo> <graphic srccredit="Adminarea
+response and queue - screenshot" scale="40"
+fileref="screenshots/responses-queues-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Queue relations for a Response.</emphasis>
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связи между Ответом и Очередью</screeninfo> <graphic srccredit="Adminarea
+response and queue - screenshot" scale="40"
+fileref="screenshots/responses-queues-relations2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Response relations for a Queue.</emphasis>
+</para>
+
+<para>
+Структура ответа понятна на интуитивном уровне. Она состоит из приветствия,
+которое ассоциируется с очередью, потом идет текст ответа, затем цытируемый
+текст заявки и, наконец, подпись, связанная с очередью.
+</para>
+
+</section>
+
+</section>
+
+<section id="adminarea-auto-responses">
+<title>Авто ответы</title>
+
+<para>
+OTRS allows you to send automatic responses to customers on the occurence of
+certain events, such as the creation of a ticket in certain queue, reception
+of a follow-up message on a ticket, closure or rejection of a ticket,
+etc. To manage such responses, click the link "Auto responses" on the Admin
+page (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Автоматическими Ответами (автоответами)</screeninfo> <graphic srccredit="Adminarea auto
+response - screenshot" scale="40"
+fileref="screenshots/admin-autoresponse.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Auto Response management.</emphasis>
+</para>
+
+<para>
+To create an automatic response, click on the button "Add auto response",
+provide the needed data and submit it (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавление Автоматического ответа (автоответа)</screeninfo> <graphic srccredit="Adminarea auto
+response - screenshot" scale="40"
+fileref="screenshots/add-autoresponse.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding an Auto Response.</emphasis>
+</para>
+
+<para>
+The subject and text of auto responses can be generated by variables, just
+as in signatures and salutations. If you insert, for example, the variable
+&lt;OTRS_CUSTOMER_EMAIL[5]&gt; into the body of the auto answer, the first 5
+lines of the customer mail text will be inserted into the auto answer. You
+will find more details about the valid variables that can be used at the
+bottom of the screen shown in the Figure.
+</para>
+
+<para>
+Для каждого авто-ответа можно указать специальное событе, при наступлении
+которого этот авто-ответ будет отсылатся. Предопределенные события,
+доступные после новой установки приведены в Таблицу 5-3.
+</para>
+
+<table id="table-of-autoanswer-types">
+<title>События для Автоматических ответов </title>
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>
+          Название
+        </entry>
+        <entry>
+          Описание
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>
+          auto reply
+        </entry>
+        <entry>
+          Создание заявки в определенной очереди.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          auto reply/new ticket
+        </entry>
+        <entry>
+          Открытие уже закрытой заявки, например если клиент отвечает на определенную
+заявку.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          auto follow up
+        </entry>
+        <entry>
+          Прием входящих заявок.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          auto reject
+        </entry>
+        <entry>
+          Автоматический отказ от заявки, сделаннный системой.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          auto remove
+        </entry>
+        <entry>
+          Удаление заявко, завершенных системой.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+<note>
+<para>
+Как и в случае с другими сущностями OTRS, Авто ответы также не могут быть
+удалены, только деактивированы путем установки опции Действительный в
+значения <emphasis>не действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+<para>
+To add an auto response to a queue, use the "Auto Response &lt;-&gt; Queues"
+link on the Admin page (see Figure below). All system events are listed for
+every queue, and an auto answer with the same event can be selected or
+removed via a listbox.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление связью Очередь-Автоматический Ответ</screeninfo> <graphic srccredit="Adminarea queue
+- auto response - screenshot" scale="40"
+fileref="screenshots/admin-autoresponse-queue.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Queue-Auto Response relations management.</emphasis>
+</para>
+
+<para>
+To define the different auto responses that will be available for a queue,
+click on the corresponding queue name (see Figure below). It is also
+possible to edit an existing auto response - to do so, click on the reponse
+and edit in the same manner as editing a new auto response.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Изменение связи между Автоматическим Ответом и Очередью</screeninfo> <graphic srccredit="Adminarea auto
+response and queue - screenshot" scale="40"
+fileref="screenshots/autoresponses-queues-relations.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Change Auto Response relations for a Queue.</emphasis>
+</para>
+
+</section>
+
+
+<section id="adminarea-emailaddresses">
+<title>Адреса электронной почты</title>
+
+<para>
+To enable OTRS to send emails, you need a valid email address to be used by
+the system. OTRS is capable of working with multiple email addresses, since
+many support installations need to use more than one. A queue can be linked
+to many email addresses, and vice versa. The address used for outgoing
+messages from a queue can be set when the queue is created. Use the "Email
+Addresses" link from the Admin page to manage all email addresses of the
+system (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Адресами Электронной Почты</screeninfo> <graphic srccredit="Adminarea email
+- screenshot" scale="40" fileref="screenshots/admin-email.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: System Email Addresses management.</emphasis>
+</para>
+
+<para>
+If you create a new mail address (see Figure below) you can select the queue
+or sub queue to be linked with it. This link enables the system to sort
+incoming messages via the address in the To: field of the mail into the
+right queue.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавление системного Адреса Электронной Почты</screeninfo> <graphic srccredit="Adminarea email
+- screenshot" scale="40" fileref="screenshots/add-email.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a system Email Address.</emphasis>
+</para>
+
+<note>
+<para>
+Как и другие сущности OTRS, емейл адреса не могут быть удалены, только
+деактивированы, установив опцию Действительный в значение <emphasis>не
+действительный</emphasis> или <emphasis>не
+действительный-временно</emphasis>.
+</para>
+</note>
+
+</section>
+
+<section id="adminarea-notifications">
+<title>Уведомления</title>
+
+<para>
+OTRS позволяет отправлять уведомления агентам и клиентам при наступлении в
+системе определенных событий. Агенты могут выбрать системные события для
+своих собственных уведомлений перейдя по ссылке <link
+linkend="user-preferences">предпочтения</link>
+</para>
+
+<para>
+Through the "Agent Notifications" link on the Admin page, you can manage the
+notifications of your system (see Figure below). You can use filters to list
+only certain notifications.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Уведомлениями</screeninfo> <graphic srccredit="Adminarea
+notifications - screenshot" scale="40"
+fileref="screenshots/admin-notification.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Notification management.</emphasis>
+</para>
+
+<para>
+You can customize the subject and the text of the notifications. Click on
+the notification you want to change from the list, and its content will get
+loaded for editing (see Figure). Please note that there is a notification
+with the same name for each of the available languages.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Уведомлениями</screeninfo> <graphic srccredit="Adminarea
+notifications - screenshot" scale="40"
+fileref="screenshots/customize-notification.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Customizing a Notification.</emphasis>
+</para>
+
+<para>
+Just as with signatures and salutations, it is possible to dynamically
+create the content of a notification, by using special variables. You can
+find a list of variables at the bottom of the screen shown in the Figure.
+</para>
+
+<para>
+Также есть возможность создавать уведомления основаные на системных
+событиях. Можно подробно указать когда и кому такое уведомление будет
+отправлено. Выбрать можно из большого количества параметров, таких как:
+группа(ы) получателя, агент(ы), роль(и), адресс(а) электронной почты, тип
+события, который генерирует уведомление, тип заявки, состояние, приоритет,
+очередь, блокировка, сервис, SLA и т.д.
+</para>
+
+<para>
+In order to see a list of all event based notifications, click on the link
+"Notifications (Event)" on the Admin page (see Figure).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Уведомлениями, которые базируются на Событиях</screeninfo> <graphic srccredit="Adminarea event
+based notifications - screenshot" scale="40"
+fileref="screenshots/admin-notification-eventbased.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Event based Notification management.</emphasis>
+</para>
+
+<para>
+As shown in Figure, you can create a new notification by clicking on the Add
+button (see Figure).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление Уведомлениями, которые базируются на Событиях</screeninfo> <graphic srccredit="Adminarea event
+based notifications - screenshot" scale="40"
+fileref="screenshots/admin-notification-eventbased-new.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Registering an Event based Notification
+management.</emphasis>
+</para>
+
+<para>
+Please note that the content of the event based notifications can also be
+dynamically created by using the special variables listed at the bottom of
+the screen shown in the Figure.
+</para>
+
+</section>
+
+<section id="adminarea-smime">
+<title>SMIME</title>
+
+<para>
+OTRS может обрабатывать входящие S/MIME-кодированные сообщения и подписывать
+исходящие сообщения электронной почты. Перед тем как использовать эту
+возможность, ее необходимо активировать и настроить путем изменения
+некоторых <link linkend="Framework:Crypt::SMIME">параметров
+конфигурации</link> в файле SysConfig.
+</para>
+
+<para>
+The "S/MIME Certificates" link on the Admin page allows you to manage your
+S/MIME certificates (see Figure below). You can add or remove certificates,
+and also search through the SMIME data.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>SMIME</screeninfo> <graphic srccredit="Adminarea smime
+- screenshot" scale="40" fileref="screenshots/admin-smime.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: S/MIME management.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-pgp">
+<title>PGP</title>
+
+<para>
+OTRS обрабатывает PGP-ключи, которые позволяют кодировать/декодировать
+сообщения и подписывать исходящие сообщения. Перед использованием этой
+функции ее необходимо активировать и изменить соответствующие <link
+linkend="Framework:Crypt::PGP"> конфигурационные параметры </link> в файле
+SysConfig.
+</para>
+
+<para>
+Through the "PGP Keys" link on the Admin page, it is possible to manage the
+key ring of the user who shall be used for PGP with OTRS (see Figure below),
+e.g. the local OTRS user or the web server user. It is possible to add and
+remove keys and signatures, and you can search through all data in your key
+ring.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>PGP</screeninfo> <graphic srccredit="Adminarea pgp -
+screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: PGP management.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-status">
+<title>Состояния</title>
+
+<para>
+Through the "States" link on the Admin page, you can manage the different
+ticket states you want to use in the system (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление состояниями заявок</screeninfo> <graphic srccredit="Adminarea states
+- screenshot" scale="40" fileref="screenshots/admin-states.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: State management.</emphasis>
+</para>
+
+<para>
+После установки в системе будут следующие предустановленные состояния:
+</para>
+
+<itemizedlist>
+  <listitem>
+    <para>
+        закрыта успешно
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        закрыта неуспешно
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        обьедененные
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        новая
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        открытая
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        ожидание авто закрытие+
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        ожидание авто закрытие-
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        ожидание напоминание
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        удаленная
+    </para>
+  </listitem>
+</itemizedlist>
+
+<para>
+Каждое состояние связано с типом, который нужно указать когда создается
+новое состояние. По умолчанию есть такие типы состояний:
+</para>
+
+<itemizedlist>
+  <listitem>
+    <para>
+        закрытая
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        обьедененные
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        новая
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        открытая
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        ожидание авто
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        ожидание напоминание
+    </para>
+  </listitem>
+  <listitem>
+    <para>
+        удаленная
+    </para>
+  </listitem>
+</itemizedlist>
+
+</section>
+
+
+<section id="adminarea-sysconfig">
+<title>SysConfig</title>
+
+<para>
+Ссылка SysConfig - указывает на мест,о где хранится большинство
+конфигурационные параметров OTRS.
+</para>
+
+<para>
+The SysConfig link on the Admin page loads the graphical interface for
+system configuration (see Figure below). You can upload your own
+configuration files for the system, as well as backup all your current
+settings into a file. Almost all configuration parameters of the OTRS
+framework and installed applications can be viewed and changed through this
+interface. Since all configuration parameters are sorted into groups and sub
+groups, it is possible to navigate quickly through the multitude of the
+parameters. It is also possible to perform a full-text search through all
+the configuration parameters.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Графический интерфейс для настройки системы (SysConfig)</screeninfo> <graphic srccredit="Adminarea
+sysconfig - screenshot" scale="40"
+fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: The graphical interface for system configuration
+(SysConfig).</emphasis>
+</para>
+
+<para>
+Более подробно графический интерфейс для настройки системы рассматривается в
+главе <link linkend="sysconfig"> "Настройка системы через веб-интерфейс"
+</link>.
+</para>
+
+</section>
+
+<section id="adminarea-postmasterpop3-account">
+<title>Использование почтовый ящиков</title>
+
+<para>
+There are several possibilities to transport new emails into the ticket
+system. One way is to use a local MTA and the <link
+linkend="email-receiving-cmd">otrs.PostMaster.pl script</link> that pipes
+the mails directly into the system. Another possibility is the use of mail
+accounts which can be administrated through the web interface. The
+"PostMaster Mail Accounts" link on the Admin page loads the management
+console for the mail accounts (see Figure below). OTRS supports the mail
+protocols: POP3, POP3S, IMAP and IMAPS.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление почтовыми ящиками</screeninfo> <graphic srccredit="Adminarea
+postmaster - screenshot" scale="40"
+fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Mail account management.</emphasis>
+</para>
+
+<para>
+See the section about <link linkend="email-receiving-pop3">PostMaster Mail
+Accounts</link> for more details.
+</para>
+
+</section>
+
+<section id="adminarea-postmasterfilter">
+<title>Filtering incoming email messages</title>
+
+<para>
+OTRS has the capability to filter incoming email messages. As an example, it
+is possible to put certain emails automatically into specified queues, or
+set a specific state or ticket type for some mails. The filters apply to all
+incoming mail. You can maintain your filters via the link "PostMaster
+Filter" on the Admin page (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление правилами фильтрации для входящих сообщений</screeninfo> <graphic srccredit="Adminarea
+postmasterfilter - screenshot" scale="40"
+fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: PostMaster filter management.</emphasis>
+</para>
+
+<para>
+A filter consists of one or more criteria that must match for the defined
+actions to be executed on the email. Filter criteria may be defined for the
+headers or the body of an email, e.g. search for specific header entries,
+such as a sender address, or on strings in the body. Even regular
+expressions can be used for extended pattern matching. If your filter
+matches, you can set fields using the X-OTRS headers in the GUI. These
+values will be applied when creating the ticket or follow-up message in
+OTRS. The Table 5-4 lists the different X-OTRS headers and their meaning.
+</para>
+
+<para>
+Note: You also can use X-OTRS-FollowUp-* headers to set values for follow up
+emails.
+</para>
+
+<table id="table-of-x-otrs-headers">
+<title>Функции различных X-OTRS-заголовков</title>
+  <tgroup cols="3">
+    <thead>
+      <row>
+        <entry>
+          Название
+        </entry>
+        <entry>
+          Возможные значения:
+        </entry>
+        <entry>
+          Описание
+        </entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>
+          X-OTRS-Priority:
+        </entry>
+        <entry>
+          1 очень низкий, 2 низкий, 3 нормальный, 4 высокий, 5 очень высокой
+        </entry>
+        <entry>
+          Устанавливает приоритет заявки.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Queue:
+        </entry>
+        <entry>
+          Название очереди в системе.
+        </entry>
+        <entry>
+          Sets the queue where the ticket shall be sorted. If set in X-OTRS header,
+all other filter rules that try to sort a ticket into a specific queue are
+ignored. If you use a sub-queue, specify it as &quot;Parent::Sub&quot;.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Lock:
+        </entry>
+        <entry>
+            блокировать, разблокировать
+        </entry>
+        <entry>
+          Устанавливает состояние блокирования заявки.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Ignore:
+        </entry>
+        <entry>
+          Yes или True
+        </entry>
+        <entry>
+          Если этот X-OTRS заголовок установлен в "Yes", входящие сообщения будут
+полностью игнорироватся и никогда не попадут в систему.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-State:
+        </entry>
+        <entry>
+          новая, открытая, закрытая успешно, закрытая неуспешно, ...
+        </entry>
+        <entry>
+          Устанавливает следующее состояние заявки.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-State-PendingTime:
+        </entry>
+        <entry>
+         например 2010-11-20 00:00:00
+        </entry>
+        <entry>
+          Устанавливает время ожидания для заявки (вы также можете отправить состояние
+ожидания с помощью X-OTRS-State).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Type:
+        </entry>
+        <entry>
+         по умолчанию (в зависимости от настроек)
+        </entry>
+        <entry>
+          Sets the type of a ticket (if Ticket::Type is activated).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Service:
+        </entry>
+        <entry>
+         (в зависимости от настроек)
+        </entry>
+        <entry>
+          Sets the service of a ticket (if Ticket::Service is active). If you want to
+set a sub-service you should specify it as &quot;Parent::Sub&quot;.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-SLA:
+        </entry>
+        <entry>
+         (в зависимости от настроек)
+        </entry>
+        <entry>
+          Устанавливает SLA для заявки (если активирована поддержка Ticket::Service).
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-CustomerUser:
+        </entry>
+        <entry>
+          CustomerUser
+        </entry>
+        <entry>
+          Устанавливает клиентского пользователя для заявки.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-CustomerNo:
+        </entry>
+        <entry>
+          CustomerNo
+        </entry>
+        <entry>
+          Устанавливает ID пользователя для заявки.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-SenderType:
+        </entry>
+        <entry>
+          агент, система, клиент
+        </entry>
+        <entry>
+          Устанавливает тип отправителя заявки.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-ArticleType:
+        </entry>
+        <entry>
+          email-external, email-internal, email-notification-ext,
+email-notification-int, phone, fax, sms, webrequest, note-internal,
+note-external, note-report
+        </entry>
+        <entry>
+          Устанавливает тип статьи для входящих заявок.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-DynamicField-&lt;DynamicFieldName&gt;:
+        </entry>
+        <entry>
+          Depends on Dynamic Field configuration (Text: Notebook, Date: 2010-11-20
+00:00:00, Integer: 1)
+        </entry>
+        <entry>
+          Saves an additional info value for the ticket on &lt;DynamicFieldName&gt;
+Dynamic Field.
+        </entry>
+      </row>
+      <row>
+        <entry>
+          X-OTRS-Loop:
+        </entry>
+        <entry>
+          True
+        </entry>
+        <entry>
+          Если этот X-OTRS заголовок установлен, то отправителю сообщение
+недоставляется ни одного автоматического ответа (защита от зацыкливания).
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
+<para>
+You should specify a name for every filter rule. Filter criteria can be
+specified in the section "Filter Condition". Choose via the listboxes for
+"Header 1", "Header 2" and so on for the parts of the messages where you
+would like to search, and specify on the right side the values you wish to
+filter on. In the section "Set Email Headers", you can choose the actions
+that are triggered if the filter rules match. You can select for "Header 1",
+"Header 2" and so on to select the X-OTRS-Header and set the associated
+values (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Adding filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
+postmasterfilter - screenshot" scale="40"
+fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Add a PostMaster filter.</emphasis>
+</para>
+
+<example id="sort-mails-into-junk">
+<title>Сортирование спама в определенную очередь </title>
+
+<para>
+Полезные правила фильтрации помогают OTRS автоматически сортировал почту
+помеченую как спам с инструментом обнаружения спама, таких как SpamAssassin,
+в "Нежелательная" очередь. SpamAssassin добавляет "X-Spam-Flag" заголовок
+для каждого проверить почту. Если письмо помечено как спам, заголовков
+установлена в "да". Так критерии фильтра будет "X-Spam-Flag: Yes". Чтобы
+создать правило фильтрации с этим критериям можно вставить имя, например
+"спам-почты". Также выбрать в разделе "Матч" для "Заголовок 1" из списка
+"X-Spam-Flag:". Вставить "Да" в качестве значения для этого
+заголовка. Теперь критерии фильтра указан. Чтобы убедиться, что все
+спам-письма встанет в "Нежелательная" очереди выбрать в разделе "Установить"
+для  "Заголовок 1"  "X-OTRS-очереди:" запись. Укажите "Нежелательная" в
+качестве значения для этого заголовка. Наконец добавить новые правила
+фильтрации, чтобы активировать его на следующий новых сообщениях в системе.
+</para>
+</example>
+
+<para>
+Есть дополнительные модули, которые можно использовать для более подробной
+<link linkend="email-receiving-filter">фильтрации входящих
+сообщений</link>. Эти модули будут полезны для больших и сложных систем.
+</para>
+
+</section>
+
+
+<section id="adminarea-genericagent">
+<title>Выполнение автоматизированных заданий с помощью GenericAgent</title>
+
+<para>
+GenericAgent является инструментом для автоматического выполнения
+задач. Если бы его небыло, то эти задачи пришлось бы выполнять живому
+человеку - агенту. GenericAgent, например, может закрывать или перемещать
+заявки, отправлять уведомления для эскалированных заявок и т.д.
+</para>
+
+<para>
+Click the link "GenericAgent" on the Admin page (see Figure below). A table
+with currently automated jobs is displayed which can be edited to switch to
+executing jobs manually, or removing them.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Списко заданий для GenericAgent</screeninfo> <graphic srccredit="Adminarea
+genericagent - screenshot" scale="40"
+fileref="screenshots/admin-genericagent.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Job list for the GenericAgent.</emphasis>
+</para>
+
+<para>
+Click the "Add job" button to create a new job. You first need to supply a
+name for the job, as also the times when the job should be
+executed. Different criteria to select the tickets to work on and the new
+properties of those tickets can also be set (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Создание заданий для GenericAgent</screeninfo> <graphic srccredit="Adminarea
+genericagent - screenshot" scale="40"
+fileref="screenshots/add-genericagent-job.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Creating a job for the GenericAgent.</emphasis>
+</para>
+
+<para>
+По завершению создания заданий, будут отображены все заявки, затронутые этим
+заданием. Этот список поможет проверить правильность выполнения задания. На
+этом этапе не происходит никаких изменений в заявках. Задание будет
+активировано только после его сохранения в списке заданий.
+</para>
+
+</section>
+
+<section id="adminarea-adminemail">
+<title>Эллектронная почта администратора</title>
+
+<para>
+OTRS administrators can send messages to specific users or groups. The
+"Admin Notification" link on the Admin page opens the screen where the
+agents and groups that should be notified can be selected (see Figure
+below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Оповещения Администратором</screeninfo> <graphic srccredit="Adminarea email
+- screenshot" scale="40"
+fileref="screenshots/send-admin-notification.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Admin notification.</emphasis>
+</para>
+
+<para>
+Можно указать отправителя, тему и текст уведомления. Также можно выбрать
+агентов, группы и роли, которые должны получить сообщение.
+</para>
+
+</section>
+
+<section id="adminarea-session-management">
+<title>Управление сеансами</title>
+
+<para>
+You can see all logged in users and their session details by clicking the
+"Session Management" link in the admin area (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Управление сеансами</screeninfo> <graphic srccredit="Adminarea
+sessionmanagement - screenshot" scale="40"
+fileref="screenshots/admin-sessionmanagement.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Session management.</emphasis>
+</para>
+
+<para>
+Some statistics about all active sessions are displayed, e.g. how many
+agents and customer users are logged in, number of active sessions. Any
+individual session can be removed by clicking on the <emphasis>Kill this
+session</emphasis> link on the right-hand side of the list. You also have
+the option to <emphasis>Kill all sessions</emphasis>, which can be useful if
+you'd like to bring the system down. Detailed information for every session
+is available, too (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Сессии, подробности</screeninfo> <graphic srccredit="Adminarea
+session management - screenshot" scale="40"
+fileref="screenshots/admin-session-details.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Session details.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-system-log">
+<title>Системный журнал</title>
+
+<para>
+The "System Log" link on the Admin page shows the log entries of the system,
+reverse chronologically sorted with most recent first (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Системный журнал</screeninfo> <graphic srccredit="Adminarea syslog
+- screenshot" scale="40" fileref="screenshots/admin-syslog.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: System Log.</emphasis>
+</para>
+
+<para>
+Каждая строка в журнале содержит: время, приоритет, компонент системы и
+непосредственно саму запись.
+</para>
+
+<note>
+<para>
+Системный журнал доступен только через веб-интерфейс на Linux/UNIX
+системах. В Windows-системах, журнал можно увидеть, октрыв в текстовом
+редакторе файл <filename>[install_dir]otrs\var\log\otrs.log</filename>.
+</para>
+</note>
+
+</section>
+
+<section id="adminarea-selectbox">
+<title>SQL запросы</title>
+
+<para>
+The "SQL Box" link on the Admin page opens a screen that lets you query the
+content of the tables in the OTRS database (see Figure below). It is not
+possible to change the content of the tables, only select queries are
+allowed.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>SQL-запрсоы</screeninfo> <graphic srccredit="Adminarea
+selectbox - screenshot" scale="40"
+fileref="screenshots/admin-selectbox.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: SQL Box.</emphasis>
+</para>
+
+</section>
+
+<section id="adminarea-package-manager">
+<title>Менеджер пакетов</title>
+
+<para>
+Using the "Package Manager" link on the Admin page, you can install and
+manage packages that extend the functionality of OTRS (see Figure
+below). See the <link linkend="application">Additional applications</link>
+section for a discussion on the extensions that are available from the OTRS
+repositories.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>Менеджер пакетов</screeninfo> <graphic srccredit="Adminarea
+packagemanager - screenshot" scale="40"
+fileref="screenshots/admin-packagemanager.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Package Manager.</emphasis>
+</para>
+
+<para>
+Менеджер Пакетов позволяет просмотреть пакеты расширения OTRS вместе с
+номерами их версий, установленные на сервере в данный момент.
+</para>
+
+<para>Пакеты можно установить из удаленного хоста, для этого, в разделе
+<emphasis>Онлайн Репозиторий</emphasis> нужно выбрать репозиторий и нажать
+кнопку <emphasis>Обновить информацию из репозитория</emphasis>. Все
+доступные пакеты будут отображены в соответствующей таблице. В правой части
+страницы отображаются доступные пакеты. Чтобы установить пакет, нажмите на
+ссылку <emphasis>Установить</emphasis>. После установки пакет будет
+отображаться в разделе <emphasis>Local Repository</emphasis>.
+</para>
+
+<para>
+Для обновления установленных пакетов можно воспользоваться списком доступных
+пакетов из он-лайн репозитории. В колонке "действие" для каждого из пакетов,
+который имеет более высокую версию (чем установленная сейчас) нажмите кнопку
+<emphasis>Обновить</emphasis>. Просто нажмите на кнопку "Обновить", и новый
+пакет будет обновлен.
+</para>
+
+<para>
+В некоторых случаях, например, когда ваша OTRS-система не подключена к
+Интернету, можно установить пакеты, которые были заранее загружены на
+локальный диск. Нажмите кнопку <emphasis> Обзор</emphasis> на боковой панели
+и выберите. orm-файл на жестком диске. Нажмите <emphasis> Открыть
+</emphasis>, а затем <emphasis> Установить пакет</emphasis>. После установки
+пакет отображается в разделе <emphasis>Локальный
+Репозиторий</emphasis>. Проделайте те же действия для того чтобы обновить
+уже установленный пакет.
+</para>
+
+<para>
+В особых случаях, можно настроить Менеджер Пакетов, например, для
+испльзования прокси-сервера, или локального репозитория. перейдя по ссылке
+<link linkend="Framework:Core::Package">Framework:Core::Package</link>,
+просто посмотрите на имеющиеся варианты в файле SysConfig.
+</para>
+
+</section>
+
+<section id="adminarea-webservices">
+    <title>Web Services</title>
+    <para>
+        The Web Services link leads to the graphical interface where web services
+(for the OTRS Generic Interface) are created and maintained (see Figure
+below).
+    </para>
+    <para>
+        <screenshot>
+<screeninfo>The graphical interface for web services</screeninfo> <graphic srccredit="Adminarea
+webservices - screenshot" scale="40"
+fileref="screenshots/genericinterface-webservice-overview.png"></graphic></screenshot>
+    </para>
+    <para>
+        <emphasis>Figure: The graphical interface for web services.</emphasis>
+    </para>
+    <para>
+        The graphical interface for web services configuration is described in more
+detail in the section <link linkend="webservice_gui">"Web Service Graphical
+Interface"</link>.
+    </para>
+</section>
+
+<section id="adminarea-dynamicfields">
+    <title>Dynamic Fields</title>
+    <para>
+        Dynamic Fields is the place where you setup an manage custom fields for
+tickets and articles (see figure below).
+    </para>
+    <para>
+        <screenshot>
+<screeninfo>Dynamic fields overview screen</screeninfo> <graphic srccredit="Adminarea
+dynamicfields - screenshot" scale="40"
+fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
+    </para>
+    <para>
+        <emphasis>Figure: The dynamic fields overview screen with some dynamic
+fields.</emphasis>
+    </para>
+    <para>
+        The dynamic fields configuration is described in more detail in the section
+<link linkend="dynamicfields-configuration">"Dynamic Fields
+Configuration"</link>.
+    </para>
+    <para>
+        Each dynamic field type has its own configuration settings and therefore its
+own configuration screen.
+    </para>
+    <note>
+        <para>
+            In the OTRS framework, dynamic fields can only be linked to tickets and
+articles by default, but they can be extended to other objects as well.
+        </para>
+    </note>
+</section>
+
+</section>
