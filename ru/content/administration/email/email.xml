@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+
+<!-- $Id: email.xml,v 1.1 2012-11-07 08:49:16 mg Exp $ -->
+<section id="email">
+<title>Отправка / получение электронной почты</title>
+
+<section id="email-sending">
+<title>Отправка почты</title>
+
+<section id="email-sending-sendmail">
+<title>через Sendmail (по умолчанию)</title>
+
+<para>
+OTRS может отправлять сообщения электронной почты через <ulink
+url="http://www.sendmail.org/">Sendmail</ulink>, <ulink
+url="http://www.postfix.org/">Postfix</ulink>, <ulink
+url="http://www.qmail.org">Qmail</ulink> or <ulink
+url="http://www.exim.org">Exim</ulink>). По умолчанию используется Sendmail,
+он должен работать при установки системы "из коробки".
+</para>
+
+<para>
+Параметры sendmail можно настроить через графический веб-интерфейс для
+конфигурации (Framework::Core::Sendmail)
+</para>
+
+</section>
+
+<section id="email-sending-smtp">
+<title>Через SMTP-сервер или smarthost</title>
+
+<para>
+OTRS может отсылать сообщения электронной почты через SMTP ( <ulink
+url="http://www.ietf.org/rfc/rfc821.txt">Simple Mail Transfer Protocol / RFC
+821</ulink>) или Secure SMTP. Возможно вы захотите использовать эту опцию на
+не-unix-системах (например на Windows).
+</para>
+
+<para>
+Параметры настройки SMTP-сервера могут быть сконфигурированны через
+SysConfig (Framework::Core::Sendmail). Если у вас нету SMTPS в качестве
+опции, значит вы пропустили установку соответствующих Perl-модулей. В таком
+случае, обратитесь пожалуйста к этой <link
+linkend="installation-of-perl-modules">"Установка Perl-модулей необходимых
+для работы OTRS"</link> инструкции.
+</para>
+
+</section>
+
+</section>
+
+<section id="email-receiving">
+<title>Получение сообщений электронной почты</title>
+
+<section id="email-receiving-pop3">
+<title>Учетные записи электронной почты настраиваемые через графический
+пользовательский интерфейс OTRS</title>
+
+<para>
+OTRS позволяет получать сообщения электронной почты через почтовые аккаунты
+POP3, POP3S, IMAP, и IMAPS.
+</para>
+
+<para>
+Для настройки почтовых аккаунтов воспользуйтесь ссылкой "Почтовые Аккаунты
+PostMaster" на странице администрирования.
+</para>
+
+<para>
+If a new mail account is to be created (see Figure below), then it's mail
+server name, login name and password must be specified. Also, you need to
+select the mail server type, which can be POP3, POP3S, IMAP or IMAPS. If you
+don't see your server type available as an option, the required Perl modules
+are missing on your system. In that case, please refer to <link
+linkend="installation-of-perl-modules"> "Installation of Perl modules
+required for OTRS"</link> for instructions.</para>
+
+<para>
+<screenshot>
+<screeninfo>Добавление учетной записи электронной почты</screeninfo> <graphic srccredit="Adminarea
+postmaster - screenshot" scale="40"
+fileref="screenshots/add-mailaccount.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Adding a mail account.</emphasis>
+</para>
+
+<para>Если для опции "Trusted" выбрано значение "Да", будут оцениваться и
+выполнятся любые X-OTRS-заголовки, присоединенные к входящему
+сообщению. Поскольку X-OTRS-заголовок может выполнять некоторые действия в
+системе обработки заявок, то для извесных отправителей опцию Trusted нужно
+установить только в значение Да. X-OTRS-заголовки используюся в OTRS <link
+linkend="adminarea-postmasterfilter"> модулем фильтрации </link>. Более
+подробно X-OTRS заголовки рассматриваются в <link
+linkend="table-of-x-otrs-headers">этой таблице</link>. Любые созданные и
+выполненные правила фильтрации независимы от параметров настроки Trusted.
+</para>
+
+<para>
+Можно контролировать распределением входящих сообщений, если они должны
+сортироватся по очередях или содержимому поля "Кому". Если для
+Диспетчеризации выбрана опция "Диспетчеризация по выбранной очереди", то все
+входящие сообщения будут отсортированы в указанной очереди. В таком случае
+адресс, с которого отправили сообщение не учитывается. Если для
+диспетчеризации выбрана опция "Диспетчеризация емейлов по полю Кому",
+система для входящих емейлов проверяет, связана ли эта очередь с адресом
+электронной почты в поле Кому. Перейдя по ссылке <link
+linkend="adminarea-emailaddresses">Управление E-mail-адресами</link> в
+Панели Администрирования, можно связать определенный адресс с очередью. Если
+не найдено никакой связи между адресом в поле "Кому" то сообщение будет
+сохранятся в системе в "Raw" очереди, которая есть <link
+linkend="Ticket:Core::PostMaster:PostmasterDefaultQueue">
+PostmasterDefaultQueue </link> по умолчанию после установки системы.
+</para>
+
+<para>
+Все данные для учетных записей электронной почты сохраняются в базе данных
+OTRS. Скрипт <filename>otrs.PostMasterMailbox.pl</filename>, который
+находится в директории <filename>bin</filename> вашей системы OTRS,
+использует настройки в базе данных и получает почту. Вы можете выполнить
+файл <filename>./bin/otrs.PostMasterMailbox.pl</filename> вручную чтобы
+проверить что все ваши настройки почты работают правильно.
+</para>
+
+<para>
+Для обычной установки, с помощью файла заданий cron job
+<filename>postmaster_mailbox</filename> выборка емейлов будет выполнятся
+каждые 10 минут. Для получения дополнительной информации об изменении
+заданий планировщика задач cron jobs, обратитесь к главе <link
+linkend="cronjobs">"Настройка пралировщика задач cron jobs для OTRS"</link>.
+</para>
+
+<note>
+<para>
+При получении почты OTRS удаляет почту с POP или IMAP сервера. Нету такой
+опции,  которая бы позволяла хранить копию сообщения на сервере. Если вы все
+же хотите чтобы такая возможность присутствовала, скорей всего нужно
+воспользоваться правилами переадресации на почтовый сервер. Оратитесь
+пожалуйста к документации по вашему почтовому серверу.
+</para>
+</note>
+</section>
+
+
+<section id="email-receiving-cmd">
+<title>Через командную строку программы и например, procmail (otrs.PostMaster.pl)</title>
+
+<para>
+Если для получения электронной почты в OTRS нету возможности использовать
+учетные записи, то эту проблему можно решить с помощью программы командной
+строки <filename>bin/otrs.PostMaster.pl</filename>Она принимает сообщения
+электронной почты через STDIN и направляет их непосредственно в OTRS. Это
+значит что емейлы будут доступны в OTRS когда MDA (Mail Delivery Agent -
+Агент доставки почты) выполняет эту программу.
+</para>
+
+<para>
+To test <filename>bin/otrs.PostMaster.pl</filename> without an MDA, execute
+the command of the following script.
+</para>
+
+<para>
+<screen>
+linux:/opt/otrs# cd bin
+linux:/opt/otrs/bin# cat ../doc/sample_mails/test-email-1.box | ./otrs.PostMaster.pl
+linux:/opt/otrs/bin#
+</screen>
+</para>
+
+<para>
+<emphasis>Script: Testing PostMaster without the MDA.</emphasis>
+</para>
+
+<para>
+Если сообщения электронной почты отображаются в QueueView, значит вашы
+настройки работают.
+</para>
+
+<para>
+Procmail - это очень распостраненный фильтр электронной почты в среде
+Linux.  Он устанавливается на большинстве систем. Если нет, перейдите по
+ссылке <ulink url="http://www.procmail.org/"><citetitle>procmail
+homepage</citetitle></ulink>.
+</para>
+
+<para>
+To configure procmail for OTRS (based upon a procmail configured MTA such as
+sendmail, postfix, exim or qmail), use the
+<filename>~otrs/.procmailrc.dist</filename> file and copy it to
+<filename>.procmailrc</filename> and add the lines of the script below.
+</para>
+
+<para>
+<programlisting>
+SYS_HOME=$HOME
+PATH=/bin:/usr/bin:/usr/local/bin
+# --
+# Pipe all email into the PostMaster process.
+# --
+:0 :
+| $SYS_HOME/bin/otrs.PostMaster.pl
+</programlisting>
+</para>
+
+<para>
+<emphasis>Script: Configuring procmail for OTRS.</emphasis>
+</para>
+
+<para>
+Все емейлы отсылаемые локальному OTRS-пользователю будут обрабатываться
+<filename>bin/otrs.PostMaster.pl</filename> и потом отображаться в
+QueueView.
+</para>
+
+</section>
+
+<section id="email-receiving-fetchmail">
+<title>Получение электронной почты по протоколу POP3 или IMAP и обработка для
+otrs.PostMaster.pl</title>
+
+<para>
+Для того чтобы получить электронную почту с вашего почтового сервера через
+POP3 или IMAP и сохранить ее на компьютере на котором установлен OTRS, для
+локального аккаунта или в procmail, перейдите по ссылке <ulink
+url="http://fetchmail.berlios.de/">fetchmail</ulink>.
+</para>
+
+<note>
+<para>
+Работающий и сконфигурированный SMTP необходим для работы OTRS.
+</para>
+</note>
+
+<para>
+Можно использовать файл <filename>.fetchmailrc.dist</filename> в домашней
+директории OTRS и скопировать его в
+<filename>.fetchmailrc</filename>. Изменить его в соответствии с вашими
+требованиями (см. ниже Пример 7-1).
+</para>
+
+<example id='fetchmailrc'>
+<title>.fetchmailrc</title>
+
+<para>
+<programlisting>
+#poll (mailserver) protocol POP3 user (user) password (password) is (localuser)
+poll mail.example.com protocol POP3 user joe password mama is otrs
+</programlisting>
+</para>
+
+</example>
+
+<para>
+Не забудьте установить.fetchmailrc to 710 ("chmod 710 .fetchmailrc")!
+</para>
+
+<para>
+Из Листинга 7-1 выше, <filename>.fetchmailrc</filename> , все емейлы будут
+перенаправлены в локальный OTRS-аккаунт, если выполнена команда
+<command>fetchmail -a</command>. Установите эту команду в планировщике задач
+cronjob если хотите извлекать емейлы постоянно.
+</para>
+</section>
+
+
+<section id="email-receiving-filter">
+<title>Фильтрация/рассылка модулями OTRS/PostMaster (для более сложной
+диспетчеризации)</title>
+
+<para>
+Если вы используете метод bin/otrs.PostMaster.pl или
+bin/otrs.PostMasterMailbox.pl, то с модулем фильтрации PostMaster можно
+вставить или модифицировать X-OTRS заголовок. С помощью X-OTRS-заголовков,
+система обработки заявок может вызывать некоторые действия для входящих
+сообщений, сортировать их в определенные очереди, или, например, изменять
+приоритет или ID-клиента. Более подробную информацию о X-OTRS-заголовках
+можно найти в главе <link linkend="adminarea-postmasterpop3-account">
+добавление аккаунтов электронной почты </link> в Панели Администрирования.
+</para>
+
+<para>
+Есть некоторые предустановленные модули фильтрации:
+</para>
+
+<note>
+<para>
+Название задания (например
+$Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'JobName'}) должно быть
+уникальным!
+</para>
+</note>
+
+<para>
+Kernel::System::PostMaster::Filter::Match модуль по умолчанию для проверки
+совпадения заголовков определенных емейлов (например "От", "Кому", "Тема",
+...). Он может устанавливать новые заголовки email (например X-OTRS-Ignore:
+да или X-OTRS-Queue: spam) если совпадают правила совпадения. Задания из
+Примера 7-2 могут быть прописаны в <filename>Kernel/Config.pm</filename>
+</para>
+
+<example id='filter-module-match-example'>
+<title>Пример задания для модуля фильтрации
+Kernel::System::PostMaster::Filter::Match</title>
+
+<para>
+<programlisting>
+    # Job Name: 1-Match
+    # (block/ignore all spam email with From: noreply@)
+    $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'1-Match'} = {
+        Module =&gt; 'Kernel::System::PostMaster::Filter::Match',
+        Match =&gt; {
+            From =&gt; 'noreply@',
+        },
+        Set =&gt; {
+            'X-OTRS-Ignore' =&gt; 'yes',
+        },
+    };
+    # Job Name: 2-Match
+    # (sort emails with From: sales@example.com and Subject: **ORDER**
+    # into queue 'Order')
+    $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'2-Match'} = {
+        Module =&gt; 'Kernel::System::PostMaster::Filter::Match',
+        Match =&gt; {
+            To =&gt; 'sales@example.com',
+            Subject =&gt; '**ORDER**',
+        },
+        Set =&gt; {
+            'X-OTRS-Queue' =&gt; 'Order',
+        },
+    };
+</programlisting>
+</para>
+
+</example>
+
+<para>
+Kernel::System::PostMaster::Filter::CMD модуль по умолчанию для получения
+емейлов для внешних команд. Вывод передается в STDOUT и если результат
+истинна, то устанавливается новый заголовок (например X-OTRS-Ignore: да или
+X-OTRS-Queue: spam). Пример 7-3 может быть использован в
+<filename>Kernel/Config.pm</filename>
+</para>
+
+<example id='filter-module-cmd-example'>
+<title>Пример задания для модуля фильтрации Kernel::System::PostMaster::Filter::CMD</title>
+
+<para>
+<programlisting>
+    # Job Name: 5-SpamAssassin
+    # (SpamAssassin example setup, ignore spam emails)
+    $Self-&gt;{'PostMaster::PreFilterModule'}-&gt;{'5-SpamAssassin'} = {
+        Module =&gt; 'Kernel::System::PostMaster::Filter::CMD',
+        CMD =&gt; '/usr/bin/spamassassin | grep -i "X-Spam-Status: yes"',
+        Set =&gt; {
+            'X-OTRS-Ignore' =&gt; 'yes',
+        },
+    };
+</programlisting>
+</para>
+
+</example>
+
+<para>
+Конечно, также есть возможность разработки своих собственных
+PostMaster-модулей фильтрации.
+</para>
+
+</section>
+
+</section>
+
+</section>
