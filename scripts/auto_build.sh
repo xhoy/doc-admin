@@ -1,9 +1,9 @@
 #!/bin/sh
 # --
 # scripts/auto_build.sh - Build tar.(gz|bz2) archive of the files from the admin manual
-# Copyright (C) 2001-2006 Martin Edenhofer <martin+code@otrs.org>
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
-# $Id: auto_build.sh,v 1.3 2006-04-04 11:05:19 cs Exp $
+# $Id: auto_build.sh,v 1.4 2012-11-20 19:15:54 mh Exp $
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 # --
 PATH_TO_CVS_SRC=$1
 PRODUCT=doc-admin
