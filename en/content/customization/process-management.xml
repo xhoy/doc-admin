@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.6 2012-11-23 14:54:02 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.7 2012-11-23 16:48:34 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -231,7 +231,7 @@ ISBN: 3527703713
                         To be executed when the transition "Approved" applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Process-Ticket in die "Post office" Queue verschieben. (TA6):
+                        <para>Move process ticket to Queue "Post office". (TA6):
                         To be executed when the transition "Order placed" applied.</para>
                     </listitem>
                 </itemizedlist>
@@ -239,7 +239,7 @@ ISBN: 3527703713
                 <para>
                     As you can see, there are places where the same TransitionAction should be executed.
                     Therefore it is reasonable to make it possible to link TransitionActions freely with
-                    Transitions to be able to reuse them. können.
+                    Transitions to be able to reuse them.
                 </para>
         </section>
         <section>
@@ -345,7 +345,7 @@ ISBN: 3527703713
             <para>
                 Action 'A1' is a defined state of the process ticket, where there is the possibility for the Transition 'T1'.
                 If this applies, the ticket will move to the next Activity 'A2', and the TransitionActions 'TA1' and 'TA2' are executed.
-                In Activity 'A2', the Activity Dialogs 'AD2' (Apprival denied) and 'AD3' (Approved) are available.
+                In Activity 'A2', the Activity Dialogs 'AD2' (Approval denied) and 'AD3' (Approved) are available.
             </para>
             <para>Approval</para>
             <para>
@@ -357,7 +357,7 @@ ISBN: 3527703713
                         <para>Possible Transitions:</para>
                             <itemizedlist>
                                 <listitem>
-                                    <para>T2 (Approval Abgelehnt)</para>
+                                    <para>T2 (Approval denied)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
