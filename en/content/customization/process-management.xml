@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.5 2012-11-20 15:05:05 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.6 2012-11-23 14:54:02 mg Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -487,791 +487,805 @@ ISBN: 3527703713
             </section>
     </section>
 
+<!--
     <section>
         <title>Process configuration reference</title>
-        <para>TBD</para>
-<!--
+
+
+
         <section>
             <title>Process</title>
             <para>
-                Ein Process bildet den zu durchlaufenden Pfad eines Processes ab.
-                Wegpunkte auf diesem Pfad können Activities wie auch Transitions sein.
-                Zu diesen jedoch später.
+                A Process models the path of a workflow/process. The waypoints on
+                this path can be Activities or Tranistions, we'll talk about these later.
             </para>
             <section>
-                <title>Process Konfiguration</title>
+                <title>Process configuration</title>
                 <para>
-                    Die Process Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
-                    Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+                    The Process configuration can only be done in the file <filename>Kernel/Config.pm</filename> at this point.
+                    Let's see an example process configuration:
                 </para>
                 <para>
                     <screen>
-            $Self->{'Process'}   =
-            {
-                'P1' => {
-                    Name       => 'Buchbestellung',
-                    CreateTime => '16-02-2012 13:37:00',
-                    CreateBy   => '1',
-                    ChangeTime => '17-02-2012 13:37:00',
-                    ChangeBy   => '1',
-                    State      => 'Active',
-                    StartActivity => 'A1',
-                    StartActivityDialog => 'AD1',
-                    Path       => {
-                        'A1' => {
-                            'T1' => {
-                                ActivityEntityID => 'A2',
-                            },
-                        },
-                        'A2' => {
-                            'T2' =>  {
-                                ActivityEntityID => 'A3',
-                            },
-                        },
-                    },
+$Self->{'Process'}   =
+{
+    'P1' => {
+        Name       => 'Book order',
+        CreateTime => '16-02-2012 13:37:00',
+        CreateBy   => '1',
+        ChangeTime => '17-02-2012 13:37:00',
+        ChangeBy   => '1',
+        State      => 'Active',
+        StartActivity => 'A1',
+        StartActivityDialog => 'AD1',
+        Path       => {
+            'A1' => {
+                'T1' => {
+                    ActivityEntityID => 'A2',
                 },
-                'P2' => {
-                    Name       => 'EDV Bestellung',
-                    CreateTime => '26-02-2012 13:37:00',
-                    CreateBy   => '1',
-                    ChangeTime => '27-02-2012 13:37:00',
-                    ChangeBy   => '1',
-                    State      => 'Active',
-                    StartActivity => 'A2',
-                    StartActivityDialog => 'AD2',
-                    Path       => {
-                        'A2' => {
-                            'T3' => {
-                                ActivityEntityID => 'A4',
-                            },
-                        },
-                    },
-                }
-            };
+            },
+            'A2' => {
+                'T2' =>  {
+                    ActivityEntityID => 'A3',
+                },
+            },
+        },
+    },
+    'P2' => {
+        Name       => 'IT order',
+        CreateTime => '26-02-2012 13:37:00',
+        CreateBy   => '1',
+        ChangeTime => '27-02-2012 13:37:00',
+        ChangeBy   => '1',
+        State      => 'Active',
+        StartActivity => 'A2',
+        StartActivityDialog => 'AD2',
+        Path       => {
+            'A2' => {
+                'T3' => {
+                    ActivityEntityID => 'A4',
+                },
+            },
+        },
+    }
+};
                     </screen>
                 </para>
             </section>
             <section>
                 <title>Name</title>
                 <para>
-                    Gibt den Namen des Processes an, dieser wird bei Erstellung eines neuen Auftragstickets zur Auswahl angeboten.
+                    The name of the process, this can be selected by the agent when creating a new process ticket.
                 </para>
             </section>
             <section>
                 <title>CreateTime</title>
                 <para>
-                    Gibt die Zeit der Erstellung dieses Processes an.
+                    The time when the process was created.
                 </para>
             </section>
             <section>
                 <title>CreateBy</title>
                 <para>
-                    Gibt die UserID des Benutzers an, der diesen Process erstellt hat.
+                    The UID of the user creating the process.
                 </para>
             </section>
             <section>
                 <title>ChangeTime</title>
                 <para>
-                    Gibt die Zeit der letzten Änderung dieses Processes an.
+                    The time when the process was changed.
                 </para>
             </section>
             <section>
                 <title>ChangeBy</title>
                 <para>
-                    Gibt die UserID des Benutzers an, der diesen Process zuletzt geändert hat.
+                    The UID of the user who made the last change to the process.
                 </para>
             </section>
             <section>
                 <title>State</title>
                 <para>
-                    Definiert den Zustand eines Process. Mögliche Werte:
-                    'Active' sind alle Processes die für neue Auftragstickets auswählbar sind.
-                    'FadeAway' sind Processes in denen bestehende Auftragstickets noch weiterhin den Process durchlaufen können,
-                    die aber für neue Auftragstickets nicht mehr zur Auswahl stehen. 'Inactive' sind deaktivierte Processes.
-                    Sie stehen sowohl beim Anlegen neuer Auftragstickets nicht mehr zur Verfügung,
-                    wie auch bestehende Auftragstickets die einem 'Inactive' Process zugeordnet sind,
-                    bei Veränderung nicht mehr auf mögliche Transitions geprüft werden.
+                    Defines the state of a process. Possible values:
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                'Active' are all processes which can be used in new process tickets.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                'FadeAway' are processes which cannot be selected any more for new tickets,
+                                but existing tickets still can use the process.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                'Inactive' processes are deactivated and cannot be used for new or existing tickets.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
                 </para>
             </section>
             <section>
                 <title>StartActivity</title>
                 <para>
-                    Beim Anlegen eines neuen Auftragstickets muss ein klar definiertes StartActivity eingestellt sein.
-                    Sobald das Auftragsticket erstellt wurde, wird dieses Activity gesetzt,
-                    sowie auf mögliche Transitions von diesem Activity ausgehend geprüft.
+                    When creating a new process ticket, a StartActivity must be defined. As soon as the ticket is created,
+                    this Activity will be set and used as the base for the first transition checks.
                 </para>
             </section>
             <section>
                 <title>StartActivityDialog</title>
                 <para>
-                    Beim anlegen eines neuen Auftragstickets muss eine klar definierte Activity Dialog vorhanden sein,
-                    diese wird angezeigt sobald die Maske zur Erstellung eines neuen Auftragstickets
-                    inklusive Process-Auswahl abgeschickt wurde.
-                    In diesem Moment ist das Auftragsticket noch nicht erstellt,
-                    erst nach absenden der StartActivityDialog wird die Auftragsticketerstellung ausgelöst.
+                    For new process tickets, a StartActivityDialog must be defined. This will be shown when creating
+                    a new process ticket (after the process was selected). At this point, the ticket does not exist yet,
+                    it will be created after submitting the StartActivityDialog.
                 </para>
             </section>
             <section>
                 <title>Path</title>
                 <para>
-                    Path enthält die Abbildung der zu durchlaufenden Process Activity ID's
-                    sowie jeweils davon ausgehender Transition Möglichkeiten (TransitionEntityID's)
-                    und dazugehöriger Ziel-Activities (ActivityEntityID's).
-                    Hier wird der Weg, den ein Auftragsticket durchlaufen kann abgebildet. Beispiel:
+                    The Path contains the structure of the Activities and the possible Transitions between
+                    them, for the current process. This controls the way that a process ticket can take. Example:
                 </para>
                 <para>
                 <screen>
-            'A1' => {
-                'T1' => {
-                    ActivityEntityID => 'A2',
-                },
-                'T2' => {
-                    ActivityEntityID => 'A3',
-                },
-                'T3' => {
-                    ActivityEntityID => 'A4',
-                    TransitionAction        => ['TA1', 'TA2'],
-                },
-            },
+'A1' => {
+    'T1' => {
+        ActivityEntityID => 'A2',
+    },
+    'T2' => {
+        ActivityEntityID => 'A3',
+    },
+    'T3' => {
+        ActivityEntityID => 'A4',
+        TransitionAction => ['TA1', 'TA2'],
+    },
+},
                 </screen>
                 </para>
                 <para>
-                    Ist ein Auftragsticket im obigen Beispiel bei Activity 'A1' angelangt,
-                    hat es 3 mögliche Bedingungen um zum nächsten Activity zu gelangen.
-                    In den Transitions 'T1' bis 'T3' sind Bedingungen definiert,
-                    die ein Auftragsticket erfüllen muss, um eine Transition zu absolvieren.
-                    Sind im obigen Fall alle nötigen Werte der Auftragsticketfelder bzw. DynamicFields für das Erfüllen
-                    der Bedingung 'T2' vorhanden und zutreffend, wird der Activity Wert des Auftragstickets von A1 auf A3 umgestellt.
-                    Nach jedem Speichern von Activity Dialogs erfolgt eine Prüfung auf die möglichen Transitions,
-                    die laut dieser Path Konfiguration vom aktuellen Activity aus möglich sind.
-                    Sollten mehrere Transitions mit den aktuellen Werten der Auftragsticket bzw. DynamicFields
-                    möglich sein, greift die erste zutreffende Transition.
-                    Die Reihenfolge der Transitions wird durch Alphanumerische Sortierung der Transition ID's bestimmt.
+                    If a process ticket is in Activity 'A1', it has three possible ways to get to another Activity.
+                    In the Transitions 'T1' to 'T3', conditions are defined, that a process ticket must fulfil to
+                    move (transit) to another Activity.
                 </para>
                 <para>
-                    Weiters ist es möglich in der Path Konfiguration eine oder mehrere TransitionActions pro möglicher Transition zu verankern.
-                    TransitionActions sind Module die nach erfolgter Transition ausgeführt werden. In der Path Konfiguration müssen
-                    transitionActions in Arrayform mit eckigen Klammern angegeben werden. Wird mehr als eine TransitionAction benötigt, sind diese,
-                    wie im obigen Beispiel, mit Komma zu trennen. Wie TransitionActions konfiguriert werden können lesen Sie im Punkt
-                    "TransitionActions".
+                    If in this case all the values of the process ticket and its dynamic fields that are needed for the
+                    Transition 'T2' are correct, the ticket will be moved from Activity 'A1' to 'A3'. After an ActivityDialog
+                    is submitted, or any other change is made to a ticket, it will be checked for possible Transitions from
+                    the current Activity. If multiple Transitions are possible, the first one will be used (based on nummerical
+                    sorting of the TransitionIDs).
+                </para>
+                <para>
+                    Additionally, it is possible to assign TransitionActions to Transitions in the Path configuration.
+                    These are modules which are executed after a successful Transition. They have to be specified in array form
+                    as in the example, we'll talk about the details later.
                 </para>
             </section>
         </section>
+
+
+
         <section>
             <title>Activity</title>
             <para>
-                Ein Activity beinhaltet eine oder mehrere Activitys und entspricht einem "Schritt" im Process.
-                Alle Activitys des aktiven Activities werden in der AgentTicketZoom-Maske angezeigt und können bearbeitet werden
-                bis die erste Bedinung einer Transition erfüllt ist.
+                An Activity contains one or more ActivityDialogs and models a 'step' in the process.
+                All ActivityDialogs of the current Activity are displayed in the ticket zoom and can be
+                used until the conditions of a Transition are fulfilled.
             </para>
             <section>
-            <title>Activity Konfiguration</title>
+            <title>Activity configuration</title>
             <para>
-                Die Activity Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
-                Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+                Let's see an example activity configuration:
             </para>
             <para>
                 <screen>
-            $Self->{'Process::Activity'} =
-            {
-                'A1' => {
-                    Name       => 'Activity 1 optional',
-                    CreateTime => '16-02-2012 13:37:00',
-                    CreateBy   => '1',
-                    ChangeTime => '17-02-2012 13:37:00',
-                    ChangeBy   => '1',
-                    ActivityDialog => {
-                        1 => 'AD1',
-                    },
-                },
-                'A2' => {
-                    Name       => 'Activity 2 optional',
-                    CreateTime => '16-02-2012 13:37:00',
-                    CreateBy   => '1',
-                    ChangeTime => '17-02-2012 13:37:00',
-                    ChangeBy   => '1',
-                    ActivityDialog => {
-                        1 => 'AD5',
-                        2 => 'AD6',
-                        3 => 'AD1',
-                    },
-                },
-            };
+$Self->{'Process::Activity'} =
+{
+    'A1' => {
+        Name       => 'Activity 1 optional',
+        CreateTime => '16-02-2012 13:37:00',
+        CreateBy   => '1',
+        ChangeTime => '17-02-2012 13:37:00',
+        ChangeBy   => '1',
+        ActivityDialog => {
+            1 => 'AD1',
+        },
+    },
+    'A2' => {
+        Name       => 'Activity 2 optional',
+        CreateTime => '16-02-2012 13:37:00',
+        CreateBy   => '1',
+        ChangeTime => '17-02-2012 13:37:00',
+        ChangeBy   => '1',
+        ActivityDialog => {
+            1 => 'AD5',
+            2 => 'AD6',
+            3 => 'AD1',
+        },
+    },
+};
                 </screen>
             </para>
             </section>
             <section>
                 <title>Name</title>
                 <para>
-                    Gibt den Namen des Activity an.
+                    The name of the activity.
                 </para>
             </section>
             <section>
                 <title>CreateTime</title>
                 <para>
-                    Gibt die Zeit der Erstellung dieses Activities an.
+                    The time when it was created.
                 </para>
             </section>
             <section>
                 <title>CreateBy</title>
                 <para>
-                    Gibt die UserID des Benutzers an, der dieses Activity erstellt hat.
+                    UID of the user who created the Activity.
                 </para>
             </section>
             <section>
                 <title>ChangeTime</title>
                 <para>
-                    Gibt die Zeit der letzten Änderung dieses Activity an.
+                    The last time when it was changed.
                 </para>
             </section>
             <section>
                 <title>ChangeBy</title>
                 <para>
-                    Gibt die UserID des Benutzers an, der dieses Activity zuletzt geändert hat.
+                    UID of the last user who changed the Activity.
                 </para>
             </section>
             <section>
-                <title>Activity Dialog</title>
+                <title>ActivityDialog</title>
                 <para>
-                    Activity Dialog enthält die Liste der in diesem Activity zur Verfügung stehender Activity Dialogs.
-                    Ist ein Auftragsticket in einem Activity angelangt, werden alle für dieses Activity definierten
-                    Activity Dialogs zur Auswahl angeboten. Die Reihenfolge der Darstellung wird mittels der Reihenfolge
-                    der Activity Dialogs festgelegt. Im obigen Beispiel 'AD5' vor 'AD6' vor 'AD1'.
+                    ActivityDialog contains the list of ActivityDialogs which are available in this Activity.
+                    All ActivityDialogs of the current Activity are displayed in the ticket zoom. Their order is
+                    set by the order in the configuration, here 'AD5' is shown before 'AD6' and 'AD1'.
                 </para>
             </section>
         </section>
+
+
+
         <section>
-            <title>Activity Dialog</title>
+            <title>ActivityDialog</title>
             <para>
-                Eine Activity Dialog entspricht einer Oberflächenmaske und kann je nach belieben in mehreren Activities eingebunden werden.
+                An ActivityDialog is a particular screen and can be used in different Activities.
             </para>
             <section>
-                <title>Activity Dialog Konfiguration</title>
+                <title>ActivityDialog configuration</title>
                 <para>
-                    Die Activity Dialog Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
-                    Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
+                    Let's see an example config
                 </para>
                 <para>
                     <screen>
-            $Self->{'Process::ActivityDialog'} = {
-                'AD1' => {
-                    Name => 'ActivityDialog 1 optional',
-                    DescriptionShort => 'Basic Infos',
-                    DescriptionLong  => 'Please insert the necessesary basic information for IT orders',
-                    CreateTime => '28-02-2012 13:37:00',
-                    CreateBy => '1',
-                    ChangeTime => '29-02-2012 13:37:00',
-                    ChangeBy => '1',
-                    Fields => {
-                        PriorityID => {
-                            DescriptionShort => 'Priority ID',
-                            DescriptionLong  => 'Enter the priority here',
-                            Display => 2,
-                        },
-                    },
-                    FieldOrder       => [ 'PriorityID' ],
-                    SubmitAdviceText => 'ACHTUNG: Wenn Sie das Formular absenden...',
-                    SubmitButtonText => 'Anfrage stellen',
-                },
-                'AD2' => {
-                    Name => 'ActivityDialog 2 optional',
-                    DescriptionShort => 'Basic Infos',
-                    DescriptionLong  => 'Please insert the necessesary basic information for Book orders',
-                    CreateTime => '28-02-2012 13:37:00',
-                    CreateBy => '1',
-                    ChangeTime => '29-02-2012 13:37:00',
-                    ChangeBy => '1',
-                    Fields => {
-                        StateID => {
-                            DescriptionShort    => 'State ID',
-                            DescriptionLong     => 'Enter the state here',
-                            Display             => 2,
-                            DefaultValue        => '2',
-                        },
-                        Queue => {
-                            DescriptionShort    => 'Queue ID',
-                            DescriptionLong     => 'Enter the queue here',
-                            Display             => 2,
-                            DefaultValue        => 'Raw',
-                        },
-                        Title => {
-                            DescriptionShort    => 'Title',
-                            DescriptionLong     => 'Enter the title here',
-                            Display             => 1,
-                            DefaultValue        => 'Default Title',
-                        },
-                        DynamicField_Anzahl => {
-                            DescriptionShort    => 'Amount',
-                            DescriptionLong     => 'Enter the amount here',
-                            Display             => 2,
-                            DefaultValue        => '4',
-                        },
-                    },
-                    FieldOrder       => [ 'DynamicField_Anzahl', 'StateID', 'Queue', 'Title' ],
-                    SubmitAdviceText => 'ACHTUNG: Wenn Sie das Formular absenden...',
-                    SubmitButtonText => 'Anfrage stellen',
-                },
-            };
-                    </screen>
-                </para>
-            </section>
-            <section>
-                <title>Name</title>
-                <para>
-                    Gibt den Namen der ActivityDialog an.
-                </para>
-            </section>
-            <section>
-                <title>CreateTime</title>
-                <para>
-                    Gibt die Zeit der Erstellung dieser Activity Dialog an.
-                </para>
-            </section>
-            <section>
-                <title>CreateBy</title>
-                <para>
-                    Gibt die UserID des Benutzers an, der dieser Activity Dialog erstellt hat.
-                </para>
-            </section>
-            <section>
-                <title>ChangeTime</title>
-                <para>
-                    Gibt die Zeit der letzten Änderung dieser Activity Dialog an.
-                </para>
-            </section>
-            <section>
-                <title>ChangeBy</title>
-                <para>
-                    Gibt die UserID des Benutzers an, der dieser Activity Dialog zuletzt geändert hat.
-                </para>
-            </section>
-            <section>
-                <title>Fields</title>
-                <para>
-                    Enthält alle Felder die in dieser Activity Dialog dargestellt werden können.
-                    Mögliche Felder sind momentan alle DynamicFields (jeweils mit 'DynamicField_Fieldname')
-                    sowie folgende Ticketfelder:
-                </para>
-                <para>
-                    <screen>
-            Title
-            State
-            StateID
-            Priority
-            PriorityID
-            Lock
-            LockID
-            Queue
-            QueueID
-            Customer
-            CustomerID
-            CustomerNo
-            CustomerUserID
-            Owner
-            OwnerID
-            Type
-            TypeID
-            SLA
-            SLAID
-            Service
-            ServiceID
-            Responsible
-            ResponsibleID
-            PendingTime
-                    </screen>
-                </para>
-                <para>
-                    Beispiel einer Feldkonfiguration:
-                </para>
-                <para>
-                <screen>
+$Self->{'Process::ActivityDialog'} = {
+    'AD1' => {
+        Name => 'ActivityDialog 1 optional',
+        DescriptionShort => 'Basic info',
+        DescriptionLong  => 'Please insert the necessesary basic information for IT orders',
+        CreateTime => '28-02-2012 13:37:00',
+        CreateBy => '1',
+        ChangeTime => '29-02-2012 13:37:00',
+        ChangeBy => '1',
+        Fields => {
+            PriorityID => {
+                DescriptionShort => 'Priority ID',
+                DescriptionLong  => 'Enter the priority here',
+                Display => 2,
+            },
+        },
+        FieldOrder       => [ 'PriorityID' ],
+        SubmitAdviceText => 'Note: If you submit the form...',
+        SubmitButtonText => 'Send request',
+    },
+    'AD2' => {
+        Name => 'ActivityDialog 2 optional',
+        DescriptionShort => 'Basic info',
+        DescriptionLong  => 'Please insert the necessesary basic information for Book orders',
+        CreateTime => '28-02-2012 13:37:00',
+        CreateBy => '1',
+        ChangeTime => '29-02-2012 13:37:00',
+        ChangeBy => '1',
+        Fields => {
             StateID => {
                 DescriptionShort    => 'State ID',
                 DescriptionLong     => 'Enter the state here',
                 Display             => 2,
                 DefaultValue        => '2',
             },
-                </screen>
-                </para>
-                <para>
-                    Einen Sonderfall stellt das Feld "Article" dar. Taucht dieses Feld im "Fields"-Hash mit einer korrekten
-                    Konfiguration auf, wird in der entsprechenden Activity Dialog ein Richtext-Editor samt Betreff- und Anhangs-Feld
-                    angezeigt. Der eingegebene Text wird dann als Artikel an das Process-Ticket angehängt und versendet.
-                </para>
-                <para>
-                    Beispiel einer Article-Feldkonfiguration:
-                </para>
-                <para>
-                    <screen>
-            Article => {
-                DescriptionShort => 'Please insert your comment here.',
-                DescriptionLong => '',
-                Display         => 1,
-                Config          => {
-                    ArticleType  => 'note-internal',
-                    LabelSubject => '',
-                    LabelBody    => '',
-                },
-            },
-                    </screen>
-                </para>
-            </section>
-            <section>
-                <title>DescriptionShort</title>
-                <para>
-                    Enthält eine Kurzbeschreibung die zum Feldtitel eingeblendet wird.
-                    Dieses Feld ist optional.
-                </para>
-            </section>
-            <section>
-                <title>DescriptionLong</title>
-                <para>
-                    Enthält eine detaillierte Beschreibung des Felds, die über mouseover eingeblendet wird.
-                    Hier kann eine Anleitung angegeben werden was in diesem Feld auszufüllen ist.
-                    Dieses Feld ist optional.
-                </para>
-            </section>
-            <section>
-                <title>Display</title>
-                <para>
-                    Hier wird eingestellt, ob das Feld angezeigt wird bzw. ob es zwingend ausgefüllt sein muss.
-                    Mögliche Werte sind: 0 für nicht dargestellt (invisible). Dies kann nützlich sein, wenn in einer Activity
-                    automatisch Feldwerte gesetzt werden sollen. Der DefaultValue der hier eingestellt ist,
-                    wird automatisch gespeichert. 1 steht für dargestellt aber optional ausfüllbar (visible). 2 steht für
-                    zwingend erforderlich (required). Folgende Felder können nur als invisible oder required
-                    konfiguriert werden:
-                </para>
-                <para>
-                    <screen>
-            QueueID
-            Qeue
-            StateID
-            State
-            Lock
-            LockID
-            Priority
-            Priority
-                    </screen>
-                </para>
-                <para>
-                    Werden diese Felder als optional konfiguriert werden zur Speicherung bei nicht-vorhanden sein
-                    eines übermittelten Werts die in der Paketkonfiguration eingestellten Defaultwerte herangezogen.
-                </para>
-            </section>
-            <section>
-                <title>DefaultValue</title>
-                <para>
-                    Dieser ist bei Feldern mit ID (QueueID, OwnerID,...) die tatsächliche Datenbank ID des möglichen Werts.
-                    Ist das Feld jedoch ohne ID konfiguriert (Queue, Owner,...) muss der DefaultValue den möglichen Wert
-                    selbst enthalten. Beispiel:
-                </para>
-                <para>
-                    <screen>
             Queue => {
                 DescriptionShort    => 'Queue ID',
                 DescriptionLong     => 'Enter the queue here',
                 Display             => 2,
                 DefaultValue        => 'Raw',
             },
-                    </screen>
-                </para>
-            </section>
-            <section>
-                <title>FieldOrder</title>
-                <para>
-                    Hier wird die Reihenfolge, in der die konfigurierten Felder in der Maske dargestellt werden, festgelegt.
-                    WICHTIG: auch Invisible Felder müssen hier konfiguriert sein, da diese Liste für die Werteverarbeitung
-                    beim Speichern herangezogen wird. Ist ein Feld hier nicht konfiguriert, wird es auch nicht gespeichert.
-                </para>
-            </section>
-            <section>
-                <title>SubmitAdviceText</title>
-                <para>
-                    Dieser Wert ist optional. Ein Text der hier angegeben wird, wird kurz überhalb des Submit Buttons
-                    ausgegeben und kann noch eine zusätzliche Anleitung beinhalten.
-                </para>
-            </section>
-            <section>
-                <title>SubmitAdviceText</title>
-                <para>
-                    Dieser Wert ist optional. Ein Text der hier angegeben wird, wird kurz überhalb des Submit Buttons
-                    ausgegeben und kann noch eine zusätzliche Anleitung beinhalten.
-                </para>
-            </section>
-            <section>
-                <title>SubmitButtonText</title>
-                <para>
-                    Dieser Wert ist optional. Ist er angegeben, wird er als Text für den Submit Button herangezogen.
-                </para>
-            </section>
-        </section>
-        <section>
-            <title>Transition</title>
-            <para>
-                Eine Transition entscheidet anhand definierbarer Bedingungen,
-                sogenannter "Condition"s, welcher weiterführende Pfad im Process eingeschlagen wird.
-            </para>
-            <section>
-                <title>Transition Konfiguration</title>
-                <para>
-                    Die Transition Konfiguration kann zum aktuellen Zeitpunkt nur in der Kernel -> Config.pm erstellt werden.
-                    Eine Beispielkonfiguration wie sie 1:1 in der Config.pm stehen könnte:
-                </para>
-                <para>
-                    <screen>
-            $Self->{'Process::Transition'} = {
-                'T1' => {
-                    Name => 'Transition 1',
-                    CreateTime => '14-03-2012 13:37:00', # optional
-                    CreateBy => '1', # optional
-                    ChangeTime => '15-03-2012 13:37:00', # optional
-                    ChangeBy => '15-03-2012 13:37:00', # optional
-                    Condition => {
-                        Cond1 => {
-                            Fields => {
-                                StateID => {
-                                    Type => 'String',
-                                    Match => '1',
-                                },
-                            },
-                        },
-                    },
-                },
-                'T2' => {
-                    Name => 'Transition 2 optional',
-                    CreateTime => 'DATE', # optional
-                    CreateBy => 'USERID', # optional
-                    ChangeTime => 'DATE', # optional
-                    ChangeBy => 'USERID', # optional
-                    Condition => {
-                        Cond1 => {
-                            Queue => 'Raw',
-                            DynamicField_Farbe => '2',
-                            DynamicField_Anzahl => '1',
-                        },
-                    },
-                },
-            };
+            Title => {
+                DescriptionShort    => 'Title',
+                DescriptionLong     => 'Enter the title here',
+                Display             => 1,
+                DefaultValue        => 'Default Title',
+            },
+            DynamicField_Anzahl => {
+                DescriptionShort    => 'Amount',
+                DescriptionLong     => 'Enter the amount here',
+                Display             => 2,
+                DefaultValue        => '4',
+            },
+        },
+        FieldOrder       => [ 'DynamicField_Anzahl', 'StateID', 'Queue', 'Title' ],
+        SubmitAdviceText => 'Note: If you submit the form...',
+        SubmitButtonText => 'Send request',
+    },
+};
                     </screen>
                 </para>
             </section>
             <section>
                 <title>Name</title>
                 <para>
-                    Gibt den Namen der Transition an.
+                    Name of the ActivityDialog.
                 </para>
             </section>
             <section>
                 <title>CreateTime</title>
                 <para>
-                    Gibt die Zeit der Erstellung dieser Transition an.
+                    Time when it was created.
                 </para>
             </section>
             <section>
                 <title>CreateBy</title>
                 <para>
-                    Gibt die UserID des Benutzers an, der dieser Transition erstellt hat.
+                    UID of the user who created this ActivityDialog.
                 </para>
             </section>
             <section>
                 <title>ChangeTime</title>
                 <para>
-                    Gibt die Zeit der letzten Änderung dieser Transition an.
+                    Last time when it was changed.
                 </para>
             </section>
             <section>
                 <title>ChangeBy</title>
                 <para>
-                    Gibt die UserID des Benutzers an, der dieser Transition zuletzt geändert hat.
-                </para>
-            </section>
-            <section>
-                <title>Condition</title>
-                <para>
-                    Enthält alle Bedingungen die für das positive Überprüfen dieser Transition notwendig sind.
-                    Detaillierte Beschreibung anhand folgenden Beispiels:
-                </para>
-                <para>
-                    <screen>
-            Condition => {
-                Type => 'and',
-                Cond1 => {
-                    Type => 'and',
-                    Fields => {
-                        StateID => {
-                            Type => 'String',
-                            Match => '1',
-                        },
-                        DynamicField_Marke => {
-                            Type => 'String',
-                            Match => 'VW',
-                    },
-                },
-                Cond2 => {
-                    Type => 'and',
-                    Fields => {
-                        Queue => {
-                            Type => 'String',
-                            Match => 'Raw',
-                        },
-                    },
-                },
-            },
-                    </screen>
-                </para>
-            </section>
-            <section>
-                <title>Type (Condition)</title>
-                <para>
-                    Hier kann die Art der Verknüfpung der folgenden Einzelbedingungen angegeben werden.
-                    Mögliche werte sind 'and', 'or' sowieo 'xor'.
-                    Wird Type nicht explizit angegeben, wird der Type 'and' als Default Wert angenommen.
-                    Im Falle von 'and' sind müssen alle Einzelbedingungen erfüllt sein,
-                    um diese Transition als erfüllt zurückzuliefern.
-                    Im Falle von 'or' genügt eine erfüllte Bedingung, bei 'xor' darf exakt nur eine
-                    Bedingung positiv erfüllt sein, keine andere darf positiv überprüft werden um
-                    die Transition als erfüllt zurückzuliefern.
-                </para>
-            </section>
-            <section>
-                <title>Cond1</title>
-                <para>
-                    Die Bezeichnung einer Einzelbedinung. Sie kann alphanumerisch frei vergeben werden.
-                    Die Überprüfung erfolgt in alphanumerisch sortierter Reihenfolge.
-                </para>
-            </section>
-            <section>
-                <title>Type (Cond)</title>
-                <para>
-                    Hier kann die Art der Verknüfpung der einzelnen Felder dieser Bedingung angegeben werden.
-                    Mögliche werte sind 'and', 'or' sowieo 'xor'.
-                    Wird Type nicht explizit angegeben, wird der Type 'and' als Default Wert angenommen.
-                    Im Falle von 'and' sind müssen alle Feldtests erfüllt sein,
-                    um diese Transition als erfüllt zurückzuliefern.
-                    Im Falle von 'or' genügt ein erfüllter Feldtests, bei 'xor' darf exakt nur eine
-                    Feldtests positiv erfüllt sein, keine andere darf positiv überprüft werden um
-                    die Einzelbedingung als erfüllt zurückzuliefern.
+                    UID of the last user who changed this ActivityDialog.
                 </para>
             </section>
             <section>
                 <title>Fields</title>
                 <para>
-                    Hier werden die einzelnen Felder angegeben, deren werte überprüft werden sollen.
-                    Anhand unseres obigen Beispiels:
+                    Contains all fields which can be displayed in this ActivityDialog.
+                    The following fields can currently be used:
                 </para>
                 <para>
                     <screen>
-            Fields => {
-                StateID => {
-                    Type => 'String',
-                    Match => '1',
-                },
+Title
+State
+StateID
+Priority
+PriorityID
+Lock
+LockID
+Queue
+QueueID
+Customer
+CustomerID
+CustomerNo
+CustomerUserID
+Owner
+OwnerID
+Type
+TypeID
+SLA
+SLAID
+Service
+ServiceID
+Responsible
+ResponsibleID
+PendingTime
+DynamicField_$FieldName  # for all dynamic fields
                     </screen>
                 </para>
-            </section>
-            <section>
-                <title>StateID</title>
                 <para>
-                    Beispiel eines Feldnamens. Möglich sind hier alle DynamicFields angegeben mit
-                    DynamicField_Feldname sowie folgende Ticketfelder:
+                    Example of a single field configuration:
                 </para>
                 <para>
                     <screen>
-            Title
-            State
-            StateID
-            Priority
-            PriorityID
-            Lock
-            LockID
-            Queue
-            QueueID
-            Customer
-            CustomerID
-            CustomerNo
-            CustomerUserID
-            Owner
-            OwnerID
-            Type
-            TypeID
-            SLA
-            SLAID
-            Service
-            ServiceID
-            Responsible
-            ResponsibleID
-            PendingTime
+StateID => {
+    DescriptionShort    => 'State ID',
+    DescriptionLong     => 'Enter the state here',
+    Display             => 2,
+    DefaultValue        => '2',
+},
                     </screen>
                 </para>
                 <para>
-                    Auch hier ist darauf zu achten, dass bei Prüfung eines ID Felds (z. B. StateID)
-                    als zu prüfender Wert die ID des Felds herangezogen wird. Während ohne ID
-                    der tatsächliche Wert überprüft wird.
-                </para>
-            </section>
-            <section>
-                <title>Type</title>
-                <para>
-                    Mittels 'Type' wird die Art der Feldüberprüfung angegeben.
-                    Mögliche Werte sind:
-                </para>
-                <para>
+                    The field "Article" is a special case. If it is present in a "Fields" configuration, the ActivityDialog
+                    will contain a complete Richtext editor with subject field and attachment handling.
+                    The entered text will then be added to the ticket as an article and sent by email.
+                    Let's see an example Article field configuration:
                     <screen>
-            'String'
-            'Hash'
-            'Array'
-            'Regex'
-            'Module'
+Article => {
+    DescriptionShort => 'Please insert your comment here.',
+    DescriptionLong => '',
+    Display         => 1,
+    Config          => {
+        ArticleType  => 'note-internal',
+        LabelSubject => '',
+        LabelBody    => '',
+    },
+},
                     </screen>
                 </para>
+                <para>
+                    Let's look at the field configuration options:
+                </para>
+                <section>
+                    <title>DescriptionShort</title>
+                    <para>
+                        Optional short description that is shown with the field title.
+                    </para>
+                </section>
+                <section>
+                    <title>DescriptionLong</title>
+                    <para>
+                        Optional longer field description that is shown then the mouse is over the field,
+                        for example advice on how to fill out the field.
+                    </para>
+                </section>
+                <section>
+                    <title>Display</title>
+                    <para>
+                        Controls if the field is shown and/or mandatory.
+                        Possible values:
+
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    '0': field is invisible. This can be helpful if field values should automatically be set.
+                                    The configured DefaultValue will be stored in this case.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    '1': field is visible, but optional.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    '2': field is visible and mandatory.
+                                    The following fields can only be invisible or mandatory:
+                                    <screen>
+    QueueID
+    Qeue
+    StateID
+    State
+    Lock
+    LockID
+    Priority
+    Priority
+                                </screen>
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        If fields are configured as optional, and no value is submitted by the user, the DefaultValue
+                        will be saved when the ActivityDialog is submitted by the user.
+                    </para>
+                </section>
+                <section>
+                    <title>DefaultValue</title>
+                    <para>
+                        For fields with 'ID' (like QueueID, OwnerID), this refers to the database ID of the value.
+                        For other fields without 'ID' (like Queue, Owner), the DefaultValue must contain the value itself. Example:
+                    </para>
+                    <para>
+                        <screen>
+Queue => {
+    DescriptionShort    => 'Queue',
+    DescriptionLong     => 'Enter the queue here',
+    Display             => 2,
+    DefaultValue        => 'Raw',
+},
+                        </screen>
+                    </para>
+                </section>
             </section>
             <section>
-                <title>String</title>
+                <title>FieldOrder</title>
                 <para>
-                    Vergleicht den Wert des Feldes mit dem unter 'Match' angegebenen String.
-                    Erfolgreich wenn der Feldwert exakt dem String entspricht.
+                    Here the display order of the fields is configured.
+                    IMPORTANT: Invisible fields also must be configured here, because only configured fields will be considered
+                    when saving. Fields which are not configured will not be saved.
                 </para>
             </section>
             <section>
-                <title>Hash</title>
+                <title>SubmitAdviceText</title>
                 <para>
-                    Vergleicht den Wert des Feldes der in dem Fall ein Hash sein muß
-                    mit dem unter 'Match' angegebenen Hash. Bei erfüllen aller im 'Match'
-                    Hash angegebener Werte ist die Prüfung positiv.
+                    Optional text to be shown right above the submit botton for additional help or advice text.
                 </para>
             </section>
             <section>
-                <title>Array</title>
+                <title>SubmitButtonText</title>
                 <para>
-                    Vergleicht den Wert des Feldes der in dem Fall eine Liste (Array) sein muß
-                    mit dem unter 'Match' angegebenen Array. Sind die beiden Listen ident,
-                    ist die Prüfung positiv.
-                </para>
-            </section>
-            <section>
-                <title>Regex</title>
-                <para>
-                    Hier kann der Wert des Feldes gegen eine Regular Expression überprüft werden.
-                    Wichtig ist hierfür, dass in 'Match' als Grundbedingung
-                    qr{}xms enthält. Innerhalb der geschweiften Klammern kann die Regular Expression
-                    eingefügt werden. Beispiele für Regular Expresseions können unter:
-                    http://de.wikibooks.org/wiki/Perl-Programmierung:_Reguläre_Ausdrücke#Pattern_Matching
-                    nachgelesen werden.
-                </para>
-            </section>
-            <section>
-                <title>Module</title>
-                <para>
-                    Bietet die Möglichkeit, die mitgelieferten Werte an ein Perl Modul zur Prüfung
-                    weiterzureichen. Hiermit ist dann auch alles möglich was mit Perl machbar ist.
-                    Die Werte können beispielsweise für SOAP Anfragen benutzt und deren Antworten
-                    auf mögliche True/False Returns überprüft werden. Wenn das Modul '1' zurückliefert
-                    ist die Überprüfung positiv. Wird '0' zurückgeliefert ist die Überprüfung fehlgeschlagen.
-                    Ein Beispiel für ein Modul ist in
-                    /Kernel/System/ProcessManagement/TransitionValidation/ValidateDemo.pm zu finden.
+                    Optional custom text for the submit button.
                 </para>
             </section>
         </section>
+
+
+
+        <section>
+            <title>Transition</title>
+            <para>
+                A Transition decides - based on configurable conditions - which path in the Process
+                is taken, i. e. to which Activity a Process ticket can be moved.
+            </para>
+            <section>
+                <title>Transition configuration</title>
+                <para>
+                    Let's see an example:
+                </para>
+                <para>
+                    <screen>
+$Self->{'Process::Transition'} = {
+    'T1' => {
+        Name => 'Transition 1',
+        CreateTime => '14-03-2012 13:37:00', # optional
+        CreateBy => '1', # optional
+        ChangeTime => '15-03-2012 13:37:00', # optional
+        ChangeBy => '15-03-2012 13:37:00', # optional
+        Condition => {
+            Cond1 => {
+                Fields => {
+                    StateID => {
+                        Type => 'String',
+                        Match => '1',
+                    },
+                },
+            },
+        },
+    },
+    'T2' => {
+        Name => 'Transition 2 optional',
+        CreateTime => 'DATE', # optional
+        CreateBy => 'USERID', # optional
+        ChangeTime => 'DATE', # optional
+        ChangeBy => 'USERID', # optional
+        Condition => {
+            Cond1 => {
+                Queue => 'Raw',
+                DynamicField_Farbe => '2',
+                DynamicField_Anzahl => '1',
+            },
+        },
+    },
+};
+                    </screen>
+                </para>
+            </section>
+            <section>
+                <title>Name</title>
+                <para>
+                    Name of the transition.
+                </para>
+            </section>
+            <section>
+                <title>CreateTime</title>
+                <para>
+                    Time when it was created.
+                </para>
+            </section>
+            <section>
+                <title>CreateBy</title>
+                <para>
+                    UID of the user who created this Transition.
+                </para>
+            </section>
+            <section>
+                <title>ChangeTime</title>
+                <para>
+                    Last time when it was changed.
+                </para>
+            </section>
+            <section>
+                <title>ChangeBy</title>
+                <para>
+                    UID of the last user who changed this Transition.
+                </para>
+            </section>
+            <section>
+                <title>Condition</title>
+                <para>
+                    Contains all conditions that are neccessary for this Transition to take effect. Example:
+                </para>
+                <para>
+                    <screen>
+Condition => {
+    Type => 'and',
+    Cond1 => {
+        Type => 'and',
+        Fields => {
+            StateID => {
+                Type => 'String',
+                Match => '1',
+            },
+            DynamicField_Marke => {
+                Type => 'String',
+                Match => 'VW',
+        },
+    },
+    Cond2 => {
+        Type => 'and',
+        Fields => {
+            Queue => {
+                Type => 'String',
+                Match => 'Raw',
+            },
+        },
+    },
+},
+                    </screen>
+                </para>
+                <para>
+                    Let's look at the condition configuration in detail.
+                </para>
+                <section>
+                    <title>Type (Condition)</title>
+                    <para>
+                        Specifies the way the different condition elements are connected to each other.
+                        Possible values:
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    'and': This is the default. All conditions must be met for the transition
+                                    to take effect.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'or': At least one condition must match.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'xor': Exactly one condition must match, not more.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </section>
+                <section>
+                    <title>Cond1</title>
+                    <para>
+                        This is the name of an example condition. It can be freely choosen. Conditions are evaluated
+                        in sorted order.
+                    </para>
+                </section>
+                <section>
+                    <title>Type (Cond)</title>
+                    <para>
+                        Specifies the way how the individual field tests of this condition are connected to each other.
+                        Possible values:
+
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    'and': This is the default. All field tests must match for this condition to match.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'or': At least one field test must match.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'xor': Exactly one field test must match, not more.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </section>
+                <section>
+                    <title>Fields</title>
+                    <para>
+                        Specifies the particular fields whose values should be tested. From our example:
+                        <screen>
+Fields => {
+    StateID => {
+        Type => 'String',
+        Match => '1',
+    },
+                        </screen>
+                    </para>
+                </section>
+                <section>
+                    <title>StateID</title>
+                    <para>
+                        Example of a field name. The following ticket fields can be used:
+                        <screen>
+Title
+State
+StateID
+Priority
+PriorityID
+Lock
+LockID
+Queue
+QueueID
+Customer
+CustomerID
+CustomerNo
+CustomerUserID
+Owner
+OwnerID
+Type
+TypeID
+SLA
+SLAID
+Service
+ServiceID
+Responsible
+ResponsibleID
+PendingTime
+DynamicField_$FieldName # for all DynamicFields
+                        </screen>
+                    </para>
+                    <para>
+                        When testing a field with 'ID' (like SLAID), the database ID of the field will be used for testing,
+                        for other fields (like SLA) the actual value is used for testing.
+                    </para>
+                </section>
+                <section>
+                    <title>Type</title>
+                    <para>
+                        Determines the kind of field testing. Possible values:
+
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    'String': Compares the field value with the string specified in 'Match'. Matches
+                                    if they are exactly the same.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'Hash': Compares the field value (hash) with the hash specified in 'Match'.
+                                    All hash values must be the same.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'Array': Compares the field value (array) with the array specified in 'Match'.
+                                    Both lists must be the same.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'Regex': The field value can be tested with a regular expression. It is important that
+                                    'Match' contains qr{}xms as a base condition. Between the braces the actual regular expression
+                                    can be noted.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    'Module': Allows you to use a perl module for condition checking. If it returns 1, the check
+                                    was positive. You can find an example module in
+                                    <filename>Kernel/System/ProcessManagement/TransitionValidation/ValidateDemo.pm</filename>.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </section>
+            </section>
+        </section>
+
+
+
         <section>
             <title>TransitionActions</title>
             <para>
@@ -1353,7 +1367,7 @@ ISBN: 3527703713
                 <para>
                     Hier wird das gleiche Modul einmal zum Verschieben eines Auftragstickets in die 'Raw', einmal zum
                     Verschieben eines Auftragstickets in die 'Junk' Queue verwendet. Welche TransitionAction durchgeführt werden soll,
-                    ist in der Path Einstellung der Process Konfiguration zu setzen.
+                    ist in der Path Einstellung der Process configuration zu setzen.
                 </para>
             </section>
         </section>
@@ -1816,6 +1830,6 @@ ISBN: 3527703713
                 </para>
             </section>
         </section>
--->
     </section>
+-->
 </section>
