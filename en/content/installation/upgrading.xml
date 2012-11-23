@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: upgrading.xml,v 1.4 2012-11-08 09:02:27 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.5 2012-11-23 09:44:51 mg Exp $ -->
 
 <section id="upgrading">
 <title>Upgrading the OTRS Framework</title>
@@ -318,6 +318,35 @@ $Self->{TicketAcl}->{'Limit Dropdown1 entries based in Dropdown2'} = {
         },
     },
 };
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Adapt custom event handler modules
+        </para>
+        <para>
+            Note: this only applies if you have any custom developed even handler modules.
+        </para>
+        <para>
+            Since OTRS 3.2, the data payload for even handler modules is no longer copied
+            into the %Param hash. You need to explicitly access it through $Param{Data}.
+            <screen>
+Old:
+
+# get ticket
+my %Ticket = $Self->{TicketObject}->TicketGet(
+    TicketID      => $Param{TicketID},
+    UserID        => 1,
+);
+
+New:
+
+# get ticket
+my %Ticket = $Self->{TicketObject}->TicketGet(
+    TicketID      => $Param{Data}->{TicketID},
+    UserID        => 1,
+);
             </screen>
         </para>
       </listitem>
