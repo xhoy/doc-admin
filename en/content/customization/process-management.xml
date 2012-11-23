@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.8 2012-11-23 21:08:54 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.9 2012-11-23 21:48:40 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -190,24 +190,24 @@ ISBN: 3527703713
                 <itemizedlist>
                     <listitem>
                         <para>Moving the process ticket into the "Superior" queue. (TA1):
-                        This action is supposed to be executed when the Transition "Approval" applied.</para>
+                        This action is supposed to be executed when the Transition "Approval" (T1) applied.</para>
                     </listitem>
                     <listitem>
                         <para>Change ticket responsible to "Superior". (TA2):
-                        To be executed when the Transition "Approval" applied.</para>
+                        To be executed when the Transition "Approval" (T1) applied.</para>
                     </listitem>
                     <listitem>
                         <para>Move the process ticket to the "Employee" Queues. (TA3):
                         To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
-                            the Transition "Approval denied" applied
+                            the Transition "Approval denied" (T2) applied
                             </para></listitem>
                             <listitem><para>
-                            the Transition "Order denied" applied
+                            the Transition "Order denied" (T4) applied
                             </para></listitem>
                             <listitem><para>
-                            the Transition "Shipment received" applied
+                            the Transition "Shipment received" (T6) applied
                             </para></listitem>
                         </itemizedlist>
                     </listitem>
@@ -216,23 +216,23 @@ ISBN: 3527703713
                         To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
-                            the transition "Approval denied" applied
+                            the transition "Approval denied" (T2) applied
                             </para></listitem>
                             <listitem><para>
-                            the transition "Oder denied" applied
+                            the transition "Oder denied" (T4) applied
                             </para></listitem>
                             <listitem><para>
-                            the transition "Shipment received" applied
+                            the transition "Shipment received" (T6) applied
                             </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
                         <para>Move process ticket to Queue "Purchasing". (TA5):
-                        To be executed when the transition "Approved" applied.</para>
+                        To be executed when the transition "Approved" (T3) applied.</para>
                     </listitem>
                     <listitem>
                         <para>Move process ticket to Queue "Post office". (TA6):
-                        To be executed when the transition "Order placed" applied.</para>
+                        To be executed when the transition "Order placed" (T5) applied.</para>
                     </listitem>
                 </itemizedlist>
                 </para>
