@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.7 2012-11-23 16:48:34 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.8 2012-11-23 21:08:54 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -115,39 +115,39 @@ ISBN: 3527703713
                         <para>
                             "Recoding the demand" (AD1):
                             An Activity Dialog that contains all the required fields for the data to be collected for the order
-                            (Title, Author and ISBN), and a status field with the possibility to choose "to be approved".
+                            (Title, Author and ISBN), and a status field with the possibility to choose "Approval".
                         </para>
                     </listitem>
                     <listitem>
                         <para>
                             "Approval denied" (AD2):
-                            An Activity Dialog with a comment field and a status field with the option "approval denied".
+                            An Activity Dialog with a comment field and a status field with the option "Approval denied".
                         </para>
                     </listitem>
                     <listitem>
                         <para>
                             "Approved " (AD3):
-                            Here we just need the status field with the option "approved".
+                            Here we just need the status field with the option "Approved".
                         </para>
                     </listitem>
                     <listitem>
                         <para>
                             "Order rejected" (AD4):
                             An activity dialog which makes it possible for purchasing to reject an impossible order (book out of stock).
-                            Here we also need a comment field and the status field with the option "order rejected".
+                            Here we also need a comment field and the status field with the option "Order denied".
                         </para>
                     </listitem>
                     <listitem>
                         <para>
                             "Order placed" (AD5):
-                            An activity dialog with the fields supplier, price and delivery date for purchasing.
+                            An activity dialog with the fields supplier, price and delivery date for purchasing and the status field with the option "Order placed".
                         </para>
                     </listitem>
                     <listitem>
                         <para>
                             "Shipment received" (AD6):
                             An activity for the mailroom with a field for the date of receipt
-                            and the status field with the option "shipment received".
+                            and the status field with the option "Shipment received".
                         </para>
                     </listitem>
                 </itemizedlist>
