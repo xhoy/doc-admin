@@ -6,10 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
-"POT-Creation-Date: 2012-11-07 09:50+0100\n"
+"POT-Creation-Date: 2012-11-26 10:15+0100\n"
 "PO-Revision-Date: 2012-11-24 12:58+0200\n"
 "Last-Translator: Oleg Zadorozhnyi <ipfound@gmail.com>\n"
 "Language-Team: none\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,8 +42,8 @@ msgstr "ru"
 msgid "OTRS 3.2 - Admin Manual"
 msgstr "OTRS 3.0 - Руководство Администратора"
 
-#. <edition>
-#. Cancún Beach (México)</edition>
+#. 		<edition>
+#. Cancún Beach (México)</edition> 
 #. type: Content of: <book><bookinfo>
 #: en/book.xml:10
 #, fuzzy
@@ -2073,8 +2074,10 @@ msgstr ""
 
 #. type: Content of: <section><section><title>
 #: en/content/customization/process-management.xml:18
-msgid "Example"
-msgstr "Пример"
+#, fuzzy
+#| msgid "Examples"
+msgid "Example process"
+msgstr "Примеры"
 
 #. type: Content of: <section><section><para>
 #: en/content/customization/process-management.xml:20
@@ -2139,8 +2142,8 @@ msgstr ""
 #: en/content/administration/genericinterface/genericinterface-webservice-cli.xml:82
 #: en/content/administration/genericinterface/genericinterface-webservice-cli.xml:133
 #: en/content/administration/genericinterface/genericinterface-webservice-cli.xml:185
-#: en/content/installation/upgrading.xml:75
-#: en/content/installation/upgrading.xml:167
+#: en/content/installation/upgrading.xml:79
+#: en/content/installation/upgrading.xml:192
 #: en/content/installation/packages.xml:37
 #: en/content/installation/packages.xml:75
 #: en/content/installation/packages.xml:108
@@ -2284,22 +2287,21 @@ msgstr "Диалоги Действий"
 msgid ""
 "\"Recoding the demand\" (AD1): An Activity Dialog that contains all the "
 "required fields for the data to be collected for the order (Title, Author "
-"and ISBN), and a status field with the possibility to choose \"to be approved"
-"\"."
+"and ISBN), and a status field with the possibility to choose \"Approval\"."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:123
 msgid ""
 "\"Approval denied\" (AD2): An Activity Dialog with a comment field and a "
-"status field with the option \"approval denied\"."
+"status field with the option \"Approval denied\"."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:129
 msgid ""
 "\"Approved \" (AD3): Here we just need the status field with the option "
-"\"approved\"."
+"\"Approved\"."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
@@ -2307,21 +2309,22 @@ msgstr ""
 msgid ""
 "\"Order rejected\" (AD4): An activity dialog which makes it possible for "
 "purchasing to reject an impossible order (book out of stock).  Here we also "
-"need a comment field and the status field with the option \"order rejected\"."
+"need a comment field and the status field with the option \"Order denied\"."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:142
 msgid ""
 "\"Order placed\" (AD5): An activity dialog with the fields supplier, price "
-"and delivery date for purchasing."
+"and delivery date for purchasing and the status field with the option "
+"\"Order placed\"."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:148
 msgid ""
 "\"Shipment received\" (AD6): An activity for the mailroom with a field for "
-"the date of receipt and the status field with the option \"shipment received"
+"the date of receipt and the status field with the option \"Shipment received"
 "\"."
 msgstr ""
 
@@ -2384,37 +2387,39 @@ msgstr "Действия над заявками"
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:192
 msgid ""
-"Moving the process ticket into the \"Superior\" queue. (TA1): This action is "
-"supposed to be executed when the Transition \"Approval\" applied."
+"Move the process ticket into the \"Superior\" queue. (TA1): This action is "
+"supposed to be executed when the Transition \"Approval\" (T1) applied."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:196
 msgid ""
 "Change ticket responsible to \"Superior\". (TA2): To be executed when the "
-"Transition \"Approval\" applied."
+"Transition \"Approval\" (T1) applied."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:200
+#, fuzzy
+#| msgid "TA3 (move process ticket to the \"Employee\" Queue)"
 msgid ""
-"Move the process ticket to the \"Employee\" Queues. (TA3): To be executed "
+"Move the process ticket into the \"Employee\" queue. (TA3): To be executed "
 "when:"
-msgstr ""
+msgstr "TA3 (перемещение заявки в Очередь \"Employee\")"
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:204
-msgid "the Transition \"Approval denied\" applied"
+msgid "the Transition \"Approval denied\" (T2) applied"
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:207
-msgid "the Transition \"Order denied\" applied"
+msgid "the Transition \"Order denied\" (T4) applied"
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:210
-msgid "the Transition \"Shipment received\" applied"
+msgid "the Transition \"Shipment received\" (T6) applied"
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
@@ -2424,31 +2429,31 @@ msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:219
-msgid "the transition \"Approval denied\" applied"
+msgid "the transition \"Approval denied\" (T2) applied"
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:222
-msgid "the transition \"Oder denied\" applied"
+msgid "the transition \"Order denied\" (T4) applied"
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:225
-msgid "the transition \"Shipment received\" applied"
+msgid "the transition \"Shipment received\" (T6) applied"
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:230
 msgid ""
-"Move process ticket to Queue \"Purchasing\". (TA5): To be executed when the "
-"transition \"Approved\" applied."
+"Move process ticket into the \"Purchasing\" queue. (TA5): To be executed "
+"when the transition \"Approved\" (T3) applied."
 msgstr ""
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:234
 msgid ""
-"Process-Ticket in die \"Post office\" Queue verschieben. (TA6): To be "
-"executed when the transition \"Order placed\" applied."
+"Move process ticket into the \"Post office\" queue. (TA6): To be executed "
+"when the transition \"Order placed\" (T5) applied."
 msgstr ""
 
 #. type: Content of: <section><section><section><para>
@@ -2456,7 +2461,7 @@ msgstr ""
 msgid ""
 "As you can see, there are places where the same TransitionAction should be "
 "executed.  Therefore it is reasonable to make it possible to link "
-"TransitionActions freely with Transitions to be able to reuse them. können."
+"TransitionActions freely with Transitions to be able to reuse them."
 msgstr ""
 
 #. type: Content of: <section><section><section><title>
@@ -2616,7 +2621,7 @@ msgid ""
 "Action 'A1' is a defined state of the process ticket, where there is the "
 "possibility for the Transition 'T1'.  If this applies, the ticket will move "
 "to the next Activity 'A2', and the TransitionActions 'TA1' and 'TA2' are "
-"executed.  In Activity 'A2', the Activity Dialogs 'AD2' (Apprival denied) "
+"executed.  In Activity 'A2', the Activity Dialogs 'AD2' (Approval denied) "
 "and 'AD3' (Approved) are available."
 msgstr ""
 
@@ -2639,8 +2644,10 @@ msgstr "Возможные действия:"
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:360
-msgid "T2 (Approval Abgelehnt)"
-msgstr ""
+#, fuzzy
+#| msgid "T3 (Approved)"
+msgid "T2 (Approval denied)"
+msgstr "T3 (Утвержден)"
 
 #. type: Content of: <section><section><section><para><itemizedlist><listitem><itemizedlist><listitem><itemizedlist><listitem><para>
 #: en/content/customization/process-management.xml:364
@@ -2851,13 +2858,6 @@ msgstr ""
 "                },\n"
 "            },\n"
 "                    "
-
-#. type: Content of: <section><section><title>
-#: en/content/customization/process-management.xml:491
-#, fuzzy
-#| msgid "Restore old configuration files."
-msgid "Process configuration reference"
-msgstr "Восстановите старые конфигурационные файлы."
 
 #. type: Content of: <section><title>
 #: en/content/customization/language-translation.xml:7
@@ -15574,7 +15574,7 @@ msgid ""
 "choose the field from the Article dropdown list."
 msgstr ""
 
-#. type: Content of: <section><section><table><title>
+#. type: Content of: <section><section><table><caption>
 #: en/content/administration/dynamicfields-configuration.xml:157
 msgid "The following fields will be added into the system:"
 msgstr ""
@@ -25851,19 +25851,26 @@ msgstr ""
 #. type: Content of: <section><para>
 #: en/content/installation/upgrading.xml:20
 msgid ""
+"Please note that for upgrades from 3.2.0.beta1, an additional step 9 is "
+"needed!"
+msgstr ""
+
+#. type: Content of: <section><para>
+#: en/content/installation/upgrading.xml:24
+msgid ""
 "Within a single minor version you can skip patch level releases if you want "
 "to upgrade. For instance you can upgrade directly from OTRS 3.2.1 to version "
 "3.2.4. If you need to do such a \"patch level upgrade\", you should skip "
-"steps 8, 11, 13 and 14."
+"steps 8, 12, 14 and 15."
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:29
+#: en/content/installation/upgrading.xml:33
 msgid "Stop all relevant services."
 msgstr "Остановите все соответствующие службы."
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:34
+#: en/content/installation/upgrading.xml:38
 #, no-wrap
 msgid ""
 "shell&gt; /etc/init.d/cron stop\n"
@@ -25877,7 +25884,7 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:32
+#: en/content/installation/upgrading.xml:36
 msgid ""
 "e. g. (depends on used services): <placeholder type=\"screen\" id=\"0\"/>"
 msgstr ""
@@ -25885,71 +25892,71 @@ msgstr ""
 "\"0\"/>"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:42
+#: en/content/installation/upgrading.xml:46
 msgid "Backup everything below $OTRS_HOME (default: OTRS_HOME=/opt/otrs):"
 msgstr ""
 "Сделайте резервные копии всех данных из $OTRS_HOME (по умолчанию OTRS_HOME=/"
 "opt/otrs):"
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:44
-#: en/content/installation/upgrading.xml:84
+#: en/content/installation/upgrading.xml:48
+#: en/content/installation/upgrading.xml:88
 msgid "<filename>Kernel/Config.pm</filename>"
 msgstr "<filename>Kernel/Config.pm</filename>"
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:45
-#: en/content/installation/upgrading.xml:85
+#: en/content/installation/upgrading.xml:49
+#: en/content/installation/upgrading.xml:89
 msgid "<filename>Kernel/Config/GenericAgent.pm</filename>"
 msgstr "<filename>Kernel/Config/GenericAgent.pm</filename>"
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:46
-#: en/content/installation/upgrading.xml:86
+#: en/content/installation/upgrading.xml:50
+#: en/content/installation/upgrading.xml:90
 msgid "<filename>Kernel/Config/Files/ZZZAuto.pm</filename>"
 msgstr "<filename>Kernel/Config/Files/ZZZAuto.pm</filename>"
 
 #. type: Content of: <section><orderedlist><listitem><para><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:47
+#: en/content/installation/upgrading.xml:51
 msgid "<filename>var/*</filename>"
 msgstr "<filename>var/*</filename>"
 
 #. type: Content of: <section><orderedlist><listitem><para><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:48
+#: en/content/installation/upgrading.xml:52
 #, fuzzy
 #| msgid "<filename>Kernel/System/Stats.pm</filename>"
 msgid "<filename>as well as the database</filename>"
 msgstr "<filename>Kernel/System/Stats.pm</filename>"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:54
+#: en/content/installation/upgrading.xml:58
 msgid "Make sure that you have backed up everything ;-)"
 msgstr "Убедитесь, что вы создали резервную копию всех данных ;-)"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:59
+#: en/content/installation/upgrading.xml:63
 msgid "Setup new system (optional)"
 msgstr "Установить новую систему (опционально)"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:62
+#: en/content/installation/upgrading.xml:66
 msgid "If possible, try this install on a separate machine for testing first."
 msgstr ""
 "Если есть возможность, сначала попробуйте произвести установку на отдельном "
 "тестовом компьютере."
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:67
+#: en/content/installation/upgrading.xml:71
 msgid "Install the new release (tar or RPM)."
 msgstr "Установка нового релиза (из tar-архива или с помощью RPM-пакетов)."
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:72
+#: en/content/installation/upgrading.xml:76
 msgid "With the tarball:"
 msgstr "С помощью тарбола (tarball):"
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:76
+#: en/content/installation/upgrading.xml:80
 #, no-wrap
 msgid ""
 "shell&gt; cd /opt\n"
@@ -25963,12 +25970,12 @@ msgstr ""
 "                "
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:82
+#: en/content/installation/upgrading.xml:86
 msgid "Restore old configuration files."
 msgstr "Восстановите старые конфигурационные файлы."
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:94
+#: en/content/installation/upgrading.xml:98
 #, no-wrap
 msgid ""
 "shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm\n"
@@ -25978,12 +25985,12 @@ msgstr ""
 "                "
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:92
+#: en/content/installation/upgrading.xml:96
 msgid "With the RPM: <placeholder type=\"screen\" id=\"0\"/>"
 msgstr "С помощью RPM-пакетов: <placeholder type=\"screen\" id=\"0\"/>"
 
 #. type: Content of: <section><orderedlist><listitem><itemizedlist><listitem><para>
-#: en/content/installation/upgrading.xml:98
+#: en/content/installation/upgrading.xml:102
 msgid ""
 "In this case the RPM update automatically restores the old configuration "
 "files."
@@ -25992,12 +25999,12 @@ msgstr ""
 "конфигурационные файлы."
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:105
+#: en/content/installation/upgrading.xml:109
 msgid "Own themes"
 msgstr "Собственные темы"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:108
+#: en/content/installation/upgrading.xml:112
 #, fuzzy
 #| msgid ""
 #| "Note: The OTRS themes between 2.4 and 3.0 are NOT compatible, so don't "
@@ -26012,7 +26019,7 @@ msgstr ""
 "Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)."
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:111
+#: en/content/installation/upgrading.xml:115
 #, fuzzy
 #| msgid ""
 #| "Note: The OTRS themes between 2.4 and 3.0 are NOT compatible, so don't "
@@ -26027,12 +26034,12 @@ msgstr ""
 "Output/HTML/*/*.dtl (default: OTRS_HOME=/opt/otrs)."
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:116
+#: en/content/installation/upgrading.xml:120
 msgid "Set file permissions."
 msgstr "Установка прав доступа к файлам."
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:121
+#: en/content/installation/upgrading.xml:125
 #, no-wrap
 msgid ""
 "shell> cd /opt/otrs/\n"
@@ -26044,7 +26051,7 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:119
+#: en/content/installation/upgrading.xml:123
 msgid ""
 "If the tarball is used, execute: <placeholder type=\"screen\" id=\"0\"/> "
 "with the permissions needed for your system setup."
@@ -26053,12 +26060,12 @@ msgstr ""
 "\"screen\" id=\"0\"/> с правами, необходимыми для установки системы."
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:129
+#: en/content/installation/upgrading.xml:133
 msgid "Schema update:"
 msgstr "Схема обновления:"
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:133
+#: en/content/installation/upgrading.xml:137
 #, fuzzy, no-wrap
 #| msgid ""
 #| "shell&gt; cd /opt/otrs/\n"
@@ -26088,7 +26095,7 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:147
+#: en/content/installation/upgrading.xml:151
 #, fuzzy, no-wrap
 #| msgid ""
 #| "    $Self->{'DefaultCharset'} = 'iso-8859-1';\n"
@@ -26101,7 +26108,7 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:132
+#: en/content/installation/upgrading.xml:136
 msgid ""
 "<placeholder type=\"screen\" id=\"0\"/> NOTE: If you use PostgreSQL 8.1 or "
 "earlier, you need to activate the new legacy driver for these older "
@@ -26110,12 +26117,12 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:151
+#: en/content/installation/upgrading.xml:155
 msgid "Run the migration script (as user 'otrs', NOT as root):"
 msgstr "Запустите сценарий перемещения (как пользователь 'otrs', а НЕ root):"
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:155
+#: en/content/installation/upgrading.xml:159
 #, fuzzy, no-wrap
 #| msgid ""
 #| "shell&gt; scripts/DBUpdate-to-3.0.pl\n"
@@ -26128,23 +26135,75 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:154
+#: en/content/installation/upgrading.xml:158
 msgid ""
 "<placeholder type=\"screen\" id=\"0\"/> Do not continue the upgrading "
 "process if this script did not work properly for you.  Otherwise data loss "
 "may occur."
 msgstr ""
 
+#. type: Content of: <section><orderedlist><listitem><para>
+#: en/content/installation/upgrading.xml:168
+msgid "Database Upgrade During Beta Phase"
+msgstr ""
+
+#. type: Content of: <section><orderedlist><listitem><para>
+#: en/content/installation/upgrading.xml:171
+msgid "This step is ONLY needed if you upgrade from 3.2.0.beta1!"
+msgstr ""
+
+#. type: Content of: <section><orderedlist><listitem><para><screen>
+#: en/content/installation/upgrading.xml:176
+#, fuzzy, no-wrap
+#| msgid ""
+#| "shell&gt; cd /opt/otrs/\n"
+#| "\n"
+#| "# MySQL:\n"
+#| "shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs\n"
+#| "# PostgreSQL:\n"
+#| "shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs\n"
+#| "            "
+msgid ""
+"MySQL:\n"
+" shell> cat scripts/DBUpdate-3.2.beta.mysql.sql | mysql -p -f -u root otrs\n"
+"\n"
+"PostgreSQL 8.2+:\n"
+" shell> cat scripts/DBUpdate-3.2.beta.postgresql.sql | psql otrs\n"
+"\n"
+"PostgreSQL, older versions:\n"
+" shell> cat scripts/DBUpdate-3.2.beta.postgresql_before_8_2.sql | psql otrs\n"
+"            "
+msgstr ""
+"shell&gt; cd /opt/otrs/\n"
+"\n"
+"# MySQL:\n"
+"shell&gt; cat scripts/DBUpdate-to-3.0.mysql.sql | mysql -p -f -u root otrs\n"
+"# PostgreSQL:\n"
+"shell&gt; cat scripts/DBUpdate-to-3.0.postgresql.sql | psql otrs\n"
+"            "
+
+#. type: Content of: <section><orderedlist><listitem><para>
+#: en/content/installation/upgrading.xml:174
+#, fuzzy
+#| msgid ""
+#| "e. g. (depends on used services): <placeholder type=\"screen\" id=\"0\"/>"
+msgid ""
+"Please apply the required database changes as follows: <placeholder type="
+"\"screen\" id=\"0\"/>"
+msgstr ""
+"в т.ч. (зависящие от использующихся услуг): <placeholder type=\"screen\" id="
+"\"0\"/>"
+
 # неоднозначный перевод
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:164
+#: en/content/installation/upgrading.xml:189
 msgid "Refresh the configuration and delete caches. Please run:"
 msgstr ""
 "Обновите конфигурацию системы и удалите все данные из кэша. Пожалуйста, "
 "введите:"
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:168
+#: en/content/installation/upgrading.xml:193
 #, no-wrap
 msgid ""
 "shell&gt; bin/otrs.RebuildConfig.pl\n"
@@ -26156,12 +26215,12 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:175
+#: en/content/installation/upgrading.xml:200
 msgid "Restart your services."
 msgstr "Перезапустите сервисы."
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:180
+#: en/content/installation/upgrading.xml:205
 #, no-wrap
 msgid ""
 "shell&gt; /etc/init.d/cron start\n"
@@ -26175,7 +26234,7 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:178
+#: en/content/installation/upgrading.xml:203
 #, fuzzy
 #| msgid ""
 #| "e. g. (depends on used services): <placeholder type=\"screen\" id=\"0\"/>"
@@ -26187,12 +26246,12 @@ msgstr ""
 "\"0\"/>"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:190
+#: en/content/installation/upgrading.xml:215
 msgid "Check 'Cache::Module' setting"
 msgstr "Проверьте настройки 'Cache::Module'"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:193
+#: en/content/installation/upgrading.xml:218
 msgid ""
 "The file cache backend 'FileRaw' was removed in favor of the faster "
 "'FileStorable'.  The DBUpdate-to-3.2.pl automatically updates the config "
@@ -26202,30 +26261,30 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:201
+#: en/content/installation/upgrading.xml:226
 msgid "Check installed packages"
 msgstr "Проверьте установленные пакеты"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:203
+#: en/content/installation/upgrading.xml:228
 msgid ""
 "In the package manager, check if all packages are still marked as correctly "
 "installed or if any require reinstallation or even a package upgrade."
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:209
+#: en/content/installation/upgrading.xml:234
 msgid "Cleanup metadata of archived tickets"
 msgstr "Очистка метаданных  архивированных заявок"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:212
+#: en/content/installation/upgrading.xml:237
 msgid ""
 "Note: This step only applies if you use the ticket archiving feature of OTRS."
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:215
+#: en/content/installation/upgrading.xml:240
 msgid ""
 "With OTRS 3.2, when tickets are archived, the information which agent read "
 "the ticket and articles can be removed, as well as the ticket subscriptions "
@@ -26234,7 +26293,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:225
+#: en/content/installation/upgrading.xml:250
 #, no-wrap
 msgid ""
 "shell> bin/otrs.CleanupTicketMetadata.pl --archived\n"
@@ -26244,7 +26303,7 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:231
+#: en/content/installation/upgrading.xml:256
 #, no-wrap
 msgid ""
 "Ticket::ArchiveSystem::RemoveSeenFlags\n"
@@ -26253,7 +26312,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:221
+#: en/content/installation/upgrading.xml:246
 msgid ""
 "If you also want to cleanup this information for existing archived tickets, "
 "please run this script: <placeholder type=\"screen\" id=\"0\"/> If you want "
@@ -26262,19 +26321,19 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:237
+#: en/content/installation/upgrading.xml:262
 msgid "Review (Modify) ACLs for Dynamic Fields"
 msgstr "Обзор (Изменение) ACLs для Динамических Полей"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:239
+#: en/content/installation/upgrading.xml:264
 msgid ""
 "Note: This step only applies if you use ACLs to limit Dynamic Fields "
 "Dropdown or Multiselect possible values."
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:243
+#: en/content/installation/upgrading.xml:268
 msgid ""
 "Now in OTRS 3.2 the Possible and PossibleNot ACL sections for Dynamic Fields "
 "Dropdown and Multiselect must refer to the key (internal values) rather than "
@@ -26282,7 +26341,7 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <section><orderedlist><listitem><para><screen>
-#: en/content/installation/upgrading.xml:250
+#: en/content/installation/upgrading.xml:275
 #, no-wrap
 msgid ""
 "For the defined field \"Dropdown1\"  with possible values:\n"
@@ -26382,14 +26441,56 @@ msgstr ""
 "            "
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:247
+#: en/content/installation/upgrading.xml:272
 #, fuzzy
 #| msgid "<placeholder type=\"screen\" id=\"0\"/>"
 msgid "Example: <placeholder type=\"screen\" id=\"0\"/>"
 msgstr "<placeholder type=\"screen\" id=\"0\"/>"
 
 #. type: Content of: <section><orderedlist><listitem><para>
-#: en/content/installation/upgrading.xml:300
+#: en/content/installation/upgrading.xml:326
+msgid "Adapt custom event handler modules"
+msgstr ""
+
+#. type: Content of: <section><orderedlist><listitem><para>
+#: en/content/installation/upgrading.xml:329
+msgid ""
+"Note: this only applies if you have any custom developed event handler "
+"modules."
+msgstr ""
+
+#. type: Content of: <section><orderedlist><listitem><para><screen>
+#: en/content/installation/upgrading.xml:335
+#, no-wrap
+msgid ""
+"Old:\n"
+"\n"
+"# get ticket\n"
+"my %Ticket = $Self->{TicketObject}->TicketGet(\n"
+"    TicketID      => $Param{TicketID},\n"
+"    UserID        => 1,\n"
+");\n"
+"\n"
+"New:\n"
+"\n"
+"# get ticket\n"
+"my %Ticket = $Self->{TicketObject}->TicketGet(\n"
+"    TicketID      => $Param{Data}->{TicketID},\n"
+"    UserID        => 1,\n"
+");\n"
+"            "
+msgstr ""
+
+#. type: Content of: <section><orderedlist><listitem><para>
+#: en/content/installation/upgrading.xml:332
+msgid ""
+"Since OTRS 3.2, the data payload for even handler modules is no longer "
+"copied into the %Param hash. You need to explicitly access it through $Param"
+"{Data}.  <placeholder type=\"screen\" id=\"0\"/>"
+msgstr ""
+
+#. type: Content of: <section><orderedlist><listitem><para>
+#: en/content/installation/upgrading.xml:354
 msgid "Well done!"
 msgstr "Молодцы!"
 
@@ -29312,6 +29413,14 @@ msgstr ""
 "Нидерландах. Посмотрите на их сайте контактную информацию: <ulink url="
 "\"http://www.otrs.com/en/corporate-navigation/contact/\"><citetitle>http://"
 "www.otrs.com/en/corporate-navigation/contact/</citetitle></ulink>"
+
+#~ msgid "Example"
+#~ msgstr "Пример"
+
+#, fuzzy
+#~| msgid "Restore old configuration files."
+#~ msgid "Process configuration reference"
+#~ msgstr "Восстановите старые конфигурационные файлы."
 
 #~ msgid "New features of OTRS 2.4"
 #~ msgstr "Новые возможности OTRS 2.4"

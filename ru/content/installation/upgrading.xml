@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: upgrading.xml,v 1.2 2012-11-07 08:52:41 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
 <section id="upgrading">
 <title>Обновление OTRS-фреймворка</title>
 <para>
@@ -22,10 +22,14 @@ an extra step; please read <ulink
 url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
 </para>
 <para>
+    Please note that for upgrades from 3.2.0.beta1, an additional step 9 is
+needed!
+</para>
+<para>
     Within a single minor version you can skip patch level releases if you want
 to upgrade. For instance you can upgrade directly from OTRS 3.2.1 to version
 3.2.4. If you need to do such a "patch level upgrade", you should skip steps
-8, 11, 13 and 14.
+8, 12, 14 and 15.
 </para>
 
   <orderedlist>
@@ -56,12 +60,12 @@ OTRS_HOME=/opt/otrs):
       </listitem>
       <listitem>
         <para>
-            Make sure that you have backed up everything ;-)
+            Убедитесь, что вы создали резервную копию всех данных ;-)
         </para>
       </listitem>
       <listitem>
         <para>
-            Setup new system (optional)
+            Установить новую систему (опционально)
         </para>
         <para>
             Если есть возможность, сначала попробуйте произвести установку на отдельном
@@ -132,7 +136,7 @@ shell> bin/otrs.SetPermissions.pl
       </listitem>
       <listitem>
         <para>
-            Schema update:
+            Схема обновления:
         </para>
         <para>
             <screen>
@@ -163,6 +167,26 @@ this script did not work properly for you.  Otherwise data loss may occur.
       </listitem>
       <listitem>
         <para>
+            Database Upgrade During Beta Phase
+        </para>
+        <para>
+            This step is ONLY needed if you upgrade from 3.2.0.beta1!
+        </para>
+        <para>
+            Please apply the required database changes as follows: <screen>
+MySQL:
+ shell> cat scripts/DBUpdate-3.2.beta.mysql.sql | mysql -p -f -u root otrs
+
+PostgreSQL 8.2+:
+ shell> cat scripts/DBUpdate-3.2.beta.postgresql.sql | psql otrs
+
+PostgreSQL, older versions:
+ shell> cat scripts/DBUpdate-3.2.beta.postgresql_before_8_2.sql | psql otrs
+            </screen>
+         </para>
+      </listitem>
+      <listitem>
+        <para>
 Обновите конфигурацию системы и удалите все данные из кэша. Пожалуйста,
 введите:
         </para>
@@ -188,7 +212,7 @@ you can log into your system.
       </listitem>
       <listitem>
         <para>
-            Check 'Cache::Module' setting
+            Проверьте настройки 'Cache::Module'
         </para>
         <para>
             The file cache backend 'FileRaw' was removed in favor of the faster
@@ -199,7 +223,7 @@ this setting in Kernel/Config.pm directly.  It needs to be changed from
         </para>
       </listitem>
       <listitem>
-        <para>Check installed packages</para>
+        <para>Проверьте установленные пакеты</para>
         <para>
             In the package manager, check if all packages are still marked as correctly
 installed or if any require reinstallation or even a package upgrade.
@@ -207,7 +231,7 @@ installed or if any require reinstallation or even a package upgrade.
       </listitem>
       <listitem>
         <para>
-            Cleanup metadata of archived tickets
+            Очистка метаданных  архивированных заявок
         </para>
         <para>
             Note: This step only applies if you use the ticket archiving feature of
@@ -232,7 +256,7 @@ Ticket::ArchiveSystem::RemoveTicketWatchers
         </para>
       </listitem>
       <listitem>
-        <para>Review (Modify) ACLs for Dynamic Fields</para>
+        <para>Обзор (Изменение) ACLs для Динамических Полей</para>
         <para>
             Note: This step only applies if you use ACLs to limit Dynamic Fields
 Dropdown or Multiselect possible values.
@@ -290,6 +314,36 @@ $Self->{TicketAcl}->{'Limit Dropdown1 entries based in Dropdown2'} = {
         },
     },
 };
+            </screen>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+            Adapt custom event handler modules
+        </para>
+        <para>
+            Note: this only applies if you have any custom developed event handler
+modules.
+        </para>
+        <para>
+            Since OTRS 3.2, the data payload for even handler modules is no longer
+copied into the %Param hash. You need to explicitly access it through
+$Param{Data}.  <screen>
+Old:
+
+# get ticket
+my %Ticket = $Self->{TicketObject}->TicketGet(
+    TicketID      => $Param{TicketID},
+    UserID        => 1,
+);
+
+New:
+
+# get ticket
+my %Ticket = $Self->{TicketObject}->TicketGet(
+    TicketID      => $Param{Data}->{TicketID},
+    UserID        => 1,
+);
             </screen>
         </para>
       </listitem>

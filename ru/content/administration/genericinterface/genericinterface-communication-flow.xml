@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-    <!-- $Id: genericinterface-communication-flow.xml,v 1.2 2012-11-07 08:52:41 mg Exp $ -->
+    <!-- $Id: genericinterface-communication-flow.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
 <section id="genericinterface_communication_flow">
         <title>Generic Interface Communication Flow</title>
         <para>
@@ -14,10 +14,10 @@ a requester.
         </para>
 
         <section>
-            <title>OTRS as Provider</title>
+            <title>OTRS как Поставщик</title>
             <section>
                 <title>
-                    Remote Request:
+                    Удаленный Запрос:
                 </title>
                 <orderedlist>
                     <listitem>
@@ -39,7 +39,7 @@ a requester.
                     </listitem>
                     <listitem>
                         <para>
-                            Network Transport
+                            Транспортная Сеть
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
@@ -106,17 +106,17 @@ a module based layer).
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    Receives and validates data.
+                                    Принимает и проверяет данные.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    Performs user access control.
+                                    Осуществляет контроль доступа пользователей.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    Executes the action.
+                                    Выполняет действие.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -135,7 +135,7 @@ a module based layer).
                             <itemizedlist>
                                 <listitem>
                                     <para>
-                                        Returns result data to the provider.
+                                        Возвращает результирующие данные поставщику.
                                     </para>
                                 </listitem>
                             </itemizedlist>
@@ -147,7 +147,7 @@ a module based layer).
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    Data as returned from operation.
+                                    Данные возвращаемые из операции.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -172,7 +172,7 @@ mapping configuration (Mapping for outgoing response data).
                     </listitem>
                     <listitem>
                         <para>
-                            <remark>Data external</remark>
+                            <remark>Внешние данные</remark>
                         </para>
                         <itemizedlist>
                             <listitem>
@@ -185,7 +185,7 @@ response.
                     </listitem>
                     <listitem>
                         <para>
-                            Network Transport
+                            Транспортная Сеть
                         </para>
                         <itemizedlist>
                             <listitem>
@@ -223,13 +223,13 @@ response.
         </section>
 
         <section>
-            <title>OTRS as Requester</title>
+            <title>OTRS как запрашиваемая сторона</title>
                 <section>
                     <title>OTRS Request:</title>
                     <orderedlist>
                         <listitem>
                             <para>
-                                Event Trigger Handler
+                                Обработчки Event Trigger
                             </para>
                             <itemizedlist mark="round">
                                 <listitem>
@@ -240,7 +240,7 @@ synchronous or asynchronous.
                                     <itemizedlist mark="round">
                                         <listitem>
                                             <para>
-                                                Synchronous
+                                                Синхронный
                                             </para>
                                             <itemizedlist mark="round">
                                                 <listitem>
@@ -253,7 +253,7 @@ pass it through the layers.
                                         </listitem>
                                         <listitem>
                                             <para>
-                                                Asynchronous
+                                                Асинхронный
                                             </para>
                                             <itemizedlist mark="round">
                                                 <listitem>
@@ -280,22 +280,22 @@ layers.
                         </listitem>
                         <listitem>
                             <para>
-                                Invoker
+                                Запрашивающая сторона
                             </para>
                             <itemizedlist mark="round">
                                 <listitem>
                                     <para>
-                                        Receives data from the event.
+                                        Получает данные от событий.
                                     </para>
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        Validates received data (if needed).
+                                        Проверяет полученные данные (при необходимости).
                                     </para>
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        Call core modules to complement the data (if needed).
+                                        Вызвать модули ядра для дополнения данных (при необходимости).
                                     </para>
                                 </listitem>
                                 <listitem>
@@ -350,7 +350,7 @@ mapping configuration (Mapping for outgoing response data).
                         </listitem>
                         <listitem>
                             <para>
-                                Network Transport
+                                Транспортная Сеть
                             </para>
                                 <itemizedlist mark="round">
                                     <listitem>
@@ -361,12 +361,12 @@ Remote System format from the requester.
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            Constructs a valid request for the network transport.
+                                            Создает действительный запрос для транспортной сети.
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            Sends the request to the remote system and waits for the response
+                                            Отправляет запрос удаленной системе и ожидает ответ от нее
                                         </para>
                                     </listitem>
                                 </itemizedlist>
@@ -378,7 +378,7 @@ Remote System format from the requester.
                     <orderedlist>
                         <listitem>
                             <para>
-                                Network transport
+                                Транспортная сеть
                             </para>
                             <itemizedlist mark="round">
                                 <listitem>
@@ -400,7 +400,7 @@ Remote System format from the requester.
                             <itemizedlist mark="round">
                                 <listitem>
                                     <para>
-                                        Data as received from the Remote System
+                                        Данные полученные от Удаленной Системы
                                     </para>
                                 </listitem>
                             </itemizedlist>
@@ -438,12 +438,12 @@ for incoming response data).
                     </listitem>
                     <listitem>
                         <para>
-                            Invoker
+                            Запрашивающая сторона
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    Receives return data.
+                                    Получает возвращаемые данные.
                                 </para>
                             </listitem>
                             <listitem>
@@ -461,7 +461,7 @@ handling if any).
                     </listitem>
                     <listitem>
                         <para>
-                            Event Handler or Scheduler
+                            Обработчик или Планировщик Действий
                         </para>
                         <itemizedlist mark="round">
                             <listitem>

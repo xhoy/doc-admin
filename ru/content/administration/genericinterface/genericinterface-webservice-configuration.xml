@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: genericinterface-webservice-configuration.xml,v 1.2 2012-11-07 08:52:41 mg Exp $ -->
+<!-- $Id: genericinterface-webservice-configuration.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
 <section id="genericinterface-webservice-configuration">
     <title>Web Service Configuration</title>
     <para>
@@ -120,32 +120,32 @@ Requester:
         </title>
         <section>
             <title>
-                General
+                Общий
             </title>
             <itemizedlist mark="round">
                 <listitem>
                     <para>
-                        Description: a short text that describes the web service.
+                        Описание: краткий текст, описывающий веб-сервис.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        RemoteSystem: a short description of the Remote System.
+                        RemoteSystem: краткое описание Удаленной Системы.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Debugger: a container for the debugger settings.
+                        Debugger: хранилище для хранения настроек отладчика.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Provider: a container for the provider settings.
+                        Provider: хранилище для хранения настроек поставщика.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Requester: a container for the requester settings.
+                        Requester: хранилище для хранения настроек о запрашивающей стороне.
                     </para>
                 </listitem>
             </itemizedlist>
@@ -153,12 +153,12 @@ Requester:
 
         <section>
             <title>
-                Debugger
+                Отладчик
             </title>
             <itemizedlist mark="round">
                 <listitem>
                     <para>
-                        DebugThreshold: the debugger level
+                        DebugThreshold: уровень отладчика
                     </para>
                     <itemizedlist mark="round">
                         <title>
@@ -171,7 +171,7 @@ Requester:
                         </listitem>
                         <listitem>
                             <para>
-                                info: info, notice and error level logs are stored in the database.
+                                info: информация, уведомления и журнал ошибкок хранятся в базе данных.
                             </para>
                         </listitem>
                         <listitem>
@@ -191,16 +191,16 @@ Requester:
         </section>
 
         <section>
-            <title>Provider</title>
+            <title>Поставщик</title>
             <itemizedlist mark="round">
                 <listitem>
                     <para>
-                        Operation: a container for each operation settings.
+                        Operation: хранилище для настроек каждой операции.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Transport: a container for provider network transport settings.
+                        Transport: хранилище для настроек поставщика транспортой сети.
                     </para>
                 </listitem>
             </itemizedlist>
@@ -223,13 +223,13 @@ might contain more or different settings.
                     <itemizedlist mark="round">
                         <listitem>
                             <para>
-                                Description: a short text that describes the operation.
+                                Описание: краткий текст, описывающий операцию.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                MappingInbound: a container for the mapping settings for the incoming
-request data.
+                                MappingInbound: хранилище для настроек отображаемых данных для данных из
+входящего запроса.
                             </para>
                         </listitem>
                         <listitem>
@@ -253,7 +253,7 @@ contain more or different settings.
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    Config: a container for this mapping settings.
+                                    Config: хранилище настроек для этих отображаемых значений.
                                 </para>
                             </listitem>
                             <listitem>
@@ -273,23 +273,23 @@ contain more or different settings.
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            ValueMapDefault: a container for all non mapped values settings.
+                                            ValueMapDefault: хранилище для всех не отображаемых значений настроек.
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            KeyMapExact: a container for all exact key mappings (cardinality 0 .. 1).
+                                            KeyMapExact: хранилище для всех ключей точных отображаемых значений(от 0
+.. 1).
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            KeyMapRegEx: a container for all regular expression key mappings
-(cardinality 0 .. 1).
+                                            KeyMapRegEx: хранилище для отображаемых значений всех регулярных выражений.
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            ValueMap: a container for all value mappings (cardinality 0 .. 1).
+                                            ValueMap: хранилище для всех значений отображений (mapping-a).
                                         </para>
                                     </listitem>
                                 </itemizedlist>
@@ -306,23 +306,23 @@ MapTo).
                                         </listitem>
                                         <listitem>
                                             <para>
-                                                MapType: the rule for the mapping.
+                                                MapType: правило для отображения.
                                             </para>
                                             <itemizedlist>
                                                 <title>Possible Values</title>
                                                 <listitem>
                                                     <para>
-                                                        Keep: leave unchanged.
+                                                        Keep: оставить без изменений.
                                                     </para>
                                                 </listitem>
                                                 <listitem>
                                                     <para>
-                                                        Ignore: drop.
+                                                        Ignore: понизить.
                                                     </para>
                                                 </listitem>
                                                 <listitem>
                                                     <para>
-                                                        MapTo: change to the MapTo value.
+                                                        MapTo: заменить на значение MapTo.
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -334,7 +334,7 @@ MapTo).
                                         ValueMapDefault
                                     </title>
                                     <para>
-                                        Similar to KeyMapDefault.
+                                        Тоже что и KeyMapDefault.
                                     </para>
                                 </section>
                                 <section>
@@ -344,7 +344,7 @@ MapTo).
                                     <itemizedlist mark="round">
                                         <listitem>
                                             <para>
-                                                &lt;oldkey&gt;: &lt;newkey&gt; (cardinality 0 .. n but not duplicate).
+                                                &lt;oldkey&gt;: &lt;newkey&gt; (от 0 .. n но без повторений).
                                             </para>
                                         </listitem>
                                     </itemizedlist>
@@ -356,8 +356,7 @@ MapTo).
                                     <itemizedlist mark="round">
                                         <listitem>
                                             <para>
-                                                &lt;oldkey(RegEx)&gt;: &lt;newkey&gt; ( cardinality 0 .. n but no
-duplicates).
+                                                &lt;oldkey(RegEx)&gt;: &lt;newkey&gt; ( от 0 .. n но без повторений).
                                             </para>
                                         </listitem>
                                     </itemizedlist>
@@ -381,14 +380,13 @@ depends on the new keys from KeyMapExact and KeyMapRegEx).
                                         <itemizedlist mark="round">
                                             <listitem>
                                                 <para>
-                                                    ValueMapExact: a container for all exact value mappings (cardinality 0
-.. 1).
+                                                    ValueMapExact: хранилище для всех точных отображаемых значений (от 0 .. 1).
                                                 </para>
                                             </listitem>
                                             <listitem>
                                                 <para>
-                                                    ValueMapRegEx: a container for all regular expression value mappings
-(cardinality 0 .. 1).
+                                                    ValueMapRegEx: хранилище для отображаемых значений всех регулярных выражений
+(от 0 .. 1).
                                                 </para>
                                             </listitem>
                                         </itemizedlist>
@@ -399,7 +397,7 @@ depends on the new keys from KeyMapExact and KeyMapRegEx).
                                             <itemizedlist mark="round">
                                                 <listitem>
                                                     <para>
-                                                        &lt;oldvalue&gt;: &lt;newvalue&gt; ( cardinality 0 .. n but not duplicate).
+                                                        &lt;oldvalue&gt;: &lt;newvalue&gt; ( cardinality 0 .. n без повторений).
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -411,8 +409,7 @@ depends on the new keys from KeyMapExact and KeyMapRegEx).
                                             <itemizedlist mark="round">
                                                 <listitem>
                                                     <para>
-                                                        &lt;oldvalue(RegEx)&gt;: &lt;newvalue&gt; ( cardinality 0 .. n but not
-duplicate).
+                                                        &lt;oldvalue(RegEx)&gt;: &lt;newvalue&gt; ( от 0 .. n без повторений).
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -424,11 +421,11 @@ duplicate).
                     <section>
                         <title>MappingOutbound</title>
                         <para>
-                            Same as MappingInbound.
+                            Тоже что и MappingInbound.
                         </para>
                     </section>
                     <section>
-                        <title>Transport</title>
+                        <title>Передача</title>
                         <para>
                             This section is based on the provider network transport HTTP::SOAP, other
 transports might contain more or different settings.
@@ -468,21 +465,21 @@ this web service.
         </section>
 
         <section>
-            <title>Requester</title>
+            <title>Запрашиваемая сторона</title>
             <itemizedlist mark="round">
                 <listitem>
                     <para>
-                        Invoker: a container for each invokers' settings.
+                        Invoker: хранилище для настроек каждой метки.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Transport: a container for requester network transport settings.
+                        Transport: хранилище для настроек транспортной сети запрашивающей стороны.
                     </para>
                 </listitem>
             </itemizedlist>
             <section>
-                <title>Invoker</title>
+                <title>Запрашивающая сторона</title>
                 <itemizedlist mark="round">
                     <listitem>
                         <para>
@@ -500,7 +497,7 @@ might contain more or different settings.
                     <itemizedlist mark="round">
                         <listitem>
                             <para>
-                                Description: a short text that describes the invoker
+                                Описание: короткий текст для описания вызывающей стороны
                             </para>
                         </listitem>
                         <listitem>
@@ -531,7 +528,7 @@ request data.
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    <remark>List Element</remark>: (cardinality 0 .. n)
+                                    <remark>List Element</remark>: (от 0 .. n)
                                 </para>
                                 <itemizedlist mark="round">
                                     <listitem>
@@ -543,12 +540,12 @@ Scheduler
                                             <title>Possible Values</title>
                                             <listitem>
                                                 <para>
-                                                    0: not handled by the Scheduler.
+                                                    0: не обрабатывается Планировщиком (Scheduler).
                                                 </para>
                                             </listitem>
                                             <listitem>
                                                 <para>
-                                                    1: handled by the Scheduler.
+                                                    1: Обрабатывается Планировщиком (Scheduler).
                                                 </para>
                                             </listitem>
                                         </itemizedlist>
@@ -558,7 +555,7 @@ Scheduler
                                             Event: the name of the event trigger.
                                         </para>
                                         <itemizedlist>
-                                            <title>Possible Values (for ticket events)</title>
+                                            <title>Возможные Значения (для событий заявки)</title>
                                             <listitem>
                                                 <para>
                                                     TicketCreate
@@ -706,10 +703,10 @@ Scheduler
                                             </listitem>
                                         </itemizedlist>
                                         <itemizedlist>
-                                            <title>Possible Values (for article events)</title>
+                                            <title>Возможные Значения (для действий над статьями)</title>
                                             <listitem>
                                                 <para>
-                                                    Article Events
+                                                    Действия над статьями
                                                 </para>
                                             </listitem>
                                             <listitem>
@@ -781,17 +778,17 @@ Scheduler
                     <section>
                         <title>MappingInbound</title>
                         <para>
-                            Same as Operation MappingInbound
+                            То же что и Действие MappingInbound
                         </para>
                     </section>
                     <section>
                         <title>MappingOutbound</title>
                         <para>
-                            Same as Operation MappingInbound.
+                            Тоже что и Действие MappingInbound.
                         </para>
                     </section>
                     <section>
-                        <title>Transport</title>
+                        <title>Передача</title>
                         <para>
                             This section is based on the requester network transport HTTP::SOAP, other
 transports might contain more or different settings.
@@ -819,7 +816,7 @@ settings.
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        Encoding: the SOAP Message request encoding
+                                        Encoding: кодирование сообщения SOAP-запроса
                                     </para>
                                 </listitem>
                                 <listitem>
@@ -842,12 +839,12 @@ web service.
                                         <title>Possible Values</title>
                                         <listitem>
                                             <para>
-                                                YES: to send a filled SOAPAction header.
+                                                YES: для отправки заполненого заголовка SOAPAction.
                                             </para>
                                         </listitem>
                                         <listitem>
                                             <para>
-                                                No: to send an empty SOAPAction header.
+                                                No: для отправки пустого обработчика SOAP-действия.
                                             </para>
                                         </listitem>
                                     </itemizedlist>
@@ -861,12 +858,12 @@ header.
                                         <title>Possible Values</title>
                                         <listitem>
                                             <para>
-                                                '/': used for .net web services.
+                                                '/': используется для .net веб-сервисов.
                                             </para>
                                         </listitem>
                                         <listitem>
                                             <para>
-                                                '#': used for all the rest web services.
+                                                '#': используется для всех веб-сервисов на базе протокола REST.
                                             </para>
                                         </listitem>
                                     </itemizedlist>

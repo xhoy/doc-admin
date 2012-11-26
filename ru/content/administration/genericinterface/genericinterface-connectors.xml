@@ -3,9 +3,9 @@
 
 
 
-<!-- $Id: genericinterface-connectors.xml,v 1.2 2012-11-07 08:52:41 mg Exp $ -->
+<!-- $Id: genericinterface-connectors.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
 <section id="genericinterface-connectors">
-    <title>Connectors</title>
+    <title>Коннекторы (Connectors)</title>
     <para>
         A Connector is in essence set of actions called Operations if OTRS acts as a
 web service provider or Invokers if OTRS acts as a web service
@@ -54,11 +54,11 @@ any other operation.
             </para>
             <itemizedlist>
                 <para>
-                    Provides:
+                    Поставщики:
                 </para>
                 <listitem>
                     <para>
-                        Operations:
+                        Операции:
                     </para>
                     <itemizedlist>
                         <listitem>
@@ -70,7 +70,7 @@ any other operation.
                 </listitem>
             </itemizedlist>
             <section id="generic-session-connector-operations">
-                <title>Operations</title>
+                <title>Операции</title>
                 <section id="generic-session-connector-operations-sessioncreate">
                     <title>SessionCreate</title>
                     <para>
@@ -112,11 +112,11 @@ authentication method.
             </para>
             <itemizedlist>
                 <para>
-                    Provides:
+                    Поставщики:
                 </para>
                 <listitem>
                     <para>
-                        Operations:
+                        Операции:
                     </para>
                     <itemizedlist>
                         <listitem>
@@ -143,7 +143,7 @@ authentication method.
                 </listitem>
             </itemizedlist>
             <section id="generic-ticket-connector-operations">
-                <title>Operations</title>
+                <title>Операции</title>
                 <section id="generic-ticket-connector-operations-ticketcreate">
                     <title>TicketCreate</title>
                     <para>
@@ -642,7 +642,7 @@ predefined criteria.
         </section>
     </section>
     <section id="Sgenericinterface-bundled-connectors-examples">
-        <title>Examples:</title>
+        <title>Примеры:</title>
         <section>
             <title>Web Service Configuration</title>
             <para>
@@ -747,7 +747,7 @@ Requester:
  -->
 </section>
         <section>
-            <title>Perl SOAP Requester</title>
+            <title>Запрашивающая сторона Perl SOAP</title>
             <para>
                 The following code is a Perl script that can connect to OTRS via the generic
 interface, to perform the operations provided by the Ticket Connector, it

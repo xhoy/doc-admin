@@ -2,9 +2,9 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: genericinterface-layers.xml,v 1.2 2012-11-07 08:52:41 mg Exp $ -->
+<!-- $Id: genericinterface-layers.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
 <section id="genericinterface-layers">
-    <title>Generic Interface Layers</title>
+    <title>Слои интерфейса Generic Interface</title>
     <para>
         Generic Interface is build based on a layer model, to be flexible and easy
 to customize.
@@ -37,7 +37,7 @@ fileref="screenshots/genericinterface-layers.png"></graphic></screenshot>
     </para>
 
     <section>
-        <title>Network Transport</title>
+        <title>Транспортная Сеть</title>
         <para>
             This layer is responsible for the correct communication with the Remote
 System.  It receives requests and generates responses when acting as
@@ -58,7 +58,7 @@ separated deamon designed to process tasks asynchronously).
     </section>
 
     <section>
-        <title>Data Mapping</title>
+        <title>Отображение Данных</title>
         <para>
             This layer is responsible for translating data structures between OTRS and
 the Remote System (data internal and data external layers). Usually Remote
@@ -76,7 +76,7 @@ remote system and it could be that value "1 Low" (OTRS) should be mapped to
     </section>
 
     <section>
-    <title>Controller</title>
+    <title>Контроллер</title>
         <para>
             Controllers are collections of similar Operations or Invokers. For example,
 a Ticket controller might contain several standard ticket operations. Custom
@@ -96,7 +96,7 @@ interface.
     </section>
 
     <section>
-        <title>Operation (OTRS as a provider)</title>
+        <title>Операция (OTRS как поставщик услуг)</title>
         <para>
             An Operation is a single action that can be performed within OTRS. All
 operations have the same programming interface, they receive the data into
@@ -112,7 +112,7 @@ to the OTRS API to perform the action.
     </section>
 
     <section>
-        <title>Invoker (OTRS as a requester)</title>
+        <title>Invoker - запрашивающая сторона (OTRS как запрашивающая сторона, клинет)</title>
         <para>
             An Invoker is an action that OTRS performs against a Remote System. Invokers
 use the OTRS Core modules to process and collect the needed information to
