@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.11 2012-11-26 13:12:13 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.12 2012-11-27 03:15:21 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
-
+    <!--  TODO CR2 Review -->
     <section>
         <title>Introduction</title>
         <para>
@@ -91,95 +91,618 @@ ISBN: 3527703713
                 </para></listitem>
             </itemizedlist>
         </para>
-
         <para>
-            Now, with Activities, Activity Dialogs, Transitions and Transition Actions we have the neccessary tools to model
-            the individual steps of our example.
-            To be able to refer to these entities later, we will assign to them an abbreviation in parentheses.
+            Now, with Activities, Activity Dialogs, Transitions and Transition Actions we have the
+            necessary tools to model the individual steps of our example. What's still missing is an
+            area where for each workflow the order of the steps can be specified. Let's call this
+            <emphasis>Process</emphasis>. To be able to refer to all these entities later, we will
+            assign to them an abbreviation in parentheses. This abbreviation is based on an internal
+            identification mechanism called EntityIDs.
+        </para>
+        <para>
+            The EntityIDs are conformed with one or two letters (depending on the process part or
+            entity) and then a consecutive number, examples:
+            <itemizedlist>
+                <listitem><para>Process: 'P1', 'P2' ... 'Pn'.</para></listitem>
+                <listitem><para>Activity: 'A1', 'A2' ... 'An'.</para></listitem>
+                <listitem><para>Activity Dialog: 'AD1', 'AD2' ... 'ADn'.</para></listitem>
+                <listitem><para>Transition: 'T1', 'T2' ... 'Tn'.</para></listitem>
+                <listitem><para>Transition Action: 'TA1', 'TA2' ... 'TAn'.</para></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+           Before the creation of the process and its parts is necessary to prepare the system, we
+           will need to define some Queues, Users and Dynamic Fields as well as set some SysConfig
+           options.
+        </para>
+        <para>
+            Create the following Queues:
+            <itemizedlist>
+                <listitem><para>Superior</para></listitem>
+                <listitem><para>Employee</para></listitem>
+                <listitem><para>Purchasing</para></listitem>
+                <listitem><para>Post office</para></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Create the following Users:
+            <itemizedlist>
+                <listitem><para>Superior</para></listitem>
+                <listitem><para>Employee</para></listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Create the following Dynamic Fields:
+            <itemizedlist>
+                <listitem>
+                    <para>Title</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>Title</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Text</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </listitem>
+                <listitem>
+                    <para>Author</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>Author</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Text</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </listitem>
+                <listitem>
+                    <para>ISBN</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>ISBN</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Text</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </listitem>
+                <listitem>
+                    <para>Status</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>Status</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Dropdown</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                                <row>
+                                    <entry>Possible Values</entry>
+                                    <entry>
+                                        <itemizedlist>
+                                            <listitem><para>Approval</para></listitem>
+                                            <listitem><para>Approval denied</para></listitem>
+                                            <listitem><para>Approved</para></listitem>
+                                            <listitem><para>Order denied</para></listitem>
+                                            <listitem><para>Order placed</para></listitem>
+                                            <listitem><para>Shipment received</para></listitem>
+                                        </itemizedlist>
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </listitem>
+                <listitem>
+                    <para>Supplier</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>Supplier</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Text</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                     </informaltable>
+                </listitem>
+                <listitem>
+                    <para>Price</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>Price</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Text</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                     </informaltable>
+                </listitem>
+                <listitem>
+                    <para>DeliveryDate</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>Delivery date</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Date</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                     </informaltable>
+                </listitem>
+                <listitem>
+                    <para>DateOfReceipt</para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <tbody>
+                                <row>
+                                    <entry>Label</entry><entry>DateOfReceipt</entry>
+                                </row>
+                                <row>
+                                    <entry>Type</entry><entry>Date</entry>
+                                </row>
+                                <row>
+                                    <entry>Object</entry><entry>Ticket</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                     </informaltable>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Set the the following SysConfig settings:
+            <itemizedlist>
+                <listitem><para>'Ticket::Responsible': Yes</para></listitem>
+                <listitem>
+                    <para>
+                        'Ticket::Frontend::AgentTicketZoom###ProcessWidgetDynamicFieldGroups':
+                    </para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <thead>
+                                <row>
+                                    <entry><emphasis>Key:</emphasis></entry>
+                                    <entry><emphasis>Content:</emphasis></entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>Book</entry><entry>Title, Author, ISBN</entry>
+                                </row>
+                                <row>
+                                    <entry>General</entry><entry>Status</entry>
+                                </row>
+                                <row>
+                                    <entry>Order</entry>
+                                    <entry>Price, Supplier, DeliveryDate</entry>
+                                </row>
+                                <row>
+                                    <entry>Shipment</entry><entry>DateOfReceipt</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </listitem>
+                <listitem>
+                    <para>
+                        'Ticket::Frontend::AgentTicketZoom###ProcessWidgetDynamicField':
+                    </para>
+                    <informaltable>
+                        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+                            <thead>
+                                <row>
+                                    <entry><emphasis>Key:</emphasis></entry>
+                                    <entry><emphasis>Content:</emphasis></entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>Author</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>DateOfReceipt</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>DeliveryDate</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>ISBN</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>Price</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>Status</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>Supplier</entry><entry>1</entry>
+                                </row>
+                                <row>
+                                    <entry>Title</entry><entry>1</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+             Now lets start with the real Process Management stuff. In the next step, we will define
+             the individual entities that we need.
         </para>
 
-        <para>
-            What's still missing is an area where for each workflow the order of the steps can be specified.
-            Let's call this <emphasis>Process</emphasis>.
-        </para>
+        <section>
+            <title>Process (as a container)</title>
+            <para>
+                To create a new process is necessary to click on the "Process Management" link in
+                the System Administration box in the Admin panel, this will lead to the Process
+                Management Overview screen. After the creation of the process we can create all
+                other entities (or process parts).
+            </para>
+            <note>
+                <para>
+                    Activities, Activity Dialogs, Transitions and Transition Actions defined in one
+                    process will be available for all the processes in the system.
+                </para>
+            </note>
+            <para>
+                <screenshot>
+                    <screeninfo>The OTRS Admin screen - System Administration</screeninfo>
+                    <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-admin-sysadmin.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: OTRS Admin screen - System Administration.</emphasis>
+            </para>
 
-        <para>
-            In the next step, we will define the individual entities that we need.
-        </para>
+            <para>
+                Click on the "Create New Process" action from the Actions box.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Create New Process button</screeninfo>
+                    <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-newprocess-button.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Create New Process button.</emphasis>
+            </para>
+
+            <para>
+                Fill the process information,set Process Name and the Description, we will leave the
+                process State as "inactive", until we finish all the tasks. Save the process.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Add new process</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='70' fileref="screenshots/pm-newprocess-info.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Add new process.</emphasis>
+            </para>
+        </section>
 
         <section>
             <title>Activity Dialogs</title>
                 <para>
+                    Click on the new process name in the Process Management Overview Screen, then
+                    in the "Available Process Elements" click in "Activity Dialogs" (this action
+                    will expand the activity dialog options and will collapse all others doing
+                    and accordion like effect), then click on "Create New Activity Dialog".
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Create New Activity Dialog button</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-activitydialog.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Create New Activity Dialog button.</emphasis>
+                </para>
+                <para>
+                    In the opened popup screen fill the "Activity dialog Name" as well as the
+                    "Description (short)" fields, for this example we will leave all other fields
+                    as the default, to assign fields to the Activity Dialog simple drag the required
+                    field from the "Available Fields" pool and drop into the "Assigned Fields" pool.
+                    The order in the "Assigned Fields" pool is the order as the fields will have in
+                    the screen, to modify the order simply drag and drop the filed within the pool
+                    to rearrange it in the correct place.
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Add new Activity Dialog</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-activitydialog.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Add new Activity Dialog.</emphasis>
+                </para>
+                <para>
+                    As soon as the fields are dropped into the "Assigned Fields" pool another popup
+                    screen is shown with some details about the field, we will leave the default
+                    options and only for Article fields we should make sure that the ArticleType
+                    field is set to "note-internal".
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Edit field details (Article)</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-field-article.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Edit field details (Article).</emphasis>
+                </para>
+                <para>
+                    After all fields are assigned click on the submit button in the main popup
+                    screen to save the changes.
+                </para>
+                <para>
+                    In this example we will use Article field for comments, but another option could
+                    be to create a TextArea type Dynamic Field, the rest of the mentioned fields
+                    in the lines below are the Dynamic Fields that we define before.
+                </para>
+                <para>
+                    Please be aware that in this screen all the Dynamic Fields has the prefix
+                    "DynamicField_" as in "DynamicField_Title", Do not confuse with the field
+                    "Title" that is the Ticket Title.
+                </para>
+                <para>
+                    Create the following Activity Dialogs:
+                </para>
+                <para>
                 <itemizedlist>
                     <listitem>
+                        <para>"Recoding the demand" (AD1)</para>
                         <para>
-                            "Recoding the demand" (AD1):
-                            An Activity Dialog that contains all the required fields for the data to be collected for the order
-                            (Title, Author and ISBN), and a status field with the possibility to choose "Approval".
+                            An Activity Dialog that contains all the required fields for the data
+                            to be collected for the order (Title, Author and ISBN), and a Status
+                            field with the possibility to choose "Approval".
                         </para>
                     </listitem>
                     <listitem>
+                        <para>"Approval denied" (AD2)</para>
                         <para>
-                            "Approval denied" (AD2):
-                            An Activity Dialog with a comment field and a status field with the option "Approval denied".
+                            An Activity Dialog with a comment field (Article) and a Status field
+                            with the option "Approval denied".
                         </para>
                     </listitem>
                     <listitem>
+                        <para>"Approved" (AD3)</para>
                         <para>
-                            "Approved " (AD3):
-                            Here we just need the status field with the option "Approved".
+                            Here we just need the Status field with the option "Approved".
                         </para>
                     </listitem>
                     <listitem>
+                        <para>"Order rejected" (AD4)</para>
                         <para>
-                            "Order rejected" (AD4):
-                            An activity dialog which makes it possible for purchasing to reject an impossible order (book out of stock).
-                            Here we also need a comment field and the status field with the option "Order denied".
+                            An activity dialog which makes it possible for purchasing to reject an
+                            impossible order (book out of stock). Here we also need a comment field
+                            and the Status field with the option "Order denied".
                         </para>
                     </listitem>
                     <listitem>
+                        <para>"Order placed" (AD5)</para>
                         <para>
-                            "Order placed" (AD5):
-                            An activity dialog with the fields supplier, price and delivery date for purchasing and the status field with the option "Order placed".
+                            An activity dialog with the fields Supplier, Price and Delivery date
+                            for purchasing and the Status field with the option "Order placed".
                         </para>
                     </listitem>
                     <listitem>
+                        <para>"Shipment received" (AD6)</para>
                         <para>
-                            "Shipment received" (AD6):
-                            An activity for the mailroom with a field for the date of receipt
-                            and the status field with the option "Shipment received".
+                            An activity for the mailroom with a field for the Date of receipt
+                            and the Status field with the option "Shipment received".
                         </para>
                     </listitem>
                 </itemizedlist>
                 </para>
+                <para>
+                    To restrict the Status field for each activity dialog we need to add some ACLs
+                    in the Kernel/Config.pm or to a new perl file located in Kernel/Config/Files.
+                </para>
+                <para>
+                    <screen>
+    $Self->{TicketAcl}->{'P1-AD1-1'} = {
+        Properties => {
+            Process => {
+                ActivityDialogEntityID => ['AD1'],
+            },
+        },
+        Possible => {
+            Ticket => {
+                DynamicField_Status => ['Approval'],
+            },
+        },
+    };
+
+    $Self->{TicketAcl}->{'P1-AD2-1'} = {
+        Properties => {
+            Process => {
+                ActivityDialogEntityID => ['AD2'],
+            },
+        },
+        Possible => {
+            Ticket => {
+                DynamicField_Status => ['Approval denied'],
+            },
+        },
+    };
+
+    $Self->{TicketAcl}->{'P1-AD3-1'} = {
+        Properties => {
+            Process => {
+                ActivityDialogEntityID => ['AD3'],
+            },
+        },
+        Possible => {
+            Ticket => {
+                DynamicField_Status => ['Approved'],
+            },
+        },
+    };
+
+    $Self->{TicketAcl}->{'P1-AD4-1'} = {
+        Properties => {
+            Process => {
+                ActivityDialogEntityID => ['AD4'],
+            },
+        },
+        Possible => {
+            Ticket => {
+                DynamicField_Status => ['Order denied'],
+            },
+        },
+    };
+
+    $Self->{TicketAcl}->{'P1-AD5-1'} = {
+        Properties => {
+            Process => {
+                ActivityDialogEntityID => ['AD5'],
+            },
+        },
+        Possible => {
+            Ticket => {
+                DynamicField_Status => ['Order placed'],
+            },
+        },
+    };
+
+    $Self->{TicketAcl}->{'P1-AD6-1'} = {
+        Properties => {
+            Process => {
+                ActivityDialogEntityID => ['AD6'],
+            },
+        },
+        Possible => {
+            Ticket => {
+                DynamicField_Status => ['Shipment received'],
+            },
+        },
+    };
+                    </screen>
+                </para>
         </section>
+
         <section>
             <title>Transitions</title>
                 <para>
+                    In the "Available Process Elements" click in "Transitions", then click on
+                    "Create New Transition".
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Create New Transition button</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-transition.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Create New Transition button.</emphasis>
+                </para>
+                <para>
+                    In the opened popup screen fill the "Transition Name", then in the conditions,
+                    for this examples we will use just one condition and just one field, for both
+                    we can leave the Type of Linking as "and" and we will use the filed match type
+                    value as "String".
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Add new Transition</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-transtion.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Add new Transition.</emphasis>
+                </para>
+                <para>
+                    After all conditions are set click on the submit button to save the changes.
+                </para>
+                <para>
+                    Create the following Transitions:
+                </para>
+                <para>
                 <itemizedlist>
                     <listitem>
-                        <para>"Approval" (T1):
-                        A transition which checks if the status field is set to "Approval".</para>
+                        <para>"Approval" (T1)</para>
+                        <para>
+                            A transition which checks if the Status field is set to "Approval".
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>"Approval denied" (T2):
-                        A transition which checks if the status field is set to "Approval denied".</para>
+                        <para>"Approval denied" (T2)</para>
+                        <para>
+                            A transition which checks if the Status field is set to "Approval
+                            denied".
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>"Approved" (T3):
-                        A transition which checks if the status field is set to "Approved".</para>
+                        <para>"Approved" (T3)</para>
+                        <para>
+                            A transition which checks if the Status field is set to "Approved".
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>"Order denied" (T4):
-                        A transition which checks if the status field is set to "Order denied".</para>
+                        <para>"Order denied" (T4)</para>
+                        <para>
+                            A transition which checks if the Status field is set to "Order denied".
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>"Order placed" (T5):
-                        A transition which checks if the status field is set to "Order placed".</para>
+                        <para>"Order placed" (T5)</para>
+                        <para>
+                            A transition which checks if the Status field is set to "Order placed".
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>"Shipment received" (T6):
-                        A transition which checks if the status field is set to "Shipment received".</para>
+                        <para>"Shipment received" (T6)</para>
+                        <para>
+                            A transition which checks if the Status field is set to "Shipment
+                            received".
+                        </para>
                     </listitem>
                 </itemizedlist>
                 </para>
@@ -187,59 +710,117 @@ ISBN: 3527703713
         <section>
             <title>TransitionActions</title>
                 <para>
+                    Click on "Transition Actions " in the "Available Process Elements", then click
+                    on "Create New TransitionAction".
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Create New Transition Action button</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-transitionaction.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Create New Transition Action button.</emphasis>
+                </para>
+                <para>
+                    In the opened popup screen fill the "Transition Name", and the "Transition
+                    Action module" then add the required and optional parameter names and values.
+                </para>
+                <para>
+                    All the Transition Action Modules are located in
+                    Kernel/System/ProcessManagement/TransitionAction and the following is the list
+                    of bundled Transition Actions included in this release
+                </para>
+                <para>
+                    <itemizedlist>
+                        <listitem><para>ArticleCreate</para></listitem>
+                        <listitem><para>CustomerSet</para></listitem>
+                        <listitem><para>DynamicFieldSet</para></listitem>
+                        <listitem><para>OwnerSet</para></listitem>
+                        <listitem><para>QueueMove</para></listitem>
+                        <listitem><para>ResponsibleSet</para></listitem>
+                        <listitem><para>StateSet</para></listitem>
+                        <listitem><para>TicketUnlock</para></listitem>
+                    </itemizedlist>
+                </para>
+                <para>
+                    Each module has its own and different parameters please review the module
+                    documentation to learn all require and optional parameters.
+                </para>
+                <para>
+                    <screenshot>
+                        <screeninfo>Add new Transition Action</screeninfo>
+                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-transtionaction.png"></graphic>
+                    </screenshot>
+                </para>
+                <para>
+                    <emphasis>Figure: Add new Transition Action.</emphasis>
+                </para>
+                <para>
+                    After all parameters and values are set click on the submit button to save the changes.
+                </para>
+                <para>
+                    Create the following Transitions Actions:
+                </para>
+                <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Move the process ticket into the "Superior" queue. (TA1):
-                        This action is supposed to be executed when the Transition "Approval" (T1) applied.</para>
+                        <para>Move the process ticket into the "Superior" queue (TA1)</para>
+                        <para>
+                            This action is supposed to be executed when the Transition "Approval"
+                            (T1) applied.
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>Change ticket responsible to "Superior". (TA2):
-                        To be executed when the Transition "Approval" (T1) applied.</para>
+                        <para>Change ticket responsible to "Superior" (TA2)</para>
+                        <para>
+                            To be executed when the Transition "Approval" (T1) applied.
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>Move the process ticket into the "Employee" queue. (TA3):
-                        To be executed when:</para>
+                        <para>Move the process ticket into the "Employee" queue (TA3)</para>
+                        <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
-                            the Transition "Approval denied" (T2) applied
+                                The Transition "Approval denied" (T2) applied
                             </para></listitem>
                             <listitem><para>
-                            the Transition "Order denied" (T4) applied
+                                The Transition "Order denied" (T4) applied
                             </para></listitem>
                             <listitem><para>
-                            the Transition "Shipment received" (T6) applied
+                                The Transition "Shipment received" (T6) applied
                             </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Change ticket responsible to "Employee". (TA4):
-                        To be executed when:</para>
+                        <para>Change ticket responsible to "Employee" (TA4)</para>
+                        <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
-                            the transition "Approval denied" (T2) applied
+                                The transition "Approval denied" (T2) applied
                             </para></listitem>
                             <listitem><para>
-                            the transition "Order denied" (T4) applied
+                                The transition "Order denied" (T4) applied
                             </para></listitem>
                             <listitem><para>
-                            the transition "Shipment received" (T6) applied
+                                The transition "Shipment received" (T6) applied
                             </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Move process ticket into the "Purchasing" queue. (TA5):
-                        To be executed when the transition "Approved" (T3) applied.</para>
+                        <para>Move process ticket into the "Purchasing" queue (TA5)</para>
+                        <para>To be executed when the transition "Approved" (T3) applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Move process ticket into the "Post office" queue. (TA6):
-                        To be executed when the transition "Order placed" (T5) applied.</para>
+                        <para>Move process ticket into the "Post office" queue (TA6)</para>
+                        <para>To be executed when the transition "Order placed" (T5) applied.</para>
                     </listitem>
                 </itemizedlist>
                 </para>
                 <para>
-                    As you can see, there are places where the same TransitionAction should be executed.
-                    Therefore it is reasonable to make it possible to link TransitionActions freely with
-                    Transitions to be able to reuse them.
+                    As you can see, there are places where the same Transition Actions should be
+                    executed. Therefore it is reasonable to make it possible to link
+                    Transition Actions freely with Transitions to be able to reuse them.
                 </para>
         </section>
         <section>
@@ -247,41 +828,75 @@ ISBN: 3527703713
             <para>
                 We chose the approach to see Activities as a basket which can contain one
                 or more Activity Dialogs.
-                We need these Activities for our example:
+            </para>
+            <para>
+                Click on "Activities" in the "Available Process Elements", then click
+                on "Create New Activity".
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Create New Activity button</screeninfo>
+                    <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-activity.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Create New Activity button.</emphasis>
+            </para>
+            <para>
+                In the opened popup screen fill the "Activity Name", Then drap the required
+                Activity Dialogs from the "Available Activity Dialogs" pool, and drop then
+                into to the "Assigned Activity Dialogs" pool. This dialogs will be presented (in
+                the ticket zoom screen) in the same order as it is defined on this screen
+                translating from top to bottom, to left to right.
+            </para>
+            <para>
+                This order is specially important in the first Activity, since the first Activity
+                Dialog for this activity is the only one that is presented when the process starts
+            </para>
+            <para>
+                Create the following Activities:
             </para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Recording the demand (A1):
-                        Contains the Activity Dialog "Recording the demand"</para>
+                        <para>Recording the demand (A1)</para>
+                        <para>Contains the Activity Dialog "Recording the demand" (AD1)</para>
                     </listitem>
                     <listitem>
-                        <para>Approval (A2):
-                        Contains the Activity Dialogs "Approval denied" as well as "Approved"</para>
+                        <para>Approval (A2)</para>
+                        <para>
+                            Contains the Activity Dialogs "Approval denied" (AD2) as well as
+                            "Approved" (AD3)
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>Order (A3):
-                        Contains the Activity Dialogs "Order denied" as well as "Order placed"</para>
+                        <para>Order (A3)</para>
+                        <para>
+                            Contains the Activity Dialogs "Order rejected" (AD4) as well as
+                            "Order placed" (AD5)
+                        </para>
                     </listitem>
                     <listitem>
-                        <para>Incoming (AS):
-                        Contains the Activity Dialog "Shipment received"</para>
+                        <para>Incoming (A4)</para>
+                        <para>Contains the Activity Dialog "Shipment received" (AD6)</para>
                     </listitem>
                     <listitem>
                         <para>Process complete (A5):
                             This is an Activity without possible ActivityDialogs.
-                            It will be set after "Approval denied", "Order denied" or "Shipment received"
-                            and represents the end of the process.
+                            It will be set after "Approval denied", "Order denied" or
+                            "Shipment received" and represents the end of the process.
                         </para>
                     </listitem>
                 </itemizedlist>
             </para>
             <para>
-                Now we can clearly see that Activities are precisely defined states of a process ticket.
-                After a successful Transition a process ticket moves from one Activity to another.
+                Now we can clearly see that Activities are precisely defined states of a process
+                ticket. After a successful Transition a process ticket moves from one Activity to
+                another.
             </para>
         </section>
-
+        <!--  TOTO CR2 END -->
+        <!--  TODO CR1 The following Lines Needs to be changed to the new format... add Screens -->
         <section>
             <title>Book ordering Process</title>
             <para>
@@ -486,6 +1101,7 @@ ISBN: 3527703713
                 </para>
             </section>
     </section>
+    <!--  TODO CR1 END -->
 
 <!--
     <section>
