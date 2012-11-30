@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-  <!-- $Id: external-backends.xml,v 1.27 2011-11-17 14:55:00 des Exp $ -->
+  <!-- $Id: external-backends.xml,v 1.27.2.1 2012-11-30 11:15:42 mb Exp $ -->
 
-<chapter id="external-backends">
+<section id="external-backends">
 <title>Using external backends</title>
 
 <section id='customer-data'>
@@ -84,6 +84,7 @@ $Self->{CustomerUser} = {
     Params => {
         # if you want to use an external database, add the required settings
 #            DSN => 'DBI:odbc:yourdsn',
+#            Type => 'mssql', # only for ODBC connections
 #            DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
 #            User => '',
 #            Password => '',
@@ -467,6 +468,7 @@ $Self->{CustomerUser1} = {
         # if you want to use an external database, add the
         # required settings
 #        DSN => 'DBI:odbc:yourdsn',
+#        Type => 'mssql', # only for ODBC connections
 #        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
 #        User => '',
 #        Password => '',
@@ -931,7 +933,7 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 </section>
 
 <section id="customer-self-registration">
-<title>Customize the customer self-registration</title>
+<title>Customizing the customer self-registration</title>
 
 <para>
 It is possible to customize the self-registration for new customers, accessible via the customer.pl panel. New optional or required fields, like room number, address or state can be added.
@@ -983,6 +985,7 @@ $Self->{CustomerUser} = {
         # if you want to use an external database, add the
         # required settings
 #        DSN => 'DBI:odbc:yourdsn',
+#        Type => 'mssql', # only for ODBC connections
 #        DSN => 'DBI:mysql:database=customerdb;host=customerdbhost',
 #        User => '',
 #        Password => '',
@@ -1053,7 +1056,7 @@ $Self->{CustomerUser} = {
 </section>
 
 <section id="customer-self-registration-customer-table">
-<title>Customize the customer_user table in the OTRS DB</title>
+<title>Customizing the customer_user table in the OTRS DB</title>
 
 <para>
 The last step is to add the new room number column to the customer_user table in the OTRS database (see Script below). In this column, the entries for the room numbers will be stored.
@@ -1094,4 +1097,4 @@ Now the new field for the room should be displayed in the customer.pl panel. New
 
 </section>
 
-</chapter>
+</section>
