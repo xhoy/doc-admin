@@ -3,7 +3,7 @@
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: otrs.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
 <section id="otrs">
 <title>OTRS Help Desk</title>
 
@@ -575,18 +575,18 @@ Generic-интерфейсы).</para>
 
         <section>
             <title>2 ДИНАМИЧЕСКИЕ ПОЛЯ</title>
-            <para>The DynamicFields Feature replaces the existing ticket and article FreeText
-and FreeTime fields with a dynamic structure that will also allow to create
-custom forms in OTRS.
+            <para>Динамические поля (DynamicFields) заменяют существующие поля FreeText и
+FreeTime с динамической структурой для заявок и статей. Они также позволяют
+создавать пользовательские формы в OTRS.
             </para>
             <itemizedlist>
                 <listitem>
-                    <para>An unlimited amount of fields can be configured using an own graphical user
-interface for administration.</para>
+                    <para>Неограниченное количество полей можно настроить с помощью собственного
+графического пользовательского интерфейса  администрирования.</para>
                 </listitem>
                 <listitem>
-                    <para>The fields can have different types that can be used for both, tickets and
-articles. Available by default are:</para>
+                    <para>Поля могут иметь различные типы, которые могут быть использованы как для
+заявок так и для статей. По умолчанию доступны:</para>
                     <itemizedlist>
                         <listitem>
                             <para>Text</para>
@@ -612,9 +612,9 @@ articles. Available by default are:</para>
                     </itemizedlist>
                 </listitem>
                 <listitem>
-                    <para>New custom field types (e.g. custom field type dropdown with an external
-data source) can be added with small effort as the fields are created in a
-modular, pluggable way.</para>
+                    <para>Новые пользовательские типы полей (например выпадающий список, который
+получает данные из внешнего источника) могут быть добавлены с небольшими
+усилиями, поскольку поля создаются по модульному принципу.</para>
                 </listitem>
                 <listitem>
                     <para>A future scenario is, that DynamicFields can be used for objects other than
@@ -624,8 +624,8 @@ properties/data to these orders.</para>
                 </listitem>
                 <listitem>
                     <para>
-                        A database update script will transform historic FreeText fields and related
-configuration settings into the new structure.
+                        Скрипт обновления базы данных превратит поля FreeText и связанные с ними
+настройки в новую структуру.
                     </para>
                 </listitem>
             </itemizedlist>
@@ -637,8 +637,8 @@ configuration settings into the new structure.
                 <title>3.1 Улучшена операция создания Заявки</title>
                 <itemizedlist>
                     <listitem>
-                        <para>Multiple email addresses can now be specified as 'To:', 'CC:' or 'BCC:' when
-creating a new phone or email ticket.</para>
+                        <para>Когда создается новая заявка на основе email или телефонного звонка,
+множество email-адресов может быть задано как 'To:', 'CC:' or 'BCC:' .</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -646,22 +646,23 @@ creating a new phone or email ticket.</para>
                 <title>3.2 Поддержка обработки входящих звонков</title>
                 <itemizedlist>
                     <listitem>
-                        <para>Inbound phone calls can now be registered within an existing tickets (until
-now, only outbound calls were registered).</para>
+                        <para>Теперь для созданых заявок могут быть зарегистрированы входящие телефонные
+звонки (до этого, можно было регистрировать только исходящие звонки).</para>
                     </listitem>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.3 Ticket overview preview improved</title>
+                <title>3.3 Улучшилась страница просмотра информации о Заявке</title>
                 <itemizedlist>
                     <listitem>
-                        <para>It is now possible to exclude articles of certain sender types
-(e.g. articles from internal agents) in the SysConfig from being displayed
-in the overview preview mode.</para>
+                        <para>Теперь в SysConfig можно исключать статьи отдельных типов (напримр, статьи
+от внутренних агентов), это будет предотвращать их появление в режиме
+предварительного просмотра.</para>
                     </listitem>
                     <listitem>
-                        <para>A certain article type can be configured which will display articles of that
-type as expanded by default when the view is accessed.</para>
+                        <para>Определенный тип статьи может быть настроен таким образом, что будет
+отображать статьи этого типа полностью, если имеются соответствующие права
+для их просмотра.</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -669,13 +670,14 @@ type as expanded by default when the view is accessed.</para>
                 <title>3.4 Улучшена операция перемещения Заявки</title>
                 <itemizedlist>
                     <listitem>
-                        <para>The screen shown after moving a ticket is now configurable. Options are the
-ticket zoom view (LastScreenView) or the ticket list (LastScreenOverview).</para>
+                        <para>Страница, которая отображается после перемещения заявки теперь может быть
+настроена пользователем. Варианты просмотра: просмотр расширенной информации
+(LastScreenView) или же список заявок (LastScreenOverview).</para>
                     </listitem>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.5 Bulk action improved</title>
+                <title>3.5 Улучшилась обработка масовых действий</title>
                 <itemizedlist>
                     <listitem>
                         <para>With the new bulk action, outbound emails can now be sent from multiple
@@ -684,13 +686,13 @@ queues each can have different templates, salutations and signatures, these
 are not used in the Bulk Action email.</para>
                     </listitem>
                     <listitem>
-                        <para>An additional bulk action allows configuring the ticket type for selected
-tickets.</para>
+                        <para>Дополнительные массовые действия позволяют настроить тип заявки для
+отдельных заявок.</para>
                     </listitem>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.6 Configurable Reject Sender Email Address</title>
+                <title>3.6 Настраиваемая опция Отклонить Email-адрес Отправителя</title>
                 <itemizedlist>
                     <listitem>
                         <para>The feature allows configuring an email address instead of the administrator
@@ -719,9 +721,9 @@ the moment that the escalation ends.</para>
                 <title>4.2 Улучшен механизм уведомлений</title>
                 <itemizedlist>
                     <listitem>
-                        <para>A new generic agent notification module allows the OTRS administrator to
-define messages that will be shown in the agent web front-end when agents
-log into the system.</para>
+                        <para>Новый generic-agent-модуль уведомлений позволяет OTRS-администратору
+определить сообщения, которые будут показаны в веб-интерфейсе агентов, когда
+они войдут в систему.</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -739,23 +741,23 @@ clock times of application and data base servers.</para>
                 <title>4.4 GenericAgent improved</title>
                 <itemizedlist>
                     <listitem>
-                        <para>The GenericAgent can now filter for tickets change time.</para>
+                        <para>Теперь GenericAgent можеть фильтровать заявки по времени изменения.</para>
                     </listitem>
                     <listitem>
-                        <para>In addition, the GenericAgent can set the ticket responsible for matched
-tickets.</para>
+                        <para>Кроме того, GenericAgent может установить ответственность за заявку для
+схожих (соответствующих) заявок.</para>
                     </listitem>
                 </itemizedlist>
             </section>
         </section>
 
         <section>
-            <title>5 USER INTERFACE, RICH TEXT EDITOR, CHARSET</title>
+            <title>5 ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС, ТЕКСТОВЫЙ РЕДАКТОР, КОДИРОВКА</title>
             <section>
                 <title>5.1 Улучшилась производительность Пользовательского интерфейса</title>
                 <itemizedlist>
                     <listitem>
-                        <para>The speed for rendering and article display was improved, thanks to Stelios
+                        <para>Улучшена скорость рендеринга и отображения статей, большое спасибо Stelios
 Gikas &lt;stelios.gikas@noris.net&gt;!</para>
                     </listitem>
                 </itemizedlist>
@@ -771,8 +773,8 @@ Gikas &lt;stelios.gikas@noris.net&gt;!</para>
                     </listitem>
                     <listitem>
                         <para>
-                            Update from CKEditor 3.4 to CKEditor 3.6, so improvements refer to the
-releases of <ulink
+                            Обновлен CKEditor 3.4 до CKEditor 3.6, про улучшения можно прочесть перейдя
+по ссылке<ulink
 url="http://ckeditor.com/blog/CKEditor_3.5_released">CKEditor 3.5</ulink>
 and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
 3.6</ulink>.
@@ -787,14 +789,14 @@ and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
                 </itemizedlist>
             </section>
             <section>
-                <title>5.3 Unicode Support - Non-UTF-8 Internal Encodings Dropped</title>
+                <title>5.3 Поддержка Unicode - Удалена поддержка кодировок, не относящихся к UTF-8</title>
                 <itemizedlist>
                     <listitem>
                         <para>UTF-8 is now the only allowed internal charset of OTRS.</para>
                     </listitem>
                     <listitem>
-                        <para>All language files are now formatted in UTF-8, which simplifies their
-handling and future improvements of the translation mechanism.</para>
+                        <para>Теперь все языковые файлы отформатированы в кодировке UTF-8, что значительно
+упрощает их обработку и дальнейшее усовершенствование механизма перевода.</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -808,7 +810,7 @@ handling and future improvements of the translation mechanism.</para>
                         <para>Добавлена поддержка PostgreSQL 9.1</para>
                     </listitem>
                     <listitem>
-                        <para>A new legacy driver is now available for PostgreSQL 8.1 or earlier versions.</para>
+                        <para>Доступен новый драйвер для PostgreSQL 8.1 или более ранних версий.</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -816,9 +818,9 @@ handling and future improvements of the translation mechanism.</para>
                 <title>6.2 Улучшена совместимость драйвера MS SQL</title>
                 <itemizedlist>
                     <listitem>
-                        <para>The MS SQL driver now stores binary data in VARBINARY rather than deprecated
-type TEXT as well as NVARCHAR to store text strings rather than VARCHAR (for
-improved Unicode support).</para>
+                        <para>Теперь драйвер MS SQL сохраняет бинарные данные используя тип данных
+VARBINARY а не устаревший тип TEXT, тип NVARCHAR также используется вместо
+устаревшего VARCHAR (это делается для улучшенной поддержки Unicode).</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -829,12 +831,13 @@ improved Unicode support).</para>
                 <title>7.1 Улучшена обработка почты</title>
                 <itemizedlist>
                     <listitem>
-                        <para>When connecting to IMAP mail accounts, it is now possible to handle emails
-from a specific email folder, other than the INBOX folder.</para>
+                        <para>Теперь, при подключении к почтовым учетным записям IMAP можно обрабатывать
+сообщения не только из папки INBOX но и с другой определенной папки. </para>
                     </listitem>
                     <listitem>
-                        <para>OTRS can now also connect to IMAP servers using Transport Layer Security
-(TLS), useful for modern restricted environments.</para>
+                        <para>Теперь OTRS также может подключаться к почтовым IMAP-серверам используя
+протокол Transport Layer Security (TLS), это очень полезная опция для
+современных ограниченных сред.</para>
                     </listitem>
                 </itemizedlist>
             </section>
@@ -1055,8 +1058,8 @@ describes in more detail how you can set up those which are needed for OTRS.
     <section id="webbrowser-support">
         <title>Поддержка веб-браузера</title>
         <para>
-            To use OTRS, you'll be OK if you use a modern browser with JavaScript
-support enabled.  We support the following browsers:
+            Для работы с OTRS необходимо использовать современных веб-браузер с
+включенной поддержкой JavaScript. Мы поддерживаем следующие браузеры:
         </para>
         <itemizedlist>
             <listitem>

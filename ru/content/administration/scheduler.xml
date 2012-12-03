@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: scheduler.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: scheduler.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
 <section id="scheduler">
     <title>Планировщик OTRS</title>
     <para>
@@ -41,8 +41,8 @@ future).
     <section id="scheduler-gui">
         <title>Графический интерфейс планировщика</title>
         <para>
-            The Scheduler is not visible in the OTRS Graphical User Interface unless it
-stops running.
+            Планировщик не виден в Графическом Пользовательском Интерфейсе OTRS до того
+времени пока он остается работать.
         </para>
         <section id="scheduler-gui-notify">
             <title>Scheduler Not Running Notification</title>
@@ -55,8 +55,8 @@ message will be displayed in the OTRS notification area. If it is over 4
 times the process frequency then an alert will be displayed instead.
             </para>
             <para>
-                The Scheduler process update time can be configured via the SysConfig in the
-"Scheduler::PIDUpdateTime" setting.
+                Параметр Планировщика обновление времени может быть настроен с помощью
+параметра "Scheduler::PIDUpdateTime" в файле SysConfig.
             </para>
             <para>
                 If you would see a warning message it is not always necessary to take an
@@ -99,8 +99,9 @@ terminated abnormally and the Process ID is still registered in the
 database.
                 </para>
                 <para>
-                    To have full control of the Scheduler process and to check it real status
-please use the command line tools described below.
+                    Используйте инструменты командной строки, описанные ниже, чтобы иметь полный
+контроль над процессами Планировщика и иметь возможность проверить его
+реальное состояние.
                 </para>
             </note>
             <para>
@@ -144,7 +145,7 @@ system, they need to had the proper permissions and some internal variables
 needs to be set to work properly.
                 </para>
                 <itemizedlist mark="round">
-                    <title>Init.d Script Internal Variables</title>
+                    <title>Init.d Скрипт Внутренних Переменных</title>
                     <listitem>
                         <para>
                             <command>OTRS_HOME</command> - путь установки OTRS.
@@ -157,17 +158,18 @@ needs to be set to work properly.
                     </listitem>
                     <listitem>
                         <para>
-                            <command>Group</command> - the apache process user's group name.
+                            <command>Group</command> - apache обрабатывает группу пользователей с таким
+именем.
                         </para>
                     </listitem>
                 </itemizedlist>
                 <note>
                     <para>
-                        Currently there are only init.d scripts for Linux platforms.
+                        В настоящее время в распоряжении Linux-платформ есть только сценарии init.d
                     </para>
                 </note>
                 <table>
-                    <title>List of Init Scripts And Supported Operating Systems</title>
+                    <title>Список Init-сценариев и Поддерживаемых Операционных систем</title>
                     <tgroup cols="2">
                     <thead>
                         <row>
@@ -188,7 +190,7 @@ needs to be set to work properly.
                     </tgroup>
                 </table>
                 <example>
-                    <title>Example To Start The OTRS Scheduler Form An Init.d Script</title>
+                    <title>Пример Запуска OTRS-Планировщика из сценария Init.d</title>
                     <para>
                         <screen>
                             shell> /etc/init.d/otrs-scheduler-linux start
@@ -199,33 +201,33 @@ needs to be set to work properly.
                     <title>Available Actions</title>
                     <listitem>
                         <para>
-                            <command>start</command> to start the OTRS Scheduler process.
+                            <command>start</command> запуск процесса OTRS-Планировщика.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            <command>stop</command> to stop the OTRS Scheduler process.
+                            <command>stop</command> остановка процесса OTRS-Планировщика.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            <command>restart</command> to restart the OTRS Scheduler process.
+                            <command>restart</command> перезапуск процесса OTRS-Планировщика.
                         </para>
                     </listitem>
                     <listitem>
                         <para>
-                            <command>status</command> to query the OTRS Scheduler process status.
+                            <command>status</command> запросить статус процесса OTRS-Планировщика.
                         </para>
                     </listitem>
                 </itemizedlist>
                 <para>
-                    The Scheduler needs the database to be available to register its Process ID,
-for this reason is necessary to:
+                    Для корректной работы Планировщика необходима база данных, поскольку он
+регистрирует свой ID процесса, именно по этой причине необходимо:
                     <itemizedlist mark="round">
                         <listitem>
                             <para>
-                                Execute the Scheduler init.d script to <emphasis>start</emphasis> the
-Scheduler process after the database process is up and running.
+                                Выполните скрипт init.d для <emphasis>запуска</emphasis> процесса
+Планировщика, после того как запущен процес базы данных.
                             </para>
                         </listitem>
                         <listitem>
@@ -246,18 +248,18 @@ the run order.
                 </note>
             </section>
             <section id="scheduler-cli-linux-daemon">
-                <title>Scheduler Daemon File</title>
+                <title>Файл "Демона" Планировщика</title>
                 <para>
-                    This is the part of the Scheduler that stays running in the background
-checking for tasks to execute. It also provides the main functions to
-control the process.
+                    Это часть Планировщика, который остается работать в фоновом режиме, проверяя
+задания, которые нужно выполнить. Она также обеспечивает основные функции
+для управления процессом.
                 </para>
                 <para>
-                    All Unix / Linux uses the file
+                    Все Unix / Linux системы используют файл
 <command>OTRS_HOME/bin/otrs.Scheduler.pl</command>.
                 </para>
                 <example>
-                    <title>Example To Start The OTRS Scheduler</title>
+                    <title>Пример для Запуска OTRS-Планировщика</title>
                     <para>
                         <screen>
                             shell> OTRS_HOME/bin/otrs.Scheduler.pl -a start
@@ -325,7 +327,7 @@ entry in the database is discarded by normal start.
        <section id="scheduler-cli-windows">
             <title>Windows</title>
             <section id="scheduler-cli-windows-scm">
-                <title>Scheduler Service Installer</title>
+                <title>Установщик Планировщика</title>
                 <para>
                     The integration of the services into the MS Windows Operating System is done
 via the Windows Service Control Manager (SCM). In order to make the OTRS
@@ -333,12 +335,12 @@ Scheduler process to be controlled by the SCM is necessary to register this
 service
                 </para>
                 <para>
-                    OTRS provides the script
-<command>OTRS_HOME/bin/otrs.Scheduler4WinInstaller.pl</command> to register
-or unregister the OTRS Scheduler into the SCM.
+                    OTRS предоставляет сценарий
+<command>OTRS_HOME/bin/otrs.Scheduler4WinInstaller.pl</command> для
+регистрации и отмены регистрации OTRS-планировщика в SCM.
                 </para>
                 <example>
-                    <title>Example To Register The OTRS Scheduler Into the Widows SCM</title>
+                    <title>Пример Регистрации OTRS-Планировщика в Widows SCM</title>
                     <para>
                         <screen>
                             shell> OTRS_HOME/bin/otrs.Scheduler4WinInstaller.pl -a install
@@ -355,13 +357,13 @@ or unregister the OTRS Scheduler into the SCM.
                             <title>Possible Values</title>
                             <listitem>
                                 <para>
-                                    <command>install</command>- to install the Scheduler process into the
-Windows SCM.
+                                    <command>install</command>- для установки процесса Планировщика в Windows
+SCM.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    <command>remove</command>- to remove the Scheduler process from the Windows
+                                    <command>remove</command>- для удаления процесса Планировщика из Windows
 SCM.
                                 </para>
                             </listitem>
@@ -375,24 +377,24 @@ and can be configured to be started manually or automatic.
                 </para>
                 <note>
                     <para>
-                        To learn more about Windows Services and the Windows SCM please read the
-Windows documentation, and Microsoft online help.
+                        Обратитесь к документации Windows для более подробного изучения Сервисов
+Windows и Windows SCM.
                     </para>
                 </note>
             </section>
             <section id="scheduler-cli-linux-service">
-                <title>Scheduler Service File</title>
+                <title>Сервисный Файл Планировщика</title>
                 <para>
-                    This is the part of the Scheduler that stays running in the background
-checking for tasks to execute. It also provides the main functions to
-control the process.
+                    Это часть Планировщика, который остается работать в фоновом режиме, проверяя
+задания, которые нужно выполнить. Она также обеспечивает основные функции
+для управления процессом.
                 </para>
                 <para>
-                    Windows Operating System uses the file
+                    Операционная Система Windows использует файл
 <command>OTRS_HOME/bin/otrs.Scheduler4Win.pl</command>.
                 </para>
                 <example>
-                    <title>Example To Start The OTRS Scheduler</title>
+                    <title>Пример для Запуска OTRS-Планировщика</title>
                     <para>
                         <screen>
                             shell> OTRS_HOME/bin/otrs.Scheduler4Win.pl -a start
@@ -441,8 +443,9 @@ control the process.
                 </example>
                 <note>
                     <para>
-                        Force stopping the Scheduler is used to remove the process ID from the
-database when scheduler is not running and the process is still registered.
+                        Принудительная остановка Планировщика используется для удаления ID процесса
+из базы данных когда планировщик не работает и процесс остается
+зарегистрированным.
                     </para>
                     <para>
                         Force starting the Scheduler is used to start the Scheduler process if the

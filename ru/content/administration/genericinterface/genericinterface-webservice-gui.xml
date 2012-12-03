@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: genericinterface-webservice-gui.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: genericinterface-webservice-gui.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
 <section id="webservice_gui">
     <title>Графический интерфейс веб-сервиса</title>
     <para>
@@ -14,7 +14,7 @@ interface. It allows to:
         <itemizedlist>
             <listitem>
                 <para>
-                    Create and Delete web services.
+                    Создание и Удалинеи веб-сервисов
                 </para>
             </listitem>
             <listitem>
@@ -38,7 +38,7 @@ Web Service History screen.
     </para>
 
     <section id="webservice_gui_overview">
-        <title>Web Service Overview</title>
+        <title>Обзор Веб-интерфейса</title>
         <para>
             The "Web Services" link in the main screen of Admin Interface (in the System
 Administration box) leads to the web services overview screen, where you are
@@ -60,17 +60,17 @@ the needed information.
         </note>
         <para>
             <screenshot>
-<screeninfo>Web Service Overview</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Обзор Веб-интерфейса</screeninfo> <graphic srccredit="Adminarea web
 service - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-overview.png"></graphic></screenshot>
         </para>
         <para>
-            <emphasis>Figure: Web services overview.</emphasis>
+            <emphasis>Рисунок: Обзор Веб-сервисов</emphasis>
         </para>
     </section>
 
     <section id="webservice_gui_add">
-        <title>Web Service Add</title>
+        <title>Добавить Веб Сервис</title>
         <para>
             The only required field in this part is the web service "Name" that needs to
 be unique in the system and non empty. Other fields are also necessary for
@@ -131,17 +131,17 @@ name in the web service overview screen.
         </note>
         <para>
             <screenshot>
-<screeninfo>Web service add</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Добавить Веб-сервис</screeninfo> <graphic srccredit="Adminarea web
 service add - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-add.png"></graphic></screenshot>
         </para>
         <para>
-            <emphasis>Figure: Web services add.</emphasis>
+            <emphasis>Рисунок: Добавление нового веб-сервиса</emphasis>
         </para>
     </section>
 
     <section id="webservice_gui_change">
-        <title>Web Service Change</title>
+        <title>Изменения веб-сервиса:</title>
         <para>
             On this screen you have a complete set of functions to handle every part of
 a web service. On the left side in the action column you can find some
@@ -151,7 +151,7 @@ buttons that allows you to perform all possible actions on a web service:
         <itemizedlist>
             <listitem>
                 <para>
-                    Clone web service.
+                    Клонирование веб-сервиса.
                 </para>
             </listitem>
             <listitem>
@@ -166,7 +166,7 @@ buttons that allows you to perform all possible actions on a web service:
             </listitem>
             <listitem>
                 <para>
-                    Configuration History.
+                    История конфигурации.
                 </para>
             </listitem>
             <listitem>
@@ -188,7 +188,7 @@ buttons that allows you to perform all possible actions on a web service:
         </note>
 
         <section id="webservice-clone">
-            <title>Web Service Clone</title>
+            <title>Клонирование веб-сервиса:</title>
             <para>
                 To clone a web service, you need to click on the "Clone web service" button,
 a dialog will be shown where you can use the default name or set a new name
@@ -204,17 +204,17 @@ within the system.
 the dialog.</para>
             <para>
                 <screenshot>
-<screeninfo>Web service clone</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Клонирование веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service clone - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-clone.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web service clone.</emphasis>
+                <emphasis>Рисунок: Клонирование веб-сервиса.</emphasis>
             </para>
         </section>
 
         <section id="webservice-export">
-            <title>Web Service Export</title>
+            <title>Экспорт веб-сервиса</title>
             <para>
                 The "Export web service" button gives you the opportunity to dump the
 configuration of the current web service into a YAML file, download it and
@@ -244,17 +244,17 @@ instructions if needed.
             </note>
             <para>
                 <screenshot>
-<screeninfo>Web service export</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Экспорт веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service export - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-export.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web services export.</emphasis>
+                <emphasis>Рисунок: Экспорт веб-сервиса.</emphasis>
             </para>
         </section>
 
         <section id="webservice-import">
-            <title>Web Service Import</title>
+            <title>Импорт веб-сервиса:</title>
             <para>
                 A valid web service configuration YAML file is required to use the import
 web service feature. Click on the "Import web service" button, browse for
@@ -276,17 +276,17 @@ service.
             </note>
             <para>
                 <screenshot>
-<screeninfo>Web service import</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Импорт веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service import - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-import.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web services import.</emphasis>
+                <emphasis>Рисунок: Импорт веб-сервиса.</emphasis>
             </para>
         </section>
 
         <section id="webservice-history">
-            <title>Web Service History</title>
+            <title>История веб-сервиса</title>
             <para>
                 Every change to the web service configuration creates a new entry in the web
 service history (as a journal). The web service history screen displays a
@@ -327,17 +327,17 @@ undone.
             </warning>
             <para>
                 <screenshot>
-<screeninfo>Web Service History</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>История веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service history - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-history.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web service history.</emphasis>
+                <emphasis>Рисунок: История веб-сервиса</emphasis>
             </para>
         </section>
 
         <section id="webservice-delete">
-            <title>Web Service Delete</title>
+            <title>Удаление веб-сервиса</title>
             <para>
                 Sometimes it is necessary to delete a web service completely.  To do this
 you can press on the "Delete web service" button and a new dialog will
@@ -355,17 +355,17 @@ service.
              </warning>
             <para>
                 <screenshot>
-<screeninfo>Web service delete</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Удаление веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service delete - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-delete.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web service delete.</emphasis>
+                <emphasis>Рисунок: Удаление веб-сервиса</emphasis>
             </para>
         </section>
 
         <section id="webservice-debugger">
-            <title>Web Service Debugger</title>
+            <title>Отладчик веб-сервиса:</title>
             <para>
                 The Debugger stores the log of a web service. In the debugger screen you can
 track all the web service communications for either provider or requester
@@ -426,17 +426,17 @@ possible errors or confirm success responses.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Web Service Debugger</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Отладчик веб-сервиса:</screeninfo> <graphic srccredit="Adminarea web
 service debugger - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-debugger.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web service debugger.</emphasis>
+                <emphasis>Рисунок: Отладчик веб-сервиса.</emphasis>
             </para>
         </section>
 
         <section id="webservice-configuration-change">
-            <title>Web Service Configuration Change</title>
+            <title>Изменение настроек веб-службы</title>
             <para>
                 Returning to the web service change screen, now we are going to review the
 right side of it. Here we have the possibility to modify all the general
@@ -473,12 +473,12 @@ service overview screen.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Web service change</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Изменение веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service change - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-change.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web services change.</emphasis>
+                <emphasis>Рисунок: Изменения веб-службы.</emphasis>
             </para>
             <note>
                 <para>
@@ -532,7 +532,7 @@ fileref="screenshots/genericinterface-webservice-provider-transport.png"></graph
         </section>
 
         <section id="webservice-operation">
-            <title>Web Service Operation</title>
+            <title>Операции веб-сервиса</title>
             <para>
                 The actions that can be performed when you are using OTRS as a provider are
 called "Operations". Each operation belongs to a controller. Controllers are
@@ -571,12 +571,12 @@ delete dialog.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Web Service Operation</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Операции веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service operation - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-operation.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web service operation.</emphasis>
+                <emphasis>Рисунок: Операции веб-сервиса</emphasis>
             </para>
         </section>
 
@@ -644,7 +644,7 @@ fileref="screenshots/genericinterface-webservice-requester-transport.png"></grap
             </section>
 
             <section id="webservice-invoker">
-                <title>Web Service Invoker</title>
+                <title>Вызов веб-сервиса:</title>
                 <para>
                     The actions that can be performed when you are using OTRS as a requester are
 called "Invokers". Each invoker belongs to a controller (controllers are
@@ -715,7 +715,7 @@ dialog.
                 </para>
                 <para>
                     <screenshot>
-<screeninfo>Web Service Invoker</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Вызов веб-сервиса:</screeninfo> <graphic srccredit="Adminarea web
 service invoker - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-invoker.png"></graphic></screenshot>
                 </para>

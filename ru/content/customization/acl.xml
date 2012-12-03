@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: acl.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: acl.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
 <section id="acl" >
 <title>Списки Контроля Доступа (ACLs)</title>
 
@@ -206,12 +206,12 @@ $Self->{TicketAcl}->{'102-Third-ACL-Example'} = {
 
 <para>
 <example id="acl-new-ticket-service" >
-<title>ACL only showing Hardware services for tickets that are created in queues
-that start with &quot;HW&quot;.</title>
+<title>ACL только отображает Hardware-сервисы для заявок, которые были созданы в
+очередях, начинающихся с &quot;HW&quot;.</title>
 
 <para>
-    This example also shows you how you can use regular expressions for matching
-tickets and for filtering the available options.
+    Этот пример также показывает как можно использовать регулярные выражения для
+сопоставления заявок и фильтрации доступных опций.
 </para>
 
 <programlisting>
@@ -439,8 +439,8 @@ other hand this calculations are also made for the PropertiesDatabase part,
 but using the Ticket Customer as the basis to gather the data.
     </para>
     <para>
-        Notice that in Customer Interface, the CustomerUserID is always sent with
-the current logged Customer User.
+        Обратите внимание, что в Пользовательском Интерфейсе, CustomerUserID всегда
+отправляется с залогиненым Клиентом.
     </para>
     <para>
         Be aware that in ticket search screens (AgentTicketSearch and

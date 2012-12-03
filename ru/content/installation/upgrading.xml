@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: upgrading.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
 <section id="upgrading">
 <title>Обновление OTRS-фреймворка</title>
 <para>
@@ -22,8 +22,8 @@ an extra step; please read <ulink
 url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
 </para>
 <para>
-    Please note that for upgrades from 3.2.0.beta1, an additional step 9 is
-needed!
+    Пожалуйста, обратите внимание что для обновления с версии 3.2.0.beta1,
+дополнительный шаг 9 не требуется!
 </para>
 <para>
     Within a single minor version you can skip patch level releases if you want
@@ -54,7 +54,7 @@ OTRS_HOME=/opt/otrs):
                 <listitem><para><filename>Kernel/Config/GenericAgent.pm</filename></para></listitem>
                 <listitem><para><filename>Kernel/Config/Files/ZZZAuto.pm</filename></para></listitem>
                 <listitem><para><filename>var/*</filename></para></listitem>
-                <listitem><para><filename>as well as the database</filename></para></listitem>
+                <listitem><para><filename>а также базу данных</filename></para></listitem>
             </itemizedlist>
         </para>
       </listitem>
@@ -115,11 +115,11 @@ shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
             Собственные темы
         </para>
         <para>
-            Note: The OTRS themes between 3.1 and 3.2 are NOT compatible, so don't use
-your old themes!
+            Примечание: Темы OTRS 3.1 и 3.2 НЕ совместимы между собой, так что не
+используйте старые темы!
         </para>
         <para>
-            Themes are located under $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default:
+            Темы хранятся в $OTRS_HOME/Kernel/Output/HTML/*/*.dtl (default:
 OTRS_HOME=/opt/otrs).
         </para>
       </listitem>
@@ -167,10 +167,10 @@ this script did not work properly for you.  Otherwise data loss may occur.
       </listitem>
       <listitem>
         <para>
-            Database Upgrade During Beta Phase
+            Обновления Базы Данных на протяжении Beta тестирования
         </para>
         <para>
-            This step is ONLY needed if you upgrade from 3.2.0.beta1!
+            Этот шаг необходим только если вы обновляете с 3.2.0.beta1!
         </para>
         <para>
             Please apply the required database changes as follows: <screen>
@@ -202,12 +202,11 @@ shell&gt; bin/otrs.DeleteCache.pl
             Перезапустите сервисы.
         </para>
         <para>
-            e. g. (depends on used services): <screen>
+            в т.ч. (зависящие от использующихся услуг): <screen>
 shell&gt; /etc/init.d/cron start
 shell&gt; /etc/init.d/postfix start
 shell&gt; /etc/init.d/apache start
-            </screen> Now
-you can log into your system.
+            </screen> Теперь вы можете войти в систему.
         </para>
       </listitem>
       <listitem>
@@ -225,8 +224,9 @@ this setting in Kernel/Config.pm directly.  It needs to be changed from
       <listitem>
         <para>Проверьте установленные пакеты</para>
         <para>
-            In the package manager, check if all packages are still marked as correctly
-installed or if any require reinstallation or even a package upgrade.
+            Проверьте в менеджере пакетов все ли пакеты по прежнему помечены как
+правильно установлены или какие либо из них требуют переустановки или же
+обновления.
         </para>
       </listitem>
       <listitem>
@@ -234,8 +234,8 @@ installed or if any require reinstallation or even a package upgrade.
             Очистка метаданных  архивированных заявок
         </para>
         <para>
-            Note: This step only applies if you use the ticket archiving feature of
-OTRS.
+            Примечание: Этот шаг применяется лишь только в том случае, если вы
+используете возможность OTRS по архивированию заявки.
         </para>
         <para>
             With OTRS 3.2, when tickets are archived, the information which agent read
@@ -258,16 +258,17 @@ Ticket::ArchiveSystem::RemoveTicketWatchers
       <listitem>
         <para>Обзор (Изменение) ACLs для Динамических Полей</para>
         <para>
-            Note: This step only applies if you use ACLs to limit Dynamic Fields
-Dropdown or Multiselect possible values.
+            Примечание: Этот шаг применяется лиш в том случае, если вы используете ACL
+для ограничения возможных значений Динамического Поля Dropdown или
+Multiselect.
         </para>
         <para>
-            Now in OTRS 3.2 the Possible and PossibleNot ACL sections for Dynamic Fields
-Dropdown and Multiselect must refer to the key (internal values) rather than
-the value (shown values).
+            Теперь в OTRS 3.2 Возможные и невозможные ACL-секции для Динамических Полей
+Dropdown и Multiselect должны ссылаться на ключи (внутренние значения)
+вместо их значений (отображаемых значений).
         </para>
         <para>
-            Example: <screen>
+            Пример: <screen>
 For the defined field "Dropdown1"  with possible values:
 1 => 'A',
 2 => 'B',
@@ -319,14 +320,14 @@ $Self->{TicketAcl}->{'Limit Dropdown1 entries based in Dropdown2'} = {
       </listitem>
       <listitem>
         <para>
-            Adapt custom event handler modules
+            Адаптация пользовательских событий к модулям обработчиков
         </para>
         <para>
             Note: this only applies if you have any custom developed event handler
 modules.
         </para>
         <para>
-            Since OTRS 3.2, the data payload for even handler modules is no longer
+            Since OTRS 3.2, the data payload for event handler modules is no longer
 copied into the %Param hash. You need to explicitly access it through
 $Param{Data}.  <screen>
 Old:

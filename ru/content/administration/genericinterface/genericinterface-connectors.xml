@@ -3,7 +3,7 @@
 
 
 
-<!-- $Id: genericinterface-connectors.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: genericinterface-connectors.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
 <section id="genericinterface-connectors">
     <title>Коннекторы (Connectors)</title>
     <para>
@@ -28,10 +28,9 @@ modules, 3rd Party modules, and so on.
     </para>
 
     <section id="genericinterface-bundled-connectors">
-        <title>Bundled Connectors</title>
+        <title>Комплект Коннекторов (Connectors)</title>
         <para>
-            Included with this version of OTRS the following connectors are ready to be
-used.
+            В комплекте с этой версией OTRS следующие коннекторы готовы к использованию.
         </para>
         <itemizedlist>
             <listitem>
@@ -41,7 +40,7 @@ used.
             </listitem>
             <listitem>
                 <para>
-                    Ticket
+                    Заявк
                 </para>
             </listitem>
         </itemizedlist>
@@ -49,8 +48,8 @@ used.
         <section id="generic-session-connector">
             <title>Session Connector</title>
             <para>
-                This connector is capable to create a valid SessionID that can be used in
-any other operation.
+                Этот коннектор может создать действительный SessionID, который в дальнейшем
+может быть использован в любой другой операции.
             </para>
             <itemizedlist>
                 <para>
@@ -85,7 +84,7 @@ the bundled operations are capable to accept a valid SessionID as an
 authentication method.
                         </para>
                     </note>
-                    <para>Possible Attributes:</para>
+                    <para>Возможные Атрибуты:</para>
                     <para>
                         <programlisting>
                             <![CDATA[
@@ -106,7 +105,7 @@ authentication method.
         </section>
 
         <section id="generic-ticket-connector">
-            <title>Ticket Connector</title>
+            <title>Коннектор Заявки</title>
             <para>
                 This connector supplies the basic functionality to interact with tickets
             </para>
@@ -151,7 +150,7 @@ authentication method.
 Article and can contain several attachments, all defined Dynamic Fields can
 be also set on TicketCreate operation.
                     </para>
-                    <para>Possible Attributes:</para>
+                    <para>Возможные Атрибуты:</para>
                     <para>
                         <programlisting>
                             <![CDATA[
@@ -283,7 +282,7 @@ for the ticket and the new article.
                             It is not necessary to create a new article to modify a ticket attribute.
                         </para>
                     </note>
-                    <para>Possible Attributes:</para>
+                    <para>Возможные Атрибуты:</para>
                     <para>
                         <programlisting>
                             <![CDATA[
@@ -417,7 +416,7 @@ for the ticket and the new article.
 dynamic fields, all the articles and all the attachments that belongs to the
 ticket.
                     </para>
-                    <para>Possible Attributes:</para>
+                    <para>Возможные Атрибуты:</para>
                     <para>
                         <programlisting>
                             <![CDATA[
@@ -458,7 +457,7 @@ ticket.
                         TicketSearch operation returns a list of Ticket IDs that matches a
 predefined criteria.
                     </para>
-                    <para>Possible Attributes:</para>
+                    <para>Возможные Атрибуты:</para>
                     <para>
                         <programlisting>
                             <![CDATA[
@@ -644,7 +643,7 @@ predefined criteria.
     <section id="Sgenericinterface-bundled-connectors-examples">
         <title>Примеры:</title>
         <section>
-            <title>Web Service Configuration</title>
+            <title>Конфигурация Веб-сервиса</title>
             <para>
                 The following is a basic but complete web service configuration file in YAML
 format to use all the Ticket Connector operations, in order to use it in

@@ -2,15 +2,15 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-    <!-- $Id: genericinterface-communication-flow.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+    <!-- $Id: genericinterface-communication-flow.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
 <section id="genericinterface_communication_flow">
-        <title>Generic Interface Communication Flow</title>
+        <title>Поток связи Generic Interface</title>
         <para>
             Generic Interface has a defined flow to perform actions as a provider and as
 a requester.
         </para>
         <para>
-            This flows are described below:
+            Эти потоки описаны ниже:
         </para>
 
         <section>
@@ -22,17 +22,17 @@ a requester.
                 <orderedlist>
                     <listitem>
                         <para>
-                            HTTP request
+                            HTTP-запрос
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    OTRS receives HTTP request and pass it through the layers.
+                                    OTRS получает HTTP-запрос и передает его через слои.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    The provider module in in charge to execute and control this actions.
+                                    Модуль provider отвечает за выполнение и управление этими действиями.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -57,12 +57,13 @@ operation name from the rest of the data.
                     </listitem>
                     <listitem>
                         <para>
-                            <remark>Data External</remark>
+                            <remark>Внешние данные</remark>
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    Data as sent from the remote system (This is not a module-based layer).
+                                    Данные отправленные из удаленной системы (Это не слой базирующийся на
+модуле).
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -74,21 +75,21 @@ operation name from the rest of the data.
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    The data is transformed from the External System format to the OTRS internal
-format as specified in the mapping configuration for this operation (Mapping
-for incoming request data).
+                                    Данные преобразуются из формата Внешней Системы во внутренний формат данных
+OTRS так, как это указано в конфигурации отображения для этой операции
+(Mapping для входящих данных запроса).
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    The already transformed data is returned to the provider.
+                                    Преобразованные данные возвращаются обратно поставщику.
                                 </para>
                             </listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
                         <para>
-                            <remark>Data Internal</remark>
+                            <remark>Внутренние Данные</remark>
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
@@ -101,7 +102,7 @@ a module based layer).
                     </listitem>
                     <listitem>
                         <para>
-                            Operation
+                            Операция
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
@@ -125,12 +126,12 @@ a module based layer).
             </section>
             <section>
                 <title>
-                    OTRS Response:
+                    OTRS Ответ:
                 </title>
                 <orderedlist>
                         <listitem>
                             <para>
-                                Operation
+                                Операция
                             </para>
                             <itemizedlist>
                                 <listitem>
@@ -142,7 +143,7 @@ a module based layer).
                         </listitem>
                     <listitem>
                         <para>
-                            <remark>Data Internal</remark>
+                            <remark>Внутренние Данные</remark>
                         </para>
                         <itemizedlist>
                             <listitem>
@@ -165,7 +166,7 @@ mapping configuration (Mapping for outgoing response data).
                             </listitem>
                             <listitem>
                                 <para>
-                                    The already transformed data is returned to the provider.
+                                    Преобразованные данные возвращаются обратно поставщику.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -202,18 +203,18 @@ response.
                     </listitem>
                     <listitem>
                         <para>
-                            HTTP response
+                            HTTP ответ
                         </para>
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    The response is sent back to the web service client.
+                                    Ответ отправляется обратно клиенту веб-сервиса.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    In the case of an error, an error response is sent to the remote system
-(e.g. SOAP fault, HTTP error, etc).
+                                    В случае ошибки, сообщение об ошибке отправляется удаденной системе
+(например SOAP-ошибка, HTTP-ошибка и т.д.).
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -225,7 +226,7 @@ response.
         <section>
             <title>OTRS как запрашиваемая сторона</title>
                 <section>
-                    <title>OTRS Request:</title>
+                    <title>OTRS Запрос:</title>
                     <orderedlist>
                         <listitem>
                             <para>
@@ -308,7 +309,7 @@ requester, to gracefully cancel the request.
                         </listitem>
                         <listitem>
                             <para>
-                                <remark>Data Internal</remark>
+                                <remark>Внутренние Данные</remark>
                             </para>
                             <itemizedlist mark="round">
                                 <listitem>
@@ -338,7 +339,7 @@ mapping configuration (Mapping for outgoing response data).
                         </listitem>
                         <listitem>
                             <para>
-                                <remark>Data External</remark>
+                                <remark>Внешние данные</remark>
                             </para>
                             <itemizedlist mark="round">
                                 <listitem>
@@ -374,7 +375,7 @@ Remote System format from the requester.
                     </orderedlist>
                 </section>
                 <section>
-                    <title>Remote Response:</title>
+                    <title>Удаленный Ответ</title>
                     <orderedlist>
                         <listitem>
                             <para>
@@ -388,14 +389,14 @@ Remote System format from the requester.
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        Returns the data to the requester.
+                                        Возвращает данные запрашивающей стороне.
                                     </para>
                                 </listitem>
                             </itemizedlist>
                         </listitem>
                         <listitem>
                             <para>
-                                <remark>Data External</remark>
+                                <remark>Внешние данные</remark>
                             </para>
                             <itemizedlist mark="round">
                                 <listitem>
@@ -426,7 +427,7 @@ for incoming response data).
                     </listitem>
                     <listitem>
                         <para>
-                            <remark>Data Internal</remark>
+                            <remark>Внутренние Данные</remark>
                         </para>
                         <itemizedlist mark="round">
                             <listitem>

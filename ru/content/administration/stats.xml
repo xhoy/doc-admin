@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.3 2012-11-26 09:18:36 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
 <section id="statistic-module">
 <title>Stats-модуль</title>
 
@@ -45,7 +45,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Statistics menu options.</emphasis>
+<emphasis>Рисунок: Опции меню Статистика.</emphasis>
 </para>
 
 <para>
@@ -700,9 +700,9 @@ specifications and settings that can be edited:
 </listitem>
 <listitem>
     <para>
-        <emphasis>Definition of the element for the X-axis</emphasis>. It is the
-configuration of the element used for the depiction of the X-axis or, if
-tables are used, of the column name applied to the X-axis (see Figure).
+        <emphasis>Определение элементов для X-axis</emphasis>. Это конфигурация для
+элементов, которые используются для описания X-axis или, если используются
+таблицы, имя столбца применяется для X-axis (см. Рисунок ниже).
     </para>
 
     <para>
@@ -713,7 +713,7 @@ srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure: Definition of the element for the X-axis.</emphasis>
+        <emphasis>Рисунок: Определение элементов для X-axis.</emphasis>
     </para>
 
     <para>
@@ -759,7 +759,7 @@ srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure: Definition of the value series.</emphasis>
+        <emphasis>Рисунок: Определение значений серии.</emphasis>
     </para>
 
     <para>
@@ -866,10 +866,10 @@ srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
 </listitem>
 <listitem>
     <para>
-        <emphasis>Setting restrictions to the report</emphasis>. This is the fourth
-and final step of the configuration (see Figure below). The restrictions
-serve to limit the results to the selected criteria. In many cases, no
-restrictions at all may be set up.
+        <emphasis>Установка ограничений отчета</emphasis>. Это четвертый и последний
+этап конфигурации (см. Рисунок ниже). Ограничения служат для ограничения
+результатов выбранных критериев. В ряде случаев не должно быть никаких
+ограничений.
     </para>
 
     <para>
@@ -880,7 +880,7 @@ srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
     </para>
 
     <para>
-        <emphasis>Figure: Definition of restrictions.</emphasis>
+        <emphasis>Рисунок: Определение ограничений.</emphasis>
     </para>
 
     <para>
@@ -896,10 +896,10 @@ srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
 <title>Импорт</title>
 
 <para>
-The Import user interface (see Figure below) can be accessed by choosing
-from the navigation bar, the link "Statistics", then "Import". Alternately,
-pressing the Import button on the Overview screen achieves the same
-result. "rw" rights to the report are required.
+Для доступа к пользовательскому интерфейсу Импорта (см. Рисунок ниже)
+перейдите по ссылке "Статистика", а затем выберите "Импорт". Альтернативный
+способ - на странице "Обзор" нажать кнопку Импорт, это приведет к тому же
+результату, но для этого действия требуются права для чтения и записи "RW".
 </para>
 
 <para>
@@ -910,7 +910,7 @@ Screenshot" /></screenshot>
 </para>
 
 <para>
-    <emphasis>Figure: The Import user interface.</emphasis>
+    <emphasis>Рисунок: Пользовательский веб-интерфейс для Импорта.</emphasis>
 </para>
 
 <para>
@@ -1135,7 +1135,8 @@ linkend="Framework:Frontend::Agent::ModuleRegistration:Frontend::Module_AgentSta
 </para>
 
 <para>
-As an example, see the command line call in the following script.
+В качестве примера смотрите вызов Сценария из командной сторки, который
+приведен ниже.
 </para>
 
 <para>
@@ -1145,7 +1146,7 @@ bin> perl otrs.GenerateStats.pl -n 10004 -o /output/dir
 </para>
 
 <para>
-    <emphasis>Script: Generating a report from the command line.</emphasis>
+    <emphasis>Сценарий: Создание отчета из командной строки.</emphasis>
 </para>
 
 <para>
@@ -1154,8 +1155,9 @@ csv-формате в директории <filename>/output/dir</filename>.
 </para>
 
 <para>
-The generated report can also be sent as an e-mail. More information can be
-called up with the command in the script below.
+Сгенерированный отчет также быть отправлен по электронной почте. Более
+подробную информацию можно получить выполнив команду из Сценария приведенног
+ниже.
 </para>
 
 <para>
@@ -1165,8 +1167,8 @@ bin> perl otrs.GenerateStats.pl --help
 </para>
 
 <para>
-    <emphasis>Script: Getting information about the otrs.GenerateStats.pl
-file.</emphasis>
+    <emphasis>Сценарий: Получение информации о файле
+otrs.GenerateStats.pl.</emphasis>
 </para>
 
 </section>
