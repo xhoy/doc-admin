@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.12 2012-11-27 03:15:21 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.13 2012-12-06 08:54:11 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -61,7 +61,6 @@ ISBN: 3527703713
             </para>
         </section>
     </section>
-
     <section>
         <title>Implementing the example</title>
         <para>
@@ -374,7 +373,6 @@ ISBN: 3527703713
              Now lets start with the real Process Management stuff. In the next step, we will define
              the individual entities that we need.
         </para>
-
         <section>
             <title>Process (as a container)</title>
             <para>
@@ -426,7 +424,6 @@ ISBN: 3527703713
                 <emphasis>Figure: Add new process.</emphasis>
             </para>
         </section>
-
         <section>
             <title>Activity Dialogs</title>
                 <para>
@@ -627,7 +624,6 @@ ISBN: 3527703713
                     </screen>
                 </para>
         </section>
-
         <section>
             <title>Transitions</title>
                 <para>
@@ -814,6 +810,27 @@ ISBN: 3527703713
                     <listitem>
                         <para>Move process ticket into the "Post office" queue (TA6)</para>
                         <para>To be executed when the transition "Order placed" (T5) applied.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Close ticket successfully (TA7)</para>
+                        <para>To be executed when:</para>
+                        <itemizedlist>
+                            <listitem><para>
+                                The transition "Shipment received" (T6) applied
+                            </para></listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Close ticket unsuccessfully (TA8)</para>
+                        <para>To be executed when:</para>
+                        <itemizedlist>
+                            <listitem><para>
+                                The transition "Approval denied" (T2) applied
+                            </para></listitem>
+                            <listitem><para>
+                                The transition "Order denied" (T4) applied
+                            </para></listitem>
+                        </itemizedlist>
                     </listitem>
                 </itemizedlist>
                 </para>
