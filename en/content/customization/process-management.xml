@@ -1,17 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.14 2012-12-07 12:56:44 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.15 2012-12-07 16:19:24 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
-    <!--  TODO CR2 Review -->
     <section>
         <title>Introduction</title>
         <para>
-            This feature of OTRS allows you to model processes (workflows) in the ticket system.
-            The basic idea is to be able to define reoccurring processes, and to delegate work items
-            to different people, as well as leading the progress of a process in different directions
-            based on certain criteria.
+            This feature of OTRS allows you to model processes (work-flows) in the ticket system.
+            The basic idea is to be able to define recurring processes, and to delegate work items
+            to different people, as well as leading the progress of a process in different
+            directions based on certain criteria.
         </para>
     </section>
     <section>
@@ -23,8 +22,8 @@
         <section>
             <title>Recording the demand</title>
             <para>
-                Before an order will be placed, the demand for literature by an employee will be recorded.
-                The following book is needed in our example:
+                Before an order will be placed, the demand for literature by an employee will be
+                recorded. The following book is needed in our example:
             </para>
             <para>
                 <screen>
@@ -38,43 +37,61 @@ ISBN: 3527703713
         <section>
             <title>Approval by superior</title>
             <para>
-                The head of the employee's department needs to decide on the order.
-                In case of a denial, a reason should be recorded by the superior.
-                In case of approval, the order is passed to the purchasing department.
+                The head of the employee's department needs to decide on the order. In case of a
+                denial, a reason should be recorded by the superior. In case of approval, the order
+                is passed to the purchasing department.
             </para>
         </section>
 
         <section>
             <title>Processing by purchasing department</title>
             <para>
-                Purchasing now has the task to find out where the book can be ordered with the best conditions.
-                If it is out of stock, this can be recorded in the order.
-                In case of a successful order purchasing will record the supplier, the price and the delivery date.
+                Purchasing now has the task to find out where the book can be ordered with the best
+                conditions. If it is out of stock, this can be recorded in the order. In case of a
+                successful order purchasing will record the supplier, the price and the delivery
+                date.
             </para>
         </section>
 
         <section>
-            <title>Processing by the mailroom</title>
+            <title>Processing by the mail room</title>
             <para>
-                The shipment will arrive at the company. The incoming goods department checks the shipment and records the date of receipt.
-                Now the employee will be informed that their order has arrived and is ready to be collected.
+                The shipment will arrive at the company. The incoming goods department checks the
+                shipment and records the date of receipt. Now the employee will be informed that
+                their order has arrived and is ready to be collected.
             </para>
         </section>
     </section>
     <section>
         <title>Implementing the example</title>
         <para>
-            If we assume that a ticket acts in this workflow like an accompanying document that can receive change notes,
-            we already have a clear picture of process tickets.
+            If we assume that a ticket acts in this work-flow like an accompanying document that can
+            receive change notes, we already have a clear picture of process tickets.
         </para>
         <para>
-            From the analysis of the example process we can identify the following neccessary items:
+            From the analysis of the example process we can identify the following necessary items:
         </para>
         <para>
             <itemizedlist>
-                <listitem><para>Possiblities to record data, let's call them <emphasis>Activity Dialogs</emphasis>,</para></listitem>
-                <listitem><para>checks which can react to changed data automatically, let's call them <emphasis>Transitions</emphasis>,</para></listitem>
-                <listitem><para>changes which can be applied to a process ticket after successful transitions of a process ticket, let's call them <emphasis>Transition Actions</emphasis>.</para></listitem>
+                <listitem>
+                    <para>
+                        Possibilities to record data, let's call them
+                        <emphasis>Activity Dialogs</emphasis>,
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Checks which can react to changed data automatically, let's call them
+                        <emphasis>Transitions</emphasis>,
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        changes which can be applied to a process ticket after successful
+                        transitions of a process ticket, let's call them
+                        <emphasis>Transition Actions</emphasis>.
+                    </para>
+                </listitem>
             </itemizedlist>
         </para>
         <para>
@@ -85,15 +102,16 @@ ISBN: 3527703713
                 <listitem>
                     <para>
                         A possibility to offer more than just one Activity Dialog to be available.
-                        In our example this is needed when the superior must have the choice between "Approve" and "Deny".
-                        Let's call this <emphasis>Activity</emphasis>.
-                </para></listitem>
+                        In our example this is needed when the superior must have the choice between
+                        "Approve" and "Deny". Let's call this <emphasis>Activity</emphasis>.
+                    </para>
+                </listitem>
             </itemizedlist>
         </para>
         <para>
             Now, with Activities, Activity Dialogs, Transitions and Transition Actions we have the
             necessary tools to model the individual steps of our example. What's still missing is an
-            area where for each workflow the order of the steps can be specified. Let's call this
+            area where for each work-flow the order of the steps can be specified. Let's call this
             <emphasis>Process</emphasis>. To be able to refer to all these entities later, we will
             assign to them an abbreviation in parentheses. This abbreviation is based on an internal
             identification mechanism called EntityIDs.
@@ -409,7 +427,6 @@ ISBN: 3527703713
             <para>
                 <emphasis>Figure: Create New Process button.</emphasis>
             </para>
-
             <para>
                 Fill the process information,set Process Name and the Description, we will leave the
                 process State as "inactive", until we finish all the tasks. Save the process.
@@ -753,7 +770,8 @@ ISBN: 3527703713
                     <emphasis>Figure: Add new Transition Action.</emphasis>
                 </para>
                 <para>
-                    After all parameters and values are set click on the submit button to save the changes.
+                    After all parameters and values are set click on the submit button to save the
+                    changes.
                 </para>
                 <para>
                     Create the following Transitions Actions:
@@ -912,8 +930,6 @@ ISBN: 3527703713
                 another.
             </para>
         </section>
-        <!--  TOTO CR2 END -->
-        <!--  TODO CR1 The following Lines Needs to be changed to the new format... add Screens -->
         <section>
             <title>Book ordering process Path</title>
             <para>
@@ -1259,9 +1275,17 @@ ISBN: 3527703713
             <para>
                 The complete Path for the book ordering Process will then look like this:
             </para>
-            </section>
+            <para>
+                <screenshot>
+                    <screeninfo>Book ordering complete process path</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-edit-process.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Book ordering complete process path.</emphasis>
+            </para>
+        </section>
     </section>
-    <!--  TODO CR1 END -->
 
 <!--
     <section>
