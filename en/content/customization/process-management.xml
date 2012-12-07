@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.13 2012-12-06 08:54:11 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.14 2012-12-07 12:56:44 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -390,7 +390,7 @@ ISBN: 3527703713
             <para>
                 <screenshot>
                     <screeninfo>The OTRS Admin screen - System Administration</screeninfo>
-                    <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-admin-sysadmin.png"></graphic>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-admin-sysadmin.png"></graphic>
                 </screenshot>
             </para>
             <para>
@@ -403,7 +403,7 @@ ISBN: 3527703713
             <para>
                 <screenshot>
                     <screeninfo>Create New Process button</screeninfo>
-                    <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-newprocess-button.png"></graphic>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-newprocess-button.png"></graphic>
                 </screenshot>
             </para>
             <para>
@@ -417,7 +417,7 @@ ISBN: 3527703713
             <para>
                 <screenshot>
                     <screeninfo>Add new process</screeninfo>
-                    <graphic srccredit="process-management - screenshot" scale='70' fileref="screenshots/pm-newprocess-info.png"></graphic>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-newprocess-info.png"></graphic>
                 </screenshot>
             </para>
             <para>
@@ -435,7 +435,7 @@ ISBN: 3527703713
                 <para>
                     <screenshot>
                         <screeninfo>Create New Activity Dialog button</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-activitydialog.png"></graphic>
+                        <graphic srccredit="process-management - scale='40'screenshot" scale='40' fileref="screenshots/pm-accordion-new-activitydialog.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -453,7 +453,7 @@ ISBN: 3527703713
                 <para>
                     <screenshot>
                         <screeninfo>Add new Activity Dialog</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-activitydialog.png"></graphic>
+                        <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-edit-activitydialog.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -468,7 +468,7 @@ ISBN: 3527703713
                 <para>
                     <screenshot>
                         <screeninfo>Edit field details (Article)</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-field-article.png"></graphic>
+                        <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-edit-field-article.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -515,7 +515,7 @@ ISBN: 3527703713
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Order rejected" (AD4)</para>
+                        <para>"Order denied" (AD4)</para>
                         <para>
                             An activity dialog which makes it possible for purchasing to reject an
                             impossible order (book out of stock). Here we also need a comment field
@@ -532,7 +532,7 @@ ISBN: 3527703713
                     <listitem>
                         <para>"Shipment received" (AD6)</para>
                         <para>
-                            An activity for the mailroom with a field for the Date of receipt
+                            An activity for the mail room with a field for the Date of receipt
                             and the Status field with the option "Shipment received".
                         </para>
                     </listitem>
@@ -633,7 +633,7 @@ ISBN: 3527703713
                 <para>
                     <screenshot>
                         <screeninfo>Create New Transition button</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-transition.png"></graphic>
+                        <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-accordion-new-transition.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -648,7 +648,7 @@ ISBN: 3527703713
                 <para>
                     <screenshot>
                         <screeninfo>Add new Transition</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-transtion.png"></graphic>
+                        <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-edit-transition.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -704,15 +704,15 @@ ISBN: 3527703713
                 </para>
         </section>
         <section>
-            <title>TransitionActions</title>
+            <title>Transition Actions</title>
                 <para>
-                    Click on "Transition Actions " in the "Available Process Elements", then click
-                    on "Create New TransitionAction".
+                    Click on "Transition Actions" in the "Available Process Elements", then click
+                    on "Create New Transition Action".
                 </para>
                 <para>
                     <screenshot>
                         <screeninfo>Create New Transition Action button</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-transitionaction.png"></graphic>
+                        <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-accordion-new-transitionaction.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -746,7 +746,7 @@ ISBN: 3527703713
                 <para>
                     <screenshot>
                         <screeninfo>Add new Transition Action</screeninfo>
-                        <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-edit-transtionaction.png"></graphic>
+                        <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-edit-transitionaction.png"></graphic>
                     </screenshot>
                 </para>
                 <para>
@@ -761,20 +761,20 @@ ISBN: 3527703713
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Move the process ticket into the "Superior" queue (TA1)</para>
+                        <para>"Move the process ticket into the 'Superior' queue" (TA1)</para>
                         <para>
                             This action is supposed to be executed when the Transition "Approval"
                             (T1) applied.
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Change ticket responsible to "Superior" (TA2)</para>
+                        <para>"Change ticket responsible to 'Superior'" (TA2)</para>
                         <para>
                             To be executed when the Transition "Approval" (T1) applied.
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Move the process ticket into the "Employee" queue (TA3)</para>
+                        <para>"Move the process ticket into the 'Employee' queue"" (TA3)</para>
                         <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
@@ -789,7 +789,7 @@ ISBN: 3527703713
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Change ticket responsible to "Employee" (TA4)</para>
+                        <para>"Change ticket responsible to 'Employee'" (TA4)</para>
                         <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
@@ -804,15 +804,15 @@ ISBN: 3527703713
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Move process ticket into the "Purchasing" queue (TA5)</para>
+                        <para>"Move process ticket into the 'Purchasing' queue" (TA5)</para>
                         <para>To be executed when the transition "Approved" (T3) applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Move process ticket into the "Post office" queue (TA6)</para>
+                        <para>"Move process ticket into the 'Post office' queue" (TA6)</para>
                         <para>To be executed when the transition "Order placed" (T5) applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Close ticket successfully (TA7)</para>
+                        <para>"Close ticket successfully" (TA7)</para>
                         <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
@@ -821,7 +821,7 @@ ISBN: 3527703713
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Close ticket unsuccessfully (TA8)</para>
+                        <para>"Close ticket unsuccessfully" (TA8)</para>
                         <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
@@ -853,7 +853,7 @@ ISBN: 3527703713
             <para>
                 <screenshot>
                     <screeninfo>Create New Activity button</screeninfo>
-                    <graphic srccredit="process-management - screenshot" fileref="screenshots/pm-accordion-new-activity.png"></graphic>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-accordion-new-activity.png"></graphic>
                 </screenshot>
             </para>
             <para>
@@ -876,29 +876,29 @@ ISBN: 3527703713
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Recording the demand (A1)</para>
+                        <para>"Recording the demand" (A1)</para>
                         <para>Contains the Activity Dialog "Recording the demand" (AD1)</para>
                     </listitem>
                     <listitem>
-                        <para>Approval (A2)</para>
+                        <para>"Approval" (A2)</para>
                         <para>
                             Contains the Activity Dialogs "Approval denied" (AD2) as well as
                             "Approved" (AD3)
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Order (A3)</para>
+                        <para>"Order" (A3)</para>
                         <para>
                             Contains the Activity Dialogs "Order rejected" (AD4) as well as
                             "Order placed" (AD5)
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Incoming (A4)</para>
+                        <para>"Incoming" (A4)</para>
                         <para>Contains the Activity Dialog "Shipment received" (AD6)</para>
                     </listitem>
                     <listitem>
-                        <para>Process complete (A5):
+                        <para>"Process complete" (A5):
                             This is an Activity without possible ActivityDialogs.
                             It will be set after "Approval denied", "Order denied" or
                             "Shipment received" and represents the end of the process.
@@ -915,115 +915,214 @@ ISBN: 3527703713
         <!--  TOTO CR2 END -->
         <!--  TODO CR1 The following Lines Needs to be changed to the new format... add Screens -->
         <section>
-            <title>Book ordering Process</title>
+            <title>Book ordering process Path</title>
             <para>
-                Let us conclude our example with the last missing piece in the puzzle, the Process.
-                In our case this is the whole ordering workflow. Other processes could be office supply ordering
-                or completely different processes.
+                Let us conclude our example with the last missing piece in the puzzle, the Process
+                as the a flow describer. In our case this is the whole ordering work-flow. Other
+                processes could be office supply ordering or completely different processes.
             </para>
-
             <para>
-                The process has a starting point which consists of the start Activity and the start Activity Dialog.
-                For any new book order, the start Activity Dialog is the first screen that is displayed.
-                If this is completed and saved, the Process ticket will be created and can follow the configured
-                workflow.
+                The process has a starting point which consists of the start Activity and the start
+                Activity Dialog. For any new book order, the start Activity Dialog (first Activity
+                Dialog for the first Activity) is the first screen that is displayed. If this is
+                completed and saved, the Process ticket will be created and can follow the
+                configured work-flow.
             </para>
-
             <para>
-                The process also contains the directions for how the process ticket can move through the Process. Let's call this the
-                "Path". It consists of the start Activity, one or more Transitions (possibly with Transition Actions),
-                and other Activities.
+                The process also contains the directions for how the process ticket can move
+                through the Process. Let's call this the "Path". It consists of the start Activity,
+                one or more Transitions (possibly with Transition Actions), and other Activities.
+            </para>
+            <para>
+                Assuming that the Activities has already assigned their Activity Dialogs drag an
+                Activity from the accordion (in the left part of the screen) and drop it into the
+                canvas area (below process information). Notice that an arrow from the process start
+                (green circle) to the  Activity is placed automatically. (This is the first Activity
+                and its first Activity Dialog is the first screen that will be shown when the
+                process starts).
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Drag first Activity into the canvas</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-canvas-drag-activity.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Drag first Activity into the canvas.</emphasis>
+            </para>
+            <para>
+                Next, drag another Activity into the canvas too. now we will have two Activities in
+                the canvas the first one is connected to the start point and the second has no
+                connections, you can hover the mouse over each activity to reveal their own Activity
+                Dialogs.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Drag second Activity into the canvas</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-canvas-drag-activity2.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Drag second Activity into the canvas.</emphasis>
+            </para>
+            <para>
+                Then let's create the "Path" (connection) between this two Activities, for this we
+                will use the Transitions, Click on Transitions in the accordion drag a  Transition
+                and drop it inside the first Activity, notice that the Activity change its color
+                indicating that the Transition is attached, as soon as the Transition is dropped
+                the end point of the Transition arrow will be placed next to the process start
+                point. Drag the Transition arrow end point and drop it inside the other Activity to
+                create the connection between the Activities.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Drag a Transition into the canvas</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-canvas-drag-transition.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Drag a Transition into the canvas.</emphasis>
+            </para>
+            <para>
+                Now that the "Path" between the Actions is defined, then we need to assign the
+                Transition Actions to the Transition, double click the Transition label (in the
+                canvas), this will open a new popup window.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Connect Activities using Transitions</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-canvas-drag-transition2.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Connect Activities using Transitions.</emphasis>
+            </para>
+            <para>
+                Drag the needed Transition Actions from Available Transition Actions pool
+                and drop them into the Assigned Transition Actions pool and click on submit button.
+            </para>
+            <para>
+                <screenshot>
+                    <screeninfo>Assign Transition Actions</screeninfo>
+                    <graphic srccredit="process-management - screenshot" scale='40' fileref="screenshots/pm-edit-path.png"></graphic>
+                </screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Assign Transition Actions.</emphasis>
+            </para>
+            <para>
+                Then back in the main process edit screen click on save button below the canvas to
+                save all other changes.
+            </para>
+            <para>
+                Complete the "path"" adding the following Activities, Transitions and Transition
+                Actions:
             </para>
             <para>Recording the demand until "Approval"</para>
             <para>
-            <itemizedlist>
-                <listitem>
-                    <para>Starting point: Activity A1 (Recording the demand)</para>
-                </listitem>
-                <listitem>
-                    <para>Possible Transition: T1 (Approval)</para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>If the condition of this activity is fulfilled, the ticket will move to Activity A2 (Approval)</para>
-                        </listitem>
-                        <listitem>
-                            <para>Additionally, the following TransitionActions are executed:</para>
-                            <itemizedlist>
-                                <listitem>
-                                    <para>TA1 (Moving the ticket into the "Superior" Queue)</para>
-                                </listitem>
-                                <listitem>
-                                    <para>TA2 (Set ticket responsible to "Superior")</para>
-                                </listitem>
-                            </itemizedlist>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-            </itemizedlist>
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting point: Activity: Recording the demand (A1)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Possible Transition: Approval (T1)</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    If the condition of this activity is fulfilled, the ticket will
+                                    move to Activity: Approval (A2)
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    Additionally, the following TransitionActions are executed:
+                                </para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>
+                                            "Moving the ticket into the 'Superior' Queue" (TA1)
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>"Set ticket responsible to 'Superior'" (TA2)</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
             </para>
             <para>
-                That's the first step in the path of the book ordering process. It looks like this (slightly simplified):
-            </para>
-            <para>
-                <screen>
-                'A1' => {
-                    'T1' => {
-                        ActivityEntityID => 'A2',
-                        TransitionAction => [ 'TA1', 'TA2',],
-                    },
-                },
-                </screen>
-            </para>
-            <para>
-                Action 'A1' is a defined state of the process ticket, where there is the possibility for the Transition 'T1'.
-                If this applies, the ticket will move to the next Activity 'A2', and the TransitionActions 'TA1' and 'TA2' are executed.
-                In Activity 'A2', the Activity Dialogs 'AD2' (Approval denied) and 'AD3' (Approved) are available.
+                The  Activity: "Recording the demand" (A1) is a defined step of the process ticket,
+                where there is the possibility for the Transition: "Approval" (T1). If this applies,
+                the ticket will move to the next Activity: "Approval" (A2), and the Transition
+                Actions: "Moving the ticket into the 'Superior' Queue" (TA1) and "Set ticket
+                responsible to 'Superior'" (TA2) are executed. In the Activity: "Approval" (A2),
+                the Activity Dialogs: "Approval denied" (AD2) and "Approved" (AD3) are available.
             </para>
             <para>Approval</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Starting Point: Activity A2 (Approval)</para>
+                        <para>Starting Point: Activity "Approval" (A2)</para>
                     </listitem>
                     <listitem>
                         <para>Possible Transitions:</para>
                             <itemizedlist>
                                 <listitem>
-                                    <para>T2 (Approval denied)</para>
+                                    <para>"Approval denied" (T2)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
                                             If this matches, the process ticket will move to
-                                            Activity A5 (Process complete).
+                                            Activity:"Process complete" (A5).
                                         </para>
                                         </listitem>
                                         <listitem>
-                                        <para>Additionally, the following TransitionActions are executed:</para>
+                                        <para>
+                                            Additionally, the following Transition Actions are
+                                            executed:
+                                        </para>
                                         <itemizedlist>
                                         <listitem>
-                                            <para>TA3 (move process ticket to the "Employee" Queue)</para>
+                                            <para>
+                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                            </para>
                                         </listitem>
                                         <listitem>
-                                            <para>TA4 (set ticket responsible to "Employee")</para>
+                                            <para>
+                                                "Set ticket responsible to 'Employee'" (TA4)
+                                             </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Close ticket unsuccessfully" (TA8)
+                                             </para>
                                         </listitem>
                                         </itemizedlist>
                                         </listitem>
                                     </itemizedlist>
                                 </listitem>
                                 <listitem>
-                                    <para>T3 (Approved)</para>
+                                    <para>"Approved" (T3)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
                                             If this matches, the process ticket will move to
-                                            Activity A3 (Order).
+                                            Activity: "Order" (A3).
                                         </para>
                                         </listitem>
                                         <listitem>
-                                            <para>Additionally, the following TransitionAction is executed:</para>
+                                            <para>
+                                                Additionally, the following Transition Action is
+                                                executed:
+                                            </para>
                                             <itemizedlist>
                                             <listitem>
-                                                <para>TA5 (move process ticket to "Purchasing" Queue)</para>
+                                                <para>
+                                                    "Move process ticket to 'Purchasing' Queue"
+                                                    (TA5)
+                                                </para>
                                             </listitem>
                                             </itemizedlist>
                                         </listitem>
@@ -1033,89 +1132,133 @@ ISBN: 3527703713
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>Simplified representation:</para>
             <para>
-                <screen>
-            'A2' => {
-                'T2' => {
-                    ActivityEntityID => 'A5',
-                    TransitionAction => [ 'TA3', 'TA4'],
-                },
-                'T3' => {
-                ActivityEntityID => 'A3',
-                    TransitionAction => [ 'TA5'],
-                    }
-            },
-                </screen>
+                We can see that from the current Activity, which defines a step of the process
+                ticket, there are one or more possibilities for Transition which have exactly one
+                target Activity (and possibly one or more Transition Actions).
             </para>
-            <para>The path for these two steps together looks like this:</para>
+            <para>Order</para>
             <para>
-                <screen>
-            Path => {
-                'A1' => {
-                    'T1' => {
-                        ActivityEntityID => 'A2',
-                        TransitionAction => [ 'TA1', 'TA2'],
-                    },
-                },
-                'A2' => {
-                    'T2' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                    'T3' => {
-                        ActivityEntityID => 'A3',
-                        TransitionAction => [ 'TA5'],
-                    },
-                },
-            },
-                </screen>
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting Point: Activity "Order" (A3)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Possible Transitions:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>"Order denied" (T4)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to
+                                            Activity:"Process complete" (A5).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                        <para>
+                                            Additionally, the following Transition Actions are
+                                            executed:
+                                        </para>
+                                        <itemizedlist>
+                                        <listitem>
+                                            <para>
+                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                            </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Set ticket responsible to 'Employee'" (TA4)
+                                             </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Close ticket unsuccessfully" (TA8)
+                                             </para>
+                                        </listitem>
+                                        </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para>"Order placed" (T5)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to
+                                            Activity: "Incoming" (A5).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                Additionally, the following Transition Action is
+                                                executed:
+                                            </para>
+                                            <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                    "Move process ticket to 'Post office' Queue"
+                                                    (TA6)
+                                                </para>
+                                            </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                    </listitem>
+                </itemizedlist>
             </para>
+            <para>Incoming</para>
             <para>
-                We can see that from the current Activity, which defines a state of the process ticket, there are one
-                or more possibilities for Transition which have exactly one target Activity (and possibly one or more TransitionActions).
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting Point: Activity "Incoming" (A4)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Possible Transitions:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>"Shipment received" (T6)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to
+                                            Activity:"Process complete" (A5).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                        <para>
+                                            Additionally, the following Transition Actions are
+                                            executed:
+                                        </para>
+                                        <itemizedlist>
+                                        <listitem>
+                                            <para>
+                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                            </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Set ticket responsible to 'Employee'" (TA4)
+                                             </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Close ticket successfully" (TA7)
+                                             </para>
+                                        </listitem>
+                                        </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                    </listitem>
+                </itemizedlist>
             </para>
             <para>
                 The complete Path for the book ordering Process will then look like this:
             </para>
-            <para>
-                    <screen>
-            Path => {
-                'A1' => {
-                    'T1' => {
-                        ActivityEntityID => 'A2',
-                        TransitionAction => [ 'TA1', 'TA2'],
-                    },
-                },
-                'A2' => {
-                    'T2' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                    'T3' => {
-                        ActivityEntityID => 'A3',
-                        TransitionAction => [ 'TA5'],
-                    },
-                },
-                'A3' => {
-                    'T4' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                    'T5' => {
-                        ActivityEntityID => 'A4',
-                        TransitionAction => [ 'TA6'],
-                    },
-                }
-                'A4' => {
-                    'T6' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                },
-            },
-                    </screen>
-                </para>
             </section>
     </section>
     <!--  TODO CR1 END -->
