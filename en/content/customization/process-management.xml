@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.16 2012-12-10 10:00:13 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.17 2012-12-10 14:21:28 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -921,7 +921,7 @@ ISBN: 3527703713
                     </listitem>
                     <listitem>
                         <para>"Process complete" (A5):
-                            This is an Activity without possible ActivityDialogs.
+                            This is an Activity without possible Activity Dialogs.
                             It will be set after "Approval denied", "Order denied" or
                             "Shipment received" and represents the end of the process.
                         </para>
@@ -1287,6 +1287,17 @@ ISBN: 3527703713
             </para>
             <para>
                 <emphasis>Figure: Book ordering complete process path.</emphasis>
+            </para>
+            <para>
+                After you finish the process path please click on "Save" button in the lower part of
+                the canvas and then click on "Synchronize All Processes" button. This will gather
+                all processes information form the Database and create a cache file (in Perl
+                language). This cache file is acctually the processes configuration that the system
+                will use to create or use process tickets.
+            </para>
+            <para>
+                Any change that is made of the process (in the GUI) will require to re-synchronize
+                the cache file in order to get the change reflected in the system.
             </para>
             <para>
                 It is also possible to import the hole process from a YAML file, but it is still
@@ -1732,23 +1743,25 @@ Transitions:
         </section>
     </section>
 
-<!--
     <section>
         <title>Process configuration reference</title>
-
-
 
         <section>
             <title>Process</title>
             <para>
-                A Process models the path of a workflow/process. The waypoints on
-                this path can be Activities or Tranistions, we'll talk about these later.
+                A Process models the path of a workflow/process. The waypoints on this path can be
+                Activities or Tranistions, we'll talk about these later.
             </para>
             <section>
                 <title>Process configuration</title>
                 <para>
-                    The Process configuration can only be done in the file <filename>Kernel/Config.pm</filename> at this point.
-                    Let's see an example process configuration:
+                    The Process configuration can be done in the file
+                    <filename>Kernel/Config.pm</filename> but it is strongly recommended to create
+                    new files like <filename>Kernel/Config/Files/MyProcess.pm</filename>. notice
+                    that the GUI generates the file
+                    <filename>Kernel/Config/File/ZZZProcessManagement</filename> please avoid to use
+                    that filename, otherwise it will be overwritten when you sync processes.
+                    Let's see an example process configuration (from process cache file):
                 </para>
                 <para>
                     <screen>
@@ -1800,7 +1813,8 @@ $Self->{'Process'}   =
             <section>
                 <title>Name</title>
                 <para>
-                    The name of the process, this can be selected by the agent when creating a new process ticket.
+                    The name of the process, this can be selected by the agent when creating a new
+                    process ticket.
                 </para>
             </section>
             <section>
@@ -1839,13 +1853,14 @@ $Self->{'Process'}   =
                         </listitem>
                         <listitem>
                             <para>
-                                'FadeAway' are processes which cannot be selected any more for new tickets,
-                                but existing tickets still can use the process.
+                                'FadeAway' are processes which cannot be selected any more for new
+                                tickets, but existing tickets still can use the process.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                'Inactive' processes are deactivated and cannot be used for new or existing tickets.
+                                'Inactive' processes are deactivated and cannot be used for new or
+                                existing tickets.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -1854,26 +1869,30 @@ $Self->{'Process'}   =
             <section>
                 <title>StartActivity</title>
                 <para>
-                    When creating a new process ticket, a StartActivity must be defined. As soon as the ticket is created,
-                    this Activity will be set and used as the base for the first transition checks.
+                    When creating a new process ticket, a StartActivity must be defined. As soon as
+                    the ticket is created, this Activity will be set and used as the base for the
+                    first transition checks.
                 </para>
             </section>
             <section>
                 <title>StartActivityDialog</title>
                 <para>
-                    For new process tickets, a StartActivityDialog must be defined. This will be shown when creating
-                    a new process ticket (after the process was selected). At this point, the ticket does not exist yet,
-                    it will be created after submitting the StartActivityDialog.
+                    For new process tickets, a StartActivityDialog must be defined. This will be
+                    shown when creating a new process ticket (after the process was selected). At
+                    this point, the ticket does not exist yet, it will be created after submitting
+                    the StartActivityDialog.
                 </para>
             </section>
             <section>
                 <title>Path</title>
                 <para>
-                    The Path contains the structure of the Activities and the possible Transitions between
-                    them, for the current process. This controls the way that a process ticket can take. Example:
+                    The Path contains the structure of the Activities, and the possible Transitions
+                    between them, for the current process. And also the Transition Actions that
+                    happens when transitioning . This controls the way that a process ticket can
+                    take. Example:
                 </para>
                 <para>
-                <screen>
+                    <screen>
 'A1' => {
     'T1' => {
         ActivityEntityID => 'A2',
@@ -1886,36 +1905,36 @@ $Self->{'Process'}   =
         TransitionAction => ['TA1', 'TA2'],
     },
 },
-                </screen>
+                    </screen>
                 </para>
                 <para>
-                    If a process ticket is in Activity 'A1', it has three possible ways to get to another Activity.
-                    In the Transitions 'T1' to 'T3', conditions are defined, that a process ticket must fulfil to
-                    move (transit) to another Activity.
+                    If a process ticket is in Activity 'A1', it has three possible ways to get to
+                    another Activity. In the Transitions 'T1' to 'T3', conditions are defined, that
+                    a process ticket must fulfill to move (transit) to another Activity.
                 </para>
                 <para>
-                    If in this case all the values of the process ticket and its dynamic fields that are needed for the
-                    Transition 'T2' are correct, the ticket will be moved from Activity 'A1' to 'A3'. After an ActivityDialog
-                    is submitted, or any other change is made to a ticket, it will be checked for possible Transitions from
-                    the current Activity. If multiple Transitions are possible, the first one will be used (based on nummerical
-                    sorting of the TransitionIDs).
+                    If in this case all the values of the process ticket and its dynamic fields that
+                    are needed for the Transition 'T2' are correct, the ticket will be moved from
+                    Activity 'A1' to 'A3'. After an ActivityDialog is submitted, or any other change
+                    is made to a ticket, it will be checked for possible Transitions from the
+                    current Activity. If multiple Transitions are possible, the first one will be
+                    used (based on nummerical sorting of the TransitionIDs).
                 </para>
                 <para>
-                    Additionally, it is possible to assign TransitionActions to Transitions in the Path configuration.
-                    These are modules which are executed after a successful Transition. They have to be specified in array form
-                    as in the example, we'll talk about the details later.
+                    Additionally, it is possible to assign Transition Actions to Transitions in the
+                    Path configuration. These are modules which are executed after a successful
+                    Transition. They have to be specified in array form as in the example, we'll
+                    talk about the details later.
                 </para>
             </section>
         </section>
 
-
-
         <section>
             <title>Activity</title>
             <para>
-                An Activity contains one or more ActivityDialogs and models a 'step' in the process.
-                All ActivityDialogs of the current Activity are displayed in the ticket zoom and can be
-                used until the conditions of a Transition are fulfilled.
+                An Activity contains one or more Activity Dialogs and models a 'step' in the
+                process. All Activity Dialogs of the current Activity are displayed in the ticket
+                zoom and can be used until the conditions of a Transition are fulfilled.
             </para>
             <section>
             <title>Activity configuration</title>
@@ -1985,19 +2004,18 @@ $Self->{'Process::Activity'} =
             <section>
                 <title>ActivityDialog</title>
                 <para>
-                    ActivityDialog contains the list of ActivityDialogs which are available in this Activity.
-                    All ActivityDialogs of the current Activity are displayed in the ticket zoom. Their order is
-                    set by the order in the configuration, here 'AD5' is shown before 'AD6' and 'AD1'.
+                    Activity Dialog contains the list of Activity Dialogs which are available in
+                    this Activity. All Activity Dialogs of the current Activity are displayed in
+                    the ticket zoom. Their order is set by the order in the configuration, here
+                    'AD5' is shown before 'AD6' and 'AD1'.
                 </para>
             </section>
         </section>
 
-
-
         <section>
             <title>ActivityDialog</title>
             <para>
-                An ActivityDialog is a particular screen and can be used in different Activities.
+                An Activity Dialog is a particular screen and can be used in different Activities.
             </para>
             <section>
                 <title>ActivityDialog configuration</title>
@@ -2071,7 +2089,7 @@ $Self->{'Process::ActivityDialog'} = {
             <section>
                 <title>Name</title>
                 <para>
-                    Name of the ActivityDialog.
+                    Name of the Activity Dialog.
                 </para>
             </section>
             <section>
@@ -2083,7 +2101,7 @@ $Self->{'Process::ActivityDialog'} = {
             <section>
                 <title>CreateBy</title>
                 <para>
-                    UID of the user who created this ActivityDialog.
+                    UID of the user who created this Activity Dialog.
                 </para>
             </section>
             <section>
@@ -2095,13 +2113,13 @@ $Self->{'Process::ActivityDialog'} = {
             <section>
                 <title>ChangeBy</title>
                 <para>
-                    UID of the last user who changed this ActivityDialog.
+                    UID of the last user who changed this Activity Dialog.
                 </para>
             </section>
             <section>
                 <title>Fields</title>
                 <para>
-                    Contains all fields which can be displayed in this ActivityDialog.
+                    Contains all fields which can be displayed in this Activity Dialog.
                     The following fields can currently be used:
                 </para>
                 <para>
@@ -2147,10 +2165,11 @@ StateID => {
                     </screen>
                 </para>
                 <para>
-                    The field "Article" is a special case. If it is present in a "Fields" configuration, the ActivityDialog
-                    will contain a complete Richtext editor with subject field and attachment handling.
-                    The entered text will then be added to the ticket as an article and sent by email.
-                    Let's see an example Article field configuration:
+                    The field "Article" is a special case. If it is present in a "Fields"
+                    configuration, the Activity Dialog will contain a complete Richtext editor with
+                    subject field and attachment handling. The entered text will then be added to
+                    the ticket as an article and sent by email. Let's see an example Article field
+                    configuration:
                     <screen>
 Article => {
     DescriptionShort => 'Please insert your comment here.',
@@ -2176,8 +2195,8 @@ Article => {
                 <section>
                     <title>DescriptionLong</title>
                     <para>
-                        Optional longer field description that is shown then the mouse is over the field,
-                        for example advice on how to fill out the field.
+                        Optional longer field description that is shown then the mouse is over the
+                        field, for example advice on how to fill out the field.
                     </para>
                 </section>
                 <section>
@@ -2185,12 +2204,12 @@ Article => {
                     <para>
                         Controls if the field is shown and/or mandatory.
                         Possible values:
-
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    '0': field is invisible. This can be helpful if field values should automatically be set.
-                                    The configured DefaultValue will be stored in this case.
+                                    '0': field is invisible. This can be helpful if field values
+                                    should automatically be set. The configured DefaultValue will be
+                                    stored in this case.
                                 </para>
                             </listitem>
                             <listitem>
@@ -2200,32 +2219,34 @@ Article => {
                             </listitem>
                             <listitem>
                                 <para>
-                                    '2': field is visible and mandatory.
-                                    The following fields can only be invisible or mandatory:
+                                    '2': field is visible and mandatory. The following fields can
+                                    only be invisible or mandatory:
                                     <screen>
     QueueID
-    Qeue
-    StateID
+    Queue
     State
+    StateID
     Lock
     LockID
     Priority
-    Priority
+    PriorityID
                                 </screen>
                                 </para>
                             </listitem>
                         </itemizedlist>
                     </para>
                     <para>
-                        If fields are configured as optional, and no value is submitted by the user, the DefaultValue
-                        will be saved when the ActivityDialog is submitted by the user.
+                        If fields are configured as optional, and no value is submitted by the user,
+                        the Default Value will be saved when the Activity Dialog is submitted by the
+                        user.
                     </para>
                 </section>
                 <section>
                     <title>DefaultValue</title>
                     <para>
-                        For fields with 'ID' (like QueueID, OwnerID), this refers to the database ID of the value.
-                        For other fields without 'ID' (like Queue, Owner), the DefaultValue must contain the value itself. Example:
+                        For fields with 'ID' (like QueueID, OwnerID), this refers to the database ID
+                        of the value. For other fields without 'ID' (like Queue, Owner), the
+                        DefaultValue must contain the value itself. Example:
                     </para>
                     <para>
                         <screen>
@@ -2250,7 +2271,8 @@ Queue => {
             <section>
                 <title>SubmitAdviceText</title>
                 <para>
-                    Optional text to be shown right above the submit botton for additional help or advice text.
+                    Optional text to be shown right above the submit button for additional help or
+                    advice text.
                 </para>
             </section>
             <section>
@@ -2260,8 +2282,6 @@ Queue => {
                 </para>
             </section>
         </section>
-
-
 
         <section>
             <title>Transition</title>
@@ -2345,7 +2365,8 @@ $Self->{'Process::Transition'} = {
             <section>
                 <title>Condition</title>
                 <para>
-                    Contains all conditions that are neccessary for this Transition to take effect. Example:
+                    Contains all conditions that are neccessary for this Transition to take effect.
+                    Example:
                 </para>
                 <para>
                     <screen>
@@ -2381,13 +2402,13 @@ Condition => {
                 <section>
                     <title>Type (Condition)</title>
                     <para>
-                        Specifies the way the different condition elements are connected to each other.
-                        Possible values:
+                        Specifies the way the different condition elements are connected to each
+                        other. Possible values:
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    'and': This is the default. All conditions must be met for the transition
-                                    to take effect.
+                                    'and': This is the default. All conditions must be met for the
+                                    transition to take effect.
                                 </para>
                             </listitem>
                             <listitem>
@@ -2406,20 +2427,20 @@ Condition => {
                 <section>
                     <title>Cond1</title>
                     <para>
-                        This is the name of an example condition. It can be freely choosen. Conditions are evaluated
-                        in sorted order.
+                        This is the name of an example condition. It can be freely chosen.
+                        Conditions are evaluated in sorted order.
                     </para>
                 </section>
                 <section>
                     <title>Type (Cond)</title>
                     <para>
-                        Specifies the way how the individual field tests of this condition are connected to each other.
-                        Possible values:
-
+                        Specifies the way how the individual field tests of this condition are
+                        connected to each other. Possible values:
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    'and': This is the default. All field tests must match for this condition to match.
+                                    'and': This is the default. All field tests must match for this
+                                    condition to match.
                                 </para>
                             </listitem>
                             <listitem>
@@ -2438,7 +2459,8 @@ Condition => {
                 <section>
                     <title>Fields</title>
                     <para>
-                        Specifies the particular fields whose values should be tested. From our example:
+                        Specifies the particular fields whose values should be tested. From our
+                        example:
                         <screen>
 Fields => {
     StateID => {
@@ -2481,8 +2503,9 @@ DynamicField_$FieldName # for all DynamicFields
                         </screen>
                     </para>
                     <para>
-                        When testing a field with 'ID' (like SLAID), the database ID of the field will be used for testing,
-                        for other fields (like SLA) the actual value is used for testing.
+                        When testing a field with 'ID' (like SLAID), the database ID of the field
+                        will be used for testing, for other fields (like SLA) the actual value is
+                        used for testing.
                     </para>
                 </section>
                 <section>
@@ -2493,33 +2516,35 @@ DynamicField_$FieldName # for all DynamicFields
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    'String': Compares the field value with the string specified in 'Match'. Matches
-                                    if they are exactly the same.
+                                    'String': Compares the field value with the string specified in
+                                    'Match'. Matches if they are exactly the same.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    'Hash': Compares the field value (hash) with the hash specified in 'Match'.
-                                    All hash values must be the same.
+                                    'Hash': Compares the field value (hash) with the hash specified
+                                    in 'Match'. All hash values must be the same.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    'Array': Compares the field value (array) with the array specified in 'Match'.
-                                    Both lists must be the same.
+                                    'Array': Compares the field value (array) with the array
+                                    specified in 'Match'. Both lists must be the same.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    'Regex': The field value can be tested with a regular expression. It is important that
-                                    'Match' contains qr{}xms as a base condition. Between the braces the actual regular expression
-                                    can be noted.
+                                    'Regex': The field value can be tested with a regular
+                                    expression. It is important that 'Match' contains
+                                    <emphasis>qr{}xms</emphasis> as a base condition. Between the
+                                    braces the actual regular expression can be noted.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    'Module': Allows you to use a perl module for condition checking. If it returns 1, the check
-                                    was positive. You can find an example module in
+                                    'Module': Allows you to use a perl module for condition
+                                    checking. If it returns 1, the check was positive. You can find
+                                    an example module in
                                     <filename>Kernel/System/ProcessManagement/TransitionValidation/ValidateDemo.pm</filename>.
                                 </para>
                             </listitem>
@@ -2529,21 +2554,19 @@ DynamicField_$FieldName # for all DynamicFields
             </section>
         </section>
 
-
-
         <section>
-            <title>TransitionActions</title>
+            <title>Transition Actions</title>
             <para>
-                TransitionActinons are actions which can be triggered after successfully applied transitions (when a
-                process ticket moves from one activity to another). These TransitionActions can be used to perform different changes on
-                the ticket, e. g. change the Queue or the Owner of the ticket, and you can also create your own TransitionActions to
-                perform other complex changes.
+                Transition Actinons are actions which can be triggered after successfully applied
+                transitions (when a process ticket moves from one activity to another). These
+                Transition Actions can be used to perform different changes on the ticket, e. g.
+                change the Queue or the Owner of the ticket, and you can also create your own
+                Transition Actions to perform other complex changes.
             </para>
             <section>
-                <title>TransitionAction configuration</title>
+                <title>Transition Action configuration</title>
                 <para>
                     Let's see an example:
-
                     <screen>
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
@@ -2561,7 +2584,7 @@ $Self->{'Process::TransitionAction'} = {
             <section>
                 <title>Name</title>
                 <para>
-                    The name of the TransitionAction.
+                    The name of the Transition Action.
                 </para>
             </section>
             <section>
@@ -2573,17 +2596,17 @@ $Self->{'Process::TransitionAction'} = {
             <section>
                 <title>Config</title>
                 <para>
-                    This parameter contains all settings which are required for the module. Its content
-                    depends on the particular TransitionAction module which is used. Please see the documentation
-                    of the individual modules for details. In our example, only the TargetQueue must be specified.
+                    This parameter contains all settings which are required for the module. Its
+                    content depends on the particular Transition Action module which is used. Please
+                    see the documentation of the individual modules for details. In our example,
+                    only the TargetQueue must be specified.
                 </para>
             </section>
             <section>
-                <title>Reusing TransitionAction modules</title>
+                <title>Reusing Transition Action modules</title>
                 <para>
-                    To use TransitionAction modules mulptiple times, just specify several TransitionActions in your configuration.
-                    Example:
-
+                    To use Transition Action modules multiple times, just specify several
+                    TransitionActions in your configuration. Example:
                     <screen>
     $Self->{'Process::TransitionAction'} = {
         'TA1' => {
@@ -2592,7 +2615,6 @@ $Self->{'Process::TransitionAction'} = {
             Config => {
                 TargetQueue => 'Junk',
             },
-
         },
         'TA2' => {
             Name => 'Queue Move Raw',
@@ -2600,21 +2622,21 @@ $Self->{'Process::TransitionAction'} = {
             Config => {
                 TargetQueue => 'Raw',
             },
-
         },
     };
                     </screen>
                 </para>
                 <para>
-                    Here the same module is used to move a process ticket into the 'Raw' queue, and another time
-                    to move it into the junk queue. The TransitionAction which must be used for a particular Transition
-                    is determined from the 'Path' setting of the Process configuration.
+                    Here the same module is used to move a process ticket into the 'Raw' queue, and
+                    another time to move it into the junk queue. The Transition Action which must
+                    be used for a particular Transition is determined from the 'Path' setting of the
+                    Process configuration.
                 </para>
             </section>
             <section>
-                <title>Available TransitionActions</title>
+                <title>Available Transition Actions</title>
                 <para>
-                    OTRS comes with several TransitionActions that can be used in your processes.
+                    OTRS comes with several Transition Actions that can be used in your processes.
                     Here you can find their documentation and how they need to be configured.
                 </para>
 
@@ -2663,16 +2685,18 @@ $Self->{'Process::TransitionAction'} = {
                         ]]></screen>
                     </para>
                     <para>
-                        'Name' specifies the name of the configured TransitionAction.
-                        It can be freely chosen, but should reflect the purpose of the configured action.
+                        'Name' specifies the name of the configured TransitionAction. It can be
+                        freely chosen, but should reflect the purpose of the configured action.
                     </para>
                     <para>
-                        'ArticleType' defines the type of the article to be created. Possible values:
-                        email-external, email-internal, email-notification-ext, email-notification-int,
-                        phone, fax, sms, webrequest, note-internal, note-external, note-report.
+                        'ArticleType' defines the type of the article to be created. Possible
+                        values: email-external, email-internal, email-notification-ext,
+                        email-notification-int, phone, fax, sms, webrequest, note-internal,
+                        note-external, note-report.
                     </para>
                     <para>
-                        SenderType defines the sender type of the article. Possible values: agent, system, customer.
+                        SenderType defines the sender type of the article. Possible values: agent,
+                        system, customer.
                     </para>
                     <para>
                         'ContentType' defines the content type of the article. Possible values:
@@ -2686,40 +2710,45 @@ $Self->{'Process::TransitionAction'} = {
                     </para>
                     <para>
                         HistoryType defines the type of the history entry. Possible values:
-                        AddNote, ArchiveFlagUpdate, Bounce, CustomerUpdate, EmailAgent, EmailCustomer,
-                        EscalationResponseTimeNotifyBefore, EscalationResponseTimeStart, EscalationResponseTimeStop,
-                        EscalationSolutionTimeNotifyBefore, EscalationSolutionTimeStart, EscalationSolutionTimeStop,
-                        EscalationUpdateTimeNotifyBefore, EscalationUpdateTimeStart, EscalationUpdateTimeStop,
-                        FollowUp, Forward, Lock, LoopProtection, Merged, Misc, Move, NewTicket, OwnerUpdate,
+                        AddNote, ArchiveFlagUpdate, Bounce, CustomerUpdate, EmailAgent,
+                        EmailCustomer, EscalationResponseTimeNotifyBefore,
+                        EscalationResponseTimeStart, EscalationResponseTimeStop,
+                        EscalationSolutionTimeNotifyBefore, EscalationSolutionTimeStart,
+                        EscalationSolutionTimeStop, EscalationUpdateTimeNotifyBefore,
+                        EscalationUpdateTimeStart, EscalationUpdateTimeStop, FollowUp, Forward,
+                        Lock, LoopProtection, Merged, Misc, Move, NewTicket, OwnerUpdate,
                         PhoneCallAgent, PhoneCallCustomer, PriorityUpdate, Remove, ResponsibleUpdate,
-                        SendAgentNotification, SendAnswer, SendAutoFollowUp, SendAutoReject, SendAutoReply,
-                        SendCustomerNotification, ServiceUpdate, SetPendingTime, SLAUpdate, StateUpdate,
-                        Subscribe, SystemRequest, TicketDynamicFieldUpdate, TicketLinkAdd, TicketLinkDelete,
-                        TimeAccounting, TypeUpdate, Unlock, Unsubscribe, WebRequestCustomer.
+                        SendAgentNotification, SendAnswer, SendAutoFollowUp, SendAutoReject,
+                        SendAutoReply, SendCustomerNotification, ServiceUpdate, SetPendingTime,
+                        SLAUpdate, StateUpdate, Subscribe, SystemRequest, TicketDynamicFieldUpdate,
+                        TicketLinkAdd, TicketLinkDelete, TimeAccounting, TypeUpdate, Unlock,
+                        Unsubscribe, WebRequestCustomer.
                     </para>
                     <para>
                         'HistoryComment' defines the content of the history entry.
                     </para>
                     <para>
-                        'From', 'To', 'Cc' and 'ReplyTo' take email addresses in the notation specified above.
+                        'From', 'To', 'Cc' and 'ReplyTo' take email addresses in the notation
+                        specified above.
                     </para>
                     <para>
                         'InReplyTo' and 'References' take email message IDs.
                     </para>
                     <para>
-                        'NoAgentNotify' - if set to 1, the email notification of the Agent will not be sent.
+                        'NoAgentNotify' - if set to 1, the email notification of the Agent will not
+                        be sent.
                     </para>
                     <para>
                         'AutoResponseType' can take the following values:
                         auto follow up, auto reject, auto remove, auto reply, auto reply/new ticket.
                     </para>
                     <para>
-                        'ForceNotificationToUserID', 'ExcludeNotificationToUserID',  'ExcludeMuteNotificationToUserID'
-                        can take a list of UserIDs that are either always notified, not notified or listed as notified
-                        but not actually sent a notification email.
+                        'ForceNotificationToUserID', 'ExcludeNotificationToUserID',
+                        'ExcludeMuteNotificationToUserID' can take a list of UserIDs that are
+                        either always notified, not notified or listed as notified but not actually
+                        sent a notification email.
                     </para>
                 </section>
-
                 <section>
                     <title>CustomerSet</title>
                     <para>
@@ -2779,7 +2808,8 @@ $Self->{'Process::TransitionAction'} = {
                     </para>
                     <para>
                         'MasterSlave' and 'Approved' are given as examples of DynamicField names.
-                        The values of the fields ('Master' and '1') will be set by this TransitionAction.
+                        The values of the fields ('Master' and '1') will be set by this
+                        TransitionAction.
                     </para>
                 </section>
 
@@ -2880,9 +2910,10 @@ $Self->{'Process::TransitionAction'} = {
                     <title>StateSet</title>
                     <para>
                         Changes the state of a process ticket.
-                        The state can be changed unconditionally or based on a condition. This condition is evaluated based on a
-                        defined DynamicField. If the value of the DynamicField at the time of the evaluation is not in one of
-                        the conditions, nothing will be changed. Example:
+                        The state can be changed unconditionally or based on a condition. This
+                        condition is evaluated based on a defined DynamicField. If the value of the
+                        DynamicField at the time of the evaluation is not in one of the conditions,
+                        nothing will be changed. Example:
                     </para>
                     <para>
                         <screen><![CDATA[
@@ -2921,21 +2952,18 @@ $Self->{'Process::TransitionAction'} = {
                         'StateID' defines the internal ID of the new state.
                     </para>
                     <para>
-                        'DynamicField' defines the name of the DynamicField that should be used as the
-                        basis of the condition check to determine the new state. The name may include
-                        a leading 'DynamicField_' string.
+                        'DynamicField' defines the name of the DynamicField that should be used as
+                        the basis of the condition check to determine the new state. The name may
+                        include a leading 'DynamicField_' string.
                     </para>
                     <para>
-                        'DynamicFieldMapping' defines the condition that determines the new state of the process ticket.
-                        For every value, a State or StateID must be specified. If none of the values match,
-                        the state will not be changed.
+                        'DynamicFieldMapping' defines the condition that determines the new state of
+                        the process ticket. For every value, a State or StateID must be specified.
+                        If none of the values match, the state will not be changed.
                     </para>
                 </section>
             </section>
         </section>
-
-
-
         <section>
             <title>Access Control Lists (ACLs)</title>
             <para>
@@ -2969,20 +2997,24 @@ $Self->{TicketAcl}->{'001-ACL-ProcessProperties'} = {
             <section>
                 <title>001-ACL-ProcessProperties</title>
                 <para>
-                    Name of the ACL rule. For further information on ACL rules in general, please consult
-                    <ulink url="http://doc.otrs.org/3.2/en/html/customization.html#acl">the manual</ulink>.
+                    Name of the ACL rule. For further information on ACL rules in general, please
+                    consult:
+                    <ulink url="http://doc.otrs.org/3.2/en/html/customization.html#acl">
+                        the manual
+                    </ulink>.
                 </para>
             </section>
             <section>
                 <title>Process</title>
                 <para>
-                    This is the section that is used to check if an ACL must be applied. If it has the
-                    specified values, the rule is applied. The following values can be used:
+                    This is the section that is used to check if an ACL must be applied. If it has
+                    the specified values, the rule is applied. The following values can be used:
                 </para>
                 <section>
                     <title>ProcessEntityID</title>
                     <para>
-                        The ID of a process that the process. Matches if the ticket is assigned to this process.
+                        The ID of a process that the process. Matches if the ticket is assigned to
+                        this process.
                     </para>
                 </section>
                 <section>
@@ -2994,38 +3026,38 @@ $Self->{TicketAcl}->{'001-ACL-ProcessProperties'} = {
                 <section>
                     <title>ActivityDialogEntityID</title>
                     <para>
-                        The ID of the ActivityDialog that is currently open for a process ticket.
+                        The ID of the Activity Dialog that is currently open for a process ticket.
                     </para>
                 </section>
             </section>
             <section>
-                <title>Possible/PossibleNot ActivityDialog</title>
+                <title>Possible/PossibleNot Activity Dialog</title>
                 <para>
-                    Here you can specify a list of ActivityDialog IDs. This list will limit the possible
-                    ActivityDialogs that are offered to the user in the ticket zoom mask.
+                    Here you can specify a list of Activity Dialog IDs. This list will limit the
+                    possible Activity Dialogs that are offered to the user in the ticket zoom mask.
                 </para>
                 <para>
-                    'Possible' lists the ActivityDialogs that are allowed. The setting above will only
-                    allow 'AD1' and 'AD3' of the list of configured ActivityDialogs.
+                    'Possible' lists the Activity Dialogs that are allowed. The setting above will
+                    only allow 'AD1' and 'AD3' of the list of configured Activity Dialogs.
                 </para>
                 <para>
-                    'PossibleNot' lists the ActivityDialogs that are not allowed.
-                    In the example above, the setting will remove 'AD3' from the list of configured
-                    ActivityDialogs.
+                    'PossibleNot' lists the Activity Dialogs that are not allowed. In the example
+                    above, the setting will remove 'AD3' from the list of configured Activity
+                    Dialogs.
                 </para>
                 <para>
-                    If both 'Possible' and 'PossibleNot' are specified, the list of configured ActivityDialogs
-                    will first be filtered by 'Possible', leaving only 'AD1' and 'AD3' in our example. Then
-                    'PossibleNot' will be applied and filter out 'AD3', so that only 'AD1' remains and is shown
-                    as a possible ActivityDialog that the user can use.
+                    If both 'Possible' and 'PossibleNot' are specified, the list of configured
+                    Activity Dialogs will first be filtered by 'Possible', leaving only 'AD1' and
+                    'AD3' in our example. Then 'PossibleNot' will be applied and filter out 'AD3',
+                    so that only 'AD1' remains and is shown as a possible Activity Dialog that the
+                    user can use.
                 </para>
                 <para>
-                    If multiplie ACL rules match, the intersection of all matching rules will be calculated
-                    to determine the possible ActivityDialogs. Example:
+                    If multiple ACL rules match, the intersection of all matching rules will be
+                    calculated to determine the possible Activity Dialogs. Example:
                 </para>
                 <para>
-                    Configured ActivityDialogs: 'AD1', 'AD2', 'AD3', 'AD4', 'AD5', 'AD6', 'AD7'.
-
+                    Configured Activity Dialogs: 'AD1', 'AD2', 'AD3', 'AD4', 'AD5', 'AD6', 'AD7'.
                     <screen>
 $Self->{TicketAcl}->{'001-ACL-Status'} = {
     Properties => {
@@ -3060,24 +3092,25 @@ $Self->{TicketAcl}->{'003-ACL-Priority'} = {
                     </screen>
                 </para>
                 <para>
-                    If a process ticket has the state 'new', is in the 'Raw' queue and has a priority '3 normal', then all
-                    three ACL rules will match.
+                    If a process ticket has the state 'new', is in the 'Raw' queue and has a
+                    priority '3 normal', then all three ACL rules will match.
                 </para>
                 <para>
-                    The first rule reduces the ActivityDialogs from 'AD1', 'AD2', 'AD3', 'AD4', 'AD5', 'AD6', 'AD7' to
-                    'AD1', 'AD2', 'AD3', 'AD6', 'AD7' and forbids 'AD4' and 'AD5'.
+                    The first rule reduces the Activity Dialogs from 'AD1', 'AD2', 'AD3', 'AD4',
+                    'AD5', 'AD6', 'AD7' to 'AD1', 'AD2', 'AD3', 'AD6', 'AD7' and forbids 'AD4' and
+                    'AD5'.
                 </para>
                 <para>
-                    The second rule will now further reduce the remaining ActivityDialogs.
+                    The second rule will now further reduce the remaining Activity Dialogs.
                     In our example, 'AD2', 'AD3', 'AD7' will remain.
                 </para>
                 <para>
                     Now the third rule will further reduce the list by 'PossibleNot'.
-                    'AD3' is removed from the list. 'AD4' is not removed, since it was not on the list in the first place.
-                    At the end, 'AD2' and 'AD7' remain as possible ActivityDialogs that the user can utilize.
+                    'AD3' is removed from the list. 'AD4' is not removed, since it was not on the
+                    list in the first place. At the end, 'AD2' and 'AD7' remain as possible Activity
+                    Dialogs that the user can utilize.
                 </para>
             </section>
         </section>
     </section>
--->
 </section>
