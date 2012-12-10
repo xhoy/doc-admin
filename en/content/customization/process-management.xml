@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.17 2012-12-10 14:21:28 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.18 2012-12-10 14:42:50 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -1765,18 +1765,17 @@ Transitions:
                 </para>
                 <para>
                     <screen>
-$Self->{'Process'}   =
-{
+$Self->{'Process'} = {
     'P1' => {
-        Name       => 'Book order',
-        CreateTime => '16-02-2012 13:37:00',
-        CreateBy   => '1',
-        ChangeTime => '17-02-2012 13:37:00',
-        ChangeBy   => '1',
-        State      => 'Active',
-        StartActivity => 'A1',
+        Name                => 'Book order',
+        CreateTime          => '16-02-2012 13:37:00',
+        CreateBy            => '1',
+        ChangeTime          => '17-02-2012 13:37:00',
+        ChangeBy            => '1',
+        State               => 'Active',
+        StartActivity       => 'A1',
         StartActivityDialog => 'AD1',
-        Path       => {
+        Path => {
             'A1' => {
                 'T1' => {
                     ActivityEntityID => 'A2',
@@ -1790,15 +1789,15 @@ $Self->{'Process'}   =
         },
     },
     'P2' => {
-        Name       => 'IT order',
-        CreateTime => '26-02-2012 13:37:00',
-        CreateBy   => '1',
-        ChangeTime => '27-02-2012 13:37:00',
-        ChangeBy   => '1',
-        State      => 'Active',
-        StartActivity => 'A2',
+        Name                => 'IT order',
+        CreateTime          => '26-02-2012 13:37:00',
+        CreateBy            => '1',
+        ChangeTime          => '27-02-2012 13:37:00',
+        ChangeBy            => '1',
+        State               => 'Active',
+        StartActivity       => 'A2',
         StartActivityDialog => 'AD2',
-        Path       => {
+        Path => {
             'A2' => {
                 'T3' => {
                     ActivityEntityID => 'A4',
@@ -2026,18 +2025,18 @@ $Self->{'Process::Activity'} =
                     <screen>
 $Self->{'Process::ActivityDialog'} = {
     'AD1' => {
-        Name => 'ActivityDialog 1 optional',
+        Name             => 'ActivityDialog 1 optional',
         DescriptionShort => 'Basic info',
         DescriptionLong  => 'Please insert the necessesary basic information for IT orders',
-        CreateTime => '28-02-2012 13:37:00',
-        CreateBy => '1',
-        ChangeTime => '29-02-2012 13:37:00',
-        ChangeBy => '1',
+        CreateTime       => '28-02-2012 13:37:00',
+        CreateBy         => '1',
+        ChangeTime       => '29-02-2012 13:37:00',
+        ChangeBy         => '1',
         Fields => {
             PriorityID => {
                 DescriptionShort => 'Priority ID',
                 DescriptionLong  => 'Enter the priority here',
-                Display => 2,
+                Display          => 2,
             },
         },
         FieldOrder       => [ 'PriorityID' ],
@@ -2048,28 +2047,28 @@ $Self->{'Process::ActivityDialog'} = {
         Name => 'ActivityDialog 2 optional',
         DescriptionShort => 'Basic info',
         DescriptionLong  => 'Please insert the necessesary basic information for Book orders',
-        CreateTime => '28-02-2012 13:37:00',
-        CreateBy => '1',
-        ChangeTime => '29-02-2012 13:37:00',
-        ChangeBy => '1',
+        CreateTime       => '28-02-2012 13:37:00',
+        CreateBy         => '1',
+        ChangeTime       => '29-02-2012 13:37:00',
+        ChangeBy         => '1',
         Fields => {
             StateID => {
-                DescriptionShort    => 'State ID',
-                DescriptionLong     => 'Enter the state here',
-                Display             => 2,
-                DefaultValue        => '2',
+                DescriptionShort => 'State ID',
+                DescriptionLong  => 'Enter the state here',
+                Display          => 2,
+                DefaultValue     => '2',
             },
             Queue => {
-                DescriptionShort    => 'Queue ID',
-                DescriptionLong     => 'Enter the queue here',
-                Display             => 2,
-                DefaultValue        => 'Raw',
+                DescriptionShort => 'Queue ID',
+                DescriptionLong  => 'Enter the queue here',
+                Display          => 2,
+                DefaultValue     => 'Raw',
             },
             Title => {
-                DescriptionShort    => 'Title',
-                DescriptionLong     => 'Enter the title here',
-                Display             => 1,
-                DefaultValue        => 'Default Title',
+                DescriptionShort => 'Title',
+                DescriptionLong  => 'Enter the title here',
+                Display          => 1,
+                DefaultValue     => 'Default Title',
             },
             DynamicField_Anzahl => {
                 DescriptionShort    => 'Amount',
@@ -2124,31 +2123,31 @@ $Self->{'Process::ActivityDialog'} = {
                 </para>
                 <para>
                     <screen>
-Title
-State
-StateID
-Priority
-PriorityID
-Lock
-LockID
-Queue
-QueueID
-Customer
-CustomerID
-CustomerNo
-CustomerUserID
-Owner
-OwnerID
-Type
-TypeID
-SLA
-SLAID
-Service
-ServiceID
-Responsible
-ResponsibleID
-PendingTime
-DynamicField_$FieldName  # for all dynamic fields
+    Title
+    State
+    StateID
+    Priority
+    PriorityID
+    Lock
+    LockID
+    Queue
+    QueueID
+    Customer
+    CustomerID
+    CustomerNo
+    CustomerUserID
+    Owner
+    OwnerID
+    Type
+    TypeID
+    SLA
+    SLAID
+    Service
+    ServiceID
+    Responsible
+    ResponsibleID
+    PendingTime
+    DynamicField_$FieldName  # for all dynamic fields
                     </screen>
                 </para>
                 <para>
@@ -2157,10 +2156,10 @@ DynamicField_$FieldName  # for all dynamic fields
                 <para>
                     <screen>
 StateID => {
-    DescriptionShort    => 'State ID',
-    DescriptionLong     => 'Enter the state here',
-    Display             => 2,
-    DefaultValue        => '2',
+    DescriptionShort => 'State ID',
+    DescriptionLong  => 'Enter the state here',
+    Display          => 2,
+    DefaultValue     => '2',
 },
                     </screen>
                 </para>
@@ -2251,10 +2250,10 @@ Article => {
                     <para>
                         <screen>
 Queue => {
-    DescriptionShort    => 'Queue',
-    DescriptionLong     => 'Enter the queue here',
-    Display             => 2,
-    DefaultValue        => 'Raw',
+    DescriptionShort => 'Queue',
+    DescriptionLong  => 'Enter the queue here',
+    Display          => 2,
+    DefaultValue     => 'Raw',
 },
                         </screen>
                     </para>
@@ -2263,8 +2262,8 @@ Queue => {
             <section>
                 <title>FieldOrder</title>
                 <para>
-                    Here the display order of the fields is configured.
-                    IMPORTANT: Invisible fields also must be configured here, because only configured fields will be considered
+                    Here the display order of the fields is configured. IMPORTANT: Invisible fields
+                    also must be configured here, because only configured fields will be considered
                     when saving. Fields which are not configured will not be saved.
                 </para>
             </section>
@@ -2300,14 +2299,14 @@ $Self->{'Process::Transition'} = {
     'T1' => {
         Name => 'Transition 1',
         CreateTime => '14-03-2012 13:37:00', # optional
-        CreateBy => '1', # optional
+        CreateBy   => '1',                   # optional
         ChangeTime => '15-03-2012 13:37:00', # optional
-        ChangeBy => '15-03-2012 13:37:00', # optional
-        Condition => {
-            Cond1 => {
+        ChangeBy   => '15-03-2012 13:37:00', # optional
+        Condition  => {
+            Cond1  => {
                 Fields => {
                     StateID => {
-                        Type => 'String',
+                        Type  => 'String',
                         Match => '1',
                     },
                 },
@@ -2315,15 +2314,15 @@ $Self->{'Process::Transition'} = {
         },
     },
     'T2' => {
-        Name => 'Transition 2 optional',
-        CreateTime => 'DATE', # optional
-        CreateBy => 'USERID', # optional
-        ChangeTime => 'DATE', # optional
-        ChangeBy => 'USERID', # optional
+        Name       => 'Transition 2 optional',
+        CreateTime => 'DATE',   # optional
+        CreateBy   => 'USERID', # optional
+        ChangeTime => 'DATE',   # optional
+        ChangeBy => 'USERID',   # optional
         Condition => {
             Cond1 => {
-                Queue => 'Raw',
-                DynamicField_Farbe => '2',
+                Queue               => 'Raw',
+                DynamicField_Farbe  => '2',
                 DynamicField_Anzahl => '1',
             },
         },
@@ -2371,16 +2370,16 @@ $Self->{'Process::Transition'} = {
                 <para>
                     <screen>
 Condition => {
-    Type => 'and',
+    Type  => 'and',
     Cond1 => {
-        Type => 'and',
+        Type   => 'and',
         Fields => {
             StateID => {
-                Type => 'String',
+                Type  => 'String',
                 Match => '1',
             },
             DynamicField_Marke => {
-                Type => 'String',
+                Type  => 'String',
                 Match => 'VW',
         },
     },
@@ -2388,7 +2387,7 @@ Condition => {
         Type => 'and',
         Fields => {
             Queue => {
-                Type => 'String',
+                Type  => 'String',
                 Match => 'Raw',
             },
         },
@@ -2464,7 +2463,7 @@ Condition => {
                         <screen>
 Fields => {
     StateID => {
-        Type => 'String',
+        Type  => 'String',
         Match => '1',
     },
                         </screen>
@@ -2475,31 +2474,31 @@ Fields => {
                     <para>
                         Example of a field name. The following ticket fields can be used:
                         <screen>
-Title
-State
-StateID
-Priority
-PriorityID
-Lock
-LockID
-Queue
-QueueID
-Customer
-CustomerID
-CustomerNo
-CustomerUserID
-Owner
-OwnerID
-Type
-TypeID
-SLA
-SLAID
-Service
-ServiceID
-Responsible
-ResponsibleID
-PendingTime
-DynamicField_$FieldName # for all DynamicFields
+    Title
+    State
+    StateID
+    Priority
+    PriorityID
+    Lock
+    LockID
+    Queue
+    QueueID
+    Customer
+    CustomerID
+    CustomerNo
+    CustomerUserID
+    Owner
+    OwnerID
+    Type
+    TypeID
+    SLA
+    SLAID
+    Service
+    ServiceID
+    Responsible
+    ResponsibleID
+    PendingTime
+    DynamicField_$FieldName # for all DynamicFields
                         </screen>
                     </para>
                     <para>
@@ -2570,7 +2569,7 @@ DynamicField_$FieldName # for all DynamicFields
                     <screen>
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
-        Name => 'Queue Move',
+        Name   => 'Queue Move',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
         Config => {
             TargetQueue => 'Junk',
@@ -2610,14 +2609,14 @@ $Self->{'Process::TransitionAction'} = {
                     <screen>
     $Self->{'Process::TransitionAction'} = {
         'TA1' => {
-            Name => 'Queue Move Junk',
+            Name   => 'Queue Move Junk',
             Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
             Config => {
                 TargetQueue => 'Junk',
             },
         },
         'TA2' => {
-            Name => 'Queue Move Raw',
+            Name   => 'Queue Move Raw',
             Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
             Config => {
                 TargetQueue => 'Raw',
@@ -2652,25 +2651,23 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Article Create Note Internal',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::ArticleCreate',
         Config => {
-            ArticleType => 'note-internal',    # email-external|email-internal|phone|fax|...
-            SenderType  => 'agent',            # agent|system|customer
-            ContentType =>
-                'text/plain; charset=ISO-8859-15',    # or optional Charset & MimeType
-            Subject     => 'some short description',  # required
-            Body        => 'the message text',        # required
-            HistoryType => 'OwnerUpdate',             # EmailCustomer|Move|AddNote|PriorityUpdate|WebRequestCustomer|...
-            HistoryComment => 'Some free text!',
-            From           => 'Some Agent <email@example.com>',    # not required but useful
-            To      => 'Some Customer A <customer-a@example.com>', # not required but useful
-            Cc      => 'Some Customer B <customer-b@example.com>', # not required but useful
-            ReplyTo => 'Some Customer B <customer-b@example.com>', # not required
-            InReplyTo => '<asdasdasd.12@example.com>',             # not required but useful
-            References => '<asdasdasd.1@example.com> <asdasdasd.12@example.com>',   # not required but useful
-            NoAgentNotify => 0,    # if you don't want to send agent notifications
-            AutoResponseType =>
-                'auto reply', # auto reject|auto follow up|auto reply/new ticket|auto remove
+            ArticleType      => 'note-internal',                                        # email-external|email-internal|phone|fax|...
+            SenderType       => 'agent',                                                # agent|system|customer
+            ContentType      => 'text/plain; charset=ISO-8859-15',                      # or optional Charset & MimeType
+            Subject          => 'some short description',                               # required
+            Body             => 'the message text',                                     # required
+            HistoryType      => 'OwnerUpdate',                                          # EmailCustomer|Move|AddNote|PriorityUpdate|WebRequestCustomer|...
+            HistoryComment   => 'Some free text!',
+            From             => 'Some Agent <email@example.com>',                       # not required but useful
+            To               => 'Some Customer A <customer-a@example.com>',             # not required but useful
+            Cc               => 'Some Customer B <customer-b@example.com>',             # not required but useful
+            ReplyTo          => 'Some Customer B <customer-b@example.com>',             # not required
+            InReplyTo        => '<asdasdasd.12@example.com>',                           # not required but useful
+            References       => '<asdasdasd.1@example.com> <asdasdasd.12@example.com>', # not required but useful
+            NoAgentNotify    => 0,                                                      # if you don't want to send agent notifications
+            AutoResponseType => 'auto reply',                                           # auto reject|auto follow up|auto reply/new ticket|auto remove
 
-            ForceNotificationToUserID => [ 1, 43, 56 ],    # if you want to force somebody
+            ForceNotificationToUserID   => [ 1, 43, 56 ],                               # if you want to force somebody
             ExcludeNotificationToUserID => [ 43, 56 ],
                  # if you want full exclude somebody from notfications,
                  # will also be removed in To: line of article,
@@ -2929,11 +2926,11 @@ $Self->{'Process::TransitionAction'} = {
             #OR (DynamicField state mapping)
             DynamicField        => 'MasterSlave', # or DynamicField_MasterSlave
             DynamicFieldMapping => {
-                Master           => {
+                Master => {
                     State => 'open'
                 }
                 # or
-                Master           => {
+                Master => {
                     StateID => 3
                 }
             },
@@ -3062,7 +3059,7 @@ $Self->{TicketAcl}->{'001-ACL-ProcessProperties'} = {
 $Self->{TicketAcl}->{'001-ACL-Status'} = {
     Properties => {
         Ticket => {
-            Status       => 'new',
+            Status => 'new',
         }
     },
     Possible => {
@@ -3072,7 +3069,7 @@ $Self->{TicketAcl}->{'001-ACL-Status'} = {
 $Self->{TicketAcl}->{'002-ACL-Queue'} = {
     Properties => {
         Ticket => {
-            Queue        => ['Raw']
+            Queue => ['Raw']
         }
     },
     Possible => {
@@ -3082,7 +3079,7 @@ $Self->{TicketAcl}->{'002-ACL-Queue'} = {
 $Self->{TicketAcl}->{'003-ACL-Priority'} = {
     Properties => {
         Ticket => {
-            Priority        => ['3 normal']
+            Priority => ['3 normal']
         }
     },
     PossibleNot => {
