@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: genericinterface-webservice-configuration.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
+<!-- $Id: genericinterface-webservice-configuration.xml,v 1.5 2012-12-10 09:02:24 mg Exp $ -->
 <section id="genericinterface-webservice-configuration">
     <title>Конфигурация Веб-сервиса</title>
     <para>
@@ -163,7 +163,7 @@ Requester:
                     </para>
                     <itemizedlist mark="round">
                         <title>
-                            Possible Values
+                            Возможные значения
                         </title>
                         <listitem>
                             <para>
@@ -219,8 +219,8 @@ Requester:
                 <section>
                     <title>&lt;OperationName&gt;</title>
                     <para>
-                        This section is based on operations from type "Test::Test" other operations
-might contain more or different settings.
+                        Этот раздел основан на операция с типом "Test::Test" другие операции могут
+содержать больше или другие настройки.
                     </para>
                     <itemizedlist mark="round">
                         <listitem>
@@ -236,21 +236,20 @@ might contain more or different settings.
                         </listitem>
                         <listitem>
                             <para>
-                                MappingOutbound: a container for the mapping settings for the outgoing
-response data.
+                                MappingOutbound: хранилище для отображающихся настроек для исходящих данных.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                Type: the operation backend, in Controller::Operation format.
+                                Тип бэкэнд операция в формате Controller::Operation.
                             </para>
                         </listitem>
                     </itemizedlist>
                     <section>
                         <title>MappingInbound</title>
                         <para>
-                            This section is based on mappings from type "Simple". Other mappings might
-contain more or different settings.
+                            Этот раздел основан на отображаемых значениях с типом "Simple". Другие
+отображаемые значения могут содержать больше или другие настройки.
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
@@ -260,7 +259,7 @@ contain more or different settings.
                             </listitem>
                             <listitem>
                                 <para>
-                                    Type: the mapping backend.
+                                    Тип: mapping backend.
                                 </para>
                             </listitem>
 
@@ -311,7 +310,7 @@ contain more or different settings.
                                                 MapType: правило для отображения.
                                             </para>
                                             <itemizedlist>
-                                                <title>Possible Values</title>
+                                                <title>Возможные значения</title>
                                                 <listitem>
                                                     <para>
                                                         Keep: оставить без изменений.
@@ -493,8 +492,8 @@ OTRS.
                 <section>
                     <title>&lt;InvokerName&gt;</title>
                     <para>
-                        This section is based on invokers from type "Test::Test" other invokers
-might contain more or different settings.
+                        Этот раздел основан на типе "Test::Test", другие invoker-ры могут иметь
+больше или другие настройки.
                     </para>
                     <itemizedlist mark="round">
                         <listitem>
@@ -504,24 +503,24 @@ might contain more or different settings.
                         </listitem>
                         <listitem>
                             <para>
-                                Events: a container for a unnamed list of event trigger settings.
+                                События: хранилище настроек не именованного списка действий.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                MappingInbound: a container for the mapping settings for the incoming
-response data.
+                                MappingInbound: хранилище для настроек отображаемых значений для данных
+поступающих от ответов.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                MappingOutbound: a container for the mapping settings for the outgoing
-request data.
+                                MappingOutbound: хранилище для настроек отображаемых значений для исходящих
+данных запроса.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                Type: the invoker backend, in Controller::Invoker format.
+                                Тип: invoker backend, в формате Controller::Invoker.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -539,7 +538,7 @@ request data.
 Планировщика
                                         </para>
                                         <itemizedlist mark="round">
-                                            <title>Possible Values</title>
+                                            <title>Возможные значения</title>
                                             <listitem>
                                                 <para>
                                                     0: не обрабатывается Планировщиком (Scheduler).
@@ -792,8 +791,8 @@ request data.
                     <section>
                         <title>Передача</title>
                         <para>
-                            This section is based on the requester network transport HTTP::SOAP, other
-transports might contain more or different settings.
+                            Этот раздел основан на транспортной сети запрашивающей стороны HTTP::SOAP,
+транспортные сети могут содержать больше или другие настройки.
                         </para>
                         <itemizedlist mark="round">
                             <listitem>
@@ -803,7 +802,7 @@ transports might contain more or different settings.
                             </listitem>
                             <listitem>
                                 <para>
-                                    Type: the requester network transport backend.
+                                    Тип: бэкэнд транспортной сети запрашивающей стороны.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -822,22 +821,23 @@ transports might contain more or different settings.
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        Endpoint: the URI of the Remote Server web service to accept OTRS requests
+                                        Endpoint: URI Уаделнного Сервера веб-службы для приема запросов OTRS.
                                     </para>
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        NameSpace: an URI that gives a context to all invokers that belongs to this
-web service.
+                                        NameSpace: URI который предоставлят связь для всех invoker-ов, которые
+принадлежат этому веб-серверу.
                                     </para>
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        SOAPAction: to send an empty or filled SOAPAction header in the SOAP Message
-(in "&lt;NameSpace&gt; &lt;Separator&gt; &lt;Action&gt;" format).
+                                        SOAPAction: для отправки пустого или заполненого SOAPAction-заголовка в
+формате SOAP сообщения (in "&lt;NameSpace&gt; &lt;Separator&gt;
+&lt;Action&gt;" format).
                                     </para>
                                     <itemizedlist mark="round">
-                                        <title>Possible Values</title>
+                                        <title>Возможные значения</title>
                                         <listitem>
                                             <para>
                                                 YES: для отправки заполненого заголовка SOAPAction.
@@ -856,7 +856,7 @@ web service.
 SOAPAction заголовков.
                                     </para>
                                     <itemizedlist mark="round">
-                                        <title>Possible Values</title>
+                                        <title>Возможные значения</title>
                                         <listitem>
                                             <para>
                                                 '/': используется для .net веб-сервисов.
@@ -875,7 +875,8 @@ SOAPAction заголовков.
                                 <itemizedlist mark="round">
                                     <listitem>
                                         <para>
-                                            User: the privileged user name that has access to the remote web service.
+                                            User: имя привилегированого пользователя, который имеет доступ к удаленному
+веб-сервису.
                                         </para>
                                     </listitem>
                                     <listitem>

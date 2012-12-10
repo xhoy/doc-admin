@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: email.xml,v 1.4 2012-12-03 08:37:24 mg Exp $ -->
+<!-- $Id: email.xml,v 1.5 2012-12-10 09:02:05 mg Exp $ -->
 <section id="email">
 <title>Отправка / получение электронной почты</title>
 
@@ -70,13 +70,14 @@ PostMaster" на странице администрирования.
 </para>
 
 <para>
-If a new mail account is to be created (see Figure below), then it's mail
-server name, login name and password must be specified. Also, you need to
-select the mail server type, which can be POP3, POP3S, IMAP or IMAPS. If you
-don't see your server type available as an option, the required Perl modules
-are missing on your system. In that case, please refer to <link
-linkend="installation-of-perl-modules"> "Installation of Perl modules
-required for OTRS"</link> for instructions.</para>
+Если создан новый почтовый аккаунт/ящик (см. нижеприведенный сценарий), то
+нужно еще указать имя его почтового сервера, логин и пароль. Также,
+необходимо выбрать тип почтового сервера: POP3, POP3S, IMAP или IMAPS. Если
+в опциях не видно типа сервера, который нужно использовать, значит вы не
+установили в системе все необходимые Perl-модули. В таком случае, за более
+подробной информацией обратитесь к инструкции <link
+linkend="installation-of-perl-modules"> "Установка Perl-модулей, необходимых
+для работы OTRS"</link>.</para>
 
 <para>
 <screenshot>
@@ -86,7 +87,7 @@ fileref="screenshots/add-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a mail account.</emphasis>
+<emphasis>Рисунок Добавление учетной записи электронной почты.</emphasis>
 </para>
 
 <para>Если для опции "Trusted" выбрано значение "Да", будут оцениваться и
@@ -159,8 +160,8 @@ linkend="cronjobs">"Настройка пралировщика задач cron 
 </para>
 
 <para>
-To test <filename>bin/otrs.PostMaster.pl</filename> without an MDA, execute
-the command of the following script.
+Для тестирования <filename>bin/otrs.PostMaster.pl</filename> без MDA,
+выполните команду приведенную в листинге нижеприведенного сценария.
 </para>
 
 <para>
@@ -172,7 +173,7 @@ linux:/opt/otrs/bin#
 </para>
 
 <para>
-<emphasis>Script: Testing PostMaster without the MDA.</emphasis>
+<emphasis>Сценарий: Тестирование PostMaster без MDA.</emphasis>
 </para>
 
 <para>
@@ -188,10 +189,11 @@ homepage</citetitle></ulink>.
 </para>
 
 <para>
-To configure procmail for OTRS (based upon a procmail configured MTA such as
-sendmail, postfix, exim or qmail), use the
-<filename>~otrs/.procmailrc.dist</filename> file and copy it to
-<filename>.procmailrc</filename> and add the lines of the script below.
+Для настройки procmail для OTRS (требуется сконфигурированный транспортный
+агент MTA, например sendmail, postfix, exim or qmail), используйте файл
+<filename>~otrs/.procmailrc.dist</filename>, скопируйте его в
+<filename>.procmailrc</filename> а затем добавьте строки из нижеприведенного
+сценария.
 </para>
 
 <para>
@@ -207,7 +209,7 @@ PATH=/bin:/usr/bin:/usr/local/bin
 </para>
 
 <para>
-<emphasis>Script: Configuring procmail for OTRS.</emphasis>
+<emphasis>Сценарий: Настройка procmail для OTRS.</emphasis>
 </para>
 
 <para>

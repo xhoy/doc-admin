@@ -2,12 +2,12 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: acl.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: acl.xml,v 1.5 2012-12-10 09:02:21 mg Exp $ -->
 <section id="acl" >
 <title>Списки Контроля Доступа (ACLs)</title>
 
 <section>
-<title>Introduction</title>
+<title>Введение</title>
 
 <para>
     From OTRS 2.0 on, Access Control Lists (ACLs) can be used to control access
@@ -38,9 +38,10 @@ settings.
 приоритетом 5.</title>
 
 <para>
-    This example shows you the basic structure of an ACL. First, it needs to
-have a name.  In this case, it is "ACL-Name-2". Note that the ACLs will be
-numerically sorted before execution, so you should use the names carefully.
+    Этот пример показывает основную струкруру ACL. Для начала, она должна иметь
+название. В нашем случае это "ACL-Name-2". Обратите внимание, что перед
+запуском ACLs будут отсортированы по номерам, поэтому имена нужно
+использовать тщательно.
 </para>
 <para>
     Secondly, you have a "Properties" section which is a filter for your
@@ -52,9 +53,9 @@ and had a priority "3 normal", but then priority drop-down is selected and
 the priority is changed now to "5 very high" will also match).
 </para>
 <para>
-    Lastly, a section "Possible" defines modifications to the screens. In this
-case, from the available queues, only the queue "Alert" can be selected in a
-ticket screen.
+    Наконец, раздел "Возможные" определяет изменения экрана. В нашем случае из
+имеющихся очередей только очередь "Alert" может быть выбрана на странице
+Заявки.
 </para>
 
 <programlisting>
@@ -236,11 +237,11 @@ $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
 </section>
 
 <section>
-<title>Reference</title>
+<title>Сссылка</title>
 
 <para>
-    In the example below there is a list of all parameters which can be used for
-ACLs.
+    В нижеприведенном Сценарии представлен список всех параметров, которые могут
+быть использованы для списка прав доступа (ACLs).
 </para>
 
 <para>

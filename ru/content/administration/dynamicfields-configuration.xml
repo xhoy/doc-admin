@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: dynamicfields-configuration.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: dynamicfields-configuration.xml,v 1.5 2012-12-10 09:02:21 mg Exp $ -->
 <section id="dynamicfields-configuration">
     <title>Настройка Системы</title>
     <para>
@@ -27,7 +27,7 @@ center of the screen.  The dynamic fields overview will display as follows:
         </para>
         <para>
             <screenshot>
-<screeninfo>Dynamic fields overview screen, empty</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Пустая страница просмотра динамического поля</screeninfo> <graphic srccredit="Adminarea
 dynamicfields - screenshot" scale="40"
 fileref="screenshots/dynamicfields-overview-empty.png"></graphic></screenshot>
         </para>
@@ -62,7 +62,8 @@ side bar.
             </listitem>
             <listitem>
                 <para>
-                    Click on the dynamic field type that you want to add from the list.
+                    Выберите в списке и нажмите на тип динамического поля, которое вы хотите
+добавить.
                 </para>
             </listitem>
             <listitem>
@@ -78,9 +79,9 @@ side bar.
         </itemizedlist>
 
         <para>
-            The configuration dialogs for the dynamic fields are split in two parts, the
-upper section is common among all the fields and the lower part might be
-different from one type of dynamic field to another.
+            Диалог настройки динамических полей разделен на две части, верхняя часть
+является общей для всех полей, а нижняя часть может различаться в
+зависимости от типа динамического поля.
         </para>
 
         <itemizedlist>
@@ -104,11 +105,12 @@ referenciated.
                     Метка: Обязательное.
                 </para>
                 <para>
-                    This is field name to be displayed in the screens, it supports translations.
+                    This is field name to be displayed in the screens, оно может быть переведено
+на дргуие языки.
                 </para>
                 <note>
                     <para>
-                        Label translations have to be added manually to language translations files.
+                        Перевод метки должен быть добавлен в файл перевода вручную.
                     </para>
                 </note>
             </listitem>
@@ -117,9 +119,9 @@ referenciated.
                     Порядок Полей: Обязательно.
                 </para>
                 <para>
-                    Defines the relative order in which the field will be displayed in the
-screen, by default each new field has the last position, a change in this
-setting will affect the other of the other created dynamic fields.
+                    Определяет относительный порядок, в котором поля будут отображаться на
+экране, по умолчанию каждое новое поле занимает последнюю позицию, изменение
+этого параметра будет влиять на порядок других динамических полей.
                 </para>
             </listitem>
             <listitem>
@@ -151,13 +153,14 @@ setting will affect the other of the other created dynamic fields.
 
         <note>
             <para>
-                To illustrate each specific field type settings a few fields will be added
-in our example. These new fields will be referenciated in later sections.
+                Для иллюстрации каждого конкретного параметра настройки в нашем примере
+будет добавлено несколько полей. Ссылки на эти поля будут упоминаться в
+последующих разделах.
             </para>
             <para>
-                For the following examples all the dynamic fields will be created for the
-Ticket object if you need to create a dynamic field for Article object, just
-choose the field from the Article dropdown list.
+                В следующих примерах все динамические поля будут созданы для объекта Заявка,
+если необходимо создать динамическое поле для объекта Статья, просто
+выберите поле из выпадающего списка.
             </para>
         </note>
 
@@ -224,8 +227,9 @@ choose the field from the Article dropdown list.
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    This is the value to be shown by default in the edit screens (like New Phone
-Ticket or Ticket Compose).
+                    Это значеие, которое будет отображаться по умолчанию на страницах
+редактирования (например, Новая Заявка на основе Телефонного Звонка или
+Создать Заявку).
                 </para>
             </listitem>
             <listitem>
@@ -233,8 +237,8 @@ Ticket or Ticket Compose).
                     Показать ссылку: Необязательное.
                 </para>
                 <para>
-                    If set, the field value will be converted into a clickable link for display
-screens (like ticket zoom or overviews).
+                    Если установлено, то значение поля будет преобразовано в кликабельную
+ссылку, которая будет отображаться на экране.
                 </para>
                 <para>
                     Например, если "Показать ссылку" установленно в "http://www.otrs.com",
@@ -263,7 +267,8 @@ Text.</emphasis>
     <section id="dynamicfields-configuration-textarea">
         <title>Настройка Динамического Поля Textarea</title>
         <para>
-            Textarea dynamic field is used to store a multiple line string.
+            Динамическое поле Textarea используется для хранения строк, состоящих из
+нескольких линий.
         </para>
         <itemizedlist>
             <para>
@@ -274,8 +279,7 @@ Text.</emphasis>
                     Количество строк: Необязательное, Целое.
                 </para>
                 <para>
-                    Used to define the height of the field in the edit screens (like New Phone
-Ticket or Ticket Compose).
+                    Используется для определения высоты поля на странице редактирования.
                 </para>
             </listitem>
             <listitem>
@@ -283,7 +287,7 @@ Ticket or Ticket Compose).
                     Количество столбцов: Необязательное, Целое.
                 </para>
                 <para>
-                    This is value is used to define the width of the field in the edit screens.
+                    Это значение используется для определения ширины поля редактирования.
                 </para>
             </listitem>
             <listitem>
@@ -291,8 +295,8 @@ Ticket or Ticket Compose).
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    This is the value to be shown by default in the edit screens (it can be a
-multiple line text).
+                    Это значение будет отображаться по умолчанию (может быть текстом, состоящим
+из нескольких строк).
                 </para>
             </listitem>
         </itemizedlist>
@@ -310,8 +314,8 @@ fileref="screenshots/dynamicfields-configuration-textarea.png"></graphic></scree
     <section id="dynamicfields-configuration-checkbox">
         <title>Конфигурация Динамического Поля Checkbox</title>
         <para>
-            Checkbox dynamic field is used to store true or false value, represented by
-a checked or unchecked check box.
+            Динамическое поле Checkbox используется для хранения значений true или
+false, изображено как выбранныи или не выбранный флажок.
         </para>
         <itemizedlist>
             <para>
@@ -344,7 +348,8 @@ fileref="screenshots/dynamicfields-configuration-checkbox.png"></graphic></scree
     <section id="dynamicfields-configuration-dropdown">
         <title>Настройка Динамического Поля Dropdown (Выпадающий Список)</title>
         <para>
-            Dropdown dynamic field is used to store a single value, from a closed list.
+            Динамическое поле Выпадающий Список (Dropdown) используется для хранения
+одного значения, которое выбирается из закрытого списка.
         </para>
         <itemizedlist>
             <para>
@@ -365,9 +370,10 @@ fileref="screenshots/dynamicfields-configuration-checkbox.png"></graphic></scree
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    This is the value to be show by default in the edit screens (like New Phone
-Ticket or Ticket Compose), the default value for this field is closed
-selection defined by the Possible values.
+                    Это значение будет отображено по умолчанию на страницах редактирования
+(наример, на странице Заявки, созданной на основе телефонного звонка или
+странице создания Заявки), значение по умолчанию для этого поля - поле
+Select с выбором всех возможных значений.
                 </para>
             </listitem>
             <listitem>
@@ -375,8 +381,9 @@ selection defined by the Possible values.
                     Добавить пустое значени: Обязательное, (Да / Нет).
                 </para>
                 <para>
-                    If this option is activated an extra value is defined to show a "-" in the
-list of possible values, this special value is empty internally.
+                    Если эта опция включена, дополнительная стоимость определяется для
+отображения "-" в списке возможных значений, это специально значение пустоне
+внутри.
                 </para>
             </listitem>
             <listitem>
@@ -395,8 +402,7 @@ language files.
                     Показать ссылку: Необязательное.
                 </para>
                 <para>
-                    If set, the field value will be converted into a clickable HTP link for
-display screens (like Zoom or overviews).
+                    Если установлено, то значение поля будет установлено в кликабельные ссылки.
                 </para>
                 <para>
                     Например, если ссылка Показать установлена в значение "http://www.otrs.com",
@@ -424,8 +430,8 @@ fileref="screenshots/dynamicfields-configuration-dropdown.png"></graphic></scree
     <section id="dynamicfields-configuration-multiselect">
         <title>Конфигурация Динамического Поля Multiselect (множественный выбор)</title>
         <para>
-            Multiselect dynamic field is used to store a multiple values, from a closed
-list.
+            Динамическое поле Multiselect используется для хранения нескольких значений
+из закрытого списка.
         </para>
         <itemizedlist>
             <para>
@@ -446,9 +452,10 @@ list.
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    This is the value to be show by default in the edit screens (like New Phone
-Ticket or Ticket Compose), the default value for this field is closed
-selection defined by the Possible values.
+                    Это значение будет отображено по умолчанию на страницах редактирования
+(наример, на странице Заявки, созданной на основе телефонного звонка или
+странице создания Заявки), значение по умолчанию для этого поля - поле
+Select с выбором всех возможных значений.
                 </para>
             </listitem>
             <listitem>
@@ -456,8 +463,9 @@ selection defined by the Possible values.
                     Добавить пустое значени: Обязательное, (Да / Нет).
                 </para>
                 <para>
-                    If this option is activated an extra value is defined to show a "-" in the
-list of possible values, this special value is empty internally.
+                    Если эта опция включена, дополнительная стоимость определяется для
+отображения "-" в списке возможных значений, это специально значение пустоне
+внутри.
                 </para>
             </listitem>
             <listitem>
@@ -486,7 +494,8 @@ fileref="screenshots/dynamicfields-configuration-multiselect.png"></graphic></sc
     <section id="dynamicfields-configuration-date">
         <title>Настройка Динамического Поля Date</title>
         <para>
-            Date dynamic field is used to store a date value (Day, Month and Year).
+            Динамическое поле Date используется для хранения значения (День, Месяць и
+Год).
         </para>
         <itemizedlist>
             <para>
@@ -497,9 +506,10 @@ fileref="screenshots/dynamicfields-configuration-multiselect.png"></graphic></sc
                     Разница дат по умолчанию: Опционально, Целое.
                 </para>
                 <para>
-                    Number of seconds (positive or negative) between the current date and the
-selected date to be show by default in the edit screens (like New Phone
-Ticket or Ticket Compose).
+                    Количество секунд (положительное или отрицательное значение) между текущей
+датой и выбраной дантой, которое будет отображаться на страницах
+редактирования по умолчанию (например на странице Новая Заявка на основе
+телефонного звонка или Создать Заявку).
                 </para>
             </listitem>
             <listitem>
@@ -507,9 +517,9 @@ Ticket or Ticket Compose).
                     Определить период лет: Обязательно (Да / Нет).
                 </para>
                 <para>
-                    Used to set a defined number of years in past and future from current date
-in the year select of this field, If set to Yes the following options are
-available:
+                    Используется для установки определенного количества лет в прошлом и будущем
+относительно текущей даты, выбранной в поле Select. Если установлено в
+значение Yes, следующие опции будут доступны:
                 </para>
                 <para>
                     <itemizedlist>
@@ -539,8 +549,7 @@ selection for this dined in edit screens.
                     Показать ссылку: Необязательное.
                 </para>
                 <para>
-                    If set, the field value will be converted into a clickable HTP link for
-display screens (like Zoom or overviews).
+                    Если установлено, то значение поля будет установлено в кликабельные ссылки.
                 </para>
                 <para>
                     Например, если ссылка Показать установлена в значение "http://www.otrs.com",
@@ -580,9 +589,10 @@ fileref="screenshots/dynamicfields-configuration-date.png"></graphic></screensho
                     Разница дат по умолчанию: Опционально, Целое.
                 </para>
                 <para>
-                    Number of seconds (positive or negative) between the current date and the
-selected date to be show by default in the edit screens (like New Phone
-Ticket or Ticket Compose).
+                    Количество секунд (положительное или отрицательное значение) между текущей
+датой и выбраной дантой, которое будет отображаться на страницах
+редактирования по умолчанию (например на странице Новая Заявка на основе
+телефонного звонка или Создать Заявку).
                 </para>
             </listitem>
             <listitem>
@@ -590,9 +600,9 @@ Ticket or Ticket Compose).
                     Определить период лет: Обязательно (Да / Нет).
                 </para>
                 <para>
-                    Used to set a defined number of years in past and future from current date
-in the year select of this field, If set to Yes the following options are
-available:
+                    Используется для установки определенного количества лет в прошлом и будущем
+относительно текущей даты, выбранной в поле Select. Если установлено в
+значение Yes, следующие опции будут доступны:
                 </para>
                 <para>
                     <itemizedlist>
@@ -622,8 +632,7 @@ selection for this dined in edit screens.
                     Показать ссылку: Необязательное.
                 </para>
                 <para>
-                    If set, the field value will be converted into a clickable HTP link for
-display screens (like Zoom or overviews).
+                    Если установлено, то значение поля будет установлено в кликабельные ссылки.
                 </para>
                 <para>
                     Например, если ссылка Показать установлена в значение "http://www.otrs.com",
@@ -652,12 +661,12 @@ Time. </emphasis>
     <section id="dynamicfields-configuration-edit">
         <title>Редактирование Динамического Поля</title>
         <para>
-            A filled dynamic field overview screen (with the previous examples) should
-look like:
+            Страница просмотра заполненого динамического поля (с предыдущими примерами)
+должна выглядеть так:
         </para>
         <para>
             <screenshot>
-<screeninfo>Dynamic field overview screen filled with sample data</screeninfo> <graphic srccredit="dynamicfields -
+<screeninfo>Страница просмотра заполненого динамического поля с тестовыми данными</screeninfo> <graphic srccredit="dynamicfields -
 screenshot" scale="40"
 fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
         </para>
@@ -666,14 +675,14 @@ fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
 данными.</emphasis>
         </para>
         <para>
-            To change or edit a dynamic field you must have at least one field defined,
-select an already added field from the dynamic fields overview screen and
-update it's settings.
+            Чтобы изменить или редактировать динамическое поле, нужно иметь определенным
+хотя бы одно динамическое поле, которое находится в списке выбора
+динамических полей на странице просмотра.
         </para>
         <note>
             <para>
-                Not all the dynamic field settings can be changed, the Field type and Object
-type are fixed from the selection of the field and they can't be changed.
+                Не все настройки динамического поля могут быть изменены, тип Поля и тип
+Объекта не могут быть изменены.
             </para>
             <para>
                 It is not recommended to change the field internal name, but the label can
@@ -687,8 +696,8 @@ user preferences (if defined).
     <section id="dynamicfields-configuration-show">
         <title>Отображение Динамического Поля на Экране</title>
         <para>
-            To display a dynamic field on a particular screen there are two mandatory
-conditions:
+            Есть два обязательных условия, которые необходимо выполнить, чтобы
+отобразить динамическое поле на определенных страницах:
         </para>
         <orderedlist>
             <listitem>
@@ -709,9 +718,9 @@ conditions:
             </para>
             <listitem>
                 <para>
-                    Be sure that the dynamic field is set to valid, you can see the validity of
-the field from the dynamic field overview screen. Set to valid by editing
-the field if necessary.
+                    Убедитесь что значение динамического поля установлено правильно. Убедится в
+правильности значения можно посмотрев на страницу просмотра. Немедленно
+отредактируйте значение, чтобы сделать его правильным.
                 </para>
             </listitem>
             <listitem>
@@ -815,13 +824,14 @@ screenshot" scale="40"
 fileref="screenshots/dynamicfields-agentticketphone-field1.png"></graphic></screenshot>
                     </para>
                     <para>
-                        <emphasis>Figure: Field1 in New Phone Ticket Screen.</emphasis>
+                        <emphasis>Рисунок:. Экран приветствия.</emphasis>
                     </para>
                 </example>
             </para>
             <para>
                 <example id="Field1-PhoneTicket-Mandatory">
-                    <title>Activate Field1 in New Phone Ticket Screen as mandatory.</title>
+                    <title>Сделать Field1 на странице просмотра Заявки созданной на базе телефонного
+звонка  New Phone Ticket Screen as mandatory.</title>
                     <para>
                         <itemizedlist>
                             <listitem>
@@ -870,13 +880,14 @@ screenshot" scale="40"
 fileref="screenshots/dynamicfields-agentticketphone-field1-mandatory.png"></graphic></screenshot>
                     </para>
                     <para>
-                        <emphasis>Figure: Field1 in New Phone Ticket Screen as mandatory.</emphasis>
+                        <emphasis>Рисунок: поле Field1 на странице Новая Заявка на основе
+телефонного звонка объязательное.</emphasis>
                     </para>
                 </example>
             </para>
             <para>
                 <example id="AllFields-PhoneTicket">
-                    <title>Activate several fields in New Phone Ticket Screen.</title>
+                    <title>Активировать несколько полей на странице просмомра Новых Телефонных Заявко.</title>
                     <para>
                         <itemizedlist>
                             <listitem>
@@ -944,7 +955,7 @@ Ticket::Frontend::AgentTicketPhone###DynamicField
                     </para>
                     <para>
                         <screenshot>
-<screeninfo>Several fields in New Phone Ticket Screen as mandatory.</screeninfo> <graphic srccredit="dynamicfields -
+<screeninfo>Некоторые поля на странци Новая Телефонная Заявка обязательны.</screeninfo> <graphic srccredit="dynamicfields -
 screenshot" scale="40"
 fileref="screenshots/dynamicfields-agentticketphone-allfields.png"></graphic></screenshot>
                     </para>
@@ -1038,7 +1049,8 @@ mandatory.</emphasis>
             </para>
             <para>
                 <example id="Field1-TicketZoom">
-                    <title>Activate Field1 in Ticket Zoom Screen.</title>
+                    <title>Активировать поле Field1 на странице просмотра подробной информации о
+Заявке.</title>
                     <para>
                         <itemizedlist>
                             <listitem>
@@ -1093,7 +1105,8 @@ fileref="screenshots/dynamicfields-agentticketzoom-field1.png"></graphic></scree
             </para>
             <para>
                 <example id="Field1-TicketOverviewSmall">
-                    <title>Activate Field1 in Ticket Overview Small Screens.</title>
+                    <title>Активировать поле Field1 на странице просмотра обобщенной информации о
+Заявке.</title>
                     <para>
                         <itemizedlist>
                             <listitem>
@@ -1137,7 +1150,7 @@ Ticket::Frontend::OverviewSmall###DynamicField
                     </para>
                     <para>
                         <screenshot>
-<screeninfo>Field1 in Ticket Overview Small Screen.</screeninfo> <graphic srccredit="dynamicfields -
+<screeninfo>Field1 на странице просмотра обобщенной информации о Заявке.</screeninfo> <graphic srccredit="dynamicfields -
 screenshot" scale="40"
 fileref="screenshots/dynamicfields-ticketoverviewsmall-field1.png"></graphic></screenshot>
                     </para>
@@ -1156,8 +1169,8 @@ fileref="screenshots/dynamicfields-ticketoverviewsmall-field1.png"></graphic></s
     <section id="dynamicfields-configuration-event-defaut">
         <title>Установка Значения по Умолчанию с помощью модуля Ticket Event</title>
         <para>
-            A ticket event (e.g. TicketCreate) can trigger a value set for a certain
-field, if the field does not have a value yet.
+            Событие Заявки (например TicketCreate) может вызывать множество значений для
+определенного поля, если его значение еще до сих пор не установлено.
         </para>
         <note>
             <para>
@@ -1265,7 +1278,7 @@ PreferencesGroups###My-Field2, etc.
             </para>
         </note>
         <example id="Field1-UserPreference">
-            <title>Activate Field1 in the User preferences.</title>
+            <title>Активировать поле Field1 на странице Пользовательские Настройки.</title>
             <para>
                 <itemizedlist>
                     <listitem>

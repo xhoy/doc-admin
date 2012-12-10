@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: pgp.xml,v 1.4 2012-12-03 08:37:24 mg Exp $ -->
+<!-- $Id: pgp.xml,v 1.5 2012-12-10 09:02:05 mg Exp $ -->
 <section id='configure-pgp'>
 <title>Безопасность электронной почты с PGP</title>
 
@@ -23,9 +23,9 @@ GnuPG. Чтобы установить GnuPG для OTRS, нужно проде�
     </listitem>
     <listitem>
     <para>
-    Configure GnuPG for use with OTRS. The necessary directories for GnuPG and a
-private key have to be created. The command shown in the script below has to
-be executed as user 'otrs' from a shell.
+    Настройте GnuPG для использования с OTRS. Для GnuPG и приватного ключа нужно
+создать необходимые директории. В командной строки для пользователя 'otrs'
+нужно выполнить команду из нижеприведенного сценирия.
     </para>
 
     <para>
@@ -116,13 +116,13 @@ be executed as user 'otrs' from a shell.
     </para>
 
     <para>
-    <emphasis>Script: Configuring GnuPG.</emphasis>
+    <emphasis>Сценарий: Настройка GnuPG.</emphasis>
     </para>
 
     <para>
-		As shown in the script below, the default settings can be applied for most
-of the required parameters. Only the values for the key owner have to be
-entered correctly, with a proper password specified for the key.
+		Как показано в нижеприведенном сценарии, настройки по умолчанию могут быть
+применены для большинства из необходимых параметров. Правильно должны быть
+указаны только пароль и значения для владельца ключа.
     </para>
     </listitem>
     <listitem>
@@ -155,10 +155,10 @@ entered correctly, with a proper password specified for the key.
     </para>
 
     <para>
-    How to get the id of your own private key? The ID of your own private key is
-already shown during the key generation (see step 1 from above). It is also
-possible to get the ID if the command specified in the following script is
-executed as user 'otrs':
+    Как получить идентификатор вашего собственного закрытого ключа? ID вашего
+собственного закрытого идентификатора отображается во время генерации
+(см. выше шаг 1). Также есть возможность получить ID, указав команду из
+нижеприведенного сценария вызванную с правами пользователя 'otrs':
     </para>
 
     <para>
@@ -180,7 +180,8 @@ executed as user 'otrs':
     </para>
 
     <para>
-    <emphasis>Script: Getting the ID of your own private key.</emphasis>
+    <emphasis>Сценарий: Получение ID вашего собственного приватного
+ключа.</emphasis>
     </para>
 
     <para>

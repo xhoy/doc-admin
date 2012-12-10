@@ -2,13 +2,13 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: genericinterface-webservice-gui.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
+<!-- $Id: genericinterface-webservice-gui.xml,v 1.5 2012-12-10 09:02:24 mg Exp $ -->
 <section id="webservice_gui">
     <title>Графический интерфейс веб-сервиса</title>
     <para>
-        The web service graphical user interface (GUI) is a tool that allows to
-construct complex web service configurations in a friendly and nice
-interface. It allows to:
+        Графический пользовательский интерфейс является тем инструментом, который
+позволяет создавать сложные настройки веб-сервиса в дружественной и приятной
+среде интерфейса. Он позволяет:
     </para>
     <para>
         <itemizedlist>
@@ -19,19 +19,20 @@ interface. It allows to:
             </listitem>
             <listitem>
                 <para>
-                    Import and Export configurations (in YAML file format) for existing web
-services.
+                    Импортировать и Экспортировать настройки (в формате YAML) для существующих
+веб-сервисов.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    View, Revert and Export old configurations for existing web services in the
-Web Service History screen.
+                    Просматривать, Возвращаться и Экспортировать устаревшие конфигурационные
+параметры для существующих веб-сервисов на странице истории конфигурации.
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    Track all communication logs for each web service in the Debugger screen.
+                    Отслеживать все сообщения журнала для каждого из веб-сервисов на странице
+Отладчика.
                 </para>
             </listitem>
         </itemizedlist>
@@ -85,7 +86,7 @@ values.
         </para>
         <para>
             <itemizedlist>
-                <title>Debug Threshold levels (from lower to upper)</title>
+                <title>Отладка уровней (от нижних к верхним)</title>
                 <listitem>
                     <para>
                         Отладка
@@ -109,13 +110,12 @@ values.
             </itemizedlist>
         </para>
         <para>
-            It is also possible to define the network transport protocol for "OTRS as
-Provider" and "OTRS as requester".
+            Также есть возможность определить протокол транспортной сети для "OTRS как
+Поставщика" и "OTRS как Запрашиваемую Сторону".
         </para>
         <para>
-            Click on the "Save" button to register the new web service in the database
-or click "Cancel" to discard this operation. You will now be returned to the
-web service overview screen.
+            Нажмите кнопку "Сохнанить", чтобы зарегистрировать новый веб-сервис в базе
+данных или кнопку "Отменить" чтобы отменить эту операцию.
         </para>
         <para>
             If you already have a web service configuration file in YAML format you can
@@ -125,8 +125,8 @@ more information on importing web services please check the next section
         </para>
         <note>
             <para>
-                To change or add more details to a web service, click on the web service
-name in the web service overview screen.
+                Нажмите на имя веб-сервиса на странице просмотра чтобы изменить или добавить
+больше элементов веб-сервису.
             </para>
         </note>
         <para>
@@ -183,25 +183,26 @@ buttons that allows you to perform all possible actions on a web service:
         </para>
         <note>
             <para>
-                "Configuration history" and "Debugger" will lead you to different screens.
+                Переход к "История конфигурации" и "Отладчик" приведет к открытию различных
+страниц.
             </para>
         </note>
 
         <section id="webservice-clone">
             <title>Клонирование веб-сервиса:</title>
             <para>
-                To clone a web service, you need to click on the "Clone web service" button,
-a dialog will be shown where you can use the default name or set a new name
-for the (cloned) web service.
+                Для клонирования веб-сервиса необходимо нажать кнопку "Клонировать
+веб-сервис", появится диалоговое окно, в котором можно использовать имя по
+умолчанию или же установить новое имя для клонируемого веб-сервиса.
             </para>
             <note>
                 <para>
-                    <emphasis>Remember </emphasis> the name of the web service must be unique
-within the system.
+                    <emphasis>Запомните </emphasis> название веб-сервиса должно быть уникальным
+для всей системы.
                 </para>
             </note>
-            <para>Click on "Clone" button to create the web service clone or "Cancel" to close
-the dialog.</para>
+            <para>Нажмите кнопку "Клонировать" чтобы создать копию веб-сервиса или кнопку
+"Отменитьl", чтобы закрыть диалоговое окно.</para>
             <para>
                 <screenshot>
 <screeninfo>Клонирование веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
@@ -224,14 +225,14 @@ testing environment to a production system.
             </para>
             <warning>
                 <para>
-                    All stored passwords in the web service configuration will be exported as
-plain text.
+                    Все сохраненные пароли в настройках веб-сервиса будут экспортированы в виде
+обычного текста.
                 </para>
             </warning>
             <para>
-                Right after clicking the "Export web service" button a save dialog of your
-browser will appear, just like when you click on a file download link on a
-web page.
+                Сразу же после нажатия кнопки "Экспорт веб-сервиса" появится диалоговое окно
+сохранения, на подобе того, которое появляется когда вы нажимаете в браузере
+ссылку сохранить.
             </para>
             <note>
                 <para>
@@ -261,8 +262,8 @@ web service feature. Click on the "Import web service" button, browse for
 the configuration file or provide the complete path in the input box.
             </para>
             <para>
-                Click "Import" button to create a new web service from a file or "Cancel" to
-close the dialog.
+                Нажмите кнопку "Импорт" чтобы создать новый веб-сервис с файла или кнопку
+"Отменить" чтобы закрыть диалоговое окно.
             </para>
             <note>
                 <para>
@@ -302,9 +303,9 @@ selected web service configuration version or to restore that version into
 the current web service configuration.
             </para>
             <para>
-                The "Export web service configuration" behaves exactly as the "Export web
-service" feature in the web service change screen. For more information
-refer to that section.
+                "Экспортировать настройки веб-сервиса" ведет себя точно так же как
+"Экспортировать веб-сервис". Для более подробной информации обратитесь к
+этому разделу.
             </para>
             <para>
                 If changes to the current web service configuration does not work as
@@ -317,12 +318,12 @@ dialog.
             </para>
             <warning>
                 <para>
-                    Remember that any passwords stored in the web service configuration will be
-exported as plain text.
+                    Помните, что все пароли сохраненные в конфигурации веб-сервиса будут
+экспортироваться в виде обычного текста.
                 </para>
                 <para>
-                    Please be careful when you restore a configuration because this can't be
-undone.
+                    Пожалуйста, будьте внимательны при восстановление параметров конфигурации,
+эта операция не может быть отменена.
                 </para>
             </warning>
             <para>
@@ -339,18 +340,18 @@ fileref="screenshots/genericinterface-webservice-history.png"></graphic></screen
         <section id="webservice-delete">
             <title>Удаление веб-сервиса</title>
             <para>
-                Sometimes it is necessary to delete a web service completely.  To do this
-you can press on the "Delete web service" button and a new dialog will
-appear asking for confirmation.
+                Иногда возникает необходимость удалить веб-сервис полностью. Для этого можно
+нажать кнопку "Удалить веб-сервис", появится диалоговое окно с вопросом о
+подтверждении операции.
             </para>
             <para>
-                Clink on "Delete" to confirm the removal of the web service or on "Cancel"
-to close the dialog.
+                Кликните на кнопку "Удалить" чтобы подтвердить удаление веб-сервиса или
+кнопку "Отменить" чтобы закрыть диалоговое окно.
             </para>
             <warning>
                 <para>
-                    Delete a web service can't be undone, please be careful when deleting a web
-service.
+                    Операция удаления веб-сервиса не может быть отменена, пожалуйста, будьте
+внимательны при удалении веб-сервисов.
                 </para>
              </warning>
             <para>
@@ -367,18 +368,18 @@ fileref="screenshots/genericinterface-webservice-delete.png"></graphic></screens
         <section id="webservice-debugger">
             <title>Отладчик веб-сервиса:</title>
             <para>
-                The Debugger stores the log of a web service. In the debugger screen you can
-track all the web service communications for either provider or requester
-types.
+                Отладчик хранит журнал веб-сервиса. На странице отладчика можно следить за
+всеми связями веб-сервера, когда он работает в роли поставщика и получателя.
             </para>
             <para>
-                When this screen is shown the request list starts to load. After the list is
-fully filled you can choose one of the rows (that means a communication
-sequence) to check its details. This details will appear in a box below.
+                Когда отображается эта страница начинает загружаться список запросов. После
+того как список будет полность загружен, можно выбрать одну из строк (что
+означает последовательность связей) и просмотреть подробню информацию. Эта
+информация будет отображаться во всплывающем окне ниже.
             </para>
             <para>
-                You can narrow the communication list using the filter on the right part of
-the screen. You can filter by:
+                Можно сузить список используя фильтр в правой части страницы. Фильтрацию
+можно производить по:
             </para>
             <itemizedlist>
                 <listitem>
@@ -403,13 +404,13 @@ the screen. You can filter by:
                 </listitem>
             </itemizedlist>
             <para>
-                After filter settings are set, push the "Refresh" button and a new list will
-be displayed meeting your search criteria.
+                После того как настройки фильтра завершены, нажмите кнопку "Обновить" и
+новый список, отвечающий вашим критериям будет отображен.
             </para>
             <note>
                 <para>
-                    Depending on the search criteria for the filters the new list could return
-no results.
+                    В зависимости от критериев поиска установленых в фильтре,  новый поиск может
+вернуть пустой список.
                 </para>
             </note>
             <para>
@@ -420,9 +421,9 @@ log. Click "Clear" in the dialog button to perform the action or click on
 "Cancel" to close this dialog.
             </para>
             <para>
-                In the "Request details" section you can see all the details for the
-selected communication. Here you can track the complete flow and check for
-possible errors or confirm success responses.
+                В разделе "Подробности Запроса" можно просматривать подробную информацию о
+комуникации. Здесь можно следить за полным потоком и проверять всевозможные
+ошибки или подтвержать успешные ответы.
             </para>
             <para>
                 <screenshot>
@@ -462,8 +463,8 @@ Operation" list. This will lead you to the operation configuration
 screen. After saving the new operation it will be listed in the table above.
             </para>
             <para>
-                "OTRS as requester" is very similar to the previous one, but instead of
-"operations" you can add invokers here.
+                "OTRS как запрашивающая сторона" очень похож на предыдущий, но вместо
+"операций" здесь можно добавить invokers
             </para>
             <para>
                 Click the "Save" button to save and continue configuring the web service,
@@ -494,18 +495,18 @@ will return to the same screen to review your changes or to configure deeper
 settings.
                 </para>
                 <para>
-                    "Save and Finish" will store the current configuration level in the database
-and it will return to the previous screen in the configuration hierarchy (to
-the immediate upper configuration level).
+                    "Save and Finish" сохнанит текущий уровень настроек в базе данных и вернется
+к предыдущей странице в иерархии конфигурации.
                 </para>
                 <para>
-                    "Cancel" will discard any configuration change to the current configuration
-level and will return to the previous screen in the configuration hierarchy.
+                    "Отменить" будет отменять любые изменения конфигурации и возвращать их к
+текущему уровню конфигурации, после чего возвращаться на к предыдущему
+экрану в иерархии настроек.
                 </para>
             </note>
 
         <section id="webservice-provider-network-transport">
-            <title>Web Service Provider Network Transport</title>
+            <title>Транспортаня сеть Веб-сервиса</title>
             <para>
                 In future the list of available network transports will be
 increased. Currently only the "HTTP::SOAP" transport is available. Each
@@ -522,12 +523,12 @@ the maximum size (in bytes) for SOAP messages that OTRS will process.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Web Service Provider Network Transport</screeninfo> <graphic srccredit="Adminarea web
+<screeninfo>Транспортаня сеть Веб-сервиса</screeninfo> <graphic srccredit="Adminarea web
 service provider network transport - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-provider-transport.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Web service provider network transport.</emphasis>
+                <emphasis>Рисунок: Транспортаня сеть Веб-сервиса.</emphasis>
             </para>
         </section>
 
@@ -595,8 +596,8 @@ specify:
                 <itemizedlist>
                     <listitem>
                         <para>
-                            Encoding (such as utf-8, latin1, iso-8859-1, cp1250, etc) for the SOAP
-message.
+                            Кодировка (такая как utf-8, latin1, iso-8859-1, cp1250, и т.д.) для
+SOAP-сообщений.
                         </para>
                     </listitem>
                     <listitem>
@@ -610,9 +611,9 @@ for the rest).
                     </listitem>
                     <listitem>
                         <para>
-                            Authentication: to set the authentication mechanism, set to "-" to not use
-any authentication or select one from the list and the detail fields will
-appear.
+                            Аутентификация: установить механизм аутентификации, установлено в "-" чтобы
+не использовать любую проверку подлинности или выбрать ее из списка, после
+чего появится поле с подробной информацией.
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -745,14 +746,15 @@ needs.
                 </para>
                 <note>
                     <para>
-                        When Mapping::Simple does not cover all mapping needs for a web service a
-new mapping module should be created. To learn more about how to create new
-mapping modules please consult the OTRS Development Manual.
+                        Если Mapping::Simple не покрывает все потребности в отображении для
+веб-сервиса, поэтому должен быть создан новый модуль отображения. Чтобы
+узнать больше о том как создавать новый модуль отображения, пожалуйста
+обратитесь к руководству OTRS - Development Manual.
                     </para>
                 </note>
                 <para>
-                    This module gives you the opportunity to set default values to map for each
-key or value for the whole communication data.
+                    Этот модуль дает возможность установить значение для отображения по
+умолчанию для каждого ключа или значения для всех передаваемых данных.
                 </para>
                 <para>
                     At the beginning of the screen you will see a general section where you can
@@ -762,7 +764,7 @@ values. there are three options available, these options are listed below:
                 <itemizedlist>
                     <listitem>
                         <para>
-                            Keep (leave unchanged): doesn't touch the keys or values in any way.
+                            Не изменять: не касается ключей и значений в любом случае.
                         </para>
                     </listitem>
                     <listitem>
@@ -793,14 +795,14 @@ single key, with the next options:
                     <itemizedlist>
                         <listitem>
                             <para>
-                                Exact value(s): the old key string will be changed to a new one if the old
-key matches exactly.
+                                Точное значение(я): строка со старым значением будет заменена новой в случае
+полного совпадения "старого" ключа.
                             </para>
                         </listitem>
                         <listitem>
                             <para>
-                                Regular expression: The key string will be replaced following a regular
-expression rule.
+                                Регулярное выражение: строки будут изменены с помощью правила
+преобразования.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -813,9 +815,9 @@ expression). You can add as many values to map as needed, and if you want to
 delete one of them, just click on the "-" button for each mapping value row.
                 </para>
                 <para>
-                    Deleting the complete key mapping section (box) is possible, just push on
-the "-" button located on the up right corner of each box that you want to
-delete.
+                    Удаление целого раздела ключей отображения возможно, просто нажмите на
+кнопку "-", расположеную в верхнем правом углу каждого окна, для которого вы
+хотите удалить.
                 </para>
                 <para>
                     If you need to delete a complete mapping configuration: go back to the

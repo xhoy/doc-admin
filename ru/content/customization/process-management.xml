@@ -2,22 +2,20 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: process-management.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.5 2012-12-10 09:02:21 mg Exp $ -->
 <section id="process-management" >
-<title>Process Management</title>
-
-    <!--  TODO CR2 Review -->
-<section>
-        <title>Introduction</title>
+<title>Управление Процессами</title>
+    <section>
+        <title>Введение</title>
         <para>
-            This feature of OTRS allows you to model processes (workflows) in the ticket
-system.  The basic idea is to be able to define reoccurring processes, and
-to delegate work items to different people, as well as leading the progress
-of a process in different directions based on certain criteria.
+            This feature of OTRS allows you to model processes (work-flows) in the
+ticket system.  The basic idea is to be able to define recurring processes,
+and to delegate work items to different people, as well as leading the
+progress of a process in different directions based on certain criteria.
         </para>
     </section>
     <section>
-        <title>Example process</title>
+        <title>Пример процесса</title>
         <para>
             Давайте рассмотрим некий пример чтобы все было более наглядно и понятно. Мы
 будем рассматривать процесс покупки книги:
@@ -26,8 +24,8 @@ of a process in different directions based on certain criteria.
         <section>
             <title>Запись спроса</title>
             <para>
-                Прежде чем заказ будет размещен, запрос на литературу работником будет
-записан. Следующая книга нужна в нашем примере:
+                Before an order will be placed, the demand for literature by an employee
+will be recorded. The following book is needed in our example:
             </para>
             <para>
                 <screen>
@@ -41,8 +39,8 @@ ISBN: 3527703713
         <section>
             <title>Утверждено начальником</title>
             <para>
-                The head of the employee's department needs to decide on the order.  In case
-of a denial, a reason should be recorded by the superior.  In case of
+                The head of the employee's department needs to decide on the order. In case
+of a denial, a reason should be recorded by the superior. In case of
 approval, the order is passed to the purchasing department.
             </para>
         </section>
@@ -51,41 +49,53 @@ approval, the order is passed to the purchasing department.
             <title>Обрабатывается отделом закупок</title>
             <para>
                 Purchasing now has the task to find out where the book can be ordered with
-the best conditions.  If it is out of stock, this can be recorded in the
-order.  In case of a successful order purchasing will record the supplier,
+the best conditions. If it is out of stock, this can be recorded in the
+order. In case of a successful order purchasing will record the supplier,
 the price and the delivery date.
             </para>
         </section>
 
         <section>
-            <title>Обрабатывается почтовым отделом</title>
+            <title>Processing by the mail room</title>
             <para>
                 The shipment will arrive at the company. The incoming goods department
-checks the shipment and records the date of receipt.  Now the employee will
+checks the shipment and records the date of receipt. Now the employee will
 be informed that their order has arrived and is ready to be collected.
             </para>
         </section>
     </section>
-
     <section>
         <title>Выполнение примера</title>
         <para>
-            If we assume that a ticket acts in this workflow like an accompanying
+            If we assume that a ticket acts in this work-flow like an accompanying
 document that can receive change notes, we already have a clear picture of
 process tickets.
         </para>
         <para>
-            Проанализировав предыдущий пример мы можем выделить следующие пункты:
+            From the analysis of the example process we can identify the following
+necessary items:
         </para>
         <para>
             <itemizedlist>
-                <listitem><para>Возможность записать данные, назовем ее <emphasis>Диалоги
-Деятельности</emphasis>,</para></listitem>
-                <listitem><para>проверки, которые могут реагировать на автоматическое изменение данных,
-назовем их <emphasis>Переходы</emphasis>,</para></listitem>
-                <listitem><para>изменения, которые могут быть применены для обработки заявки после успешного
+                <listitem>
+                    <para>
+                        Possibilities to record data, let's call them <emphasis>Activity
+Dialogs</emphasis>,
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Checks which can react to changed data automatically, let's call them
+<emphasis>Transitions</emphasis>,
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        изменения, которые могут быть применены для обработки заявки после успешного
 перехода обработки заявки, назовем их <emphasis>Transition
-Actions</emphasis>.</para></listitem>
+Actions</emphasis>.
+                    </para>
+                </listitem>
             </itemizedlist>
         </para>
         <para>
@@ -97,14 +107,15 @@ Actions</emphasis>.</para></listitem>
                     <para>
                         A possibility to offer more than just one Activity Dialog to be available.
 In our example this is needed when the superior must have the choice between
-"Approve" and "Deny".  Let's call this <emphasis>Activity</emphasis>.
-                </para></listitem>
+"Approve" and "Deny". Let's call this <emphasis>Activity</emphasis>.
+                    </para>
+                </listitem>
             </itemizedlist>
         </para>
         <para>
             Now, with Activities, Activity Dialogs, Transitions and Transition Actions
 we have the necessary tools to model the individual steps of our
-example. What's still missing is an area where for each workflow the order
+example. What's still missing is an area where for each work-flow the order
 of the steps can be specified. Let's call this
 <emphasis>Process</emphasis>. To be able to refer to all these entities
 later, we will assign to them an abbreviation in parentheses. This
@@ -112,71 +123,71 @@ abbreviation is based on an internal identification mechanism called
 EntityIDs.
         </para>
         <para>
-            The EntityIDs are conformed with one or two letters (depending on the
-process part or entity) and then a consecutive number, examples:
+            EntityIDs согласовываются с одной или двумя буквами (в зависимости от части
+процесса), а затем порядковый номер, например:
             <itemizedlist>
-                <listitem><para>Process: 'P1', 'P2' ... 'Pn'.</para></listitem>
-                <listitem><para>Activity: 'A1', 'A2' ... 'An'.</para></listitem>
-                <listitem><para>Activity Dialog: 'AD1', 'AD2' ... 'ADn'.</para></listitem>
-                <listitem><para>Transition: 'T1', 'T2' ... 'Tn'.</para></listitem>
-                <listitem><para>Transition Action: 'TA1', 'TA2' ... 'TAn'.</para></listitem>
+                <listitem><para>Процесс: 'P1', 'P2' ... 'Pn'.</para></listitem>
+                <listitem><para>Деятельность: 'A1', 'A2' ... 'An'.</para></listitem>
+                <listitem><para>Диалог Активности: 'AD1', 'AD2' ... 'ADn'.</para></listitem>
+                <listitem><para>Переход: 'T1', 'T2' ... 'Tn'.</para></listitem>
+                <listitem><para>Переход действий: 'TA1', 'TA2' ... 'TAn'.</para></listitem>
             </itemizedlist>
         </para>
         <para>
-           Before the creation of the process and its parts is necessary to prepare the
-system, we will need to define some Queues, Users and Dynamic Fields as well
-as set some SysConfig options.
+           Перед созданием процесса и его частей необходимо подготовить систему. Нужно
+определить некоторые Очереди, Клиентов и Динамические Поля, а также
+установить некоторые опции в файле  SysConfig.
         </para>
         <para>
-            Create the following Queues:
+            Создать следующие Очереди:
             <itemizedlist>
-                <listitem><para>Superior</para></listitem>
-                <listitem><para>Employee</para></listitem>
-                <listitem><para>Purchasing</para></listitem>
-                <listitem><para>Post office</para></listitem>
+                <listitem><para>Вышестоящий</para></listitem>
+                <listitem><para>Сотрудник</para></listitem>
+                <listitem><para>Покупка</para></listitem>
+                <listitem><para>Почтовое отделение</para></listitem>
             </itemizedlist>
         </para>
         <para>
-            Create the following Users:
+            Создает следующих Пользователей:
             <itemizedlist>
-                <listitem><para>Superior</para></listitem>
-                <listitem><para>Employee</para></listitem>
+                <listitem><para>Вышестоящий</para></listitem>
+                <listitem><para>Сотрудник</para></listitem>
             </itemizedlist>
         </para>
         <para>
-            Create the following Dynamic Fields:
+            Создать следующие Динамически Поля:
             <itemizedlist>
                 <listitem>
-                    <para>Title</para>
+                    <para>Название</para>
                     <informaltable>
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <tbody>
                                 <row>
-                                    <entry>Метка</entry><entry>Title</entry>
+                                    <entry>Метка</entry><entry>Название</entry>
                                 </row>
                                 <row>
                                     <entry>Type</entry><entry>Text</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
                     </informaltable>
                 </listitem>
                 <listitem>
-                    <para>Author</para>
+                    <para>Автор</para>
                     <informaltable>
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <tbody>
                                 <row>
-                                    <entry>Метка</entry><entry>Author</entry>
+                                    <entry>Метка</entry><entry>Автор</entry>
                                 </row>
                                 <row>
                                     <entry>Type</entry><entry>Text</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
@@ -194,36 +205,36 @@ as set some SysConfig options.
                                     <entry>Type</entry><entry>Text</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
                     </informaltable>
                 </listitem>
                 <listitem>
-                    <para>Status</para>
+                    <para>Состояние</para>
                     <informaltable>
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <tbody>
                                 <row>
-                                    <entry>Метка</entry><entry>Status</entry>
+                                    <entry>Метка</entry><entry>Состояние</entry>
                                 </row>
                                 <row>
                                     <entry>Type</entry><entry>Dropdown</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                                 <row>
-                                    <entry>Possible Values</entry>
+                                    <entry>Возможные значения</entry>
                                     <entry>
                                         <itemizedlist>
                                             <listitem><para>Утверждение</para></listitem>
-                                            <listitem><para>Approval denied</para></listitem>
-                                            <listitem><para>Approved</para></listitem>
-                                            <listitem><para>Order denied</para></listitem>
-                                            <listitem><para>Order placed</para></listitem>
-                                            <listitem><para>Shipment received</para></listitem>
+                                            <listitem><para>Отказано в утверждении</para></listitem>
+                                            <listitem><para>Утвержденный</para></listitem>
+                                            <listitem><para>Заказ отменен</para></listitem>
+                                            <listitem><para>Заказ размещен</para></listitem>
+                                            <listitem><para>Посылка получена</para></listitem>
                                         </itemizedlist>
                                     </entry>
                                 </row>
@@ -232,36 +243,36 @@ as set some SysConfig options.
                     </informaltable>
                 </listitem>
                 <listitem>
-                    <para>Supplier</para>
+                    <para>Поставщик</para>
                     <informaltable>
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <tbody>
                                 <row>
-                                    <entry>Метка</entry><entry>Supplier</entry>
+                                    <entry>Метка</entry><entry>Поставщик</entry>
                                 </row>
                                 <row>
                                     <entry>Type</entry><entry>Text</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
                      </informaltable>
                 </listitem>
                 <listitem>
-                    <para>Price</para>
+                    <para>Цена</para>
                     <informaltable>
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <tbody>
                                 <row>
-                                    <entry>Метка</entry><entry>Price</entry>
+                                    <entry>Метка</entry><entry>Цена</entry>
                                 </row>
                                 <row>
                                     <entry>Type</entry><entry>Text</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
@@ -273,13 +284,13 @@ as set some SysConfig options.
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <tbody>
                                 <row>
-                                    <entry>Метка</entry><entry>Delivery date</entry>
+                                    <entry>Метка</entry><entry>Дата доставки</entry>
                                 </row>
                                 <row>
                                     <entry>Type</entry><entry>Date</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
@@ -297,7 +308,7 @@ as set some SysConfig options.
                                     <entry>Type</entry><entry>Date</entry>
                                 </row>
                                 <row>
-                                    <entry>Object</entry><entry>Заявк</entry>
+                                    <entry>Объект</entry><entry>Заявк</entry>
                                 </row>
                             </tbody>
                         </tgroup>
@@ -306,7 +317,7 @@ as set some SysConfig options.
             </itemizedlist>
         </para>
         <para>
-            Set the the following SysConfig settings:
+            Устанавливает следующие параметры SysConfig:
             <itemizedlist>
                 <listitem><para>'Ticket::Responsible': Yes</para></listitem>
                 <listitem>
@@ -317,23 +328,23 @@ as set some SysConfig options.
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <thead>
                                 <row>
-                                    <entry><emphasis>Key:</emphasis></entry>
-                                    <entry><emphasis>Content:</emphasis></entry>
+                                    <entry><emphasis>Ключ:</emphasis></entry>
+                                    <entry><emphasis>Содержание:</emphasis></entry>
                                 </row>
                             </thead>
                             <tbody>
                                 <row>
-                                    <entry>Book</entry><entry>Title, Author, ISBN</entry>
+                                    <entry>Книга</entry><entry>Название, Автор, ISBN</entry>
                                 </row>
                                 <row>
-                                    <entry>Общий</entry><entry>Status</entry>
+                                    <entry>Общий</entry><entry>Состояние</entry>
                                 </row>
                                 <row>
-                                    <entry>Order</entry>
-                                    <entry>Price, Supplier, DeliveryDate</entry>
+                                    <entry>Заказ</entry>
+                                    <entry>Цена, Поставщик, Дада доставки</entry>
                                 </row>
                                 <row>
-                                    <entry>Shipment</entry><entry>DateOfReceipt</entry>
+                                    <entry>Отгрузка</entry><entry>DateOfReceipt</entry>
                                 </row>
                             </tbody>
                         </tgroup>
@@ -347,13 +358,13 @@ as set some SysConfig options.
                         <tgroup cols='2' align='left' colsep='1' rowsep='1'>
                             <thead>
                                 <row>
-                                    <entry><emphasis>Key:</emphasis></entry>
-                                    <entry><emphasis>Content:</emphasis></entry>
+                                    <entry><emphasis>Ключ:</emphasis></entry>
+                                    <entry><emphasis>Содержание:</emphasis></entry>
                                 </row>
                             </thead>
                             <tbody>
                                 <row>
-                                    <entry>Author</entry><entry>1</entry>
+                                    <entry>Автор</entry><entry>1</entry>
                                 </row>
                                 <row>
                                     <entry>DateOfReceipt</entry><entry>1</entry>
@@ -365,16 +376,16 @@ as set some SysConfig options.
                                     <entry>ISBN</entry><entry>1</entry>
                                 </row>
                                 <row>
-                                    <entry>Price</entry><entry>1</entry>
+                                    <entry>Цена</entry><entry>1</entry>
                                 </row>
                                 <row>
-                                    <entry>Status</entry><entry>1</entry>
+                                    <entry>Состояние</entry><entry>1</entry>
                                 </row>
                                 <row>
-                                    <entry>Supplier</entry><entry>1</entry>
+                                    <entry>Поставщик</entry><entry>1</entry>
                                 </row>
                                 <row>
-                                    <entry>Title</entry><entry>1</entry>
+                                    <entry>Название</entry><entry>1</entry>
                                 </row>
                             </tbody>
                         </tgroup>
@@ -386,9 +397,8 @@ as set some SysConfig options.
              Now lets start with the real Process Management stuff. In the next step, we
 will define the individual entities that we need.
         </para>
-
         <section>
-            <title>Process (as a container)</title>
+            <title>Процесс (в качестве контейнера)</title>
             <para>
                 To create a new process is necessary to click on the "Process Management"
 link in the System Administration box in the Admin panel, this will lead to
@@ -397,49 +407,48 @@ can create all other entities (or process parts).
             </para>
             <note>
                 <para>
-                    Activities, Activity Dialogs, Transitions and Transition Actions defined in
-one process will be available for all the processes in the system.
+                    Деятельности, Диалоги Активности, Переходы и Действия переходов определенные
+в одном процессе будут доступны для всех процессов системы.
                 </para>
             </note>
             <para>
                 <screenshot>
-<screeninfo>The OTRS Admin screen - System Administration</screeninfo> <graphic
-srccredit="process-management - screenshot"
+<screeninfo>Страница Администратора OTRS - Администрирование Системы</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-admin-sysadmin.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: OTRS Admin screen - System Administration.</emphasis>
+                <emphasis>Рисунок: Страница Администратора OTRS - Администрирование
+системы.</emphasis>
             </para>
 
             <para>
-                Click on the "Create New Process" action from the Actions box.
+                Нажмите на действие "Создать Новый Процесс" в окне Действий.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Create New Process button</screeninfo> <graphic
-srccredit="process-management - screenshot"
+<screeninfo>Создать Новую кнопку Процесса</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-newprocess-button.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Create New Process button.</emphasis>
+                <emphasis>Figure: Создать кнопку Новый Процесс.</emphasis>
             </para>
-
             <para>
-                Fill the process information,set Process Name and the Description, we will
-leave the process State as "inactive", until we finish all the tasks. Save
-the process.
+                Заполняем информацию о процессе, указываем Название Процесса и его Описание,
+а статус оставим со значением "inactive", пока не закончим все
+задачи. Сохраняем процесс.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Add new process</screeninfo> <graphic
-srccredit="process-management - screenshot" scale='70'
+<screeninfo>Добавить новый процесс</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-newprocess-info.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Add new process.</emphasis>
+                <emphasis>Рисунок Добавить новый процесс.</emphasis>
             </para>
         </section>
-
         <section>
             <title>Диалоги Действий</title>
                 <para>
@@ -452,11 +461,11 @@ Dialog".
                 <para>
                     <screenshot>
 <screeninfo>Create New Activity Dialog button</screeninfo> <graphic
-srccredit="process-management - screenshot"
+srccredit="process-management - scale='40'screenshot" scale='40'
 fileref="screenshots/pm-accordion-new-activitydialog.png"></graphic></screenshot>
                 </para>
                 <para>
-                    <emphasis>Figure: Create New Activity Dialog button.</emphasis>
+                    <emphasis>Рисунок: Создать кнопку Новый Диалог Деятельности.</emphasis>
                 </para>
                 <para>
                     In the opened popup screen fill the "Activity dialog Name" as well as the
@@ -470,11 +479,11 @@ and drop the filed within the pool to rearrange it in the correct place.
                 <para>
                     <screenshot>
 <screeninfo>Add new Activity Dialog</screeninfo> <graphic
-srccredit="process-management - screenshot"
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-edit-activitydialog.png"></graphic></screenshot>
                 </para>
                 <para>
-                    <emphasis>Figure: Add new Activity Dialog.</emphasis>
+                    <emphasis>Figure: Добавить новый Диалог Деятельности.</emphasis>
                 </para>
                 <para>
                     As soon as the fields are dropped into the "Assigned Fields" pool another
@@ -484,16 +493,16 @@ ArticleType field is set to "note-internal".
                 </para>
                 <para>
                     <screenshot>
-<screeninfo>Edit field details (Article)</screeninfo> <graphic
-srccredit="process-management - screenshot"
+<screeninfo>Редактировать элементы поля (Article)</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-edit-field-article.png"></graphic></screenshot>
                 </para>
                 <para>
                     <emphasis>Figure: Edit field details (Article).</emphasis>
                 </para>
                 <para>
-                    After all fields are assigned click on the submit button in the main popup
-screen to save the changes.
+                    Если все поля привязаны, нажмите на кнопку отправить в главном всплывающем
+окне чтобы изменения вступили в силу.
                 </para>
                 <para>
                     In this example we will use Article field for comments, but another option
@@ -501,17 +510,17 @@ could be to create a TextArea type Dynamic Field, the rest of the mentioned
 fields in the lines below are the Dynamic Fields that we define before.
                 </para>
                 <para>
-                    Please be aware that in this screen all the Dynamic Fields has the prefix
-"DynamicField_" as in "DynamicField_Title", Do not confuse with the field
-"Title" that is the Ticket Title.
+                    Обратите вниманиче что на этой странице все Динамические Поля имеют префикс
+"DynamicField_" как в "DynamicField_Title", не путайте с полем "Название",
+которое является Названием Заявки.
                 </para>
                 <para>
-                    Create the following Activity Dialogs:
+                    Создать следующие Диалоги Активности:
                 </para>
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>"Recoding the demand" (AD1)</para>
+                        <para>"Запись спроса" (AD1)</para>
                         <para>
                             An Activity Dialog that contains all the required fields for the data to be
 collected for the order (Title, Author and ISBN), and a Status field with
@@ -519,20 +528,20 @@ the possibility to choose "Approval".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Approval denied" (AD2)</para>
+                        <para>"Отказано в утверждении" (AD2)</para>
                         <para>
                             An Activity Dialog with a comment field (Article) and a Status field with
 the option "Approval denied".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Approved" (AD3)</para>
+                        <para>"Утвержден" (AD3)</para>
                         <para>
                             Here we just need the Status field with the option "Approved".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Order rejected" (AD4)</para>
+                        <para>"Order denied" (AD4)</para>
                         <para>
                             An activity dialog which makes it possible for purchasing to reject an
 impossible order (book out of stock). Here we also need a comment field and
@@ -540,25 +549,25 @@ the Status field with the option "Order denied".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Order placed" (AD5)</para>
+                        <para>"Заказ размещен" (AD5)</para>
                         <para>
                             An activity dialog with the fields Supplier, Price and Delivery date for
 purchasing and the Status field with the option "Order placed".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Shipment received" (AD6)</para>
+                        <para>"Поставка получена" (AD6)</para>
                         <para>
-                            An activity for the mailroom with a field for the Date of receipt and the
+                            An activity for the mail room with a field for the Date of receipt and the
 Status field with the option "Shipment received".
                         </para>
                     </listitem>
                 </itemizedlist>
                 </para>
                 <para>
-                    To restrict the Status field for each activity dialog we need to add some
-ACLs in the Kernel/Config.pm or to a new perl file located in
-Kernel/Config/Files.
+                    Чтобы ограничить поле состояние для каждого из диалогов активности нам
+необходимо добавить некоторые ACL-права в файл Kernel/Config.pm или в новый
+perl-файл в Kernel/Config/Files.
                 </para>
                 <para>
                     <screen>
@@ -642,21 +651,20 @@ Kernel/Config/Files.
                     </screen>
                 </para>
         </section>
-
         <section>
-            <title>Transitions</title>
+            <title>Переходы</title>
                 <para>
-                    In the "Available Process Elements" click in "Transitions", then click on
-"Create New Transition".
+                    В "Доступные Элементы Процесса" щелкните "Переходы", а затем кликните на
+"Создать новый переход".
                 </para>
                 <para>
                     <screenshot>
-<screeninfo>Create New Transition button</screeninfo> <graphic
-srccredit="process-management - screenshot"
+<screeninfo>Создать Новую кнопку Перехода</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-accordion-new-transition.png"></graphic></screenshot>
                 </para>
                 <para>
-                    <emphasis>Figure: Create New Transition button.</emphasis>
+                    <emphasis>Figure: Создать кнопку Новый Переход.</emphasis>
                 </para>
                 <para>
                     In the opened popup screen fill the "Transition Name", then in the
@@ -666,53 +674,54 @@ the filed match type value as "String".
                 </para>
                 <para>
                     <screenshot>
-<screeninfo>Add new Transition</screeninfo> <graphic
-srccredit="process-management - screenshot"
-fileref="screenshots/pm-edit-transtion.png"></graphic></screenshot>
+<screeninfo>Добавить новый Переход</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-edit-transition.png"></graphic></screenshot>
                 </para>
                 <para>
-                    <emphasis>Figure: Add new Transition.</emphasis>
+                    <emphasis>Рисунок: Добавить новый ПереходAdd new Transition.</emphasis>
                 </para>
                 <para>
-                    After all conditions are set click on the submit button to save the changes.
+                    Когда все условия установлены, нажмите кнопку Отправить, чтобы сохнанить
+изменения.
                 </para>
                 <para>
-                    Create the following Transitions:
+                    Создать следующие Переходы:
                 </para>
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>"Approval" (T1)</para>
+                        <para>"Утверждение" (T1)</para>
                         <para>
                             A transition which checks if the Status field is set to "Approval".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Approval denied" (T2)</para>
+                        <para>"Отказано в утверждении" (T2)</para>
                         <para>
                             A transition which checks if the Status field is set to "Approval denied".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Approved" (T3)</para>
+                        <para>"Утвержден" (T3)</para>
                         <para>
                             A transition which checks if the Status field is set to "Approved".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Order denied" (T4)</para>
+                        <para>"Заказ отменен" (T4)</para>
                         <para>
                             A transition which checks if the Status field is set to "Order denied".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Order placed" (T5)</para>
+                        <para>"Заказ размещен" (T5)</para>
                         <para>
                             A transition which checks if the Status field is set to "Order placed".
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Shipment received" (T6)</para>
+                        <para>"Поставка получена" (T6)</para>
                         <para>
                             A transition which checks if the Status field is set to "Shipment received".
                         </para>
@@ -721,29 +730,29 @@ fileref="screenshots/pm-edit-transtion.png"></graphic></screenshot>
                 </para>
         </section>
         <section>
-            <title>TransitionActions</title>
+            <title>Transition Actions</title>
                 <para>
-                    Click on "Transition Actions " in the "Available Process Elements", then
-click on "Create New TransitionAction".
+                    Click on "Transition Actions" in the "Available Process Elements", then
+click on "Create New Transition Action".
                 </para>
                 <para>
                     <screenshot>
 <screeninfo>Create New Transition Action button</screeninfo> <graphic
-srccredit="process-management - screenshot"
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-accordion-new-transitionaction.png"></graphic></screenshot>
                 </para>
                 <para>
                     <emphasis>Figure: Create New Transition Action button.</emphasis>
                 </para>
                 <para>
-                    In the opened popup screen fill the "Transition Name", and the "Transition
-Action module" then add the required and optional parameter names and
-values.
+                    В открывшемся всплывающем окне заполните поле "Название Перехода" и "Модуль
+Деятельности Перехода", а затем добавьте требуемые и опциональные параметры,
+названия и значения.
                 </para>
                 <para>
-                    All the Transition Action Modules are located in
-Kernel/System/ProcessManagement/TransitionAction and the following is the
-list of bundled Transition Actions included in this release
+                    Все Модули Переходов Действий находятся в
+Kernel/System/ProcessManagement/TransitionAction и ниже приводится список
+Переходов Действий включенных в этот релиз
                 </para>
                 <para>
                     <itemizedlist>
@@ -758,21 +767,22 @@ list of bundled Transition Actions included in this release
                     </itemizedlist>
                 </para>
                 <para>
-                    Each module has its own and different parameters please review the module
-documentation to learn all require and optional parameters.
+                    Каждый модуль имеет свои собственные и другие параметры, пожалуйста
+просмотрите документацию к этому модулю чтобы узнать все объязательные и
+опциональные параметры.
                 </para>
                 <para>
                     <screenshot>
 <screeninfo>Add new Transition Action</screeninfo> <graphic
-srccredit="process-management - screenshot"
-fileref="screenshots/pm-edit-transtionaction.png"></graphic></screenshot>
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-edit-transitionaction.png"></graphic></screenshot>
                 </para>
                 <para>
-                    <emphasis>Figure: Add new Transition Action.</emphasis>
+                    <emphasis>Рисунок: Добавить новый переход деятельности.</emphasis>
                 </para>
                 <para>
-                    After all parameters and values are set click on the submit button to save
-the changes.
+                    Как только все параметры и значения установлены, нажмите кнопку отправить
+чтобы изменения вступили в силу.
                 </para>
                 <para>
                     Create the following Transitions Actions:
@@ -780,55 +790,76 @@ the changes.
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Move the process ticket into the "Superior" queue (TA1)</para>
+                        <para>"Move the process ticket into the 'Superior' queue" (TA1)</para>
                         <para>
                             This action is supposed to be executed when the Transition "Approval" (T1)
 applied.
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Change ticket responsible to "Superior" (TA2)</para>
+                        <para>"Change ticket responsible to 'Superior'" (TA2)</para>
                         <para>
-                            To be executed when the Transition "Approval" (T1) applied.
+                            Будет выполнено когд применен Переход "Approval" (T1).
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Move the process ticket into the "Employee" queue (TA3)</para>
-                        <para>To be executed when:</para>
+                        <para>"Move the process ticket into the 'Employee' queue"" (TA3)</para>
+                        <para>Будет выполнено когда:</para>
                         <itemizedlist>
                             <listitem><para>
-                                The Transition "Approval denied" (T2) applied
+                                Применение Перехода "Отказано в утверждении" (T2)
                             </para></listitem>
                             <listitem><para>
-                                The Transition "Order denied" (T4) applied
+                                Применение Перехода "Order denied" (T4)
                             </para></listitem>
                             <listitem><para>
-                                The Transition "Shipment received" (T6) applied
+                                Применение Перехода "Поставка получена" (T6)
                             </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Change ticket responsible to "Employee" (TA4)</para>
-                        <para>To be executed when:</para>
+                        <para>"Change ticket responsible to 'Employee'" (TA4)</para>
+                        <para>Будет выполнено когда:</para>
                         <itemizedlist>
                             <listitem><para>
-                                The transition "Approval denied" (T2) applied
+                                Применен переход "Отказано в утверждении" (T2)
                             </para></listitem>
                             <listitem><para>
-                                The transition "Order denied" (T4) applied
+                                Применен переход "Поставка получена" (T6)
                             </para></listitem>
                             <listitem><para>
-                                The transition "Shipment received" (T6) applied
+                                Применен переход The transition  applied
                             </para></listitem>
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>Move process ticket into the "Purchasing" queue (TA5)</para>
+                        <para>"Move process ticket into the 'Purchasing' queue" (TA5)</para>
                         <para>To be executed when the transition "Approved" (T3) applied.</para>
                     </listitem>
                     <listitem>
-                        <para>Move process ticket into the "Post office" queue (TA6)</para>
+                        <para>"Move process ticket into the 'Post office' queue" (TA6)</para>
                         <para>To be executed when the transition "Order placed" (T5) applied.</para>
+                    </listitem>
+                    <listitem>
+                        <para>"Close ticket successfully" (TA7)</para>
+                        <para>Будет выполнено когда:</para>
+                        <itemizedlist>
+                            <listitem><para>
+                                Применен переход The transition  applied
+                            </para></listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>"Close ticket unsuccessfully" (TA8)</para>
+                        <para>Будет выполнено когда:</para>
+                        <itemizedlist>
+                            <listitem><para>
+                                Применен переход "Отказано в утверждении" (T2)
+                            </para></listitem>
+                            <listitem><para>
+                                Применен переход "Поставка получена" (T6)
+                            </para></listitem>
+                        </itemizedlist>
                     </listitem>
                 </itemizedlist>
                 </para>
@@ -845,13 +876,13 @@ Actions freely with Transitions to be able to reuse them.
 more Activity Dialogs.
             </para>
             <para>
-                Click on "Activities" in the "Available Process Elements", then click on
-"Create New Activity".
+                Кликните на "Деятельности" в меню "Доступные Элементы Процесса", а затем
+кликните на "Создать новую Деятельность".
             </para>
             <para>
                 <screenshot>
-<screeninfo>Create New Activity button</screeninfo> <graphic
-srccredit="process-management - screenshot"
+<screeninfo>Создать Новую кнопку Деятельности</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
 fileref="screenshots/pm-accordion-new-activity.png"></graphic></screenshot>
             </para>
             <para>
@@ -865,39 +896,39 @@ into to the "Assigned Activity Dialogs" pool. This dialogs will be presented
 screen translating from top to bottom, to left to right.
             </para>
             <para>
-                This order is specially important in the first Activity, since the first
-Activity Dialog for this activity is the only one that is presented when the
-process starts
+                Такой порядок особенно важен в первой Деятельности, так как первый Диалог
+Деятельности для этой Деятельности является единственным, который находится
+при запуске процесса
             </para>
             <para>
-                Create the following Activities:
+                Создать следующие Деятельности:
             </para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Recording the demand (A1)</para>
+                        <para>"Recording the demand" (A1)</para>
                         <para>Contains the Activity Dialog "Recording the demand" (AD1)</para>
                     </listitem>
                     <listitem>
-                        <para>Approval (A2)</para>
+                        <para>"Approval" (A2)</para>
                         <para>
-                            Contains the Activity Dialogs "Approval denied" (AD2) as well as "Approved"
+                            Содержит Диалоги Активности "Отказано в одобрении" (AD2) а также "Утвержден"
 (AD3)
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Order (A3)</para>
+                        <para>"Order" (A3)</para>
                         <para>
-                            Contains the Activity Dialogs "Order rejected" (AD4) as well as "Order
-placed" (AD5)
+                            Содержит Диалоги Активности "Заказ отклонен" (AD4) а также "Заказ размещен"
+(AD5)
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Incoming (A4)</para>
+                        <para>"Incoming" (A4)</para>
                         <para>Contains the Activity Dialog "Shipment received" (AD6)</para>
                     </listitem>
                     <listitem>
-                        <para>Process complete (A5): This is an Activity without possible
+                        <para>"Process complete" (A5): This is an Activity without possible
 ActivityDialogs.  It will be set after "Approval denied", "Order denied" or
 "Shipment received" and represents the end of the process.
                         </para>
@@ -905,130 +936,221 @@ ActivityDialogs.  It will be set after "Approval denied", "Order denied" or
                 </itemizedlist>
             </para>
             <para>
-                Now we can clearly see that Activities are precisely defined states of a
-process ticket. After a successful Transition a process ticket moves from
-one Activity to another.
+                Теперь мы можем видеть, что Деятельность точно определяет сосотояние
+процесса Заявки. После успешного Перехода Заявка перемещается из одного вида
+деятельности в другой.
             </para>
         </section>
-
-
-        <!--  TOTO CR2 END -->
-<!--  TODO CR1 The following Lines Needs to be changed to the new format... add Screens -->
-<section>
-            <title>Процесс заказа Книги</title>
+        <section>
+            <title>Book ordering process Path</title>
             <para>
                 Let us conclude our example with the last missing piece in the puzzle, the
-Process.  In our case this is the whole ordering workflow. Other processes
-could be office supply ordering or completely different processes.
+Process as the a flow describer. In our case this is the whole ordering
+work-flow. Other processes could be office supply ordering or completely
+different processes.
             </para>
-
             <para>
                 The process has a starting point which consists of the start Activity and
-the start Activity Dialog.  For any new book order, the start Activity
-Dialog is the first screen that is displayed.  If this is completed and
-saved, the Process ticket will be created and can follow the configured
-workflow.
+the start Activity Dialog. For any new book order, the start Activity Dialog
+(first Activity Dialog for the first Activity) is the first screen that is
+displayed. If this is completed and saved, the Process ticket will be
+created and can follow the configured work-flow.
             </para>
-
             <para>
                 The process also contains the directions for how the process ticket can move
 through the Process. Let's call this the "Path". It consists of the start
 Activity, one or more Transitions (possibly with Transition Actions), and
 other Activities.
             </para>
+            <para>
+                Assuming that the Activities has already assigned their Activity Dialogs
+drag an Activity from the accordion (in the left part of the screen) and
+drop it into the canvas area (below process information). Notice that an
+arrow from the process start (green circle) to the Activity is placed
+automatically. (This is the first Activity and its first Activity Dialog is
+the first screen that will be shown when the process starts).
+            </para>
+            <para>
+                <screenshot>
+<screeninfo>Drag first Activity into the canvas</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-canvas-drag-activity.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Drag first Activity into the canvas.</emphasis>
+            </para>
+            <para>
+                Next, drag another Activity into the canvas too. now we will have two
+Activities in the canvas the first one is connected to the start point and
+the second has no connections, you can hover the mouse over each activity to
+reveal their own Activity Dialogs.
+            </para>
+            <para>
+                <screenshot>
+<screeninfo>Drag second Activity into the canvas</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-canvas-drag-activity2.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Drag second Activity into the canvas.</emphasis>
+            </para>
+            <para>
+                Then let's create the "Path" (connection) between this two Activities, for
+this we will use the Transitions, Click on Transitions in the accordion drag
+a Transition and drop it inside the first Activity, notice that the Activity
+change its color indicating that the Transition is attached, as soon as the
+Transition is dropped the end point of the Transition arrow will be placed
+next to the process start point. Drag the Transition arrow end point and
+drop it inside the other Activity to create the connection between the
+Activities.
+            </para>
+            <para>
+                <screenshot>
+<screeninfo>Drag a Transition into the canvas</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-canvas-drag-transition.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Drag a Transition into the canvas.</emphasis>
+            </para>
+            <para>
+                Now that the "Path" between the Actions is defined, then we need to assign
+the Transition Actions to the Transition, double click the Transition label
+(in the canvas), this will open a new popup window.
+            </para>
+            <para>
+                <screenshot>
+<screeninfo>Connect Activities using Transitions</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-canvas-drag-transition2.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Connect Activities using Transitions.</emphasis>
+            </para>
+            <para>
+                Drag the needed Transition Actions from Available Transition Actions pool
+and drop them into the Assigned Transition Actions pool and click on submit
+button.
+            </para>
+            <para>
+                <screenshot>
+<screeninfo>Assign Transition Actions</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-edit-path.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Assign Transition Actions.</emphasis>
+            </para>
+            <para>
+                Then back in the main process edit screen click on save button below the
+canvas to save all other changes.
+            </para>
+            <para>
+                Complete the "path"" adding the following Activities, Transitions and
+Transition Actions:
+            </para>
             <para>Запись спроса до значения "Approval"</para>
             <para>
-            <itemizedlist>
-                <listitem>
-                    <para>Начальная точка: Activity A1 (Запись спроса)</para>
-                </listitem>
-                <listitem>
-                    <para>Возможный переход: T1 (Approval)</para>
-                    <itemizedlist>
-                        <listitem>
-                            <para>Если условие этой деятельности выполняется, заявка будет перемещена в
-Activity A2 (Approval)</para>
-                        </listitem>
-                        <listitem>
-                            <para>Кроме того выполнится следующее действие TransitionActions:</para>
-                            <itemizedlist>
-                                <listitem>
-                                    <para>TA1 (Перемещает заявку в Очередь "Superior")</para>
-                                </listitem>
-                                <listitem>
-                                    <para>TA2 (Устанавливает "Superior" ответственным за заявку)</para>
-                                </listitem>
-                            </itemizedlist>
-                        </listitem>
-                    </itemizedlist>
-                </listitem>
-            </itemizedlist>
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting point: Activity: Recording the demand (A1)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Possible Transition: Approval (T1)</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    If the condition of this activity is fulfilled, the ticket will move to
+Activity: Approval (A2)
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    Кроме того выполнится следующее действие TransitionActions:
+                                </para>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>
+                                            "Moving the ticket into the 'Superior' Queue" (TA1)
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>"Set ticket responsible to 'Superior'" (TA2)</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
             </para>
             <para>
-                That's the first step in the path of the book ordering process. It looks
-like this (slightly simplified):
-            </para>
-            <para>
-                <screen>
-                'A1' => {
-                    'T1' => {
-                        ActivityEntityID => 'A2',
-                        TransitionAction => [ 'TA1', 'TA2',],
-                    },
-                },
-                </screen>
-            </para>
-            <para>
-                Action 'A1' is a defined state of the process ticket, where there is the
-possibility for the Transition 'T1'.  If this applies, the ticket will move
-to the next Activity 'A2', and the TransitionActions 'TA1' and 'TA2' are
-executed.  In Activity 'A2', the Activity Dialogs 'AD2' (Approval denied)
-and 'AD3' (Approved) are available.
+                The Activity: "Recording the demand" (A1) is a defined step of the process
+ticket, where there is the possibility for the Transition: "Approval"
+(T1). If this applies, the ticket will move to the next Activity: "Approval"
+(A2), and the Transition Actions: "Moving the ticket into the 'Superior'
+Queue" (TA1) and "Set ticket responsible to 'Superior'" (TA2) are
+executed. In the Activity: "Approval" (A2), the Activity Dialogs: "Approval
+denied" (AD2) and "Approved" (AD3) are available.
             </para>
             <para>Утверждение</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Начальная точка: Деятельность A2 (Approval)</para>
+                        <para>Starting Point: Activity "Approval" (A2)</para>
                     </listitem>
                     <listitem>
-                        <para>Possible Transitions:</para>
+                        <para>Возможные Транзакции:</para>
                             <itemizedlist>
                                 <listitem>
-                                    <para>T2 (Approval denied)</para>
+                                    <para>"Отказано в утверждении" (T2)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
-                                            Если совпадает, обработка заявки будет перемещена в Activity A5 (Процесс
-завершен).
+                                            If this matches, the process ticket will move to Activity:"Process complete"
+(A5).
                                         </para>
                                         </listitem>
                                         <listitem>
-                                        <para>Кроме того выполнится следующее действие TransitionActions:</para>
+                                        <para>
+                                            Additionally, the following Transition Actions are executed:
+                                        </para>
                                         <itemizedlist>
                                         <listitem>
-                                            <para>TA3 (перемещение заявки в Очередь "Employee")</para>
+                                            <para>
+                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                            </para>
                                         </listitem>
                                         <listitem>
-                                            <para>TA4 (установить ответственность за Заявку за "Employee")</para>
+                                            <para>
+                                                "Set ticket responsible to 'Employee'" (TA4)
+                                             </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Close ticket unsuccessfully" (TA8)
+                                             </para>
                                         </listitem>
                                         </itemizedlist>
                                         </listitem>
                                     </itemizedlist>
                                 </listitem>
                                 <listitem>
-                                    <para>T3 (Утвержден)</para>
+                                    <para>"Утвержден" (T3)</para>
                                     <itemizedlist>
                                         <listitem>
                                         <para>
-                                            Если совпадает, обработка заявки будет перемещена в Activity A3 (Заказ).
+                                            If this matches, the process ticket will move to Activity: "Order" (A3).
                                         </para>
                                         </listitem>
                                         <listitem>
-                                            <para>Дополнительно выполнится следующее действие TransitionAction:</para>
+                                            <para>
+                                                Additionally, the following Transition Action is executed:
+                                            </para>
                                             <itemizedlist>
                                             <listitem>
-                                                <para>TA5 (перемещает обработку заявки в Очередь "Purchasing")</para>
+                                                <para>
+                                                    "Move process ticket to 'Purchasing' Queue" (TA5)
+                                                </para>
                                             </listitem>
                                             </itemizedlist>
                                         </listitem>
@@ -1038,97 +1160,142 @@ and 'AD3' (Approved) are available.
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>Упрощенное представление:</para>
             <para>
-                <screen>
-            'A2' => {
-                'T2' => {
-                    ActivityEntityID => 'A5',
-                    TransitionAction => [ 'TA3', 'TA4'],
-                },
-                'T3' => {
-                ActivityEntityID => 'A3',
-                    TransitionAction => [ 'TA5'],
-                    }
-            },
-                </screen>
-            </para>
-            <para>Путь для этих двух шагов выглядит следующим образом:</para>
-            <para>
-                <screen>
-            Path => {
-                'A1' => {
-                    'T1' => {
-                        ActivityEntityID => 'A2',
-                        TransitionAction => [ 'TA1', 'TA2'],
-                    },
-                },
-                'A2' => {
-                    'T2' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                    'T3' => {
-                        ActivityEntityID => 'A3',
-                        TransitionAction => [ 'TA5'],
-                    },
-                },
-            },
-                </screen>
-            </para>
-            <para>
-                We can see that from the current Activity, which defines a state of the
+                We can see that from the current Activity, which defines a step of the
 process ticket, there are one or more possibilities for Transition which
-have exactly one target Activity (and possibly one or more
-TransitionActions).
+have exactly one target Activity (and possibly one or more Transition
+Actions).
+            </para>
+            <para>Заказ</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting Point: Activity "Order" (A3)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Возможные Транзакции:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>"Заказ отменен" (T4)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to Activity:"Process complete"
+(A5).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                        <para>
+                                            Additionally, the following Transition Actions are executed:
+                                        </para>
+                                        <itemizedlist>
+                                        <listitem>
+                                            <para>
+                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                            </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Set ticket responsible to 'Employee'" (TA4)
+                                             </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Close ticket unsuccessfully" (TA8)
+                                             </para>
+                                        </listitem>
+                                        </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                                <listitem>
+                                    <para>"Заказ размещен" (T5)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to Activity: "Incoming" (A5).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                Additionally, the following Transition Action is executed:
+                                            </para>
+                                            <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                    "Move process ticket to 'Post office' Queue" (TA6)
+                                                </para>
+                                            </listitem>
+                                            </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>Incoming</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Starting Point: Activity "Incoming" (A4)</para>
+                    </listitem>
+                    <listitem>
+                        <para>Возможные Транзакции:</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>"Поставка получена" (T6)</para>
+                                    <itemizedlist>
+                                        <listitem>
+                                        <para>
+                                            If this matches, the process ticket will move to Activity:"Process complete"
+(A5).
+                                        </para>
+                                        </listitem>
+                                        <listitem>
+                                        <para>
+                                            Additionally, the following Transition Actions are executed:
+                                        </para>
+                                        <itemizedlist>
+                                        <listitem>
+                                            <para>
+                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                            </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Set ticket responsible to 'Employee'" (TA4)
+                                             </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>
+                                                "Close ticket successfully" (TA7)
+                                             </para>
+                                        </listitem>
+                                        </itemizedlist>
+                                        </listitem>
+                                    </itemizedlist>
+                                </listitem>
+                            </itemizedlist>
+                    </listitem>
+                </itemizedlist>
             </para>
             <para>
                 Полный путь к Процессу покупкпи книги будет иметь следующий вид:
             </para>
             <para>
-                    <screen>
-            Path => {
-                'A1' => {
-                    'T1' => {
-                        ActivityEntityID => 'A2',
-                        TransitionAction => [ 'TA1', 'TA2'],
-                    },
-                },
-                'A2' => {
-                    'T2' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                    'T3' => {
-                        ActivityEntityID => 'A3',
-                        TransitionAction => [ 'TA5'],
-                    },
-                },
-                'A3' => {
-                    'T4' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                    'T5' => {
-                        ActivityEntityID => 'A4',
-                        TransitionAction => [ 'TA6'],
-                    },
-                }
-                'A4' => {
-                    'T6' => {
-                        ActivityEntityID => 'A5',
-                        TransitionAction => [ 'TA3', 'TA4'],
-                    },
-                },
-            },
-                    </screen>
-                </para>
-            </section>
+                <screenshot>
+<screeninfo>Book ordering complete process path</screeninfo> <graphic
+srccredit="process-management - screenshot" scale='40'
+fileref="screenshots/pm-edit-process.png"></graphic></screenshot>
+            </para>
+            <para>
+                <emphasis>Figure: Book ordering complete process path.</emphasis>
+            </para>
+        </section>
     </section>
 
 
-
-<!--  TODO CR1 END -->
 <!--
     <section>
 

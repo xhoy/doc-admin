@@ -2,12 +2,12 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-    <!-- $Id: genericinterface-communication-flow.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
+    <!-- $Id: genericinterface-communication-flow.xml,v 1.5 2012-12-10 09:02:24 mg Exp $ -->
 <section id="genericinterface_communication_flow">
         <title>Поток связи Generic Interface</title>
         <para>
-            Generic Interface has a defined flow to perform actions as a provider and as
-a requester.
+            Generic Interface имеет определенный поток для выполнения действий как
+поставщик так и получатель.
         </para>
         <para>
             Эти потоки описаны ниже:
@@ -50,7 +50,7 @@ operation name from the rest of the data.
                             </listitem>
                             <listitem>
                                 <para>
-                                    The operation name and the operation data are returned to the provider.
+                                    Название операции и данные операции будут возвращены поставщику.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -191,12 +191,12 @@ response.
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    Receives the data already in the Remote System format.
+                                    Получает данные уже в формате Удаленной Системы.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    Constructs a valid response for this network transport type.
+                                    Создает правильный ответ для этого типа транспортной сети.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -235,8 +235,8 @@ response.
                             <itemizedlist mark="round">
                                 <listitem>
                                     <para>
-                                        Based on the web service configuration determines if the request will be
-synchronous or asynchronous.
+                                        В зависимости от настройки веб-сервис определяет будет ли запрос синхронным
+или асинхронным.
                                     </para>
                                     <itemizedlist mark="round">
                                         <listitem>
@@ -246,8 +246,8 @@ synchronous or asynchronous.
                                             <itemizedlist mark="round">
                                                 <listitem>
                                                     <para>
-                                                        A direct call to the Requester is made in order to create a new request and
-pass it through the layers.
+                                                        Прямой вызов Запрашывающей Стороны (Requester) сделан для того чтобы создать
+новый запрос и передать его через слои.
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -268,9 +268,9 @@ requests).
                                                 </listitem>
                                                 <listitem>
                                                     <para>
-                                                        In its next cycle the Scheduler process reads the new task and creates a
-call to the Requester that will create a new request and pass it through the
-layers.
+                                                        На своем следующем этапе процесс Планировщика читает новые задачи и создает
+вызов Запрашивающей стороны (Requester), это действие будет создавать новый
+запрос и передавать его через слои.
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -301,8 +301,8 @@ layers.
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        Return the request data structure or send a Stop Communication signal to the
-requester, to gracefully cancel the request.
+                                        Возвращает структуру данных запроса или отправляет сигнал "Остановка связи"
+для Запрашивающей Стороны (requester), чтобы корректно отменить запрос.
                                     </para>
                                 </listitem>
                             </itemizedlist>
@@ -314,7 +314,8 @@ requester, to gracefully cancel the request.
                             <itemizedlist mark="round">
                                 <listitem>
                                     <para>
-                                        Data as passed from the invoker (This is not a module based layer).
+                                        Данные передаются от запрашивающей стороны (Это не слой, основанный на
+модуле).
                                     </para>
                                 </listitem>
                             </itemizedlist>
@@ -332,7 +333,7 @@ mapping configuration (Mapping for outgoing response data).
                                 </listitem>
                                 <listitem>
                                     <para>
-                                        The already transformed data is returned to the requester.
+                                        Уже преобразованные данные возвращаются Запрашивающей Стороне.
                                     </para>
                                 </listitem>
                             </itemizedlist>
@@ -344,7 +345,7 @@ mapping configuration (Mapping for outgoing response data).
                             <itemizedlist mark="round">
                                 <listitem>
                                     <para>
-                                        Data as transformed and prepared for sending to the remote system.
+                                        Данные преобразованы и подготовлены для отправки удаленной системе.
                                     </para>
                                 </listitem>
                             </itemizedlist>
@@ -420,7 +421,7 @@ for incoming response data).
                             </listitem>
                             <listitem>
                                 <para>
-                                    The already transformed data is returned to the requester.
+                                    Уже преобразованные данные возвращаются Запрашивающей Стороне.
                                 </para>
                             </listitem>
                         </itemizedlist>

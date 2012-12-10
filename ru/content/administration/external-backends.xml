@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: external-backends.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: external-backends.xml,v 1.5 2012-12-10 09:02:21 mg Exp $ -->
 <section id="external-backends">
 <title>Использование внешних хранилищ данных</title>
 
@@ -44,9 +44,9 @@ OTRS работает с различными атрибутами данных 
 </para>
 
 <para>
-Use configuration parameters of the following script in your
-<filename>Kernel/Config.pm</filename> file, if you want to display customer
-information in your agent interface.
+Используйте параметры конфигурации из нижеприведенного сценария в файле
+<filename>Kernel/Config.pm</filename> если нужно выводить информацию о
+клиентах в агентском веб-интерфейсе.
 </para>
 
 <para>
@@ -61,7 +61,7 @@ information in your agent interface.
 </para>
 
 <para>
-<emphasis>Script: Kernel/Config.pm configuration parameters.</emphasis>
+<emphasis>Сценарий: Конфигурационные параметры Kernel/Config.pm.</emphasis>
 </para>
 
 </section>
@@ -174,9 +174,10 @@ CustomerValid => 'valid_id',
 </example>
 
 <para>
-If you want to customize the customer data, change the column headers or add
-new ones to the customer_user table in the OTRS database. As an example, the
-script below shows how to add a new field for room number.
+Если нужно настроить данные клиентов, измените заголовки столбцов или
+добавьте новые к таблице customer_user базы данных OTRS. В качестве примера
+используйте нижеприведенный сценарий, в котором показано как добавить новое
+поле для номера комнаты.
 </para>
 
 <para>
@@ -204,12 +205,14 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script: Adding a room field to the customer_user table.</emphasis>
+<emphasis>Сценарий: Добавление поля "комната" в таблицу customer_user
+table. </emphasis>
 </para>
 
 <para>
-Now add the new column to the MAP array in
-<filename>Kernel/Config.pm</filename>, as shown in the following script.
+Теперь добавьте новый столбец в MAP-масив в
+<filename>Kernel/Config.pm</filename>, как это показано в нижеприведенном
+сценарии.
 </para>
 
 <para>
@@ -221,7 +224,7 @@ Now add the new column to the MAP array in
 </para>
 
 <para>
-<emphasis>Script: Adding a room field to the Kernel/Config.pm
+<emphasis>Сценарий: Добавление поля "комната" в файл Kernel/Config.pm
 file.</emphasis>
 </para>
 
@@ -244,9 +247,9 @@ file.</emphasis>
 </para>
 
 <para>
-To use company tickets, a new column with the IDs that should be accessible
-for a customer, has to be added to the customer_user table in the OTRS
-database (see Script below).
+Для использованя заявок компании, новый столбец с идентификатором (IDs),
+который должен быть доступен для клиента, должен быть добавлен в таблицу
+customer_user базы данных OTRS (см. Сценарий ниже).
 </para>
 
 <para>
@@ -274,13 +277,14 @@ linux:~#
 </para>
 
 <para>
-	<emphasis>Script: Adding a customer_ids field to the customer_user
-table.</emphasis>
+	<emphasis>Сценарий: Добавление поля customer_ids в таблицу
+customer_user.</emphasis>
 </para>
 
 <para>
-Now the new column has to be added to the MAP array in
-<filename>Kernel/Config.pm</filename>, as shown in the script below.
+Теперь новый столбец должен быть добавлен в MAP-массив в
+<filename>Kernel/Config.pm</filename>, как это показано в нижеприведенном
+Сценарии.
 </para>
 
 <para>
@@ -292,8 +296,8 @@ Now the new column has to be added to the MAP array in
 </para>
 
 <para>
-<emphasis>Script: Adding a UserCustomerIDs field to the Kernel/Config.pm
-file.</emphasis>
+<emphasis>Сценарий: Добавление поля UserCustomerIDs в
+Kernel/Config.pm</emphasis>
 </para>
 
 <para>
@@ -420,11 +424,11 @@ $Self->{CustomerUser} = {
 </example>
 
 <para>
-If additional customer attributes are stored in your LDAP directory, such as
-a manager's name, a mobile phone number, or a department, and if you want to
-display this information in OTRS, just expand the MAP array in
-<filename>Kernel/Config.pm</filename> with the entries for these attributes,
-as shown in the following script.
+Если дополнительные атрибуты клиента хранятся в LDAP-каталоге, например, имя
+руководителя, номер мобильного телефона, или отдела, и если эту информацию
+нужно отобразить в OTRS, просто расширьте MAP-массив в файле
+<filename>Kernel/Config.pm</filename> записями для этих атрибутов, как
+показано в нижеприведенном сценарии.
 </para>
 
 <para>
@@ -436,7 +440,8 @@ as shown in the following script.
 </para>
 
 <para>
-<emphasis>Script: Adding new fields to the Kernel/Config.pm file.</emphasis>
+<emphasis>Сценарий: Добавление нового поля в файл
+Kernel/Config.pm.</emphasis>
 </para>
 
 
@@ -451,9 +456,9 @@ LDAP-директорию нужно добавить новое поле, ко�
 </para>
 
 <para>
-If the new field in the LDAP directory has been created, the new entry has
-to be added to the MAP array in <filename>Kernel/Config.pm</filename>, as
-shown in the script below.
+Если в LDAP-каталоге было созадно новое поле, его также нужно добавить в
+MAP-массив в <filename>Kernel/Config.pm</filename>, как это показано в
+нижеприведенном сценарии.
 </para>
 
 <para>
@@ -465,7 +470,8 @@ shown in the script below.
 </para>
 
 <para>
-<emphasis>Script: Maping new fields to the Kernel/Config.pm file.</emphasis>
+<emphasis>Сценарий: Подстановка новых полей в Kernel/Config.pm
+file.</emphasis>
 </para>
 
 <para>
@@ -817,8 +823,8 @@ $Self->{'AuthSyncModule::LDAP::UserSyncInitialGroups'} = [
 </para>
 
 <para>
-<emphasis>Script: Synchronizing the user data from the LDAP directory into
-the OTRS database.</emphasis>
+<emphasis>Сценарий: Синхронизация пользовательских данных из
+LDAP-директориив базу данных OTRS.</emphasis>
 </para>
 
 </section>
@@ -1036,7 +1042,7 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 </section>
 
 <section id="customer-self-registration">
-<title>Customizing the customer self-registration</title>
+<title>Настройка самостоятельной регистрации клиента</title>
 
 <para>
 Есть возможность настроить самостоятельную регистрацию новых клиентов,
@@ -1054,11 +1060,11 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 <title>Настройка веб-интерфейса</title>
 
 <para>
-To display the new field for the room number in the customer.pl web
-interface, the .dtl file responsible for the layout in this interface has to
-be modified. Edit the
-<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> file,
-adding the new field around line 80 (see Script below).
+Для отображения нового поля для номера комнаты в веб-интерфейсе пользователя
+(customer.pl), нужно внести изменения в .dtl-файл, который отвечает за
+шаблон этого интерфейса. Отредактируйте файл
+<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> добавив
+новые поля после строки 80 (см. нижеприведенный сценарий).
 </para>
 
 <para>
@@ -1073,7 +1079,7 @@ adding the new field around line 80 (see Script below).
 </para>
 
 <para>
-<emphasis>Script: Displaying a new field in the web interface.</emphasis>
+<emphasis>Сценарий: Отображение новых полей в веб-интерфейсе.</emphasis>
 </para>
 
 </section>
@@ -1082,12 +1088,12 @@ adding the new field around line 80 (see Script below).
 <title>Отображения клиентов</title>
 
 <para>
-In the next step, the customer mapping has to be expanded with the new entry
-for the room number. To ensure that the changes are not lost after an
-update, put the "CustomerUser" settings from the
-<filename>Kernel/Config/Defaults.pm</filename> into the
-<filename>Kernel/Config.pm</filename>. Now change the MAP array and add the
-new room number field, as shown in the script below.
+На следующем этапе, нужно внести изменения в маппинг (mapping), рассширив
+его новым элементом - номером комнаты. Чтобы убедится что изменения не
+потеряются после обновления, установите настройкы "CustomerUser" из файла
+<filename>Kernel/Config/Defaults.pm</filename> в файл
+<filename>Kernel/Config.pm</filename>. Теперь измените MAP-массив, добавив
+новое поле - номер комнаты, как это показано в нижеприведенном сценарии.
 </para>
 
 <para>
@@ -1166,18 +1172,18 @@ $Self->{CustomerUser} = {
 </para>
 
 <para>
-<emphasis>Script: Changing the map array.</emphasis>
+<emphasis>Сценарий: Внесение изменений в map-массив.</emphasis>
 </para>
 
 </section>
 
 <section id="customer-self-registration-customer-table">
-<title>Customizing the customer_user table in the OTRS DB</title>
+<title>Настройка таблицы customer_user в Базе Данных OTRS DB</title>
 
 <para>
-The last step is to add the new room number column to the customer_user
-table in the OTRS database (see Script below). In this column, the entries
-for the room numbers will be stored.
+Последним шагом является добавление нового столбца с номером комнаты в
+таблицу customer_user базы данных OTRS (см. нижеприведенный сценарий). В
+этой колонке будет хранится информация для номера комнаты.
 </para>
 
 <para>
@@ -1205,7 +1211,8 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script: Adding a new column to the customer_user table.</emphasis>
+<emphasis>Сценарий: Добавление новой колонки в таблицу
+customer_user.</emphasis>
 </para>
 
 <para>

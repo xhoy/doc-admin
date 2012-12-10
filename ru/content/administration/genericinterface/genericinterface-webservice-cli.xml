@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: genericinterface-webservice-cli.xml,v 1.4 2012-12-03 08:37:28 mg Exp $ -->
+<!-- $Id: genericinterface-webservice-cli.xml,v 1.5 2012-12-10 09:02:24 mg Exp $ -->
 <section id="webservice_cli">
     <title>Интерфейс командной строки Веб-Сервиса</title>
     <para>
@@ -37,46 +37,48 @@ in this manual.
     <section id="webservice_cli_webserviceconfig">
         <title>Конфигурация Веб-сервиса</title>
         <para>
-            The "WebserviceConfig.pl" was developed in order to create basic, but fast
-and powerful tool to work with web service configurations. It gives you the
-ability to perform the following actions:
+            Файл "WebserviceConfig.pl" был разработан для того чтобы создать простой, но
+в то же время быстрый и мощный инструмент для работы с настройками
+веб-сервиса. Он предоставляет возможность выполнять следующие действия:
         </para>
         <para>
             <itemizedlist>
                 <listitem>
                     <para>
-                        Add: to create web services using a YAML file as the configuration source.
+                        Add: для создания веб-сервисов с использованием YAML-файлов в качестве
+источника конфигурации.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Update: to change an existing web service, the configuration can be changed
-using a different or modified YAML file.
+                        Update: изменить существующий веб-сервис, конфигурация может быть изменена с
+использованием других или измененных YAML-файлов.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Read: to get the current web service configuration displayed on the screen.
+                        Read: для вывода на экран текущих настроек веб-сервиса.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        List: to get a complete list of all the web services registered in system.
+                        List: чтобы получить полный список всех веб-сервисов, зарегистрированных в
+системе.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Delete: to delete a web service from the system. Be careful when you use it,
-because this action can't be undone.
+                        Delete: для удаления веб-сервиса из системы. Будьте осторожны при выполнении
+этой операции, ее невозможно отменить.
                     </para>
                 </listitem>
             </itemizedlist>
         </para>
         <warning>
             <para>
-                A web service READ operation will display all the configuration as plain
-text on the screen, including any stored passwords. Please be aware of this
-and take the needed precautions!
+                Операция веб-сервиса READ будет отображать на экране все настройки в виде
+простого текста, включаяя сохраненные пароли. Помните об этом и соблюдайте
+необходимые меры предосторожности!
             </para>
         </warning>
         <para>

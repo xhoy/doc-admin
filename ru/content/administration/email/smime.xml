@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: smime.xml,v 1.4 2012-12-03 08:37:24 mg Exp $ -->
+<!-- $Id: smime.xml,v 1.5 2012-12-10 09:02:05 mg Exp $ -->
 <section id="smime">
 <title>Безопасность электронной почты с S/MIME</title>
 
@@ -16,14 +16,15 @@ PGP: настроить OTRS, установить собственные сер
 </para>
 
 <para>
-The S/MIME configuration is conducted outside the OTRS web interface for the
-most part, and should be carried out in a shell by the 'otrs' user. The MIME
-configuration under Linux is based on SSL (OpenSSL). Therefore, check first
-of all whether the OpenSSL package is installed on your system. The OpenSSL
-package includes a script called CA.pl, with which the most important steps
-of certificate creation can be performed. To simplify the procedure, find
-out where in the filesystem the CA.pl script is stored and enter the
-location temporarily into the PATH variable of the shell (see Script below).
+В большинстве случаев настройка S/MIME производится за пределами
+веб-интерфейса OTRS, и должана осуществлятся в оболочке операционной системы
+с правами пользователя 'otrs'. MIME конфигурация под Linux основана yа SSL
+(OpenSSL). Поэтому, сначала проверьте установлен ли в вашей системе пакет
+OpenSSL. OpenSSL-пакет содержит скрипт, который называется CA.pl, для
+создания сертификата, все наиболее важные шаги, нужно проделать именно с
+ним. Для упрощения процедуры узнайте, где в файловой системе находится
+сценарий CA.pl и введите путь к его местоположению в переменную путей
+оболочки (см. нижеприведенный сценарий).
 </para>
 
 <para>
@@ -39,12 +40,12 @@ otrs@linux:~/tmp&gt;
 </para>
 
 <para>
-<emphasis>Script: Configuring S/MIME.</emphasis>
+<emphasis>Сценарий: Настройка S/MIME.</emphasis>
 </para>
 
 <para>
-The script above shows that a new temporary directory ~/tmp has been
-created, in which the certificate is to be generated.
+Сценарий выше показывает, что была создана нова временная директория ~/tmp,
+в которой хранятся сгенерированные сертификаты.
 </para>
 
 <para>
@@ -58,8 +59,9 @@ created, in which the certificate is to be generated.
 <orderedlist numeration="arabic">
 <listitem>
     <para>
-    Establish your own Certification Authority for SSL. You need it to certify
-the request for your own SSL certificate (see Script below).
+    Создание собственного Центра Сертификации (Certification Authority) для
+SSL. Вы должны подтвердить запрос на собственный SSL-сертификат
+(см. нижеприведенный сценарий).
     </para>
 
     <para>
@@ -103,13 +105,14 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-    <emphasis>Script: Establishing a Certification Authority for SSL.</emphasis>
+    <emphasis>Сценарий: Создание Центра Сертификации (Certification Authority)
+для SSL.</emphasis>
     </para>
 
 </listitem>
 <listitem>
     <para>
-    Generate a certificate request (see Script below).
+    Создание запроса сертификата (см. Сценарий ниже).
     </para>
 
     <para>
@@ -151,14 +154,15 @@ otrs@linux:~/tmp&gt;
     </para>
 
     <para>
-    <emphasis>Script: Creating a certificate request.</emphasis>
+    <emphasis>Сценарий: Создание запроса сертификаата.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Signing of the certificate request. The certificate request can either be
-signed and thereby certified by your own CA, or made more credible by being
-signed by another external certified CA (see Script below).
+    Подпись запроса сертификата. Запрос сертификата может быть подписан, и таким
+образом сертифицирован вашим собственным центром сертификации (CA), что
+более правдоподобно, чем использование других, внешних CA
+(см. нижеприведенный сценарий).
     </para>
 
     <para>
@@ -205,13 +209,13 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-    <emphasis>Script: Signing of the certificate request.</emphasis>
+    <emphasis>Сценарий: Подпись запроса сертификата.</emphasis>
     </para>
 </listitem>
 <listitem>
     <para>
-    Generate your own certificate, and all data going with it, using the signed
-certificate request (see Script below).
+    Создание своего собственного сертификата, и все данные собираются с ним,
+используя запрос сертификата (см. Сценарий ниже).
     </para>
 
     <para>
@@ -230,7 +234,7 @@ otrs@linux:~/tmp&gt;
     </screen>
     </para>
     <para>
-    <emphasis>Script: Generating a new certificate.</emphasis>
+    <emphasis>Сценарий: Создание нового сертификата.</emphasis>
     </para>
 </listitem>
 </orderedlist>

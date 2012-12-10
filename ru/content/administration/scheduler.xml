@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: scheduler.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: scheduler.xml,v 1.5 2012-12-10 09:02:21 mg Exp $ -->
 <section id="scheduler">
     <title>Планировщик OTRS</title>
     <para>
@@ -26,9 +26,9 @@ but it can be adjusted as needed using the SysConfig by editing the
 "Scheduler::RestartAfterSeconds" setting.
     </para>
     <para>
-        The OTRS Scheduler is a set it and forget it process, the only needed human
-interaction is to check its status periodically and start or stop it as
-needed.
+        Планировщик OTRS устанавливает и "забывает" о процессе, поэтому необходимо
+взаимодействие с человеком чтобы периодически проверять его состояние,
+запускать или останавливать по мере необходимости.
     </para>
     <note>
         <para>
@@ -45,7 +45,7 @@ future).
 времени пока он остается работать.
         </para>
         <section id="scheduler-gui-notify">
-            <title>Scheduler Not Running Notification</title>
+            <title>Планировщик Не Запускает Уведомления</title>
             <para>
                 There are two different types of notifications if the system detects that
 scheduler is not running. This detection is based on the Scheduler process
@@ -65,27 +65,27 @@ running. If you see an alert, then is highly probable that the scheduler is
 in fact not running and should be started.
             </para>
             <para>
-                By default the Scheduler not running notification is enabled, if there is a
-valid web service registered in the database, and is only displayed to the
-users in the "admin" group.
+                По умолчанию Планировщик не запускает уведомлений, если есть действительный
+веб-сервис, зарегистрированный в базе данных и он отображается только для
+пользователей из группы "admin".
             </para>
             <para>
-                To disable the notification (not recommended) or to change or add the
-notification groups, please edit the
-"Frontend::NotifyModule###800-Scheduler-Check" setting in the SysConfig.
+                Чтобы отключить уведомления (не рекомендуется) или же изменить или добавить
+группы уведомлений, пожалуйста, отредактируйте настройку
+"Frontend::NotifyModule###800-Scheduler-Check" в файле SysConfig.
             </para>
             <para>
                 <screenshot>
-<screeninfo>Scheduler Notification</screeninfo> <graphic srccredit="scheduler
+<screeninfo>Уведомления Планировщика</screeninfo> <graphic srccredit="scheduler
 notification - screenshot" scale="40"
 fileref="screenshots/scheduler-notify.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Scheduler notification.</emphasis>
+                <emphasis>Figure: Уведомления планировщика.</emphasis>
             </para>
         </section>
         <section id="scheduler-gui-start">
-            <title>Start Scheduler</title>
+            <title>Запуск Планировщика</title>
             <para>
                 By clicking on the Scheduler not running notification link (either warning
 or alert) a dialog box will open to let you start the Scheduler process
@@ -106,25 +106,25 @@ database.
             </note>
             <para>
                 <screenshot>
-<screeninfo>Start Scheduler</screeninfo> <graphic srccredit="scheduler start
+<screeninfo>Запуск Планировщика</screeninfo> <graphic srccredit="scheduler start
 - screenshot" scale="40"
 fileref="screenshots/scheduler-start.png"></graphic></screenshot>
             </para>
             <para>
-                <emphasis>Figure: Start Scheduler.</emphasis>
+                <emphasis>Рисунок: Запуск Планировщика.</emphasis>
             </para>
         </section>
     </section>
     <section id="scheduler-cli">
         <title>Интерфейс командной строки Планировщика</title>
         <para>
-            The Scheduler command line tools let you control the Scheduler process
-(Start / Stop) or query it status. There are also tools to register the
-process to be controlled by the operating system.
+            Командная строка Планировщика позволяет управлять процессами (Запуск /
+Остановка) или запрашивать их состояние. Также есть инструменты для
+регистрации процесса, который будет управлять операционной системой.
         </para>
         <para>
-            Included with OTRS there are two set of CLI tools, one for Unix / Linux OS
-and another for MS Windows OS.
+            В комплекте с OTRS есть два набора инструментов командной строки, один для
+операционной системы Linux а другой для MS Windows.
         </para>
         <section id="scheduler-cli-linux">
             <title>Unix / Linux</title>
@@ -173,7 +173,7 @@ needs to be set to work properly.
                     <tgroup cols="2">
                     <thead>
                         <row>
-                            <entry>Init Script</entry>
+                            <entry>Сценарий инициализации</entry>
                             <entry>Поддерживаемы операционные системы</entry>
                         </row>
                     </thead>
@@ -198,7 +198,7 @@ needs to be set to work properly.
                     </para>
                 </example>
                 <itemizedlist mark="round">
-                    <title>Available Actions</title>
+                    <title>Возможные действия</title>
                     <listitem>
                         <para>
                             <command>start</command> запуск процесса OTRS-Планировщика.
@@ -273,7 +273,7 @@ the run order.
                             <command>-a </command> действие.
                         </para>
                         <itemizedlist mark="round">
-                            <title>Possible Values</title>
+                            <title>Возможные значения</title>
                             <listitem>
                                 <para>
                                     <command>start</command>- старт процесса Планировщика.
@@ -354,7 +354,7 @@ service
                             <command>-a </command> действие.
                         </para>
                         <itemizedlist mark="round">
-                            <title>Possible Values</title>
+                            <title>Возможные значения</title>
                             <listitem>
                                 <para>
                                     <command>install</command>- для установки процесса Планировщика в Windows
@@ -408,7 +408,7 @@ Windows и Windows SCM.
                             <command>-a </command> действие.
                         </para>
                         <itemizedlist mark="round">
-                            <title>Possible Values</title>
+                            <title>Возможные значения</title>
                             <listitem>
                                 <para>
                                     <command>start</command>- старт процесса Планировщика.

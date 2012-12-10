@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.5 2012-12-10 09:02:20 mg Exp $ -->
 <section id="adminarea">
 <title>Панель управления OTRS</title>
 
@@ -17,10 +17,10 @@
 ITSM и многое другое. </para>
 
 <para>
-Agents who are members of the <emphasis>admin</emphasis> group can access
-the Admin area by clicking the <emphasis>Admin</emphasis> link in the
-navigation bar (see Figure below). The rest of the agents won't see this
-link.
+Агенты, входящие в группу <emphasis>admin</emphasis> могут получить доступ к
+админке, нажав на кнопку <emphasis>Администрирование</emphasis> на панели
+навигации (см. нижеприведенный Рисунок). Остальные агенты не будут видеть
+эту ссылку.
 </para>
 
 <para>
@@ -30,7 +30,7 @@ screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic></screensho
 </para>
 
 <para>
-<emphasis>Figure: OTRS Admin screen.</emphasis>
+<emphasis>Рисунок: Страница OTRS-администратора.</emphasis>
 </para>
 
 </section>
@@ -42,11 +42,11 @@ screenshot" scale="40" fileref="screenshots/adminarea.png"></graphic></screensho
 <title>Агенты</title>
 
 <para>
-By clicking the link <emphasis>Agents</emphasis>, you get access to the
-agent management screen of OTRS (see Figure below). Administrators can add,
-change or deactivate agent accounts. Administrators can also manage agent
-preferences, for instance the language and notification settings for their
-interface.
+Нажав на ссылку <emphasis>Агенты</emphasis> вы получите доступ к странице
+управления пользователями OTRS (см. нижеприведенный Рисунок). Администраторы
+могут добавлять, изменять или деактивировать аккаунты
+агентов. Администраторы также могут управлять пользовательскими настройками
+агентов, например изменять язык их веб-интерфейса, настройки уведомлений.
 </para>
 
 <note>
@@ -66,13 +66,13 @@ fileref="screenshots/admin-agents.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Agent management.</emphasis>
+<emphasis>Рисунок: Управление Агентами.</emphasis>
 </para>
 
 <para>
-To register an agent, click on the "Add agent" button, type all the needed
-data and press the Submit button at the bottom of the screen, as shown in
-Figure.
+Чтобы создать агента, нажмите на кнопку "Добавить агента", введите все
+необходимые данные и нажмите кнопку Отправить, которая находится в нижней
+части экрана, как это показано на нижеприведенном Рисунке.
 </para>
 
 <para>
@@ -83,7 +83,7 @@ fileref="screenshots/add-agent.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a new agent.</emphasis>
+<emphasis>Рисунок: Добавление нового агента.</emphasis>
 </para>
 
 <para>
@@ -148,8 +148,9 @@ stats.
 </note>
 
 <para>
-You can access the group management page (see Figure below) by clicking the
-<emphasis>Groups</emphasis> link in the admin area.
+Чтобы перейти на страницу управления группами, нажмите в панели
+администрирования ссылку <emphasis>Группы</emphasis> (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -160,7 +161,7 @@ fileref="screenshots/admin-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Group management.</emphasis>
+<emphasis>Рисунок: Управление групами.</emphasis>
 </para>
 
 <note>
@@ -173,9 +174,9 @@ fileref="screenshots/admin-groups.png"></graphic></screenshot>
 </note>
 
 <para>
-To add an agent to a group, or to change the agents who belong to a group,
-you can use the link <emphasis>Agents &lt;-&gt; Groups</emphasis> from the
-Admin page (see Figure below).
+Чтобы добавить агента в группу, или изменить приналежность агентов к группе,
+используйте ссылку на Панели Управления <emphasis>Агенты &lt;-&gt;
+Группы</emphasis> (см. нижеприведенный Рисунок).
 </para>
 
 <para>
@@ -186,15 +187,15 @@ fileref="screenshots/admin-agents-and-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Group management.</emphasis>
+<emphasis>Рисунок: Управление групами.</emphasis>
 </para>
 
 <para>
-An overview of all groups and agents in the system is displayed. You can
-also use the filters to find a specific entity. If you want to change the
-groups that an agent is member of, just click on the agent's name (see
-Figure below). To change the agents associated with a group, just click on
-the group you want to edit (see Figure below).
+Приводится обзор всех групп и агентов. Для поиска той или иной сущности
+можно использовать фильтры. Если вы хотите изменить группы, в которые входит
+определенный агент, просто нажмите на его имя (см. нижеприведенный
+Рисунок). Для изменениия агентов, связанных с группой просто нажмите на
+название нужной группы (см. нижеприведенный Рисунок).
 </para>
 
 <para>
@@ -205,7 +206,7 @@ fileref="screenshots/agent-group-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change the groups an agent belongs to.</emphasis>
+<emphasis>Рисунок: Изменение группы, к которой принадлежит агент.</emphasis>
 </para>
 
 <para>
@@ -216,8 +217,8 @@ fileref="screenshots/agent-group-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change the agents that belong to a specific
-group.</emphasis>
+<emphasis>Рисунок: Изменение агентов, входящих в определенную
+группу.</emphasis>
 </para>
 
 <para>
@@ -362,8 +363,8 @@ linkend="Framework:Frontend::Admin::ModuleRegistration:Frontend::Module_AdminUse
 </note>
 
 <para>
-You can access the role management section (see Figure below ) by clicking
-the <emphasis>Roles</emphasis> link on the Admin page.
+Для управления ролями перейдите по ссылке <emphasis>Роли</emphasis> в Панели
+Администрирования (см. нижеприведенный Рисунок).
 </para>
 
 <para>
@@ -373,7 +374,7 @@ the <emphasis>Roles</emphasis> link on the Admin page.
 </para>
 
 <para>
-<emphasis>Figure: Role management.</emphasis>
+<emphasis>Рисуно: Управление Ролями.</emphasis>
 </para>
 
 <note>
@@ -386,10 +387,11 @@ the <emphasis>Roles</emphasis> link on the Admin page.
 </note>
 
 <para>
-An overview of all roles in the system is displayed. To edit a role's
-settings, click on the role's name. In a fresh new OTRS installation, there
-are no roles defined by default. To register one, click on the "Add role"
-button, provide the needed data and submit it (see Figure below).
+Приведен обзор всех ролей в системе. Нажмите на имя роли, чтобы
+отредактировать ее настройки. По умолчанию, в новой, только что
+установленной системе OTRS нету предопределенных ролей. Чтобы создать новую,
+нажмите кнопку "Добавить роль", введите все необходимые данные и нажмите
+кнопку Отправить (см. нижеприведенный Рисунок).
 </para>
 
 <para>
@@ -399,16 +401,17 @@ button, provide the needed data and submit it (see Figure below).
 </para>
 
 <para>
-<emphasis>Figure: Adding a new role.</emphasis>
+<emphasis>Рисунок: Добавление новой роли.</emphasis>
 </para>
 
 <para>
-To get an overview of all roles and agents in the system, click on the link
-Roles &lt;-&gt; Agents on the Admin page. You can also use filters to find a
-specific element. If you want to change the roles associated with an agent,
-just click on the agent's name (see Figure below). To change the agents
-associated with a role, click on the role you want to edit (see Figure
-below).
+Чтобы получить список всех ролей и агентов в системе, перейдите по ссылке
+Роли &lt;-&gt; Агенты в Панели Администрирования. Также, для поиска
+конкретного элемента можно использовать фильтры. Если необходимо изменить
+роли связанные с определенным агентом, просто кликните на имя агента
+(см. нижеприведенный  Рисунок). Чтобы изменить агентов, связанных с ролью,
+нажмите на роль, которую нужно отредактировать (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -419,7 +422,7 @@ fileref="screenshots/admin-roles-agents-relation.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change the Roles associated with an Agent.</emphasis>
+<emphasis>Figure: Изменение Ролей, связанных с Агентом.</emphasis>
 </para>
 
 <para>
@@ -430,15 +433,15 @@ fileref="screenshots/admin-roles-agents-relation2.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change the Agents associated with a specific
-Role.</emphasis>
+<emphasis>Figure: Изменение Агентов, связанных с конкретной
+Ролью.</emphasis>
 </para>
 
 <para>
-To get an overview of all roles and groups in the system, click on the link
-Roles &lt;-&gt; Groups on the Admin page. You will see a similar screen as
-the one shown in the Figure. You can also use filters to find a specific
-entity.
+Чтобы получить список всех ролей и групп системы, перейдите по ссылке Роли
+&lt;-&gt; Группы на Панели Управления. На экране появится страница,
+приведенная ниже на Рисунке. Для поиска конкретного элемента также можно
+использовать фильтры.
 </para>
 
 <para>
@@ -449,7 +452,7 @@ fileref="screenshots/admin-roles-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Manage Roles-Groups relations.</emphasis>
+<emphasis>Figure: Управление отношениями Роли-Группы.</emphasis>
 </para>
 
 <para>
@@ -465,7 +468,7 @@ fileref="screenshots/groups-roles-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Group relations for a Role.</emphasis>
+<emphasis>Рисунок: Изменение связти между Группой и Ролью.</emphasis>
 </para>
 
 <para>
@@ -476,7 +479,7 @@ fileref="screenshots/groups-roles-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Role relations for a Group.</emphasis>
+<emphasis>Рисунок: Изменение отношения Роли к Группе.</emphasis>
 </para>
 
 </section>
@@ -490,12 +493,13 @@ fileref="screenshots/groups-roles-relations2.png"></graphic></screenshot>
 <title>Клиенты</title>
 
 <para>
-OTRS supports different types of users. Using the link "Customers" (via the
-navigation bar, or the Admin page), you can manage the accounts of your
-customers (see Figure below), who can log into the system via the Customers
-interface (customer.pl). Through this interface, your customers can create
-tickets and access them as they are updated. It is important to know that a
-customer is needed for the ticket history in the system.
+OTRS поддерживает различные типы пользователей. Используя ссылку "Клиенты"
+(с помощью навигационной панели, или на странице Панели Управления), можно
+управлять учетными записями клиентов (см. нижеприведенный  Рисунок), которые
+могут войти в систему используя Пользовательский веб-интерфейс
+(customer.pl). Используя этот интерфейс клиенты могут создавать и
+просматривать свои заявки. Важно помнить что клиенты необходимы в системе
+для хранения истории заявок.
 </para>
 
 <para>
@@ -506,7 +510,7 @@ fileref="screenshots/admin-customer.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Customer management.</emphasis>
+<emphasis>Рисунок: Управление клиентами.</emphasis>
 </para>
 
 <para>
@@ -517,9 +521,10 @@ linkend="external-backends">внешние хранилища данных</link
 </para>
 
 <para>
-To create a new customer account, click on the "Add customer" button (see
-Figure below). Some of the fields are mandatory, i.e., they have to contain
-values, so if you leave one of those empty, it will be highlighted in red.
+Чтобы создать новую учетную запись клиента, нажмите кнопку "Добавить
+клиента" (см. нижеприведенный  Рисунок). Некоторые поля являются
+обязательными, т.е они должи содержать данные, поэтому если вы оставите их
+пустыми, они будут выделены красным цветом.
 </para>
 
 <para>
@@ -530,7 +535,7 @@ fileref="screenshots/add-customer.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a customer.</emphasis>
+<emphasis>Рисунок: Добавление клиента.</emphasis>
 </para>
 
 <para>
@@ -576,8 +581,9 @@ linkend="Framework:Frontend::Customer:CustomerGroupAlwaysGroups">CustomerGroupAl
 </para>
 
 <para>
-Through the link "Customers &lt;-&gt; Groups" you can manage which customer
-shall belong to the different groups (see Figure below).
+Перейдя по ссылке "Клиенты &lt;-&gt; Группы"  вы можете управлять
+отношениями конкретного пользователя к разным группам (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -588,7 +594,7 @@ fileref="screenshots/admin-customer-groups.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Customer-Group relations management.</emphasis>
+<emphasis>Рисунок: Управление отношениями Клиент-Группа.</emphasis>
 </para>
 
 <para>
@@ -605,7 +611,7 @@ fileref="screenshots/groups-customers-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Group relations for a Customer.</emphasis>
+<emphasis>Рисунок: Изменение связи между Группой и Клиентом.</emphasis>
 </para>
 
 <para>
@@ -616,7 +622,7 @@ fileref="screenshots/groups-customers-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Customer relations for a Group.</emphasis>
+<emphasis>Рисунок: Изменение связи между Клиентом и Группой.</emphasis>
 </para>
 
 </section>
@@ -627,12 +633,13 @@ fileref="screenshots/groups-customers-relations2.png"></graphic></screenshot>
 <title>Очереди</title>
 
 <para>
-Clicking on the link "Queues" of the Admin page, you can manage the <link
-linkend="what-is-a-queue">queues</link> of your system (see Figure
-below). In a new OTRS installation there are 4 default queues: Raw, Junk,
-Misc and Postmaster. All incoming messages will be stored in the "Raw" queue
-if no filter rules are defined. The "Junk" queue can be used to store spam
-messages.
+Используя ссылку "Очереди", находящуюся в Панели Администрирования, можете
+управлять <link linkend="what-is-a-queue">очередями</link> системы
+(см. нижеприведенный  Рисунок). В новой, только установленной системе OTRS
+существует 4 предопределенных очереди: Junk, Misc, Postmaster и Raw. Если не
+используются ранее определенные фильтры и правила, все входящие сообщения
+сохраняются в очереди "Raw". Очередь "Junk" используется для хранения
+спам-сообщений.
 </para>
 
 <para>
@@ -642,13 +649,14 @@ messages.
 </para>
 
 <para>
-<emphasis>Figure: Queue management.</emphasis>
+<emphasis>Рисунок: Управление очередями.</emphasis>
 </para>
 
 <para>
-Here you can add queues (see Figure below) and modify them. You can specify
-the group that should use the queue. You can also set the queue as a
-sub-queue of an existing queue.
+Здесь можно добавлять и корректировать очереди (см. нижеприведенный
+Рисунок). Можно определить группу, которая должна использовать
+очередь. Также очередь можно установить как под-очередь уже существующей
+очереди.
 </para>
 
 <para>
@@ -658,7 +666,7 @@ sub-queue of an existing queue.
 </para>
 
 <para>
-<emphasis>Figure: Adding a new queue.</emphasis>
+<emphasis>Рисунок: Добавление новой очереди.</emphasis>
 </para>
 
 <para>
@@ -741,12 +749,13 @@ linkend="adminarea-signatures"> подписи </link>.
 <title>Приветсвтия</title>
 
 <para>
-A salutation is a text module for a response. Salutations can be linked to
-one or more queues, as described in the section about <link
-linkend="adminarea-queue">queues</link>. A salutation is used only if a
-ticket from a queue the salutation is linked to, is answered. To manage the
-different salutations of your system, use the "Salutations" link of the
-admin area (see Figure below).
+Приветствие это текстовый модуль для ответа. Приветствия могут быть связаны
+с одной или многими очередями, как это описанов в разделе <link
+linkend="adminarea-queue"> очереди</link>. Приветствия используются с
+очередями только в том случае, эсли на заявку из этой очереди уже дали
+ответ. Для управления различными приветствиями в системе воспользуйтесь
+ссылкой "Приветствия" в панели администрирования (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -757,7 +766,7 @@ fileref="screenshots/admin-salutation.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Salutation management.</emphasis>
+<emphasis>Рисунок: Управление приветсвиями.</emphasis>
 </para>
 
 <para>
@@ -766,8 +775,9 @@ standard salutation (en)".
 </para>
 
 <para>
-To create a new salutation, press the button "Add salutation", provide the
-needed data and submit it (see Figure below).
+Чтобы создать новое приветствие, нажмите на кнопку "Добавить приветсвие",
+введите необходимые данные и нажмите кнопку "Отправить" (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -778,7 +788,7 @@ fileref="screenshots/add-salutation.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a new salutation.</emphasis>
+<emphasis>Рисунок: Добавление нового приветствия.</emphasis>
 </para>
 
 <para>
@@ -807,12 +817,12 @@ fileref="screenshots/add-salutation.png"></graphic></screenshot>
 <title>Подписи</title>
 
 <para>
-Another text module for a response is the signature. Signatures can be
-linked to a queue, as described in the section about the <link
-linkend="adminarea-queue">queues</link>. Only if a signature is linked to a
-queue will it be included into the response text. Through the "Signatures"
-link of the Admin page, you can manage the signatures in your system (see
-Figure below).
+Другим текстовым модулем являются подписи. Подписи могут быть связаны с
+очередями, как это описано в разделе <link
+linkend="adminarea-queue">очереди</link>. Как только подпись связана с
+очередью она будет включена в текст ответа каждой заявки, входящей в эту
+очередь. Перейдя по ссылке "Подписи" в Панели Администрирования, можно
+упарвлять подписями системы (см. нижеприведенный  Рисунок).
 </para>
 
 <para>
@@ -823,7 +833,7 @@ fileref="screenshots/admin-signatures.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Signatures management.</emphasis>
+<emphasis>Рисунок: Управление подписями.</emphasis>
 </para>
 
 <para>
@@ -832,8 +842,9 @@ fileref="screenshots/admin-signatures.png"></graphic></screenshot>
 </para>
 
 <para>
-To create a new signature, press the button "Add signature", provide the
-needed data and submit it (see Figure below).
+Чтобы создать новую подпись, нажмите кнопку "Добавить подпись", введите все
+необходимы данные и нажмите кнопку "Отправить" (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -844,7 +855,7 @@ fileref="screenshots/add-signature.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a new signature.</emphasis>
+<emphasis>Рисунок: Добавление новой подписи.</emphasis>
 </para>
 
 <para>
@@ -878,8 +889,8 @@ fileref="screenshots/add-signature.png"></graphic></screenshot>
 </para>
 
 <para>
-Through the "Attachment" link of the Admin page, you can load the
-attachments into the database of the system (see Figure below).
+Используя ссылку "Вложения" на Панели Администрирования, можно загрузить
+вложения в базу данных системы (см. нижеприведенный  Рисунок).
 </para>
 
 <para>
@@ -890,12 +901,13 @@ fileref="screenshots/admin-attachment.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Attachments management.</emphasis>
+<emphasis>Рисунок: Управление вложениями.</emphasis>
 </para>
 
 <para>
-To create a new attachment, press the button "Add attachment", provide the
-needed data and submit it (see Figure below).
+Чтобы создать новое вложение, нажмите кнопку "Добавить вложение", введите
+всю необходимую информацию и нажмите кнопку "Отправить" (см. нижеприведенный
+Рисунок).
 </para>
 
 <para>
@@ -906,7 +918,7 @@ fileref="screenshots/add-attachment.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a new attachment.</emphasis>
+<emphasis>Рисунок: Добавление нового вложения.</emphasis>
 </para>
 
 <para>
@@ -923,7 +935,7 @@ fileref="screenshots/admin-attachment-response.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Linking Attachments to Responses.</emphasis>
+<emphasis>Рисунок: Связывание Вложений с Ответами.</emphasis>
 </para>
 
 <para>
@@ -940,7 +952,7 @@ fileref="screenshots/response-attachment-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Attachment relations for a Response.</emphasis>
+<emphasis>Рисунок: Изменение связей между Вложением и Ответом.</emphasis>
 </para>
 
 <para>
@@ -951,7 +963,7 @@ fileref="screenshots/response-attachment-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Response relations for an Attachment.</emphasis>
+<emphasis>Рисунок: Изменение связи между Ответом и Вложением.</emphasis>
 </para>
 
 </section>
@@ -981,7 +993,7 @@ fileref="screenshots/admin-response.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Responses management.</emphasis>
+<emphasis>Рисунок: Управление ответами.</emphasis>
 </para>
 
 <para>
@@ -997,7 +1009,7 @@ fileref="screenshots/add-response.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding a response.</emphasis>
+<emphasis>Рисунок: Добавление нового ответа.</emphasis>
 </para>
 
 <para>
@@ -1014,7 +1026,7 @@ fileref="screenshots/admin-response-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Response-Queue relations management.</emphasis>
+<emphasis>Рисунок: Управление Отношениями Ответ-Очередь.</emphasis>
 </para>
 
 <para>
@@ -1031,7 +1043,7 @@ fileref="screenshots/responses-queues-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Queue relations for a Response.</emphasis>
+<emphasis>Рисунок: Изменение связи между Очередью и Ответом.</emphasis>
 </para>
 
 <para>
@@ -1042,7 +1054,7 @@ fileref="screenshots/responses-queues-relations2.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Response relations for a Queue.</emphasis>
+<emphasis>Рисунок: Изменение связи между Ответом и Очередью.</emphasis>
 </para>
 
 <para>
@@ -1074,7 +1086,8 @@ fileref="screenshots/admin-autoresponse.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Auto Response management.</emphasis>
+<emphasis>Рисунок: Управление Автоматическими ответами
+(авто-ответами).</emphasis>
 </para>
 
 <para>
@@ -1090,7 +1103,8 @@ fileref="screenshots/add-autoresponse.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Adding an Auto Response.</emphasis>
+<emphasis>Рисунок: Добавление Автоматического ответа
+(автоответа).</emphasis>
 </para>
 
 <para>
@@ -1191,7 +1205,8 @@ fileref="screenshots/admin-autoresponse-queue.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Queue-Auto Response relations management.</emphasis>
+<emphasis>Рисунок: Управление связью Очередь-Автоматический
+ответ.</emphasis>
 </para>
 
 <para>
@@ -1209,7 +1224,8 @@ fileref="screenshots/autoresponses-queues-relations.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Change Auto Response relations for a Queue.</emphasis>
+<emphasis>Рисунок: Изменение связи между Автоматическим Ответом и
+Очередью.</emphasis>
 </para>
 
 </section>
@@ -1235,7 +1251,8 @@ system (see Figure below).
 </para>
 
 <para>
-<emphasis>Figure: System Email Addresses management.</emphasis>
+<emphasis>Рисунок: Управление Системными Адресами Электронной
+Почты.</emphasis>
 </para>
 
 <para>
@@ -1252,7 +1269,7 @@ right queue.
 </para>
 
 <para>
-<emphasis>Figure: Adding a system Email Address.</emphasis>
+<emphasis>Рисунок: Добавление адреса электронной почты системы.</emphasis>
 </para>
 
 <note>
@@ -1290,7 +1307,7 @@ fileref="screenshots/admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Notification management.</emphasis>
+<emphasis>Рисунок: Управление уведомлениями.</emphasis>
 </para>
 
 <para>
@@ -1308,7 +1325,7 @@ fileref="screenshots/customize-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Customizing a Notification.</emphasis>
+<emphasis>Рисунок: Настройка уведомлений.</emphasis>
 </para>
 
 <para>
@@ -1339,7 +1356,8 @@ fileref="screenshots/admin-notification-eventbased.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Event based Notification management.</emphasis>
+<emphasis>Рисунок: Управления Уведомлениями, базирующихся на
+Событиях.</emphasis>
 </para>
 
 <para>
@@ -1355,8 +1373,8 @@ fileref="screenshots/admin-notification-eventbased-new.png"></graphic></screensh
 </para>
 
 <para>
-<emphasis>Figure: Registering an Event based Notification
-management.</emphasis>
+<emphasis>Рисунок: Регистрация Уведомления, основаного на
+Событии.</emphasis>
 </para>
 
 <para>
@@ -1391,7 +1409,7 @@ and also search through the SMIME data.
 </para>
 
 <para>
-<emphasis>Figure: S/MIME management.</emphasis>
+<emphasis>Рисунок: Управление S/MIME.</emphasis>
 </para>
 
 </section>
@@ -1422,7 +1440,7 @@ screenshot" scale="40" fileref="screenshots/admin-pgp.png"></graphic></screensho
 </para>
 
 <para>
-<emphasis>Figure: PGP management.</emphasis>
+<emphasis>Рисунок: Управление PGP.</emphasis>
 </para>
 
 </section>
@@ -1442,7 +1460,7 @@ ticket states you want to use in the system (see Figure below).
 </para>
 
 <para>
-<emphasis>Figure: State management.</emphasis>
+<emphasis>Рисунок: Управление состоянимями.</emphasis>
 </para>
 
 <para>
@@ -1571,7 +1589,7 @@ fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: The graphical interface for system configuration
+<emphasis>Рисунок: Графический интерфейс для настройки системы
 (SysConfig).</emphasis>
 </para>
 
@@ -1605,7 +1623,7 @@ fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Mail account management.</emphasis>
+<emphasis>Рисунок: Управление почтовыми ящиками.</emphasis>
 </para>
 
 <para>
@@ -1634,7 +1652,7 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: PostMaster filter management.</emphasis>
+<emphasis>Рисунок: Управление фильтрами PostMaster.</emphasis>
 </para>
 
 <para>
@@ -1868,7 +1886,7 @@ fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Add a PostMaster filter.</emphasis>
+<emphasis>Рисунок: Добавление фильтров PostMaster.</emphasis>
 </para>
 
 <example id="sort-mails-into-junk">
@@ -1924,7 +1942,7 @@ fileref="screenshots/admin-genericagent.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Job list for the GenericAgent.</emphasis>
+<emphasis>Рисунок: Список заданий для GenericAgent.</emphasis>
 </para>
 
 <para>
@@ -1942,7 +1960,7 @@ fileref="screenshots/add-genericagent-job.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Creating a job for the GenericAgent.</emphasis>
+<emphasis>Рисунок: Создание заданий для GenericAgent.</emphasis>
 </para>
 
 <para>
@@ -1972,7 +1990,7 @@ fileref="screenshots/send-admin-notification.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Admin notification.</emphasis>
+<emphasis>Рисунок:. Оповещения Администратором.</emphasis>
 </para>
 
 <para>
@@ -2075,7 +2093,7 @@ fileref="screenshots/admin-selectbox.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: SQL Box.</emphasis>
+<emphasis>Рисунок: SQL-запросы.</emphasis>
 </para>
 
 </section>
@@ -2099,7 +2117,7 @@ fileref="screenshots/admin-packagemanager.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Package Manager.</emphasis>
+<emphasis>Рисунок: Менеджер пакетов.</emphasis>
 </para>
 
 <para>
@@ -2145,7 +2163,7 @@ fileref="screenshots/admin-packagemanager.png"></graphic></screenshot>
 </section>
 
 <section id="adminarea-webservices">
-    <title>Web Services</title>
+    <title>Веб-сервисы</title>
     <para>
         The Web Services link leads to the graphical interface where web services
 (for the OTRS Generic Interface) are created and maintained (see Figure
@@ -2153,7 +2171,7 @@ below).
     </para>
     <para>
         <screenshot>
-<screeninfo>The graphical interface for web services</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Графический интерфейс для веб-сервисов</screeninfo> <graphic srccredit="Adminarea
 webservices - screenshot" scale="40"
 fileref="screenshots/genericinterface-webservice-overview.png"></graphic></screenshot>
     </para>

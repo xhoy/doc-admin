@@ -3,9 +3,9 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: states.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: states.xml,v 1.5 2012-12-10 09:02:10 mg Exp $ -->
 <section id="states">
-<title>Ticket States</title>
+<title>Состояния заявок</title>
 
 <section id="states-predefined">
 <title>Предопределенные состояния</title>
@@ -134,13 +134,15 @@ OTRS works with the changed state for "new".
 </para>
 
 <para>
-<emphasis>Script: Modifying the Kernel/Config.pm settings.</emphasis>
+<emphasis>Сценарий: Изменение параметров настройки в
+Kernel/Config.pm.</emphasis>
 </para>
 
 <para>
-If a new state type should be added, the ticket_state_type table in the OTRS
-database needs to be modified with a database client program, as shown in
-the script below.
+Если нужно добавить новый тип состояния, то это можно сделать с помощью
+клиентской программы управления базами данных, изменив таблицу
+ticket_state_type базы данных OTRS, как это показано в нижеприведенном
+сценарии
 </para>
 
 <para>
@@ -168,7 +170,7 @@ linux:~#
 </para>
 
 <para>
-<emphasis>Script: Modifying the OTRS database.</emphasis>
+<emphasis>Script: Изменение базы данных OTRS.</emphasis>
 </para>
 
 <para>

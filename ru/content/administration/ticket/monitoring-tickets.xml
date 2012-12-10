@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-<!-- $Id: monitoring-tickets.xml,v 1.4 2012-12-03 08:37:27 mg Exp $ -->
+<!-- $Id: monitoring-tickets.xml,v 1.5 2012-12-10 09:02:10 mg Exp $ -->
 <section id="monitoring-tickets" >
 <title>Ответственность за Заявку &amp; Наблюдение за Заявкой</title>
 
@@ -34,9 +34,10 @@ linkend="Ticket:Core::Ticket:Ticket::Responsible">Ticket::Responsible</link>,
 </para>
 
 <para>
-Ticket responsibility can be assigned by calling up the ticket content and
-clicking on the "Responsible" link in the ticket activities menu of a zoomed
-ticket in the agent interface (see the Figure below).
+Ответственность за заявку может быть назначена после открытия ее
+содержимого, нажав ссылку "Ответственность", соответсвующего меню в шаблоне
+просмотра подробной информации о заявке агентского веб-интерфейса
+(см. нижеприведенный сценарий).
 </para>
 
 <para>
@@ -48,14 +49,15 @@ fileref="screenshots/ticket-zoom-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Changing the Responsibility of a ticket in its zoomed
-view.</emphasis>
+<emphasis>Рисунок: Изменение Ответственного за заявку в шаблоне просмотра
+подробной инф. о заявке.</emphasis>
 </para>
 
 <para>
-After clicking on "Responsible", a pop-up dialog to change the
-responsibility of that ticket will open (see Figure below). This dialog can
-also be used to send a message to the new responsible agent.
+После нажатия на кнопку "Ответственность", откроется всплывающее окно для
+изменения ответственности этой заявки (см. нижеприведенный Рисунок). Этот
+шаблон/диалог также может быть использован для отправки сообщения новому
+агенту, который будет нести ответственность за эту заявку.
 </para>
 
 <para>
@@ -66,8 +68,8 @@ fileref="screenshots/ticket-responsible.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Pop-up dialog to change a ticket's
-responsibility.</emphasis>
+<emphasis>Рисунок: Всплывающий диалог для изменения ответственного за
+заявку.</emphasis>
 </para>
 
 <para>
@@ -98,8 +100,9 @@ Ticket::WatcherGroup </link> можно определить одну или н�
 </para>
 
 <para>
-In order to watch a ticket, go to its zoomed view and click on the
-"Subscribe" link in the ticket activities menu (see Figure below).
+Для того чтобы смотреть заявку, перейдите к шаблону просмотра подробной
+информации о заявке и нажмите ссылку "Подписатся" в меню заявки
+(см. нижеприведенный Рисунок).
 </para>
 
 <para>
@@ -109,14 +112,14 @@ screenshot" scale="40" fileref="screenshots/ticket-subscribe.png"></graphic></sc
 </para>
 
 <para>
-<emphasis>Figure: Subscribing to watching a ticket in its zoomed
-view.</emphasis>
+<emphasis>Figure: Подписка на просмотр подробной информации о
+заявке.</emphasis>
 </para>
 
 <para>
-If you no longer want to watch a specific ticket, go to its zoomed view and
-click on the "Unsubscribe" link in the ticket activities menu (see Figure
-below).
+Если вы больше не хотите просматривать определенную заявку, перейдите к
+шаблону просмотра подробной информации заявки и нажмите кнопку "Отменить
+подписку" в меню заявки (см. нижеприведенный рисунок).
 </para>
 
 <para>
@@ -128,14 +131,14 @@ fileref="screenshots/ticket-unsubscribe.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Unsubscribing from watching a ticket in its zoomed
-view.</emphasis>
+<emphasis>Рисунок: Отказ от подписи на заявку в шаблоне просмотра подробной
+информации о заявке.</emphasis>
 </para>
 
 <para>
-The list of all watched tickets can be accessed through the Watched view of
-the OTRS agent interface (see Figure below), as soon as the ticket watcher
-feature gets activated.
+Как только активирована функция "просмотр заявок", то список всех
+просматриваемых заявок будет доступен в шаблоне Watched View
+(см. нижеприведенный Рисунок).
 </para>
 
 <para>
@@ -146,7 +149,7 @@ fileref="screenshots/ticket-subscribe-mailbox.png"></graphic></screenshot>
 </para>
 
 <para>
-<emphasis>Figure: Watched tickets view.</emphasis>
+<emphasis>Рисунок: Шаблон для просматриваемых заявок.</emphasis>
 </para>
 </section>
 
