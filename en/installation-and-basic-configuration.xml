@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: installation-and-basic-configuration.xml,v 1.77.2.1 2012-11-05 11:52:26 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.77.2.2 2012-12-17 14:06:50 mg Exp $ -->
 
 <chapter id="installation">
 <title>Installation</title>
@@ -62,7 +62,7 @@ Next steps:
  Execute 'SuSEconfig' to configure the web server.
 
 [start Apache and MySQL]
- Execute 'rcapache restart' and 'rcmysql start' in case they don't run.
+ Execute 'rcapache2 restart' and 'rcmysql start' in case they don't run.
 
 [install the OTRS database]
  Use a web browser and open this link:
@@ -123,7 +123,7 @@ The OTRS installation is done. Restart your web server to load the OTRS specific
 
 <para>
 <screen>
-linux:~ # rcapache restart
+linux:~ # rcapache2 restart
 Shutting down httpd                                         done
 Starting httpd [ PERL ]                                     done
 linux:~ #
