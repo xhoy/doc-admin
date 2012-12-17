@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.19 2012-12-17 14:52:22 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.20 2012-12-17 15:08:42 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -2958,6 +2958,37 @@ $Self->{'Process::TransitionAction'} = {
                         'DynamicFieldMapping' defines the condition that determines the new state of
                         the process ticket. For every value, a State or StateID must be specified.
                         If none of the values match, the state will not be changed.
+                    </para>
+                </section>
+
+                <section>
+                    <title>TicketTypeSet</title>
+                    <para>
+                        Sets the ticket type of a process ticket. Example:
+                    </para>
+                    <para>
+                        <screen><![CDATA[
+$Self->{'Process::TransitionAction'} = {
+    'TA1' => {
+        Name   => 'Set Ticket Type to default',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketTypeSet',
+        Config => {
+            TicketType => 'default',
+            # or
+            # TicketTypeID => '1',
+        },
+    },
+};
+                        ]]></screen>
+                    </para>
+                    <para>
+                        'Name' specifies the name of the configured TransitionAction.
+                    </para>
+                    <para>
+                        'TicketType' specifies the name of the ticket type.
+                    </para>
+                    <para>
+                        'TicketTypeID' specifies the internal ID of the ticket type.
                     </para>
                 </section>
             </section>
