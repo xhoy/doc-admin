@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: otrs.xml,v 1.3 2012-11-06 12:55:34 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.4 2013-01-03 12:40:20 mg Exp $ -->
 
 <section id="otrs">
 <title>OTRS Help Desk</title>
@@ -363,7 +363,6 @@
       </listitem>
     </itemizedlist>
 
-    <!-- commented until information is released
     <section id="new-features-of-3.2">
         <title>New features of OTRS 3.2</title>
         <section>
@@ -386,7 +385,7 @@
             <section>
             	<title>Process Management</title>
                 <itemizedlist>
-                    <listitem><para>The new process management makes it possible to represent processes within OTRS. Stay tuned for more information soon.</para></listitem>
+                    <listitem><para>The new <link linkend="process-management">process management</link> makes it possible to represent processes within OTRS.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
@@ -402,11 +401,12 @@
                 <itemizedlist>
                     <listitem><para>Agents can now search for tickets based on escalation time.</para></listitem>
                     <listitem><para>Added possibility to show DynamicFields by default in ticket search.</para></listitem>
-                    <listitem><para>Screen usage optimizations in the ticket screens. For each ticket screen, the size of the richtext editor can now be configured separately.</para></listitem>
+                    <listitem><para>Screen usage optimizations in the ticket screens to avoid scrolling in popup windows. For each ticket screen, the size of the richtext editor can now be configured separately.</para></listitem>
                     <listitem><para>It is now possible to move tickets to another queue from within the TicketAction dialogs (TicketNote, TicketClose etc.) after activating a configuration option. This is turned off by default.</para></listitem>
                     <listitem><para>Ticket search will now directly jump to the ticket zoom screen if only one ticket was found.</para></listitem>
                     <listitem><para>Added the ability to hide the Article Type from TicketActionCommon-based screens which can be helpful to fit more data in the browser window.</para></listitem>
                     <listitem><para>There is a new out-of-office dashboard widget that lists all currently unavailable agent colleagues.</para></listitem>
+                    <listitem><para>New CKEditor 4 makes working with rich text content (such as HTML emails) easier and more stable.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
@@ -444,7 +444,6 @@
                     </listitem>
                     <listitem><para>Improved performance of LDAP user synchronization.</para></listitem>
                     <listitem><para>Improved cache performance with many cache files.</para></listitem>
-                    <listitem><para>Improved performance of Syslog log backend.</para></listitem>
                 </itemizedlist>
             </section>
         </section>
@@ -458,7 +457,6 @@
             </section>
         </section>
     </section>
-     -->
 
     <section id="new-features-of-3.1">
         <title>New features of OTRS 3.1</title>
