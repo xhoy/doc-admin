@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.21 2013-01-04 17:20:06 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.22 2013-01-04 22:50:15 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -756,6 +756,8 @@ ISBN: 3527703713
                         <listitem><para>OwnerSet</para></listitem>
                         <listitem><para>QueueMove</para></listitem>
                         <listitem><para>ResponsibleSet</para></listitem>
+                        <listitem><para>ServiceSet</para></listitem>
+                        <listitem><para>SLASet</para></listitem>
                         <listitem><para>StateSet</para></listitem>
                         <listitem><para>TicketTypeSet</para></listitem>
                         <listitem><para>TicketUnlock</para></listitem>
@@ -2905,6 +2907,75 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
+                    <title>ServiceSet</title>
+                    <para>
+                        Assigns a service to a process ticket.
+                        The ticket requires to have a customer and the service must be assigned to
+                        that customer.
+                        Example:
+                    </para>
+                    <para>
+                        <screen><![CDATA[
+$Self->{'Process::TransitionAction'} = {
+    'TA1' => {
+        Name   => 'Set MyService service',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::ServiceSet',
+        Config => {
+            Service   => 'MyService',
+            # or
+            ServiceID => 123,
+        },
+    },
+};
+                        ]]></screen>
+                    </para>
+                    <para>
+                        'Name' specifies the name of the configured TransitionAction.
+                    </para>
+                    <para>
+                        'Service' defines the new service of the process ticket. The full name is
+                        required (e.g. GramdFatherService::FatherService::SonService ).
+                    </para>
+                    <para>
+                        'ServiceID' defines the internal ID of the new service.
+                    </para>
+                </section>
+
+                <section>
+                    <title>SLASet</title>
+                    <para>
+                        Assigns a service level agreement to a process ticket.
+                        The ticket requires to have a service and the SLA must be assigned to
+                        that service.
+                        Example:
+                    </para>
+                    <para>
+                        <screen><![CDATA[
+$Self->{'Process::TransitionAction'} = {
+    'TA1' => {
+        Name   => 'Set MySLA SLA',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::SLASet',
+        Config => {
+            SLA   => 'MyService',
+            # or
+            SLAID => 123,
+        },
+    },
+};
+                        ]]></screen>
+                    </para>
+                    <para>
+                        'Name' specifies the name of the configured TransitionAction.
+                    </para>
+                    <para>
+                        'SLA' defines the new service level agreement of the process ticket.
+                    </para>
+                    <para>
+                        'SLAID' defines the internal ID of the new SLA.
+                    </para>
+                </section>
+
+                <section>
                     <title>StateSet</title>
                     <para>
                         Changes the state of a process ticket. Example:
@@ -2916,7 +2987,7 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Set State to open',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::StateSet',
         Config => {
-            State  => 'open',
+            State   => 'open',
             # or
             StateID => 4,
         },
@@ -2947,7 +3018,7 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Set Ticket Type to default',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketTypeSet',
         Config => {
-            TicketType => 'default',
+            TicketType     => 'default',
             # or
             # TicketTypeID => '1',
         },
