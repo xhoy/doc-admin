@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.20 2012-12-17 15:08:42 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.21 2013-01-04 17:20:06 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -2907,34 +2907,18 @@ $Self->{'Process::TransitionAction'} = {
                 <section>
                     <title>StateSet</title>
                     <para>
-                        Changes the state of a process ticket.
-                        The state can be changed unconditionally or based on a condition. This
-                        condition is evaluated based on a defined DynamicField. If the value of the
-                        DynamicField at the time of the evaluation is not in one of the conditions,
-                        nothing will be changed. Example:
+                        Changes the state of a process ticket. Example:
                     </para>
                     <para>
                         <screen><![CDATA[
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
-        Name   => 'Set State if it is a MasterTicket',
+        Name   => 'Set State to open',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::StateSet',
         Config => {
             State  => 'open',
             # or
-            StateID => 3,
-
-            #OR (DynamicField state mapping)
-            DynamicField        => 'MasterSlave', # or DynamicField_MasterSlave
-            DynamicFieldMapping => {
-                Master => {
-                    State => 'open'
-                }
-                # or
-                Master => {
-                    StateID => 3
-                }
-            },
+            StateID => 4,
         },
     },
 };
@@ -2948,16 +2932,6 @@ $Self->{'Process::TransitionAction'} = {
                     </para>
                     <para>
                         'StateID' defines the internal ID of the new state.
-                    </para>
-                    <para>
-                        'DynamicField' defines the name of the DynamicField that should be used as
-                        the basis of the condition check to determine the new state. The name may
-                        include a leading 'DynamicField_' string.
-                    </para>
-                    <para>
-                        'DynamicFieldMapping' defines the condition that determines the new state of
-                        the process ticket. For every value, a State or StateID must be specified.
-                        If none of the values match, the state will not be changed.
                     </para>
                 </section>
 
