@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.22 2013-01-04 22:50:15 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.23 2013-01-09 19:24:53 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -1331,13 +1331,13 @@ Activities:
     Name: Recording the demand
   A2:
     ActivityDialogs:
-      - AD3
       - AD2
-    ChangeTime: 2012-11-23 18:11:48
+      - AD3
+    ChangeTime: 2012-12-13 00:55:12
     Config:
       ActivityDialog:
-        1: AD3
-        2: AD2
+        1: AD2
+        2: AD3
     CreateTime: 2012-11-23 11:50:11
     EntityID: A2
     ID: 152
@@ -1448,7 +1448,7 @@ ActivityDialogs:
     ID: 155
     Name: Approval denied
   AD3:
-    ChangeTime: 2012-11-23 14:57:09
+    ChangeTime: 2012-12-14 03:14:23
     Config:
       DescriptionLong: ''
       DescriptionShort: Approved
@@ -1642,7 +1642,20 @@ Process:
   Name: Book ordering
   State: Active
   StateEntityID: S1
-  TransitionActions: []
+  TransitionActions:
+    - TA1
+    - TA2
+    - TA3
+    - TA4
+    - TA8
+    - TA5
+    - TA3
+    - TA4
+    - TA8
+    - TA6
+    - TA3
+    - TA4
+    - TA7
   Transitions:
     - T1
     - T2
@@ -1650,6 +1663,87 @@ Process:
     - T4
     - T5
     - T6
+TransitionActions:
+  TA1:
+    ChangeTime: 2012-11-23 16:01:37
+    Config:
+      Config:
+        TargetQueue: Superior
+      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+    CreateTime: 2012-11-23 15:50:59
+    EntityID: TA1
+    ID: 61
+    Name: Move the process ticket into the "Superior" queue
+  TA2:
+    ChangeTime: 2012-11-23 16:02:12
+    Config:
+      Config:
+        Responsible: Superior
+      Module: Kernel::System::ProcessManagement::TransitionAction::ResponsibleSet
+    CreateTime: 2012-11-23 15:58:22
+    EntityID: TA2
+    ID: 62
+    Name: Change ticket responsible to "Superior"
+  TA3:
+    ChangeTime: 2012-11-24 14:27:02
+    Config:
+      Config:
+        TargetQueue: Employee
+      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+    CreateTime: 2012-11-23 16:02:54
+    EntityID: TA3
+    ID: 63
+    Name: Move the process ticket into the "Employee" queue
+  TA4:
+    ChangeTime: 2012-11-23 16:04:06
+    Config:
+      Config:
+        Responsible: Employee
+      Module: Kernel::System::ProcessManagement::TransitionAction::ResponsibleSet
+    CreateTime: 2012-11-23 16:04:06
+    EntityID: TA4
+    ID: 64
+    Name: Change ticket responsible to "Employee"
+  TA5:
+    ChangeTime: 2012-12-06 02:18:34
+    Config:
+      Config:
+        TargetQueue: Purchasing
+      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+    CreateTime: 2012-11-23 16:04:54
+    EntityID: TA5
+    ID: 65
+    Name: Move process ticket into the "Purchasing" queue
+  TA6:
+    ChangeTime: 2012-12-06 02:18:48
+    Config:
+      Config:
+        TargetQueue: Post office
+      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+    CreateTime: 2012-11-23 16:06:20
+    EntityID: TA6
+    ID: 66
+    Name: Move process ticket into the "Post office" queue
+  TA7:
+    ChangeTime: 2012-12-06 02:29:55
+    Config:
+      Config:
+        State: closed successful
+      Module: Kernel::System::ProcessManagement::TransitionAction::StateSet
+    CreateTime: 2012-12-06 02:29:27
+    EntityID: TA7
+    ID: 67
+    Name: Close ticket successfully
+  TA8:
+    ChangeTime: 2012-12-06 02:31:12
+    Config:
+      Config:
+        State: closed unsuccessful
+      Module: Kernel::System::ProcessManagement::TransitionAction::StateSet
+    CreateTime: 2012-12-06 02:31:12
+    EntityID: TA8
+    ID: 68
+    Name: Close ticket unsuccessfully
 Transitions:
   T1:
     ChangeTime: 2012-11-23 15:12:20
@@ -1741,6 +1835,7 @@ Transitions:
     EntityID: T6
     ID: 99
     Name: Shipment received
+
                 ]]></screen>
             </para>
         </section>
