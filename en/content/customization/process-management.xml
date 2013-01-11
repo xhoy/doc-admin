@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.24 2013-01-09 19:37:51 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.25 2013-01-11 06:19:30 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -750,17 +750,17 @@ ISBN: 3527703713
                 </para>
                 <para>
                     <itemizedlist>
-                        <listitem><para>ArticleCreate</para></listitem>
-                        <listitem><para>CustomerSet</para></listitem>
                         <listitem><para>DynamicFieldSet</para></listitem>
-                        <listitem><para>OwnerSet</para></listitem>
-                        <listitem><para>QueueMove</para></listitem>
-                        <listitem><para>ResponsibleSet</para></listitem>
-                        <listitem><para>ServiceSet</para></listitem>
-                        <listitem><para>SLASet</para></listitem>
-                        <listitem><para>StateSet</para></listitem>
+                        <listitem><para>TicketArticleCreate</para></listitem>
+                        <listitem><para>TicketCustomerSet</para></listitem>
+                        <listitem><para>TicketLockSet</para></listitem>
+                        <listitem><para>TicketOwnerSet</para></listitem>
+                        <listitem><para>TicketQueueSet</para></listitem>
+                        <listitem><para>TicketResponsibleSet</para></listitem>
+                        <listitem><para>TicketServiceSet</para></listitem>
+                        <listitem><para>TicketSLASet</para></listitem>
+                        <listitem><para>TicketStateSet</para></listitem>
                         <listitem><para>TicketTypeSet</para></listitem>
-                        <listitem><para>TicketUnlock</para></listitem>
                     </itemizedlist>
                 </para>
                 <para>
@@ -1668,8 +1668,8 @@ TransitionActions:
     ChangeTime: 2012-11-23 16:01:37
     Config:
       Config:
-        TargetQueue: Superior
-      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+        Queue: Superior
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet
     CreateTime: 2012-11-23 15:50:59
     EntityID: TA1
     ID: 61
@@ -1679,7 +1679,7 @@ TransitionActions:
     Config:
       Config:
         Responsible: Superior
-      Module: Kernel::System::ProcessManagement::TransitionAction::ResponsibleSet
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketResponsibleSet
     CreateTime: 2012-11-23 15:58:22
     EntityID: TA2
     ID: 62
@@ -1688,8 +1688,8 @@ TransitionActions:
     ChangeTime: 2012-11-24 14:27:02
     Config:
       Config:
-        TargetQueue: Employee
-      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+        Queue: Employee
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet
     CreateTime: 2012-11-23 16:02:54
     EntityID: TA3
     ID: 63
@@ -1699,7 +1699,7 @@ TransitionActions:
     Config:
       Config:
         Responsible: Employee
-      Module: Kernel::System::ProcessManagement::TransitionAction::ResponsibleSet
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketResponsibleSet
     CreateTime: 2012-11-23 16:04:06
     EntityID: TA4
     ID: 64
@@ -1708,8 +1708,8 @@ TransitionActions:
     ChangeTime: 2012-12-06 02:18:34
     Config:
       Config:
-        TargetQueue: Purchasing
-      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+        Queue: Purchasing
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet
     CreateTime: 2012-11-23 16:04:54
     EntityID: TA5
     ID: 65
@@ -1718,8 +1718,8 @@ TransitionActions:
     ChangeTime: 2012-12-06 02:18:48
     Config:
       Config:
-        TargetQueue: Post office
-      Module: Kernel::System::ProcessManagement::TransitionAction::QueueMove
+        Queue: Post office
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet
     CreateTime: 2012-11-23 16:06:20
     EntityID: TA6
     ID: 66
@@ -1729,7 +1729,7 @@ TransitionActions:
     Config:
       Config:
         State: closed successful
-      Module: Kernel::System::ProcessManagement::TransitionAction::StateSet
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketStateSet
     CreateTime: 2012-12-06 02:29:27
     EntityID: TA7
     ID: 67
@@ -1739,7 +1739,7 @@ TransitionActions:
     Config:
       Config:
         State: closed unsuccessful
-      Module: Kernel::System::ProcessManagement::TransitionAction::StateSet
+      Module: Kernel::System::ProcessManagement::TransitionAction::TicketStateSet
     CreateTime: 2012-12-06 02:31:12
     EntityID: TA8
     ID: 68
@@ -2668,9 +2668,9 @@ Fields => {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Queue Move',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet',
         Config => {
-            TargetQueue => 'Junk',
+            Queue => 'Junk',
         },
 
     },
@@ -2696,7 +2696,7 @@ $Self->{'Process::TransitionAction'} = {
                     This parameter contains all settings which are required for the module. Its
                     content depends on the particular Transition Action module which is used. Please
                     see the documentation of the individual modules for details. In our example,
-                    only the TargetQueue must be specified.
+                    only the Queue must be specified.
                 </para>
             </section>
             <section>
@@ -2708,16 +2708,16 @@ $Self->{'Process::TransitionAction'} = {
     $Self->{'Process::TransitionAction'} = {
         'TA1' => {
             Name   => 'Queue Move Junk',
-            Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+            Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet',
             Config => {
-                TargetQueue => 'Junk',
+                Queue => 'Junk',
             },
         },
         'TA2' => {
             Name   => 'Queue Move Raw',
-            Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
+            Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet',
             Config => {
-                TargetQueue => 'Raw',
+                Queue => 'Raw',
             },
         },
     };
@@ -2738,7 +2738,37 @@ $Self->{'Process::TransitionAction'} = {
                 </para>
 
                 <section>
-                    <title>ArticleCreate</title>
+                    <title>DynamicFieldSet</title>
+                    <para>
+                        Sets one or more dynamic fields at a process ticket. Example:
+                    </para>
+                    <para>
+                        <screen><![CDATA[
+$Self->{'Process::TransitionAction'} = {
+    'TA1' => {
+        Name   => 'Set DynamicField Master to Master and Approved to 1',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::DynamicFieldSet',
+        Config => {
+            MasterSlave => 'Master',
+            Approved    => '1',
+
+        },
+    },
+};
+                        ]]></screen>
+                    </para>
+                    <para>
+                        'Name' specifies the name of the configured TransitionAction.
+                    </para>
+                    <para>
+                        'MasterSlave' and 'Approved' are given as examples of DynamicField names.
+                        The values of the fields ('Master' and '1') will be set by this
+                        TransitionAction.
+                    </para>
+                </section>
+
+                <section>
+                    <title>TicketArticleCreate</title>
                     <para>
                         Creates an article and can be used to create notes or email replies. Example:
                     </para>
@@ -2747,7 +2777,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Article Create Note Internal',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::ArticleCreate',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketArticleCreate',
         Config => {
             ArticleType      => 'note-internal',                                        # email-external|email-internal|phone|fax|...
             SenderType       => 'agent',                                                # agent|system|customer
@@ -2845,7 +2875,7 @@ $Self->{'Process::TransitionAction'} = {
                     </para>
                 </section>
                 <section>
-                    <title>CustomerSet</title>
+                    <title>TicketCustomerSet</title>
                     <para>
                         Sets the customer of a process ticket. Example:
                     </para>
@@ -2854,7 +2884,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Customer Set Customer to test',
-        Module => 'Kernel::System::Process::TransitionAction::CustomerSet',
+        Module => 'Kernel::System::Process::TransitionAction::TicketCustomerSet',
         Config => {
             No      => 'test',
             User    => 'client-user-123',
@@ -2879,20 +2909,20 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
-                    <title>DynamicFieldSet</title>
+                    <title>TicketLockSet</title>
                     <para>
-                        Sets one or more dynamic fields at a process ticket. Example:
+                        Changes the lock of a process ticket. Example:
                     </para>
                     <para>
                         <screen><![CDATA[
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
-        Name   => 'Set DynamicField Master to Master and Approved to 1',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::DynamicFieldSet',
+        Name   => 'Set Lock to lock',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketLockSet',
         Config => {
-            MasterSlave => 'Master',
-            Approved    => '1',
-
+            Lock   => 'lock',
+            # or
+            LockID => 2,
         },
     },
 };
@@ -2902,14 +2932,15 @@ $Self->{'Process::TransitionAction'} = {
                         'Name' specifies the name of the configured TransitionAction.
                     </para>
                     <para>
-                        'MasterSlave' and 'Approved' are given as examples of DynamicField names.
-                        The values of the fields ('Master' and '1') will be set by this
-                        TransitionAction.
+                        'Lock' defines the new lock of the process ticket.
+                    </para>
+                    <para>
+                        'LockID' defines the internal ID of the new lock.
                     </para>
                 </section>
 
                 <section>
-                    <title>OwnerSet</title>
+                    <title>TicketOwnerSet</title>
                     <para>
                         Changes the owner of a process ticket. Example:
                     </para>
@@ -2918,7 +2949,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Owner Set root@localhost',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::OwnerSet',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketOwnerSet',
         Config => {
             Owner => 'root@localhost',
             # or
@@ -2940,7 +2971,38 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
-                    <title>ResponsibleSet</title>
+                    <title>TicketQueueSet</title>
+                    <para>
+                        Moves the ticket into a target queue. Example:
+                    </para>
+                    <para>
+                        <screen><![CDATA[
+$Self->{'Process::TransitionAction'} = {
+    'TA1' => {
+        Name   => 'Queue Move Raw',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet',
+        Config => {
+            Queue => 'Raw',
+            # or
+            # QueueID => '2',
+        },
+    },
+};
+                        ]]></screen>
+                    </para>
+                    <para>
+                        'Name' specifies the name of the configured TransitionAction.
+                    </para>
+                    <para>
+                        'Queue' specifies the name of the target queue.
+                    </para>
+                    <para>
+                        'QueueID' specifies the internal ID of the target queue.
+                    </para>
+                </section>
+
+                <section>
+                    <title>TicketResponsibleSet</title>
                     <para>
                         Changes the responsible of a process ticket. Example:
                     </para>
@@ -2949,7 +3011,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Responsible Set root@localhost',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::ResponsibleSet',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketResponsibleSet',
         Config => {
             Responsible => 'root@localhost',
             # or
@@ -2971,38 +3033,7 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
-                    <title>QueueMove</title>
-                    <para>
-                        Moves the ticket into a target queue. Example:
-                    </para>
-                    <para>
-                        <screen><![CDATA[
-$Self->{'Process::TransitionAction'} = {
-    'TA1' => {
-        Name   => 'Queue Move Raw',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::QueueMove',
-        Config => {
-            TargetQueue => 'Raw',
-            # or
-            # TargetQueueID => '2',
-        },
-    },
-};
-                        ]]></screen>
-                    </para>
-                    <para>
-                        'Name' specifies the name of the configured TransitionAction.
-                    </para>
-                    <para>
-                        'TargetQueue' specifies the name of the target queue.
-                    </para>
-                    <para>
-                        'TargetQueueID' specifies the internal ID of the target queue.
-                    </para>
-                </section>
-
-                <section>
-                    <title>ServiceSet</title>
+                    <title>TicketServiceSet</title>
                     <para>
                         Assigns a service to a process ticket.
                         The ticket requires to have a customer and the service must be assigned to
@@ -3014,7 +3045,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Set MyService service',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::ServiceSet',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketServiceSet',
         Config => {
             Service   => 'MyService',
             # or
@@ -3037,7 +3068,7 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
-                    <title>SLASet</title>
+                    <title>TicketSLASet</title>
                     <para>
                         Assigns a service level agreement to a process ticket.
                         The ticket requires to have a service and the SLA must be assigned to
@@ -3049,7 +3080,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Set MySLA SLA',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::SLASet',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketSLASet',
         Config => {
             SLA   => 'MyService',
             # or
@@ -3071,7 +3102,7 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
-                    <title>StateSet</title>
+                    <title>TicketStateSet</title>
                     <para>
                         Changes the state of a process ticket. Example:
                     </para>
@@ -3080,7 +3111,7 @@ $Self->{'Process::TransitionAction'} = {
 $Self->{'Process::TransitionAction'} = {
     'TA1' => {
         Name   => 'Set State to open',
-        Module => 'Kernel::System::ProcessManagement::TransitionAction::StateSet',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketStateSet',
         Config => {
             State   => 'open',
             # or
