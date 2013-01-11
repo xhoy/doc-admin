@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.26 2013-01-11 18:54:23 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.27 2013-01-11 21:53:33 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -3171,9 +3171,9 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Set Ticket Type to default',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketTypeSet',
         Config => {
-            TicketType     => 'default',
+            Type     => 'default',
             # or
-            # TicketTypeID => '1',
+            # TypeID => '1',
         },
     },
 };
@@ -3183,10 +3183,10 @@ $Self->{'Process::TransitionAction'} = {
                         'Name' specifies the name of the configured TransitionAction.
                     </para>
                     <para>
-                        'TicketType' specifies the name of the ticket type.
+                        'Type' specifies the name of the ticket type.
                     </para>
                     <para>
-                        'TicketTypeID' specifies the internal ID of the ticket type.
+                        'TypeID' specifies the internal ID of the ticket type.
                     </para>
                 </section>
             </section>
