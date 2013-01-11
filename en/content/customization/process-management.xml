@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.25 2013-01-11 06:19:30 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.26 2013-01-11 18:54:23 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -760,6 +760,7 @@ ISBN: 3527703713
                         <listitem><para>TicketServiceSet</para></listitem>
                         <listitem><para>TicketSLASet</para></listitem>
                         <listitem><para>TicketStateSet</para></listitem>
+                        <listitem><para>TicketTitleSet</para></listitem>
                         <listitem><para>TicketTypeSet</para></listitem>
                     </itemizedlist>
                 </para>
@@ -3133,6 +3134,32 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
 
                 <section>
+                    <title>TicketTitleSet</title>
+                    <para>
+                        Sets the ticket title of a process ticket. Example:
+                    </para>
+                    <para>
+                        <screen><![CDATA[
+$Self->{'Process::TransitionAction'} = {
+    'TA1' => {
+        Name   => 'Set Ticket Title to Ticket-title',
+        Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketTitleSet',
+        Config => {
+            Title => 'Ticket-title',
+        },
+    },
+};
+                        ]]></screen>
+                    </para>
+                    <para>
+                        'Name' specifies the name of the configured TransitionAction.
+                    </para>
+                    <para>
+                        'Title' specifies the new title of the ticket.
+                    </para>
+                </section>
+
+                <section>
                     <title>TicketTypeSet</title>
                     <para>
                         Sets the ticket type of a process ticket. Example:
@@ -3164,6 +3191,7 @@ $Self->{'Process::TransitionAction'} = {
                 </section>
             </section>
         </section>
+
         <section>
             <title>Access Control Lists (ACLs)</title>
             <para>
