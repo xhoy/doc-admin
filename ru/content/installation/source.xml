@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: source.xml,v 1.5 2012-12-10 09:02:22 mg Exp $ -->
+<!-- $Id: source.xml,v 1.6 2013-01-18 07:26:36 mg Exp $ -->
 <section id="manual-installation-of-otrs">
 <title>Установка из исходных кодов (Linux, Unix)</title>
 
@@ -177,7 +177,7 @@ linux:/opt/otrs/bin# ./otrs.CheckModules.pl
    o Net::DNS.........................ok (v0.65)
    o Net::POP3........................ok (v2.29)
    o Net::IMAP::Simple................ok (v1.2030)
-      o Net::IMAP::Simple::SSL........ok (v1.3)
+      o IO::Socket::SSL...............ok (v1.22)
    o Net::SMTP........................ok (v2.31)
       o Authen::SASL..................ok (v2.15)
       o Net::SMTP::SSL................ok (v1.01)
@@ -932,7 +932,7 @@ linux:/opt/otrs/bin#
 linux:/opt/otrs/bin# crontab -l -u otrs
 # --
 # cron/aaa_base - base crontab package
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -941,7 +941,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/cache - delete expired cache
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete expired cache weekly (Sunday mornings)
@@ -950,7 +950,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/fetchmail - fetchmail cron of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -959,7 +959,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/generic_agent - otrs.GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
@@ -971,7 +971,7 @@ MAILTO="root@localhost"
 #0 23 * * * $HOME/bin/otrs.GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -979,7 +979,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -987,7 +987,7 @@ MAILTO="root@localhost"
 45 */2 * * * $HOME/bin/otrs.PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -996,7 +996,7 @@ MAILTO="root@localhost"
 10 0 * * * $HOME/bin/otrs.CleanUp.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster_mailbox - postmaster_mailbox cron of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1004,7 +1004,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.PostMasterMailbox.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1013,7 +1013,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/session - delete old session ids of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1022,7 +1022,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --

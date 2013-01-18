@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: packages.xml,v 1.5 2012-12-10 09:02:21 mg Exp $ -->
+<!-- $Id: packages.xml,v 1.6 2013-01-18 07:26:36 mg Exp $ -->
 <section id="installation-of-prepared-packages">
 <title>Самый простой способ - установка из готовых бинарных пакетов</title>
 
@@ -60,7 +60,7 @@ Next steps:
  Execute 'SuSEconfig' to configure the web server.
 
 [start Apache and MySQL]
- Execute 'rcapache restart' and 'rcmysql start' in case they don't run.
+ Execute 'rcapache2 start' and 'rcmysql start' in case they don't run.
 
 [install the OTRS database]
  Use a web browser and open this link:
@@ -124,7 +124,7 @@ specific changes in its configuration, as shown in the script below.
 
 <para>
 <screen>
-linux:~ # rcapache restart
+linux:~ # rcapache2 restart
 Shutting down httpd                                         done
 Starting httpd [ PERL ]                                     done
 linux:~ #

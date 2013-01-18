@@ -3,7 +3,7 @@
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: otrs.xml,v 1.5 2012-12-10 09:02:24 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.6 2013-01-18 07:26:37 mg Exp $ -->
 <section id="otrs">
 <title>OTRS-Helpdesk</title>
 
@@ -372,25 +372,24 @@ E-Mail.
       </listitem>
     </itemizedlist>
 
-
-
-    <!-- commented until information is released
     <section id="new-features-of-3.2">
-
         <title>New features of OTRS 3.2</title>
         <section>
         	<title>More customer focused</title>
             <itemizedlist>
                 <listitem>
-                    <para>The new "Customer Information Center" provides a great dashboard-like view on a customer (company). You can see
+                    <para>The new "Customer Information Center" provides a great dashboard-like view
+on a customer (company). You can see
                     <itemizedlist>
                         <listitem><para>Escalated, reminder, new and open tickets of the customer company.</para></listitem>
-                        <listitem><para>Customer users (contacts) belonging to this customer company, with their individual ticket count and shortcuts for creating new tickets for them.</para></listitem>
+                        <listitem><para>Customer users (contacts) belonging to this customer company, with their
+individual ticket count and shortcuts for creating new tickets for them.</para></listitem>
                         <listitem><para>An overall ticket status view of the customer company.</para></listitem>
                     </itemizedlist>
                     </para>
                 </listitem>
-                <listitem><para>New feature "switch to customer" makes it possible for an agent with the required permissions to look into the customers's panel with their rights.</para></listitem>
+                <listitem><para>New feature "switch to customer" makes it possible for an agent with the
+required permissions to look into the customers's panel with their rights.</para></listitem>
             </itemizedlist>
         </section>
         <section>
@@ -398,15 +397,19 @@ E-Mail.
             <section>
             	<title>Process Management</title>
                 <itemizedlist>
-                    <listitem><para>The new process management makes it possible to represent processes within OTRS. Stay tuned for more information soon.</para></listitem>
+                    <listitem><para>The new <link linkend="process-management">process management</link> makes
+it possible to represent processes within OTRS.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
             	<title>Customer Interface Improvements</title>
                 <itemizedlist>
                     <listitem><para>The customer web interface now fully supports AJAX and ACLs.</para></listitem>
-                    <listitem><para>It now requires JavaScript and can no longer be used with Internet Explorer 6 or earlier versions.</para></listitem>
-                    <listitem><para>In the Customer Interface, you can now set the default ticket type for new tickets. Additionally, you can now also hide the ticket type and use a default value for all tickets created via the customer interface.</para></listitem>
+                    <listitem><para>It now requires JavaScript and can no longer be used with Internet Explorer
+6 or earlier versions.</para></listitem>
+                    <listitem><para>In the Customer Interface, you can now set the default ticket type for new
+tickets. Additionally, you can now also hide the ticket type and use a
+default value for all tickets created via the customer interface.</para></listitem>
                 </itemizedlist>
                 </section>
             <section>
@@ -414,20 +417,36 @@ E-Mail.
                 <itemizedlist>
                     <listitem><para>Agents can now search for tickets based on escalation time.</para></listitem>
                     <listitem><para>Added possibility to show DynamicFields by default in ticket search.</para></listitem>
-                    <listitem><para>Screen usage optimizations in the ticket screens. For each ticket screen, the size of the richtext editor can now be configured separately.</para></listitem>
-                    <listitem><para>It is now possible to move tickets to another queue from within the TicketAction dialogs (TicketNote, TicketClose etc.) after activating a configuration option. This is turned off by default.</para></listitem>
-                    <listitem><para>Ticket search will now directly jump to the ticket zoom screen if only one ticket was found.</para></listitem>
-                    <listitem><para>Added the ability to hide the Article Type from TicketActionCommon-based screens which can be helpful to fit more data in the browser window.</para></listitem>
-                    <listitem><para>There is a new out-of-office dashboard widget that lists all currently unavailable agent colleagues.</para></listitem>
+                    <listitem><para>Screen usage optimizations in the ticket screens to avoid scrolling in popup
+windows. For each ticket screen, the size of the richtext editor can now be
+configured separately.</para></listitem>
+                    <listitem><para>It is now possible to move tickets to another queue from within the
+TicketAction dialogs (TicketNote, TicketClose etc.) after activating a
+configuration option. This is turned off by default.</para></listitem>
+                    <listitem><para>Ticket search will now directly jump to the ticket zoom screen if only one
+ticket was found.</para></listitem>
+                    <listitem><para>Added the ability to hide the Article Type from TicketActionCommon-based
+screens which can be helpful to fit more data in the browser window.</para></listitem>
+                    <listitem><para>There is a new out-of-office dashboard widget that lists all currently
+unavailable agent colleagues.</para></listitem>
+                    <listitem><para>New CKEditor 4 makes working with rich text content (such as HTML emails)
+easier and more stable.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
             	<title>Administration improvements</title>
                 <itemizedlist>
-                    <listitem><para>Event Based notifications can now be sent out only for specific Article Sender Types.</para></listitem>
-                    <listitem><para>The Statistics engine in OTRS now understands 'Weeks' in addition to days, months and years. This means you can for instance now create a report for tickets 'created last week', or generate a report that shows created tickets per queue per week.</para></listitem>
-                    <listitem><para>It is possible to place customized DTL (template) files in <code>Custom/Kernel/Output/HTML</code>, so that they override the system's default DTL files just as how this already works for Perl files.</para></listitem>
-                    <listitem><para>In AdminSMIME it is now possible to display human readable certificate contents.</para></listitem>
+                    <listitem><para>Event Based notifications can now be sent out only for specific Article
+Sender Types.</para></listitem>
+                    <listitem><para>The Statistics engine in OTRS now understands 'Weeks' in addition to days,
+months and years. This means you can for instance now create a report for
+tickets 'created last week', or generate a report that shows created tickets
+per queue per week.</para></listitem>
+                    <listitem><para>It is possible to place customized DTL (template) files in
+<code>Custom/Kernel/Output/HTML</code>, so that they override the system's
+default DTL files just as how this already works for Perl files.</para></listitem>
+                    <listitem><para>In AdminSMIME it is now possible to display human readable certificate
+contents.</para></listitem>
                     <listitem><para>SysConfig now supports config setting types Date and DateTime.</para></listitem>
                 </itemizedlist>
             </section>
@@ -437,26 +456,34 @@ E-Mail.
             <section>
             	<title>Ticket Archiving Improved</title>
                 <itemizedlist>
-                    <listitem><para>When tickets are archived, the information which agent read the ticket and articles can be removed, as well as the ticket subscriptions of agents. This is active by default and helps reduce the amount of data in the database on large systems with many tickets and agents.</para></listitem>
-                    <listitem><para>There is also a new script to remove this data from existing archived tickets.</para></listitem>
+                    <listitem><para>When tickets are archived, the information which agent read the ticket and
+articles can be removed, as well as the ticket subscriptions of agents. This
+is active by default and helps reduce the amount of data in the database on
+large systems with many tickets and agents.</para></listitem>
+                    <listitem><para>There is also a new script to remove this data from existing archived
+tickets.</para></listitem>
                     <listitem><para>Archived tickets are now always shown as 'read' by the agent.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
             	<title>Performance Improvements</title>
                 <itemizedlist>
-                    <listitem><para>Session management is up to 10 times faster, especially with many active users.</para></listitem>
-                    <listitem><para>It is now possible to limit the number of concurrent agents and/or users to avoid server capacity overload.</para></listitem>
+                    <listitem><para>Session management is up to 10 times faster, especially with many active
+users.</para></listitem>
+                    <listitem><para>It is now possible to limit the number of concurrent agents and/or users to
+avoid server capacity overload.</para></listitem>
                     <listitem>
-                        <para>Greatly reduced the number of executed database statements in ticket overviews and ticket masks in agent and customer frontend.
+                        <para>Greatly reduced the number of executed database statements in ticket
+overviews and ticket masks in agent and customer frontend.
                             <itemizedlist>
-                                <listitem><para>This will reduce the load on database servers, especially on large systems. In some cases OTRS will become visibly more responsive (if the system was slowed down by the DB load or latency).</para></listitem>
+                                <listitem><para>This will reduce the load on database servers, especially on large
+systems. In some cases OTRS will become visibly more responsive (if the
+system was slowed down by the DB load or latency).</para></listitem>
                             </itemizedlist>
                         </para>
                     </listitem>
                     <listitem><para>Improved performance of LDAP user synchronization.</para></listitem>
                     <listitem><para>Improved cache performance with many cache files.</para></listitem>
-                    <listitem><para>Improved performance of Syslog log backend.</para></listitem>
                 </itemizedlist>
             </section>
         </section>
@@ -465,13 +492,15 @@ E-Mail.
             <section>
             	<title>FAQ Connector for the GenericInterface</title>
                 <itemizedlist>
-                    <listitem><para>It is now possible to access the data of the FAQ module (OTRS knowledge database) via web service (GenericInterface). This can be useful to embed FAQ articles on your company website, for example.</para></listitem>
+                    <listitem><para>It is now possible to access the data of the FAQ module (OTRS knowledge
+database) via web service (GenericInterface). This can be useful to embed
+FAQ articles on your company website, for example.</para></listitem>
                 </itemizedlist>
             </section>
         </section>
     </section>
-     -->
-<section id="new-features-of-3.1">
+
+    <section id="new-features-of-3.1">
         <title>New features of OTRS 3.1</title>
 
         <section>
