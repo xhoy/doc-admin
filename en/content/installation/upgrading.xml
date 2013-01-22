@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: upgrading.xml,v 1.7 2012-11-27 11:31:42 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.8 2013-01-22 11:18:40 mg Exp $ -->
 
 <section id="upgrading">
 <title>Upgrading the OTRS Framework</title>
@@ -138,13 +138,28 @@ shell&gt; cd /opt/otrs/
 
 # MySQL:
 shell&gt; cat scripts/DBUpdate-to-3.2.mysql.sql | mysql -p -f -u root otrs
+
 # PostgreSQL 8.2+:
 shell&gt; cat scripts/DBUpdate-to-3.2.postgresql.sql | psql otrs
+
 # PostgreSQL, older versions:
 shell&gt; cat scripts/DBUpdate-to-3.2.postgresql_before_8_2.sql | psql otrs
             </screen>
-
-            NOTE: If you use PostgreSQL 8.1 or earlier, you need to activate the new legacy driver
+        </para>
+        <para>
+             Note: new tables created in the MySQL UPGRADING process will be created with the
+             default table storage engine set in your MySQL server.
+             In MySQL 5.5 the new default type is InnoDB.
+             If existing tables, e.g. "users", have the table storage engine e.g. MyISAM,
+             then an error will be displayed when creating the foreign key constraints.
+         </para>
+         <para>
+            You have two options: you can change the default storage engine of MySQL back to MyISAM
+            so that new tables will have the same engine as the existing tables,
+            or change the existing tables to use InnoDB as storage engine.
+        </para>
+        <para>
+            Note: If you use PostgreSQL 8.1 or earlier, you need to activate the new legacy driver
             for these older versions. Do this by adding a new line to your <filename>Kernel/Config.pm</filename> like this:
 
             <screen>
