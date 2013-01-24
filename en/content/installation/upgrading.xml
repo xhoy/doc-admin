@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: upgrading.xml,v 1.9 2013-01-24 07:57:40 mb Exp $ -->
+<!-- $Id: upgrading.xml,v 1.10 2013-01-24 10:55:18 mg Exp $ -->
 
 <section id="upgrading">
 <title>Upgrading the OTRS Framework</title>
@@ -24,7 +24,7 @@
     Within a single minor version you can skip patch level releases if you want to
     upgrade. For instance you can upgrade directly from OTRS 3.2.1 to version
     3.2.4. If you need to do such a "patch level upgrade", you should skip steps
-    8, 12, 14 and 15.
+    9, 13, 15, 16 and 17.
 </para>
 
   <orderedlist>
@@ -122,11 +122,23 @@ shell&gt; rpm -Uvh otrs-x.x.x.-01.rpm
         <para>
             If the tarball is used, execute:
             <screen>
-shell> cd /opt/otrs/
-shell> bin/otrs.SetPermissions.pl
+shell&gt; cd /opt/otrs/
+shell&gt; bin/otrs.SetPermissions.pl
             </screen>
             with the permissions needed for your system setup.
         </para>
+      </listitem>
+      <listitem>
+            <para>
+                Check needed Perl modules
+            </para>
+            <para>
+               Verify that all needed perl modules are installed on your system and install
+               any modules that might be missing.
+               <screen>
+shell&gt; /opt/otrs/bin/otrs.CheckModules.pl
+               </screen>
+            </para>
       </listitem>
       <listitem>
         <para>
