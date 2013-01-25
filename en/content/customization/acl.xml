@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: acl.xml,v 1.3 2012-11-06 11:11:28 mg Exp $ -->
+<!-- $Id: acl.xml,v 1.4 2013-01-25 09:27:20 mg Exp $ -->
 
 <section id="acl" >
 <title>Access Control Lists (ACLs)</title>
@@ -226,11 +226,16 @@ $Self->{TicketAcl}->{'Only-Hardware-Services-for-HW-Queues'} = {
 </para>
 </section>
 
-<section>
+<section id="acl-reference">
 <title>Reference</title>
 
 <para>
     In the example below there is a list of all parameters which can be used for ACLs.
+</para>
+<para>
+    Please see the <link linkend="process-management-acl">section on ACLs</link> in the
+    <link linkend="process-management">ProcessManagement</link> documentation for a detailed
+    descripton of how to use ACLs for process tickets.
 </para>
 
 <para>
@@ -246,37 +251,39 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
         Frontend => {
             Action => ['AgentTicketPhone', 'AgentTicketEmail'],
         },
+
         # the logged in agent
         User => {
             UserLogin => ['some login'],
-            # ...
             Group_rw => [
                 'hotline',
             ],
-            # ...
             Role => [
                 'admin',
             ],
             # ...
         },
+
         # the logged in customer
         CustomerUser => {
             UserLogin => ['some login'],
-            # ...
             Group_rw => [
                 'hotline',
             ],
-            # ...
             Role => [
                 'admin',
             ],
             # ...
         },
 
-        #
-        # ticket properties
-        #
+        # process properties
+        Process => {
+            ProcessEntityID        => ['P1'],   # the Process that the current ticket is part of
+            ActivityEntityID       => ['A1'],   # the current Activity of the ticket
+            ActivityDialogEntityID => ['AD1'],  # the current ActivityDialog that the Agent/Customer is using
+        },
 
+        # ticket properties
         Queue => {
             Name     => ['Raw'],
             QueueID  => ['some id'],
@@ -316,11 +323,9 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
         },
         Owner => {
             UserLogin => ['some login'],
-            # ...
             Group_rw => [
                 'some group',
             ],
-            # ...
             Role => [
                 'admin',
             ],
@@ -328,11 +333,9 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
         },
         Responsible => {
             UserLogin => ['some login'],
-            # ...
             Group_rw => [
                 'some group',
             ],
-            # ...
             Role => [
                 'admin',
             ],
@@ -383,6 +386,10 @@ $Self->{TicketAcl}->{'200-ACL-Reference'} = {
             OldOwner => ['some owner'],
             # ...
         },
+
+        # Limit the number of possible ActivityDialogs the Agent/Customer
+        #   can use in a process ticket.
+        ActivityDialog => ['AD1', 'AD3'],
 
         # possible action options (white list)
         Action => {
