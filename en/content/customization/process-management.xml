@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: process-management.xml,v 1.30 2013-01-31 16:16:38 cr Exp $ -->
+<!-- $Id: process-management.xml,v 1.31 2013-02-01 19:20:26 cr Exp $ -->
 
 <section id="process-management" >
 <title>Process Management</title>
@@ -2782,7 +2782,8 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Article Create Note Internal',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketArticleCreate',
         Config => {
-            ArticleType      => 'note-internal',                                        # email-external|email-internal|phone|fax|...
+            ArticleType      => 'note-internal',                                        # note-external|phone|fax|sms|...
+                                                                                        #   excluding any email type
             SenderType       => 'agent',                                                # agent|system|customer
             ContentType      => 'text/plain; charset=ISO-8859-15',                      # or optional Charset & MimeType
             Subject          => 'some short description',                               # required
@@ -2818,9 +2819,8 @@ $Self->{'Process::TransitionAction'} = {
                     </para>
                     <para>
                         'ArticleType' defines the type of the article to be created. Possible
-                        values: email-external, email-internal, email-notification-ext,
-                        email-notification-int, phone, fax, sms, webrequest, note-internal,
-                        note-external, note-report.
+                        values: phone, fax, sms, webrequest, note-internal, note-external and
+                        note-report.
                     </para>
                     <para>
                         SenderType defines the sender type of the article. Possible values: agent,
