@@ -3,7 +3,7 @@
 
 
 
-<!-- $Id: genericinterface-connectors.xml,v 1.2.2.1 2013-01-10 15:33:57 ub Exp $ -->
+<!-- $Id: genericinterface-connectors.xml,v 1.2.2.2 2013-02-06 14:50:34 mg Exp $ -->
 <section id="genericinterface-connectors">
     <title>Connectors</title>
     <para>
@@ -495,7 +495,7 @@ predefined criteria.
          <!--Zero or more repetitions:-->
          <StateType>?</StateType>
          <!--Zero or more repetitions:-->
-         <StateTpeyIDs>?</StateTpeyIDs>
+         <StateTypeIDs>?</StateTypeIDs>
          <!--Zero or more repetitions:-->
          <Priorities>?</Priorities>
          <!--Zero or more repetitions:-->
@@ -505,7 +505,7 @@ predefined criteria.
          <!--Zero or more repetitions:-->
          <ServiceIDs>?</ServiceIDs>
          <!--Zero or more repetitions:-->
-         <SLA>?</SLA>
+         <SLAs>?</SLAs>
          <!--Zero or more repetitions:-->
          <SLAIDs>?</SLAIDs>
          <!--Zero or more repetitions:-->
@@ -539,7 +539,7 @@ predefined criteria.
          <!--Zero or more repetitions:-->
          <CreatedQueues>?</CreatedQueues>
          <!--Zero or more repetitions:-->
-         <CreatedStateIDs>?</CreatedStateIDs>
+         <CreatedQueueIDs>?</CreatedQueueIDs>
          <!--Zero or more repetitions:-->
          <DynamicFields>
             <!--You have a MANDATORY CHOICE of the next 6 items at this level-->
@@ -575,10 +575,6 @@ predefined criteria.
          <FullTextIndex>?</FullTextIndex>
          <!--Optional:-->
          <ContentSearch>?</ContentSearch>
-         <!--Optional:-->
-         <ContentSearchPrefix>?</ContentSearchPrefix>
-         <!--Optional:-->
-         <ContentSearchSuffix>?</ContentSearchSuffix>
          <!--Optional:-->
          <ConditionInline>?</ConditionInline>
          <!--Optional:-->
@@ -635,8 +631,6 @@ predefined criteria.
          <OrderBy>?</OrderBy>
          <!--Zero or more repetitions:-->
          <SortBy>?</SortBy>
-         <!--Optional:-->
-         <Permission>?</Permission>
          <!--Zero or more repetitions:-->
          <CustomerUserID>?</CustomerUserID>
       </TicketSearch>
@@ -768,7 +762,7 @@ environment is capable to use that modules before you try to run the scipt.
 # otrs.SOAPRequest.pl - sample to send a SOAP request to OTRS Generic Interface Ticket Connector
 # Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
 # --
-# $Id: genericinterface-connectors.xml,v 1.2.2.1 2013-01-10 15:33:57 ub Exp $
+# $Id: genericinterface-connectors.xml,v 1.2.2.2 2013-02-06 14:50:34 mg Exp $
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU AFFERO General Public License as published by
