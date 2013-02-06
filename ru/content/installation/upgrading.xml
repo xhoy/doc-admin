@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: upgrading.xml,v 1.6 2013-01-18 07:26:36 mg Exp $ -->
+<!-- $Id: upgrading.xml,v 1.7 2013-02-06 14:43:58 mg Exp $ -->
 <section id="upgrading">
 <title>Обновление OTRS-фреймворка</title>
 <para>
@@ -13,7 +13,7 @@ and source code (tarball) upgrades.
 </para>
 <para>
     If you are running a lower version of OTRS you have to follow the upgrade
-path to 3.0 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1->3.2
+path to 3.1 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1->3.2
 ...)!
 </para>
 <para>
@@ -29,7 +29,7 @@ url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cg
     Within a single minor version you can skip patch level releases if you want
 to upgrade. For instance you can upgrade directly from OTRS 3.2.1 to version
 3.2.4. If you need to do such a "patch level upgrade", you should skip steps
-8, 12, 14 and 15.
+9, 13, 15, 16 and 17.
 </para>
 
   <orderedlist>
@@ -129,28 +129,60 @@ OTRS_HOME=/opt/otrs).
         </para>
         <para>
             В случае использования тарбола (tarball), выполните <screen>
-shell> cd /opt/otrs/
-shell> bin/otrs.SetPermissions.pl
+shell&gt; cd /opt/otrs/
+shell&gt; bin/otrs.SetPermissions.pl
             </screen> с правами, необходимыми для установки системы.
         </para>
+      </listitem>
+      <listitem>
+            <para>
+                Check needed Perl modules
+            </para>
+            <para>
+               Verify that all needed perl modules are installed on your system and install
+any modules that might be missing.  <screen>
+shell&gt; /opt/otrs/bin/otrs.CheckModules.pl
+               </screen>
+            </para>
       </listitem>
       <listitem>
         <para>
             Схема обновления:
         </para>
         <para>
+             Note: new tables created in the MySQL UPGRADING process will be created with
+the default table storage engine set in your MySQL server.  In MySQL 5.5 the
+new default type is InnoDB.  If existing tables, e.g. "users", have the
+table storage engine e.g. MyISAM, then an error will be displayed when
+creating the foreign key constraints.
+         </para>
+         <para>
+            You have two options: you can change the default storage engine of MySQL
+back to MyISAM so that new tables will have the same engine as the existing
+tables, or change the existing tables to use InnoDB as storage engine.
+        </para>
+        <para>
+            Any problems with regards to the storage engine will be reported by the
+otrs.CheckDB.pl script, so please run it to check for possible issues.
+        </para>
+        <para>
             <screen>
 shell&gt; cd /opt/otrs/
 
 # MySQL:
+shell&gt; bin/otrs.CheckDB.pl
 shell&gt; cat scripts/DBUpdate-to-3.2.mysql.sql | mysql -p -f -u root otrs
+
 # PostgreSQL 8.2+:
 shell&gt; cat scripts/DBUpdate-to-3.2.postgresql.sql | psql otrs
+
 # PostgreSQL, older versions:
 shell&gt; cat scripts/DBUpdate-to-3.2.postgresql_before_8_2.sql | psql otrs
-            </screen> NOTE: If you use PostgreSQL 8.1 or
-earlier, you need to activate the new legacy driver for these older
-versions. Do this by adding a new line to your
+            </screen>
+        </para>
+        <para>
+            Note: If you use PostgreSQL 8.1 or earlier, you need to activate the new
+legacy driver for these older versions. Do this by adding a new line to your
 <filename>Kernel/Config.pm</filename> like this: <screen>
 $Self->{DatabasePostgresqlBefore82} = 1;
             </screen>

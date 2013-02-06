@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: process-management.xml,v 1.6 2013-01-18 07:26:35 mg Exp $ -->
+<!-- $Id: process-management.xml,v 1.7 2013-02-06 14:43:33 mg Exp $ -->
 <section id="process-management" >
 <title>Process Management</title>
     <section>
@@ -2340,6 +2340,8 @@ invisible or mandatory: <screen>
     LockID
     Priority
     PriorityID
+    Type
+    TypeID
                                 </screen>
                                 </para>
                             </listitem>
@@ -2790,7 +2792,8 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Article Create Note Internal',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketArticleCreate',
         Config => {
-            ArticleType      => 'note-internal',                                        # email-external|email-internal|phone|fax|...
+            ArticleType      => 'note-internal',                                        # note-external|phone|fax|sms|...
+                                                                                        #   excluding any email type
             SenderType       => 'agent',                                                # agent|system|customer
             ContentType      => 'text/plain; charset=ISO-8859-15',                      # or optional Charset & MimeType
             Subject          => 'some short description',                               # required
@@ -2826,9 +2829,8 @@ freely chosen, but should reflect the purpose of the configured action.
                     </para>
                     <para>
                         'ArticleType' defines the type of the article to be created. Possible
-values: email-external, email-internal, email-notification-ext,
-email-notification-int, phone, fax, sms, webrequest, note-internal,
-note-external, note-report.
+values: phone, fax, sms, webrequest, note-internal, note-external and
+note-report.
                     </para>
                     <para>
                         SenderType defines the sender type of the article. Possible values: agent,
@@ -3198,10 +3200,12 @@ $Self->{'Process::TransitionAction'} = {
             </section>
         </section>
 
-        <section>
+        <section id="process-management-acl">
             <title>Access Control Lists (ACLs)</title>
             <para>
                 With the help of ACLs, you can limit selectable values in process tickets.
+Please also see the <link linkend="acl-reference">ACL reference</link> for a
+description of the full ticket ACL syntax.
             </para>
             <section>
                 <title>ACL configuration</title>

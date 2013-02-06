@@ -3,7 +3,7 @@
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: otrs.xml,v 1.6 2013-01-18 07:26:36 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.7 2013-02-06 14:43:58 mg Exp $ -->
 <section id="otrs">
 <title>OTRS Help Desk</title>
 
@@ -505,7 +505,7 @@ FAQ articles on your company website, for example.</para></listitem>
         <title>Новые возможности OTRS 3.1</title>
 
         <section>
-            <title>1 ИНТЕРФЕЙС GENERIC - A Web Service Framework</title>
+            <title>GENERIC INTERFACE - A Web Service Framework</title>
             <itemizedlist>
                 <listitem>
                     <para>GI гибкий фреймворк, который позволяет веб-сервисам OTRS взаимодействовать с
@@ -563,7 +563,7 @@ increased response times for the agent.</para>
 поступают запросы и как они обрабатываются в рамках различых слоев.
             </para>
             <section>
-                <title>1.1 Особенности</title>
+                <title>Current Features</title>
                 <itemizedlist>
                     <listitem>
                         <para>Сетевые транспортные протоколы: SOAP/HTTP. Поддержка протоколов REST and
@@ -584,7 +584,7 @@ JSON будет добавлена в будущем, в зависимости 
                 </itemizedlist>
             </section>
             <section>
-                <title>1.2 Запланированные возможности</title>
+                <title>Future Features</title>
                 <itemizedlist>
                     <listitem>
                         <para>Дополнительные сетевые транспортные протоколы (REST, JSON).</para>
@@ -603,7 +603,7 @@ Generic-интерфейсы).</para>
         </section>
 
         <section>
-            <title>2 ДИНАМИЧЕСКИЕ ПОЛЯ</title>
+            <title>DYNAMIC FIELDS</title>
             <para>Динамические поля (DynamicFields) заменяют существующие поля FreeText и
 FreeTime с динамической структурой для заявок и статей. Они также позволяют
 создавать пользовательские формы в OTRS.
@@ -661,9 +661,9 @@ properties/data to these orders.</para>
         </section>
 
         <section>
-            <title>3 УСОВЕРШЕНСТВОВАНИЯ ПО УПРАВЛЕНИЮ ЗАЯВКАМИ</title>
+            <title>TICKET MANAGEMENT IMPROVEMENTS</title>
             <section>
-                <title>3.1 Улучшена операция создания Заявки</title>
+                <title>Ticket creation improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Когда создается новая заявка на основе email или телефонного звонка,
@@ -672,7 +672,7 @@ properties/data to these orders.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.2 Поддержка обработки входящих звонков</title>
+                <title>Inbound phone call support</title>
                 <itemizedlist>
                     <listitem>
                         <para>Теперь для созданых заявок могут быть зарегистрированы входящие телефонные
@@ -681,7 +681,7 @@ properties/data to these orders.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.3 Улучшилась страница просмотра информации о Заявке</title>
+                <title>Ticket overview preview improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Теперь в SysConfig можно исключать статьи отдельных типов (напримр, статьи
@@ -696,7 +696,7 @@ properties/data to these orders.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.4 Улучшена операция перемещения Заявки</title>
+                <title>Ticket move improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Страница, которая отображается после перемещения заявки теперь может быть
@@ -706,7 +706,7 @@ properties/data to these orders.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.5 Улучшилась обработка масовых действий</title>
+                <title>Bulk action improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>With the new bulk action, outbound emails can now be sent from multiple
@@ -721,7 +721,7 @@ are not used in the Bulk Action email.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.6 Настраиваемая опция Отклонить Email-адрес Отправителя</title>
+                <title>Configurable Reject Sender Email Address</title>
                 <itemizedlist>
                     <listitem>
                         <para>The feature allows configuring an email address instead of the administrator
@@ -734,9 +734,9 @@ email.</para>
         </section>
 
         <section>
-            <title>4 АВТОМАТИЗАЦИЯ ПРОЦЕССА</title>
+            <title>PROCESS AUTOMATION</title>
             <section>
-                <title>4.1 Добавлена эскалация событий.</title>
+                <title>Escalation events added</title>
                 <itemizedlist>
                     <listitem>
                         <para>OTRS will now create events for each of the available escalation types
@@ -747,7 +747,7 @@ the moment that the escalation ends.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.2 Улучшен механизм уведомлений</title>
+                <title>Notification mechanism improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Новый generic-agent-модуль уведомлений позволяет OTRS-администратору
@@ -757,7 +757,7 @@ the moment that the escalation ends.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.3 Усовершенствован механизм подсчета времени</title>
+                <title>Time calculation improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>All kind of times are from now on calculated by and based on the application
@@ -767,7 +767,7 @@ clock times of application and data base servers.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.4 GenericAgent улучшен</title>
+                <title>GenericAgent improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Теперь GenericAgent можеть фильтровать заявки по времени изменения.</para>
@@ -781,9 +781,9 @@ clock times of application and data base servers.</para>
         </section>
 
         <section>
-            <title>5 ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС, ТЕКСТОВЫЙ РЕДАКТОР, КОДИРОВКА</title>
+            <title>USER INTERFACE, RICH TEXT EDITOR, CHARSET</title>
             <section>
-                <title>5.1 Улучшилась производительность Пользовательского интерфейса</title>
+                <title>User interface performance improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Улучшена скорость рендеринга и отображения статей, большое спасибо Stelios
@@ -792,7 +792,7 @@ Gikas &lt;stelios.gikas@noris.net&gt;!</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>5.2 Обновление текстового редактора Rich Text Editor</title>
+                <title>Rich Text Editor Update</title>
                 <itemizedlist>
                     <listitem>
                         <para>Добавлена поддержка IOS5</para>
@@ -818,7 +818,7 @@ and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
                 </itemizedlist>
             </section>
             <section>
-                <title>5.3 Поддержка Unicode - Удалена поддержка кодировок, не относящихся к UTF-8</title>
+                <title>Unicode Support - Non-UTF-8 Internal Encodings Dropped</title>
                 <itemizedlist>
                     <listitem>
                         <para>UTF-8 теперь единственная внутренняя кодировка, разрешенная OTRS.</para>
@@ -831,9 +831,9 @@ and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
             </section>
         </section>
         <section>
-            <title>6 ПОДДЕРЖКА ДРАЙВЕРОВ БАЗ ДАННЫХ</title>
+            <title>DATABASE DRIVER SUPPORT</title>
             <section>
-                <title>6.1 Улучшилась совместимость с драйвером базы данных PostgreSQL</title>
+                <title>PostgreSQL DRIVER compatibility improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Добавлена поддержка PostgreSQL 9.1</para>
@@ -844,7 +844,7 @@ and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
                 </itemizedlist>
             </section>
             <section>
-                <title>6.2 Улучшена совместимость драйвера MS SQL</title>
+                <title>MS SQL DRIVER compatibility improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Теперь драйвер MS SQL сохраняет бинарные данные используя тип данных
@@ -855,9 +855,9 @@ VARBINARY а не устаревший тип TEXT, тип NVARCHAR также �
             </section>
         </section>
         <section>
-            <title>7 ИНТЕГРАЦИЯ С ПОЧТОЙ</title>
+            <title>MAIL INTEGRATION</title>
             <section>
-                <title>7.1 Улучшена обработка почты</title>
+                <title>Mail handling improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Теперь, при подключении к почтовым учетным записям IMAP можно обрабатывать

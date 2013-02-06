@@ -3,7 +3,7 @@
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: otrs.xml,v 1.6 2013-01-18 07:26:37 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.7 2013-02-06 14:43:34 mg Exp $ -->
 <section id="otrs">
 <title>OTRS-Helpdesk</title>
 
@@ -20,8 +20,8 @@ OTRS, should you require it, and how to contact the community.
     <title>Grundlagen</title>
 
     <para>
-        OTRS Help Desk (OTRS) is a web application which is installed on a web
-server and can be used with a web browser.
+        OTRS Help Desk (OTRS) ist eine Webanwendung, die auf einem Webserver
+installiert und mit einem Browser genutzt wird.
     </para>
 
     <para>
@@ -378,123 +378,127 @@ E-Mail.
         	<title>More customer focused</title>
             <itemizedlist>
                 <listitem>
-                    <para>The new "Customer Information Center" provides a great dashboard-like view
-on a customer (company). You can see
+                    <para>Das neue "Kunden-Informationszentrum"  bietet eine schöne Ansicht auf einen
+Kunden (bzw. die Kundenfirma). Sie können
                     <itemizedlist>
-                        <listitem><para>Escalated, reminder, new and open tickets of the customer company.</para></listitem>
-                        <listitem><para>Customer users (contacts) belonging to this customer company, with their
-individual ticket count and shortcuts for creating new tickets for them.</para></listitem>
-                        <listitem><para>An overall ticket status view of the customer company.</para></listitem>
+                        <listitem><para>eskalierte, Erinnerungs-, neue und offene Tickets der Kundenfirma sehen.</para></listitem>
+                        <listitem><para>Kundenbenutzer (Kontakte), die zu dieser Firma gehören, mit ihren
+individuellen Ticketzahlen und Shortcuts zur Erstellung von neuen Tickets
+für diese Nutzer.</para></listitem>
+                        <listitem><para>Eine allgemeine Ticket-Statusübersicht für diese Kundenfirma.</para></listitem>
                     </itemizedlist>
                     </para>
                 </listitem>
-                <listitem><para>New feature "switch to customer" makes it possible for an agent with the
-required permissions to look into the customers's panel with their rights.</para></listitem>
+                <listitem><para>Die neue Funktion "Zum Kunden Wechseln" macht es berechtigten Agenten
+möglich, mit den Rechten des Kunden in dessen Kundenoberfläche
+hineinzusehen.</para></listitem>
             </itemizedlist>
         </section>
         <section>
-            <title>More customizeable</title>
+            <title>Besser anzupassen</title>
             <section>
             	<title>Process Management</title>
                 <itemizedlist>
-                    <listitem><para>The new <link linkend="process-management">process management</link> makes
-it possible to represent processes within OTRS.</para></listitem>
+                    <listitem><para>Das neue <link linkend="process-management">Prozessmanagement</link> macht
+es möglich, Prozesse in OTRS abzubilden.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
             	<title>Customer Interface Improvements</title>
                 <itemizedlist>
-                    <listitem><para>The customer web interface now fully supports AJAX and ACLs.</para></listitem>
-                    <listitem><para>It now requires JavaScript and can no longer be used with Internet Explorer
-6 or earlier versions.</para></listitem>
-                    <listitem><para>In the Customer Interface, you can now set the default ticket type for new
-tickets. Additionally, you can now also hide the ticket type and use a
-default value for all tickets created via the customer interface.</para></listitem>
+                    <listitem><para>Die Kundenoberfläche unterstützt jetzt AJAX und ACLs umfassend.</para></listitem>
+                    <listitem><para>Sie benötigt jetzt JavaScript und kann nicht mehr mit dem Internet Explorer
+6 verwendet werden.</para></listitem>
+                    <listitem><para>In der Kundenoberfläche können Sie jetzt den Standard-Tickettyp für neue
+Tickets einstellen. Zusätzlich kann der Ticket-Typ versteckt werden, wobei
+alle Tickets mit dem Standard-Ticket-Typ erstellt werden.</para></listitem>
                 </itemizedlist>
                 </section>
             <section>
-            	<title>Agent Interface Improvements</title>
+            	<title>Verbesserungen in der Agenten-Oberfläche</title>
                 <itemizedlist>
-                    <listitem><para>Agents can now search for tickets based on escalation time.</para></listitem>
-                    <listitem><para>Added possibility to show DynamicFields by default in ticket search.</para></listitem>
-                    <listitem><para>Screen usage optimizations in the ticket screens to avoid scrolling in popup
-windows. For each ticket screen, the size of the richtext editor can now be
-configured separately.</para></listitem>
-                    <listitem><para>It is now possible to move tickets to another queue from within the
-TicketAction dialogs (TicketNote, TicketClose etc.) after activating a
-configuration option. This is turned off by default.</para></listitem>
-                    <listitem><para>Ticket search will now directly jump to the ticket zoom screen if only one
-ticket was found.</para></listitem>
-                    <listitem><para>Added the ability to hide the Article Type from TicketActionCommon-based
-screens which can be helpful to fit more data in the browser window.</para></listitem>
-                    <listitem><para>There is a new out-of-office dashboard widget that lists all currently
-unavailable agent colleagues.</para></listitem>
-                    <listitem><para>New CKEditor 4 makes working with rich text content (such as HTML emails)
-easier and more stable.</para></listitem>
+                    <listitem><para>Agenten können Tickets nun nach der Eskalationszeit suchen.</para></listitem>
+                    <listitem><para>DynamicFields können jetzt in der Suche standardmäßig eingeblendet werden.</para></listitem>
+                    <listitem><para>Verbesserte Bildschirmnutzung in den Ticketmasken, durch die unnötiges
+Scrollen vermieden wird. In jeder Maske kann die Größe des Rich-Text-Editors
+jetzt separat konfiguriert werden.</para></listitem>
+                    <listitem><para>Es ist nun möglich, Tickets aus den Ticketmasken heraus in eine andere Queue
+zu verschieben (z. B. aus Ticket Schließen), nachdem eine
+Konfigurationsoption aktiviert wurde. Dies ist standardmäßig nicht
+aktiviert.</para></listitem>
+                    <listitem><para>Wenn nur ein Ticket gefunden wurde, springt die Ticketsuche direkt in dessen
+Ticketansicht.</para></listitem>
+                    <listitem><para>In Ticketmasken kann der Artikeltyp nun ausgeblendet werden, um
+Bildschirmplatz zu sparen.</para></listitem>
+                    <listitem><para>Es gibt ein neues "Out of Office" Widget im Dashboard, welches alle
+Agenten-Kollegen auflistet, die derzeit nicht verfügbar sind.</para></listitem>
+                    <listitem><para>Der neue CKEditor 4 macht das Arbeiten mit Rich-Text-Inhalten (wie
+HTML-Mails) leichter und stabiler.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
             	<title>Administration improvements</title>
                 <itemizedlist>
-                    <listitem><para>Event Based notifications can now be sent out only for specific Article
-Sender Types.</para></listitem>
-                    <listitem><para>The Statistics engine in OTRS now understands 'Weeks' in addition to days,
-months and years. This means you can for instance now create a report for
-tickets 'created last week', or generate a report that shows created tickets
-per queue per week.</para></listitem>
-                    <listitem><para>It is possible to place customized DTL (template) files in
-<code>Custom/Kernel/Output/HTML</code>, so that they override the system's
-default DTL files just as how this already works for Perl files.</para></listitem>
-                    <listitem><para>In AdminSMIME it is now possible to display human readable certificate
-contents.</para></listitem>
-                    <listitem><para>SysConfig now supports config setting types Date and DateTime.</para></listitem>
+                    <listitem><para>Ereignisbasierte benachrichtigungen können nun nur für besteimmte
+Artikel-Sender-Typen versendet werden.</para></listitem>
+                    <listitem><para>Das Statistikmodul von OTRS versteht nun "Wochen" als Zeitspanne, zusätzlich
+zu Tagen, Monaten und Jahren. Sie können also z. B. Reports für alle Tickets
+erstellen, die letzte Woche erstellt wurden.</para></listitem>
+                    <listitem><para>Es ist nun möglich, angepasste DTL (Template)-Dateien in
+<code>Custom/Kernel/Output/HTML</code> abzulegen. Diese überschreiben dann
+die Dateien des Systems, genau wie dies bereits auch mit Perl-Dateien
+möglich ist.</para></listitem>
+                    <listitem><para>AdminSMIME kann nun Zertifikate in menschenlesbarer Form anzeigen.</para></listitem>
+                    <listitem><para>In der SysConfig können nun Datum und Datum+Zeit als Konfigurationstypen
+verwendet werden.</para></listitem>
                 </itemizedlist>
             </section>
         </section>
         <section>
-        	<title>Better scalability</title>
+        	<title>Bessere Skalierfähigkeit</title>
             <section>
             	<title>Ticket Archiving Improved</title>
                 <itemizedlist>
-                    <listitem><para>When tickets are archived, the information which agent read the ticket and
-articles can be removed, as well as the ticket subscriptions of agents. This
-is active by default and helps reduce the amount of data in the database on
-large systems with many tickets and agents.</para></listitem>
-                    <listitem><para>There is also a new script to remove this data from existing archived
-tickets.</para></listitem>
-                    <listitem><para>Archived tickets are now always shown as 'read' by the agent.</para></listitem>
+                    <listitem><para>Wenn tickets archiviert werden, wird die Information, welcher Agent das
+Ticket bereits gelesen hat, gelöscht, genau wie die Information, welche
+Agenten das Ticket beobachten. Diese Einstellung ist standardmäßig aktiv und
+reduziert die Datenmenge, die in großen Systemen mit vielen Tickets und
+Agenten anfällt.</para></listitem>
+                    <listitem><para>Es steht auch ein Skript zur Verfügung, welches diese Daten aus bereits
+archivierten Tickets entfernt.</para></listitem>
+                    <listitem><para>Archivierte Tickets werden nun immer als bereits vom Agenten gelesen
+angezeigt.</para></listitem>
                 </itemizedlist>
             </section>
             <section>
             	<title>Performance Improvements</title>
                 <itemizedlist>
-                    <listitem><para>Session management is up to 10 times faster, especially with many active
-users.</para></listitem>
-                    <listitem><para>It is now possible to limit the number of concurrent agents and/or users to
-avoid server capacity overload.</para></listitem>
+                    <listitem><para>Die Sitzungsverwaltung von OTRS ist nun bis zu 10-mal schneller, besonders
+bei vielen aktiven Nutzern.</para></listitem>
+                    <listitem><para>Es ist möglich, die Zahl der gleichzeitig aktiven Agenten und/oder Kunden zu
+beschränken, um eine Überlastung des Servers zu vermeiden.</para></listitem>
                     <listitem>
-                        <para>Greatly reduced the number of executed database statements in ticket
-overviews and ticket masks in agent and customer frontend.
+                        <para>Die Zal der ausgeführten Datenbankanfragen in Ticketübersichten und
+Ticketmasken wurde im Agenten- und Kundenfrontend stark reduziert.
                             <itemizedlist>
-                                <listitem><para>This will reduce the load on database servers, especially on large
-systems. In some cases OTRS will become visibly more responsive (if the
-system was slowed down by the DB load or latency).</para></listitem>
+                                <listitem><para>Dies wird die Last auf Datenbankservern reduzieren, besonders auf großen
+Systemen. In manchen Fällen wird OTRS dadurch auch sichtbar schneller.</para></listitem>
                             </itemizedlist>
                         </para>
                     </listitem>
-                    <listitem><para>Improved performance of LDAP user synchronization.</para></listitem>
-                    <listitem><para>Improved cache performance with many cache files.</para></listitem>
+                    <listitem><para>Die Geschwindigkeit der LDAP-Benutzersynchronisation wurde verbessert.</para></listitem>
+                    <listitem><para>Die Geschwindigkeit des Caches im Umgang mit vielen Dateien wurde erhöht.</para></listitem>
                 </itemizedlist>
             </section>
         </section>
         <section>
-        	<title>More Interoperable</title>
+        	<title>Bessere Zusammenarbeit mit Fremdsystemen</title>
             <section>
             	<title>FAQ Connector for the GenericInterface</title>
                 <itemizedlist>
-                    <listitem><para>It is now possible to access the data of the FAQ module (OTRS knowledge
-database) via web service (GenericInterface). This can be useful to embed
-FAQ articles on your company website, for example.</para></listitem>
+                    <listitem><para>Es ist nun möglich, die Daten des FAQ-Moduls (OTRS-Wissensdatenbank) mittels
+Webservice (GenericInterface) zu nutzen. Damit können FAQ-Artikel zum
+Beispiel zusätlich in Ihrer Unternemenswebsite angezeigt werden.</para></listitem>
                 </itemizedlist>
             </section>
         </section>
@@ -504,7 +508,7 @@ FAQ articles on your company website, for example.</para></listitem>
         <title>New features of OTRS 3.1</title>
 
         <section>
-            <title>1 GENERIC INTERFACE - A Web Service Framework</title>
+            <title>GENERIC INTERFACE - A Web Service Framework</title>
             <itemizedlist>
                 <listitem>
                     <para>GI is a flexible framework to allow web service interconnections of OTRS
@@ -562,7 +566,7 @@ requests are coming in and how they are handled through the different
 layers.
             </para>
             <section>
-                <title>1.1 Current Features</title>
+                <title>Current Features</title>
                 <itemizedlist>
                     <listitem>
                         <para>Network transports: SOAP/HTTP. Others like REST and JSON are scheduled to be
@@ -583,7 +587,7 @@ handling.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>1.2 Future Features</title>
+                <title>Future Features</title>
                 <itemizedlist>
                     <listitem>
                         <para>Additional network transports (REST, JSON).</para>
@@ -601,7 +605,7 @@ users, services or CIs).</para>
         </section>
 
         <section>
-            <title>2 DYNAMIC FIELDS</title>
+            <title>DYNAMIC FIELDS</title>
             <para>The DynamicFields Feature replaces the existing ticket and article FreeText
 and FreeTime fields with a dynamic structure that will also allow to create
 custom forms in OTRS.
@@ -659,9 +663,9 @@ configuration settings into the new structure.
         </section>
 
         <section>
-            <title>3 TICKET MANAGEMENT IMPROVEMENTS</title>
+            <title>TICKET MANAGEMENT IMPROVEMENTS</title>
             <section>
-                <title>3.1 Ticket creation improved</title>
+                <title>Ticket creation improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Multiple email addresses can now be specified as 'To:', 'CC:' or 'BCC:' when
@@ -670,7 +674,7 @@ creating a new phone or email ticket.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.2 Inbound phone call support</title>
+                <title>Inbound phone call support</title>
                 <itemizedlist>
                     <listitem>
                         <para>Inbound phone calls can now be registered within an existing tickets (until
@@ -679,7 +683,7 @@ now, only outbound calls were registered).</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.3 Ticket overview preview improved</title>
+                <title>Ticket overview preview improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>It is now possible to exclude articles of certain sender types
@@ -693,7 +697,7 @@ type as expanded by default when the view is accessed.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.4 Ticket move improved</title>
+                <title>Ticket move improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The screen shown after moving a ticket is now configurable. Options are the
@@ -702,7 +706,7 @@ ticket zoom view (LastScreenView) or the ticket list (LastScreenOverview).</para
                 </itemizedlist>
             </section>
             <section>
-                <title>3.5 Bulk action improved</title>
+                <title>Bulk action improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>With the new bulk action, outbound emails can now be sent from multiple
@@ -717,7 +721,7 @@ tickets.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.6 Configurable Reject Sender Email Address</title>
+                <title>Configurable Reject Sender Email Address</title>
                 <itemizedlist>
                     <listitem>
                         <para>The feature allows configuring an email address instead of the administrator
@@ -730,9 +734,9 @@ email.</para>
         </section>
 
         <section>
-            <title>4 PROCESS AUTOMATION</title>
+            <title>PROCESS AUTOMATION</title>
             <section>
-                <title>4.1 Escalation events added</title>
+                <title>Escalation events added</title>
                 <itemizedlist>
                     <listitem>
                         <para>OTRS will now create events for each of the available escalation types
@@ -743,7 +747,7 @@ the moment that the escalation ends.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.2 Notification mechanism improved</title>
+                <title>Notification mechanism improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>A new generic agent notification module allows the OTRS administrator to
@@ -753,7 +757,7 @@ log into the system.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.3 Time calculation improved</title>
+                <title>Time calculation improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>All kind of times are from now on calculated by and based on the application
@@ -763,7 +767,7 @@ clock times of application and data base servers.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.4 GenericAgent improved</title>
+                <title>GenericAgent improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The GenericAgent can now filter for tickets change time.</para>
@@ -777,9 +781,9 @@ tickets.</para>
         </section>
 
         <section>
-            <title>5 USER INTERFACE, RICH TEXT EDITOR, CHARSET</title>
+            <title>USER INTERFACE, RICH TEXT EDITOR, CHARSET</title>
             <section>
-                <title>5.1 User interface performance improved</title>
+                <title>User interface performance improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The speed for rendering and article display was improved, thanks to Stelios
@@ -788,7 +792,7 @@ Gikas &lt;stelios.gikas@noris.net&gt;!</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>5.2 Rich Text Editor Update</title>
+                <title>Rich Text Editor Update</title>
                 <itemizedlist>
                     <listitem>
                         <para>IOS5 support added.</para>
@@ -814,7 +818,7 @@ and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
                 </itemizedlist>
             </section>
             <section>
-                <title>5.3 Unicode Support - Non-UTF-8 Internal Encodings Dropped</title>
+                <title>Unicode Support - Non-UTF-8 Internal Encodings Dropped</title>
                 <itemizedlist>
                     <listitem>
                         <para>UTF-8 is now the only allowed internal charset of OTRS.</para>
@@ -827,9 +831,9 @@ handling and future improvements of the translation mechanism.</para>
             </section>
         </section>
         <section>
-            <title>6 DATABASE DRIVER SUPPORT</title>
+            <title>DATABASE DRIVER SUPPORT</title>
             <section>
-                <title>6.1 PostgreSQL DRIVER compatibility improved</title>
+                <title>PostgreSQL DRIVER compatibility improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>PostgreSQL 9.1 support added.</para>
@@ -840,7 +844,7 @@ handling and future improvements of the translation mechanism.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>6.2 MS SQL DRIVER compatibility improved</title>
+                <title>MS SQL DRIVER compatibility improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The MS SQL driver now stores binary data in VARBINARY rather than deprecated
@@ -851,9 +855,9 @@ improved Unicode support).</para>
             </section>
         </section>
         <section>
-            <title>7 MAIL INTEGRATION</title>
+            <title>MAIL INTEGRATION</title>
             <section>
-                <title>7.1 Mail handling improved</title>
+                <title>Mail handling improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>When connecting to IMAP mail accounts, it is now possible to handle emails
