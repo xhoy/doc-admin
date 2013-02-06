@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.48 2012-04-17 11:33:03 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.48.2.1 2013-02-06 14:49:40 mg Exp $ -->
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
 
@@ -1608,14 +1608,14 @@ Konfigurations-Frontend ein.
 <title>Einrichten von Mail-Konten</title>
 
 <para>
-Es gibt mehrere Möglichkeiten, Mails in OTRS einzuspeisen. Neben der Nutzung
-des <link linkend="email-receiving-cmd">PostMaster.pl-Skripts</link>,
-welches die Mails direkt in das System piped, können auch Mail-Konten
-abgefragt werden, an die Mails für Ihr Ticket-System gehen. Über den Link
-"PostMaster Mail Account" innerhalb des Admin-Bereiches erreichen Sie die
-Verwaltung der Mail-Konten, die OTRS automatisch auf neue Nachrichten
-überprüfen soll. OTRS ünterstützt dabei die Mail-Protokolle POP3, POP3S,
-IMAP und IMAPS.
+There are several possibilities to transport new emails into the ticket
+system. One way is to use a local MTA and the <link
+linkend="email-receiving-cmd">otrs.PostMaster.pl script</link> that pipes
+the mails directly into the system. Another possibility is the use of mail
+accounts which can be administrated through the web interface. The
+"PostMaster Mail Accounts" link on the Admin page loads the management
+console for the mail accounts (see Figure below). OTRS supports the mail
+protocols: POP3, POP3S, IMAP and IMAPS.
 </para>
 
 <para>
@@ -1630,24 +1630,21 @@ fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-Im Kapitel über die <link
-linkend="email-receiving-pop3">Mailkonfiguration</link> für OTRS wird die
-Einrichtung der Mail-Konten näher erläutert.
+See the section about <link linkend="email-receiving-pop3">PostMaster Mail
+Accounts</link> for more details.
 </para>
 
 </section>
 
 <section id="adminarea-postmasterfilter">
-<title>Einkommende Nachrichten filtern</title>
+<title>Filtering incoming email messages</title>
 
 <para>
-Damit Sie automatisch Mails vorsortieren können bzw. ungewünschte Mails gar
-nicht in die Queues des Ticket-Systems gelangen, können Filterregeln für
-eingehende Nachrichten festgelegt werden. Dabei spielt es keine Rolle, ob
-die Mails über Mail-Konten oder mit Hilfe
-des<filename>PostMaster.pl</filename> Skriptes ins System gelangen. Der Link
-"PostMaster Filter" innerhalb des Admin-Bereiches von OTRS ruft die
-Verwaltung für die Filterregeln auf.
+OTRS has the capability to filter incoming email messages. As an example, it
+is possible to put certain emails automatically into specified queues, or
+set a specific state or ticket type for some mails. The filters apply to all
+incoming mail. You can maintain your filters via the link "PostMaster
+Filter" on the Admin page (see Figure below).
 </para>
 
 <para>
@@ -1663,24 +1660,19 @@ E-Mails.</emphasis>
 </para>
 
 <para>
-Eine Filterregel besteht aus einem oder mehreren Kriterien die erfüllt
-werden müssen, damit die Filterregel greift, und aus einer oder mehreren
-Aktionen die ausgeführt werden, nachdem die Filterkriterien erfüllt
-wurden. Sie können für die Kopfzeilen und den Body einer Nachricht
-Filterregeln festlegen, also z. B. nach bestimmten Headern suchen oder nach
-Zeichenketten bzw. regulären Ausdrücken innerhalb der Mail. Alle Aktionen
-für eine Filterregel werden über sog. X-OTRS-Header gesteuert, die in die
-Mail eingefügt werden. Das Ticket-System wertet die X-OTRS-Header aus und
-nimmt die entsprechenden Aktionen vor. Mit den X-OTRS-Headern kann z. B. die
-Priorität einer Nachricht geändert werden, die Mail in eine bestimmte Queue
-einsortiert oder die Mail komplett verworfen werden, usw. Die folgende
-Tabelle listet die verschiedenen X-OTRS-Header, deren zulässige Werte und
-die Bedeutung der einzelnen Header auf.
+A filter consists of one or more criteria that must match for the defined
+actions to be executed on the email. Filter criteria may be defined for the
+headers or the body of an email, e.g. search for specific header entries,
+such as a sender address, or on strings in the body. Even regular
+expressions can be used for extended pattern matching. If your filter
+matches, you can set fields using the X-OTRS headers in the GUI. These
+values will be applied when creating the ticket or follow-up message in
+OTRS. The Table 5-4 lists the different X-OTRS headers and their meaning.
 </para>
 
 <para>
-Hinweis: Sie können auch X-OTRS-FollowUp-* header für Follow-Up-E-Mails
-verwenden.
+Note: You also can use X-OTRS-FollowUp-* headers to set values for follow up
+emails.
 </para>
 
 <table id="table-of-x-otrs-headers">
@@ -1719,9 +1711,9 @@ verwenden.
           Name einer Queue des Systems.
         </entry>
         <entry>
-          Legt die Queue fest, in die das Ticket einsortiert werden soll. Wird mit dem
-X-OTRS-Queue-Header eine Queue voreingestellt, so hat diese Einstellung
-Vorrang vor allen anderen Filterregeln, die sich auf Queues beziehen.
+          Sets the queue where the ticket shall be sorted. If set in X-OTRS header,
+all other filter rules that try to sort a ticket into a specific queue are
+ignored. If you use a sub-queue, specify it as &quot;Parent::Sub&quot;.
         </entry>
       </row>
       <row>
@@ -1778,7 +1770,7 @@ somit nie als Ticket in das System.
          default (systemabhängig)
         </entry>
         <entry>
-          Setzt den Typ eines Tickets (wenn Ticket::Type aktiviert ist).
+          Sets the type of a ticket (if Ticket::Type is activated).
         </entry>
       </row>
       <row>
@@ -1789,7 +1781,8 @@ somit nie als Ticket in das System.
          (systemabhängig)
         </entry>
         <entry>
-          Setzt den Service eines Tickets (wenn Ticket::Service aktiv ist).
+          Sets the service of a ticket (if Ticket::Service is active). If you want to
+set a sub-service you should specify it as &quot;Parent::Sub&quot;.
         </entry>
       </row>
       <row>
@@ -1880,20 +1873,19 @@ Absender des neuen Tickets geschickt, z. B. um Mailschleifen zu vermeiden.
 </table>
 
 <para>
-Sie müssen für jede Regel einen Namen vergeben. Darunter legen Sie in der
-Sektion für "Treffer" die verschiedenen Kriterien fest, nach denen gefiltert
-werden soll. Wählen Sie aus den Listboxen für "Header 1", "Header 2"
-usw. aus, an welcher Stelle in der eingehenden Nachricht Sie suchen möchten
-und tragen Sie rechts neben dem entsprechenden Header den Wert ein, nach dem
-gesucht werden soll. In der Sektion "Setzen" legen Sie die Aktionen fest,
-die ausgeführt werden sollen, wenn die Filterkriterien zutreffen. Hier
-können Sie für "Header1", "Header 2" usw. den entsprechenden X-OTRS-Header
-auswählen und rechts daneben den entsprechenden Wert eintragen.
+You should specify a name for every filter rule. Filter criteria can be
+specified in the section "Filter Condition". Choose via the listboxes for
+"Header 1", "Header 2" and so on for the parts of the messages where you
+would like to search, and specify on the right side the values you wish to
+filter on. In the section "Set Email Headers", you can choose the actions
+that are triggered if the filter rules match. You can select for "Header 1",
+"Header 2" and so on to select the X-OTRS-Header and set the associated
+values (see Figure below).
 </para>
 
 <para>
 <screenshot>
-<screeninfo>Filter-Regeln für eingehende Nachrichten anlegen</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Adding filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
 postmasterfilter - screenshot" scale="40"
 fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
 </para>

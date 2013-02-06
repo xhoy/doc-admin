@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.17 2012-04-17 11:35:55 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.17.2.1 2013-02-06 14:49:46 mg Exp $ -->
 <chapter id="adminarea">
 <title>Панель управления OTRS</title>
 
@@ -1588,8 +1588,8 @@ fileref="screenshots/admin-sysconfig.png"></graphic></screenshot>
 
 <para>
 There are several possibilities to transport new emails into the ticket
-system. One of them is the <link
-linkend="email-receiving-cmd">otrs.PostMaster.pl module</link> that pipes
+system. One way is to use a local MTA and the <link
+linkend="email-receiving-cmd">otrs.PostMaster.pl script</link> that pipes
 the mails directly into the system. Another possibility is the use of mail
 accounts which can be administrated through the web interface. The
 "PostMaster Mail Accounts" link on the Admin page loads the management
@@ -1609,22 +1609,21 @@ fileref="screenshots/admin-mailaccount.png"></graphic></screenshot>
 </para>
 
 <para>
-За более подробной информацией обращайтесь к разделу <link
-linkend="email-receiving-pop3">Почтовые аккаунты PostMaster</link>.
+See the section about <link linkend="email-receiving-pop3">PostMaster Mail
+Accounts</link> for more details.
 </para>
 
 </section>
 
 <section id="adminarea-postmasterfilter">
-<title>Фильтрация входящих сообщений</title>
+<title>Filtering incoming email messages</title>
 
 <para>
-OTRS has the capability to filter incoming messages, as reflected by
-incoming messages being sorted automatically into queues, or spam mails
-being moved into a specific queue. It is irrelevant whether
-<filename>PostMaster.pl</filename> or mail accounts are used to get messages
-into the ticket system. Filter rules can be created through the link
-"PostMaster Filter" on the Admin page (see Figure below).
+OTRS has the capability to filter incoming email messages. As an example, it
+is possible to put certain emails automatically into specified queues, or
+set a specific state or ticket type for some mails. The filters apply to all
+incoming mail. You can maintain your filters via the link "PostMaster
+Filter" on the Admin page (see Figure below).
 </para>
 
 <para>
@@ -1639,23 +1638,19 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
 </para>
 
 <para>
-Фильтр состоит из одного или нескольких критериев, которые должны совпадать
-с определенными действиями, которые выполняются над емейлами. Критерии
-фильтрации можно определить для заголовков или тела сообщения электронной
-почты, например, для поиска конкретных записей в заголовке или теле
-сообщения, также можно использовать регулярные выражения. Все действия для
-правила фильтрации вызываются X-OTRS заголовковками, которые вставляются при
-совпадении критерия поиска. Система обработки заявок  оценивает X-OTRS
-заголовки и вызывает специальыне действия. X-OTRS заголовки могут быть
-использованы для сортировки входящих сообщений в определенную очередь, для
-изменения приоритета сообщения или игнорирования сообщения и отказа
-доставлять его в систему. В Таблице 5-4 приводится список доступных  X-OTRS
-заголовков и их значение
+A filter consists of one or more criteria that must match for the defined
+actions to be executed on the email. Filter criteria may be defined for the
+headers or the body of an email, e.g. search for specific header entries,
+such as a sender address, or on strings in the body. Even regular
+expressions can be used for extended pattern matching. If your filter
+matches, you can set fields using the X-OTRS headers in the GUI. These
+values will be applied when creating the ticket or follow-up message in
+OTRS. The Table 5-4 lists the different X-OTRS headers and their meaning.
 </para>
 
 <para>
-Примечание: Вы также можете использовать X-OTRS-Followup-* заголовки для
-последующих писем.
+Note: You also can use X-OTRS-FollowUp-* headers to set values for follow up
+emails.
 </para>
 
 <table id="table-of-x-otrs-headers">
@@ -1694,9 +1689,9 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
           Название очереди в системе.
         </entry>
         <entry>
-          Устанавливает очередь, из которой заявка должна быть распределена. Если
-установлены X-OTRS-заголовки, все остальные правила фильтрации, пытающиеся
-распределить заявку в определенной очереди игнорируются.
+          Sets the queue where the ticket shall be sorted. If set in X-OTRS header,
+all other filter rules that try to sort a ticket into a specific queue are
+ignored. If you use a sub-queue, specify it as &quot;Parent::Sub&quot;.
         </entry>
       </row>
       <row>
@@ -1753,7 +1748,7 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
          по умолчанию (в зависимости от настроек)
         </entry>
         <entry>
-          Устанавливает тип заявки (если активирована поддержка Ticket::Type).
+          Sets the type of a ticket (if Ticket::Type is activated).
         </entry>
       </row>
       <row>
@@ -1764,7 +1759,8 @@ fileref="screenshots/admin-postmasterfilter.png"></graphic></screenshot>
          (в зависимости от настроек)
         </entry>
         <entry>
-          Устанавливает службу заявки (если активирована поддержка Ticket::Service).
+          Sets the service of a ticket (if Ticket::Service is active). If you want to
+set a sub-service you should specify it as &quot;Parent::Sub&quot;.
         </entry>
       </row>
       <row>
@@ -1854,7 +1850,7 @@ Dynamic Field.
 </table>
 
 <para>
-A name must be specified for every filter rule. Filter criteria can be
+You should specify a name for every filter rule. Filter criteria can be
 specified in the section "Filter Condition". Choose via the listboxes for
 "Header 1", "Header 2" and so on for the parts of the messages where you
 would like to search, and specify on the right side the values you wish to
@@ -1866,7 +1862,7 @@ values (see Figure below).
 
 <para>
 <screenshot>
-<screeninfo>Добавление правил фильтрации для входящих сообщений</screeninfo> <graphic srccredit="Adminarea
+<screeninfo>Adding filter rules for incoming messages</screeninfo> <graphic srccredit="Adminarea
 postmasterfilter - screenshot" scale="40"
 fileref="screenshots/add-postmasterfilter.png"></graphic></screenshot>
 </para>

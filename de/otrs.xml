@@ -3,7 +3,7 @@
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: otrs.xml,v 1.53 2012-04-17 11:33:03 mg Exp $ -->
+<!-- $Id: otrs.xml,v 1.53.2.1 2013-02-06 14:49:40 mg Exp $ -->
 <chapter id="otrs">
 <title>OTRS-Helpdesk</title>
 
@@ -376,7 +376,7 @@ E-Mail.
         <title>New features of OTRS 3.1</title>
 
         <section>
-            <title>1 GENERIC INTERFACE - A Web Service Framework</title>
+            <title>GENERIC INTERFACE - A Web Service Framework</title>
             <itemizedlist>
                 <listitem>
                     <para>GI is a flexible framework to allow web service interconnections of OTRS
@@ -434,7 +434,7 @@ requests are coming in and how they are handled through the different
 layers.
             </para>
             <section>
-                <title>1.1 Current Features</title>
+                <title>Current Features</title>
                 <itemizedlist>
                     <listitem>
                         <para>Network transports: SOAP/HTTP. Others like REST and JSON are scheduled to be
@@ -455,7 +455,7 @@ handling.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>1.2 Future Features</title>
+                <title>Future Features</title>
                 <itemizedlist>
                     <listitem>
                         <para>Additional network transports (REST, JSON).</para>
@@ -473,7 +473,7 @@ users, services or CIs).</para>
         </section>
 
         <section>
-            <title>2 DYNAMIC FIELDS</title>
+            <title>DYNAMIC FIELDS</title>
             <para>The DynamicFields Feature replaces the existing ticket and article FreeText
 and FreeTime fields with a dynamic structure that will also allow to create
 custom forms in OTRS.
@@ -531,9 +531,9 @@ configuration settings into the new structure.
         </section>
 
         <section>
-            <title>3 TICKET MANAGEMENT IMPROVEMENTS</title>
+            <title>TICKET MANAGEMENT IMPROVEMENTS</title>
             <section>
-                <title>3.1 Ticket creation improved</title>
+                <title>Ticket creation improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>Multiple email addresses can now be specified as 'To:', 'CC:' or 'BCC:' when
@@ -542,7 +542,7 @@ creating a new phone or email ticket.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.2 Inbound phone call support</title>
+                <title>Inbound phone call support</title>
                 <itemizedlist>
                     <listitem>
                         <para>Inbound phone calls can now be registered within an existing tickets (until
@@ -551,7 +551,7 @@ now, only outbound calls were registered).</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.3 Ticket overview preview improved</title>
+                <title>Ticket overview preview improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>It is now possible to exclude articles of certain sender types
@@ -565,7 +565,7 @@ type as expanded by default when the view is accessed.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.4 Ticket move improved</title>
+                <title>Ticket move improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The screen shown after moving a ticket is now configurable. Options are the
@@ -574,7 +574,7 @@ ticket zoom view (LastScreenView) or the ticket list (LastScreenOverview).</para
                 </itemizedlist>
             </section>
             <section>
-                <title>3.5 Bulk action improved</title>
+                <title>Bulk action improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>With the new bulk action, outbound emails can now be sent from multiple
@@ -589,7 +589,7 @@ tickets.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>3.6 Configurable Reject Sender Email Address</title>
+                <title>Configurable Reject Sender Email Address</title>
                 <itemizedlist>
                     <listitem>
                         <para>The feature allows configuring an email address instead of the administrator
@@ -602,9 +602,9 @@ email.</para>
         </section>
 
         <section>
-            <title>4 PROCESS AUTOMATION</title>
+            <title>PROCESS AUTOMATION</title>
             <section>
-                <title>4.1 Escalation events added</title>
+                <title>Escalation events added</title>
                 <itemizedlist>
                     <listitem>
                         <para>OTRS will now create events for each of the available escalation types
@@ -615,7 +615,7 @@ the moment that the escalation ends.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.2 Notification mechanism improved</title>
+                <title>Notification mechanism improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>A new generic agent notification module allows the OTRS administrator to
@@ -625,7 +625,7 @@ log into the system.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.3 Time calculation improved</title>
+                <title>Time calculation improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>All kind of times are from now on calculated by and based on the application
@@ -635,7 +635,7 @@ clock times of application and data base servers.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>4.4 GenericAgent improved</title>
+                <title>GenericAgent improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The GenericAgent can now filter for tickets change time.</para>
@@ -649,9 +649,9 @@ tickets.</para>
         </section>
 
         <section>
-            <title>5 USER INTERFACE, RICH TEXT EDITOR, CHARSET</title>
+            <title>USER INTERFACE, RICH TEXT EDITOR, CHARSET</title>
             <section>
-                <title>5.1 User interface performance improved</title>
+                <title>User interface performance improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The speed for rendering and article display was improved, thanks to Stelios
@@ -660,7 +660,7 @@ Gikas &lt;stelios.gikas@noris.net&gt;!</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>5.2 Rich Text Editor Update</title>
+                <title>Rich Text Editor Update</title>
                 <itemizedlist>
                     <listitem>
                         <para>IOS5 support added.</para>
@@ -686,7 +686,7 @@ and <ulink url="http://ckeditor.com/blog/CKEditor_3.6_released">CKEditor
                 </itemizedlist>
             </section>
             <section>
-                <title>5.3 Unicode Support - Non-UTF-8 Internal Encodings Dropped</title>
+                <title>Unicode Support - Non-UTF-8 Internal Encodings Dropped</title>
                 <itemizedlist>
                     <listitem>
                         <para>UTF-8 is now the only allowed internal charset of OTRS.</para>
@@ -699,9 +699,9 @@ handling and future improvements of the translation mechanism.</para>
             </section>
         </section>
         <section>
-            <title>6 DATABASE DRIVER SUPPORT</title>
+            <title>DATABASE DRIVER SUPPORT</title>
             <section>
-                <title>6.1 PostgreSQL DRIVER compatibility improved</title>
+                <title>PostgreSQL DRIVER compatibility improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>PostgreSQL 9.1 support added.</para>
@@ -712,7 +712,7 @@ handling and future improvements of the translation mechanism.</para>
                 </itemizedlist>
             </section>
             <section>
-                <title>6.2 MS SQL DRIVER compatibility improved</title>
+                <title>MS SQL DRIVER compatibility improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>The MS SQL driver now stores binary data in VARBINARY rather than deprecated
@@ -723,9 +723,9 @@ improved Unicode support).</para>
             </section>
         </section>
         <section>
-            <title>7 MAIL INTEGRATION</title>
+            <title>MAIL INTEGRATION</title>
             <section>
-                <title>7.1 Mail handling improved</title>
+                <title>Mail handling improved</title>
                 <itemizedlist>
                     <listitem>
                         <para>When connecting to IMAP mail accounts, it is now possible to handle emails
