@@ -3,8 +3,6 @@
 # scripts/auto_build.sh - Build tar.(gz|bz2) archive of the files from the admin manual
 # Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
-# $Id: auto_build.sh,v 1.4 2012-11-20 19:15:54 mh Exp $
-# --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
