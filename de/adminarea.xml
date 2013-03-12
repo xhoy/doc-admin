@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: adminarea.xml,v 1.48.2.1 2013-02-06 14:49:40 mg Exp $ -->
+<!-- $Id: adminarea.xml,v 1.50 2012-06-27 21:19:16 mb Exp $ -->
 <chapter id="adminarea">
 <title>Der Administrationsbereich von OTRS</title>
 
@@ -19,7 +19,7 @@ installieren und vieles mehr ist damit möglich.</para>
 <para>
 Agenten, die Mitglied der "admin"-Gruppe sind, können über den Link "Admin"
 innerhalb der Navigationsleiste der Agenten-Weboberfläche den
-Administrationsbereich von OTRS aufrufen.
+Administrationsbereich von OTRS aufrufen. 
 </para>
 
 <para>
@@ -133,7 +133,7 @@ auch erstellen.
           Dies ist die Gruppe, in die normale Mitarbeiter aufgenommen und mit den
 kompletten Rechten ausgestattet werden sollten. Dadurch wird für die
 Mitarbeiter das normale Arbeiten im System ermöglicht, der Zugriff auf alle
-Funktionen rund um Tickets ist gegeben.
+Funktionen rund um Tickets ist gegeben.  
         </entry>
       </row>
     </tbody>
@@ -247,7 +247,7 @@ dieser Berechtigungen wird in Tabelle 5-2 gezeigt.
         </entry>
         <entry>
           Nur Lesezugriff auf die Tickets bzw. Beiträge dieser Gruppe bzw. der Gruppe
-zugewiesenen Queues oder Bereiche.
+zugewiesenen Queues oder Bereiche. 
         </entry>
       </row>
       <row>
@@ -334,7 +334,7 @@ landen. Die restlichen Queues des Systems sind für die 90 Supporter nicht
 zugänglich, dies wurde durch Gruppenzugriffsrechte so festgelegt. Die
 übrigen 10 Benutzer haben Zugriff auf alle Queues im System. Sie sortieren
 falsch einsortierte Mails aus, behalten die "Raw"-Queue im Auge und
-verschieben Spam-Mails in die "Junk"-Queue.
+verschieben Spam-Mails in die "Junk"-Queue. 
 </para>
 
 <para>
@@ -345,7 +345,7 @@ Bestellungen ans Lager weitergeleitet und Stornierungen entgegen genommen
 werden. Ein Teil der bisherigen Mitarbeiter soll in verschiedenen Bereichen
 der neuen Abteilung tätig werden und Sie als OTRS-Administrator haben nun
 die Aufgabe die neuen Queues anzulegen, die erweiterten Zugriffsrechte
-anzupassen und diese für die einzelnen Benutzer zu ändern.
+anzupassen und diese für die einzelnen Benutzer zu ändern. 
 </para>
 
 <para>
@@ -587,7 +587,7 @@ automatisch zugeordnet werden soll.
 
 <para>
 Über den Link "Kunden &lt;-&gt; Gruppen" können Sie nun die Zuordnung der
-Kundenbenutzer in die gewünschten Gruppen vornehmen.
+Kundenbenutzer in die gewünschten Gruppen vornehmen. 
 </para>
 
 <para>
@@ -890,7 +890,7 @@ Antworten-Bildschirm für Tickets leicht deaktiviert werden.
 
 <para>
 Über den "Anlagen"-Link im Admin-Bereich können Sie neue Anlagen in das
-System integrieren.
+System integrieren. 
 </para>
 
 <para>
@@ -976,7 +976,7 @@ Um das Antworten auf Tickets zu beschleunigen und das Aussehen beantworteter
 Tickets zu vereinheitlichen, können in OTRS Antwortvorlagen erstellt
 werden. Jede Antwortvorlage kann einer oder mehreren Queues
 bzw. Unter-Queues zugeordnet werden, es können mehrere Antwortvorlagen für
-jede Queue definiert werden.
+jede Queue definiert werden. 
 </para>
 
 <para>
@@ -1143,7 +1143,7 @@ Standardinstallation verfügbar:
         </entry>
         <entry>
           Dieses Ereignis tritt ein, wenn ein neues Ticket in einer Queue angelegt
-wird.
+wird.  
         </entry>
       </row>
       <row>
@@ -1153,7 +1153,7 @@ wird.
         <entry>
           Dieses Ereignis tritt ein, wenn ein bereits geschlossenes Ticket,
 z. B. durch die Antwort eines Kunden, mit einer neuen Ticketnummer erneut
-geöffnet wird.
+geöffnet wird.  
         </entry>
       </row>
       <row>
@@ -1162,7 +1162,7 @@ geöffnet wird.
         </entry>
         <entry>
           Dieses Ereignis tritt ein, wenn ein Follow up für ein bereits vorhandenes
-Ticket eintrifft.
+Ticket eintrifft.  
         </entry>
       </row>
       <row>
@@ -1170,7 +1170,7 @@ Ticket eintrifft.
           auto reject
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Ticket vom System zurückgewiesen wird.
+          Dieses Ereignis tritt ein, wenn ein Ticket vom System zurückgewiesen wird.  
         </entry>
       </row>
       <row>
@@ -1178,7 +1178,7 @@ Ticket eintrifft.
           auto remove
         </entry>
         <entry>
-          Dieses Ereignis tritt ein, wenn ein Ticket vom System entfernt wird.
+          Dieses Ereignis tritt ein, wenn ein Ticket vom System entfernt wird. 
         </entry>
       </row>
     </tbody>
@@ -1431,7 +1431,7 @@ konfiguriert werden.
 Über den "PGP"-Link im Admin-Bereich von OTRS erreichen Sie die Verwaltung
 des Schlüsselrings Ihres Systems. Es können Schlüssel und Signaturen
 hinzugefügt und entfernt werden und eine Suche innerhalb des Schlüsselrings
-ist möglich.
+ist möglich. 
 </para>
 
 <para>
@@ -1708,7 +1708,7 @@ emails.
           X-OTRS-Queue:
         </entry>
         <entry>
-          Name einer Queue des Systems.
+          Name einer Queue des Systems. 
         </entry>
         <entry>
           Sets the queue where the ticket shall be sorted. If set in X-OTRS header,
@@ -1736,7 +1736,7 @@ ignored. If you use a sub-queue, specify it as &quot;Parent::Sub&quot;.
         </entry>
         <entry>
           Wird dieser Header gesetzt, wird die Mail komplett ignoriert und gelangt
-somit nie als Ticket in das System.
+somit nie als Ticket in das System. 
         </entry>
       </row>
       <row>
@@ -1744,10 +1744,10 @@ somit nie als Ticket in das System.
           X-OTRS-State:
         </entry>
         <entry>
-          new, open, closed successful, closed unsuccessful, ...
+          new, open, closed successful, closed unsuccessful, ... 
         </entry>
         <entry>
-          Setzt den nächsten Status eines Tickets.
+          Setzt den nächsten Status eines Tickets. 
         </entry>
       </row>
       <row>
@@ -1805,7 +1805,7 @@ ist).
           CustomerUser
         </entry>
         <entry>
-          Legt den Kunden-Benutzer fest, dem das Ticket zugeordnet werden soll.
+          Legt den Kunden-Benutzer fest, dem das Ticket zugeordnet werden soll. 
         </entry>
       </row>
       <row>
@@ -1816,7 +1816,7 @@ ist).
           CustomerNo
         </entry>
         <entry>
-          Legt die Kunden-ID fest, die dem Ticket zugeordnet werden soll.
+          Legt die Kunden-ID fest, die dem Ticket zugeordnet werden soll. 
         </entry>
       </row>
       <row>
@@ -1827,7 +1827,7 @@ ist).
           agent, system, customer
         </entry>
         <entry>
-          Legt die Art des Ticket-Absenders fest.
+          Legt die Art des Ticket-Absenders fest. 
         </entry>
       </row>
       <row>
@@ -1840,7 +1840,7 @@ email-notification-int, phone, fax, sms, webrequest, note-internal,
 note-external, note-report
         </entry>
         <entry>
-          Legt den Typ des Artikles für das eingehende Ticket fest.
+          Legt den Typ des Artikles für das eingehende Ticket fest. 
         </entry>
       </row>
       <row>
@@ -1865,7 +1865,7 @@ Dynamic Field.
         </entry>
         <entry>
           Ist dieser X-OTRS-Header gesetzt, wird keine automatische Antwort an den
-Absender des neuen Tickets geschickt, z. B. um Mailschleifen zu vermeiden.
+Absender des neuen Tickets geschickt, z. B. um Mailschleifen zu vermeiden. 
         </entry>
       </row>
     </tbody>

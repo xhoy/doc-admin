@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OTRS 3.0\n"
-"POT-Creation-Date: 2013-02-06 16:04+0100\n"
+"POT-Creation-Date: 2013-03-12 13:11+0100\n"
 "PO-Revision-Date: 2011-12-05 11:44+0100\n"
 "Last-Translator: Martin Gruner <martin.gruner@otrs.com>\n"
 "Language-Team: none\n"
@@ -11710,17 +11710,17 @@ msgstr ""
 "modules\">Installation der für OTRS benötigten Perl-Module</link> "
 "beschreibt, wie die Installation der Perl-Module durchzuführen ist."
 
-#. type: Content of: <section><title>
+#. type: Content of: <chapter><title>
 #: en/external-backends.xml:7
 msgid "Using external backends"
 msgstr "Einbinden externer Backends"
 
-#. type: Content of: <section><section><title>
+#. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:10
 msgid "Customer data"
 msgstr "Kundenbenutzerdaten"
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:13
 msgid ""
 "OTRS works with many customer data attributes such as username, email "
@@ -11733,7 +11733,7 @@ msgstr ""
 "angezeigt und für das Kunden-Interface verwendet werden. Weiterhin werden "
 "die Daten für die Authentifizierung der Kunden am System benötigt."
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:17
 msgid ""
 "Customer data used or displayed within OTRS is highly customizable. The "
@@ -11743,22 +11743,22 @@ msgstr ""
 "jedoch folgende benötigte Optionen die unbedingt vorhanden sein müssen, "
 "damit OTRS ordnungsgemäß funktioniert:"
 
-#. type: Content of: <section><section><para><itemizedlist><listitem><para>
+#. type: Content of: <chapter><section><para><itemizedlist><listitem><para>
 #: en/external-backends.xml:24
 msgid "User login"
 msgstr "Benutzer-Login"
 
-#. type: Content of: <section><section><para><itemizedlist><listitem><para>
+#. type: Content of: <chapter><section><para><itemizedlist><listitem><para>
 #: en/external-backends.xml:29
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
-#. type: Content of: <section><section><para><itemizedlist><listitem><para>
+#. type: Content of: <chapter><section><para><itemizedlist><listitem><para>
 #: en/external-backends.xml:34
 msgid "Customer ID"
 msgstr "Benutzer-Kunden-ID"
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:41
 msgid ""
 "Use configuration parameters of the following script in your "
@@ -11769,7 +11769,7 @@ msgstr ""
 "<filename>Kernel/Config.pm</filename>, wenn Sie Kundeninformationen anzeigen "
 "möchten."
 
-#. type: Content of: <section><section><para><programlisting>
+#. type: Content of: <chapter><section><para><programlisting>
 #: en/external-backends.xml:46
 #, no-wrap
 msgid ""
@@ -11787,18 +11787,18 @@ msgstr ""
 "    $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;\n"
 "    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;\n"
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:56
 msgid "<emphasis>Script: Kernel/Config.pm configuration parameters.</emphasis>"
 msgstr ""
 "<emphasis>Skript: Konfigurationsparameter in Kernel/Config.pm.</emphasis>"
 
-#. type: Content of: <section><section><title>
+#. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:62
 msgid "Customer user backend"
 msgstr "Kundenbenutzer Backend"
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:65
 msgid ""
 "You can use two types of customer backends, DB and LDAP. If you already have "
@@ -11809,12 +11809,12 @@ msgstr ""
 "ein Kundenverzeichnis (z. B. SAP, ...) haben, ist es natürlich möglich, "
 "dafür ein eigenes Back-end zu schreiben."
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:69 en/external-backends.xml:796
 msgid "Database (Default)"
 msgstr "Datenbank (Standard)"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:72
 msgid ""
 "Example 11-1 shows the configuration of a DB customer backend, which uses "
@@ -11823,12 +11823,12 @@ msgstr ""
 "Beispiel 11-1 zeigt die Konfiguration eines Kundenbenutzer-Backends, welches "
 "die Kundendaten in der OTRS-Datenbank speichert."
 
-#. type: Content of: <section><section><section><example><title>
+#. type: Content of: <chapter><section><section><example><title>
 #: en/external-backends.xml:76
 msgid "Configuring a DB customer backend"
 msgstr "Konfiguration eines Datenbank-Kunden-Backends"
 
-#. type: Content of: <section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/external-backends.xml:80
 #, fuzzy, no-wrap
 #| msgid ""
@@ -12070,7 +12070,7 @@ msgstr ""
 "    },\n"
 "};\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:165
 msgid ""
 "If you want to customize the customer data, change the column headers or add "
@@ -12081,7 +12081,7 @@ msgstr ""
 "Tabellenspalten oder fügen Sie weitere hinzu (im folgenden Beispiel wird ein "
 "Feld für die Raumnummer hinzugefügt)."
 
-#. type: Content of: <section><section><section><para><screen>
+#. type: Content of: <chapter><section><section><para><screen>
 #: en/external-backends.xml:170
 #, no-wrap
 msgid ""
@@ -12125,14 +12125,14 @@ msgstr ""
 "Bye\n"
 "linux:~#\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:193
 msgid ""
 "<emphasis>Script: Adding a room field to the customer_user table.</emphasis>"
 msgstr ""
 "<emphasis>Skript: Ein Feld zur Tabelle customer_user hinzufügen.</emphasis>"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:197
 msgid ""
 "Now add the new column to the MAP array in <filename>Kernel/Config.pm</"
@@ -12141,7 +12141,7 @@ msgstr ""
 "Danach fügen Sie Ihre eigenen Spalten dem MAP Array in der Datei "
 "<filename>Kernel/Config.pm</filename> hinzu:"
 
-#. type: Content of: <section><section><section><para><programlisting>
+#. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:202
 #, no-wrap
 msgid ""
@@ -12153,7 +12153,7 @@ msgstr ""
 "    [...]\n"
 "    [ 'UserRoom',      'Room',      'room',       0, 1, 'var', '', 0 ],\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:209
 msgid ""
 "<emphasis>Script: Adding a room field to the Kernel/Config.pm file.</"
@@ -12162,7 +12162,7 @@ msgstr ""
 "<emphasis>Skript: Hinzufügen eines Feldes in Kernel/Config.pm file.</"
 "emphasis>"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:213
 msgid ""
 "It is also possible to edit all this customer information via the Customers "
@@ -12171,12 +12171,12 @@ msgstr ""
 "Natürlich können Sie all diese Kundeninformationen dann auch über das Admin-"
 "Interface bzw. die Kundenverwaltung pflegen."
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:217 en/external-backends.xml:399
 msgid "Customer with multiple IDs (Company tickets)"
 msgstr "Kunden mit multiplen IDs (Firmen-Tickets)"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:220
 msgid ""
 "It is possible to assign more than one customer ID to a customer. This can "
@@ -12193,7 +12193,7 @@ msgstr ""
 "verwendet man in OTRS das sog. Firmen Ticket Feature. Im Kunden-Interface "
 "können diese Tickets über den \"Firmen-Ticket\" Link eingesehen werden."
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:224
 msgid ""
 "To use company tickets, a new column with the IDs that should be accessible "
@@ -12205,7 +12205,7 @@ msgstr ""
 "eingetragen werden, auf die ein Kunde zusätzlich zu den eigenen Tickets "
 "Zugriff haben soll."
 
-#. type: Content of: <section><section><section><section><para><screen>
+#. type: Content of: <chapter><section><section><section><para><screen>
 #: en/external-backends.xml:229
 #, no-wrap
 msgid ""
@@ -12249,7 +12249,7 @@ msgstr ""
 "Bye\n"
 "linux:~#\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:252
 msgid ""
 "<emphasis>Script: Adding a customer_ids field to the customer_user table.</"
@@ -12258,7 +12258,7 @@ msgstr ""
 "<emphasis>Skript: Hinzufügen eines Feldes customer_ids zur Tabelle "
 "customer_user.</emphasis>"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:256
 msgid ""
 "Now the new column has to be added to the MAP array in <filename>Kernel/"
@@ -12267,7 +12267,7 @@ msgstr ""
 "Danach fügen Sie die neue Spalte dem MAP Array in der Datei <filename>Kernel/"
 "Config.pm</filename> hinzu."
 
-#. type: Content of: <section><section><section><section><para><programlisting>
+#. type: Content of: <chapter><section><section><section><para><programlisting>
 #: en/external-backends.xml:261 en/external-backends.xml:411
 #, no-wrap
 msgid ""
@@ -12279,7 +12279,7 @@ msgstr ""
 "    [...]\n"
 "    [ 'UserCustomerIDs', 'CustomerIDs', 'customer_ids', 1, 0, 'var', '', 0 ],\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:268
 msgid ""
 "<emphasis>Script: Adding a UserCustomerIDs field to the Kernel/Config.pm "
@@ -12288,7 +12288,7 @@ msgstr ""
 "<emphasis>Skript: Hinzufügen des Feldes UserCustomerIDs zu Kernel/Config.pm."
 "</emphasis>"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:272
 msgid ""
 "Now, the new column for the multiple customer IDs can be edited via the "
@@ -12297,7 +12297,7 @@ msgstr ""
 "Die Spalte für die Multi-Kundennummern kann ab nun über das Admin-Interface "
 "bzw. über die Kundenverwaltung gepflegt werden."
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:276
 msgid ""
 "To ensure that one customer can access the tickets of other customers, add "
@@ -12309,12 +12309,12 @@ msgstr ""
 "Tickets der Zugriff ermöglicht werden soll. Die einzelnen IDs trennen Sie "
 "durch ein Semikolon."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:280
 msgid "Using company tickets with a DB backend"
 msgstr "Firmen-Tickets mit einem Datenbank-Backend"
 
-#. type: Content of: <section><section><section><section><example><para>
+#. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:283
 msgid ""
 "The customers A, B and C exist in your system, and A wants to have access to "
@@ -12326,7 +12326,7 @@ msgstr ""
 "von B und C haben, B und C sollen jedoch jeweils nur ihre eigenen Tickets "
 "einsehen und bearbeiten können."
 
-#. type: Content of: <section><section><section><section><example><para>
+#. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:287
 msgid ""
 "To realize this setup, change the customer_user table and the mapping in "
@@ -12341,13 +12341,13 @@ msgstr ""
 "Kundenverwaltung die Einstellungen des Kunden A und tragen bei "
 "\"Kundennummern\" die Werte \"B;C;\" ein."
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:297 en/external-backends.xml:642
 #: en/external-backends.xml:823
 msgid "LDAP"
 msgstr "LDAP"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:300
 msgid ""
 "If you have a LDAP directory with your customer data, you can use it as the "
@@ -12356,12 +12356,12 @@ msgstr ""
 "Falls Sie ein existierendes LDAP Verzeichnis mit Ihren Kundenbenutzern "
 "haben, können Sie dieses auch mit OTRS nutzen."
 
-#. type: Content of: <section><section><section><example><title>
+#. type: Content of: <chapter><section><section><example><title>
 #: en/external-backends.xml:304
 msgid "Configuring an LDAP customer backend"
 msgstr "Konfiguration eines LDAP Kunden-Backends"
 
-#. type: Content of: <section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/external-backends.xml:308
 #, no-wrap
 msgid ""
@@ -12503,7 +12503,7 @@ msgstr ""
 "    ],\n"
 "};\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:382
 msgid ""
 "If additional customer attributes are stored in your LDAP directory, such as "
@@ -12517,7 +12517,7 @@ msgstr ""
 "MAP Array in <filename>Kernel/Config.pm</filename> bzw. entfernen nicht "
 "gewünschte Einträge."
 
-#. type: Content of: <section><section><section><para><programlisting>
+#. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:387
 #, no-wrap
 msgid ""
@@ -12529,14 +12529,14 @@ msgstr ""
 "    [...]\n"
 "    [ 'UserPhone',      'Phone',      'telephonenumber', 1, 0, 'var', '', 0 ],\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:394
 msgid ""
 "<emphasis>Script: Adding new fields to the Kernel/Config.pm file.</emphasis>"
 msgstr ""
 "<emphasis>Skript: Hinzufügen neuer Felder zu Kernel/Config.pm.</emphasis>"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:402
 msgid ""
 "It is possible to assign more than one Customer ID to a customer, when using "
@@ -12547,7 +12547,7 @@ msgstr ""
 "Verzeichnis hinzugefügt werden, welches die IDs enthält, die für einen "
 "Kunden zugänglich sein sollen."
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:406
 msgid ""
 "If the new field in the LDAP directory has been created, the new entry has "
@@ -12557,7 +12557,7 @@ msgstr ""
 "Wenn das neue Feld erstellt wurde, muss es zum MAP Array in <filename>Kernel/"
 "Config.pm</filename> hinzugefügt werden."
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:418
 msgid ""
 "<emphasis>Script: Maping new fields to the Kernel/Config.pm file.</emphasis>"
@@ -12565,7 +12565,7 @@ msgstr ""
 "<emphasis>Skript: Hinzufügen eines neuen Feldes in Kernel/Config.pm.</"
 "emphasis>"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:422
 msgid ""
 "The field for the multiple customer IDs has to be edited directly in the "
@@ -12574,7 +12574,7 @@ msgstr ""
 "Das Feld muss direkt im LDAP-Verzeichnis bearbeitet werden, weil OTRS von "
 "LDAP nur lesen kann, nicht jedoch darauf schreiben."
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:426
 msgid ""
 "To ensure access by a customer to the tickets of other customers, add the "
@@ -12587,12 +12587,12 @@ msgstr ""
 "deren Tickets der Zugriff ermöglicht werden soll. Die einzelnen IDs trennen "
 "Sie durch ein Semikolon."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:430
 msgid "Using Company tickets with an LDAP backend"
 msgstr "Verwendung von Firmentickets mit einem LDAP-Backend"
 
-#. type: Content of: <section><section><section><section><example><para>
+#. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:433
 msgid ""
 "The customers A, B and C exist in your system and A wants to have access to "
@@ -12604,7 +12604,7 @@ msgstr ""
 "von B und C haben, B und C sollen jedoch jeweils nur ihre eigenen Tickets "
 "einsehen und bearbeiten können."
 
-#. type: Content of: <section><section><section><section><example><para>
+#. type: Content of: <chapter><section><section><section><example><para>
 #: en/external-backends.xml:437
 msgid ""
 "To realize this setup, change the LDAP directory and the mapping in "
@@ -12617,12 +12617,12 @@ msgstr ""
 "Anschließend tragen Sie im LDAP Verzeichnis innerhalb der Einstellungen für "
 "den Kunden A für CustomerIDs die Werte \"B;C;\" ein."
 
-#. type: Content of: <section><section><section><title>
+#. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:447
 msgid "Use more than one customer backend with OTRS"
 msgstr "Verwenden mehrerer Kunden Backends"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:450
 msgid ""
 "If you want to utilize more than one customer data source used with OTRS (e."
@@ -12636,12 +12636,12 @@ msgstr ""
 "Back-end um eine Nummer erweitert werden, z. B. \"CustomerUser1\", "
 "\"CustomerUser2\", usw."
 
-#. type: Content of: <section><section><section><example><title>
+#. type: Content of: <chapter><section><section><example><title>
 #: en/external-backends.xml:454
 msgid "Using more than one customer backend with OTRS"
 msgstr "Gleichzeitige Einbindung mehrerer verschiedener Kunden Backends"
 
-#. type: Content of: <section><section><section><example><para>
+#. type: Content of: <chapter><section><section><example><para>
 #: en/external-backends.xml:457
 msgid ""
 "The following configuration example shows usage of both an LDAP and a "
@@ -12650,7 +12650,7 @@ msgstr ""
 "In der folgenden KOnfiguration verwendet OTRS gleichzeitig ein Datenbank- "
 "und ein LDAP-Kunden-Backend."
 
-#. type: Content of: <section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><example><para><programlisting>
 #: en/external-backends.xml:462
 #, fuzzy, no-wrap
 #| msgid ""
@@ -13063,7 +13063,7 @@ msgstr ""
 "    ],\n"
 "};\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:604
 msgid ""
 "It is possible to integrate up to 10 different customer backends. Use the "
@@ -13074,12 +13074,12 @@ msgstr ""
 "die Kundenverwaltung in OTRS ist der Zugriff auf die verschiedenen Back-ends "
 "möglich."
 
-#. type: Content of: <section><section><title>
+#. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:612
 msgid "Backends to authenticate Agents and Customers"
 msgstr "Backends für die Authentifizierung von Agenten und Kunden"
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:615
 msgid ""
 "OTRS offers the option to authenticate agents and customers against "
@@ -13088,17 +13088,17 @@ msgstr ""
 "OTRS bietet die Möglichkeit Agenten und Kunden über verschiedene Back-ends "
 "zu authentifizieren. "
 
-#. type: Content of: <section><section><section><title>
+#. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:619
 msgid "Authentication backends for Agents"
 msgstr "Authentifizierungs-Backends für Agenten"
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:622
 msgid "DB (Default)"
 msgstr "Datenbank (Standard)"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:625
 msgid ""
 "The backend to authenticate agents which is used by default is the OTRS "
@@ -13112,18 +13112,18 @@ msgstr ""
 "<link linkend=\"adminarea-agents\">Benutzerverwaltung</link> angelegt und "
 "bearbeitet werden."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:629
 msgid "Authenticate agents against a DB backend"
 msgstr "Agentenauthentifizierung gegen ein Datenbank-Backend"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:633
 #, no-wrap
 msgid "    $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';\n"
 msgstr "    $Self->{'AuthModule'} = 'Kernel::System::Auth::DB';\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:645
 msgid ""
 "If an LDAP directory has all your agent data stored, you can use the LDAP "
@@ -13139,12 +13139,12 @@ msgstr ""
 "Agenten mit Hilfe der <link linkend='adminarea-agents'>Benutzerverwaltung</"
 "link> von OTRS angelegt oder bearbeitet werden."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:649
 msgid "Authenticate agents against an LDAP backend"
 msgstr "Agentenauthentifizierung gegen ein LDAP Backend"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:653
 #, no-wrap
 msgid ""
@@ -13224,7 +13224,7 @@ msgstr ""
 "    version => 3,\n"
 "};\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:696
 msgid ""
 "The configuration parameters shown in the script below can be used to "
@@ -13249,7 +13249,7 @@ msgstr ""
 "müssen die Daten für einen Agenten weiterhin direkt im LDAP Verzeichnis "
 "gepflegt werden."
 
-#. type: Content of: <section><section><section><section><para><programlisting>
+#. type: Content of: <chapter><section><section><section><para><programlisting>
 #: en/external-backends.xml:701
 #, no-wrap
 msgid ""
@@ -13307,7 +13307,7 @@ msgstr ""
 "    'users',\n"
 "];\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:731
 msgid ""
 "<emphasis>Script: Synchronizing the user data from the LDAP directory into "
@@ -13316,12 +13316,12 @@ msgstr ""
 "<emphasis>Skript: Synchronisation der Benutzerdaten aus dem LDAP-Verzeichnis "
 "in die OTRS-Datenbank.</emphasis>"
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:737
 msgid "HTTPBasicAuth for Agents"
 msgstr "HTTPBasicAuth für Agenten"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:740
 msgid ""
 "If you want to implement a \"single sign on\" solution for all your agents, "
@@ -13332,12 +13332,12 @@ msgstr ""
 "möchten, benutzen Sie http basic authentication (für alle Ihre Systeme) und "
 "aktivieren Sie das HTTPBasicAuth Modul."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:744
 msgid "Authenticate Agents using HTTPBasic"
 msgstr "Agentenauthentifizierung über HTTPBasic"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:748
 #, no-wrap
 msgid ""
@@ -13367,12 +13367,12 @@ msgstr ""
 "$Self->{LoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';\n"
 "$Self->{LogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';\n"
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:768 en/external-backends.xml:909
 msgid "Radius"
 msgstr "Radius"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:771
 msgid ""
 "The configuration parameters shown in Example 11-9 can be used to "
@@ -13381,12 +13381,12 @@ msgstr ""
 "Mit den folgenden Einstellungen kann die Authentifizierung von Agenten gegen "
 "einen Radius-Server realisiert werden."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:775
 msgid "Authenticate Agents against a Radius backend"
 msgstr "Agentenauthentifizierung gegen ein Radius-Backend"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:779
 #, no-wrap
 msgid ""
@@ -13400,12 +13400,12 @@ msgstr ""
 "$Self->{'AuthModule::Radius::Host'} = 'radiushost';\n"
 "$Self->{'AuthModule::Radius::Password'} = 'radiussecret';\n"
 
-#. type: Content of: <section><section><section><title>
+#. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:793
 msgid "Authentication backends for Customers"
 msgstr "Authentifizierungs-Backends für Kunden"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:799
 msgid ""
 "The default user authentication backend for customers in OTRS is the OTRS "
@@ -13416,12 +13416,12 @@ msgstr ""
 "verwendet, ist die OTRS-Datenbank. Die Kundendaten können über das Interface "
 "zur Verwaltung von Kunden angelegt und bearbeitet werden."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:803
 msgid "Customer user authentication against a DB backend"
 msgstr "Kundenauthentifizierung gegen ein Datenbank-Backend"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:807
 #, no-wrap
 msgid ""
@@ -13443,7 +13443,7 @@ msgstr ""
 "#$Self->{'Customer::AuthModule::DB::User'} = \"some_user\";\n"
 "#$Self->{'Customer::AuthModule::DB::Password'} = \"some_password\";\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:826
 msgid ""
 "If you have an LDAP directory with all your customer data, you can use the "
@@ -13457,12 +13457,12 @@ msgstr ""
 "können nicht mit OTRS bearbeitet werden, es können also keine Kunden mit "
 "Hilfe der Kundenverwaltung von OTRS angelegt oder bearbeitet werden."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:830
 msgid "Customer user authentication against an LDAP backend"
 msgstr "Kundenauthentifizierung gegen ein LDAP Backend"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:834
 #, no-wrap
 msgid ""
@@ -13542,12 +13542,12 @@ msgstr ""
 "    version => 3,\n"
 "};\n"
 
-#. type: Content of: <section><section><section><section><title>
+#. type: Content of: <chapter><section><section><section><title>
 #: en/external-backends.xml:879
 msgid "HTTPBasicAuth for customers"
 msgstr "HTTPBasicAuth für Kunden"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:882
 msgid ""
 "If you want to implement a \"single sign on\" solution for all your customer "
@@ -13559,12 +13559,12 @@ msgstr ""
 "möchten, benutzen Sie HTTPBasic Authentication (für alle Ihre Systeme) und "
 "aktivieren Sie das HTTPBasicAuth Modul (kein OTRS-Login mehr benötigt)."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:886
 msgid "Customer user authentication with HTTPBasic"
 msgstr "Kundenauthentifizierung über HTTPBasic"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:890
 #, no-wrap
 msgid ""
@@ -13592,7 +13592,7 @@ msgstr ""
 "$Self->{CustomerPanelLoginURL} = 'http://host.example.com/not-authorised-for-otrs.html';\n"
 "$Self->{CustomerPanelLogoutURL} = 'http://host.example.com/thanks-for-using-otrs.html';\n"
 
-#. type: Content of: <section><section><section><section><para>
+#. type: Content of: <chapter><section><section><section><para>
 #: en/external-backends.xml:912
 msgid ""
 "The settings shown in Example 11-13 can be used to authenticate your "
@@ -13601,12 +13601,12 @@ msgstr ""
 "Mit den folgenden Einstellungen kann die Authentifizierung von Kunden gegen "
 "einen Radius-Server realisiert werden."
 
-#. type: Content of: <section><section><section><section><example><title>
+#. type: Content of: <chapter><section><section><section><example><title>
 #: en/external-backends.xml:916
 msgid "Customer user authentication against a Radius backend"
 msgstr "Kundenauthentifizierung gegen ein Radius-Backend"
 
-#. type: Content of: <section><section><section><section><example><para><programlisting>
+#. type: Content of: <chapter><section><section><section><example><para><programlisting>
 #: en/external-backends.xml:920
 #, no-wrap
 msgid ""
@@ -13620,14 +13620,14 @@ msgstr ""
 "$Self->{'Customer::AuthModule::Radius::Host'} = 'radiushost';\n"
 "$Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';\n"
 
-#. type: Content of: <section><section><title>
+#. type: Content of: <chapter><section><title>
 #: en/external-backends.xml:936
 #, fuzzy
 #| msgid "Customize the customer self-registration"
 msgid "Customizing the customer self-registration"
 msgstr "Kunden-Selbstregistrierung anpassen"
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:939
 msgid ""
 "It is possible to customize the self-registration for new customers, "
@@ -13638,7 +13638,7 @@ msgstr ""
 "\"customer.pl\" anzupassen. Somit können Sie mehr optionale oder benötigte "
 "Felder (z. B. Adresse, Ort, Telefonnummer) hinzufügen."
 
-#. type: Content of: <section><section><para>
+#. type: Content of: <chapter><section><para>
 #: en/external-backends.xml:943
 msgid ""
 "The following example shows how you can specify a required field in the "
@@ -13647,12 +13647,12 @@ msgstr ""
 "In folgenden Beispiel wird ein benötigtes Feld für die Raumnummer "
 "hinzugefügt."
 
-#. type: Content of: <section><section><section><title>
+#. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:947
 msgid "Customizing the web interface"
 msgstr "Anpassen der Weboberfläche"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:950
 msgid ""
 "To display the new field for the room number in the customer.pl web "
@@ -13665,7 +13665,7 @@ msgstr ""
 "<filename>Kernel/Output/HTML/Standard/CustomerLogin.dtl</filename> und fügen "
 "Sie das gewünschte Feld hinzu."
 
-#. type: Content of: <section><section><section><para><programlisting>
+#. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:955
 #, no-wrap
 msgid ""
@@ -13683,7 +13683,7 @@ msgstr ""
 "&lt;/div&gt;\n"
 "[...]\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:965
 msgid ""
 "<emphasis>Script: Displaying a new field in the web interface.</emphasis>"
@@ -13691,12 +13691,12 @@ msgstr ""
 "<emphasis>Skript: Anzeigen eines neuen Feldes in der Weboberfläche.</"
 "emphasis>"
 
-#. type: Content of: <section><section><section><title>
+#. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:971
 msgid "Customer mapping"
 msgstr "Kunden-Mapping"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:974
 msgid ""
 "In the next step, the customer mapping has to be expanded with the new entry "
@@ -13712,7 +13712,7 @@ msgstr ""
 "<filename>Kernel/Config.pm</filename> übertragen. Anschließend wird das "
 "Kunden-Mapping um das Raumnummer-Feld erweitert."
 
-#. type: Content of: <section><section><section><para><programlisting>
+#. type: Content of: <chapter><section><section><para><programlisting>
 #: en/external-backends.xml:979
 #, fuzzy, no-wrap
 #| msgid ""
@@ -13927,19 +13927,19 @@ msgstr ""
 "    },\n"
 "};\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1053
 msgid "<emphasis>Script: Changing the map array.</emphasis>"
 msgstr "<emphasis>Skript: Anpassung des MAP-Arrays.</emphasis>"
 
-#. type: Content of: <section><section><section><title>
+#. type: Content of: <chapter><section><section><title>
 #: en/external-backends.xml:1059
 #, fuzzy
 #| msgid "Customize the customer_user table in the OTRS DB"
 msgid "Customizing the customer_user table in the OTRS DB"
 msgstr "Anpassen der Kunden-Tabelle in der OTRS-Datenbank"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1062
 msgid ""
 "The last step is to add the new room number column to the customer_user "
@@ -13949,7 +13949,7 @@ msgstr ""
 "Abschließend muss eine neue Spalte zur \"customer_user\" Tabelle in der OTRS "
 "Datenbank hinzugefügt werden, in der die Raumnummer gespeichert werden kann."
 
-#. type: Content of: <section><section><section><para><screen>
+#. type: Content of: <chapter><section><section><para><screen>
 #: en/external-backends.xml:1067
 #, no-wrap
 msgid ""
@@ -13993,7 +13993,7 @@ msgstr ""
 "Bye\n"
 "linux:~#\n"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1090
 msgid ""
 "<emphasis>Script: Adding a new column to the customer_user table.</emphasis>"
@@ -14001,7 +14001,7 @@ msgstr ""
 "<emphasis>Skript: Hinzufügen einer neuen Spalte zur Tabelle customer_user.</"
 "emphasis>"
 
-#. type: Content of: <section><section><section><para>
+#. type: Content of: <chapter><section><section><para>
 #: en/external-backends.xml:1094
 msgid ""
 "Now the new field for the room should be displayed in the customer.pl panel. "
@@ -23813,7 +23813,7 @@ msgid ""
 "# otrs.SOAPRequest.pl - sample to send a SOAP request to OTRS Generic Interface Ticket Connector\n"
 "# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/\n"
 "# --\n"
-"# $Id: doc-admin.de.po,v 1.29.2.5 2013-02-06 14:49:40 mg Exp $\n"
+"# $Id: genericinterface-connectors.xml,v 1.8.2.1 2013-01-10 15:33:57 ub Exp $\n"
 "# --\n"
 "# This program is free software; you can redistribute it and/or modify\n"
 "# it under the terms of the GNU AFFERO General Public License as published by\n"

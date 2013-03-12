@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+  
 
-
-<!-- $Id: external-backends.xml,v 1.17.2.1 2013-02-06 14:50:34 mg Exp $ -->
-<section id="external-backends">
+<!-- $Id: external-backends.xml,v 1.27.2.1 2012-11-30 11:15:42 mb Exp $ -->
+<chapter id="external-backends">
 <title>Использование внешних хранилищ данных</title>
 
 <section id='customer-data'>
@@ -73,7 +73,7 @@ information in your agent interface.
 Вы можете использоваь два типа хранилища информации клиентов: Базу Данных DB
 и LDAP. Если у вас уже есть другой бэк-енд для хранения пользовательской
 информации (например SAP), также есть возможность написать модуль для
-использования этой функции.
+использования этой функции.  
 </para>
 
 <section id='customer-backend-db'>
@@ -1047,7 +1047,7 @@ $Self->{'Customer::AuthModule::Radius::Password'} = 'radiussecret';
 <para>
 В следующем примере показано каким образом можно указать обязательные для
 заполнения поля в базе данных клиентов, в данном случае, для хранения номера
-клиента.
+клиента. 
 </para>
 
 <section id='customer-self-registration-dtl'>
@@ -1219,4 +1219,4 @@ mod_perl, то чтобы новые изменения вступили в си
 
 </section>
 
-</section>
+</chapter>

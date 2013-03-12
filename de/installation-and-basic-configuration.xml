@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: installation-and-basic-configuration.xml,v 1.56.2.1 2013-02-06 14:49:40 mg Exp $ -->
+<!-- $Id: installation-and-basic-configuration.xml,v 1.77.2.3 2012-12-17 14:08:31 mg Exp $ -->
 <chapter id="installation">
 <title>Installation</title>
 
@@ -490,7 +490,7 @@ Datei.
         </entry>
         <entry>
           Schnittstelle zur Gd Graphics Library. Wird nur benötigt, wenn das
-Statistikmodul von OTRS verwendet werden soll.
+Statistikmodul von OTRS verwendet werden soll.  
         </entry>
       </row>
       <row>
@@ -967,7 +967,7 @@ linux:/opt/otrs/scripts/database#
 
 <para>
 Für die verschiedenen Datenbanktypen sind mehrere .sql-Dateien vorhanden,
-die nacheinander abgearbeitet werden müssen.
+die nacheinander abgearbeitet werden müssen. 
 </para>
 
 <para>
@@ -1144,7 +1144,7 @@ verschiedenen Skripte.
         </entry>
         <entry>
           Über dieses Skript werden die grundlegenden Einstellungen für die crontab
-des Benutzers 'otrs' festgelegt.
+des Benutzers 'otrs' festgelegt.         
         </entry>
       </row>
       <row>
@@ -1162,7 +1162,7 @@ CSS- und JavaScript-Dateien.
         </entry>
         <entry>
           Falls Nachrichten mit Hilfe von fetchmail in das System eingespeist werden
-sollen, kann dieses Skript verwendet werden.
+sollen, kann dieses Skript verwendet werden.         
         </entry>
       </row>
       <row>
@@ -1171,7 +1171,7 @@ sollen, kann dieses Skript verwendet werden.
         </entry>
         <entry>
           Mit Hilfe dieses Skripts werden die Jobs des GenericAgents ausgeführt, die
-über eigene Konfigurationsdateien festgelegt wurden.
+über eigene Konfigurationsdateien festgelegt wurden.         
         </entry>
       </row>
       <row>
@@ -1181,7 +1181,7 @@ sollen, kann dieses Skript verwendet werden.
         <entry>
           Mit Hilfe dieses Skripts werden die Jobs des GenericAgents ausgeführt, die
 über dem Administrations-Bereich innerhalb von "GenericAgent" angelegt
-wurden.
+wurden.         
         </entry>
       </row>
       <row>
@@ -1190,7 +1190,7 @@ wurden.
         </entry>
         <entry>
           Mit Hilfe dieses Skripts wird das System auf "wartende" (pending) Tickets
-überprüft.
+überprüft.         
         </entry>
       </row>
       <row>
@@ -1210,7 +1210,7 @@ gespeichert bzw. zugestellt.
         <entry>
           Mit Hilfe dieses Skripts werden die verschiedenen pop3-Konten abgefragt, die
 im Administrations-Bereich innerhalb von "PostMaster POP3 Account"
-eingerichtet wurden.
+eingerichtet wurden.         
         </entry>
       </row>
       <row>
@@ -1219,7 +1219,7 @@ eingerichtet wurden.
         </entry>
         <entry>
           Mit Hilfe dieses Skripts wird der Ticket-Index für die Queue-Ansicht neu
-erzeugt, wodurch die Anzeige beschleunigt wird.
+erzeugt, wodurch die Anzeige beschleunigt wird.         
         </entry>
       </row>
       <row>
@@ -1227,7 +1227,7 @@ erzeugt, wodurch die Anzeige beschleunigt wird.
           session
         </entry>
         <entry>
-          Über dieses Skript werden alte und nicht mehr gültige Session-IDs entfernt.
+          Über dieses Skript werden alte und nicht mehr gültige Session-IDs entfernt.         
         </entry>
       </row>
       <row>
@@ -1236,7 +1236,7 @@ erzeugt, wodurch die Anzeige beschleunigt wird.
         </entry>
         <entry>
           Mit Hilfe dieses Skripts wird die Freigabe von Tickets innerhalb des Systems
-ermöglicht.
+ermöglicht.         
         </entry>
       </row>
     </tbody>
@@ -1310,7 +1310,7 @@ und Sie können überprüfen, ob alle Einträge vorhanden sind.
 linux:/opt/otrs/bin# crontab -l -u otrs
 # --
 # cron/aaa_base - base crontab package
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1319,7 +1319,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/cache - delete expired cache
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
 # delete expired cache weekly (Sunday mornings)
@@ -1328,7 +1328,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/fetchmail - fetchmail cron of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1337,7 +1337,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/generic_agent - otrs.GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
@@ -1349,7 +1349,7 @@ MAILTO="root@localhost"
 #0 23 * * * $HOME/bin/otrs.GenericAgent.pl -c "Kernel::Config::GenericAgentMove" &gt;&gt; /dev/null
 # --
 # cron/generic_agent - GenericAgent.pl cron of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1357,7 +1357,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.GenericAgent.pl -c db &gt;&gt; /dev/null
 # --
 # cron/pending_jobs - pending_jobs cron of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1365,7 +1365,7 @@ MAILTO="root@localhost"
 45 */2 * * * $HOME/bin/otrs.PendingJobs.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster - postmaster cron of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1374,7 +1374,7 @@ MAILTO="root@localhost"
 10 0 * * * $HOME/bin/otrs.CleanUp.pl &gt;&gt; /dev/null
 # --
 # cron/postmaster_mailbox - postmaster_mailbox cron of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1382,7 +1382,7 @@ MAILTO="root@localhost"
 */10 * * * * $HOME/bin/otrs.PostMasterMailbox.pl &gt;&gt; /dev/null
 # --
 # cron/rebuild_ticket_index - rebuild ticket index for OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1391,7 +1391,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/session - delete old session ids of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --
@@ -1400,7 +1400,7 @@ MAILTO="root@localhost"
 
 # --
 # cron/unlock - unlock old locked ticket of the OTRS
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY.
 # --

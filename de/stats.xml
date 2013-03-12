@@ -3,7 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 
-<!-- $Id: stats.xml,v 1.33.2.1 2013-02-06 14:49:40 mg Exp $ -->
+<!-- $Id: stats.xml,v 1.13 2011-07-27 14:25:57 mg Exp $ -->
 <chapter id="statistic-module">
 <title>Statistikmodul</title>
 
@@ -116,7 +116,7 @@ zu entnehmen:
             <emphasis>Objekt</emphasis>. Objekt, das für die Generierung der Statistik
 verwendet wird. Wenn es sich um eine statische Statistik handelt, wird kein
 Objekt angezeigt, da kein dynamisches Objekt zur Generierung verwendet
-wird.
+wird. 
         </para>
     </listitem>
     <listitem>
@@ -199,13 +199,13 @@ Reports.
             <listitem>
                 <para>
                     <emphasis>Konfiguration exportieren</emphasis>. Exportieren einer
-Statistikkonfiguration mittels Dateidownload ("rw"-Rechte erforderlich).
+Statistikkonfiguration mittels Dateidownload ("rw"-Rechte erforderlich). 
                 </para>
 
                 <para>
                     Verwendung: Mittels der Export- und Importfunktionen können Statistiken
 bequem auf Testsystemen entworfen und getestet werden, um dann anschließend
-einfach in das Produktivsystem integriert zu werden.
+einfach in das Produktivsystem integriert zu werden. 
                 </para>
             </listitem>
         </itemizedlist>
@@ -242,7 +242,7 @@ Statistik.
             <listitem>
                 <para>
                     <emphasis>Format</emphasis>. Ausgabeformat der Statistik. Hierbei stehen je
-nach Konfiguration folgende Ausgabeformate zur Verfügung:
+nach Konfiguration folgende Ausgabeformate zur Verfügung: 
                 </para>
                 <para>
                 <itemizedlist>
@@ -301,13 +301,13 @@ Diagramms. Diese Auswahl bzw. Anzeige erscheint nur, wenn die
 Statistikvorkonfiguration ein Diagramm vorsieht bzw. ermöglicht. Alle
 generell verwendbaren Grafikgrößen werden durch den otrs-Admin in der
 SysConfig definiert. Beim Konfigurieren der Statistiken kann dann der
-Ersteller alle relevanten Formate vorselektieren.
+Ersteller alle relevanten Formate vorselektieren. 
                 </para>
             </listitem>
             <listitem>
                 <para>
                     <emphasis>Zeilensummierung</emphasis>. Gibt an, ob die Statistik durch eine
-Spalte ergänzt wird, deren Zellen die Summe der jeweiligen Zeile darstellt.
+Spalte ergänzt wird, deren Zellen die Summe der jeweiligen Zeile darstellt. 
                 </para>
             </listitem>
             <listitem>
@@ -319,7 +319,7 @@ Zeile ergänzt wird, deren Zellen die Summe der jeweiligen Spalte beinhaltet.
             <listitem>
                 <para>
                     <emphasis>Cache</emphasis>. Gibt an, ob die errechneten Statistiken im
-Dateisystem gecacht werden.
+Dateisystem gecacht werden. 
                 </para>
             </listitem>
             <listitem>
@@ -329,7 +329,7 @@ Entstehen oder darf sie aus bestimmten Gründen temporär nicht mehr
 ausgeführt werden so wird das Element "Gültig" auf "ungültig"
 gesetzt. Ferner wird dadurch die Schaltfläche "Start" rechts unten am Ende
 des Block ausgeblendet. Ein Generieren der Statistik ist somit nicht
-möglich.
+möglich. 
                 </para>
             </listitem>
             <listitem>
@@ -357,7 +357,7 @@ geändert hat.
                 <para>
                     <emphasis>X-Achse</emphasis>. Diese Option erlaubt es dem Agenten, die X-
 und Y-Achsen zu vertauschen (Diese Funktion muss vom OTRS-Administrator
-freigeschaltet werden).
+freigeschaltet werden). 
                 </para>
             </listitem>
             <listitem>
@@ -386,7 +386,7 @@ srccredit="stats-view-static - Screenshot" /></screenshot>
                     <listitem>
                         <para>
                             <emphasis>Anzeige dynamischer Statistiken</emphasis> Dynamische Statistiken
-können auf zweierlei Weise angezeigt werden:
+können auf zweierlei Weise angezeigt werden: 
                         </para>
                         <para>
                         <itemizedlist>
@@ -394,13 +394,13 @@ können auf zweierlei Weise angezeigt werden:
                                 <para>
                                     <emphasis>Unveränderbare Einstellungen</emphasis>. In diesem Fall hat der
 Ersteller der Statistik dem Agent, der eine Statistik generieren will,
-keinen Freiraum für Veränderungen gelassen.
+keinen Freiraum für Veränderungen gelassen. 
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
                                     <emphasis>Veränderbare Einstellungen</emphasis>. Bei derartigen Statistiken
-ist es dem Agent noch erlaubt die vorkonfigurierte Statistik zu verändern.
+ist es dem Agent noch erlaubt die vorkonfigurierte Statistik zu verändern. 
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -426,14 +426,14 @@ haben:
 <orderedlist numeration="arabic" >
     <listitem>
         <para>
-        die Statistik wurde auf ungültig gesetzt und damit deaktiviert.
+        die Statistik wurde auf ungültig gesetzt und damit deaktiviert. 
         </para>
     </listitem>
     <listitem>
         <para>
         die Statistik wurde nicht sauber konfiguriert und ist noch nicht
 lauffähig. Ist dies der Fall, findet man die nötigen Informationen im
-Notification-Bereich von OTRS (unterhalb der Navigationsleiste).
+Notification-Bereich von OTRS (unterhalb der Navigationsleiste). 
         </para>
     </listitem>
 </orderedlist>
@@ -552,14 +552,14 @@ werden:
         <listitem>
             <para>
                 <emphasis>Titel</emphasis>. Er sollte kurz und prägnant die Aufgabe der
-Statistik wiedergeben.
+Statistik wiedergeben. 
             </para>
         </listitem>
         <listitem>
             <para>
                 <emphasis>Beschreibung</emphasis>. Hier werden Informationen eingetragen,
 die einen tieferen Einblick in die Aufgabenstellung, Art der
-Konfigurationsparameter, usw. erlauben.
+Konfigurationsparameter, usw. erlauben. 
             </para>
         </listitem>
         <listitem>
@@ -567,7 +567,7 @@ Konfigurationsparameter, usw. erlauben.
                 <emphasis>Dynamisches Objekt</emphasis>. Sollte die OTRS-Installation über
 mehrere dynamische Objekte verfügen, kann hier das gewünschte Objekt
 ausgewählt werden. Die Objekte sind jeweils auf die Anforderungen des
-entsprechenden Moduls ausgelegt.
+entsprechenden Moduls ausgelegt. 
             </para>
         </listitem>
         <listitem>
@@ -580,7 +580,7 @@ wird, ist es wichtig im Formular durch die Auswahl des Optionsfelds die
 gewünschte Generierungsart auszuwählen (Dynamisch durch ein dynamisches
 Objekt oder statisch durch eine Datei). Wird eine statische Datei ausgewählt
 entfallen die Eingabeoberflächen 2-4, da die statische Datei die nötigen
-Konfigurationen bereits mitbringt.
+Konfigurationen bereits mitbringt. 
             </para>
         </listitem>
         <listitem>
@@ -589,7 +589,7 @@ Konfigurationen bereits mitbringt.
 welche Gruppen (und dadurch welche Agents) die vorkonfigurierten Statistiken
 später ansehen und generieren können. So können die verschiedenen
 Statistiken auf die verschiedenen Abteilungen und Arbeitsgruppen aufgeteilt
-werden, die diese benötigen. Eine Mehrfachauswahl ist dabei möglich.
+werden, die diese benötigen. Eine Mehrfachauswahl ist dabei möglich. 
             </para>
 
             <para>
@@ -602,13 +602,13 @@ haben. Diese Berechtigung ist die Voreinstellung.
                 Beispiel 2: Es wurde eine Gruppe namens "sales" selektiert. Alle Benutzer
 die ro-Rechte in der Gruppe "sales" haben können nun diese Statistik im
 Ansichtsmodus sehen und generieren. Anderen Benutzern, die in der Lage sind
-Statistiken zu generieren wird dann diese Statistik nicht angeboten.
+Statistiken zu generieren wird dann diese Statistik nicht angeboten. 
             </para>
         </listitem>
         <listitem>
             <para>
                 <emphasis>Format</emphasis>. Ausgabeformat der Statistik. Hierbei stehen je
-nach Konfiguration folgende Ausgabeformate zur Verfügung:
+nach Konfiguration folgende Ausgabeformate zur Verfügung: 
             </para>
 
             <para>
@@ -668,21 +668,21 @@ Größen (Pixel) die Diagramme ausgegeben werden dürfen. Diese Auswahl ist nur
 sinnvoll, wenn unter dem Punkt "Format" ein grafisches Ausgabeformat
 ausgewählt wurde. Alle generell verwendbaren Grafikgrößen werden durch den
 OTRS-Admin in der SysConfig definiert. Bei der Konfiguration der Statistiken
-kann der Ersteller alle relevanten Formate vorselektieren.
+kann der Ersteller alle relevanten Formate vorselektieren. 
             </para>
         </listitem>
         <listitem>
             <para>
                 <emphasis>Zeilensummierung</emphasis>. Wird im "Ja" ausgewählt, wird die
 Statistik durch eine Spalte ergänzt, deren Zellen die Summe der jeweiligen
-Zeile darstellt.
+Zeile darstellt. 
             </para>
         </listitem>
         <listitem>
             <para>
                 <emphasis>Spaltensummierung</emphasis>. Angabe, ob die Statistik durch eine
 Zeile ergänzt wird, deren Zellen die Summe der jeweiligen Spalte
-beinhaltet.
+beinhaltet. 
             </para>
         </listitem>
         <listitem>
@@ -692,7 +692,7 @@ Statistiken im Dateisystem gecacht. Dies spart Rechenleistung und Zeit,
 sollte genau diese Statistik wieder aufgerufen werden. Diese Funktion ist
 jedoch nur sinnvoll, wenn sichergestellt ist, dass sich der Inhalt der
 Statistik nicht mehr ändert. Dies ist genau zu prüfen, bevor man die
-Cachingfunktion nutzt.
+Cachingfunktion nutzt. 
             </para>
 
             <para>
@@ -703,7 +703,7 @@ Zeitangabe in der Zukunft liegt.
 
             <para>
                 Sollte eine Statistik zwischenzeitlich wieder bearbeitet werden, werden alle
-gecachten Daten wieder gelöscht.
+gecachten Daten wieder gelöscht. 
             </para>
         </listitem>
         <listitem>
@@ -713,7 +713,7 @@ Entstehen oder darf sie aus bestimmten Gründen temporär nicht mehr
 ausgeführt werden so wird das Element "Gültig" auf "ungültig"
 gesetzt. Ferner wird dadurch die Schaltfläche "Start" rechts unten am Ende
 des Block ausgeblendet. Ein Generieren der Statistik ist somit nicht
-möglich.
+möglich. 
             </para>
         </listitem>
     </itemizedlist>
@@ -723,7 +723,7 @@ möglich.
     <para>
         <emphasis>Definition des Elements für die X-Achse</emphasis>. Hier wird
 eingestellt welches Element für die Darstellung der X-Achse verwendet wird,
-bzw. bei Tabellen, welche Spaltenbezeichnung die Statistik bekommt.
+bzw. bei Tabellen, welche Spaltenbezeichnung die Statistik bekommt. 
     </para>
 
     <para>
@@ -741,26 +741,26 @@ srccredit="stats-edit-xaxis - Screenshot" /></screenshot>
     Als erstes wählt man ein Element per Optionsfeld aus. Anschließend müssen
 zwei oder mehr Attribute des Elements selektiert werden. Werden keine
 Attribute des Elements ausgewählt, werden alle Attribute verwendet, auch
-solche die nach der Konfiguration der Statistik hinzukommen.
+solche die nach der Konfiguration der Statistik hinzukommen. 
     </para>
 
     <para>
     Entfernt man den Haken "Fixiert" in der Checkbox, kann der Agent, der die
 Statistik erstellt, die Attribute des entsprechenden Elements in der
-"Ansehen"-Oberfläche verändern.
+"Ansehen"-Oberfläche verändern. 
     </para>
 
     <para>
     Eine Besonderheit stellen Zeitelemente dar, hier ist die Zeitspanne und die
 Skalierung anzugeben. Die Art und Anzahl der Elemente ergibt sich durch das
-verwendete dynamische Objekt und ist von Objekt zu Objekt verschieden.
+verwendete dynamische Objekt und ist von Objekt zu Objekt verschieden. 
     </para>
 
     <para>
     Wurden alle Eingaben richtig getätigt, gelangt man nach der Auswahl des
 "Weiter" Schalters zu dem Formular "Wertereihen". Ebenfalls gibt es die
 Möglichkeit, einen Bearbeitungsschritt zurück zu gehen und nochmals die
-Oberfläche "Allgemeine Angaben" zu bearbeiten.
+Oberfläche "Allgemeine Angaben" zu bearbeiten. 
     </para>
 </listitem>
 <listitem>
@@ -772,7 +772,7 @@ Oberfläche "Allgemeine Angaben" zu bearbeiten.
     Im dritten Schritt der Vorkonfiguration einer Statistik werden die
 Wertereihen der Statistik festgelegt. Sie bilden später die einzelnen Grafen
 des Diagramms (grafische Darstellung) oder die einzelnen Reihen
-(tabellarische Darstellung).
+(tabellarische Darstellung). 
     </para>
 
     <para>
@@ -788,7 +788,7 @@ srccredit="stats-edit-valueseries - Screenshot" /></screenshot>
 
     <para>
     Wird ein Element selektiert, entspricht jedes ausgewählte Attribut einer
-Wertereihe.
+Wertereihe. 
     </para>
 
     <para>
@@ -808,7 +808,7 @@ Wertereihe.
         </listitem>
         <listitem>
             <para>
-            Wertereihe 2 = Junk
+            Wertereihe 2 = Junk 
             </para>
         </listitem>
         <listitem>
@@ -824,7 +824,7 @@ Wertereihe.
     <para>
     Werden zwei Elemente selektiert, wird jedes ausgewählte Attribut des ersten
 Elements kombiniert mit einem Attribut des zweiten Elements zu einer
-Wertereihe.
+Wertereihe. 
     </para>
 
     <para>
@@ -832,29 +832,29 @@ Wertereihe.
     <title>Festlegen einer Wertereihe bei zwei Elementen </title>
 
     <para>
-    Element 1 Queue, Element 2 Status:
+    Element 1 Queue, Element 2 Status: 
     </para>
 
     <para>
     <itemizedlist>
         <listitem>
             <para>
-            Wertereihe 1 = Raw - offen
+            Wertereihe 1 = Raw - offen 
             </para>
         </listitem>
         <listitem>
             <para>
-            Wertereihe 2 = Raw - erfolgreich geschlossen
+            Wertereihe 2 = Raw - erfolgreich geschlossen 
             </para>
         </listitem>
         <listitem>
             <para>
-            Wertereihe 3 = Junk - offen
+            Wertereihe 3 = Junk - offen 
             </para>
         </listitem>
         <listitem>
             <para>
-            Wertereihe 4 = Junk - erfolgreich geschlossen
+            Wertereihe 4 = Junk - erfolgreich geschlossen 
             </para>
         </listitem>
     </itemizedlist>
@@ -864,12 +864,12 @@ Wertereihe.
 
     <para>
     Die Auswahl von drei oder mehr Elementen ist nicht sinnvoll und wird deshalb
-durch eine Fehlermeldung verhindert.
+durch eine Fehlermeldung verhindert. 
     </para>
 
     <para>
     Ferner gelten noch die gleichen Bedingungen zur Auswahl der Attribute und
-zur "Fixiert" Checkbox wie bei der "X-Achsen" Auswahl.
+zur "Fixiert" Checkbox wie bei der "X-Achsen" Auswahl. 
     </para>
 
     <para>
@@ -878,13 +878,13 @@ zur "Fixiert" Checkbox wie bei der "X-Achsen" Auswahl.
             <para>
             Werden keine Attribute des Elements ausgewählt, werden alle Attribute
 verwendet, auch solche die nach der Konfiguration der Statistik
-hinzukommen.
+hinzukommen. 
             </para>
         </listitem>
         <listitem>
             <para>
             Entfernt man den Haken "Fixiert" in der Checkbox, kann der Agent der die
-Statistik erstellt, die Attribute des entsprechenden Elements verändern.
+Statistik erstellt, die Attribute des entsprechenden Elements verändern. 
             </para>
         </listitem>
     </itemizedlist>
@@ -896,7 +896,7 @@ Statistik erstellt, die Attribute des entsprechenden Elements verändern.
 Schritt bei der Vorkonfiguration ist das Festlegen der Einschränkungen. Hier
 ist es möglich die Ergebnisse einer Statistik durch die Angabe von
 Bedingungen einzuschränken. Vergleichbar ist dies mit Eingaben in eine
-Such-Oberfläche.
+Such-Oberfläche. 
     </para>
 
     <para>
@@ -913,7 +913,7 @@ srccredit="stats-edit-restrictions - Screenshot" /></screenshot>
     <para>
     Nachdem man alle Einschränkungen getätigt hat, drückt man den Button
 "Abschließen". Dadurch beendet man die Vorkonfiguration der Statistik und
-gelangt in die "Ansehen" Oberfläche.
+gelangt in die "Ansehen" Oberfläche. 
     </para>
 </listitem>
 </orderedlist>
