@@ -7,7 +7,7 @@
 
 <abstract>
 <para>
-This chapter's goal is to give a quick overview of OTRS and the structure of its web interface. The terms agents, customers and administrators are introduced. We also login as the OTRS admininstrator and take a closer look at the user preferences available for every account.
+The goal of this chapter is to provide a brief overview of OTRS and the structure of its web interface. The terms 'agents', 'customers', and 'administrators' are introduced. We also login as the OTRS admininstrator and take a closer look at the user preferences available on every account.
 </para>
 </abstract>
 
@@ -47,11 +47,11 @@ in a web browser (see Figure below).
 <title>Customer web interface</title>
 
 <para>
-Customers have a separate web interface in OTRS, through which they can create new accounts, change their account settings, create and edit tickets, get an overview on tickets that they created, etc.
+Customers have a separate web interface in OTRS through which they can create new accounts, change their account settings, create and edit tickets, get an overview on tickets that they have created, etc.
 </para>
 
 <para>
-Continuing with the above example, the customer login screen can be reached by using the URL
+Continuing the above example, the customer login screen can be reached by using the URL
 <ulink url="http://www.example.com/otrs/customer.pl">
 <citetitle>http://www.example.com/otrs/customer.pl</citetitle>
 </ulink>
@@ -75,11 +75,11 @@ with a web browser (see Figure below).
 <title>Public web interface</title>
 
 <para>
-In addition to the web interfaces for agents and customers, OTRS also has a public web interface that is available through the FAQ-Module. This module needs to be installed separately. It provides public access to the FAQ system, and lets visitors search through FAQ entries without any special authorization.
+In addition to the web interfaces for agents and customers, OTRS also has a public web interface which is available through the FAQ-Module. This module needs to be installed separately. It provides public access to the FAQ system and lets visitors search through FAQ entries without any special authorization.
 </para>
 
 <para>
-In our example, the public web interface can be reached via either of the URLs below:
+In our example, the public web interface can be reached via either of the following URLs:
 <ulink url="http://www.example.com/otrs/faq.pl">
 <citetitle>http://www.example.com/otrs/faq.pl</citetitle>
 </ulink>
@@ -107,7 +107,7 @@ In our example, the public web interface can be reached via either of the URLs b
 
 <para>
 Access the login screen as described in the section <link linkend="agent-interface">Agent web interface
-</link>. Enter a user name and a password. Since the system has just been freshly installed and no users have yet been created, login as OTRS administrator first, using 'root@localhost' for username and 'root' for password.
+</link>. Enter a user name and password. Since the system has just been installed and no users have yet been created, login as OTRS administrator first, using 'root@localhost' for username and 'root' for password.
 </para>
 
 <warning>
@@ -141,7 +141,7 @@ In case you have forgotten your password, you can request the system for a new p
 <title>The web interface - an overview</title>
 
 <para>
-On successfully logging into the system, you are presented with the Dashboard page (see Figure below). The Dashboard is completely customizable. It shows your locked tickets, allows direct access through menus to the queue, status and escalation views, and also holds options for creation of new phone and e-mail tickets. It also presents a quick summary of the tickets which are pending, escalated, new and open.
+Upon successfully logging into the system, you are presented with the Dashboard page (see Figure below). The Dashboard is completely customizable. It shows your locked tickets, allows direct access through menus to the queue, status and escalation views, and also holds options for creation of new phone and e-mail tickets. It also presents a quick summary of the tickets which are pending, escalated, new, and open.
 </para>
 
 <para>
@@ -156,11 +156,11 @@ On successfully logging into the system, you are presented with the Dashboard pa
 </para>
 
 <para>
-To improve clarity, the general web interface is separated into different areas. The top row of each page shows some general information such the current username, the logout button, icons listing the number of locked tickets with direct access to them, links to create a new phone/e-mail ticket, etc. There are also icons to go to the queue, status and escalation views.
+To improve clarity, the general web interface is separated into different areas. The top row of each page shows some general information such the current username, the logout button, icons listing the number of locked tickets with direct access to them, links to create a new phone/e-mail ticket, etc. There are also icons to go to the queue, status, and escalation views.
 </para>
 
 <para>
-Below the icons row is the navigation bar. It shows a menu that enables you to navigate to different areas or modules of the system, lettng you execute some global actions. Clicking on the Dashboard button takes you to the dashboard which is the default start page after login. If you click on the Tickets button, you will get a submenu with options to change the ticket's view, create a new ticket (phone/e-mail) or search for a specific ticket. The Statistics button presents a menu that allows choosing from an overview of the registered statistics, creating a new one or importing an existing one. The Customers button leads you to the Customer Managment screen. By clicking the Admin button, you can access all the administrator modules, allowing you to create new agents, queues, etc. There is also a Search button to make ticket searches.
+Below the icons row is the navigation bar. It shows a menu that enables you to navigate to different areas or modules of the system, lettng you execute some global actions. Clicking on the Dashboard button takes you to the dashboard which is the default start page after login. If you click on the Tickets button, you will get a submenu with options to change the ticket's view, create a new ticket (phone/e-mail) or search for a specific ticket. The Statistics button presents a menu that allows you to choose from an overview of the registered statistics, creating a new one or importing an existing one. The Customers button leads you to the Customer Managment screen. By clicking the Admin button, you can access all of the administrator modules, which allows you to create new agents, queues, etc. There is also a Search button to make ticket searches.
 </para>
 
 <para>
@@ -172,15 +172,15 @@ The red bar below the navigation bar shows different system messages. If you are
 </para>
 
 <para>
-Below the title of the section you are currently in, there are several subsections each in a separate box. These boxes can be relocated within the same column by clicking on and dragging the box header, and dropping them elsewhere.
+Below the title of the section you are currently in, there are several subsections, each in a separate box. These boxes can be relocated within the same column by clicking on and dragging the box header, and dropping them elsewhere.
 </para>
 
 <para>
-In the left column, you can see information on some tickets clasified as - reminder, escalated, new and open. In each of the categories, you are also able to see all tickets you are allowed to access, how many tickets you have locked and how many are located in "My Queues". "My Queues" are queues that you identify in your user configuration <link linkend="user-preferences">account preferences</link> as those you have a special interest in tracking.
+In the left column, you can see information on some tickets clasified as - reminder, escalated, new, and open. In each of the categories, you are also able to see all of the tickets that you are allowed to access, how many tickets you have locked, and how many are located in "My Queues". "My Queues" are queues that you identify in your user configuration <link linkend="user-preferences">account preferences</link> as those you have a special interest in tracking.
 </para>
 
 <para>
-In the right column is the Settings button. Click on it to expand the section and see the various settings, as shown in Figure. You can then check or uncheck the individual settings options, and save your changes. This section is fixed, so you can not drag and drop it.
+In the right column is the Settings button. Click on it to expand the section and see the various settings, as shown in Figure. You can then check or uncheck the individual settings options and save your changes. This section is fixed, so you can not drag and drop it.
 </para>
 
 <para>
@@ -195,7 +195,7 @@ In the right column is the Settings button. Click on it to expand the section an
 </para>
 
 <para>
-Below the settings area, you can see a section with a graph of ticket activity over the past 7 days. Further below is a section showing Upcoming Events and OTRS News.
+Below the settings area, you can see a section with a graph of ticket activity over the past 7 days. Further below is a section displaying Upcoming Events and OTRS News.
 </para>
 
 <para>
@@ -231,20 +231,20 @@ To explain it more practically, remember the example of Max's company described 
 </para>
 
 <para>
-One queue holding all requests is enough for this situation. However, after some time Max decides to also sell DVD recorders. Now, the customers have questions not only about the video recorder, but also the new product. More and more emails get into the one queue of Max's OTRS and it's hard to have a clear picture of what's happening.
+One queue holding all requests is enough for this situation. However, after some time Max decides to also sell DVD recorders. Now, the customers have questions not only about the video recorder, but also about the new product. More and more emails get into the single queue of Max's OTRS and it's difficult to have a clear picture of what's happening.
 </para>
 
 <para>
-Max decides to restructure his support system, and adds two new queues. So now three queues are being used. Fresh new mails arriving at the ticket system are stored into the old queue titled "raw". Of the two new queues, one titled "video recorder" is for video recorder requests, while the other one titled "dvd recorder" is for dvd recorder requests.
+Max decides to restructure his support system, and adds two new queues. So now three queues are being used. New messages arriving at the ticket system are stored into the old queue titled "raw". Of the two new queues, one titled "video recorder" is exclusively for video recorder requests, while the other one titled "dvd recorder" is exclusively for dvd recorder requests.
 </para>
 
 <para>
-Max asks Sandra to watch the "raw" queue and sort (dispatch) the mails either into "video recorder" or "dvd recorder" queue, depending on the customer request. John only has access to the "video recorder" queue, while Joe can only answer tickets in the "dvd recorder" queue. Max is able to edit tickets in all queues.
+Max asks Sandra to watch the "raw" queue and sort (dispatch) the messages either into "video recorder" or "dvd recorder" queue, depending on the customer request. John only has access to the "video recorder" queue, while Joe can only answer tickets in the "dvd recorder" queue. Max is able to edit tickets in all queues.
 </para>
 
 <para>
-OTRS supports access management for users, groups and roles, and it is easy to setup queues that are accessible only to some user accounts. Max could also use another way to get his requests into the different queues, with filter rules. Else, if two different mail addresses are used, Sandra only has to dispatch those emails into the two other
-queues, that can't be dispatched automatically.
+OTRS supports access management for users, groups, and roles, and it is easy to setup queues that are accessible only to some user accounts. Max could also use another way to get his requests into the different queues, with filter rules. Otherwise, if two different mail addresses are used, Sandra only has to dispatch those emails into the two other
+queues, which can't be dispatched automatically.
 </para>
 
 <para>
@@ -274,7 +274,7 @@ OTRS users such as customers, agents and the OTRS administrator can configure th
 </para>
 
 <para>
-An agent can configure 3 different categories of preferences: user profile, email settings and other settings. The default posibilities are:
+An agent can configure 3 different categories of preferences: user profile, email settings, and other settings. The default posibilities are:
 </para>
 
 <itemizedlist>
