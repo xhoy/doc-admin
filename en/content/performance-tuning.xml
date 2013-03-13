@@ -7,14 +7,14 @@
 
 <abstract>
 <para>
-Presented below is a list of performance enhancing techniques for your OTRS installation, covering configuration, coding, memory use and more.
+Presented below is a list of performance enhancing techniques for your OTRS installation, including configuration, coding, memory use, and more.
 </para>
 </abstract>
 
 <section id="performance-tuning-otrs">
 <title>OTRS</title>
 <para>
-There are several options to improve OTRS performance.
+There are several options for improving OTRS performance.
 </para>
 
 <section id="performance-tuning-otrs-index">
@@ -58,7 +58,7 @@ There are two different backend modules for the ticket/article storage:
 
 <listitem>
 <para>
-Configure Kernel::System::Ticket::ArticleStorageDB (default) to store attachments, etc. in the database. Note: Don't use it with large set ups.
+Configure Kernel::System::Ticket::ArticleStorageDB (default) to store attachments, etc., in the database. Note: Don't use it with large set ups.
 </para>
 <para>
 Pro: If your webserver user isn't the 'otrs' user, use this module to avoid file permission problems.
@@ -76,7 +76,7 @@ Configure Kernel::System::Ticket::ArticleStorageFS to store attachments etc. on 
 Pro: It is fast!
 </para>
 <para>
-Con: Your web server user should be the 'otrs' user. Also, if you have multiple front-end servers, you should make sure the filesystem is shared between the servers. So place it on an NFS share or preferably a SAN or similar solution.
+Con: Your web server user should be the 'otrs' user. Also, if you have multiple front-end servers, you should make sure the filesystem is shared between the servers. Place it on an NFS share or preferably a SAN or similar solution.
 </para>
 </listitem>
 
@@ -85,7 +85,7 @@ Con: Your web server user should be the 'otrs' user. Also, if you have multiple 
 </para>
 
 <para>
-    Note: you can switch from one back-end to the other on the fly. You can switch the backend in the SysConfig, and then run the command line utility <filename>otrs.ArticleStorageSwitch.pl</filename> to put the articles from the database onto the filesystem or the other way around. You can use the <emphasis>-s</emphasis> and <emphasis>-d</emphasis> options to specify the source and destination back-ends. Please note that the whole process can take considerable time to run, depending on the number of articles you have and the available CPU power and/or network capacity.
+    Note: you can switch from one back-end to the other on the fly. You can switch the backend in the SysConfig, and then run the command line utility <filename>otrs.ArticleStorageSwitch.pl</filename> to put the articles from the database onto the filesystem or the other way around. You can use the <emphasis>-s</emphasis> and <emphasis>-d</emphasis> options to specify the source and destination back-ends. Please note that the entire process can take considerable time to run, depending on the number of articles you have and the available CPU power and/or network capacity.
 </para>
 
 <para>
@@ -105,7 +105,7 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
         As OTRS can be used as an audit-proof system, deleting closed tickets may not be a good idea. Therefore we implemented a feature that allows you to archive tickets.
     </para>
     <para>
-        Tickets that match certain criteria can be marked as "archived" These tickets are not accessed if you do a regular ticket search or run a Generic Agent job. The system itself does not have to deal with a huge amount of tickets any longer as only the "latest" tickets are taken into consideration when using OTRS. This can mean a huge performance gain on large systems.
+        Tickets that match certain criteria can be marked as "archived" These tickets are not accessed if you do a regular ticket search or run a Generic Agent job. The system itself does not have to deal with a huge amount of tickets any longer as only the "latest" tickets are taken into consideration when using OTRS. This can result in a huge performance gain on large systems.
     </para>
     <para>
         To use the archive feature simply follow these steps:
@@ -174,7 +174,7 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
                 Ticket Search
             </para>
             <para>
-                When you search for tickets, the system default is to search tickets which are not archived. If you want to search through archived tickets also, simply add "archive search" while defining search  criteria.
+                When you search for tickets, the system default is to search tickets which are not archived. If you want to search through archived tickets also, simply add "archive search" while defining search criteria.
             </para>
         </listitem>
     </orderedlist>
@@ -192,7 +192,7 @@ DB issues vary by the database being used. Study the documentation for your data
 <section id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-If you use the MySQL table type MyISAM (which is the default), and have deleted a large part of a table or if you have made many changes to a table with variable-length rows (tables that have VARCHAR, BLOB or TEXT columns), you need to defragment the datafile (tables) with the "optimize" command.
+If you use the MySQL table type MyISAM (which is the default), and have deleted a large part of a table or if you have made many changes to a table with variable-length rows (tables that have VARCHAR, BLOB or TEXT columns), you must defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
 You should try this if the mysqld daemon needs a lot of your CPU time. Optimize the tables - ticket, ticket_history and article (see Script below).
@@ -216,7 +216,7 @@ mysql$ optimize table article;
 <section id="performance-tuning-database-postgresql">
 <title>PostgreSQL</title>
 <para>
-PostgreSQL is best tuned by modifying the postgresql.conf file in your PostgreSQL data directory. For advice on how to do this, see these articles:
+PostgreSQL is best tuned by modifying the postgresql.conf file in your PostgreSQL data directory. For advice on how to do this, reference the following articles:
 </para>
 
 <para>
@@ -281,7 +281,7 @@ By default Apache::Reload is used in scripts/apache2-httpd.include.conf. Disable
 <section id="performance-tuning-webserver-strategy">
 <title>Choosing the Right Strategy</title>
 <para>
-If you have a larger installation, say over 1,000 new tickets per day and over 40 agents, it is a good idea to read the chapters on Performance of the mod_perl User's Guide ( <ulink url="http://perl.apache.org/docs/2.0/user/index.html"><citetitle>http://perl.apache.org/docs/2.0/user/index.html</citetitle></ulink> ).
+If you have a larger installation, e.g. over 1,000 new tickets per day and over 40 agents, it is a good idea to read the chapters on Performance of the mod_perl User's Guide ( <ulink url="http://perl.apache.org/docs/2.0/user/index.html"><citetitle>http://perl.apache.org/docs/2.0/user/index.html</citetitle></ulink> ).
 </para>
 </section>
 
