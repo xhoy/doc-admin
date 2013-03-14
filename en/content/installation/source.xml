@@ -34,8 +34,8 @@ linux:/opt#
 </para>
 
 <para>
-OTRS should NOT be run with root rights. You should add a new user for OTRS as the next step. The home directory of this
-new user should be <filename>/opt/otrs</filename>. If your web server is not running with the same user rights as the new 'otrs' user, which is the case on most systems, you have to add the new 'otrs' user to the group of the web server user (see Script below).
+OTRS should NOT be run with root rights. Next you should add a new user for OTRS. The home directory of this
+new user should be <filename>/opt/otrs</filename>. If your web server is not running with the same user rights as the new 'otrs' user, which is the case on most systems, you will need to add the new 'otrs' user to the group of the web server user (see Script below).
 </para>
 
 <para>
@@ -107,7 +107,7 @@ If your web server is running with the same user rights as user 'otrs', the comm
 <title>Installation of Perl modules</title>
 
 <para>
-OTRS needs some additional Perl modules, as described in Table 3-1. If you install OTRS from source, you will have to install these modules manually.
+OTRS requires some additional Perl modules, as described in Table 3-1. If you install OTRS from source, you will need to install these modules manually.
 This can be done either with the package manager of your Linux distribution (<application>yast</application>, <application>apt-get</application>) or,
 as described in this section, through the Perl shell and CPAN. If you're using ActiveState Perl, for instance on Windows, you could use PPM, the built-in Perl Package Manager.
 We recommend using your package manager if possible.
@@ -138,7 +138,7 @@ linux:/opt/otrs/bin# ./otrs.CheckModules.pl
 </para>
 
 <para>
-You should strive to install the missing modules from your Linux distribution's package management system. In that way, the packages will be automatically updated when new versions are available or when security issues are found. Please refer
+You should strive to install the missing modules from your Linux distribution's package management system. By doing so, the packages will be automatically updated when new versions are available or when security issues are found. Please refer
 to your distribution's documentation on how to install additional packages. If the (correct version of) the module is not available from the package repositories, you can also install from CPAN, the Comprehensive Perl Archive Network.
 </para>
 
@@ -187,7 +187,7 @@ LoadModule cgi_module /usr/lib/apache2/modules/mod_cgi.so
 
 <para>
 To access the web interface of OTRS conveniently via a short address, Alias and ScriptAlias entries are needed. Most
-<application>Apache</application>  installations have a <filename>conf.d</filename> directory included. On Linux systems you can find this directory very often under <filename>/etc/apache</filename> or <filename>/etc/apache2</filename>. Log in as root, change to the <filename>conf.d</filename> directory and copy the appropriate template in <filename>/opt/otrs/scripts/apache2-httpd.include.conf</filename> to a file called <filename>otrs.conf</filename> in the Apache configuration directory.
+<application>Apache</application>  installations have a <filename>conf.d</filename> directory included. On Linux systems you can usually find this directory  under <filename>/etc/apache</filename> or <filename>/etc/apache2</filename>. Log in as root, change to the <filename>conf.d</filename> directory and copy the appropriate template in <filename>/opt/otrs/scripts/apache2-httpd.include.conf</filename> to a file called <filename>otrs.conf</filename> in the Apache configuration directory.
 </para>
 
 <para>
@@ -251,7 +251,7 @@ If you use <application>MySQL</application> as the database back-end, you can us
 .</para>
 
 <para>
-When the web installer starts, please follow the next steps to setup your system:
+When the web installer starts, please follow the following steps to setup your system:
 </para>
 
 <para>
@@ -336,7 +336,7 @@ It is never a good idea to use default passwords. Please change the default pass
 </para>
 
 <para>
-If the database and its user were successfully created, you will get a setup notification, as shown in Figure. Click 'Next' to go to the next screen.
+If the database and its user were successfully created, you will receive a setup notification, as shown in Figure. Click 'Next' to go to the next screen.
 </para>
 
 <para>
@@ -366,7 +366,7 @@ If the database and its user were successfully created, you will get a setup not
 </para>
 
 <para>
-6. If you want, you can provide the needed data to configure your inbound and outbound mail, or skip this step by pressing the right button at the bottom of the screen (see Figure below).
+6. If desired, you can provide the needed data to configure your inbound and outbound mail, or skip this step by pressing the right button at the bottom of the screen (see Figure below).
 </para>
 
 <para>
@@ -422,7 +422,7 @@ Congratulations! Now the installation of OTRS is finished and you should be able
 <ulink url="http://localhost/otrs/index.pl">
     <citetitle>http://localhost/otrs/index.pl</citetitle>
 </ulink>
-from your web browser. Log in as OTRS administrator, using the username 'root@localhost' and the password 'root'. After that you can configure the system for your needs.
+from your web browser. Log in as OTRS administrator, using the username 'root@localhost' and the password 'root'. After that, you can configure the system to meet your needs.
 </para>
 
 <warning>
@@ -493,7 +493,7 @@ Creating the tables: With the otrs-schema.DatabaseType.sql files (e.g. <filename
 </listitem>
 <listitem>
 <para>
-Inserting the initial system data: OTRS needs some initial system data to work properly (e.g. the different ticket states, ticket and notification types). Depending on the type of your database, use one of the files
+Inserting the initial system data: OTRS needs some initial system data to work properly (e.g. the different ticket states, ticket and notification types). Depending on the type of database that you are using, you will need to use one of the following files:
 <filename>otrs-initial_insert.mysql.sql</filename>,
 <filename>otrs-initial_insert.oracle.sql</filename>,
 <filename>otrs-initial_insert.postgresql.sql</filename> or
@@ -712,7 +712,7 @@ Table 3-2 describes the different cron jobs.
 </para>
 
 <para>
-To setup all cron jobs, the script <filename>bin/Cron.sh</filename> located in the home directory of the 'otrs' user can be used. When this script is executed, it needs a parameter to specify whether you want to install, remove or reinstall the cron jobs. The following parameters can be used:
+To setup all cron jobs, the script <filename>bin/Cron.sh</filename> located in the home directory of the 'otrs' user can be used. When this script is executed, it needs a parameter to specify whether you want to install, remove, or reinstall the cron jobs. The following parameters can be used:
 </para>
 
 <para>
