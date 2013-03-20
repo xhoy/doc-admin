@@ -2672,9 +2672,9 @@ $Self->{'Process::TransitionAction'} = {
         Name   => 'Queue Move',
         Module => 'Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet',
         Config => {
-            Queue => 'Junk',
+            Queue  => 'Junk',
+            UserID => 123,
         },
-
     },
 };
                     </screen>
@@ -2698,7 +2698,16 @@ $Self->{'Process::TransitionAction'} = {
                     This parameter contains all settings which are required for the module. Its
                     content depends on the particular Transition Action module which is used. Please
                     see the documentation of the individual modules for details. In our example,
-                    only the Queue must be specified.
+                    only the Queue must be specified, Nevertheless we are also sending UserID 
+                    parameter, by using the UserID parameter, the transition action will be executed
+                    impersonating the user with the given UserID.
+                </para>
+                <para>
+                    The use of UserID inside the "Config" parameter of a Transition Action is
+                    accepted by all Transition Actions (since OTRS 3.2.4), in this example it could
+                    be particularly important if the user that triggers the Transition does not have
+                    permissions to move the ticket to the queue 'Junk', while the user with the 
+                    UserID 123 might have.
                 </para>
             </section>
             <section>
