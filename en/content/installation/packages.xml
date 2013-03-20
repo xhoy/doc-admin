@@ -58,7 +58,8 @@ server if needed for scalability or other purposes.
 <para>
     Now execute <command>rcmysql restart</command> to re-start the database server and activate these changes. Then run
     <command>/usr/bin/mysql_secure_installation</command> and follow the on-screen instructions to set a database root 
-    password, remove anonymous access and remove the test database. 
+    password, remove anonymous access and remove the test database. Lastly, run <command>chkconfig -a mysql</command>
+    in order to make sure mysql is automatically started at server startup time.
 </para>
    
 </section>
@@ -67,36 +68,39 @@ server if needed for scalability or other purposes.
     <title>Installing OTRS</title>
 <para>
 Install OTRS with via the command line using <command>zypper</command>. This will also pull in some dependencies such as
-apache and some Perl modules.
+the apache web server and some Perl modules. Make sure you copied the OTRS RPM file to the current directory. 
 </para>
 <para>
     <screen>
- linux:~ # zypper install otrs-3.2.x.rpm  
-otrs                        ##################################################
-Check OTRS user (/etc/passwd)... otrs exists.
+otrs-sles:~ # zypper install otrs-3.2.*.rpm  
+....
+Retrieving package otrs-3.2.3-01.noarch (1/26), 17.5 MiB (74.3 MiB unpacked)
+Installing: otrs-3.2.3-01 [done]
+Additional rpm output:
+Check OTRS user ... otrs added.
 
 Next steps:
 
 [SuSEconfig]
- Execute 'SuSEconfig' to configure the web server.
+ Execute 'SuSEconfig' to configure the webserver.
 
-[start Apache and MySQL]
- Execute 'rcapache2 start' and 'rcmysql start' in case they don't run.
+[start database and Apache]
+ Make sure your database is running and execute 'rcapache2 restart'.
 
 [install the OTRS database]
- Use a web browser and open this link:
- http://localhost/otrs/installer.pl
+ Use a webbrowser and open this link:
+ http://myserver.example.com/otrs/installer.pl
 
 [OTRS services]
- Start OTRS 'rcotrs start-force' (rcotrs {start|stop|status|restart|start-force|stop-force}).
+ Start OTRS 'rcotrs start-force' (rcotrs {start|stop|status|restart|start-force|                                                                                                                     stop-force}).
 
-Have fun!
+((enjoy))
 
  Your OTRS Team
  http://otrs.org/
 
-linux:~ #
-</screen>
+otrs-sles:~ #
+    </screen>
 </para>
 
 <para>
@@ -104,20 +108,30 @@ linux:~ #
 </para>
 
 <para>
-The OTRS installation is done. Restart your web server to load the OTRS specific changes in its configuration, as shown in the script below.
+The OTRS installation is done. Run SuSEconfig, start your web server to load the OTRS specific changes in its configuration, as shown in the script below.
+Also run <command>chkconfig</command> to make sure OTRS is automatically started when the server reboots.
 </para>
 
 <para>
 <screen>
-linux:~ # rcapache2 restart
-Shutting down httpd                                         done
-Starting httpd [ PERL ]                                     done
-linux:~ #
+otrs-sles:~ # SuSEconfig
+Starting SuSEconfig, the SuSE Configuration Tool...
+Running in full featured mode.
+Reading /etc/sysconfig and updating the system...
+Executing /sbin/conf.d/SuSEconfig.glib2...
+Executing /sbin/conf.d/SuSEconfig.permissions...
+Finished.
+otrs-sles:~ # chkconfig -a apache2
+apache2                   0:off  1:off  2:off  3:on   4:off  5:on   6:off
+otrs-sles:~ # rcapache2 start
+Starting httpd2 (prefork) httpd2-prefork: Could not reliably determine the server's fully qualified domain name, using 10.x.x.x for ServerName
+                                                                                                                                                                                          done
+otrs-sles:~ #
 </screen>
 </para>
 
 <para>
-<emphasis>Script: Restarting the web server.</emphasis>
+<emphasis>Script: Starting the web server.</emphasis>
 </para>
 
 </section>
@@ -133,15 +147,43 @@ linux:~ #
 
     <para>
         <screen>
- zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 perl
+ zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 Perl
         </screen>
     </para>
     <para>
-        Now you can install missing modules like this:
+        The first time you use zypper after you added this repository, you will be prompted to add its key. Now you can install missing modules like below.
     </para>
     <para>
         <screen>
-            zypper -y install "perl(YAML::XS)"
+otrs-sles:/opt/otrs # zypper -y install "perl(YAML::LibYAML)"
+Refreshing service 'susecloud'.
+Retrieving repository 'perl' metadata [\]
+
+New repository or package signing key received:
+Key ID: DCCA98DDDCEF338C
+Key Name: devel:languages:perl OBS Project <devel:languages:perl@build.opensuse.org>
+Key Fingerprint: 36F0AC0BCA9D8AF2871703C5DCCA98DDDCEF338C
+Key Created: Wed Oct 10 22:04:18 2012
+Key Expires: Fri Dec 19 22:04:18 2014
+Repository: perl
+
+Do you want to reject the key, trust temporarily, or trust always? [r/t/a/?] (r): a
+Retrieving repository 'perl' metadata [done]
+Building repository 'perl' cache [done]
+Loading repository data...
+Reading installed packages...
+'perl(YAML::LibYAML)' not found in package names. Trying capabilities.
+Resolving package dependencies...
+
+The following NEW package is going to be installed:
+  perl-YAML-LibYAML
+
+The following package is not supported by its vendor:
+  perl-YAML-LibYAML
+
+Retrieving package perl-YAML-LibYAML-0.38-12.4.x86_64 (1/1), 75.0 KiB (196.0 KiB unpacked)
+Retrieving: perl-YAML-LibYAML-0.38-12.4.x86_64.rpm [done (55.7 KiB/s)]
+Installing: perl-YAML-LibYAML-0.38-12.4 [done]
         </screen>
     </para>
 </section>
@@ -152,7 +194,7 @@ The next step is to configure OTRS using the web installer, as described <link l
 </section>
 
 <section id="installation-on-centos">
-<title>Installing OTRS on a CentOS system</title>
+<title>Installing OTRS on a Red Hat Enterprise Linux or CentOS system</title>
 
 <para>
 On the OTRS Wiki you can find detailed instructions for setting up OTRS on a CentOS system. Please note that these instructions will also apply to Red Hat Linux systems since they use the same source:
