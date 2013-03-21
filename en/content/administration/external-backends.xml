@@ -38,7 +38,7 @@ Customer data used or displayed within OTRS is highly customizable. The followin
 </para>
 
 <para>
-Use configuration parameters of the following script in your <filename>Kernel/Config.pm</filename> file, if you want to display customer information in your agent interface.
+Use the configuration parameters of the following script in your <filename>Kernel/Config.pm</filename> file, if you want to display customer information in your agent interface.
 </para>
 
 <para>
@@ -210,7 +210,7 @@ Now add the new column to the MAP array in <filename>Kernel/Config.pm</filename>
 </para>
 
 <para>
-It is also possible to edit all this customer information via the Customers link in the Agent interface.
+It is also possible to edit all of this customer information via the Customers link in the Agent interface.
 </para>
 
 <section id='multi-customer-ids-db'>
@@ -444,7 +444,7 @@ To realize this setup, change the LDAP directory and the mapping in <filename>Ke
 </section>
 
 <section id='multiple-customer-backends'>
-<title>Use more than one customer backend with OTRS</title>
+<title>Using more than one customer backend with OTRS</title>
 
 <para>
 If you want to utilize more than one customer data source used with OTRS (e.g. an LDAP and a database backend), the CustomerUser config parameter should be expanded with a number, e.g. "CustomerUser1", "CustomerUser2" (see Example 11-5 below).

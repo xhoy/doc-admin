@@ -11,7 +11,7 @@
     </para>
     <para>
         Currently the OTRS Scheduler is only able to handle Generic Interface tasks. These kind of tasks
-        executes invokers that send requests to remote systems. Other handlers for different tasks
+        execute invokers that send requests to remote systems. Other handlers for different tasks
         will be added in future OTRS versions.
     </para>
     <para>
@@ -20,12 +20,12 @@
         needed using the SysConfig by editing the "Scheduler::RestartAfterSeconds" setting.
     </para>
     <para>
-        The OTRS Scheduler is a set it and forget it process, the only needed human interaction is to
+        The OTRS Scheduler is a fully automated process, the only needed human interaction is to
         check its status periodically and start or stop it as needed.
     </para>
     <note>
         <para>
-            If the Scheduler is stopped for any reason all pending tasks and new tasks registered when the
+            If the Scheduler is stopped for any reason, all pending tasks and new tasks registered when the
             Scheduler is stopped will  be executed as soon as the Scheduler starts again
             (unless the tasks are set to be executed in the future).
         </para>
@@ -38,8 +38,8 @@
         <section id="scheduler-gui-notify">
             <title>Scheduler Not Running Notification</title>
             <para>
-                There are two different types of notifications if the system detects that scheduler is not
-                running. This detection is based on the Scheduler process update frequency, if
+                There are two different types of notifications if the system detects that the scheduler is not
+                running. This detection is based on the update frequency  of the Scheduler process. If
                 the difference between current time and the last process update time is 2 times the
                 process update frequency a warning message will be displayed in the OTRS
                 notification area. If it is over 4 times the process frequency then an alert will
@@ -50,9 +50,9 @@
                 "Scheduler::PIDUpdateTime" setting.
             </para>
             <para>
-                If you would see a warning message it is not always necessary to take an action, but is
+                If you see a warning message it is not always necessary to take an action, but it is
                 highly recommended to check if the scheduler process is running. If you see an alert,
-                then is highly probable that the scheduler is in fact not running and should be
+                then there is a high chance that the scheduler is in fact not running and should be
                 started.
             </para>
             <para>
@@ -126,13 +126,13 @@
                 </para>
                 <para>
                     OTRS provide init.d scripts to start / stop the OTRS Scheduler process
-                    automatically by the operating system, this scripts are located under
+                    automatically by the operating system, these scripts are located under
                     OTRS_HOME/scripts.
                 </para>
                 <para>
-                    Init.d scripts needs to be copied to the correct location for your operating
-                    system, they need to had the proper permissions and some internal variables
-                    needs to be set to work properly.
+                    Init.d scripts need to be copied to the correct location for your operating
+                    system. They need to have the proper permissions and some internal variables
+                    need to be set to work properly.
                 </para>
                 <itemizedlist mark="round">
                     <title>Init.d Script Internal Variables</title>
@@ -230,7 +230,7 @@
                 <note>
                     <para>
                         If you want the Scheduler to run at system startup, please read the
-                        documentation of the operating system for the right location to place the
+                        documentation of the operating system to find out the right location to place the
                         init.d scripts, how to configure them to run automatically and how to set the run
                         order.
                     </para>
@@ -298,7 +298,7 @@
                 <note>
                     <para>
                         Force stop the Scheduler is used remove the process ID from the database
-                        when scheduler is not running and the process is still registered.
+                        when the scheduler is not running and the process is still registered.
                     </para>
                     <para>
                         Force start the Scheduler is used to start the Scheduler process if the
@@ -359,7 +359,7 @@
                     </listitem>
                 </itemizedlist>
                 <para>
-                    After installing into the Widows SCM the OTRS Scheduler process can be used as
+                    After installing into the Widows SCM the OTRS Scheduler process can be used like
                     any other service in Windows. It can be started, stopped and restarted and can
                     be configured to be started manually or automatic.
                 </para>
@@ -432,7 +432,7 @@
                 <note>
                     <para>
                         Force stopping the Scheduler is used to remove the process ID from the database
-                        when scheduler is not running and the process is still registered.
+                        when the scheduler is not running and the process is still registered.
                     </para>
                     <para>
                         Force starting the Scheduler is used to start the Scheduler process if the

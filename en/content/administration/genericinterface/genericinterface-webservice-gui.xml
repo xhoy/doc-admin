@@ -5,7 +5,7 @@
     <title>Web Service Graphical Interface</title>
     <para>
         The web service graphical user interface (GUI) is a tool that allows to construct
-        complex web service configurations in a friendly and nice interface. It allows to:
+        complex web service configurations in a user friendly and convenient interface. It allows to:
     </para>
     <para>
         <itemizedlist>
@@ -43,15 +43,12 @@
             configuration of the existing ones from this screen.
         </para>
         <para>
-            Every web service configuration screen has in the upper part of the screen a navigation
-            path in a "bread crumbs" style. This navigation path is useful to know exactly in which
-            part of the web service configuration we are, and also we can jump back to any level of
-            the configuration at any time (this action will not save any changes).
+            Every web service configuration screen has in the upper part of the screen  a "bread crumbs" style navigation path. This navigation path is useful to know exactly in which part of the web service configuration we are, and also enables the user to jump back to any part of the configuration process at any time (this action will not save any changes).
         </para>
         <note>
             <para>
                 To create a new web service, press the button "Add web service", and provide the
-                needed information.
+                required information.
             </para>
         </note>
         <para>
@@ -68,15 +65,10 @@
     <section id="webservice_gui_add">
         <title>Web Service Add</title>
         <para>
-            The only required field in this part is the web service "Name" that needs to be unique
-            in the system and non empty. Other fields are also necessary for the configuration like
-            the "Debug Threshold" and "Validity" but these fields are already filled with the default
-            value for each list.
+            The only required field in this part is the web service "Name" that needs to be unique in the system and can not be left empty. Other fields are also necessary for the configuration like the "Debug Threshold" and "Validity" but these fields are already populated with the default value for each list.
         </para>
         <para>
-            The default value for "Debug Threshold" is "debug", under this configuration all
-            communication logs are registered in the database, each Debug Threshold value is more
-            restrictive and discard communication logs set for lower values.
+            The default value for "Debug Threshold" is "debug". When configured in this manner all communication logs are registered in the database. Each subsequent Debug Threshold value is more restrictive and discards communication logs of lower order than the one set in the system.
         </para>
         <para>
             <itemizedlist>
@@ -119,8 +111,7 @@
         </para>
         <note>
             <para>
-                To change or add more details to a web service, click on the web service name in the
-                web service overview screen.
+                To change or add more details to a web service, click on the web service name in the web service overview screen.
             </para>
         </note>
         <para>
@@ -137,9 +128,7 @@
     <section id="webservice_gui_change">
         <title>Web Service Change</title>
         <para>
-            On this screen you have a complete set of functions to handle every part of a web
-            service. On the left side in the action column you can find some buttons that allows
-            you to perform all possible actions on a web service:
+            On this screen you have a complete set of functions to handle every part of a web service. On the left side in the action column you can find some buttons that allows you to perform all possible actions on a web service:
         </para>
         <para>
         <itemizedlist>
@@ -184,13 +173,11 @@
         <section id="webservice-clone">
             <title>Web Service Clone</title>
             <para>
-                To clone a web service, you need to click on the "Clone web service" button, a
-                dialog will be shown where you can use the default name or set a new name for the
-                (cloned) web service.
+                To clone a web service, you need to click on the "Clone web service" button. A dialog will be shown where you can use the default name or set a new name for the (cloned) web service.
             </para>
             <note>
                 <para>
-                    <emphasis>Remember </emphasis> the name of the web service must be unique within
+                    <emphasis>Remember </emphasis> that the name of the web service must be unique within
                     the system.
                 </para>
             </note>
@@ -211,14 +198,13 @@
             <title>Web Service Export</title>
             <para>
                 The "Export web service" button gives you the opportunity to dump the configuration
-                of the current web service into a YAML file, download it and store it on your file
+                of the current web service into a YAML file, to download it and to store it on your file
                 system. This can be specially useful if you want to migrate the web service from one
                 server to another, for example from a testing environment to a production system.
             </para>
             <warning>
                 <para>
-                    All stored passwords in the web service configuration will be exported as plain
-                    text.
+                    All stored passwords in the web service configuration will be exported in plain text format.
                 </para>
             </warning>
             <para>
@@ -227,8 +213,8 @@
             </para>
             <note>
                 <para>
-                    Each browser on each operating system has its own save dialog screen and style,
-                    depending on the browser and its configuration it is possible that no dialog is
+                    Each browser on each operating system has its own save dialog screen and style.
+                    Depending on the browser and its configuration it is possible that no dialog is
                     shown and the file is saved to a default directory on your file system. Please
                     check your browser documentation for more specific instructions if needed.
                 </para>
@@ -297,7 +283,7 @@
                 section.
             </para>
             <para>
-                If changes to the current web service configuration does not work as expected and
+                If changes to the current web service configuration do not work as expected and
                 it is not easy to revert the changes manually, you can click on the "Revert web service
                 configuration" button. This will open a dialog to ask you if you are sure to revert
                 the web service configuration. Click "Revert web service configuration" in this
@@ -307,11 +293,10 @@
             <warning>
                 <para>
                     Remember that any passwords stored in the web service configuration will be
-                    exported as plain text.
+                    exported in plain text format.
                 </para>
                 <para>
-                    Please be careful when you restore a configuration because this can't
-                    be undone.
+                    Please be careful when you restore a configuration because this the process is irreversible.
                 </para>
             </warning>
             <para>
@@ -338,7 +323,7 @@
             </para>
             <warning>
                 <para>
-                    Delete a web service can't be undone, please be careful when deleting a web
+                    Deleting a web service can't be undone, please be careful when deleting a web
                     service.
                 </para>
              </warning>
@@ -434,12 +419,12 @@
             <para>
                 The web service configuration needs to be saved on each level. This means that if a
                 setting is changed, links to other, deeper parts of the configuration will be
-                disabled forcing to save the current configuration level. After saving the disabled
+                disabled forcing you to save the current configuration level. After saving the disabled
                 links will be re-enabled again allowing you to continue with the configuration.
             </para>
             <para>
                 On the "OTRS as provider" section it is possible to set or configure the network
-                transport protocol. Only network transport backends that are registered are shown
+                transport protocol. Only network transport back-ends that are registered are shown
                 on the list. To configure the network transport click on the "Configure" button.
                 It is also possible to add new operations in this box. To do this select one of the
                 available operations from the "Add Operation" list. This will lead you to the
@@ -468,14 +453,14 @@
             <note>
                 <para>
                     Like the other Generic Interface configuration screens such as Network
-                    Transport, operation, Invoker and Mapping, the initial configuration (add)
-                    screen will only present two options: "Save" and "Cancel", when the
-                    configuration is re-visited then a new option "Save and Finish" will appear.
+                    Transport, Operation, Invoker and Mapping, the initial configuration (add)
+                    screen will only present two options: "Save" and "Cancel". If the
+                    configuration is re-visited, a new option "Save and Finish" will appear.
                     The behavior of this feature is defined below.
                 </para>
                 <para>
                     "Save" will store the current configuration level in the database and it will
-                    return to the same screen to review your changes or to configure deeper
+                    return to the previous screen to review your changes or to configure deeper
                     settings.
                 </para>
                 <para>
@@ -498,10 +483,10 @@
                 they should look similar to the "HTTP::SOAP" transport configuration module.
             </para>
             <para>
-                For "HTTP::SOAP" protocol as provider the configuration is quite simple.
+                It is quite simple to configure the "HTTP::SOAP" protocol as provider.
                 There are only two settings: "Namespace" and "Maximum message length". These fields
                 are required. The first one is a URI to give SOAP methods a context, reducing
-                ambiguities, and the second one it's a field where you can specify the maximum size
+                ambiguities, and the second one is a field where you can specify the maximum size
                 (in bytes) for SOAP messages that OTRS will process.
             </para>
             <para>
@@ -521,25 +506,25 @@
                 The actions that can be performed when you are using OTRS as a provider are called
                 "Operations". Each operation belongs to a controller. Controllers are
                 collections of operations or invokers, normally operations from the same
-                controller need similar settings and shares the same configuration dialog. But each
-                operation can have independent configuration dialogs if needed.
+                controller need similar settings and share the same configuration dialog. But each
+                operation can have independent configuration dialogues if needed.
             </para>
             <para>
                 Name, Description, Backend, and Mappings are fields that normally appear on
                 every operation, other special fields can appear in non default configuration
-                dialogs to fulfill specific needs of the operation.
+                dialogues to fulfill specific needs of the operation.
             </para>
             <para>
                 Normally there are two mapping configuration sections on each operation, one for the
                 incoming data and another one for the outgoing data. You can choose different
                 mapping types (backends) for each mapping direction, since their configuration is
                 independent from each other and also independent from the operation backend. The
-                normal and most common practice is that the operation uses same mapping type in
+                normal and most common practice is that the operation uses the same mapping type in
                 both cases (with inverted configuration). The complete mapping configuration is
                 done in a separate screen which depends on the mapping type.
             </para>
             <para>
-                The operation backend is pre-filled and is not editable. You will see this parameter when
+                The operation backend is pre-populated and is not editable. You will see this parameter when
                 you choose the operation on the web service edit screen. The field is only informative.
             </para>
             <para>
@@ -628,14 +613,14 @@
                 <para>
                     The actions that can be performed when you are using OTRS as a requester are
                     called "Invokers". Each invoker belongs to a controller (controllers are
-                    collections of operations or invokers), normally invokers from the same
-                    controller need similar settings and share the same configuration dialogs.
-                    Each invoker can have independent configuration dialogs if needed.
+                    collections of operations or invokers). Usually invokers from the same
+                    controller need similar settings and share the same configuration dialogues.
+                    Each invoker can have independent configuration dialogues if needed.
                 </para>
                 <para>
                     Name, Description, Backend, and Mappings are fields that normally appear on
-                    every invoker, as well as the list of event triggers other special fields can
-                    appear on non default configuration dialogs to fulfill special needs of the
+                    every invoker. Additionally  the list of event triggers and other special fields can
+                    appear on non default configuration dialogues to fulfill special needs of the
                     invoker.
                 </para>
                 <para>
@@ -649,9 +634,8 @@
                     mapping type.
                 </para>
                 <para>
-                    The invoker backend is pre-filled and is not editable. You will see this parameter
+                    The invoker backend is pre-populated and can not be edited. You will see this parameter
                     when you choose the invoker on the web service edit screen. The field is only informative.
-                    informative.
                 </para>
                 <para>
                     Event triggers are events within OTRS such as "TicketCreate", "ArticleSend", etc.
@@ -663,7 +647,7 @@
                 </para>
                 <note>
                     <para>
-                        The OTRS Scheduler is a separated process that executes tasks in the background.
+                        The OTRS Scheduler is a separate process that executes tasks in the background.
                         Using this the OTRS process itself will not be affected if the Remote System
                         takes a long time to respond, if it is not available or if there are network
                         problems. If you don't use the scheduler using web services can make OTRS slow or non-responsive. Therefore
@@ -671,16 +655,16 @@
                     </para>
                 </note>
                 <para>
-                    To add an Event trigger first select the event family from the first list, then
+                    To add an Event trigger, first select the event family from the first list, then
                     the event name from the second list, then set the asynchronous property (if
-                    unchecked means that the event trigger will not be asynchronous) and then click
+                    unchecked means that the event trigger will not be asynchronous) and finally click
                     on the plus button. A new event trigger will be created and it will be listed
                     on the invoker "Event Triggers" list.
                 </para>
                 <para>
                     To delete an Event trigger, simply locate the event trigger to be deleted in the
                     "Event Triggers" list and click on the trash icon at the end of the row. This will
-                    open a dialog that ask you if you are sure to delete the event trigger. Click
+                    open a dialog that asks you if you are sure to delete the event trigger. Click
                     "Delete" to remove the event trigger from the list, or "Cancel" to close the
                     dialog.
                 </para>
@@ -709,10 +693,10 @@
                     one format to another (map or change data structure), because normally a web
                     service is used to interact with a Remote System, that is highly probable that
                     is not another OTRS system and / or could not understand the OTRS data
-                    structures and values. In these cases some or all values has to be changed,
-                    and sometimes even the names of the values (keys) or sometimes the
+                    structures and values. In these cases some or all values have to be changed,
+                    and sometimes even the names of the values (keys) or even the
                     complete structure, in order to match with the expected data on the other end. To
-                    accomplish this task the the Generic Interface Mapping Layer exists.
+                    accomplish this task the Generic Interface Mapping Layer exists.
                 </para>
                 <para>
                     Each Remote System has it own data structures and it is possible to create new
@@ -722,7 +706,7 @@
                 </para>
                 <note>
                     <para>
-                        When Mapping::Simple does not cover all mapping needs for a web service
+                        When Mapping::Simple does not cover all mapping needs for a web service,
                         a new mapping module should be created. To learn more about how to create
                         new mapping modules please consult the OTRS Development Manual.
                     </para>
@@ -734,7 +718,7 @@
                 <para>
                     At the beginning of the screen you will see a general section where you can
                     set the default rules that will apply for all the unmapped keys
-                    and values. there are three options available, these options are
+                    and values. There are three options available, these options are
                     listed below:
                 </para>
                 <itemizedlist>
@@ -747,7 +731,7 @@
                         <para>
                             Ignore (drop key/value pair): when this is applied to the
                             key it deletes the key and value, because when a key is deleted then in
-                            consequence it associated value is deleted too. When this is
+                            consequence its associated value is deleted too. When this is
                             applied to the value, only the value is deleted, keeping the key,
                             that now will be associated to an empty value.
                         </para>
@@ -785,7 +769,7 @@
                 </para>
                 <para>
                     Pressing the new value map "+" button will display a new row for a value map.
-                    Here also is possible to define rules for each value to be mapped with the same
+                    Here it is also possible to define rules for each value to be mapped with the same
                     options as for the key map (Exact value and Regular expression). You can add as
                     many values to map as needed, and if you want to delete one of them, just
                     click on the "-" button for each mapping value row.
