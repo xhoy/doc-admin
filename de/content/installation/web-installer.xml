@@ -1,0 +1,174 @@
+<section id="web-installer">
+<title>Der einfache Weg - Einrichtung der Datenbank mit Hilfe des Webinstallers
+(nur für <application>MySQL</application>)</title>
+
+<para>
+Wenn Sie <application>MySQL</application> als Datenbank-Backend verwenden,
+können Sie den Web-Installer von OTRS verwenden: <ulink
+url="http://localhost/otrs/installer.pl">
+<citetitle>http://localhost/otrs/installer.pl</citetitle> </ulink> .</para>
+
+<para>
+When the web installer starts, please follow the following steps to setup
+your system:
+</para>
+
+<para>
+1. Lesen Sie die Informationen über die OTRS-Niederlassungen und klicken Sie
+auf "Weiter".
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl - Willkommensbildschirm</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer1.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: Willkommensbildschirm.</emphasis>
+</para>
+
+<para>
+2. Lesen Sie die GNU Affero General Public License und akzeptieren Sie sie
+durch Klick auf "Akzeptieren".
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - License</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: GNU Affero General Public License.</emphasis>
+</para>
+
+<para>
+3. Geben Sie Benutzernamen und Passwort für den Administrator an, den
+DNS-Namen des Servers, auf dem OTRS läuft, und den zu verwendenden
+Datenbanktyp. Prüfen Sie danach die Einstellungen.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create database initial settings</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer3.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: Datenbank-Grundeinstellungen.</emphasis>
+</para>
+
+<para>
+Wenn die Prüfung erfolgreich war, erhalten Sie einen Hinweis. Drücken Sie
+"Ok" zum Fortfahren.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create database successful checking notification</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer4.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: Hinweis auf erfolgreiche Prüfung.</emphasis>
+</para>
+
+<para>
+4. Erstellen Sie einen neuen Datenbankbenutzer, wählen Sie einen Namen für
+die Datenbank und klicken Sie auf "Weiter".
+</para>
+
+<warning>
+<para>
+Man sollte nie Standard-Passwörter verwenden. Bitte ändern Sie das
+Standardpasswort der OTRS-Datenbank!
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create database all settings</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer5.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: Datenbankeinstellungen.</emphasis>
+</para>
+
+<para>
+If the database and its user were successfully created, you will receive a
+setup notification, as shown in Figure. Click 'Next' to go to the next
+screen.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create Database setup successful</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer6.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: Bestätigung der erfolgreichen
+Datenbankeinrichtung.</emphasis>
+</para>
+
+<para>
+5. Geben Sie alle benötigten Systemeinstellungen an und klicken Sie
+"Weiter".
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - System Settings</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer7.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: Systemeinstellungen.</emphasis>
+</para>
+
+<para>
+6. If desired, you can provide the needed data to configure your inbound and
+outbound mail, or skip this step by pressing the right button at the bottom
+of the screen (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Mail Configuration</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer8.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Abb.: E-Mail-Konfiguration.</emphasis>
+</para>
+
+<para>
+Congratulations! Now the installation of OTRS is finished and you should be
+able to work with the system (see Figure below). To log into the web
+interface of OTRS, use the address <ulink
+url="http://localhost/otrs/index.pl">
+<citetitle>http://localhost/otrs/index.pl</citetitle> </ulink> from your web
+browser. Log in as OTRS administrator, using the username 'root@localhost'
+and the password 'root'. After that, you can configure the system to meet
+your needs.
+</para>
+
+<warning>
+<para>
+Bitte ändern Sie das Passwort für den Benutzer 'root@localhost' umgehend.
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Finished</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer9.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Web installer final screen.</emphasis>
+</para>
+
+</section>

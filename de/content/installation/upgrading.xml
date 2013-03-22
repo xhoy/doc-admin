@@ -15,8 +15,8 @@ path to 3.1 first (1.1->1.2->1.3->2.0->2.1->2.2->2.3->2.4->3.0->3.1->3.2
 ...)!
 </para>
 <para>
-    Please note that if you upgrade from OTRS 2.2 or earlier, you have to take
-an extra step; please read <ulink
+    Please note that if you upgrade from OTRS 2.2 or earlier, you must take an
+extra step; please read <ulink
 url="http://bugs.otrs.org/show_bug.cgi?id=6798">http://bugs.otrs.org/show_bug.cgi?id=6798</ulink>.
 </para>
 <para>
@@ -151,13 +151,13 @@ shell&gt; /opt/otrs/bin/otrs.CheckModules.pl
              Note: new tables created in the MySQL UPGRADING process will be created with
 the default table storage engine set in your MySQL server.  In MySQL 5.5 the
 new default type is InnoDB.  If existing tables, e.g. "users", have the
-table storage engine e.g. MyISAM, then an error will be displayed when
+table storage engine, e.g. MyISAM, then an error will be displayed when
 creating the foreign key constraints.
          </para>
          <para>
-            You have two options: you can change the default storage engine of MySQL
+            You have two options: (1) you can change the default storage engine of MySQL
 back to MyISAM so that new tables will have the same engine as the existing
-tables, or change the existing tables to use InnoDB as storage engine.
+tables, or (2) change the existing tables to use InnoDB as storage engine.
         </para>
         <para>
             Any problems with regards to the storage engine will be reported by the
@@ -192,7 +192,7 @@ $Self->{DatabasePostgresqlBefore82} = 1;
             <screen>
 shell&gt; scripts/DBUpdate-to-3.2.pl
             </screen> Do not continue the upgrading process if
-this script did not work properly for you.  Otherwise data loss may occur.
+this script does not work properly for you.  Otherwise data loss may occur.
         </para>
       </listitem>
       <listitem>

@@ -44,9 +44,9 @@ damit OTRS ordnungsgemäß funktioniert:
 </para>
 
 <para>
-Verwenden Sie die Konfigurationsparameter aus dem Skript in Ihrer Datei
-<filename>Kernel/Config.pm</filename>, wenn Sie Kundeninformationen anzeigen
-möchten.
+Use the configuration parameters of the following script in your
+<filename>Kernel/Config.pm</filename> file, if you want to display customer
+information in your agent interface.
 </para>
 
 <para>
@@ -225,8 +225,8 @@ file.</emphasis>
 </para>
 
 <para>
-Natürlich können Sie all diese Kundeninformationen dann auch über das
-Admin-Interface bzw. die Kundenverwaltung pflegen.
+It is also possible to edit all of this customer information via the
+Customers link in the Agent interface.
 </para>
 
 <section id='multi-customer-ids-db'>
@@ -273,7 +273,7 @@ linux:~#
 </para>
 
 <para>
-	<emphasis>Skript: Hinzufügen eines Feldes customer_ids zur Tabelle
+    <emphasis>Skript: Hinzufügen eines Feldes customer_ids zur Tabelle
 customer_user.</emphasis>
 </para>
 
@@ -501,7 +501,7 @@ Werte "B;C;" ein.
 </section>
 
 <section id='multiple-customer-backends'>
-<title>Verwenden mehrerer Kunden Backends</title>
+<title>Gleichzeitige Einbindung mehrerer verschiedener Kunden Backends</title>
 
 <para>
 Soll mehr als nur ein Back-end mit verschiedenen Kundendaten verwendet

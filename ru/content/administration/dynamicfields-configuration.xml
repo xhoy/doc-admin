@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-
 <section id="dynamicfields-configuration">
     <title>Настройка Системы</title>
     <para>
@@ -20,7 +19,7 @@ the "SysConfig" screen.
     <section id="dynamicfields-configuration-add">
         <title>Добавление Динамического Поля</title>
         <para>
-            Click in the "Admin" button located in the navigation bar, then click on the
+            Click on the "Admin" button located in the navigation bar, then click on the
 "Dynamic Field" link inside "Ticket Settings" box located in the lower
 center of the screen.  The dynamic fields overview will display as follows:
         </para>
@@ -94,8 +93,8 @@ side bar.
                 </para>
                 <para>
                     This is the internal name of the field, used for example to show or hide a
-field in one screen. Any modification on field name (not recommended) will
-need manual a update on the "SysConfig" settings where the field is
+field in one screen. Any modification of a field name (not recommended)
+requires a manual update of the "SysConfig" settings where the field is
 referenciated.
                 </para>
             </listitem>
@@ -104,8 +103,8 @@ referenciated.
                     Метка: Обязательное.
                 </para>
                 <para>
-                    This is field name to be displayed in the screens, оно может быть переведено
-на дргуие языки.
+                    This is the field name to be displayed on the screens, it supports
+translations.
                 </para>
                 <note>
                     <para>
@@ -118,9 +117,9 @@ referenciated.
                     Порядок Полей: Обязательно.
                 </para>
                 <para>
-                    Определяет относительный порядок, в котором поля будут отображаться на
-экране, по умолчанию каждое новое поле занимает последнюю позицию, изменение
-этого параметра будет влиять на порядок других динамических полей.
+                    Defines the relative order in which the field will be displayed on the
+screen, by default each new field has the last position, a change in this
+setting will affect the other of the other created dynamic fields.
                 </para>
             </listitem>
             <listitem>
@@ -226,9 +225,8 @@ referenciated.
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    Это значеие, которое будет отображаться по умолчанию на страницах
-редактирования (например, Новая Заявка на основе Телефонного Звонка или
-Создать Заявку).
+                    This is the value to be shown by default on the edit screens (like New Phone
+Ticket or Ticket Compose).
                 </para>
             </listitem>
             <listitem>
@@ -286,7 +284,7 @@ Text.</emphasis>
                     Количество столбцов: Необязательное, Целое.
                 </para>
                 <para>
-                    Это значение используется для определения ширины поля редактирования.
+                    This value is used to define the width of the field in the edit screens.
                 </para>
             </listitem>
             <listitem>
@@ -325,10 +323,9 @@ false, изображено как выбранныи или не выбранн
                     Значение по умолчанию: Обязательное.
                 </para>
                 <para>
-                    Это значение, которое будет показано по умолчанию на страницах
-редактирования (например заявка, созданная на основе телефонного звонка),
-значение по умолчанию для этого поля недоступно для выбора и может принимать
-значения Выбрано (Checked) или (Не выбрано).
+                    This is the value to be shown by default on the edit screens (like New Phone
+Ticket or Ticket Compose), the default value for this field is closed
+selection which can be Checked or Unchecked.
                 </para>
             </listitem>
         </itemizedlist>
@@ -359,9 +356,8 @@ fileref="screenshots/dynamicfields-configuration-checkbox.png"></graphic></scree
                     Возможные значения: Обязательное.
                 </para>
                 <para>
-                    Списко значений для выбора. List of values to choose. При добавлении нового
-значеня необходимо указать Ключ (внутреннее значение) и Значение (значение,
-которое отображается).
+                    List of values to choose. If used, a new value is necessary to specify the
+Key (internal value) and the Value (display value).
                 </para>
             </listitem>
             <listitem>
@@ -369,10 +365,9 @@ fileref="screenshots/dynamicfields-configuration-checkbox.png"></graphic></scree
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    Это значение будет отображено по умолчанию на страницах редактирования
-(наример, на странице Заявки, созданной на основе телефонного звонка или
-странице создания Заявки), значение по умолчанию для этого поля - поле
-Select с выбором всех возможных значений.
+                    This is the value to be show by default on the edit screens (like New Phone
+Ticket or Ticket Compose), the default value for this field is closed
+selection defined by the Possible values.
                 </para>
             </listitem>
             <listitem>
@@ -410,7 +405,7 @@ language files.
                 <note>
                     <para>
                         The use of $LQData{"NameX"} in the Set link value, where NameX is the name
-of the field will add the field value as part of the link reference.
+of the field, will add the field value as part of the link reference.
                     </para>
                 </note>
             </listitem>
@@ -429,8 +424,8 @@ fileref="screenshots/dynamicfields-configuration-dropdown.png"></graphic></scree
     <section id="dynamicfields-configuration-multiselect">
         <title>Конфигурация Динамического Поля Multiselect (множественный выбор)</title>
         <para>
-            Динамическое поле Multiselect используется для хранения нескольких значений
-из закрытого списка.
+            Multiselect dynamic field is used to store multiple values, from a closed
+list.
         </para>
         <itemizedlist>
             <para>
@@ -441,9 +436,8 @@ fileref="screenshots/dynamicfields-configuration-dropdown.png"></graphic></scree
                     Возможные значения: Обязательное.
                 </para>
                 <para>
-                    Списко значений для выбора. List of values to choose. При добавлении нового
-значеня необходимо указать Ключ (внутреннее значение) и Значение (значение,
-которое отображается).
+                    List of values to choose from. When adding additional list items, it is
+necessary to specify the Key (internal value) and the Value (display value).
                 </para>
             </listitem>
             <listitem>
@@ -451,10 +445,9 @@ fileref="screenshots/dynamicfields-configuration-dropdown.png"></graphic></scree
                     Значение по умолчанию: Необязательное.
                 </para>
                 <para>
-                    Это значение будет отображено по умолчанию на страницах редактирования
-(наример, на странице Заявки, созданной на основе телефонного звонка или
-странице создания Заявки), значение по умолчанию для этого поля - поле
-Select с выбором всех возможных значений.
+                    This is the value to be shown by default on the edit screens (like New Phone
+Ticket or Ticket Compose), the default value for this field is closed
+selection as defined by the Possible values.
                 </para>
             </listitem>
             <listitem>
@@ -462,9 +455,8 @@ Select с выбором всех возможных значений.
                     Добавить пустое значени: Обязательное, (Да / Нет).
                 </para>
                 <para>
-                    Если эта опция включена, дополнительная стоимость определяется для
-отображения "-" в списке возможных значений, это специально значение пустоне
-внутри.
+                    If this option is activated an extra value is defined to show as a "-" in
+the list of possible values. This special value is empty internally.
                 </para>
             </listitem>
             <listitem>
@@ -516,9 +508,9 @@ fileref="screenshots/dynamicfields-configuration-multiselect.png"></graphic></sc
                     Определить период лет: Обязательно (Да / Нет).
                 </para>
                 <para>
-                    Используется для установки определенного количества лет в прошлом и будущем
-относительно текущей даты, выбранной в поле Select. Если установлено в
-значение Yes, следующие опции будут доступны:
+                    Used to set a defined number of years in the past and the future based on
+the current date of the year select for this field, If set to Yes the
+following options are available:
                 </para>
                 <para>
                     <itemizedlist>
@@ -527,8 +519,8 @@ fileref="screenshots/dynamicfields-configuration-multiselect.png"></graphic></sc
                                 Лет в прошлом: Опционально, положительное целое число.
                             </para>
                             <para>
-                                Define the number of years in past from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the past from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                         <listitem>
@@ -536,8 +528,8 @@ selection for this dined in edit screens.
                                 Лет в будущем: Опционально, Положительное целое.
                             </para>
                             <para>
-                                Define the number of years in future from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the future from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -588,10 +580,9 @@ fileref="screenshots/dynamicfields-configuration-date.png"></graphic></screensho
                     Разница дат по умолчанию: Опционально, Целое.
                 </para>
                 <para>
-                    Количество секунд (положительное или отрицательное значение) между текущей
-датой и выбраной дантой, которое будет отображаться на страницах
-редактирования по умолчанию (например на странице Новая Заявка на основе
-телефонного звонка или Создать Заявку).
+                    Number of seconds (positive or negative) between the current date and the
+selected date to be shown by default in the edit screens (like New Phone
+Ticket or Ticket Compose).
                 </para>
             </listitem>
             <listitem>
@@ -599,9 +590,9 @@ fileref="screenshots/dynamicfields-configuration-date.png"></graphic></screensho
                     Определить период лет: Обязательно (Да / Нет).
                 </para>
                 <para>
-                    Используется для установки определенного количества лет в прошлом и будущем
-относительно текущей даты, выбранной в поле Select. Если установлено в
-значение Yes, следующие опции будут доступны:
+                    Used to set a defined number of years in the past and thr future from thee
+current date in the year select of this field, If set to Yes the following
+options are available:
                 </para>
                 <para>
                     <itemizedlist>
@@ -610,8 +601,8 @@ fileref="screenshots/dynamicfields-configuration-date.png"></graphic></screensho
                                 Лет в прошлом: Опционально, положительное целое число.
                             </para>
                             <para>
-                                Define the number of years in past from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the past from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                         <listitem>
@@ -619,8 +610,8 @@ selection for this dined in edit screens.
                                 Лет в будущем: Опционально, Положительное целое.
                             </para>
                             <para>
-                                Define the number of years in future from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the future from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -674,9 +665,9 @@ fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
 данными.</emphasis>
         </para>
         <para>
-            Чтобы изменить или редактировать динамическое поле, нужно иметь определенным
-хотя бы одно динамическое поле, которое находится в списке выбора
-динамических полей на странице просмотра.
+            To change or edit a dynamic field you must have at least one field defined,
+select an already added field from the dynamic fields overview screen and
+update its settings.
         </para>
         <note>
             <para>
@@ -686,8 +677,8 @@ fileref="screenshots/dynamicfields-overview-filled.png"></graphic></screenshot>
             <para>
                 It is not recommended to change the field internal name, but the label can
 be changed at any time. If internal name is changed all "SysConfig" settings
-that has a reference to that particular field needs to be updated as well as
-user preferences (if defined).
+that have a reference to that particular field needs to be updated as well
+as user preferences (if defined).
             </para>
         </note>
     </section>
@@ -713,7 +704,7 @@ user preferences (if defined).
         </orderedlist>
         <itemizedlist>
             <para>
-                Следуйте этим шагам чтобы отобразить динамическое поле на экране
+                Follow these steps to show a dynamic field in a screen
             </para>
             <listitem>
                 <para>
@@ -1179,7 +1170,7 @@ ticket.
             </para>
         </note>
         <para>
-            To activate this feature is necessary to enable the following setting:
+            To activate this feature it is necessary to enable the following setting:
 "Ticket::EventModulePost###TicketDynamicFieldDefault".
         </para>
         <example id="Field1-EventDefault">
@@ -1262,9 +1253,9 @@ different value).
 "Frontend::Agent::Preferences" Sub-group. This setting is an example of how
 to create an entry in the User Preferences screen to set an exclusive
 dynamic field default value for the selected user. The limitation of this
-setting is that it only admits one dynamic field. if two or more fields will
-use this feature is necessary to create a custom XML configuration file to
-add more settings similar to this one.
+setting is that it only permits the use of one dynamic field. If two or more
+fields will use this feature, it is necessary to create a custom XML
+configuration file to add more settings similar to this one.
         </para>
         <note>
             <para>

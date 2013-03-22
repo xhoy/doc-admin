@@ -1,0 +1,174 @@
+<section id="web-installer">
+<title>Самый простой способ - использование веб-инсталлятора (работает только с
+<application>MySQL</application>)</title>
+
+<para>
+Если в качестве базы данных используется <application>MySQL</application>,
+то можно воспользоваться веб-инсталлятором OTRS: <ulink
+url="http://localhost/otrs/installer.pl">
+<citetitle>http://localhost/otrs/installer.pl</citetitle> </ulink> .</para>
+
+<para>
+When the web installer starts, please follow the following steps to setup
+your system:
+</para>
+
+<para>
+1. Проверьте информацию о OTRS-офисах и нажмите кнопку Далее (см. Рис ниже).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl - экран приветствия</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer1.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Экран приветствия.</emphasis>
+</para>
+
+<para>
+2. Прочитайте соглашения лицензии GNU Affero General Public License
+(см. Рисунок ниже)  и примите их, нажав на соответствующую кнопку внизу
+страницы.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - License</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer2.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: GNU Affero General Public License.</emphasis>
+</para>
+
+<para>
+3. Введите имя пользователя и пароль администратора, DNS-имя компьютера на
+котором находится OTRS и тип используемой СУБД. После этого, проверьте
+настройки (см. Рисунок ниже).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create database initial settings</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer3.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Первоначальная настройка базы данных.</emphasis>
+</para>
+
+<para>
+Если проверка прошла успешно, вы будете уведомлены. Чтобы продолжить,
+нажмите кнопку OK (см. Рисунок ниже).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create database successful checking notification</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer4.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Уведомление об успешной проверке.</emphasis>
+</para>
+
+<para>
+4. Создайте нового пользователя базы данных, выберите имя базы данных и
+нажмите кнопку 'Далее' (см. Рисунок ниже).
+</para>
+
+<warning>
+<para>
+Использовать пароли по умолчанию, - не очень хорошая идея. Измените
+пожалуйста пароль по умолчанию для базы данных OTRS!
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create database all settings</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer5.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Настройки базы данных.</emphasis>
+</para>
+
+<para>
+If the database and its user were successfully created, you will receive a
+setup notification, as shown in Figure. Click 'Next' to go to the next
+screen.
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Create Database setup successful</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer6.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Уведомление о успешной установке базы данных.</emphasis>
+</para>
+
+<para>
+5. Укажите все необходимые настройки системы и нажмите кнопку 'Дальше'
+(см. Рисунок ниже).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - System Settings</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer7.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Настройки системы.</emphasis>
+</para>
+
+<para>
+6. If desired, you can provide the needed data to configure your inbound and
+outbound mail, or skip this step by pressing the right button at the bottom
+of the screen (see Figure below).
+</para>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Mail Configuration</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer8.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Рисунок: Настройка электронной почты.</emphasis>
+</para>
+
+<para>
+Congratulations! Now the installation of OTRS is finished and you should be
+able to work with the system (see Figure below). To log into the web
+interface of OTRS, use the address <ulink
+url="http://localhost/otrs/index.pl">
+<citetitle>http://localhost/otrs/index.pl</citetitle> </ulink> from your web
+browser. Log in as OTRS administrator, using the username 'root@localhost'
+and the password 'root'. After that, you can configure the system to meet
+your needs.
+</para>
+
+<warning>
+<para>
+Постарайтесь как можно быстрее изменить пароль для аккаунта
+'root@localhost'.
+</para>
+</warning>
+
+<para>
+<screenshot>
+<screeninfo>installer.pl screen - Finished</screeninfo> <graphic srccredit="installer.pl -
+screenshot" scale="40" fileref="screenshots/installer9.png"></graphic></screenshot>
+</para>
+
+<para>
+<emphasis>Figure: Web installer final screen.</emphasis>
+</para>
+
+</section>

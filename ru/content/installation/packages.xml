@@ -1,80 +1,119 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-
 
 <section id="installation-of-prepared-packages">
 <title>Самый простой способ - установка из готовых бинарных пакетов</title>
 
 <para>
-Самый простой и удобный способ установки OTRS - использовать готовые
-(встроенные) пакеты, которые можно найти и загрузить перейдя по ссылке
-<ulink url="http://www.otrs.org"> <citetitle>http://www.otrs.org</citetitle>
-</ulink>. В следующих разделах описывается установка OTRS из готовых
-(встроенных) или бинарных пакетов, специально собраных для операционных
-систем: SUSE, Debian и Microsoft Windows. В случае если нету возможности
-использовать готовые (встроенные) пакеты - установку придется производить
-вручную.
+If available for your platform you should use pre-built packages to install
+OTRS, since it is the simplest and most convenient method. You can find them
+in the download area at <ulink url="http://www.otrs.com">
+<citetitle>http://www.otrs.com</citetitle> </ulink> . The following sections
+describe the installation of OTRS with a pre-built or binary package on
+SUSE, Red Hat and Microsoft Windows systems. Only if you are unable to use
+the pre-built packages for some reason should you follow the manual process.
 </para>
 
 <section id="installation-on-suse">
 <title>Установка из rpm-пакетов на сервер под управлением Suse Linux</title>
 
 <para>
-This section demonstrates the installation of a pre-built RPM package on a
-SUSE Linux distro. We have tested against all recent SLES and openSUSE
-versions. Before you start the installation, please have a look at <ulink
-url="http://www.otrs.org/downloads">
-<citetitle>http://www.otrs.org/downloads</citetitle> </ulink> and check if a
-newer OTRS RPM package is available. Always use the latest RPM package.
+This section describes the installation of our RPM package on a SUSE Linux
+server. We have tested against all recent SLES and openSUSE versions. Before
+you start the installation, please visit <ulink
+url="http://www.otrs.com/downloads">
+<citetitle>http://www.otrs.com/downloads</citetitle> </ulink> and make sure
+you use the latest OTRS RPM package available.
+</para>
+
+<section id="suse-preparing-database-mysql">
+<title>Preparing the database for OTRS</title>
+
+<para>
+You can use OTRS using different database back-ends: MySQL, PostgreSQL,
+Oracle or Microsoft SQL Server. The most popular database to deploy OTRS on
+is MySQL.  This chapter shows the steps you need to take to configure MySQL
+on a SUSE-based server. Of course you can install the database on a
+dedicated database server if needed for scalability or other purposes.
 </para>
 
 <para>
-Для установки OTRS используйте конфигурационную утилиту
-<application>yast</application> (yast2), командную строку
-и<command>rpm</command>. Так как для работы OTRS необходимы Perl-модули,
-которые по умолчанию не устанавливаются в системе SUSE, мы всегда
-рекомендуем использовать менеджер пакетов <application>yast</application>,
-поскольку он позволяет автоматически разрешать конфлиткы и зависимости между
-пакетами.
+    Install MySQL by executing the following command as root:
 </para>
 
 <para>
-If you decide to install OTRS via the command line and
-<command>rpm</command>, first you have to manually install the needed Perl
-modules. Assuming you saved the file <filename>otrs.rpm</filename> in the
-directory <filename>/tmp</filename>, you can execute the command specified
-in the following script to install OTRS.
+    <screen>
+        linux:~ # zypper install mysql perl-DBD-mysql
+    </screen>
 </para>
 
 <para>
-<screen>
-linux:~ # rpm -i /tmp/otrs-xxx.rpm
-otrs                        ##################################################
-Check OTRS user (/etc/passwd)... otrs exists.
+    This will install MySQL with the default options on your system. You'll need
+to change the defaults in order to make it suitable for OTRS. With a text
+editor open the file <filename>/etc/my.cnf</filename> and change the line
+with <command>max_allowed_packet</command> on it, and add a line below, like
+this:
+</para>
+
+<para>
+    <screen>
+        max_allowed_packet = 16M
+        query_cache_size = 32M
+    </screen>
+</para>
+
+<para>
+    Now execute <command>rcmysql restart</command> to re-start the database
+server and activate these changes. Then run
+<command>/usr/bin/mysql_secure_installation</command> and follow the
+on-screen instructions to set a database root password, remove anonymous
+access and remove the test database. Lastly, run <command>chkconfig -a
+mysql</command> in order to make sure mysql is automatically started at
+server startup time.
+</para>
+
+</section>
+
+<section id="suse-installing-rpm">
+    <title>Installing OTRS</title>
+<para>
+Install OTRS with via the command line using <command>zypper</command>. This
+will also pull in some dependencies such as the apache web server and some
+Perl modules. Make sure you copied the OTRS RPM file to the current
+directory.
+</para>
+<para>
+    <screen>
+otrs-sles:~ # zypper install otrs-3.2.*.rpm
+....
+Retrieving package otrs-3.2.3-01.noarch (1/26), 17.5 MiB (74.3 MiB unpacked)
+Installing: otrs-3.2.3-01 [done]
+Additional rpm output:
+Check OTRS user ... otrs added.
 
 Next steps:
 
 [SuSEconfig]
- Execute 'SuSEconfig' to configure the web server.
+ Execute 'SuSEconfig' to configure the webserver.
 
-[start Apache and MySQL]
- Execute 'rcapache2 start' and 'rcmysql start' in case they don't run.
+[start database and Apache]
+ Make sure your database is running and execute 'rcapache2 restart'.
 
 [install the OTRS database]
- Use a web browser and open this link:
- http://localhost/otrs/installer.pl
+ Use a webbrowser and open this link:
+ http://myserver.example.com/otrs/installer.pl
 
 [OTRS services]
- Start OTRS 'rcotrs start-force' (rcotrs {start|stop|status|restart|start-force|stop-force}).
+ Start OTRS 'rcotrs start-force' (rcotrs {start|stop|status|restart|start-force|                                                                                                                     stop-force}).
 
-Have fun!
+((enjoy))
 
  Your OTRS Team
  http://otrs.org/
 
-linux:~ #
-</screen>
+otrs-sles:~ #
+    </screen>
 </para>
 
 <para>
@@ -82,76 +121,382 @@ linux:~ #
 </para>
 
 <para>
-После установки RPM-пакета OTRS, нужно запустить
-<application>SuSEconfig</application> так, как это показано в следующем
-сценарии.
+The OTRS installation is done. Run SuSEconfig, start your web server to load
+the OTRS specific changes in its configuration, as shown in the script
+below.  Also run <command>chkconfig</command> to make sure OTRS is
+automatically started when the server reboots.
 </para>
 
 <para>
 <screen>
-linux:~ # SuSEconfig
+otrs-sles:~ # SuSEconfig
 Starting SuSEconfig, the SuSE Configuration Tool...
 Running in full featured mode.
 Reading /etc/sysconfig and updating the system...
-Executing /sbin/conf.d/SuSEconfig.aaa_at_first...
-Executing /sbin/conf.d/SuSEconfig.apache...
-Including /opt/otrs/scripts/apache-httpd.include.conf
-Executing /sbin/conf.d/SuSEconfig.bootsplash...
-Executing /sbin/conf.d/SuSEconfig.doublecheck...
-Executing /sbin/conf.d/SuSEconfig.guile...
-Executing /sbin/conf.d/SuSEconfig.hostname...
-Executing /sbin/conf.d/SuSEconfig.ispell...
-Executing /sbin/conf.d/SuSEconfig.perl...
+Executing /sbin/conf.d/SuSEconfig.glib2...
 Executing /sbin/conf.d/SuSEconfig.permissions...
-Executing /sbin/conf.d/SuSEconfig.postfix...
-Setting up postfix local as MDA...
-Setting SPAM protection to "off"...
-Executing /sbin/conf.d/SuSEconfig.profiles...
 Finished.
-linux:~ #
+otrs-sles:~ # chkconfig -a apache2
+apache2                   0:off  1:off  2:off  3:on   4:off  5:on   6:off
+otrs-sles:~ # rcapache2 start
+Starting httpd2 (prefork) httpd2-prefork: Could not reliably determine the server's fully qualified domain name, using 10.x.x.x for ServerName
+                                                                                                                                                                                          done
+otrs-sles:~ #
 </screen>
 </para>
 
 <para>
-<emphasis>Сценарий: Запуск команды SuSEconfig.</emphasis>
-</para>
-
-<para>
-The OTRS installation is done. Restart your web server to load the OTRS
-specific changes in its configuration, as shown in the script below.
-</para>
-
-<para>
-<screen>
-linux:~ # rcapache2 restart
-Shutting down httpd                                         done
-Starting httpd [ PERL ]                                     done
-linux:~ #
-</screen>
-</para>
-
-<para>
-<emphasis>Сценарий: Перезапуск веб-сервера.</emphasis>
-</para>
-
-<para>
-Следующим шагом является установка базы данных OTRS, как это сделать,
-читайте здесь <link linkend="database-configuration">раздел 3.2.4.</link>
+<emphasis>Script: Starting the web server.</emphasis>
 </para>
 
 </section>
 
-<section id="installation-on-centos">
-<title>Установка OTRS в операционной системе CentOS</title>
+<section id="suse-installation-perl-modules">
+    <title>Installation of additional perl modules</title>
+    <para>OTRS needs some more modules than can be installed by the RPM. You can
+post-install them manually. You can check what modules you are missing by
+running the <filename>bin/otrs.CheckModules.pl</filename> script located in
+the <filename>/opt/otrs</filename> directory.  Some modules are only needed
+for optional functionality, such as communication with IMAP(S) servers or
+PDF generation.  On SLES you should add an external repository to the zypper
+configuration in order to get the modules needed for your system.  Choose
+the module needed for your OS version from here: <ulink
+url="http://download.opensuse.org/repositories/devel:/languages:/perl/">http://download.opensuse.org/repositories/devel:/languages:/perl/</ulink>.
+Add the repository like this:
+    </para>
+
+    <para>
+        <screen>
+ zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 Perl
+        </screen>
+    </para>
+    <para>
+        The first time you use zypper after you added this repository, you will be
+prompted to add its key. Now you can install missing modules like below.
+    </para>
+    <para>
+        <screen>
+otrs-sles:/opt/otrs # zypper install -y "perl(YAML::LibYAML)"
+Refreshing service 'susecloud'.
+Retrieving repository 'perl' metadata [\]
+
+New repository or package signing key received:
+Key ID: DCCA98DDDCEF338C
+Key Name: devel:languages:perl OBS Project &lt;devel:languages:perl@build.opensuse.org&gt;
+Key Fingerprint: 36F0AC0BCA9D8AF2871703C5DCCA98DDDCEF338C
+Key Created: Wed Oct 10 22:04:18 2012
+Key Expires: Fri Dec 19 22:04:18 2014
+Repository: perl
+
+Do you want to reject the key, trust temporarily, or trust always? [r/t/a/?] (r): a
+Retrieving repository 'perl' metadata [done]
+Building repository 'perl' cache [done]
+Loading repository data...
+Reading installed packages...
+'perl(YAML::LibYAML)' not found in package names. Trying capabilities.
+Resolving package dependencies...
+
+The following NEW package is going to be installed:
+  perl-YAML-LibYAML
+
+The following package is not supported by its vendor:
+  perl-YAML-LibYAML
+
+Retrieving package perl-YAML-LibYAML-0.38-12.4.x86_64 (1/1), 75.0 KiB (196.0 KiB unpacked)
+Retrieving: perl-YAML-LibYAML-0.38-12.4.x86_64.rpm [done (55.7 KiB/s)]
+Installing: perl-YAML-LibYAML-0.38-12.4 [done]
+        </screen>
+    </para>
 
 <para>
-On the OTRS Wiki you can find detailed instructions for setting up OTRS on a
-CentOS system. Please note that these instructions will also apply to Red
-Hat Linux systems since they use the same source: <ulink
-url="http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5">
-http://wiki.otrs.org/index.php?title=Installation_of_OTRS_3.0b1_on_CentOS_5.5
-</ulink> .
+The next step is to configure OTRS using the web installer, as described
+<link linkend="web-installer">in this section</link>.
 </para>
+
+</section>
+
+</section>
+
+<section id="installation-on-centos">
+<title>Installing OTRS on a Red Hat Enterprise Linux or CentOS system</title>
+
+<para>
+This section describes the installation of our RPM package on a Red Hat
+Enterprise Linux (RHEL) or CentOS server. We ship separate RPMs for versions
+5 and 6 of RHEL and CentOS. Before you start the installation, please visit
+<ulink url="http://www.otrs.com/downloads">
+<citetitle>http://www.otrs.com/downloads</citetitle> </ulink> and make sure
+you use the latest OTRS RPM package available.
+</para>
+
+<section id="rhel-preparing-database-mysql">
+<title>Preparing the database for OTRS</title>
+
+<para>
+You can use OTRS using different database back-ends: MySQL, PostgreSQL,
+Oracle or Microsoft SQL Server. The most popular database to deploy OTRS on
+is MySQL.  This chapter shows the steps you need to take to configure MySQL
+on a SUSE-based server. Of course you can install the database on a
+dedicated database server if needed for scalability or other purposes.
+</para>
+
+<para>
+    Install MySQL by executing the following command as root:
+</para>
+
+<para>
+    <screen>
+        [root@otrs-centos6 ~]# yum -y install mysql-server
+    </screen>
+</para>
+
+<para>
+    This will install MySQL with the default options on your system. You'll need
+to change the defaults in order to make it suitable for OTRS. With a text
+editor open the file <filename>/etc/my.cnf</filename> and add the next two
+lines under the [mysqld] section:
+</para>
+
+<para>
+    <screen>
+        max_allowed_packet=16M
+        query_cache_size=32M
+    </screen>
+</para>
+
+<para>
+    Now execute <command>service mysqld start</command> to re-start the database
+server and activate these changes. Then run
+<command>/usr/bin/mysql_secure_installation</command> and follow the
+on-screen instructions to set a database root password, remove anonymous
+access and remove the test database. Lastly, run <command>chkconfig mysqld
+on</command> in order to make sure mysql is automatically started at server
+startup time.
+</para>
+
+</section>
+
+<section id="rhel-installing-rpm">
+    <title>Installing OTRS</title>
+<para>
+Install OTRS with via the command line using <command>yum</command>. This
+will also pull in some dependencies such as the apache web server and some
+Perl modules. Make sure you copied the OTRS RPM file to the current
+directory.
+</para>
+<para>
+    <screen>
+[root@otrs-centos6 ~]# yum install otrs-3.2.*.rpm
+...
+Dependencies Resolved
+
+================================================================================
+ Package                    Arch   Version                Repository       Size
+================================================================================
+Installing:
+ otrs                       noarch 3.2.3-01               /otrs-3.2.3-01.noarch
+                                                                           74 M
+Installing for dependencies:
+ apr                        x86_64 1.3.9-5.el6_2          updates         123 k
+ ...
+ procmail                   x86_64 3.22-25.1.el6          base            163 k
+
+Transaction Summary
+================================================================================
+Install      26 Package(s)
+
+Total size: 80 M
+Total download size: 6.0 M
+Installed size: 88 M
+Downloading Packages:
+(1/25): apr-1.3.9-5.el6_2.x86_64.rpm                     | 123 kB     00:00
+...
+(25/25): procmail-3.22-25.1.el6.x86_64.rpm               | 163 kB     00:00
+--------------------------------------------------------------------------------
+Total                                           887 kB/s | 6.0 MB     00:06
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : apr-1.3.9-5.el6_2.x86_64                               1/26
+  ...
+  Installing : otrs-3.2.3-01.noarch                                   26/26
+Check OTRS user ... otrs added.
+
+Next steps:
+
+[httpd services]
+ Restart httpd 'service httpd restart'
+
+[install the OTRS database]
+ Make sure your database server is running.
+ Use a web browser and open this link:
+ http://myserver.example.com/otrs/installer.pl
+
+[OTRS services]
+ Start OTRS 'service otrs start' (service otrs {start|stop|status|restart).
+
+((enjoy))
+
+ Your OTRS Team
+
+Installed:
+  otrs.noarch 0:3.2.3-01
+
+Dependency Installed:
+  ...
+
+Complete!
+[root@otrs-centos6 ~]#
+    </screen>
+</para>
+
+<para>
+<emphasis>Сценарий: Команда для установки OTRS.</emphasis>
+</para>
+
+<para>
+The OTRS installation is now done. Now you should make sure that Apache is
+started and that it starts whenever the server reboots.
+</para>
+
+<para>
+<screen>
+[root@otrs-centos6 ~]# chkconfig httpd on
+[root@otrs-centos6 ~]# service httpd start
+Starting httpd: httpd: Could not reliably determine the server's fully qualified domain name, using 10.x.x.x for ServerName [  OK  ]
+[root@otrs-centos6 ~]#
+</screen>
+</para>
+
+<para>
+<emphasis>Script: Starting the web server.</emphasis>
+</para>
+
+</section>
+
+<section id="rhel-installation-perl-modules">
+    <title>Installation of additional perl modules</title>
+    <para>OTRS needs some more modules than can be installed by the RPM. You can
+post-install them manually. You can check what modules you are missing by
+running the <filename>bin/otrs.CheckModules.pl</filename> script located in
+the <filename>/opt/otrs</filename> directory.  Some modules are only needed
+for optional functionality, such as communication with IMAP(S) servers or
+PDF generation.  On Red Hat or CentOS we recommend installing these modules
+from the EPEL repository, a repository maintained by the Fedora project,
+which provides high quality packages for RHEL and derivatives. Check for
+more information <ulink url="http://fedoraproject.org/wiki/EPEL">the EPEL
+web site</ulink>.
+    </para>
+
+    <para>
+        If you're on RHEL 6 or CentOS 6, you can get the latest package for EPEL
+from <ulink
+url="http://download.fedoraproject.org/pub/epel/6/i386/repoview/epel-release.html">this
+site</ulink>.  You can add this repository to yum it in one go by copying
+the RPM URL you find on this page and executing this command:
+    </para>
+
+    <para>
+        <screen>
+ [root@otrs-centos6 otrs]# yum -y install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+Loaded plugins: security
+Setting up Install Process
+epel-release-6-8.noarch.rpm                                   |  14 kB     00:00
+Examining /var/tmp/yum-root-7jrJef/epel-release-6-8.noarch.rpm: epel-release-6-8.noarch
+Marking /var/tmp/yum-root-7jrJef/epel-release-6-8.noarch.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:6-8 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=====================================================================================
+ Package             Arch          Version     Repository                       Size
+=====================================================================================
+Installing:
+ epel-release        noarch        6-8         /epel-release-6-8.noarch         22 k
+
+Transaction Summary
+=====================================================================================
+Install       1 Package(s)
+
+Total size: 22 k
+Installed size: 22 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : epel-release-6-8.noarch                                           1/1
+  Verifying  : epel-release-6-8.noarch                                           1/1
+
+Installed:
+  epel-release.noarch 0:6-8
+
+Complete!
+[root@otrs-centos6 otrs]#
+        </screen>
+    </para>
+    <para>
+        The first time you use yum after you added this repository, you will be
+prompted to add its key. Now you can install missing modules like below.
+    </para>
+    <para>
+        <screen>
+[root@otrs-centos6 otrs]# yum -y install "perl(Text::CSV_XS)"
+Loaded plugins: security
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package perl-Text-CSV_XS.x86_64 0:0.85-1.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=====================================================================================
+ Package                   Arch            Version               Repository     Size
+=====================================================================================
+Installing:
+ perl-Text-CSV_XS          x86_64          0.85-1.el6            epel           71 k
+
+Transaction Summary
+=====================================================================================
+Install       1 Package(s)
+
+Total download size: 71 k
+Installed size: 154 k
+Downloading Packages:
+perl-Text-CSV_XS-0.85-1.el6.x86_64.rpm                        |  71 kB     00:00
+warning: rpmts_HdrFromFdno: Header V3 RSA/SHA256 Signature, key ID 0608b895: NOKEY
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+Importing GPG key 0x0608B895:
+ Userid : EPEL (6) &lt;epel@fedoraproject.org&gt;
+ Package: epel-release-6-8.noarch (@/epel-release-6-8.noarch)
+ From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+Is this ok [y/N]: y
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : perl-Text-CSV_XS-0.85-1.el6.x86_64                                1/1
+  Verifying  : perl-Text-CSV_XS-0.85-1.el6.x86_64                                1/1
+
+Installed:
+  perl-Text-CSV_XS.x86_64 0:0.85-1.el6
+
+Complete!
+[root@otrs-centos6 otrs]#
+        </screen>
+    </para>
+
+<para>
+The next step is to configure OTRS using the web installer, as described
+<link linkend="web-installer">in this section</link>.
+</para>
+
+</section>
 
 </section>
 
@@ -185,16 +530,15 @@ http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)
 <title>Установка OTRS на операционной системе Microsoft Windows</title>
 
 <para>
-Устанавливать OTRS в операционной системе Microsoft Windows очень легко и
-просто. Перейдя по ссылке <ulink url="http://www.otrs.org/downloads/">
-<citetitle>http://www.otrs.org/downloads/</citetitle> </ulink> загрузите
-последнюю версию установщика для Win32-платформы и сохраните файл на жестком
-диске компьютера. Затем просто запустите установочный файл и выполните все
-шаги, предложеные мастером установки. После этого можно войти в OTRS с
-правами администратора и сконфигурировать систему под свои
-требования. Используйте логин root@localhost и пароль root, чтобы войти в
-систему с правами администратора. (Примечание: логин root@localhost и пароль
-root прописаны в системе по умолчанию).
+Installing OTRS on a Microsoft Windows system is very easy. Download the
+latest installer for Win32 from <ulink url="http://www.otrs.org/downloads/">
+<citetitle>http://www.otrs.org/downloads/</citetitle> </ulink> and save the
+file to your local file system. Then simply double-click on the file to
+execute the installer, and follow the few installation steps to setup the
+system. After that you will be able to login as OTRS administrator and
+configure the system according to your needs. To log in as OTRS
+administrator use the user name 'root@localhost' and the default password
+'root'.
 </para>
 
 <warning>
@@ -206,17 +550,16 @@ root прописаны в системе по умолчанию).
 
 <important>
 <para>
-Win32-инсталлятор содержит все компоненты, необходимые для работы OTRS:
-веб-сервер <application>Apache</application>, сервер баз данных
-<application>MySQL</application>, <application>Perl</application> (со всеми
-необходимыми модулями), а также планировщик задач для
-Windows<application>Cron</application>. Именно по этой причине, OTRS
-необходимо устанавливать на Windows-системах, которые еще не содержат
-установленого веб-сервера <application>Apache</application> или другого, а
-также сервера баз данных <application>MySQL</application>.
+The Windows installer for OTRS contains all needed components for OTRS,
+i.e. the <application>Apache</application> web server, the
+<application>MySQL</application> database server,
+<application>Perl</application> (with all needed modules) and
+<application>cron</application> for Windows. For that reason you should only
+install OTRS on Windows systems that don't already have an installation of
+<application>Apache</application> or another web server, or a
+<application>MySQL</application> database installation.
 </para>
 </important>
-
 </section>
 
 </section>

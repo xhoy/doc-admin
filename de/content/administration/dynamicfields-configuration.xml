@@ -19,7 +19,7 @@ the "SysConfig" screen.
     <section id="dynamicfields-configuration-add">
         <title>Adding a Dynamic Field</title>
         <para>
-            Click in the "Admin" button located in the navigation bar, then click on the
+            Click on the "Admin" button located in the navigation bar, then click on the
 "Dynamic Field" link inside "Ticket Settings" box located in the lower
 center of the screen.  The dynamic fields overview will display as follows:
         </para>
@@ -90,8 +90,8 @@ different from one type of dynamic field to another.
                 </para>
                 <para>
                     This is the internal name of the field, used for example to show or hide a
-field in one screen. Any modification on field name (not recommended) will
-need manual a update on the "SysConfig" settings where the field is
+field in one screen. Any modification of a field name (not recommended)
+requires a manual update of the "SysConfig" settings where the field is
 referenciated.
                 </para>
             </listitem>
@@ -100,7 +100,8 @@ referenciated.
                     Label: Mandatory.
                 </para>
                 <para>
-                    This is field name to be displayed in the screens, it supports translations.
+                    This is the field name to be displayed on the screens, it supports
+translations.
                 </para>
                 <note>
                     <para>
@@ -113,7 +114,7 @@ referenciated.
                     Field order: Mandatory.
                 </para>
                 <para>
-                    Defines the relative order in which the field will be displayed in the
+                    Defines the relative order in which the field will be displayed on the
 screen, by default each new field has the last position, a change in this
 setting will affect the other of the other created dynamic fields.
                 </para>
@@ -220,7 +221,7 @@ choose the field from the Article dropdown list.
                     Default value: Optional.
                 </para>
                 <para>
-                    This is the value to be shown by default in the edit screens (like New Phone
+                    This is the value to be shown by default on the edit screens (like New Phone
 Ticket or Ticket Compose).
                 </para>
             </listitem>
@@ -278,7 +279,7 @@ Ticket or Ticket Compose).
                     Number of cols: Optional, Integer.
                 </para>
                 <para>
-                    This is value is used to define the width of the field in the edit screens.
+                    This value is used to define the width of the field in the edit screens.
                 </para>
             </listitem>
             <listitem>
@@ -317,9 +318,9 @@ a checked or unchecked check box.
                     Default value: Mandatory.
                 </para>
                 <para>
-                    This is the value to be shown by default in the edit screens (like New Phone
+                    This is the value to be shown by default on the edit screens (like New Phone
 Ticket or Ticket Compose), the default value for this field is closed
-selection that can be Checked or Unchecked.
+selection which can be Checked or Unchecked.
                 </para>
             </listitem>
         </itemizedlist>
@@ -349,7 +350,7 @@ fileref="screenshots/dynamicfields-configuration-checkbox.png"></graphic></scree
                     Possible values: Mandatory.
                 </para>
                 <para>
-                    List of values to choose. when add a new value is necessary to specify the
+                    List of values to choose. If used, a new value is necessary to specify the
 Key (internal value) and the Value (display value).
                 </para>
             </listitem>
@@ -358,7 +359,7 @@ Key (internal value) and the Value (display value).
                     Default value: Optional.
                 </para>
                 <para>
-                    This is the value to be show by default in the edit screens (like New Phone
+                    This is the value to be show by default on the edit screens (like New Phone
 Ticket or Ticket Compose), the default value for this field is closed
 selection defined by the Possible values.
                 </para>
@@ -398,7 +399,7 @@ filed value will make your browser to open the OTRS web page.
                 <note>
                     <para>
                         The use of $LQData{"NameX"} in the Set link value, where NameX is the name
-of the field will add the field value as part of the link reference.
+of the field, will add the field value as part of the link reference.
                     </para>
                 </note>
             </listitem>
@@ -417,7 +418,7 @@ fileref="screenshots/dynamicfields-configuration-dropdown.png"></graphic></scree
     <section id="dynamicfields-configuration-multiselect">
         <title>Multiselect Dynamic Field Configuration</title>
         <para>
-            Multiselect dynamic field is used to store a multiple values, from a closed
+            Multiselect dynamic field is used to store multiple values, from a closed
 list.
         </para>
         <itemizedlist>
@@ -429,8 +430,8 @@ list.
                     Possible values: Mandatory.
                 </para>
                 <para>
-                    List of values to choose. when add a new value is necessary to specify the
-Key (internal value) and the Value (display value).
+                    List of values to choose from. When adding additional list items, it is
+necessary to specify the Key (internal value) and the Value (display value).
                 </para>
             </listitem>
             <listitem>
@@ -438,9 +439,9 @@ Key (internal value) and the Value (display value).
                     Default value: Optional.
                 </para>
                 <para>
-                    This is the value to be show by default in the edit screens (like New Phone
+                    This is the value to be shown by default on the edit screens (like New Phone
 Ticket or Ticket Compose), the default value for this field is closed
-selection defined by the Possible values.
+selection as defined by the Possible values.
                 </para>
             </listitem>
             <listitem>
@@ -448,8 +449,8 @@ selection defined by the Possible values.
                     Add empty value: Mandatory, (Yes / No).
                 </para>
                 <para>
-                    If this option is activated an extra value is defined to show a "-" in the
-list of possible values, this special value is empty internally.
+                    If this option is activated an extra value is defined to show as a "-" in
+the list of possible values. This special value is empty internally.
                 </para>
             </listitem>
             <listitem>
@@ -499,9 +500,9 @@ Ticket or Ticket Compose).
                     Define years period: Mandatory (Yes / No).
                 </para>
                 <para>
-                    Used to set a defined number of years in past and future from current date
-in the year select of this field, If set to Yes the following options are
-available:
+                    Used to set a defined number of years in the past and the future based on
+the current date of the year select for this field, If set to Yes the
+following options are available:
                 </para>
                 <para>
                     <itemizedlist>
@@ -510,8 +511,8 @@ available:
                                 Years in the past: Optional, Positive integer.
                             </para>
                             <para>
-                                Define the number of years in past from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the past from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                         <listitem>
@@ -519,8 +520,8 @@ selection for this dined in edit screens.
                                 Years in the future: Optional, Positive integer.
                             </para>
                             <para>
-                                Define the number of years in future from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the future from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -573,7 +574,7 @@ Day, Month and Year).
                 </para>
                 <para>
                     Number of seconds (positive or negative) between the current date and the
-selected date to be show by default in the edit screens (like New Phone
+selected date to be shown by default in the edit screens (like New Phone
 Ticket or Ticket Compose).
                 </para>
             </listitem>
@@ -582,9 +583,9 @@ Ticket or Ticket Compose).
                     Define years period: Mandatory (Yes / No).
                 </para>
                 <para>
-                    Used to set a defined number of years in past and future from current date
-in the year select of this field, If set to Yes the following options are
-available:
+                    Used to set a defined number of years in the past and thr future from thee
+current date in the year select of this field, If set to Yes the following
+options are available:
                 </para>
                 <para>
                     <itemizedlist>
@@ -593,8 +594,8 @@ available:
                                 Years in the past: Optional, Positive integer.
                             </para>
                             <para>
-                                Define the number of years in past from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the past from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                         <listitem>
@@ -602,8 +603,8 @@ selection for this dined in edit screens.
                                 Years in the future: Optional, Positive integer.
                             </para>
                             <para>
-                                Define the number of years in future from current day to display in the year
-selection for this dined in edit screens.
+                                Define the number of years in the future from the current day to display in
+the year selection for this dined in edit screens.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -659,7 +660,7 @@ data.</emphasis>
         <para>
             To change or edit a dynamic field you must have at least one field defined,
 select an already added field from the dynamic fields overview screen and
-update it's settings.
+update its settings.
         </para>
         <note>
             <para>
@@ -669,8 +670,8 @@ type are fixed from the selection of the field and they can't be changed.
             <para>
                 It is not recommended to change the field internal name, but the label can
 be changed at any time. If internal name is changed all "SysConfig" settings
-that has a reference to that particular field needs to be updated as well as
-user preferences (if defined).
+that have a reference to that particular field needs to be updated as well
+as user preferences (if defined).
             </para>
         </note>
     </section>
@@ -695,7 +696,7 @@ conditions:
         </orderedlist>
         <itemizedlist>
             <para>
-                Follow this steps to show a dynamic field in a screen
+                Follow these steps to show a dynamic field in a screen
             </para>
             <listitem>
                 <para>
@@ -1154,7 +1155,7 @@ ticket.
             </para>
         </note>
         <para>
-            To activate this feature is necessary to enable the following setting:
+            To activate this feature it is necessary to enable the following setting:
 "Ticket::EventModulePost###TicketDynamicFieldDefault".
         </para>
         <example id="Field1-EventDefault">
@@ -1236,9 +1237,9 @@ different value).
 "Frontend::Agent::Preferences" Sub-group. This setting is an example of how
 to create an entry in the User Preferences screen to set an exclusive
 dynamic field default value for the selected user. The limitation of this
-setting is that it only admits one dynamic field. if two or more fields will
-use this feature is necessary to create a custom XML configuration file to
-add more settings similar to this one.
+setting is that it only permits the use of one dynamic field. If two or more
+fields will use this feature, it is necessary to create a custom XML
+configuration file to add more settings similar to this one.
         </para>
         <note>
             <para>

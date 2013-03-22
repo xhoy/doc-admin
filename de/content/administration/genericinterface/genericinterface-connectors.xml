@@ -5,17 +5,18 @@
 <section id="genericinterface-connectors">
     <title>Connectors</title>
     <para>
-        A Connector is in essence set of actions called Operations if OTRS acts as a
-web service provider or Invokers if OTRS acts as a web service
-requester. But it can also include special Mappings or Transports
+        A Connector is in essence a set of actions that are either called Operations
+if OTRS acts as a web service provider or Invokers if OTRS acts as a web
+service requester. But it can also include special Mappings or Transports.
     </para>
     <para>
-        One Connector can have only Operations, Only Invokers or both. A connector
-can even use parts of other connectors like the Mappings or Transports if
-they are not so specific for the Connector that implements them.
+        One Connector can either have only Operations, Only Invokers or both. A
+connector can even use parts of other connectors like the Mappings or
+Transports if they are not to specific for the Connector that is trying to
+implement them.
     </para>
     <para>
-        In another words a Connector is not limited to just the Controller layer but
+        In other words a Connector is not limited to just the Controller layer but
 it can be extended to Data Mapping or Network Transport layers if needed.
     </para>
     <para>
@@ -77,10 +78,10 @@ connectors like TicketCreate.
                     </para>
                     <note>
                         <para>
-                            To use the SessionID in other operations from other connectors is necessary
-that the operation implements authentication by SessionID.  all the rest of
-the bundled operations are capable to accept a valid SessionID as an
-authentication method.
+                            To use the SessionID in other operations from other connectors it is
+necessary that the operation implements authentication by SessionID.  All
+the rest of the bundled operations are capable of accepting a valid
+SessionID as an authentication method.
                         </para>
                     </note>
                     <para>Possible Attributes:</para>
@@ -145,7 +146,7 @@ authentication method.
                 <section id="generic-ticket-connector-operations-ticketcreate">
                     <title>TicketCreate</title>
                     <para>
-                        Provides an interface to create ticket in OTRS, a ticket must contain an
+                        Provides an interface to create a ticket in OTRS. A ticket must contain an
 Article and can contain several attachments, all defined Dynamic Fields can
 be also set on TicketCreate operation.
                     </para>
@@ -272,9 +273,9 @@ be also set on TicketCreate operation.
                 <section id="generic-ticket-connector-operations-ticketupdate">
                     <title>TicketUpdate</title>
                     <para>
-                        TicketUpdate operation add the capability to modify attributes from a ticket
-or add a new article, including attachments and all defined dynamic fields
-for the ticket and the new article.
+                        TicketUpdate operation adds the capability to modify attributes from an
+existing ticket or to add a new article, including attachments and all
+defined dynamic fields for the ticket and the new article.
                     </para>
                     <note>
                         <para>
@@ -412,7 +413,7 @@ for the ticket and the new article.
                     <title>TicketGet</title>
                     <para>
                         This operation is used to get all the attributes of a ticket including the
-dynamic fields, all the articles and all the attachments that belongs to the
+dynamic fields, all articles and all of the attachments that belong to the
 ticket.
                     </para>
                     <para>Possible Attributes:</para>
@@ -645,7 +646,7 @@ predefined criteria.
             <title>Web Service Configuration</title>
             <para>
                 The following is a basic but complete web service configuration file in YAML
-format to use all the Ticket Connector operations, in order to use it in
+format to use all the Ticket Connector operations. In order to use it in
 OTRS you need to copy the content, save it into a file called
 GenericTicketConnector.yml, and import it into OTRS in the Web Services
 screen in the Admin panel by clicking in the "Add web service" action from
@@ -748,9 +749,10 @@ Requester:
             <title>Perl SOAP Requester</title>
             <para>
                 The following code is a Perl script that can connect to OTRS via the generic
-interface, to perform the operations provided by the Ticket Connector, it
-uses two Perl CPAN modules SOAP::Lite and Data::Dumper, be sure that your
-environment is capable to use that modules before you try to run the scipt.
+interface. In order to perform the operations provided by the Ticket
+Connector, it uses two Perl CPAN modules SOAP::Lite and Data::Dumper. Please
+make sure that your environment is capable to use these modules before you
+try to run the scipt.
             </para>
             <para>
                 <programlisting>
@@ -758,7 +760,7 @@ environment is capable to use that modules before you try to run the scipt.
 #!/usr/bin/perl -w
 # --
 # otrs.SOAPRequest.pl - sample to send a SOAP request to OTRS Generic Interface Ticket Connector
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.org/
+# Copyright (C) 2001-2013 OTRS AG, http://otrs.com/
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU AFFERO General Public License as published by
@@ -804,9 +806,9 @@ my $NameSpace = 'http://www.otrs.org/TicketConnector/';
 # or SessionCreate. and they must to be defined in the web service.
 my $Operation = 'TicketCreate';
 
-# this variable is used to store all the parameters to be included on a request in XML format, each
-# operation has a determined set of mandatory and non mandatory parameters to work correctly, please
-# check OTRS Admin Manual in order to get the complete list.
+# this variable is used to store all the parameters to be included on a request in XML format. Each
+# operation has a determined set of mandatory and non mandatory parameters to work correctly. Please
+# check the OTRS Admin Manual in order to get a complete list of parameters.
 my $XMLData = '
 <UserLogin>some user login</UserLogin>
 <Password>some password</Password>

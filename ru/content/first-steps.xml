@@ -2,17 +2,15 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-
 <chapter id="first-steps">
 <title>Первые шаги</title>
 
 <abstract>
 <para>
-В этой главе приводится общий обзор OTRS и структура веб-интерфейса. Дается
-обьяснение таким терминам как: агенты, клиенты и администраторы. В этом
-разделе вы войдете в систему с правами OTRS-администратора и более
-внимательно ознакомитесь с настройками пользователей, доступными для каждого
-из типов аккаунта.
+The goal of this chapter is to provide a brief overview of OTRS and the
+structure of its web interface. The terms 'agents', 'customers', and
+'administrators' are introduced. We also login as the OTRS admininstrator
+and take a closer look at the user preferences available on every account.
 </para>
 </abstract>
 
@@ -52,15 +50,14 @@ screenshot" scale="40" fileref="screenshots/login.png"></graphic></screenshot>
 <title>Пользовательский веб-интерфейс</title>
 
 <para>
-В OTRS клиенты имеют отдельный веб-интерфейс, с помощью этого веб-интерфейса
-они могут создавать новые учетные записи, просматривать собственные заявки,
-создавать и редактировать заявки, изменять настройки своей учетной записи и
-т.д.
+Customers have a separate web interface in OTRS through which they can
+create new accounts, change their account settings, create and edit tickets,
+get an overview on tickets that they have created, etc.
 </para>
 
 <para>
-Continuing with the above example, the customer login screen can be reached
-by using the URL <ulink url="http://www.example.com/otrs/customer.pl">
+Continuing the above example, the customer login screen can be reached by
+using the URL <ulink url="http://www.example.com/otrs/customer.pl">
 <citetitle>http://www.example.com/otrs/customer.pl</citetitle> </ulink> with
 a web browser (see Figure below).
 </para>
@@ -82,16 +79,16 @@ screenshot" scale="40" fileref="screenshots/customer-login.png"></graphic></scre
 <title>Общедоступный веб-интерфейс</title>
 
 <para>
-В дополнение к веб-интерфейсу для агентов и пользователей, OTRS имеет
-открытый веб-интерфейс (см. ниже Рисунок 4.3), доступ к которому возможен
-посредством FAQ-модуля (который устанавливается отдельно). Он предоставляет
-открытый доступ к FAQ-системе и позволяет пользователям без авторизации
-искать информацию.
+In addition to the web interfaces for agents and customers, OTRS also has a
+public web interface which is available through the FAQ-Module. This module
+needs to be installed separately. It provides public access to the FAQ
+system and lets visitors search through FAQ entries without any special
+authorization.
 </para>
 
 <para>
-В нашем примере общий веб-интерфейс будет доступен перейдя по ссылке: <ulink
-url="http://www.example.com/otrs/faq.pl">
+In our example, the public web interface can be reached via either of the
+following URLs: <ulink url="http://www.example.com/otrs/faq.pl">
 <citetitle>http://www.example.com/otrs/faq.pl</citetitle> </ulink> , <ulink
 url="http://www.example.com/otrs/public.pl">
 <citetitle>http://www.example.com/otrs/public.pl</citetitle> </ulink>
@@ -113,12 +110,11 @@ screenshot" scale="40" fileref="screenshots/public-interface.png"></graphic></sc
 <title>Первое применение</title>
 
 <para>
-Перейдите к странице входа, как это описано в разделе <link
-linkend="agent-interface">Агентский веб-интерфейс </link>. Введите имя
-пользователя и пароль. Ввиду того что после новой установки в системе нету
-ни одного зарегистрированного пользователя, войдите с правами
-OTRS-администратора, используя для этого имя пользователя 'root@localhost' и
-пароль 'root'.
+Access the login screen as described in the section <link
+linkend="agent-interface">Agent web interface </link>. Enter a user name and
+password. Since the system has just been installed and no users have yet
+been created, login as OTRS administrator first, using 'root@localhost' for
+username and 'root' for password.
 </para>
 
 <warning>
@@ -160,12 +156,12 @@ fileref="screenshots/request-new-password.png"></graphic></screenshot>
 <title>Веб-интерфейс - обзор</title>
 
 <para>
-On successfully logging into the system, you are presented with the
+Upon successfully logging into the system, you are presented with the
 Dashboard page (see Figure below). The Dashboard is completely
 customizable. It shows your locked tickets, allows direct access through
 menus to the queue, status and escalation views, and also holds options for
 creation of new phone and e-mail tickets. It also presents a quick summary
-of the tickets which are pending, escalated, new and open.
+of the tickets which are pending, escalated, new, and open.
 </para>
 
 <para>
@@ -179,29 +175,27 @@ screenshot" scale="40" fileref="screenshots/first-screen.png"></graphic></screen
 </para>
 
 <para>
-Для большей ясности, общий веб-интерфейс разделен на несколько частей
-(областей). В верхней части окна отображается строка с общей информацией:
-имя пользователя, кнопка выхода, иконки, отображающие количество
-заблокированных заявок (позволяют прямой доступ к ним), ссылки для создания
-новой заявки на основе телефонного звонка или сообщения электронной
-почты. Также есть иконки для перехода к очереди, просмотра информации о
-статусах и эскалациях.
+To improve clarity, the general web interface is separated into different
+areas. The top row of each page shows some general information such the
+current username, the logout button, icons listing the number of locked
+tickets with direct access to them, links to create a new phone/e-mail
+ticket, etc. There are also icons to go to the queue, status, and escalation
+views.
 </para>
 
 <para>
-Под иконками находится навигационная строка. Она показывает меню,
-позволяющие переходить к разным модулям системы и позволяет выполнять
-некоторые глобальные действия. При нажатии на кнопку Панель Управления вы
-перейдете на страницу Панели Инструментов, которая по умолчанию отображается
-после входа в сисетму. Если нажать ссылку меню Заявки, откроется подменю,
-предлагающее различные действия, допустимые над заявками: создание новой
-заявки (на основе телефонного звонка или сообщения электронной почты), поиск
-конкретных заявок. Кнопка Статистика также является частью меню и позволяет
-просматривать существующую статистическую информацию, создать новую а также
-производить импорт существующей статистики. Кнопка Клиенты позволяет перейти
-на страницу Управления Клиентами. Для администрирования системы нажмите
-кнопку Администрирование. На этой странице можно создавать аккаунты для
-других агентов, очереди и т.д. Для поиска заявок используйте кнопку Поиск.
+Below the icons row is the navigation bar. It shows a menu that enables you
+to navigate to different areas or modules of the system, lettng you execute
+some global actions. Clicking on the Dashboard button takes you to the
+dashboard which is the default start page after login. If you click on the
+Tickets button, you will get a submenu with options to change the ticket's
+view, create a new ticket (phone/e-mail) or search for a specific
+ticket. The Statistics button presents a menu that allows you to choose from
+an overview of the registered statistics, creating a new one or importing an
+existing one. The Customers button leads you to the Customer Managment
+screen. By clicking the Admin button, you can access all of the
+administrator modules, which allows you to create new agents, queues,
+etc. There is also a Search button to make ticket searches.
 </para>
 
 <para>
@@ -218,29 +212,27 @@ OTRS-администратора, будет выведено сообщени�
 </para>
 
 <para>
-Под названием раздела, в котором вы находитесь в данный момент, есть
-несколько подразделов (каждый из них находится в отдельном блоке), которые
-можно перетаскивать и перемещать в пределах блока или перенести их в другое
-место.
+Below the title of the section you are currently in, there are several
+subsections, each in a separate box. These boxes can be relocated within the
+same column by clicking on and dragging the box header, and dropping them
+elsewhere.
 </para>
 
 <para>
-В левой колонке находится информация о заявках: напоминания, эскалации,
-новые или открытые. В каждой из категорий можно просматривать все заявки, к
-которым у вас есть доступ, сколько заявок заблокировано и сколько находится
-в "Мои Очереди". "Мои Очереди" - очередь, которая определяется в настройках
-пользовательского аккаунта <link
-linkend="user-preferences">предпочтения</link>. Она используется в том
-случае, когда нужно отслеживать заявки с определенными параметрами
-(характеристиками).
+In the left column, you can see information on some tickets clasified as -
+reminder, escalated, new, and open. In each of the categories, you are also
+able to see all of the tickets that you are allowed to access, how many
+tickets you have locked, and how many are located in "My Queues". "My
+Queues" are queues that you identify in your user configuration <link
+linkend="user-preferences">account preferences</link> as those you have a
+special interest in tracking.
 </para>
 
 <para>
-В правой колонке есть кнопка "Настройки". Нажмите на нее, чтобы увидеть
-различные настройки, как это показано на следующем Рисунке. Вы можете
-установить или отменить отдельные опции настройки и сохранить
-изменения. Этот раздел является фиксированным, так что вы не сможете
-свободно перемещать его по экрану.
+In the right column is the Settings button. Click on it to expand the
+section and see the various settings, as shown in Figure. You can then check
+or uncheck the individual settings options and save your changes. This
+section is fixed, so you can not drag and drop it.
 </para>
 
 <para>
@@ -254,9 +246,9 @@ settings" scale="40" fileref="screenshots/edit-settings.png"></graphic></screens
 </para>
 
 <para>
-Ниже, под настройками, можно увидеь раздел с статистическим графиком по
-заявкам за последние 7 дней. Ниже располагается секция, в которой
-отображаются Предстоящие События и новости OTRS.
+Below the settings area, you can see a section with a graph of ticket
+activity over the past 7 days. Further below is a section displaying
+Upcoming Events and OTRS News.
 </para>
 
 <para>
@@ -309,39 +301,37 @@ linkend="basic-tts-example">пример системы обработки за�
 </para>
 
 <para>
-На данный момент достаточно одной очереди, чтобы хранить в ней все запросы
-клиетов. Но через некоторое время Максим решает начать продажи
-DVD-магнитофонов. Теперь у клиентов есть вопросы касающиеся не только
-видеомагнитофонов, но и вопросы относительно нового продукта. С течением
-времени в очередь, ранее созданую Максимом, начинает приходить все больше и
-больше писем и управлятся с ними становится все труднее и труднее.
+One queue holding all requests is enough for this situation. However, after
+some time Max decides to also sell DVD recorders. Now, the customers have
+questions not only about the video recorder, but also about the new
+product. More and more emails get into the single queue of Max's OTRS and
+it's difficult to have a clear picture of what's happening.
 </para>
 
 <para>
-Однажды Максим принимает решение немного оптимизировать структуру системы
-поддержки и добавляет две новых очереди. Таким образом в системе
-используется уже три очереди. Новые заявки, только поступившие в систему
-хранятся в очереди "raw". Две новые очереди: одна для хранения заявок
-касающихся видеомагнитофонов и другая - для dvd-магнитофонов.
+Max decides to restructure his support system, and adds two new queues. So
+now three queues are being used. New messages arriving at the ticket system
+are stored into the old queue titled "raw". Of the two new queues, one
+titled "video recorder" is exclusively for video recorder requests, while
+the other one titled "dvd recorder" is exclusively for dvd recorder
+requests.
 </para>
 
 <para>
-Максим просит Маргариту просматривать очередь "raw" и сортировать емейлы
-либо в очередь "видеомагнитофоны" или в "dvd-магнитофоны", в зависимости от
-того, что запросил клиент. Андрей имееть доступ только к очереди
-"видеомагнитофоны", а Сергей может отвечать на заявки из очереди
-"dvd-магнитофоны". Маким имеет возможность редактировать заявки, находящиеся
-во всех очередях.
+Max asks Sandra to watch the "raw" queue and sort (dispatch) the messages
+either into "video recorder" or "dvd recorder" queue, depending on the
+customer request. John only has access to the "video recorder" queue, while
+Joe can only answer tickets in the "dvd recorder" queue. Max is able to edit
+tickets in all queues.
 </para>
 
 <para>
-OTRS поддерживает управление доступом для пользователей, групп и ролей,
-таким образом можно очень легко настроить очереди, которые доступны только
-для некторых учетных записей. Чтобы все запросы приходили в различные
-очереди, Максим может использовать правила фильтрации. Иначе, если
-используются два различных email-адреса, Маргарита будет сортировать и
-направлять в другие очереди только те заявки, которые не были отсортированы
-автоматически.
+OTRS supports access management for users, groups, and roles, and it is easy
+to setup queues that are accessible only to some user accounts. Max could
+also use another way to get his requests into the different queues, with
+filter rules. Otherwise, if two different mail addresses are used, Sandra
+only has to dispatch those emails into the two other queues, which can't be
+dispatched automatically.
 </para>
 
 <para>
@@ -386,9 +376,8 @@ fileref="screenshots/agent-preferences.png"></graphic></screenshot>
 </para>
 
 <para>
-Агент можен настраивать три различных категории настроек: профиль
-пользователя, настройки электронной почты и другие параметры. Возможности по
-умолчанию:
+An agent can configure 3 different categories of preferences: user profile,
+email settings, and other settings. The default posibilities are:
 </para>
 
 <itemizedlist>

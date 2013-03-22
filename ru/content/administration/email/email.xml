@@ -2,7 +2,6 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-
 <section id="email">
 <title>Отправка / получение электронной почты</title>
 
@@ -69,14 +68,13 @@ PostMaster" на странице администрирования.
 </para>
 
 <para>
-Если создан новый почтовый аккаунт/ящик (см. нижеприведенный сценарий), то
-нужно еще указать имя его почтового сервера, логин и пароль. Также,
-необходимо выбрать тип почтового сервера: POP3, POP3S, IMAP или IMAPS. Если
-в опциях не видно типа сервера, который нужно использовать, значит вы не
-установили в системе все необходимые Perl-модули. В таком случае, за более
-подробной информацией обратитесь к инструкции <link
-linkend="installation-of-perl-modules"> "Установка Perl-модулей, необходимых
-для работы OTRS"</link>.</para>
+If a new mail account is to be created (see Figure below), then its mail
+server name, login name and password must be specified. Also, you need to
+select the mail server type, which can be POP3, POP3S, IMAP or IMAPS. If you
+don't see your server type available as an option, the required Perl modules
+are missing on your system. In that case, please refer to <link
+linkend="installation-of-perl-modules"> "Installation of Perl modules
+required for OTRS"</link> for instructions.</para>
 
 <para>
 <screenshot>
@@ -240,7 +238,7 @@ url="http://fetchmail.berlios.de/">fetchmail</ulink>.
 Можно использовать файл <filename>.fetchmailrc.dist</filename> в домашней
 директории OTRS и скопировать его в
 <filename>.fetchmailrc</filename>. Изменить его в соответствии с вашими
-требованиями (см. ниже Пример 7-1).
+требованиями (см. ниже Пример 7-1). 
 </para>
 
 <example id='fetchmailrc'>

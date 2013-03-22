@@ -1,97 +1,98 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-					"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+                    "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
 <book lang="de">
-	<bookinfo>
-		<title>OTRS 3.2 - Admin Manual</title>
+    <bookinfo>
+        <title>OTRS 3.2 - Admin Manual</title>
 
-		<!--		<edition>
+        <!--        <edition>
 Cancún Beach (México)</edition> -->
 <copyright> <year>2003-2012</year> <holder>OTRS AG</holder> </copyright>
 <date>2012-08-07</date>
 
-		<legalnotice>
-			<para>
-				René Bakker, Stefan Bedorf, Michiel Beijen, Shawn Beasley, Hauke Böttcher,
+        <legalnotice>
+            <para>
+                René Bakker, Stefan Bedorf, Michiel Beijen, Shawn Beasley, Hauke Böttcher,
 Jens Bothe, Udo Bretz, Martin Edenhofer, Carlos Javier García, Martin
 Gruner, Manuel Hecht, Christopher Kuhn, André Mindermann, Marc Nilius, Elva
 María Novoa, Henning Oschwald, Martha Elia Pascual, Thomas Raith, Carlos
-Fernando Rodríguez, Stefan Rother, Burchard Steinbild, Daniel Zamorano.
-			</para>
+Fernando Rodríguez, Stefan Rother, Burchard Steinbild, Michael Thiessmeier,
+Daniel Zamorano.
+            </para>
 
-			<para>
-				Dieses Werk ist geistiges Eigentum der OTRS AG.
-			</para>
+            <para>
+                Dieses Werk ist geistiges Eigentum der OTRS AG.
+            </para>
 
-			<para>
-				Es darf als Ganzes oder in Auszügen kopiert werden, vorausgesetzt, dieser
+            <para>
+                Es darf als Ganzes oder in Auszügen kopiert werden, vorausgesetzt, dieser
 Copyright-Vermerk befindet sich auf jeder Kopie.
-			</para>
+            </para>
 
             <para>
                 The source code of this document can be found at <ulink
 url="https://github.com/OTRS/doc-admin">github</ulink>.
             </para>
 
-			<para>
-				UNIX ist ein eingetragenes Warenzeichen von X/Open Company Limited. Linux
+            <para>
+                UNIX ist ein eingetragenes Warenzeichen von X/Open Company Limited. Linux
 ist ein eingetragenes Warenzeichen von Linus Torvalds.
-			</para>
+            </para>
 
-			<para>
-				MS-DOS, Windows, Windows 95, Windows 98, Windows NT, Windows 2000, Windows
+            <para>
+                MS-DOS, Windows, Windows 95, Windows 98, Windows NT, Windows 2000, Windows
 XP, Windows 2003 und Windows Vista sind eingetragene Warenzeichen der
 Microsoft Corporation. Andere Warenzeichen oder registrierte Warenzeichen:
 SUSE und YaST von SUSE Linux GmbH, Red Hat und Fedora von Red Hat Inc.,
 Debian von Software in the Public Interest, Inc., Mandrake von MandrakeSoft,
 SA. MySQL und das MySQL Logo sind eingetragene Warenzeichen Oracle
 Corporation und/oder verbundener Unternehmen. 
-			</para>
+            </para>
 
-			<para>
-				Alle Warennamen werden ohne Gewährleistung der freien Verwendbarkeit benutzt
+            <para>
+                Alle Warennamen werden ohne Gewährleistung der freien Verwendbarkeit benutzt
 und sind möglicherweise eingetragene Warenzeichen.
-			</para>
+            </para>
 
-			<para>
-				Die Firma OTRS AG richtet sich im Wesentlichen nach den Schreibweisen der
+            <para>
+                Die Firma OTRS AG richtet sich im Wesentlichen nach den Schreibweisen der
 Hersteller. Andere hier genannte Produkte können Warenzeichen des jeweiligen
 Herstellers sein.
-			</para>
-		</legalnotice>
-	</bookinfo>
+            </para>
+        </legalnotice>
+    </bookinfo>
 
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/preface.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/preface.xml" />
     <chapter id="introduction">
         <title>Introduction</title>
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/introduction/tts.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/introduction/otrs.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/introduction/tts.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/introduction/otrs.xml" />
     </chapter>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/installation-and-basic-configuration.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/first-steps.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/installation-and-basic-configuration.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/first-steps.xml" />
     <chapter id="administration">
         <title>Administration</title>
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/adminarea.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/configuration.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/adminarea.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/configuration.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/backup-and-restore.xml" />
 
         <section id="email-settings">
             <title>Email settings</title>
-        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/email.xml" />
-        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/pgp.xml" />
-        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/smime.xml" />
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/email.xml" />
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/pgp.xml" />
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/email/smime.xml" />
         </section>
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/external-backends.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/external-backends.xml" />
         <section id="ticket-settings">
             <title>Ticket settings</title>
-        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/states.xml" />
-        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/priorities.xml" />
-        	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/monitoring-tickets.xml" />
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/states.xml" />
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/priorities.xml" />
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/ticket/monitoring-tickets.xml" />
         </section>
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/time.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/pdf-output.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/stats.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/time.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/pdf-output.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/stats.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/dynamicfields.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/genericinterface.xml" />
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/administration/scheduler.xml" />
@@ -99,16 +100,16 @@ Herstellers sein.
 
     <chapter id="customization">
         <title>Customization</title>
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/acl.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/process-management.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/themes.xml" />
-    	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/language-translation.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/acl.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/process-management.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/themes.xml" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/customization/language-translation.xml" />
     </chapter>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/performance-tuning.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/performance-tuning.xml" />
     
-	<!-- appendices -->
+    <!-- appendices -->
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/additional-resources.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="all-config-parameters.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/credits.xml" />
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/fdl.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="all-config-parameters.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/credits.xml" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/fdl.xml" />
 </book>

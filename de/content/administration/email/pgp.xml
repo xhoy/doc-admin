@@ -6,11 +6,10 @@
 <title>Secure email with PGP</title>
 
 <para>
-In OTRS können ausgehende E-Mails mit Hilfe von PGP signiert oder
-verschlüsselt werden. Ebenfalls ist es möglich verschlüsselte Nachrichten zu
-entschlüsseln. Die Ver- und Entschlüsselung mit PGP wird mit Hilfe des
-GPL-Werkzeugs <application>GnuPG</application> vorgenommen. Zur Einrichtung
-sind die folgenden Schritte notwendig:
+OTRS has the capability to sign or encrypt outgoing messages with
+PGP. Furthermore, encrypted incoming messages can be decrypted. Encryption
+and decryption are done with the GPL tool GnuPG. To setup GnuPG for OTRS,
+the following steps have to be performed:
 </para>
 
 <para>
@@ -123,7 +122,7 @@ Schlüssel erzeugt. Der Aufruf muss als Benutzer 'otrs' durchgeführt werden.
     </para>
 
     <para>
-		Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit
+        Wie man sehen kann, genügt es bei den meisten Fragen die Vorgabe mit
 &lt;EINGABE&gt; zu bestätigen. Lediglich die Angabe zur Person des
 Schlüsselbesitzers ist zu vervollständigen bzw. zum Ende hin ist an der mit
 (passphrase) gekennzeichneten Stelle die Passphrase für den zu generierenden
@@ -156,7 +155,7 @@ automatisch von GnuPG angelegt.
     </para>
 
     <para>
-		Über die letzte Option können die <link
+        Über die letzte Option können die <link
 linkend="Framework:Crypt::PGP:PGP::Key::Password">Schlüssel-Werte-Paare für
 die ID(s) und Passphrase(n)</link> der eigenen PGP-Schlüssel dem Ticket
 System bekannt gemacht werden. Noch einmal genauer: da andere

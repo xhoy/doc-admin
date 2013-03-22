@@ -2,15 +2,14 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
     "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-
 <section id="tts">
 <title>Системы Обработки Заявок - Основы</title>
 
 <abstract>
 <para>
-В этой главе дается краткий обзор идеи заявок в целом, и систем обработки
-заявок, в частности. Краткий пример иллюстрирует преимущества использования
-системы обработки заявок.
+This chapter offers a brief introduction to trouble ticket systems, along
+with an explanation of the core concept of a trouble ticket. A quick example
+illustrates the advantages of using such a system.
 </para>
 </abstract>
 
@@ -24,49 +23,43 @@
 </para>
 
 <para>
-Давайте представим, что Максим занимается производством
-видеомагнитофонов. Максим получает много писем от клиентов, которые
-нуждаются в помощи по устройству. Спустя несколько дней, у него нету
-свободного времени чтобы оперативно ответить на все письма клиентов или хотя
-бы просмотреть их. Некоторые клиенты не хотят долго ждать и пишут второе
-письмо с тем же вопросом. Все письма, содержащие просьбы о поддержке
-хранятся в одном почтовом ящике. Запросы не сортируются и Максим отвечает на
-письма пользуясь обычной программой для работы с электронной почтой.
+Let's imagine that Max is a manufacturer of video recorders. Max receives
+many messages from customers needing help with the devices. Some days, he is
+unable to respond promptly or even acknowledge the messages. Some customers
+get impatient and write a second message with the same question. All
+messages containing support requests are stored in a single inbox
+folder. The requests are not sorted, and Max responds to the messages using
+a regular email program.
 </para>
 
 <para>
-Поскольку Максим не успевает быстро дать ответ на все письма, его инженеры:
-Андрей и Александр берутся помочь Максиму. Для работы с почтой Андрей и
-Александр используют один и тот же почтовый ящик, который хранит все письма
-клиентов. Они ничего не подозревают о том, что Максим получил два одинаковых
-письма с вопросом о помощи от отчаявшегося клиента. Временами они оба
-отвечают на один и тот же запрос, и клиент получает два различных
-ответа. Более того, Максим не имеет представления о содержимом этих
-ответов. Также он не знает подробностей большинства проблем его клиентов и о
-том как они решаются, какие проблемы возникают чаще всего, а также, сколько
-времени и денег он должен потратить на поддержку клиентов.
+Since Max cannot reply fast enough to all the messages, he is assisted by
+the developers Joe and John in this. Joe and John use the same mail system,
+accessing the same inbox. They don't realize that Max often gets two
+identical requests from one frustrated customer. Sometimes they both end up
+responding separately to the same request, with the customer receiving two
+different answers. Furthermore, Max is unaware of the details of their
+responses. He is also unaware of the details of the customer problems and
+their resolutions, such as which problems occur with high frequency, or how
+much time and money he has to spend on customer support.
 </para>
 
 <para>
-На собрании коллега рассказывает Максиму о системах обработки заявок и как
-они могут решить его проблемы с поддержкой клиентов. После поиска информации
-в Интернете, Максим принимает решение установить Open Ticket Request System
-(OTRS) - Открытую Систему Обработки Заявок (далее просто OTRS) на
-компьютере, который будет доступен из веб как для клиентов компании так и
-для ее сотрудников. С этого момента, запросы клиентов больше не приходят на
-частный почтовый ящик Максима, теперь они направляются на почтовый ящик,
-который используется для OTRS. Система обработки заявок (OTRS) подключена к
-этому почтовому ящику и автоматически сохраняет все запросы в своей базе
-данных. Система генерирует авто-ответ для каждого нового запроса и
-отправляет его клиенту, так что теперь клиент может быть уверен в том, что
-его запрос поступил в обработку и ответ будет дан в ближайшее время. Для
-каждого запроса OTRS создает прямую ссылку - номер заявки. Теперь клиенты
-довольны, они получают быстрый ответ на свою заявку и им уже нет никакого
-смысла писать повтороне письмо с тем же вопросом. Максим, Андрей и Александр
-могут спокойно отвечать на поступившые запросы используя обычный веб-браузер
-для работы с OTRS. Также, следует отметить тот факт, что ни одно сообщение
-клиента не будет отредактировано дважды, поскольку система автоматически
-блокирует заявку, для которой создается ответ.
+At a meeting, a colleague tells Max about trouble ticket systems and how
+they can solve Max's problems with customer support. After looking for
+information on the Internet, Max decides to install the Open Ticket Request
+System (OTRS) on a computer that is accessible from the web by both his
+customers and his employees. Now, the customer requests are no longer sent
+to Max's private inbox but to the mail account that is used for OTRS. The
+ticket system is connected to this mailbox and saves all requests in its
+database. For every new request, the system automatically generates an
+answer and sends it to the customer so that the customer knows that his
+request has arrived and will be answered soon. OTRS generates an explicit
+reference, the ticket number, for every single request. Customers are now
+happy because their requests are acknowledged and it is not necessary to
+send a second message with the same question. Max, John, and Joe can now log
+into OTRS with a simple web browser and answer the requests. Since the
+system locks a ticket that is answered, no message is edited twice.
 </para>
 
 <para>
@@ -83,15 +76,17 @@
 </para>
 
 <para>
-Конечно, это всего лишь краткий обзор функциональных возможностей и
-особеностей систем обработки заявок. Но в случае, если в вашу компанию
-приходит множество запросов от клиентов через письма электронной почты и
-телефонные звонки и они должны обрабатываться в разное время, - система
-обработки заявок поможет существенно сэкономить время и деньги, позволит
-структурировать всю систему поддержки клиентов, сделать более прозрачным
-процесс обмена информацией между клиентами и компаниями, что неотменно
-приведет к повышению эффективности как для клиентов так и для обслуживающего
-персонала и позитивно скажется на финансовом положении компании.
+Of course, this is only a short preview of the possibilities and features of
+trouble ticket systems. But if your company has to attend to a high volume
+of customer requests through emails and phone calls, and if different
+service representatives need to respond at different times, a ticket system
+can be of great assistance. It can help streamline work flow processes, add
+efficiencies, and improve your overall productivity. A ticket system helps
+you to flexibly structure your Support or Help Desk
+environment. Communications between customers and service staff become more
+transparent. The net result is an increase in service effectiveness. And no
+doubt, satisifed customers will translate into better financial results for
+your company.
 </para>
 
 </section>
@@ -113,23 +108,21 @@
 </para>
 
 <para>
-Системы обработки заявок, такие как OTRS, обрабатывают заявки как
-обыкновенные емейлы (email). Когда клиент посылает запрос, система создает
-новую заявку, что сравнимо с открытием новой медицинской карточки пациента
-больницы. Ответ в этой новой заявке можно сравнить с записью лечащего врача
-в медицинской карточке, свидетельствующей о изменении состояния здоровья
-пациента. Заявка считается закрытой, когда клиенту отправлен ответ или если
-заявка закрыта системой автоматически. Если клиент отправляет ответ на уже
-закрытую заявку, она будет заново открыта системой и в нее будет добавлена
-новая информация. Чтобы сохранить целосность всех данных, хранящихся в
-системе, каждая заявка хранится и архивируется вместе со всей
-информацией. Поскольку заявки обрабатываются как обыкновенные сообщения
-электронной почты - вместе с ними также будут сохранены все вложения и
-контекстные аннотации. Конечно же, такая полезная информация как примечания,
-даты, данные о нанятых работниках, рабочее время необходимое для работы с
-заявкой и т.д также сохраняется системой. Все заявки могут быть
-отсортированы в соответствующем порядке, также можно с легкостью производить
-поиск всей необходимой информации.
+Trouble ticket systems such as OTRS handle trouble tickets like normal
+email. The messages are saved in the system. When a customer sends a
+request, a new ticket is generated by the system which is comparable to a
+new medical report being created. The response to this new ticket is
+comparable to a doctor's entry in the medical report. A ticket is closed if
+an answer is sent back to the customer, or if the ticket is separately
+closed by the system. If a customer responds again on an already closed
+ticket, the ticket is reopened with the new information added. Every ticket
+is stored and archived with complete information. Since tickets are handled
+like normal emails, attachments and contextual annotations will also be
+stored with each email. In addition, information on relevant dates,
+employees involved, working time needed for ticket resolution, etc. are also
+saved. At any later stage, tickets can be sorted, and it is possible to
+search through and analyze all information using different filtering
+mechanisms.
 </para>
 
 </section>

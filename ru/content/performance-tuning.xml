@@ -2,22 +2,20 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 
-
 <chapter id="performance-tuning">
 <title>Настройка Производительности</title>
 
 <abstract>
 <para>
-Ниже представлен перечень различных техник, которые можно использовать для
-получения максимально возможной производительности системы OTRS: настройка,
-кодирование, использование памяти и многое другое.
+Presented below is a list of performance enhancing techniques for your OTRS
+installation, including configuration, coding, memory use, and more.
 </para>
 </abstract>
 
 <section id="performance-tuning-otrs">
 <title>OTRS</title>
 <para>
-Есть несколько возможных вариантов улучшения производительности OTRS.
+There are several options for improving OTRS performance.
 </para>
 
 <section id="performance-tuning-otrs-index">
@@ -69,9 +67,8 @@ Kernel::System::Ticket::IndexAccelerator::StaticDB - один из самых м
 
 <listitem>
 <para>
-Настройте Kernel::System::Ticket::ArticleStorageDB (по умолчанию) для
-хранения вложений, и т.д. в базе данных. Примечание: Не используйте его для
-больших наборов данных.
+Configure Kernel::System::Ticket::ArticleStorageDB (default) to store
+attachments, etc., in the database. Note: Don't use it with large set ups.
 </para>
 <para>
 Pro: Если пользователь вашего веб-сервера не является пользователем 'otrs',
@@ -95,11 +92,10 @@ Configure Kernel::System::Ticket::ArticleStorageFS для хранения вл�
 Pro: Это быстро!
 </para>
 <para>
-Противопоказания: Пользователь веб-сервера должен быть пользователем
-'otrs'. Кроме того, если у вас есть несколько серверов, нужно убедиться в
-том, что файловая система разделяется между этими серверами. Так что
-разместите  его на общедоступный NFS-ресурс или SAN, или же используйте
-аналогичные решения.
+Con: Your web server user should be the 'otrs' user. Also, if you have
+multiple front-end servers, you should make sure the filesystem is shared
+between the servers. Place it on an NFS share or preferably a SAN or similar
+solution.
 </para>
 </listitem>
 
@@ -108,14 +104,14 @@ Pro: Это быстро!
 </para>
 
 <para>
-	Примечание: можно переключаться с одного бэк-енда на другой "на
-лету". Бэк-энды можно переключить в SysConfig и замем запустить в командной
-строке утилиту <filename>otrs.ArticleStorageSwitch.pl</filename>, чтобы
-внести статьи из базы данных в файловую систему и наоборот. Можно
-использовать опциии <emphasis>-s</emphasis> и <emphasis>-d</emphasis> для
-указания источника и конечный бэк-эенд. Обратите внимание, что весь процесс
-может занять много времени, в зависимости от количества статей, которые у
-вас есть и доступной мощности процессора и/или пропускной способности сети.
+    Note: you can switch from one back-end to the other on the fly. You can
+switch the backend in the SysConfig, and then run the command line utility
+<filename>otrs.ArticleStorageSwitch.pl</filename> to put the articles from
+the database onto the filesystem or the other way around. You can use the
+<emphasis>-s</emphasis> and <emphasis>-d</emphasis> options to specify the
+source and destination back-ends. Please note that the entire process can
+take considerable time to run, depending on the number of articles you have
+and the available CPU power and/or network capacity.
 </para>
 
 <para>
@@ -138,12 +134,12 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 реализовали функцию архивирования заявок.
     </para>
     <para>
-        Заявки, которые удовлетворяют определенным критериям, могут быть отмечены
-как "архивированные". При обычном поиске заявок или при поиске заявок с
-помощью задания Generic Agent, они  будут недоступны. Сама собой система не
-имеет дела с огромным количеством заявок, до тех пор, пока не принимается во
-внимание "последняя" заявка. Это может означать огромный прирост
-производительности на больших системах.
+        Tickets that match certain criteria can be marked as "archived" These
+tickets are not accessed if you do a regular ticket search or run a Generic
+Agent job. The system itself does not have to deal with a huge amount of
+tickets any longer as only the "latest" tickets are taken into consideration
+when using OTRS. This can result in a huge performance gain on large
+systems.
     </para>
     <para>
         Для использования функции архивации выполните следующие действия:
@@ -236,18 +232,16 @@ shell> bin/otrs.ArticleStorageSwitch.pl -s ArticleStorageDB -d ArticleStorageFS
 <title>База данных</title>
 <para>
 Решения зависят от используемой базы данных. Изучайте документацию к
-используемой базе данных или же обратитесь за помощью к администратору.
+используемой базе данных или же обратитесь за помощью к администратору. 
 </para>
 
 <section id="performance-tuning-database-mysql">
 <title>MySQL</title>
 <para>
-Если для MySQL-таблиц используется MyISAM (а по умолачанию так и есть) и из
-таблицы была удалена большая часть данных, или же производилось множество
-действий над таблицей, которая содержит строки переменной длины (таблицы,
-которые содержат поля типов  VARCHAR, BLOB или TEXT), то нужно
-дефрагментировать таблицу, или другими словами выполнить команду
-"оптимизировать".
+If you use the MySQL table type MyISAM (which is the default), and have
+deleted a large part of a table or if you have made many changes to a table
+with variable-length rows (tables that have VARCHAR, BLOB or TEXT columns),
+you must defragment the datafile (tables) with the "optimize" command.
 </para>
 <para>
 Нужно попытаться сделать это, если сервер mysqld использует много
@@ -273,9 +267,9 @@ mysql$ optimize table article;
 <section id="performance-tuning-database-postgresql">
 <title>PostgreSQL</title>
 <para>
-PostgreSQL лучше настраивается путем изменений в файле postgresql.conf
-который находится в директории с установленым PostgreSQL. За советом, как
-это сделать следите в следующих статьсях:
+PostgreSQL is best tuned by modifying the postgresql.conf file in your
+PostgreSQL data directory. For advice on how to do this, reference the
+following articles:
 </para>
 
 <para>
@@ -329,7 +323,7 @@ url="http://perl.apache.org/"><citetitle>http://perl.apache.org/</citetitle></ul
 <title>Предустановленное соединение с базой данных</title>
 <para>
 При запуске веб-сервера можно иметь заранее установленное соединение с базой
-данных. Такой подход существенно сэкономит время (см. README.webserver).
+данных. Такой подход существенно сэкономит время (см. README.webserver). 
 </para>
 </section>
 
@@ -358,7 +352,7 @@ variant - <filename>bin/otrs.PackageManager.pl</filename>.
 <section id="performance-tuning-webserver-strategy">
 <title>Выбор Правильной Стратегии</title>
 <para>
-If you have a larger installation, say over 1,000 new tickets per day and
+If you have a larger installation, e.g. over 1,000 new tickets per day and
 over 40 agents, it is a good idea to read the chapters on Performance of the
 mod_perl User's Guide ( <ulink
 url="http://perl.apache.org/docs/2.0/user/index.html"><citetitle>http://perl.apache.org/docs/2.0/user/index.html</citetitle></ulink>

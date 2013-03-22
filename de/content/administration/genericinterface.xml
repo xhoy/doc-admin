@@ -6,7 +6,7 @@
     <para>
         The OTRS Generic Interface consists of a multiple layer framework that lets
 OTRS communicate with other systems via a web service. This communication
-could be in two different directions:
+could be bi-directional:
     </para>
     <itemizedlist>
         <listitem>
@@ -34,9 +34,9 @@ response.
 OTRS and a Remote System.
          </para>
          <para>
-            The heart of the Web Service is its configuration, where is defined what
-actions the web service can perform internally (Operation), what can actions
-the OTRS request can perform Remote System (Invokers), how data is converted
+            The heart of the Web Service is its configuration, where it is defined what
+actions the web service can perform internally (Operation), what actions the
+OTRS request can perform Remote System (Invokers), how data is converted
 from one system to the other (Mapping), and over which protocol the
 communication will take place (Transport)
          </para>

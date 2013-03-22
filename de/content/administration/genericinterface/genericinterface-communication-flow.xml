@@ -4,11 +4,11 @@
     <section id="genericinterface_communication_flow">
         <title>Generic Interface Communication Flow</title>
         <para>
-            Generic Interface has a defined flow to perform actions as a provider and as
-a requester.
+            The Generic Interface has a defined flow to perform actions as a provider
+and as a requester.
         </para>
         <para>
-            This flows are described below:
+            These flows are described below:
         </para>
 
         <section>
@@ -25,12 +25,12 @@ a requester.
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    OTRS receives HTTP request and pass it through the layers.
+                                    OTRS receives HTTP request and passes it through the layers.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    The provider module in in charge to execute and control this actions.
+                                    The provider module is in charge to execute and control these actions.
                                 </para>
                             </listitem>
                         </itemizedlist>
@@ -244,7 +244,7 @@ synchronous or asynchronous.
                                                 <listitem>
                                                     <para>
                                                         A direct call to the Requester is made in order to create a new request and
-pass it through the layers.
+to pass it through the layers.
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -258,16 +258,16 @@ pass it through the layers.
                                                     <para>
                                                         Create a new Generic Interface (Requester)  task for the OTRS Scheduler (by
 delegating the request execution to the Scheduler, the user experience could
-be highly improved, otherwise all time needed to prepare the request and the
-remote execution will be added to the OTRS Events that trigger those
+be highly improved, otherwise all the time needed to prepare the request and
+the remote execution will be added to the OTRS Events that trigger those
 requests).
                                                     </para>
                                                 </listitem>
                                                 <listitem>
                                                     <para>
                                                         In its next cycle the Scheduler process reads the new task and creates a
-call to the Requester that will create a new request and pass it through the
-layers.
+call to the Requester that will create a new request and then passes it
+through the layers.
                                                     </para>
                                                 </listitem>
                                             </itemizedlist>
@@ -410,7 +410,7 @@ Remote System format from the requester.
                         <itemizedlist mark="round">
                             <listitem>
                                 <para>
-                                    The data is transformed form the External System format to the OTRS internal
+                                    The data is transformed from the External System format to the OTRS internal
 format as specified in the mapping configuration for this operation (Mapping
 for incoming response data).
                                 </para>
@@ -446,7 +446,7 @@ for incoming response data).
                             </listitem>
                             <listitem>
                                 <para>
-                                    Handles the data as needed by specifically by each Invoker (included error
+                                    Handles the data as needed specifically by each Invoker (included error
 handling if any).
                                 </para>
                             </listitem>
