@@ -81,9 +81,6 @@ Check OTRS user ... otrs added.
 
 Next steps:
 
-[SuSEconfig]
- Execute 'SuSEconfig' to configure the webserver.
-
 [start database and Apache]
  Make sure your database is running and execute 'rcapache2 restart'.
 
@@ -108,19 +105,12 @@ otrs-sles:~ #
 </para>
 
 <para>
-The OTRS installation is done. Run SuSEconfig, start your web server to load the OTRS specific changes in its configuration, as shown in the script below.
+The OTRS installation is done. Start your web server to load the OTRS specific changes in its configuration, as shown in the script below.
 Also run <command>chkconfig</command> to make sure OTRS is automatically started when the server reboots.
 </para>
 
 <para>
 <screen>
-otrs-sles:~ # SuSEconfig
-Starting SuSEconfig, the SuSE Configuration Tool...
-Running in full featured mode.
-Reading /etc/sysconfig and updating the system...
-Executing /sbin/conf.d/SuSEconfig.glib2...
-Executing /sbin/conf.d/SuSEconfig.permissions...
-Finished.
 otrs-sles:~ # chkconfig -a apache2
 apache2                   0:off  1:off  2:off  3:on   4:off  5:on   6:off
 otrs-sles:~ # rcapache2 start
