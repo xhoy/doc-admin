@@ -28,11 +28,17 @@ and make sure you use the latest OTRS RPM package available.
 <title>Preparing the database for OTRS</title>
 
 <para>
-You can use OTRS using different database back-ends: MySQL, PostgreSQL, Oracle or Microsoft SQL Server. The most popular database to deploy OTRS on is MySQL.
-This chapter shows the steps you need to take to configure MySQL on a SUSE-based server. Of course you can install the database on a dedicated database
-server if needed for scalability or other purposes.
+You can use OTRS using different database back-ends: <application>MySQL</application>, <application>PostgreSQL</application>, <application>Oracle</application> 
+or <application>Microsoft SQL Server</application>. The most popular database to deploy OTRS on is MySQL. 
+This chapter shows the steps you need to take to configure MySQL on a SUSE-based server. Of course you can install the database on a dedicated database 
+server if needed for scalability or other purposes. 
 </para>
-
+<note>
+    <para>
+        If you follow this chapter on openSUSE 12.3 and up you'll actually not install <application>MySQL</application> but <application>MariaDB</application> instead, a MySQL 
+        compatible fork of the MySQL code. This is no problem, it will work just as well (and even a little better at some points).
+    </para>
+</note>
 <para>
     Install MySQL by executing the following command as root:
 </para>
@@ -132,12 +138,22 @@ otrs-sles:~ #
         missing by running the <filename>bin/otrs.CheckModules.pl</filename> script located in the <filename>/opt/otrs</filename> directory.
         Some modules are only needed for optional functionality, such as communication with IMAP(S) servers or PDF generation.
         On SLES you should add an external repository to the zypper configuration in order to get the modules needed for your system.
-        Choose the module needed for your OS version from here: <ulink url="http://download.opensuse.org/repositories/devel:/languages:/perl/">http://download.opensuse.org/repositories/devel:/languages:/perl/</ulink>. Add the repository like this:
+        Choose the module needed for your OS version from here: <ulink url="http://download.opensuse.org/repositories/devel:/languages:/perl/">http://download.opensuse.org/repositories/devel:/languages:/perl/</ulink>. Add the repository like this for SLES 11 SP2:
     </para>
 
     <para>
         <screen>
- zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 Perl
+            zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 Perl
+        </screen>
+    </para>
+
+    <para>
+        On openSUSE 12.3 the extra repository is only needed for the Mail::IMAPClient module, which you'd only need if you need to collect mails
+        from an IMAP server secured with TLS. The corresponding line would look like this:
+    </para>
+    <para>
+        <screen>
+            zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/openSUSE_12.3/ Perl
         </screen>
     </para>
     <para>
