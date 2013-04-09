@@ -199,28 +199,33 @@ linux:/opt/otrs#
 <section id="web-server-configuration">
 <title>Настройка веб-сервера Apache</title>
 
-<para>
-В этом разделе описывается базовая конфигурация веб-сервера
-<application>Apache</application> с модулем mod_cgi, необходимым для работы
-OTRS. Веб-сервер должен поддерживать выполнение CGI-сценариев. OTRS не будет
-работать если нету возможности выполнять Perl-сценарии. Поэтому проверьте
-настройки в конфигурационных файлах веб-сервера и убедитесть в том, что
-строка, отвечающая за загрузку CGI-модуля не закоментирована. Если вы видите
-что-то вроде следующего, значит CGI-модуль уже загружен и используется.
+<para>First of all, you should install the Apache2 web server and mod_perl; you'd
+typically do this from your systems package manager.  Below you'll find the
+commands needed to set up Apache on the most popular Linux distributions.
 </para>
 
 <para>
-LoadModule cgi_module /usr/lib/apache2/modules/mod_cgi.so
+  <screen>
+
+    # rhel / centos:
+    linux:# yum install httpd mod_perl
+
+    # suse:
+    linux:# zypper install apache2-mod_perl
+
+    # debian/ubuntu:
+    linux:# apt-get install apache2 libapache-mod-perl2
+
+  </screen>
 </para>
 
 <para>
-To access the web interface of OTRS conveniently via a short address, Alias
-and ScriptAlias entries are needed. Most <application>Apache</application>
-installations have a <filename>conf.d</filename> directory included. On
-Linux systems you can usually find this directory under
-<filename>/etc/apache</filename> or <filename>/etc/apache2</filename>. Log
-in as root, change to the <filename>conf.d</filename> directory and copy the
-appropriate template in
+To access the web interface of OTRS via a short URL, Alias and ScriptAlias
+entries are needed. Most <application>Apache</application> installations
+have a <filename>conf.d</filename> directory included. On Linux systems you
+can usually find this directory under <filename>/etc/apache</filename> or
+<filename>/etc/apache2</filename>. Log in as root, change to the
+<filename>conf.d</filename> directory and copy the appropriate template in
 <filename>/opt/otrs/scripts/apache2-httpd.include.conf</filename> to a file
 called <filename>otrs.conf</filename> in the Apache configuration directory.
 </para>
@@ -245,42 +250,6 @@ linux:/etc/apache2/conf.d#
 
 <para>
 Теперь веб-сервер полностью настроен для работы OTRS.
-</para>
-
-<para>
-Для увеличения производительности можно установить mod_perl, отключить и не
-использовать модуль mod_cgi, а затем, сконфигурировать веб-сервер
-<application>Apache</application> на использование модуля mod_perl следующим
-образом:
-</para>
-
-<para>
-Чтобы воспользоваться этой функцией убедитесь в том, что модуль mod_perl
-установлен и загружен. В связи с структурой сценария запуска, сервер не
-удастся запустить если модуль mod_perl загружен/скомпилирован неправильно
-или если он дальше продолжает работать. С технической точки зрения, вы все
-же можете оставить модуль mod_cgi работать, но делать это не нужно.
-</para>
-
-<para>
-Чтобы проверить загружен ли этот модуль, поищите файл mod_perl.so в каталоге
-/etc/apache* (см. Сценарий ниже).
-</para>
-
-<para>
-<screen> #:/ grep -Rn mod_perl.so /etc/apache*</screen>
-</para>
-
-<para>
-<emphasis>Сценарий: Поиск mod_perl.</emphasis>
-</para>
-
-<para>
-Когда вы используете соответствующий сценарий запуска, приведенный выше и
-модуль загружен, то сценарий /opt/otrs/scripts/apache2-perl-startup.pl может
-использоваться для загрузки perl-модулей в память только один раз, что
-существенно экономит время загрузки и повышает производительность системы в
-целом.
 </para>
 </section>
 

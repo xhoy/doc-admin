@@ -1201,11 +1201,12 @@ customer_user.</emphasis>
 </para>
 
 <para>
-Alle benötigten Anpassungen sind durchgeführt und das Feld für die
-Raumnummer sollte nun im Kunden-Interface (customer.pl) angezeigt und
-verwendet werden können. Neue Kunden müssen nun ihre Raumnummer angeben,
-wenn sie einen neuen Zugang einrichten wollen. Wird mod_perl eingesetzt,
-sollte der Webserver neu gestartet werden um die Änderungen zu übernehmen.
+Now the new field for the room should be displayed in the Customer
+Information panel if filled, and in the Customer User administration
+screens. Also, new customers should have to insert their room number if they
+register a new account. If you use OTRS on Microsoft IIS, you should restart
+the web server to activate the changes made in
+<filename>Config.pm</filename>.
 </para>
 </section>
 
