@@ -1216,11 +1216,12 @@ customer_user.</emphasis>
 </para>
 
 <para>
-Теперь новое поле для номера комнаты должно отображатся в customer.pl
-панели. Когда новые клиенты будут регистрировать аккаунт, им нужно будет
-вписать номер комнаты. Если для работы OTRS используется Apache и  модуль
-mod_perl, то чтобы новые изменения вступили в силу нужно перезапустить
-веб-сервер.
+Now the new field for the room should be displayed in the Customer
+Information panel if filled, and in the Customer User administration
+screens. Also, new customers should have to insert their room number if they
+register a new account. If you use OTRS on Microsoft IIS, you should restart
+the web server to activate the changes made in
+<filename>Config.pm</filename>.
 </para>
 </section>
 

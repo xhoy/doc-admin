@@ -31,13 +31,23 @@ you use the latest OTRS RPM package available.
 <title>Preparing the database for OTRS</title>
 
 <para>
-You can use OTRS using different database back-ends: MySQL, PostgreSQL,
-Oracle or Microsoft SQL Server. The most popular database to deploy OTRS on
-is MySQL.  This chapter shows the steps you need to take to configure MySQL
-on a SUSE-based server. Of course you can install the database on a
-dedicated database server if needed for scalability or other purposes.
+You can use OTRS using different database back-ends:
+<application>MySQL</application>, <application>PostgreSQL</application>,
+<application>Oracle</application> or <application>Microsoft SQL
+Server</application>. The most popular database to deploy OTRS on is MySQL.
+This chapter shows the steps you need to take to configure MySQL on a
+SUSE-based server. Of course you can install the database on a dedicated
+database server if needed for scalability or other purposes. 
 </para>
-
+<note>
+    <para>
+        If you follow this chapter on openSUSE 12.3 and up you'll actually not
+install <application>MySQL</application> but
+<application>MariaDB</application> instead, a MySQL compatible fork of the
+MySQL code. This is no problem, it will work just as well (and even a little
+better at some points).
+    </para>
+</note>
 <para>
     Install MySQL by executing the following command as root:
 </para>
@@ -94,9 +104,6 @@ Check OTRS user ... otrs added.
 
 Next steps:
 
-[SuSEconfig]
- Execute 'SuSEconfig' to configure the webserver.
-
 [start database and Apache]
  Make sure your database is running and execute 'rcapache2 restart'.
 
@@ -121,21 +128,14 @@ otrs-sles:~ #
 </para>
 
 <para>
-The OTRS installation is done. Run SuSEconfig, start your web server to load
-the OTRS specific changes in its configuration, as shown in the script
-below.  Also run <command>chkconfig</command> to make sure OTRS is
-automatically started when the server reboots.
+The OTRS installation is done. Start your web server to load the OTRS
+specific changes in its configuration, as shown in the script below.  Also
+run <command>chkconfig</command> to make sure OTRS is automatically started
+when the server reboots.
 </para>
 
 <para>
 <screen>
-otrs-sles:~ # SuSEconfig
-Starting SuSEconfig, the SuSE Configuration Tool...
-Running in full featured mode.
-Reading /etc/sysconfig and updating the system...
-Executing /sbin/conf.d/SuSEconfig.glib2...
-Executing /sbin/conf.d/SuSEconfig.permissions...
-Finished.
 otrs-sles:~ # chkconfig -a apache2
 apache2                   0:off  1:off  2:off  3:on   4:off  5:on   6:off
 otrs-sles:~ # rcapache2 start
@@ -162,12 +162,24 @@ PDF generation.  On SLES you should add an external repository to the zypper
 configuration in order to get the modules needed for your system.  Choose
 the module needed for your OS version from here: <ulink
 url="http://download.opensuse.org/repositories/devel:/languages:/perl/">http://download.opensuse.org/repositories/devel:/languages:/perl/</ulink>.
-Add the repository like this:
+Add the repository like this for SLES 11 SP2:
     </para>
 
     <para>
         <screen>
- zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 Perl
+            zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/SLE_11_SP2 Perl
+        </screen>
+    </para>
+
+    <para>
+        On openSUSE 12.3 the extra repository is only needed for the
+Mail::IMAPClient module, which you'd only need if you need to collect mails
+from an IMAP server secured with TLS. The corresponding line would look like
+this:
+    </para>
+    <para>
+        <screen>
+            zypper ar -f -n perl http://download.opensuse.org/repositories/devel:/languages:/perl/openSUSE_12.3/ Perl
         </screen>
     </para>
     <para>
@@ -286,7 +298,7 @@ directory.
 </para>
 <para>
     <screen>
-[root@otrs-centos6 ~]# yum install otrs-3.2.*.rpm
+[root@otrs-centos6 ~]# yum install --nogpgcheck otrs-3.2.*.rpm
 ...
 Dependencies Resolved
 
