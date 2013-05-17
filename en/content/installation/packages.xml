@@ -462,6 +462,76 @@ The next step is to configure OTRS using the web installer, as described <link l
 
 </section>
 
+<section id="rhel-installation-dbd-oracle">
+    <title>Installation of Oracle database driver on Red Hat / CentOS</title>
+    <para>
+        If you want to deploy OTRS on an Oracle database, you'll need to compile and install the <application>DBD::Oracle</application>
+        database driver. This is slightly more complicated than installing any of the other packages; this is because Oracle is a
+        proprietary database and Red Hat nor the CentOS project are allowed to distribute drivers in their RPM repositories.
+    </para>
+    <para>
+        First of all, we'd need to install <application>gcc</application>, <application>make</application> and <application>CPAN</application>
+        so we can compile and install the driver. Below you see the command on CentOS; on other versions it might look a little different.
+    </para>
+
+    <para>
+        <screen>
+[root@otrs-centos6 otrs]# yum -y install gcc make "perl(CPAN)"
+        </screen>
+    </para>
+
+    <para>
+        The next step is to obtain and install the database client. For this you would need to sign up for a free account at the Oracle website.
+        You can download the drivers from this page: <ulink url="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html">
+http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html</ulink>
+        Please choose the Linux x86 or x86-64 version corresponding to the architecture of your system. You can check this with the <command>uname -i</command>.
+        It is either 'x86_64' for x86-64 or 'i386' for x86.
+        You should download the packages
+        'Instant Client Package - Basic', 'Instant Client Package - SQL*Plus', and 'Instant Client Package - SDK'. Save them to a location on your disk.
+        Now as the root user you can install the packages using the following command:
+    </para>
+    <para>
+        <screen>
+[root@otrs-centos6 otrs]# yum install oracle-instantclient*
+        </screen>
+    </para>
+    <para>
+        After this you should set two environment variables and compile the DBD::Oracle driver. Again, perform these tasks as the root user. The steps are
+        outlined below. Please note that for briefness some lines outputted by the commands have been removed.
+    </para>
+    <para>
+        <screen>
+[root@otrs-centos6 otrs]# export ORACLE_HOME=/usr/lib/oracle/11.2/client64
+[root@otrs-centos6 otrs]# export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+[root@otrs-centos6 otrs]# cpan
+cpan[1]> look DBD::Oracle
+...
+Fetching with LWP:
+  http://www.perl.org/CPAN/authors/id/P/PY/PYTHIAN/CHECKSUMS
+Checksum for /root/.cpan/sources/authors/id/P/PY/PYTHIAN/DBD-Oracle-1.62.tar.gz ok
+Scanning cache /root/.cpan/build for sizes
+DONE
+...
+Working directory is /root/.cpan/build/DBD-Oracle-1.62-ZH6LNy
+[root@localhost DBD-Oracle-1.62-ZH6LNy]# perl Makefile.PL
+...
+[root@localhost DBD-Oracle-1.62-ZH6LNy]# make
+...
+[root@localhost DBD-Oracle-1.62-ZH6LNy]# make install
+...
+cpan[2]> exit
+Terminal does not support GetHistory.
+Lockfile removed.
+        </screen>
+    </para>
+
+<para>
+Now you should edit the file Kernel/Config.pm to provide ORACLE_HOME.
+The next step is to configure OTRS using the web installer, as described <link linkend="web-installer">in this section</link>.
+</para>
+
+</section>
+
 </section>
 
 <section id="installation-on-debian">
@@ -512,7 +582,7 @@ for instance if you want to deploy on a central MySQL database; a PostgreSQL dat
 </important>
 
 <section id="windows-installation-dbd-oracle">
-    <title>Installation of Oracle database driver</title>
+    <title>Installation of Oracle database driver on Windows</title>
     <para>
         If you install OTRS using the Windows Installer, it will automatically configure all Perl modules you will typically need.
         There is one exception to this: if you need to deploy OTRS on an Oracle database, you'll need to post-install the Oracle driver.
@@ -556,7 +626,7 @@ for instance if you want to deploy on a central MySQL database; a PostgreSQL dat
         OTRS only works on 32-bit ActiveState Perl. This means you should also download the 32-bit Oracle client.
         Navigate to the Oracle client web site <ulink url="http://www.oracle.com/technetwork/topics/winsoft-085727.html">
         <citetitle>Instant Client Downloads for Microsoft Windows (32-bit)</citetitle></ulink> and download the packages 
-        'Instant Cleint Package - Basic', 'Instant Client Package - SQL*Plus', and 'Instant Client Package - SDK'. You'll
+        'Instant Client Package - Basic', 'Instant Client Package - SQL*Plus', and 'Instant Client Package - SDK'. You'll
         need to sign up for a free Oracle Web account in order to download the software. Extract the downloads, 
         all zip files, to the root of your drive, for instance <filename>C:\instantclient_11_2</filename>.
     </para>
