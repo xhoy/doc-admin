@@ -562,25 +562,26 @@ http://wiki.otrs.org/index.php?title=Installation_on_Ubuntu_Lucid_Lynx_(10.4)
 
 <section id="installation-on-windows">
 <title>Installing OTRS on Microsoft Windows systems</title>
+<section id="installation-on-windows-installer">
+<title>Using the Windows Installer</title>
+    <para>
+    Installing OTRS on a Microsoft Windows system is very easy. Download the latest installer for Win32 from
+    <ulink url="http://www.otrs.org/downloads/">
+        <citetitle>http://www.otrs.org/downloads/</citetitle>
+    </ulink>
+    and save the file to your local file system. Then simply double-click on the file to execute the installer, and follow the few installation steps to setup the system. 
+    The installation wizard will take care of installing all components for OTRS. The next step is to configure OTRS using the web installer, as described <link linkend="web-installer">in this section</link>.
+    </para>
 
-<para>
-Installing OTRS on a Microsoft Windows system is very easy. Download the latest installer for Win32 from
-<ulink url="http://www.otrs.org/downloads/">
-    <citetitle>http://www.otrs.org/downloads/</citetitle>
-</ulink>
-and save the file to your local file system. Then simply double-click on the file to execute the installer, and follow the few installation steps to setup the system. 
-The installation wizard will take care of installing all components for OTRS. The next step is to configure OTRS using the web installer, as described <link linkend="web-installer">in this section</link>.
-</para>
-
-<important>
-<para>
-The Windows installer for OTRS contains all needed components for OTRS, i.e. the <application>Apache</application>
-web server, the <application>MySQL</application> database server, <application>Perl</application> (with all needed modules) and <application>cron</application> for Windows.
-However you can also use it to set up OTRS on the Microsoft IIS Web Server instead of on Apache. Also you can choose to not let it install the bundled MySQL, 
-for instance if you want to deploy on a central MySQL database; a PostgreSQL database, on Microsoft SQL Server or on Oracle.
-</para>
-</important>
-
+    <important>
+    <para>
+    The Windows installer for OTRS contains all needed components for OTRS, i.e. the <application>Apache</application>
+    web server, the <application>MySQL</application> database server, <application>Perl</application> (with all needed modules) and <application>cron</application> for Windows.
+    However you can also use it to set up OTRS on the Microsoft IIS Web Server instead of on Apache. Also you can choose to not let it install the bundled MySQL, 
+    for instance if you want to deploy on a central MySQL database; a PostgreSQL database, on Microsoft SQL Server or on Oracle.
+    </para>
+    </important>
+</section>
 <section id="windows-installation-dbd-oracle">
     <title>Installation of Oracle database driver on Windows</title>
     <para>
@@ -616,14 +617,13 @@ for instance if you want to deploy on a central MySQL database; a PostgreSQL dat
 
     <section id="windows-installation-dbd-oracle-strawberry">
         <title>Installation of DBD::Oracle on Strawberry Perl</title>
-        <important>
+       
             <para>
                 In order to compile the DBD::Oracle module, you need to have installed the components of the OTRS web installer in a path 
                 without spaces. It should NOT be in <filename>C:\Program Files\OTRS</filename> but it should rather be in 
                 <filename>C:\OTRSComponents</filename> or similar.
             </para>
-        </important>
-
+       
     <para>        
         On Strawberry Perl you should compile the Oracle driver manually.
         The OTRS Windows Installer bundles 32-bit Strawberry Perl. This means you should also download the 32-bit Oracle client.
@@ -697,9 +697,12 @@ C:\Users\max>
         ]]></screen>
     </para>
 </section>
-    <para>
-        After this, you can start the web installer to configure OTRS, as described <link linkend="web-installer">in this section</link>.
-    </para>
+    <section id="windows-installation-config-webinstaller">
+        <title>Configure OTRS using the Web Installer</title>
+        <para>
+            After this, you can start the web installer to configure OTRS, as described <link linkend="web-installer">in this section</link>.
+        </para>
+    </section>
 </section>
 </section>
 </section>
