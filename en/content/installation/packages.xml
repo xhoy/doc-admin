@@ -592,34 +592,37 @@ for instance if you want to deploy on a central MySQL database; a PostgreSQL dat
         option is recommended for production setups.
     </para>
 
-    <title>Installation of DBD::Oracle on ActiveState Perl</title>
-    <para>
-        If you have installed ActiveState Perl it already comes with the Perl database driver <application>DBD::Oracle</application> only this
-        should be linked to the Oracle C client. 
-        OTRS only works on 32-bit ActiveState Perl. This means you should also download the 32-bit Oracle client.
-        Navigate to the Oracle client web site <ulink url="http://www.oracle.com/technetwork/topics/winsoft-085727.html">
-        <citetitle>Instant Client Downloads for Microsoft Windows (32-bit)</citetitle></ulink> and choose 'Instant Client Package - Basic'. You'll
-        need to sign up for a free Oracle Web account in order to download the software. Extract the download, a zip file, to the root of your 
-        drive, for instance <filename>C:\instantclient_11_2</filename>.
-    </para>
-    <para>
-        Now you should add the client libraries to your path and set an environment variable; 'ORACLE_HOME'.
-        Navigate to Control Panel &gt; System and Security &gt; System, choose 'Advanced System Settings', click on 'New' under
-        'System variables', enter 'ORACLE_HOME' as Variable Name and use 'C:\instantclient_11_2' as the Variable Value.
-        Select the 'PATH' variable, and append the directory 'C:\instantclient_11_2' to the path.
-        If you now start a new <application>cmd.exe</application> session and run the <application>otrs.CheckModules.pl</application> script
-        located in the <application>OTRS</application> directory, you should see that the DBD::Oracle driver is successfully installed.
-        After this, you should restart the system in order for the other applications to detect the new environment variables.
-    </para>
+    <section id="windows-installation-dbd-oracle-activestate">
+        <title>Installation of DBD::Oracle on ActiveState Perl</title>
+        <para>
+            If you have installed ActiveState Perl it already comes with the Perl database driver <application>DBD::Oracle</application> only this
+            should be linked to the Oracle C client. 
+            OTRS only works on 32-bit ActiveState Perl. This means you should also download the 32-bit Oracle client.
+            Navigate to the Oracle client web site <ulink url="http://www.oracle.com/technetwork/topics/winsoft-085727.html">
+            <citetitle>Instant Client Downloads for Microsoft Windows (32-bit)</citetitle></ulink> and choose 'Instant Client Package - Basic'. You'll
+            need to sign up for a free Oracle Web account in order to download the software. Extract the download, a zip file, to the root of your 
+            drive, for instance <filename>C:\instantclient_11_2</filename>.
+        </para>
+        <para>
+            Now you should add the client libraries to your path and set an environment variable; 'ORACLE_HOME'.
+            Navigate to Control Panel &gt; System and Security &gt; System, choose 'Advanced System Settings', click on 'New' under
+            'System variables', enter 'ORACLE_HOME' as Variable Name and use 'C:\instantclient_11_2' as the Variable Value.
+            Select the 'PATH' variable, and append the directory 'C:\instantclient_11_2' to the path.
+            If you now start a new <application>cmd.exe</application> session and run the <application>otrs.CheckModules.pl</application> script
+            located in the <application>OTRS</application> directory, you should see that the DBD::Oracle driver is successfully installed.
+            After this, you should restart the system in order for the other applications to detect the new environment variables.
+        </para>
+    </section>
 
-    <title>Installation of DBD::Oracle on Strawberry Perl</title>
+    <section id="windows-installation-dbd-oracle-strawberry">
+        <title>Installation of DBD::Oracle on Strawberry Perl</title>
         <important>
             <para>
                 In order to compile the DBD::Oracle module, you need to have installed the components of the OTRS web installer in a path 
                 without spaces. It should NOT be in <filename>C:\Program Files\OTRS</filename> but it should rather be in 
                 <filename>C:\OTRSComponents</filename> or similar.
             </para>
-    </important>
+        </important>
 
     <para>        
         On Strawberry Perl you should compile the Oracle driver manually.
@@ -644,7 +647,7 @@ for instance if you want to deploy on a central MySQL database; a PostgreSQL dat
     </para>
 
     <para>
-        <screen>
+        <screen><![CDATA[
 C:\Users\max>cpan
 
 cpan shell -- CPAN exploration and modules installation (v1.9800)
@@ -691,8 +694,9 @@ cpan> quit
 Lockfile removed.
 
 C:\Users\max>
-        </screen>
+        ]]></screen>
     </para>
+</section>
     <para>
         After this, you can start the web installer to configure OTRS, as described <link linkend="web-installer">in this section</link>.
     </para>
