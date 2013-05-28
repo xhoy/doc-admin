@@ -606,6 +606,27 @@ It is possible to integrate up to 10 different customer backends. Use the custom
 
 </section>
 
+<section id="dynamicfield-from-customeruser">
+    <title>Storing CustomerUser data in dynamic fields</title>
+    <para>
+        Sometimes it can be useful to also store CustomerUser data directly in
+        dynamic fields of a ticket, for example to create special statistics on this data.
+    </para>
+    <para>
+        The dynamic field values are set
+        when a ticket is created or when the customer of a ticket is changed.
+        The values of the dynamic fields are taken from the customer data.
+        This works for all backends, but is especially useful for LDAP-backends.
+    </para>
+    <para>
+        To activate this optional feature of OTRS, please activate the settings
+        "Ticket::EventModulePost###930-DynamicFieldFromCustomerUser" and
+        "DynamicFieldFromCustomerUser::Mapping". The latter setting contains the
+        configuration of which CustomerUser field entry should be stored in which
+        ticket dynamic field. The fields must be present in the system and should be enabled for AgentTicketFreeText, so that they can be set manually. They mustn't be enabled for AgentTicketPhone, AgentTicketEmail and AgentTicketCustomer. If they were, they would have precedence over the automatically set values.
+    </para>
+</section>
+
 </section>
 
 <section id="auth-backends">
