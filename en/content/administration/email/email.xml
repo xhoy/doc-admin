@@ -264,6 +264,93 @@ Kernel::System::PostMaster::Filter::CMD is a default module to pipe the email in
 </example>
 
 <para>
+    Kernel::System::PostMaster::Filter::ExternalTicketNumberRecognition is a default module that
+    adds the possibility to parse external identifiers, in the email subject, the body or both using
+    regular expressions. It then stores this value in a defined dynamic field. When an email comes
+    in, OTRS will first search for an external identifier and when it finds one, query OTRS on the
+    pre-defined dynamic field field. If it finds an existing ticket, it will update this ticket,
+    otherwise it will create a new ticket with the external reference number in the separate field.
+</para>
+<para>
+    OTRS SysConfig already provide 4 different settings to setup different external ticket numbers.
+    If more settings are needed they need to need to be added manually. The following example can be
+    used in <filename>Kernel/Config.pm</filename> to extend SysConfig settings.
+</para>
+
+<example id='filter-module-externalticketrecognition-example'>
+    <title>
+        Example job for the filter module
+        Kernel::System::PostMaster::Filter::ExternalTicketNumberRecognition
+    </title>
+
+    <programlisting language="Perl"><![CDATA[
+    # Job Name: ExternalNumber
+    # External Ticket Number Reconition, check for Incident-<number> in incoming mails subject and
+    # body from the addeesses <sender>@externalticket.com, if number is found it will be stored in
+    # the dynamic field 'ExternalNumber' (that need to be setup in the Admin Panel).
+    $Self->{'PostMaster::PreFilterModule'}->{'000-ExternalTicketNumberRecognition5'} =  {
+        'FromAddressRegExp' => '\\s*@externalticket.com',
+        'NumberRegExp'      => 'Incident-(\\d.*)',
+        'SearchInSubject'   => '1',
+        'SearchInBody'      => '1',
+        'TicketStateTypes'  => 'new;open'
+        'DynamicFieldName'  => 'ExternalNumber',
+        'Module'            => 'Kernel::System::PostMaster::Filter::ExternalTicketNumberRecognition',
+        'Name'              => 'Test External Ticket Number',
+        'SenderType'        => 'system',
+    };
+    ]]></programlisting>
+</example>
+
+<itemizedlist mark="round">
+    <para><emphasis>Configuration Options</emphasis></para>
+    <listitem>
+        <para>FromAddressRegExp</para>
+        <para>
+            This is an optional setting. Only mails matching this "From:" address will be considered
+            for this filter. You can adjust this setting to the sender address your external system
+            uses for outgoing mails. In case this address can differ, you can set this option to
+            empty. OTRS will in that case not check the sender address.
+        </para>
+    </listitem>
+    <listitem>
+        <para>NumberRegExp</para>
+        <para>
+            This is a mandatory setting. This setting contains the regular expression OTRS will use
+            to extract the ticket number out of the subject and/or ticket body. The default regular
+            expression will match occurrences of for example 'Incident-12354' and will put the part
+            between parentheses in the dynamic field field, in this case '12354'.
+        </para>
+    </listitem>
+    <listitem>
+        <para>SearchInSubject</para>
+        <para>If this is set to '1', the email subject is searched for a ticket number.</para>
+    </listitem>
+    <listitem>
+        <para>SearchInBody</para>
+        <para>If this is set to '1', the email body is searched for a ticket number.</para>
+    </listitem>
+    <listitem>
+        <para>TicketStateTypes</para>
+        <para>
+            This is an optional setting. If given, it will search OTRS only for open external
+            tickets of given state types. The state types are separated with semicolons.
+        </para>
+    </listitem>
+    <listitem>
+        <para>DynamicField</para>
+        <para>
+            This is a required setting. It defines the dynamic filed that is used to store the
+            external number (the field name must exist in the system and has to be valid).
+        </para>
+    </listitem>
+    <listitem>
+        <para>SenderType</para>
+        <para>This defines the sender type used for the articles created in OTRS.</para>
+    </listitem>
+</itemizedlist>
+
+<para>
 Of course it's also possible to develop your own PostMaster filter modules.
 </para>
 
