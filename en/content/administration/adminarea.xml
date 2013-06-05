@@ -1593,7 +1593,7 @@ There are additional modules, that can be used to <link linkend="email-receiving
 <title>Executing automated jobs with the GenericAgent</title>
 
 <para>
-The GenericAgent is a tool to execute tasks automatically. In its absence such tasks would need to be done manually by an agent. The GenericAgent, for example, can close or move tickets, send notifications on escalated tickets, etc.
+The GenericAgent is a tool to execute tasks automatically. The GenericAgent, for example, can close or move tickets, send notifications on escalated tickets, etc.
 </para>
 
 <para>
@@ -1612,7 +1612,8 @@ Click the link "GenericAgent" on the Admin page (see Figure below). A table with
 </para>
 
 <para>
-Click the "Add job" button to create a new job. You first need to supply a name for the job in addition to the times when the job should be executed. Different criteria to target the tickets to work on and regarding what changes to apply to those tickets can also be set (see Figure below).
+    Click the "Add job" button to create a new job. You first need to supply a name.
+    Then you can specify how the job will be executed: automatic at fixed times (like a cronjob, this mode will operate on all tickets found by the ticket filter) or based on ticket events (right after a single ticket was modified, if it matches the ticket filter).
 </para>
 
 <para>
@@ -1627,9 +1628,18 @@ Click the "Add job" button to create a new job. You first need to supply a name 
 </para>
 
 <para>
-On completion of the job creation, all affected tickets by the job are listed. This list helps you to verify that the job is working as intended. At this point no changes have been made to these tickets yet. The job will only be activated once it is saved into the job list.
+    For every job, you can specify a ticket filter, for example to only operate on tickets in a certain queue. All filter criteria must be met for a job to be run on a ticket.
 </para>
-
+<para>
+    Finally, the ticket can be modified by setting various ticket fields like a new queue or state. It is possible to attach a note to the ticket(s) or run a execute a customized module. You also have the option to delete the ticket(s) from the database. This can be useful to purge outdated or invalid data from the system.
+    <warning>
+        <para>Warning: All affected tickets and their attachments will be removed from the database and cannot be restored!
+        </para>
+    </warning>
+</para>
+<para>
+    On completion of the job creation, all affected tickets by the job are listed. This list helps you to verify that the job is working as intended. At this point no changes have been made to these tickets yet. The job will only be activated once it is saved.
+</para>
 </section>
 
 <section id="adminarea-adminemail">
