@@ -894,7 +894,7 @@ zur Verwaltung von Kunden angelegt und bearbeitet werden.
 
 <para>
 <programlisting>
-# This is the auth. module againt the otrs db
+# This is the auth. module against the otrs db
 $Self->{'Customer::AuthModule'} = 'Kernel::System::CustomerAuth::DB';
 $Self->{'Customer::AuthModule::DB::Table'} = 'customer_user';
 $Self->{'Customer::AuthModule::DB::CustomerKey'} = 'login';
