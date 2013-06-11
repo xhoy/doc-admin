@@ -1597,7 +1597,7 @@ The GenericAgent is a tool to execute tasks automatically. The GenericAgent, for
 </para>
 
 <para>
-Click the link "GenericAgent" on the Admin page (see Figure below). A table with all automated jobs, that are currently configure to run in the system is displayed. These jobs can then be edited in order to run them manually or can be removed entirely.
+Click the link "GenericAgent" on the Admin page (see Figure below). A table with all automated jobs in the system is displayed. These jobs can then be edited, run manually or removed entirely.
 </para>
 
 <para>
@@ -1613,7 +1613,7 @@ Click the link "GenericAgent" on the Admin page (see Figure below). A table with
 
 <para>
     Click the "Add job" button to create a new job. You first need to supply a name.
-    Then you can specify how the job will be executed: automatic at fixed times (like a cronjob, this mode will operate on all tickets found by the ticket filter) or based on ticket events (right after a single ticket was modified, if it matches the ticket filter).
+    Then you can specify how the job will be executed: automatic at fixed times (like a cronjob, this mode will operate on all tickets found by the ticket filter) or based on ticket events (right after a single ticket was modified, if it matches the ticket filter). Note that if you manually run event based jobs from the overview screen, they will operate on all tickets fund by the ticket filter.
 </para>
 
 <para>
@@ -1638,7 +1638,7 @@ Click the link "GenericAgent" on the Admin page (see Figure below). A table with
     </warning>
 </para>
 <para>
-    On completion of the job creation, all affected tickets by the job are listed. This list helps you to verify that the job is working as intended. At this point no changes have been made to these tickets yet. The job will only be activated once it is saved.
+    After editing a job, OTRS will return to the overview screen. There you have the possibility to run any job manually. If you choose to run a job, you will first see all tickets which will be affected when the job actually is run. This list helps you to verify that the job is working as intended. At this point no changes have been made to these tickets yet. Only if you confirm the screen the job will be executed.
 </para>
 </section>
 
