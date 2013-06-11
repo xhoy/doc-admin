@@ -304,14 +304,69 @@ Normally the icon row, navigation bar and footer are the same in all the screens
         <para>Events Ticket Calendar</para>
         <para>
             A calendar event (for this widget) is defined when a new ticket is created, the
-            Events Ticket Calendar feature has to be enabled, then on ticket creation screens
-            two new fields are displayed, one for the event start time and the other one for the end
-            time, this times determine the duration of the event.
+            Events Ticket Calendar feature has to be enabled, and it requires two new fields to be
+            displayed in ticket creation screens, one for the event start time and the other one for
+            the end time, this times determine the duration of the event.
         </para>
         <para>
             This widget includes the following views: month, week and day, agents can scroll thru
             the pages by using the right and left arrows.
         </para>
+        <para>
+            As mentioned before just enabling the widget is not enough, a couple of "Date/Time"
+            dynamic fields for tickets should be added into the system (via Dynamic Fields link in
+            "Admin" panel) and set them up in the SysConfig for this widget, both Dynamic Fields
+            should be configured to be displayed on the ticket creation screens, they should be
+            filled during ticket creation or any other ticket action screen (e.g. Free Fields) to
+            describe the time frame for the calendar event (start and end time), the ticket zoom
+            screen might be configured to show this dynamic fields also, in case you consider it
+            necessary.
+        </para>
+        <para>
+            <screenshot>
+                <screeninfo>Events Ticket Calendar widget</screeninfo>
+                <graphic srccredit="Footer" scale="40" fileref="screenshots/events-ticket-calendar.png"></graphic>
+            </screenshot>
+        </para>
+        <para>
+            Further configurations for this widget could be found under the
+            "Frontend::Agent::Dashboard::EventsTicketCalendar" SubGroup in the SysConfig:
+        </para>
+        <itemizedlist mark="round">
+            <listitem>
+                <para>CalendarWidth</para>
+                <para>Defines the calendar width in percent. Default is 95%.</para>
+            </listitem>
+            <listitem>
+                <para>DynamicFieldStartTime</para>
+                <para>Defines dynamic field name for start time.</para>
+            </listitem>
+            <listitem>
+                <para>DynamicFieldEndTime</para>
+                <para>Defines dynamic field name for end time.</para>
+            </listitem>
+            <listitem>
+                <para>Queues</para>
+                <para>
+                    Only the tickets on the queues specified in this setting will be considered in
+                    the calendar view.
+                </para>
+            </listitem>
+            <listitem>
+                <para>DynamicFieldsForEvents</para>
+                <para>
+                    Defines the dynamic fields that will be displayed in the calendar event overlay
+                    windows.
+                </para>
+            </listitem>
+            <listitem>
+                <para>TicketFieldsForEvents</para>
+                <para>
+                    Defines the ticket attributes that will be displayed in the calendar event
+                    overlay windows.
+                </para>
+            </listitem>
+        </itemizedlist>
     </listitem>
     <listitem>
         <para>Ticket Queue Overview</para>
