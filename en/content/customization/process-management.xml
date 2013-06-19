@@ -34,10 +34,10 @@ ISBN: 3527703713
         </section>
 
         <section>
-            <title>Approval by superior</title>
+            <title>Approval by manager</title>
             <para>
                 The head of the employee's department needs to decide on the order. In case of a
-                denial, a reason should be recorded by the superior. In case of approval, the order
+                denial, a reason should be recorded by the manager. In case of approval, the order
                 is passed to the purchasing department.
             </para>
         </section>
@@ -101,7 +101,7 @@ ISBN: 3527703713
                 <listitem>
                     <para>
                         A possibility to offer more than just one Activity Dialog to be available.
-                        In our example this is needed when the superior must have the choice between
+                        In our example this is needed when the manager must have the choice between
                         "Approve" and "Deny". Let's call this <emphasis>Activity</emphasis>.
                     </para>
                 </listitem>
@@ -134,8 +134,8 @@ ISBN: 3527703713
         <para>
             Create the following Queues:
             <itemizedlist>
-                <listitem><para>Superior</para></listitem>
-                <listitem><para>Employee</para></listitem>
+                <listitem><para>Management</para></listitem>
+                <listitem><para>Employees</para></listitem>
                 <listitem><para>Purchasing</para></listitem>
                 <listitem><para>Post office</para></listitem>
             </itemizedlist>
@@ -143,7 +143,7 @@ ISBN: 3527703713
         <para>
             Create the following Users:
             <itemizedlist>
-                <listitem><para>Superior</para></listitem>
+                <listitem><para>Manager</para></listitem>
                 <listitem><para>Employee</para></listitem>
             </itemizedlist>
         </para>
@@ -786,20 +786,20 @@ ISBN: 3527703713
                 <para>
                 <itemizedlist>
                     <listitem>
-                        <para>"Move the process ticket into the 'Superior' queue" (TA1)</para>
+                        <para>"Move the process ticket into the 'Management' queue" (TA1)</para>
                         <para>
                             This action is supposed to be executed when the Transition "Approval"
                             (T1) applied.
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Change ticket responsible to 'Superior'" (TA2)</para>
+                        <para>"Change ticket responsible to 'manager'" (TA2)</para>
                         <para>
                             To be executed when the Transition "Approval" (T1) applied.
                         </para>
                     </listitem>
                     <listitem>
-                        <para>"Move the process ticket into the 'Employee' queue"" (TA3)</para>
+                        <para>"Move the process ticket into the 'Employees' queue"" (TA3)</para>
                         <para>To be executed when:</para>
                         <itemizedlist>
                             <listitem><para>
@@ -1063,11 +1063,11 @@ ISBN: 3527703713
                                 <itemizedlist>
                                     <listitem>
                                         <para>
-                                            "Moving the ticket into the 'Superior' Queue" (TA1)
+                                            "Moving the ticket into the 'Management' Queue" (TA1)
                                         </para>
                                     </listitem>
                                     <listitem>
-                                        <para>"Set ticket responsible to 'Superior'" (TA2)</para>
+                                        <para>"Set ticket responsible to 'manager'" (TA2)</para>
                                     </listitem>
                                 </itemizedlist>
                             </listitem>
@@ -1079,8 +1079,8 @@ ISBN: 3527703713
                 The  Activity: "Recording the demand" (A1) is a defined step of the process ticket,
                 where there is the possibility for the Transition: "Approval" (T1). If this applies,
                 the ticket will move to the next Activity: "Approval" (A2), and the Transition
-                Actions: "Moving the ticket into the 'Superior' Queue" (TA1) and "Set ticket
-                responsible to 'Superior'" (TA2) are executed. In the Activity: "Approval" (A2),
+                Actions: "Moving the ticket into the 'Management' Queue" (TA1) and "Set ticket
+                responsible to 'manager'" (TA2) are executed. In the Activity: "Approval" (A2),
                 the Activity Dialogs: "Approval denied" (AD2) and "Approved" (AD3) are available.
             </para>
             <para>Approval</para>
@@ -1109,7 +1109,7 @@ ISBN: 3527703713
                                         <itemizedlist>
                                         <listitem>
                                             <para>
-                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                                "Move process ticket to the 'Employees' Queue" (TA3)
                                             </para>
                                         </listitem>
                                         <listitem>
@@ -1186,7 +1186,7 @@ ISBN: 3527703713
                                         <itemizedlist>
                                         <listitem>
                                             <para>
-                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                                "Move process ticket to the 'Employees' Queue" (TA3)
                                             </para>
                                         </listitem>
                                         <listitem>
@@ -1258,7 +1258,7 @@ ISBN: 3527703713
                                         <itemizedlist>
                                         <listitem>
                                             <para>
-                                                "Move process ticket to the 'Employee' Queue" (TA3)
+                                                "Move process ticket to the 'Employees' Queue" (TA3)
                                             </para>
                                         </listitem>
                                         <listitem>
@@ -1668,32 +1668,32 @@ TransitionActions:
     ChangeTime: 2012-11-23 16:01:37
     Config:
       Config:
-        Queue: Superior
+        Queue: Management
       Module: Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet
     CreateTime: 2012-11-23 15:50:59
     EntityID: TA1
     ID: 61
-    Name: Move the process ticket into the "Superior" queue
+    Name: Move the process ticket into the "Management" queue
   TA2:
     ChangeTime: 2012-11-23 16:02:12
     Config:
       Config:
-        Responsible: Superior
+        Responsible: manager
       Module: Kernel::System::ProcessManagement::TransitionAction::TicketResponsibleSet
     CreateTime: 2012-11-23 15:58:22
     EntityID: TA2
     ID: 62
-    Name: Change ticket responsible to "Superior"
+    Name: Change ticket responsible to "manager"
   TA3:
     ChangeTime: 2012-11-24 14:27:02
     Config:
       Config:
-        Queue: Employee
+        Queue: Employees
       Module: Kernel::System::ProcessManagement::TransitionAction::TicketQueueSet
     CreateTime: 2012-11-23 16:02:54
     EntityID: TA3
     ID: 63
-    Name: Move the process ticket into the "Employee" queue
+    Name: Move the process ticket into the "Employees" queue
   TA4:
     ChangeTime: 2012-11-23 16:04:06
     Config:
