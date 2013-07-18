@@ -38,7 +38,8 @@ Customer data used or displayed within OTRS is highly customizable. The followin
 </para>
 
 <para>
-Use the configuration parameters of the following script in your <filename>Kernel/Config.pm</filename> file, if you want to display customer information in your agent interface.
+Use the following SysConfig parameters if you want to display customer
+information in your agent interface.
 </para>
 
 <para>
@@ -48,12 +49,11 @@ Use the configuration parameters of the following script in your <filename>Kerne
     # Queue view)
     $Self->{'Ticket::Frontend::CustomerInfoCompose'} = 1;
     $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;
-    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;
 </programlisting>
 </para>
 
 <para>
-<emphasis>Script: Kernel/Config.pm configuration parameters.</emphasis>
+<emphasis>Script: SysConfig configuration parameters.</emphasis>
 </para>
 
 </section>
