@@ -44,8 +44,7 @@ damit OTRS ordnungsgemäß funktioniert:
 </para>
 
 <para>
-Use the configuration parameters of the following script in your
-<filename>Kernel/Config.pm</filename> file, if you want to display customer
+Use the following SysConfig parameters if you want to display customer
 information in your agent interface.
 </para>
 
@@ -56,12 +55,11 @@ information in your agent interface.
     # Queue view)
     $Self->{'Ticket::Frontend::CustomerInfoCompose'} = 1;
     $Self->{'Ticket::Frontend::CustomerInfoZoom'} = 1;
-    $Self->{'Ticket::Frontend::CustomerInfoQueue'} = 0;
 </programlisting>
 </para>
 
 <para>
-<emphasis>Skript: Konfigurationsparameter in Kernel/Config.pm.</emphasis>
+<emphasis>Skript: SysConfig Konfigurationsparameter.</emphasis>
 </para>
 
 </section>
