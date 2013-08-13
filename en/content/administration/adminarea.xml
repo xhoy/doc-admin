@@ -265,6 +265,60 @@ Each group has a set of rights associated with it, and each group member (agent)
         to <emphasis>Yes</emphasis>.
     </para>
 </note>
+ <para>Not all available permissions are shown by default. These additional permissions can be added.</para>
+      <para>
+        <table id="table-of-group-additional-permissions">
+          <title>Additional permission groups</title>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Right</entry>
+                <entry>Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>stats</entry>
+                <entry>Gives access to the stats page.</entry>
+              </row>
+              <row>
+                <entry>bounce</entry>
+                <entry>The right to bounce an email message (with bounce button in ticketZoom).</entry>
+              </row>
+              <row>
+                <entry>compose</entry>
+                <entry>The right to compose an answer for a ticket.</entry>
+              </row>
+              <row>
+                <entry>customer</entry>
+                <entry>The right to change the customer of a ticket.</entry>
+              </row>
+              <row>
+                <entry>forward</entry>
+                <entry>The right to forward a messages (with the forward button).</entry>
+              </row>
+              <row>
+                <entry>pending</entry>
+                <entry>The right to set a ticket to pending.</entry>
+              </row>
+              <row>
+                <entry>phone</entry>
+                <entry>The right to add a phonecall to a ticket.</entry>
+              </row>
+              <row>
+                <entry>responsible</entry>
+                <entry>The right to change the responsible agent for a ticket.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </para>
+      <note>
+        <para>
+          These permissions can be added by changing the           
+          <link linkend="Ticket::Core::Ticket::System::Permission">Ticket::Core::Ticket::System::Permission</link>
+        </para>
+      </note>
 </section>
 
 <section id="adminarea-roles">
