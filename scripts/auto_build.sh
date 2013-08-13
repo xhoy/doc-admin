@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh 
 # --
 # scripts/auto_build.sh - Build tar.(gz|bz2) archive of the files from the admin manual
 # Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 # --
+SCRIPTVERSION=1.0.1
 PATH_TO_CVS_SRC=$1
 PRODUCT=doc-admin
 VERSION=$2
@@ -28,9 +29,8 @@ PACKAGE=doc-admin
 PACKAGE_BUILD_DIR="/tmp/$PACKAGE-build"
 PACKAGE_DEST_DIR="/tmp/$PACKAGE-packages"
 
-function usage
-{
-    echo "auto_build.sh 1.0"
+usage () {
+    echo "auto_build.sh $SCRIPTVERSION"
     echo ""
     echo "  Build archives of the admin manual that contain the xml files and/or the pictures"
     echo "  and/or the scripts for all or a specific language"
@@ -94,7 +94,7 @@ if test $5 ; then
     esac
 fi
 # --
-echo "auto_build.sh 1.0"
+echo "auto_build.sh $SCRIPTVERSION"
 echo ""
 echo "  Build archives of the admin manual that contain the xml files and/or the pictures"
 echo "  and/or the scripts for all or a specific language"
